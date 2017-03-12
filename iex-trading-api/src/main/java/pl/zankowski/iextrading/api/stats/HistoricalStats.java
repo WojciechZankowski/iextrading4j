@@ -1,80 +1,79 @@
 package pl.zankowski.iextrading.api.stats;
 
-import java.math.BigDecimal;
-
 /**
  * @author Wojciech Zankowski
  */
 public class HistoricalStats {
 
-    private BigDecimal averageDailyVolume;
-    private BigDecimal averageDailyRoutedVolume;
-    private BigDecimal averageMarketShare;
-    private BigDecimal averageOrderSize;
-    private BigDecimal averageFillSize;
-    private BigDecimal bin100Percent;
-    private BigDecimal bin101Percent;
-    private BigDecimal bin200Percent;
-    private BigDecimal bin300Percent;
-    private BigDecimal bin400Percent;
-    private BigDecimal bin500Percent;
-    private BigDecimal bin1000Percent;
-    private BigDecimal bin5000Percent;
-    private BigDecimal bin10000Percent;
-    private BigDecimal bin10000Trades;
-    private BigDecimal bin20000Trades;
-    private BigDecimal bin50000Trades;
-    private BigDecimal uniqueSymbolsTraded;
-    private BigDecimal blockPercent;
-    private BigDecimal selfCrossPercent;
-    private BigDecimal etfPercent;
-    private BigDecimal largeCapPercent;
-    private BigDecimal midCapPercent;
-    private BigDecimal smallCapPercent;
-    private BigDecimal venueARCXFirstWaveWeight;
-    private BigDecimal venueBATSFirstWaveWeight;
-    private BigDecimal venueBATYFirstWaveWeight;
-    private BigDecimal venueEDGAFirstWaveWeight;
-    private BigDecimal venueEDGXFirstWaveWeight;
-    private BigDecimal venueOverallFirstWaveWeight;
-    private BigDecimal venueXASEFirstWaveWeight;
-    private BigDecimal venueXBOSFirstWaveWeight;
-    private BigDecimal venueXCHIFirstWaveWeight;
-    private BigDecimal venueXCISFirstWaveWeight;
-    private BigDecimal venueXNGSFirstWaveWeight;
-    private BigDecimal venueXNYSFirstWaveWeight;
-    private BigDecimal venueXPHLFirstWaveWeight;
-    private BigDecimal venueARCXFirstWaveRate;
-    private BigDecimal venueBATSFirstWaveRate;
-    private BigDecimal venueBATYFirstWaveRate;
-    private BigDecimal venueEDGAFirstWaveRate;
-    private BigDecimal venueEDGXFirstWaveRate;
-    private BigDecimal venueOverallFirstWaveRate;
-    private BigDecimal venueXASEFirstWaveRate;
-    private BigDecimal venueXBOSFirstWaveRate;
-    private BigDecimal venueXCHIFirstWaveRate;
-    private BigDecimal venueXCISFirstWaveRate;
-    private BigDecimal venueXNGSFirstWaveRate;
-    private BigDecimal venueXNYSFirstWaveRate;
-    private BigDecimal venueXPHLFirstWaveRate;
+    private double averageDailyVolume;
+    private double averageDailyRoutedVolume;
+    private double averageMarketShare;
+    private double averageOrderSize;
+    private double averageFillSize;
+    private double bin100Percent;
+    private double bin101Percent;
+    private double bin200Percent;
+    private double bin300Percent;
+    private double bin400Percent;
+    private double bin500Percent;
+    private double bin1000Percent;
+    private double bin5000Percent;
+    private double bin10000Percent;
+    private double bin10000Trades;
+    private double bin20000Trades;
+    private double bin50000Trades;
+    private double uniqueSymbolsTraded;
+    private double blockPercent;
+    private double selfCrossPercent;
+    private double etfPercent;
+    private double largeCapPercent;
+    private double midCapPercent;
+    private double smallCapPercent;
+    private double venueARCXFirstWaveWeight;
+    private double venueBATSFirstWaveWeight;
+    private double venueBATYFirstWaveWeight;
+    private double venueEDGAFirstWaveWeight;
+    private double venueEDGXFirstWaveWeight;
+    private double venueOverallFirstWaveWeight;
+    private double venueXASEFirstWaveWeight;
+    private double venueXBOSFirstWaveWeight;
+    private double venueXCHIFirstWaveWeight;
+    private double venueXCISFirstWaveWeight;
+    private double venueXNGSFirstWaveWeight;
+    private double venueXNYSFirstWaveWeight;
+    private double venueXPHLFirstWaveWeight;
+    private double venueARCXFirstWaveRate;
+    private double venueBATSFirstWaveRate;
+    private double venueBATYFirstWaveRate;
+    private double venueEDGAFirstWaveRate;
+    private double venueEDGXFirstWaveRate;
+    private double venueOverallFirstWaveRate;
+    private double venueXASEFirstWaveRate;
+    private double venueXBOSFirstWaveRate;
+    private double venueXCHIFirstWaveRate;
+    private double venueXCISFirstWaveRate;
+    private double venueXNGSFirstWaveRate;
+    private double venueXNYSFirstWaveRate;
+    private double venueXPHLFirstWaveRate;
 
-    public HistoricalStats() {}
+    public HistoricalStats() {
+    }
 
-    public HistoricalStats(BigDecimal averageDailyVolume, BigDecimal averageDailyRoutedVolume, BigDecimal averageMarketShare,
-                           BigDecimal averageOrderSize, BigDecimal averageFillSize, BigDecimal bin100Percent, BigDecimal bin101Percent,
-                           BigDecimal bin200Percent, BigDecimal bin300Percent, BigDecimal bin400Percent, BigDecimal bin500Percent,
-                           BigDecimal bin1000Percent, BigDecimal bin5000Percent, BigDecimal bin10000Percent, BigDecimal bin10000Trades,
-                           BigDecimal bin20000Trades, BigDecimal bin50000Trades, BigDecimal uniqueSymbolsTraded, BigDecimal blockPercent,
-                           BigDecimal selfCrossPercent, BigDecimal etfPercent, BigDecimal largeCapPercent, BigDecimal midCapPercent,
-                           BigDecimal smallCapPercent, BigDecimal venueARCXFirstWaveWeight, BigDecimal venueBATSFirstWaveWeight,
-                           BigDecimal venueBATYFirstWaveWeight, BigDecimal venueEDGAFirstWaveWeight, BigDecimal venueEDGXFirstWaveWeight,
-                           BigDecimal venueOverallFirstWaveWeight, BigDecimal venueXASEFirstWaveWeight, BigDecimal venueXBOSFirstWaveWeight,
-                           BigDecimal venueXCHIFirstWaveWeight, BigDecimal venueXCISFirstWaveWeight, BigDecimal venueXNGSFirstWaveWeight,
-                           BigDecimal venueXNYSFirstWaveWeight, BigDecimal venueXPHLFirstWaveWeight, BigDecimal venueARCXFirstWaveRate,
-                           BigDecimal venueBATSFirstWaveRate, BigDecimal venueBATYFirstWaveRate, BigDecimal venueEDGAFirstWaveRate,
-                           BigDecimal venueEDGXFirstWaveRate, BigDecimal venueOverallFirstWaveRate, BigDecimal venueXASEFirstWaveRate,
-                           BigDecimal venueXBOSFirstWaveRate, BigDecimal venueXCHIFirstWaveRate, BigDecimal venueXCISFirstWaveRate,
-                           BigDecimal venueXNGSFirstWaveRate, BigDecimal venueXNYSFirstWaveRate, BigDecimal venueXPHLFirstWaveRate) {
+    public HistoricalStats(double averageDailyVolume, double averageDailyRoutedVolume, double averageMarketShare,
+                           double averageOrderSize, double averageFillSize, double bin100Percent, double bin101Percent,
+                           double bin200Percent, double bin300Percent, double bin400Percent, double bin500Percent,
+                           double bin1000Percent, double bin5000Percent, double bin10000Percent, double bin10000Trades,
+                           double bin20000Trades, double bin50000Trades, double uniqueSymbolsTraded, double blockPercent,
+                           double selfCrossPercent, double etfPercent, double largeCapPercent, double midCapPercent,
+                           double smallCapPercent, double venueARCXFirstWaveWeight, double venueBATSFirstWaveWeight,
+                           double venueBATYFirstWaveWeight, double venueEDGAFirstWaveWeight, double venueEDGXFirstWaveWeight,
+                           double venueOverallFirstWaveWeight, double venueXASEFirstWaveWeight, double venueXBOSFirstWaveWeight,
+                           double venueXCHIFirstWaveWeight, double venueXCISFirstWaveWeight, double venueXNGSFirstWaveWeight,
+                           double venueXNYSFirstWaveWeight, double venueXPHLFirstWaveWeight, double venueARCXFirstWaveRate,
+                           double venueBATSFirstWaveRate, double venueBATYFirstWaveRate, double venueEDGAFirstWaveRate,
+                           double venueEDGXFirstWaveRate, double venueOverallFirstWaveRate, double venueXASEFirstWaveRate,
+                           double venueXBOSFirstWaveRate, double venueXCHIFirstWaveRate, double venueXCISFirstWaveRate,
+                           double venueXNGSFirstWaveRate, double venueXNYSFirstWaveRate, double venueXPHLFirstWaveRate) {
         this.averageDailyVolume = averageDailyVolume;
         this.averageDailyRoutedVolume = averageDailyRoutedVolume;
         this.averageMarketShare = averageMarketShare;
@@ -127,204 +126,461 @@ public class HistoricalStats {
         this.venueXPHLFirstWaveRate = venueXPHLFirstWaveRate;
     }
 
-    public BigDecimal getAverageDailyVolume() {
+    public double getAverageDailyVolume() {
         return averageDailyVolume;
     }
 
-    public BigDecimal getAverageDailyRoutedVolume() {
+    public void setAverageDailyVolume(double averageDailyVolume) {
+        this.averageDailyVolume = averageDailyVolume;
+    }
+
+    public double getAverageDailyRoutedVolume() {
         return averageDailyRoutedVolume;
     }
 
-    public BigDecimal getAverageMarketShare() {
+    public void setAverageDailyRoutedVolume(double averageDailyRoutedVolume) {
+        this.averageDailyRoutedVolume = averageDailyRoutedVolume;
+    }
+
+    public double getAverageMarketShare() {
         return averageMarketShare;
     }
 
-    public BigDecimal getAverageOrderSize() {
+    public void setAverageMarketShare(double averageMarketShare) {
+        this.averageMarketShare = averageMarketShare;
+    }
+
+    public double getAverageOrderSize() {
         return averageOrderSize;
     }
 
-    public BigDecimal getAverageFillSize() {
+    public void setAverageOrderSize(double averageOrderSize) {
+        this.averageOrderSize = averageOrderSize;
+    }
+
+    public double getAverageFillSize() {
         return averageFillSize;
     }
 
-    public BigDecimal getBin100Percent() {
+    public void setAverageFillSize(double averageFillSize) {
+        this.averageFillSize = averageFillSize;
+    }
+
+    public double getBin100Percent() {
         return bin100Percent;
     }
 
-    public BigDecimal getBin101Percent() {
+    public void setBin100Percent(double bin100Percent) {
+        this.bin100Percent = bin100Percent;
+    }
+
+    public double getBin101Percent() {
         return bin101Percent;
     }
 
-    public BigDecimal getBin200Percent() {
+    public void setBin101Percent(double bin101Percent) {
+        this.bin101Percent = bin101Percent;
+    }
+
+    public double getBin200Percent() {
         return bin200Percent;
     }
 
-    public BigDecimal getBin300Percent() {
+    public void setBin200Percent(double bin200Percent) {
+        this.bin200Percent = bin200Percent;
+    }
+
+    public double getBin300Percent() {
         return bin300Percent;
     }
 
-    public BigDecimal getBin400Percent() {
+    public void setBin300Percent(double bin300Percent) {
+        this.bin300Percent = bin300Percent;
+    }
+
+    public double getBin400Percent() {
         return bin400Percent;
     }
 
-    public BigDecimal getBin500Percent() {
+    public void setBin400Percent(double bin400Percent) {
+        this.bin400Percent = bin400Percent;
+    }
+
+    public double getBin500Percent() {
         return bin500Percent;
     }
 
-    public BigDecimal getBin1000Percent() {
+    public void setBin500Percent(double bin500Percent) {
+        this.bin500Percent = bin500Percent;
+    }
+
+    public double getBin1000Percent() {
         return bin1000Percent;
     }
 
-    public BigDecimal getBin5000Percent() {
+    public void setBin1000Percent(double bin1000Percent) {
+        this.bin1000Percent = bin1000Percent;
+    }
+
+    public double getBin5000Percent() {
         return bin5000Percent;
     }
 
-    public BigDecimal getBin10000Percent() {
-        return bin10000Percent;
+    public void setBin5000Percent(double bin5000Percent) {
+        this.bin5000Percent = bin5000Percent;
     }
 
-    public BigDecimal getBin10000Trades() {
+    public double getBin10000Percent() {
+        return bin10000Percent;
+
+    }
+
+    public void setBin10000Percent(double bin10000Percent) {
+        this.bin10000Percent = bin10000Percent;
+    }
+
+    public double getBin10000Trades() {
         return bin10000Trades;
     }
 
-    public BigDecimal getBin20000Trades() {
+    public void setBin10000Trades(double bin10000Trades) {
+        this.bin10000Trades = bin10000Trades;
+    }
+
+    public double getBin20000Trades() {
         return bin20000Trades;
     }
 
-    public BigDecimal getBin50000Trades() {
+    public void setBin20000Trades(double bin20000Trades) {
+        this.bin20000Trades = bin20000Trades;
+    }
+
+    public double getBin50000Trades() {
         return bin50000Trades;
     }
 
-    public BigDecimal getUniqueSymbolsTraded() {
+    public void setBin50000Trades(double bin50000Trades) {
+        this.bin50000Trades = bin50000Trades;
+    }
+
+    public double getUniqueSymbolsTraded() {
         return uniqueSymbolsTraded;
     }
 
-    public BigDecimal getBlockPercent() {
+    public void setUniqueSymbolsTraded(double uniqueSymbolsTraded) {
+        this.uniqueSymbolsTraded = uniqueSymbolsTraded;
+    }
+
+    public double getBlockPercent() {
         return blockPercent;
     }
 
-    public BigDecimal getSelfCrossPercent() {
+    public void setBlockPercent(double blockPercent) {
+        this.blockPercent = blockPercent;
+    }
+
+    public double getSelfCrossPercent() {
         return selfCrossPercent;
     }
 
-    public BigDecimal getEtfPercent() {
+    public void setSelfCrossPercent(double selfCrossPercent) {
+        this.selfCrossPercent = selfCrossPercent;
+    }
+
+    public double getEtfPercent() {
         return etfPercent;
     }
 
-    public BigDecimal getLargeCapPercent() {
+    public void setEtfPercent(double etfPercent) {
+        this.etfPercent = etfPercent;
+    }
+
+    public double getLargeCapPercent() {
         return largeCapPercent;
     }
 
-    public BigDecimal getMidCapPercent() {
+    public void setLargeCapPercent(double largeCapPercent) {
+        this.largeCapPercent = largeCapPercent;
+    }
+
+    public double getMidCapPercent() {
         return midCapPercent;
     }
 
-    public BigDecimal getSmallCapPercent() {
+    public void setMidCapPercent(double midCapPercent) {
+        this.midCapPercent = midCapPercent;
+    }
+
+    public double getSmallCapPercent() {
         return smallCapPercent;
     }
 
-    public BigDecimal getVenueARCXFirstWaveWeight() {
+    public void setSmallCapPercent(double smallCapPercent) {
+        this.smallCapPercent = smallCapPercent;
+    }
+
+    public double getVenueARCXFirstWaveWeight() {
         return venueARCXFirstWaveWeight;
     }
 
-    public BigDecimal getVenueBATSFirstWaveWeight() {
+    public void setVenueARCXFirstWaveWeight(double venueARCXFirstWaveWeight) {
+        this.venueARCXFirstWaveWeight = venueARCXFirstWaveWeight;
+    }
+
+    public double getVenueBATSFirstWaveWeight() {
         return venueBATSFirstWaveWeight;
     }
 
-    public BigDecimal getVenueBATYFirstWaveWeight() {
+    public void setVenueBATSFirstWaveWeight(double venueBATSFirstWaveWeight) {
+        this.venueBATSFirstWaveWeight = venueBATSFirstWaveWeight;
+    }
+
+    public double getVenueBATYFirstWaveWeight() {
         return venueBATYFirstWaveWeight;
     }
 
-    public BigDecimal getVenueEDGAFirstWaveWeight() {
+    public void setVenueBATYFirstWaveWeight(double venueBATYFirstWaveWeight) {
+        this.venueBATYFirstWaveWeight = venueBATYFirstWaveWeight;
+    }
+
+    public double getVenueEDGAFirstWaveWeight() {
         return venueEDGAFirstWaveWeight;
     }
 
-    public BigDecimal getVenueEDGXFirstWaveWeight() {
+    public void setVenueEDGAFirstWaveWeight(double venueEDGAFirstWaveWeight) {
+        this.venueEDGAFirstWaveWeight = venueEDGAFirstWaveWeight;
+    }
+
+    public double getVenueEDGXFirstWaveWeight() {
         return venueEDGXFirstWaveWeight;
     }
 
-    public BigDecimal getVenueOverallFirstWaveWeight() {
+    public void setVenueEDGXFirstWaveWeight(double venueEDGXFirstWaveWeight) {
+        this.venueEDGXFirstWaveWeight = venueEDGXFirstWaveWeight;
+    }
+
+    public double getVenueOverallFirstWaveWeight() {
         return venueOverallFirstWaveWeight;
     }
 
-    public BigDecimal getVenueXASEFirstWaveWeight() {
+    public void setVenueOverallFirstWaveWeight(double venueOverallFirstWaveWeight) {
+        this.venueOverallFirstWaveWeight = venueOverallFirstWaveWeight;
+    }
+
+    public double getVenueXASEFirstWaveWeight() {
         return venueXASEFirstWaveWeight;
     }
 
-    public BigDecimal getVenueXBOSFirstWaveWeight() {
+    public void setVenueXASEFirstWaveWeight(double venueXASEFirstWaveWeight) {
+        this.venueXASEFirstWaveWeight = venueXASEFirstWaveWeight;
+    }
+
+    public double getVenueXBOSFirstWaveWeight() {
         return venueXBOSFirstWaveWeight;
     }
 
-    public BigDecimal getVenueXCHIFirstWaveWeight() {
+    public void setVenueXBOSFirstWaveWeight(double venueXBOSFirstWaveWeight) {
+        this.venueXBOSFirstWaveWeight = venueXBOSFirstWaveWeight;
+    }
+
+    public double getVenueXCHIFirstWaveWeight() {
         return venueXCHIFirstWaveWeight;
     }
 
-    public BigDecimal getVenueXCISFirstWaveWeight() {
+    public void setVenueXCHIFirstWaveWeight(double venueXCHIFirstWaveWeight) {
+        this.venueXCHIFirstWaveWeight = venueXCHIFirstWaveWeight;
+    }
+
+    public double getVenueXCISFirstWaveWeight() {
         return venueXCISFirstWaveWeight;
     }
 
-    public BigDecimal getVenueXNGSFirstWaveWeight() {
+    public void setVenueXCISFirstWaveWeight(double venueXCISFirstWaveWeight) {
+        this.venueXCISFirstWaveWeight = venueXCISFirstWaveWeight;
+    }
+
+    public double getVenueXNGSFirstWaveWeight() {
         return venueXNGSFirstWaveWeight;
     }
 
-    public BigDecimal getVenueXNYSFirstWaveWeight() {
+    public void setVenueXNGSFirstWaveWeight(double venueXNGSFirstWaveWeight) {
+        this.venueXNGSFirstWaveWeight = venueXNGSFirstWaveWeight;
+    }
+
+    public double getVenueXNYSFirstWaveWeight() {
         return venueXNYSFirstWaveWeight;
     }
 
-    public BigDecimal getVenueXPHLFirstWaveWeight() {
+    public void setVenueXNYSFirstWaveWeight(double venueXNYSFirstWaveWeight) {
+        this.venueXNYSFirstWaveWeight = venueXNYSFirstWaveWeight;
+    }
+
+    public double getVenueXPHLFirstWaveWeight() {
         return venueXPHLFirstWaveWeight;
     }
 
-    public BigDecimal getVenueARCXFirstWaveRate() {
+    public void setVenueXPHLFirstWaveWeight(double venueXPHLFirstWaveWeight) {
+        this.venueXPHLFirstWaveWeight = venueXPHLFirstWaveWeight;
+    }
+
+    public double getVenueARCXFirstWaveRate() {
         return venueARCXFirstWaveRate;
     }
 
-    public BigDecimal getVenueBATSFirstWaveRate() {
+    public void setVenueARCXFirstWaveRate(double venueARCXFirstWaveRate) {
+        this.venueARCXFirstWaveRate = venueARCXFirstWaveRate;
+    }
+
+    public double getVenueBATSFirstWaveRate() {
         return venueBATSFirstWaveRate;
     }
 
-    public BigDecimal getVenueBATYFirstWaveRate() {
+    public void setVenueBATSFirstWaveRate(double venueBATSFirstWaveRate) {
+        this.venueBATSFirstWaveRate = venueBATSFirstWaveRate;
+    }
+
+    public double getVenueBATYFirstWaveRate() {
         return venueBATYFirstWaveRate;
     }
 
-    public BigDecimal getVenueEDGAFirstWaveRate() {
+    public void setVenueBATYFirstWaveRate(double venueBATYFirstWaveRate) {
+        this.venueBATYFirstWaveRate = venueBATYFirstWaveRate;
+    }
+
+    public double getVenueEDGAFirstWaveRate() {
         return venueEDGAFirstWaveRate;
     }
 
-    public BigDecimal getVenueEDGXFirstWaveRate() {
+    public void setVenueEDGAFirstWaveRate(double venueEDGAFirstWaveRate) {
+        this.venueEDGAFirstWaveRate = venueEDGAFirstWaveRate;
+    }
+
+    public double getVenueEDGXFirstWaveRate() {
         return venueEDGXFirstWaveRate;
     }
 
-    public BigDecimal getVenueOverallFirstWaveRate() {
+    public void setVenueEDGXFirstWaveRate(double venueEDGXFirstWaveRate) {
+        this.venueEDGXFirstWaveRate = venueEDGXFirstWaveRate;
+    }
+
+    public double getVenueOverallFirstWaveRate() {
         return venueOverallFirstWaveRate;
     }
 
-    public BigDecimal getVenueXASEFirstWaveRate() {
+    public void setVenueOverallFirstWaveRate(double venueOverallFirstWaveRate) {
+        this.venueOverallFirstWaveRate = venueOverallFirstWaveRate;
+    }
+
+    public double getVenueXASEFirstWaveRate() {
         return venueXASEFirstWaveRate;
     }
 
-    public BigDecimal getVenueXBOSFirstWaveRate() {
+    public void setVenueXASEFirstWaveRate(double venueXASEFirstWaveRate) {
+        this.venueXASEFirstWaveRate = venueXASEFirstWaveRate;
+    }
+
+    public double getVenueXBOSFirstWaveRate() {
         return venueXBOSFirstWaveRate;
     }
 
-    public BigDecimal getVenueXCHIFirstWaveRate() {
+    public void setVenueXBOSFirstWaveRate(double venueXBOSFirstWaveRate) {
+        this.venueXBOSFirstWaveRate = venueXBOSFirstWaveRate;
+    }
+
+    public double getVenueXCHIFirstWaveRate() {
         return venueXCHIFirstWaveRate;
     }
 
-    public BigDecimal getVenueXCISFirstWaveRate() {
+    public void setVenueXCHIFirstWaveRate(double venueXCHIFirstWaveRate) {
+        this.venueXCHIFirstWaveRate = venueXCHIFirstWaveRate;
+    }
+
+    public double getVenueXCISFirstWaveRate() {
         return venueXCISFirstWaveRate;
     }
 
-    public BigDecimal getVenueXNGSFirstWaveRate() {
+    public void setVenueXCISFirstWaveRate(double venueXCISFirstWaveRate) {
+        this.venueXCISFirstWaveRate = venueXCISFirstWaveRate;
+    }
+
+    public double getVenueXNGSFirstWaveRate() {
         return venueXNGSFirstWaveRate;
     }
 
-    public BigDecimal getVenueXNYSFirstWaveRate() {
+    public void setVenueXNGSFirstWaveRate(double venueXNGSFirstWaveRate) {
+        this.venueXNGSFirstWaveRate = venueXNGSFirstWaveRate;
+    }
+
+    public double getVenueXNYSFirstWaveRate() {
         return venueXNYSFirstWaveRate;
     }
 
-    public BigDecimal getVenueXPHLFirstWaveRate() {
+    public void setVenueXNYSFirstWaveRate(double venueXNYSFirstWaveRate) {
+        this.venueXNYSFirstWaveRate = venueXNYSFirstWaveRate;
+    }
+
+    public double getVenueXPHLFirstWaveRate() {
         return venueXPHLFirstWaveRate;
+    }
+
+    public void setVenueXPHLFirstWaveRate(double venueXPHLFirstWaveRate) {
+        this.venueXPHLFirstWaveRate = venueXPHLFirstWaveRate;
+    }
+
+    @Override
+    public String toString() {
+        return "HistoricalStats{" +
+                "averageDailyVolume=" + averageDailyVolume +
+                ", averageDailyRoutedVolume=" + averageDailyRoutedVolume +
+                ", averageMarketShare=" + averageMarketShare +
+                ", averageOrderSize=" + averageOrderSize +
+                ", averageFillSize=" + averageFillSize +
+                ", bin100Percent=" + bin100Percent +
+                ", bin101Percent=" + bin101Percent +
+                ", bin200Percent=" + bin200Percent +
+                ", bin300Percent=" + bin300Percent +
+                ", bin400Percent=" + bin400Percent +
+                ", bin500Percent=" + bin500Percent +
+                ", bin1000Percent=" + bin1000Percent +
+                ", bin5000Percent=" + bin5000Percent +
+                ", bin10000Percent=" + bin10000Percent +
+                ", bin10000Trades=" + bin10000Trades +
+                ", bin20000Trades=" + bin20000Trades +
+                ", bin50000Trades=" + bin50000Trades +
+                ", uniqueSymbolsTraded=" + uniqueSymbolsTraded +
+                ", blockPercent=" + blockPercent +
+                ", selfCrossPercent=" + selfCrossPercent +
+                ", etfPercent=" + etfPercent +
+                ", largeCapPercent=" + largeCapPercent +
+                ", midCapPercent=" + midCapPercent +
+                ", smallCapPercent=" + smallCapPercent +
+                ", venueARCXFirstWaveWeight=" + venueARCXFirstWaveWeight +
+                ", venueBATSFirstWaveWeight=" + venueBATSFirstWaveWeight +
+                ", venueBATYFirstWaveWeight=" + venueBATYFirstWaveWeight +
+                ", venueEDGAFirstWaveWeight=" + venueEDGAFirstWaveWeight +
+                ", venueEDGXFirstWaveWeight=" + venueEDGXFirstWaveWeight +
+                ", venueOverallFirstWaveWeight=" + venueOverallFirstWaveWeight +
+                ", venueXASEFirstWaveWeight=" + venueXASEFirstWaveWeight +
+                ", venueXBOSFirstWaveWeight=" + venueXBOSFirstWaveWeight +
+                ", venueXCHIFirstWaveWeight=" + venueXCHIFirstWaveWeight +
+                ", venueXCISFirstWaveWeight=" + venueXCISFirstWaveWeight +
+                ", venueXNGSFirstWaveWeight=" + venueXNGSFirstWaveWeight +
+                ", venueXNYSFirstWaveWeight=" + venueXNYSFirstWaveWeight +
+                ", venueXPHLFirstWaveWeight=" + venueXPHLFirstWaveWeight +
+                ", venueARCXFirstWaveRate=" + venueARCXFirstWaveRate +
+                ", venueBATSFirstWaveRate=" + venueBATSFirstWaveRate +
+                ", venueBATYFirstWaveRate=" + venueBATYFirstWaveRate +
+                ", venueEDGAFirstWaveRate=" + venueEDGAFirstWaveRate +
+                ", venueEDGXFirstWaveRate=" + venueEDGXFirstWaveRate +
+                ", venueOverallFirstWaveRate=" + venueOverallFirstWaveRate +
+                ", venueXASEFirstWaveRate=" + venueXASEFirstWaveRate +
+                ", venueXBOSFirstWaveRate=" + venueXBOSFirstWaveRate +
+                ", venueXCHIFirstWaveRate=" + venueXCHIFirstWaveRate +
+                ", venueXCISFirstWaveRate=" + venueXCISFirstWaveRate +
+                ", venueXNGSFirstWaveRate=" + venueXNGSFirstWaveRate +
+                ", venueXNYSFirstWaveRate=" + venueXNYSFirstWaveRate +
+                ", venueXPHLFirstWaveRate=" + venueXPHLFirstWaveRate +
+                '}';
     }
 
 }

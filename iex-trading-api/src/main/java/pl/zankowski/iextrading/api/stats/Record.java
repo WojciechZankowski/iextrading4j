@@ -1,6 +1,5 @@
 package pl.zankowski.iextrading.api.stats;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 /**
@@ -8,26 +7,26 @@ import java.time.LocalDate;
  */
 public class Record {
 
-    private BigDecimal recordValue;
+    private double recordValue;
     private LocalDate recordDate;
-    private BigDecimal previousDayValue;
-    private BigDecimal avg30Value;
+    private double previousDayValue;
+    private double avg30Value;
 
     public Record() {
     }
 
-    public Record(BigDecimal recordValue, LocalDate recordDate, BigDecimal previousDayValue, BigDecimal avg30Value) {
+    public Record(double recordValue, LocalDate recordDate, double previousDayValue, double avg30Value) {
         this.recordValue = recordValue;
         this.recordDate = recordDate;
         this.previousDayValue = previousDayValue;
         this.avg30Value = avg30Value;
     }
 
-    public BigDecimal getRecordValue() {
+    public double getRecordValue() {
         return recordValue;
     }
 
-    public void setRecordValue(BigDecimal recordValue) {
+    public void setRecordValue(double recordValue) {
         this.recordValue = recordValue;
     }
 
@@ -39,19 +38,19 @@ public class Record {
         this.recordDate = recordDate;
     }
 
-    public BigDecimal getPreviousDayValue() {
+    public double getPreviousDayValue() {
         return previousDayValue;
     }
 
-    public void setPreviousDayValue(BigDecimal previousDayValue) {
+    public void setPreviousDayValue(double previousDayValue) {
         this.previousDayValue = previousDayValue;
     }
 
-    public BigDecimal getAvg30Value() {
+    public double getAvg30Value() {
         return avg30Value;
     }
 
-    public void setAvg30Value(BigDecimal avg30Value) {
+    public void setAvg30Value(double avg30Value) {
         this.avg30Value = avg30Value;
     }
 
@@ -62,19 +61,23 @@ public class Record {
 
         Record record = (Record) o;
 
-        if (recordValue != null ? !recordValue.equals(record.recordValue) : record.recordValue != null) return false;
-        if (recordDate != null ? !recordDate.equals(record.recordDate) : record.recordDate != null) return false;
-        if (previousDayValue != null ? !previousDayValue.equals(record.previousDayValue) : record.previousDayValue != null)
-            return false;
-        return avg30Value != null ? avg30Value.equals(record.avg30Value) : record.avg30Value == null;
+        if (Double.compare(record.recordValue, recordValue) != 0) return false;
+        if (Double.compare(record.previousDayValue, previousDayValue) != 0) return false;
+        if (Double.compare(record.avg30Value, avg30Value) != 0) return false;
+        return recordDate != null ? recordDate.equals(record.recordDate) : record.recordDate == null;
     }
 
     @Override
     public int hashCode() {
-        int result = recordValue != null ? recordValue.hashCode() : 0;
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(recordValue);
+        result = (int) (temp ^ (temp >>> 32));
         result = 31 * result + (recordDate != null ? recordDate.hashCode() : 0);
-        result = 31 * result + (previousDayValue != null ? previousDayValue.hashCode() : 0);
-        result = 31 * result + (avg30Value != null ? avg30Value.hashCode() : 0);
+        temp = Double.doubleToLongBits(previousDayValue);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(avg30Value);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
 

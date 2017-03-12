@@ -1,28 +1,26 @@
 package pl.zankowski.iextrading.api.stats;
 
-import java.math.BigDecimal;
-
 /**
  * @author Wojciech Zankowski
  */
 public class IntradayStat {
 
-    private BigDecimal value;
+    private double value;
     private long lastUpdated;
 
     public IntradayStat() {}
 
-    public IntradayStat(BigDecimal value, long lastUpdated) {
+    public IntradayStat(double value, long lastUpdated) {
         this.value = value;
 
         this.lastUpdated = lastUpdated;
     }
 
-    public BigDecimal getValue() {
+    public double getValue() {
         return value;
     }
 
-    public void setValue(BigDecimal value) {
+    public void setValue(double value) {
         this.value = value;
     }
 
@@ -41,13 +39,16 @@ public class IntradayStat {
 
         IntradayStat that = (IntradayStat) o;
 
-        if (lastUpdated != that.lastUpdated) return false;
-        return value != null ? value.equals(that.value) : that.value == null;
+        if (Double.compare(that.value, value) != 0) return false;
+        return lastUpdated == that.lastUpdated;
     }
 
     @Override
     public int hashCode() {
-        int result = value != null ? value.hashCode() : 0;
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(value);
+        result = (int) (temp ^ (temp >>> 32));
         result = 31 * result + (int) (lastUpdated ^ (lastUpdated >>> 32));
         return result;
     }
