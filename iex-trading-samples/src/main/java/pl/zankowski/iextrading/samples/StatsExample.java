@@ -23,10 +23,10 @@ public class StatsExample {
         requestRecentStats(iexTradingClient);
         requestRecordsStat(iexTradingClient);
 
-        requestAllHistoricalStats(iexTradingClient);
+        requestLastDayHistoricalStats(iexTradingClient);
         requestFilteredHistoricalStatsByYearMonth(iexTradingClient);
 
-        requestAllHistoricalDailyStats(iexTradingClient);
+        requestLastDayHistoricalDailyStats(iexTradingClient);
         requestFilteredHistoricalDailyStatsByYearMonth(iexTradingClient);
         requestFilteredHistoricalDailyStatsByYearMonthDay(iexTradingClient);
         requestLastHistoricalDailyStats(iexTradingClient);
@@ -47,7 +47,7 @@ public class StatsExample {
         System.out.println(recordsStat);
     }
 
-    private static void requestAllHistoricalStats(IEXTradingClient iexTradingClient) {
+    private static void requestLastDayHistoricalStats(IEXTradingClient iexTradingClient) {
         HistoricalStats[] historicalStats = iexTradingClient.getStatsEndpoint().requestHistoricalStats();
         Arrays.stream(historicalStats).forEach(System.out::println);
     }
@@ -57,7 +57,7 @@ public class StatsExample {
         Arrays.stream(historicalStats).forEach(System.out::println);
     }
 
-    private static void requestAllHistoricalDailyStats(IEXTradingClient iexTradingClient) {
+    private static void requestLastDayHistoricalDailyStats(IEXTradingClient iexTradingClient) {
         HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats();
         Arrays.stream(historicalDailyStats).forEach(System.out::println);
     }
