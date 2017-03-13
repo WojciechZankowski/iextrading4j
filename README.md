@@ -2,6 +2,13 @@
 
 [![Build Status](https://travis-ci.org/WojciechZankowski/iextrading4j.svg?branch=master)](https://travis-ci.org/WojciechZankowski/iextrading4j)
 
+## Table of Contents
+
+* [Endpoints](#endpoints)
+ * [TOPS Endpoint](#tops-endpoint)
+ * [Market Endpoint](#market-endpoint)
+ * [Stats Endpoint](#stats-endpoint)
+
 ## Endpoints
 
 ### TOPS Endpoint
