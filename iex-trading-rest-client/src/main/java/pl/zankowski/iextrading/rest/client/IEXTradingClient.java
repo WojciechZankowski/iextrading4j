@@ -23,23 +23,27 @@ public class IEXTradingClient {
     private final StatsEndpoint statsEndpoint;
     private final MarketEndpoint marketEndpoint;
 
+    private Client restClient;
+
     private IEXTradingClient() {
-        topsEndpoint = new TOPSEndpointImpl(this);
-        statsEndpoint = new StatsEndpointImpl(this);
-        marketEndpoint = new MarketEndpointImpl(this);
+        topsEndpoint = new TOPSEndpointImpl(getRESTClient(), getBaseApiUrl());
+        statsEndpoint = new StatsEndpointImpl(getRESTClient(), getBaseApiUrl());
+        marketEndpoint = new MarketEndpointImpl(getRESTClient(), getBaseApiUrl());
     }
 
     public static IEXTradingClient create() {
         return new IEXTradingClient();
     }
 
-    public Client getRESTClient() {
-        Client client = ClientBuilder.newClient();
-        client.register(LocalDateObjectMapperContextResolver.class);
-        return client;
+    protected Client getRESTClient() {
+        if (restClient == null) {
+            restClient = ClientBuilder.newClient();
+            restClient.register(LocalDateObjectMapperContextResolver.class);
+        }
+        return restClient;
     }
 
-    public UriBuilder defaultAPIurl() {
+    protected UriBuilder getBaseApiUrl() {
         return API_BASE_URL_V1;
     }
 
