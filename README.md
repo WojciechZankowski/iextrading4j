@@ -197,3 +197,73 @@ Result:
 ```
 HistoricalStats{averageDailyVolume=1.45192724E8, averageDailyRoutedVolume=5.473170862E7, averageMarketShare=0.0, averageOrderSize=680.0, averageFillSize=234.0, bin100Percent=0.70049, bin101Percent=0.70049, bin200Percent=0.70049, bin300Percent=0.70049, bin400Percent=0.70049, bin500Percent=0.70049, bin1000Percent=0.70049, bin5000Percent=0.70049, bin10000Percent=0.70049, bin10000Trades=1569.0, bin20000Trades=501.0, bin50000Trades=108.0, uniqueSymbolsTraded=7279.0, blockPercent=0.0642, selfCrossPercent=0.03122, etfPercent=0.13429, largeCapPercent=0.39449, midCapPercent=0.2766, smallCapPercent=0.19462, venueARCXFirstWaveWeight=0.1852, venueBATSFirstWaveWeight=0.05374, venueBATYFirstWaveWeight=0.06559, venueEDGAFirstWaveWeight=0.00935, venueEDGXFirstWaveWeight=0.08312, venueOverallFirstWaveWeight=1.0, venueXASEFirstWaveWeight=0.00198, venueXBOSFirstWaveWeight=0.03483, venueXCHIFirstWaveWeight=0.00164, venueXCISFirstWaveWeight=0.0, venueXNGSFirstWaveWeight=0.18084, venueXNYSFirstWaveWeight=0.24618, venueXPHLFirstWaveWeight=0.01061, venueARCXFirstWaveRate=0.97938, venueBATSFirstWaveRate=0.98756, venueBATYFirstWaveRate=0.984, venueEDGAFirstWaveRate=0.98836, venueEDGXFirstWaveRate=0.99148, venueOverallFirstWaveRate=0.98201, venueXASEFirstWaveRate=0.87702, venueXBOSFirstWaveRate=0.97138, venueXCHIFirstWaveRate=0.66283, venueXCISFirstWaveRate=0.0, venueXNGSFirstWaveRate=0.98077, venueXNYSFirstWaveRate=0.9787, venueXPHLFirstWaveRate=0.95596}
 ```
+
+#### Historical daily
+
+* ``` /stats/historical/daily ```
+
+Code example:
+
+```java
+IEXTradingClient iexTradingClient = IEXTradingClient.create();
+HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats();
+Arrays.stream(historicalDailyStats).forEach(System.out::println);
+```
+
+Result:
+
+```
+HistoricalDailyStats{date=2017-03-10, volume=149135019, routedVolume=42123427, marketShare=0.021629999999999996, isHalfday=false, litVolume=39719692}
+```
+
+* ``` /stats/historical/daily?date=201703 ```
+
+Code example:
+
+```java
+IEXTradingClient iexTradingClient = IEXTradingClient.create();
+HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(YearMonth.of(2017,3));
+Arrays.stream(historicalDailyStats).forEach(System.out::println);
+```
+
+Result:
+
+```
+HistoricalDailyStats{date=2017-03-10, volume=149135019, routedVolume=42123427, marketShare=0.021629999999999996, isHalfday=false, litVolume=39719692}
+...
+HistoricalDailyStats{date=2017-03-01, volume=166582594, routedVolume=44586812, marketShare=0.020099999999999996, isHalfday=false, litVolume=42957311}
+```
+
+* ``` /stats/historical/daily?date=20170306 ```
+
+Code example:
+
+```java
+IEXTradingClient iexTradingClient = IEXTradingClient.create();
+HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(LocalDate.of(2017, 3, 6));
+Arrays.stream(historicalDailyStats).forEach(System.out::println);
+```
+
+Result:
+
+```
+HistoricalDailyStats{date=2017-03-06, volume=123478859, routedVolume=34541901, marketShare=0.01977, isHalfday=false, litVolume=30610152}
+```
+
+* ``` /stats/historical/daily?last=13 ```
+
+Code example:
+
+```java
+IEXTradingClient iexTradingClient = IEXTradingClient.create();
+HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(13);
+Arrays.stream(historicalDailyStats).forEach(System.out::println);
+```
+
+Result:
+
+```
+HistoricalDailyStats{date=2017-03-10, volume=149135019, routedVolume=42123427, marketShare=0.021629999999999996, isHalfday=false, litVolume=39719692}
+...
+HistoricalDailyStats{date=2017-02-22, volume=137030945, routedVolume=38173711, marketShare=0.02086, isHalfday=false, litVolume=34027926}
+```
