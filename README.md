@@ -9,6 +9,7 @@
  * [TOPS Endpoint](#tops-endpoint)
  * [Market Endpoint](#market-endpoint)
  * [Stats Endpoint](#stats-endpoint)
+* [License](#license)
 
 ## IEX Trading
 
@@ -289,3 +290,7 @@ HistoricalDailyStats{date=2017-03-10, volume=149135019, routedVolume=42123427, m
 ...
 HistoricalDailyStats{date=2017-02-22, volume=137030945, routedVolume=38173711, marketShare=0.02086, isHalfday=false, litVolume=34027926}
 ```
+
+## License
+
+Code and documentation released under the Apache License, Version 2.0
