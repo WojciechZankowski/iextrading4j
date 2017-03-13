@@ -105,3 +105,95 @@ MarketVolume{mic='XNYS', tapeId='N', venueName='NYSE', volume=738339624, tapeA=7
 ...
 MarketVolume{mic='XCHI', tapeId='M', venueName='CHX', volume=16475000, tapeA=5155704, tapeB=7013233, tapeC=4306063, marketPercent=0.00266, lastUpdated=1489438707493}
 ```
+
+### Stats Endpoint
+
+#### Intraday
+
+* ``` /stats/intraday ```
+
+Code example: 
+
+```java
+IEXTradingClient iexTradingClient = IEXTradingClient.create();
+IntradayStats intradayStats = iexTradingClient.getStatsEndpoint().requestIntradayStats();
+System.out.println(intradayStats);
+```
+
+Result:
+
+```
+IntradayStats{volume=IntradayStat{value=1.34536591E8, lastUpdated=1489439703043}, symbolsTraded=IntradayStat{value=5648.0, lastUpdated=1489436001925}, routedVolume=IntradayStat{value=3.2495441E7, lastUpdated=1489439703043}, notional=IntradayStat{value=5.376618067E9, lastUpdated=1489439703043}, marketShare=IntradayStat{value=0.02175, lastUpdated=1489439701709}}
+```
+
+#### Recent
+
+* ``` /stats/recent ```
+
+Code example:
+
+```java
+IEXTradingClient iexTradingClient = IEXTradingClient.create();
+RecentStats[] recentStats = iexTradingClient.getStatsEndpoint().requestRecentStat();
+Arrays.stream(recentStats).forEach(System.out::println);
+```
+
+Result:
+
+```
+RecentStats{date=2017-03-10, volume=149135019, routedVolume=42123427, marketShare=0.021629999999999996, isHalfday=false, litVolume=39719692}
+...
+RecentStats{date=2017-03-01, volume=166582594, routedVolume=44586812, marketShare=0.020099999999999996, isHalfday=false, litVolume=42957311}
+```
+
+#### Records
+
+* ``` /stats/records ```
+
+Code example:
+
+```java
+IEXTradingClient iexTradingClient = IEXTradingClient.create();
+RecordsStats recordsStat = iexTradingClient.getStatsEndpoint().requestRecordsStat();
+System.out.println(recordsStat);
+```
+
+Result:
+
+```
+RecordsStats{volume=Record{recordValue=2.33000477E8, recordDate=2016-01-20, previousDayValue=1.49135019E8, avg30Value=1.444597065E8}, symbolsTraded=Record{recordValue=6046.0, recordDate=2016-11-10, previousDayValue=5591.0, avg30Value=5670.0}, routedVolume=Record{recordValue=7.4855222E7, recordDate=2016-11-10, previousDayValue=4.2123427E7, avg30Value=3.9506438E7}, notional=Record{recordValue=9.8878323278355E9, recordDate=2016-11-10, previousDayValue=6.24451614224E9, avg30Value=6.0611987261176E9}}
+```
+
+#### Historical summary
+
+* ``` /stats/historical ```
+
+Code example:
+
+```java
+IEXTradingClient iexTradingClient = IEXTradingClient.create();
+HistoricalStats[] historicalStats = iexTradingClient.getStatsEndpoint().requestHistoricalStats();
+Arrays.stream(historicalStats).forEach(System.out::println);
+```
+
+Result:
+
+```
+HistoricalStats{averageDailyVolume=1.431990607E8, averageDailyRoutedVolume=4.972976053E7, averageMarketShare=0.02084, averageOrderSize=725.0, averageFillSize=234.0, bin100Percent=0.69467, bin101Percent=0.69467, bin200Percent=0.69467, bin300Percent=0.69467, bin400Percent=0.69467, bin500Percent=0.69467, bin1000Percent=0.69467, bin5000Percent=0.69467, bin10000Percent=0.69467, bin10000Trades=4052.0, bin20000Trades=1448.0, bin50000Trades=216.0, uniqueSymbolsTraded=7722.0, blockPercent=0.07064, selfCrossPercent=0.03382, etfPercent=0.11663, largeCapPercent=0.42933, midCapPercent=0.28813, smallCapPercent=0.16591, venueARCXFirstWaveWeight=0.18884, venueBATSFirstWaveWeight=0.05175, venueBATYFirstWaveWeight=0.06428, venueEDGAFirstWaveWeight=0.00913, venueEDGXFirstWaveWeight=0.08463, venueOverallFirstWaveWeight=1.0, venueXASEFirstWaveWeight=0.00252, venueXBOSFirstWaveWeight=0.03266, venueXCHIFirstWaveWeight=0.00176, venueXCISFirstWaveWeight=0.0, venueXNGSFirstWaveWeight=0.19028, venueXNYSFirstWaveWeight=0.2481, venueXPHLFirstWaveWeight=0.01103, venueARCXFirstWaveRate=0.97697, venueBATSFirstWaveRate=0.98719, venueBATYFirstWaveRate=0.98058, venueEDGAFirstWaveRate=0.98961, venueEDGXFirstWaveRate=0.99106, venueOverallFirstWaveRate=0.97996, venueXASEFirstWaveRate=0.91259, venueXBOSFirstWaveRate=0.97117, venueXCHIFirstWaveRate=0.76701, venueXCISFirstWaveRate=0.0, venueXNGSFirstWaveRate=0.97581, venueXNYSFirstWaveRate=0.97746, venueXPHLFirstWaveRate=0.95374}
+```
+
+* ``` /stats/historical?date=201703 ```
+
+Code example:
+
+```java
+IEXTradingClient iexTradingClient = IEXTradingClient.create();
+HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(YearMonth.of(2017,3));
+Arrays.stream(historicalDailyStats).forEach(System.out::println);
+```
+
+Result:
+
+```
+HistoricalStats{averageDailyVolume=1.45192724E8, averageDailyRoutedVolume=5.473170862E7, averageMarketShare=0.0, averageOrderSize=680.0, averageFillSize=234.0, bin100Percent=0.70049, bin101Percent=0.70049, bin200Percent=0.70049, bin300Percent=0.70049, bin400Percent=0.70049, bin500Percent=0.70049, bin1000Percent=0.70049, bin5000Percent=0.70049, bin10000Percent=0.70049, bin10000Trades=1569.0, bin20000Trades=501.0, bin50000Trades=108.0, uniqueSymbolsTraded=7279.0, blockPercent=0.0642, selfCrossPercent=0.03122, etfPercent=0.13429, largeCapPercent=0.39449, midCapPercent=0.2766, smallCapPercent=0.19462, venueARCXFirstWaveWeight=0.1852, venueBATSFirstWaveWeight=0.05374, venueBATYFirstWaveWeight=0.06559, venueEDGAFirstWaveWeight=0.00935, venueEDGXFirstWaveWeight=0.08312, venueOverallFirstWaveWeight=1.0, venueXASEFirstWaveWeight=0.00198, venueXBOSFirstWaveWeight=0.03483, venueXCHIFirstWaveWeight=0.00164, venueXCISFirstWaveWeight=0.0, venueXNGSFirstWaveWeight=0.18084, venueXNYSFirstWaveWeight=0.24618, venueXPHLFirstWaveWeight=0.01061, venueARCXFirstWaveRate=0.97938, venueBATSFirstWaveRate=0.98756, venueBATYFirstWaveRate=0.984, venueEDGAFirstWaveRate=0.98836, venueEDGXFirstWaveRate=0.99148, venueOverallFirstWaveRate=0.98201, venueXASEFirstWaveRate=0.87702, venueXBOSFirstWaveRate=0.97138, venueXCHIFirstWaveRate=0.66283, venueXCISFirstWaveRate=0.0, venueXNGSFirstWaveRate=0.98077, venueXNYSFirstWaveRate=0.9787, venueXPHLFirstWaveRate=0.95596}
+```
