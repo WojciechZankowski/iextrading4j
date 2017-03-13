@@ -188,8 +188,8 @@ Code example:
 
 ```java
 IEXTradingClient iexTradingClient = IEXTradingClient.create();
-HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(YearMonth.of(2017,3));
-Arrays.stream(historicalDailyStats).forEach(System.out::println);
+HistoricalStats[] historicalStats = iexTradingClient.getStatsEndpoint().requestHistoricalStats(YearMonth.of(2017, 3));
+Arrays.stream(historicalStats).forEach(System.out::println);
 ```
 
 Result:
