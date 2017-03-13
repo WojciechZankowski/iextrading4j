@@ -85,3 +85,23 @@ Result:
 LastTrade{symbol='BCM', price=0.0, size=0, time=0}
 LastTrade{symbol='IBM', price=176.45, size=100, time=1489435198942}
 ```
+
+### Market Endpoint
+
+* ``` /market ```
+
+Code example:
+
+```java
+IEXTradingClient iexTradingClient = IEXTradingClient.create();
+MarketVolume[] marketsVolume = iexTradingClient.getMarketEndpoint().requestMarketVolume();
+Arrays.stream(marketsVolume).forEach(System.out::println);
+```
+
+Result:
+
+```
+MarketVolume{mic='XNYS', tapeId='N', venueName='NYSE', volume=738339624, tapeA=738339624, tapeB=0, tapeC=0, marketPercent=0.11935, lastUpdated=1489437900053}
+...
+MarketVolume{mic='XCHI', tapeId='M', venueName='CHX', volume=16475000, tapeA=5155704, tapeB=7013233, tapeC=4306063, marketPercent=0.00266, lastUpdated=1489438707493}
+```
