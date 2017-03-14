@@ -18,11 +18,11 @@ import static pl.zankowski.iextrading.rest.client.util.PathUtil.appendQuery;
  */
 public class TOPSEndpointImpl implements TOPSEndpoint {
 
-    private static final String TOPS_PATH = "tops";
-    private static final String LAST_TRADE_PATH = "last";
+    public static final String TOPS_PATH = "tops";
+    public static final String LAST_TRADE_PATH = "last";
 
-    private static final String SYMBOL_QUERY_PARAM = "symbols";
-    private static final String SYMBOL_DELIMITER = ",";
+    public static final String SYMBOL_QUERY_PARAM = "symbols";
+    public static final String SYMBOL_DELIMITER = ",";
 
     private final Client restClient;
     private final UriBuilder baseApiUrl;
