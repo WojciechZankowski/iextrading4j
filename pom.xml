@@ -11,7 +11,7 @@
 
     <modules>
         <module>iex-trading-api</module>
-        <module>iex-trading-rest-client</module>
+        <module>iex-trading-client</module>
         <module>iex-trading-samples</module>
     </modules>
 
@@ -30,7 +30,7 @@
 
             <dependency>
                 <groupId>pl.zankowski</groupId>
-                <artifactId>iex-trading-rest-client</artifactId>
+                <artifactId>iex-trading-client</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
 

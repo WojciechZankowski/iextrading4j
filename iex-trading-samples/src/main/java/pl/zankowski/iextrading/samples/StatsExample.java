@@ -5,7 +5,7 @@ import pl.zankowski.iextrading.api.stats.HistoricalStats;
 import pl.zankowski.iextrading.api.stats.IntradayStats;
 import pl.zankowski.iextrading.api.stats.RecentStats;
 import pl.zankowski.iextrading.api.stats.RecordsStats;
-import pl.zankowski.iextrading.rest.client.IEXTradingClient;
+import pl.zankowski.iextrading.client.IEXTradingClient;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
