@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading.rest.client.endpoint.market;
 
+import pl.zankowski.iextrading.api.filter.RequestFilter;
 import pl.zankowski.iextrading.api.market.MarketVolume;
 import pl.zankowski.iextrading.rest.client.endpoint.Endpoint;
 
@@ -9,5 +10,7 @@ import pl.zankowski.iextrading.rest.client.endpoint.Endpoint;
 public interface MarketEndpoint extends Endpoint {
 
     MarketVolume[] requestMarketVolume();
+
+    MarketVolume[] requestMarketVolume(RequestFilter requestFilter);
 
 }
