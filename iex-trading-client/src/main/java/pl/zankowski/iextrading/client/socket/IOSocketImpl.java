@@ -3,14 +3,15 @@ package pl.zankowski.iextrading.client.socket;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.socket.client.IO;
 import io.socket.client.Socket;
+import org.json.JSONObject;
 import pl.zankowski.iextrading.api.tops.LastTrade;
+import pl.zankowski.iextrading.api.tops.TOPS;
+import pl.zankowski.iextrading.client.socket.listener.DataReceiver;
 import pl.zankowski.iextrading.client.socket.model.AsyncRequest;
 import pl.zankowski.iextrading.client.socket.model.AsyncRequestType;
 import pl.zankowski.iextrading.client.socket.model.exception.SocketConnectException;
 import pl.zankowski.iextrading.client.socket.model.exception.SubscribeException;
 import pl.zankowski.iextrading.client.socket.model.exception.UnsubscribeException;
-import pl.zankowski.iextrading.api.tops.TOPS;
-import pl.zankowski.iextrading.client.socket.listener.DataReceiver;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -65,7 +66,7 @@ public class IOSocketImpl implements WebSocket {
             socket = IO.socket(String.join(PATH_DELIMITER, WEB_SOCKET_URL, TOPS_PATH));
             socket.on(MESSAGE_EVENT, (args) -> {
                 for (Object arg : args) {
-                    notifyListenerOnTOPS((String) arg);
+                    notifyListenerOnTOPS((JSONObject) arg);
                 }
             });
             requestSockets.put(AsyncRequestType.TOPS, socket);
@@ -73,9 +74,11 @@ public class IOSocketImpl implements WebSocket {
         socket.connect();
     }
 
-    private void notifyListenerOnTOPS(String json) {
+    private void notifyListenerOnTOPS(JSONObject jsonObject) {
         try {
-            dataReceiver.onTOPS(objectMapper.readValue(json, TOPS.class));
+            if (dataReceiver != null) {
+                dataReceiver.onTOPS(objectMapper.readValue(jsonObject.toString(), TOPS.class));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -87,7 +90,7 @@ public class IOSocketImpl implements WebSocket {
             socket = IO.socket(String.join(PATH_DELIMITER, WEB_SOCKET_URL, LAST_PATH));
             socket.on(MESSAGE_EVENT, (args) -> {
                 for (Object arg : args) {
-                    notifyListenerOnLastTrade((String) arg);
+                    notifyListenerOnLastTrade((JSONObject) arg);
                 }
             });
             requestSockets.put(AsyncRequestType.LAST, socket);
@@ -95,9 +98,11 @@ public class IOSocketImpl implements WebSocket {
         socket.connect();
     }
 
-    private void notifyListenerOnLastTrade(String json) {
+    private void notifyListenerOnLastTrade(JSONObject jsonObject) {
         try {
-            dataReceiver.onLastTrade(objectMapper.readValue(json, LastTrade.class));
+            if (dataReceiver != null) {
+                dataReceiver.onLastTrade(objectMapper.readValue(jsonObject.toString(), LastTrade.class));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

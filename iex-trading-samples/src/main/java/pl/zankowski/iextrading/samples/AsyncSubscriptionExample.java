@@ -4,19 +4,53 @@ import pl.zankowski.iextrading.api.tops.LastTrade;
 import pl.zankowski.iextrading.api.tops.TOPS;
 import pl.zankowski.iextrading.client.IEXTradingClient;
 import pl.zankowski.iextrading.client.socket.listener.DataReceiver;
+import pl.zankowski.iextrading.client.socket.model.AsyncRequest;
+import pl.zankowski.iextrading.client.socket.model.AsyncRequestType;
+import pl.zankowski.iextrading.client.socket.model.exception.SocketConnectException;
+import pl.zankowski.iextrading.client.socket.model.exception.SubscribeException;
+
+import java.util.concurrent.Semaphore;
 
 /**
  * @author Wojciech Zankowski
  */
 public class AsyncSubscriptionExample {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         AsyncSubscriptionExample asyncSubscriptionExample = new AsyncSubscriptionExample();
         asyncSubscriptionExample.test();
     }
 
-    public void test() {
-        IEXTradingClient iexTradingClient = IEXTradingClient.create(new DataReceiverImpl());
+    public void test() throws InterruptedException {
+        try {
+            IEXTradingClient iexTradingClient = IEXTradingClient.create(new DataReceiverImpl());
+            iexTradingClient.getWebSocket().connect();
+
+            while(true) {
+
+                if (iexTradingClient.getWebSocket().isConnected()) {
+                    try {
+                        iexTradingClient.getWebSocket().subscribe(AsyncRequest.builder()
+                                .withAsyncRequestType(AsyncRequestType.TOPS)
+                                .withAllSymbols()
+                                .build());
+                        iexTradingClient.getWebSocket().subscribe(AsyncRequest.builder()
+                                .withAsyncRequestType(AsyncRequestType.LAST)
+                                .withAllSymbols()
+                                .build());
+                    } catch (SubscribeException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                }
+
+                Thread.sleep(100);
+            }
+        } catch (SocketConnectException e) {
+            e.printStackTrace();
+        }
+
+        new Semaphore(0).acquire();
     }
 
     private class DataReceiverImpl implements DataReceiver {
