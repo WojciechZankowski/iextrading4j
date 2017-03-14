@@ -299,6 +299,7 @@ HistoricalDailyStats{date=2017-02-22, volume=137030945, routedVolume=38173711, m
 ## Roadmap
 
 * Do lots of unit tests
+* FIX double printing in toString() methods
 * Release it on Maven
 * Support REST endpoint filters
 * Support event driven market data listeners through WebSockets - Socket.IO
