@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading.rest.client.endpoint.tops;
 
+import pl.zankowski.iextrading.api.filter.RequestFilter;
 import pl.zankowski.iextrading.api.tops.LastTrade;
 import pl.zankowski.iextrading.api.tops.TOPS;
 
@@ -10,6 +11,7 @@ import javax.ws.rs.core.UriBuilder;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+import static pl.zankowski.iextrading.api.filter.RequestFilter.FILTER_QUERY_NAME;
 import static pl.zankowski.iextrading.rest.client.util.PathUtil.appendPaths;
 import static pl.zankowski.iextrading.rest.client.util.PathUtil.appendQuery;
 
@@ -41,10 +43,28 @@ public class TOPSEndpointImpl implements TOPSEndpoint {
     }
 
     @Override
+    public TOPS[] requestTOPS(final RequestFilter requestFilter, final String... symbols) {
+        WebTarget webTarget = restClient.target(baseApiUrl);
+        webTarget = appendPaths(webTarget, TOPS_PATH);
+        webTarget = appendSymbolQuery(webTarget, symbols);
+        webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilter.getColumnList());
+        return webTarget.request(MediaType.APPLICATION_JSON).get(TOPS[].class);
+    }
+
+    @Override
     public LastTrade[] requestLastTrades(final String... symbols) {
         WebTarget webTarget = restClient.target(baseApiUrl);
         webTarget = appendPaths(webTarget, TOPS_PATH, LAST_TRADE_PATH);
         webTarget = appendSymbolQuery(webTarget, symbols);
+        return webTarget.request(MediaType.APPLICATION_JSON).get(LastTrade[].class);
+    }
+
+    @Override
+    public LastTrade[] requestLastTrades(final RequestFilter requestFilter, final String... symbols) {
+        WebTarget webTarget = restClient.target(baseApiUrl);
+        webTarget = appendPaths(webTarget, TOPS_PATH, LAST_TRADE_PATH);
+        webTarget = appendSymbolQuery(webTarget, symbols);
+        webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilter.getColumnList());
         return webTarget.request(MediaType.APPLICATION_JSON).get(LastTrade[].class);
     }
 

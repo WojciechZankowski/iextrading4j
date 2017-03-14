@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading.samples;
 
+import pl.zankowski.iextrading.api.filter.RequestFilter;
 import pl.zankowski.iextrading.api.tops.LastTrade;
 import pl.zankowski.iextrading.api.tops.TOPS;
 import pl.zankowski.iextrading.rest.client.IEXTradingClient;
@@ -15,9 +16,16 @@ public class TOPSExample {
         IEXTradingClient iexTradingClient = IEXTradingClient.create();
 
         requestAllTOPS(iexTradingClient);
-        requestFilteredTOPS(iexTradingClient);
+        requestColumnFilteredAllTOPS(iexTradingClient);
+
+        requestSymbolFilteredTOPS(iexTradingClient);
+        requestSymbolAndColumnFilteredTOPS(iexTradingClient);
+
         requestAllLastTrades(iexTradingClient);
-        requestFilteredLastTrades(iexTradingClient);
+        requestColumnFilteredAllLastTrades(iexTradingClient);
+
+        requestSymbolFilteredLastTrades(iexTradingClient);
+        requestSymbolAndColumnFilteredLastTrades(iexTradingClient);
     }
 
     private static void requestAllTOPS(IEXTradingClient iexTradingClient) {
@@ -25,8 +33,28 @@ public class TOPSExample {
         Arrays.stream(allTOPS).forEach(System.out::println);
     }
 
-    private static void requestFilteredTOPS(IEXTradingClient iexTradingClient) {
+    private static void requestColumnFilteredAllTOPS(IEXTradingClient iexTradingClient) {
+        RequestFilter requestFilter = RequestFilter.builder()
+                .with("symbol")
+                .with("marketPercent")
+                .with("lastSaleSize")
+                .build();
+        TOPS[] allTOPS = iexTradingClient.getTopsEndpoint().requestTOPS(requestFilter);
+        Arrays.stream(allTOPS).forEach(System.out::println);
+    }
+
+    private static void requestSymbolFilteredTOPS(IEXTradingClient iexTradingClient) {
         TOPS[] filteredTOPS = iexTradingClient.getTopsEndpoint().requestTOPS("BCM", "IBM");
+        Arrays.stream(filteredTOPS).forEach(System.out::println);
+    }
+
+    private static void requestSymbolAndColumnFilteredTOPS(IEXTradingClient iexTradingClient) {
+        RequestFilter requestFilter = RequestFilter.builder()
+                .with("symbol")
+                .with("marketPercent")
+                .with("lastSaleSize")
+                .build();
+        TOPS[] filteredTOPS = iexTradingClient.getTopsEndpoint().requestTOPS(requestFilter,"BCM", "IBM");
         Arrays.stream(filteredTOPS).forEach(System.out::println);
     }
 
@@ -35,8 +63,26 @@ public class TOPSExample {
         Arrays.stream(allLastTrades).forEach(System.out::println);
     }
 
-    private static void requestFilteredLastTrades(IEXTradingClient iexTradingClient) {
+    private static void requestColumnFilteredAllLastTrades(IEXTradingClient iexTradingClient) {
+        RequestFilter requestFilter = RequestFilter.builder()
+                .with("symbol")
+                .with("price")
+                .build();
+        LastTrade[] allLastTrades = iexTradingClient.getTopsEndpoint().requestLastTrades(requestFilter);
+        Arrays.stream(allLastTrades).forEach(System.out::println);
+    }
+
+    private static void requestSymbolFilteredLastTrades(IEXTradingClient iexTradingClient) {
         LastTrade[] filteredLastTrades = iexTradingClient.getTopsEndpoint().requestLastTrades("BCM", "IBM");
+        Arrays.stream(filteredLastTrades).forEach(System.out::println);
+    }
+
+    private static void requestSymbolAndColumnFilteredLastTrades(IEXTradingClient iexTradingClient) {
+        RequestFilter requestFilter = RequestFilter.builder()
+                .with("symbol")
+                .with("price")
+                .build();
+        LastTrade[] filteredLastTrades = iexTradingClient.getTopsEndpoint().requestLastTrades(requestFilter,"BCM", "IBM");
         Arrays.stream(filteredLastTrades).forEach(System.out::println);
     }
 
