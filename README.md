@@ -4,6 +4,7 @@
 
 ## Table of Contents
 
+* [Quick Start](#quick-start)
 * [IEX Trading](#iex-trading)
 * [Endpoints](#endpoints)
   * [Request Filter](#request-filter)
@@ -13,6 +14,10 @@
 * [Async Event Driven Subscriptions](#real-time-data)  
 * [Roadmap](#roadmap)
 * [License](#license)
+
+## Quick Start
+
+Java SE 8 is required to use IEXTrading4j library.
 
 ## IEX Trading
 
