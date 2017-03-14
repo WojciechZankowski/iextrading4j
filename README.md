@@ -9,6 +9,7 @@
  * [TOPS Endpoint](#tops-endpoint)
  * [Market Endpoint](#market-endpoint)
  * [Stats Endpoint](#stats-endpoint)
+* [Roadmap](#roadmap)
 * [License](#license)
 
 ## IEX Trading
