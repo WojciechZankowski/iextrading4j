@@ -6,6 +6,7 @@
 
 * [IEX Trading](#iex-trading)
 * [Endpoints](#endpoints)
+  * [Request Filter](#request-filter)
   * [TOPS Endpoint](#tops-endpoint)
   * [Market Endpoint](#market-endpoint)
   * [Stats Endpoint](#stats-endpoint)
@@ -32,6 +33,26 @@ Check out their beautiful site: [IEX Trading](https://iextrading.com/)
 
 
 ## Endpoints
+
+### Request Filter
+
+From IEX Trading site:
+
+> All REST endpoints support a filter parameter to return a subset of data.
+
+Same goes for IEXTrading4j. Every method in endpoint interfaces is overloaded with RequestFilter parameter and it can be used to select data that we would like to receive from IEXTrading. 
+
+Example code:
+
+```java
+RequestFilter requestFilter = RequestFilter.builder()
+                .with("symbol")
+                .with("marketPercent")
+                .with("lastSaleSize")
+                .build();
+TOPS[] allTOPS = iexTradingClient.getTopsEndpoint().requestTOPS(requestFilter);
+Arrays.stream(allTOPS).forEach(System.out::println);
+```
 
 ### TOPS Endpoint
 
