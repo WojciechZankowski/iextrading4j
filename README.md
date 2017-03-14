@@ -9,6 +9,7 @@
   * [TOPS Endpoint](#tops-endpoint)
   * [Market Endpoint](#market-endpoint)
   * [Stats Endpoint](#stats-endpoint)
+* [Async Event Driven Subscriptions](#real-time-data)  
 * [Roadmap](#roadmap)
 * [License](#license)
 
@@ -296,13 +297,61 @@ HistoricalDailyStats{date=2017-03-10, volume=149135019, routedVolume=42123427, m
 HistoricalDailyStats{date=2017-02-22, volume=137030945, routedVolume=38173711, marketShare=0.02086, isHalfday=false, litVolume=34027926}
 ```
 
+## Real-time data
+
+**BETA** - This functionality probably will change, from IEX Trading site:
+
+> WebSocket support is limited at this time to Node.js server clients and socket.io browser clients. We use socket.io for our WebSocket server. The WebSocket examples in our documentation assume a socket.io browser client is being used. We're planning to rewrite our WebSocket server for broader support.
+
+Code example:
+
+```java
+IEXTradingClient iexTradingClient = IEXTradingClient.create(new DataReceiverImpl());
+iexTradingClient.getWebSocket().connect();
+
+while(true) {
+
+	if (iexTradingClient.getWebSocket().isConnected()) {
+		try {
+			iexTradingClient.getWebSocket().subscribe(AsyncRequest.builder()
+					.withAsyncRequestType(AsyncRequestType.TOPS)
+					.withAllSymbols()
+					.build());
+			iexTradingClient.getWebSocket().subscribe(AsyncRequest.builder()
+					.withAsyncRequestType(AsyncRequestType.LAST)
+					.withAllSymbols()
+					.build());
+		} catch (SubscribeException e) {
+			e.printStackTrace();
+		}
+		break;
+	}
+
+	Thread.sleep(100);
+}
+```
+
+```java
+class DataReceiverImpl implements DataReceiver {
+
+	@Override
+	public void onTOPS(TOPS tops) {
+		System.out.println(tops);
+	}
+
+	@Override
+	public void onLastTrade(LastTrade lastTrade) {
+		System.out.println(lastTrade);
+	}
+}
+```
+
+
 ## Roadmap
 
 * Do lots of unit tests
 * FIX double printing in toString() methods
 * Release it on Maven
-* Support REST endpoint filters
-* Support event driven market data listeners through WebSockets - Socket.IO
 
 ## License
 
