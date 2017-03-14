@@ -2,7 +2,7 @@ package pl.zankowski.iextrading.samples;
 
 import pl.zankowski.iextrading.api.filter.RequestFilter;
 import pl.zankowski.iextrading.api.market.MarketVolume;
-import pl.zankowski.iextrading.rest.client.IEXTradingClient;
+import pl.zankowski.iextrading.client.IEXTradingClient;
 
 import java.util.Arrays;
 
