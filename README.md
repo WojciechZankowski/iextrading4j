@@ -26,6 +26,8 @@ IEX was created in response to questionable trading practices that had become wi
 * Slightly delaying market pricing data to all customers (no colocation).
 * Refusing to pay for order flow.
 
+Check out their beautiful site: [IEX Trading](https://iextrading.com/)
+
 
 ## Endpoints
 
