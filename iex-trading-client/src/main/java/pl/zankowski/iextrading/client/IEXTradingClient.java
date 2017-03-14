@@ -3,11 +3,13 @@ package pl.zankowski.iextrading.client;
 import pl.zankowski.iextrading.client.endpoint.market.MarketEndpoint;
 import pl.zankowski.iextrading.client.endpoint.market.MarketEndpointImpl;
 import pl.zankowski.iextrading.client.endpoint.stats.StatsEndpoint;
-import pl.zankowski.iextrading.client.endpoint.tops.TOPSEndpointImpl;
-import pl.zankowski.iextrading.client.socket.listener.DataReceiver;
-import pl.zankowski.iextrading.client.util.LocalDateObjectMapperContextResolver;
 import pl.zankowski.iextrading.client.endpoint.stats.StatsEndpointImpl;
 import pl.zankowski.iextrading.client.endpoint.tops.TOPSEndpoint;
+import pl.zankowski.iextrading.client.endpoint.tops.TOPSEndpointImpl;
+import pl.zankowski.iextrading.client.socket.IOSocketImpl;
+import pl.zankowski.iextrading.client.socket.WebSocket;
+import pl.zankowski.iextrading.client.socket.listener.DataReceiver;
+import pl.zankowski.iextrading.client.util.LocalDateObjectMapperContextResolver;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -24,17 +26,19 @@ public class IEXTradingClient {
     private final StatsEndpoint statsEndpoint;
     private final MarketEndpoint marketEndpoint;
 
+    private final WebSocket webSocket;
+
     private Client restClient;
 
     private IEXTradingClient() {
-        topsEndpoint = new TOPSEndpointImpl(getRESTClient(), getBaseApiUrl());
-        statsEndpoint = new StatsEndpointImpl(getRESTClient(), getBaseApiUrl());
-        marketEndpoint = new MarketEndpointImpl(getRESTClient(), getBaseApiUrl());
+        this(null);
     }
 
     private IEXTradingClient(DataReceiver dataReceiver) {
-        this();
-
+        topsEndpoint = new TOPSEndpointImpl(getRESTClient(), getBaseApiUrl());
+        statsEndpoint = new StatsEndpointImpl(getRESTClient(), getBaseApiUrl());
+        marketEndpoint = new MarketEndpointImpl(getRESTClient(), getBaseApiUrl());
+        this.webSocket = new IOSocketImpl(dataReceiver);
     }
 
     public static IEXTradingClient create() {
@@ -69,4 +73,7 @@ public class IEXTradingClient {
         return marketEndpoint;
     }
 
+    public WebSocket getWebSocket() {
+        return webSocket;
+    }
 }
