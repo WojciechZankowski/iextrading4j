@@ -385,7 +385,6 @@ class DataReceiverImpl implements DataReceiver {
 
 * Do lots of unit tests
 * FIX double printing in toString() methods
-* Release it on Maven
 
 ## License
 
