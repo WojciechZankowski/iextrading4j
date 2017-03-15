@@ -10,8 +10,22 @@
     <version>1.0-SNAPSHOT</version>
 
     <name>IEXTrading4j</name>
-    <description>A demo for deployment to the Central Repository via OSSRH</description>
-    <url>http://github.com/simpligility/ossrh-demo</url>
+    <description>Open source IEX Trading REST and WebSocket API library</description>
+    <url>https://github.com/WojciechZankowski/iextrading4j</url>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>WojciechZankowski</id>
+            <name>Wojciech Zankowski</name>
+        </developer>
+    </developers>
 
     <modules>
         <module>iextrading4j-api</module>
