@@ -5,8 +5,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * This is test JavaDoc
- *
  * @author Wojciech Zankowski
  */
 public class RequestFilter {
