@@ -5,32 +5,58 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>pl.zankowski</groupId>
-    <artifactId>iex-trading</artifactId>
+    <artifactId>iextrading4j</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
+    <name>IEXTrading4j</name>
+    <description>Open source IEX Trading REST and WebSocket API library</description>
+    <url>https://github.com/WojciechZankowski/iextrading4j</url>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>WojciechZankowski</id>
+            <name>Wojciech Zankowski</name>
+        </developer>
+    </developers>
+
     <modules>
-        <module>iex-trading-api</module>
-        <module>iex-trading-client</module>
-        <module>iex-trading-samples</module>
+        <module>iextrading4j-api</module>
+        <module>iextrading4j-client</module>
+        <module>iextrading4j-samples</module>
+        <module>iextrading4j-all</module>
     </modules>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+
+        <maven.compiler.plugin>3.6.1</maven.compiler.plugin>
+        <maven.gpg.plugin>1.6</maven.gpg.plugin>
+        <maven.source.plugin>3.0.1</maven.source.plugin>
+        <maven.jar.plugin>3.0.2</maven.jar.plugin>
+        <maven.javadoc.plugin>2.10.4</maven.javadoc.plugin>
+        <nexus.staging.maven.plugin>1.6.8</nexus.staging.maven.plugin>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>pl.zankowski</groupId>
-                <artifactId>iex-trading-api</artifactId>
+                <artifactId>iextrading4j-api</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
 
             <dependency>
                 <groupId>pl.zankowski</groupId>
-                <artifactId>iex-trading-api</artifactId>
+                <artifactId>iextrading4j-api</artifactId>
                 <type>test-jar</type>
                 <scope>test</scope>
                 <version>1.0-SNAPSHOT</version>
@@ -38,13 +64,13 @@
 
             <dependency>
                 <groupId>pl.zankowski</groupId>
-                <artifactId>iex-trading-client</artifactId>
+                <artifactId>iextrading4j-client</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
 
             <dependency>
                 <groupId>pl.zankowski</groupId>
-                <artifactId>iex-trading-samples</artifactId>
+                <artifactId>iextrading4j-samples</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
 
@@ -107,7 +133,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.6.1</version>
+                    <version>${maven.compiler.plugin}</version>
                     <configuration>
                         <source>${maven.compiler.source}</source>
                         <target>${maven.compiler.target}</target>
@@ -117,11 +143,99 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.0.2</version>
+                    <version>${maven.jar.plugin}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${maven.source.plugin}</version>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${maven.javadoc.plugin}</version>
+                    <executions>
+                        <execution>
+                            <id>attach-javadocs</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>3.0.0</version>
+                    <configuration>
+                        <!-- put your configurations here -->
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>${maven.gpg.plugin}</version>
+                    <executions>
+                        <execution>
+                            <id>sign-artifacts</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>sign</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.sonatype.plugins</groupId>
+                    <artifactId>nexus-staging-maven-plugin</artifactId>
+                    <version>${nexus.staging.maven.plugin}</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <serverId>ossrh</serverId>
+                        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                        <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
     </build>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
 </project>
