@@ -5,7 +5,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static pl.zankowski.iextrading4j.api.market.MarketVolumeDataBuilder.defaultMarketVolume;
+import static pl.zankowski.iextrading4j.api.market.builder.MarketVolumeDataBuilder.defaultMarketVolume;
 
 import javax.ws.rs.core.UriBuilder;
 

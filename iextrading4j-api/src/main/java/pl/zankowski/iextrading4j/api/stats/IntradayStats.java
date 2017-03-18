@@ -13,7 +13,8 @@ public class IntradayStats {
 
     public IntradayStats() {}
 
-    public IntradayStats(IntradayStat volume, IntradayStat symbolsTraded, IntradayStat routedVolume, IntradayStat notional, IntradayStat marketShare) {
+    public IntradayStats(IntradayStat volume, IntradayStat symbolsTraded, IntradayStat routedVolume,
+                         IntradayStat notional, IntradayStat marketShare) {
         this.volume = volume;
 
         this.symbolsTraded = symbolsTraded;

@@ -1,4 +1,6 @@
-package pl.zankowski.iextrading4j.api.tops;
+package pl.zankowski.iextrading4j.api.tops.builder;
+
+import pl.zankowski.iextrading4j.api.tops.LastTrade;
 
 /**
  * @author Wojciech Zankowski

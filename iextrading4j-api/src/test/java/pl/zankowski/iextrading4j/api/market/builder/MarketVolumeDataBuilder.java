@@ -1,4 +1,6 @@
-package pl.zankowski.iextrading4j.api.market;
+package pl.zankowski.iextrading4j.api.market.builder;
+
+import pl.zankowski.iextrading4j.api.market.MarketVolume;
 
 /**
  * @author Wojciech Zankowski

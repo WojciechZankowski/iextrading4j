@@ -6,8 +6,8 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static pl.zankowski.iextrading4j.api.tops.LastTradeDataBuilder.defaultLastTrade;
-import static pl.zankowski.iextrading4j.api.tops.TOPSDataBuilder.defaultTOPS;
+import static pl.zankowski.iextrading4j.api.tops.builder.LastTradeDataBuilder.defaultLastTrade;
+import static pl.zankowski.iextrading4j.api.tops.builder.TOPSDataBuilder.defaultTOPS;
 
 import javax.ws.rs.core.UriBuilder;
 

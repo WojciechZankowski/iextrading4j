@@ -18,7 +18,8 @@ public class MarketVolume {
     public MarketVolume() {
     }
 
-    public MarketVolume(String mic, String tapeId, String venueName, long volume, long tapeA, long tapeB, long tapeC, double marketPercent, long lastUpdated) {
+    public MarketVolume(String mic, String tapeId, String venueName, long volume, long tapeA, long tapeB, long tapeC,
+                        double marketPercent, long lastUpdated) {
         this.mic = mic;
         this.tapeId = tapeId;
         this.venueName = venueName;
