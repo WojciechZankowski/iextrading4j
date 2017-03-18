@@ -13,6 +13,7 @@ import javax.ws.rs.core.UriBuilder;
 
 import org.junit.Test;
 
+import pl.zankowski.iextrading4j.api.filter.RequestFilter;
 import pl.zankowski.iextrading4j.api.tops.LastTrade;
 import pl.zankowski.iextrading4j.api.tops.TOPS;
 import pl.zankowski.iextrading4j.client.endpoint.EndpointTestBase;
@@ -35,6 +36,21 @@ public class TOPSEndpointImplTest extends EndpointTestBase {
         assertThat(actualTOPS).isEqualTo(expectedTOPS);
         verifyCorrectPaths(TOPSEndpointImpl.TOPS_PATH);
         verify(webTargetMock, times(0)).queryParam(any(), any());
+    }
+
+    @Test
+    public void shouldRequestTOPSWithRequestFilter() {
+        final TOPS[] expectedTOPS = new TOPS[]{defaultTOPS()};
+        final String columnFilterList = "symbol;marketPrice";
+        final RequestFilter requestFilter = new RequestFilter(columnFilterList);
+        when(builderMock.get(TOPS[].class)).thenReturn(expectedTOPS);
+
+        TOPSEndpoint topsEndpoint = new TOPSEndpointImpl(clientMock, API_PATH);
+        TOPS[] actualTOPS = topsEndpoint.requestTOPS(requestFilter);
+
+        assertThat(actualTOPS).isEqualTo(expectedTOPS);
+        verifyCorrectPaths(TOPSEndpointImpl.TOPS_PATH);
+        verifyCorrectQueries(RequestFilter.FILTER_QUERY_NAME, columnFilterList);
     }
 
     @Test
@@ -77,6 +93,21 @@ public class TOPSEndpointImplTest extends EndpointTestBase {
         assertThat(actualLastTrade).isEqualTo(expectedLastTrade);
         verifyCorrectPaths(TOPSEndpointImpl.TOPS_PATH, TOPSEndpointImpl.LAST_TRADE_PATH);
         verify(webTargetMock, times(0)).queryParam(any(), any());
+    }
+
+    @Test
+    public void shouldRequestLastTradeWithRequestFilter() {
+        final LastTrade[] expectedLastTrade = new LastTrade[]{defaultLastTrade()};
+        final String columnFilterList = "symbol;marketPrice";
+        final RequestFilter requestFilter = new RequestFilter(columnFilterList);
+        when(builderMock.get(LastTrade[].class)).thenReturn(expectedLastTrade);
+
+        TOPSEndpoint topsEndpoint = new TOPSEndpointImpl(clientMock, API_PATH);
+        LastTrade[] actualLastTrade = topsEndpoint.requestLastTrades(requestFilter);
+
+        assertThat(actualLastTrade).isEqualTo(expectedLastTrade);
+        verifyCorrectPaths(TOPSEndpointImpl.TOPS_PATH, TOPSEndpointImpl.LAST_TRADE_PATH);
+        verifyCorrectQueries(RequestFilter.FILTER_QUERY_NAME, columnFilterList);
     }
 
     @Test

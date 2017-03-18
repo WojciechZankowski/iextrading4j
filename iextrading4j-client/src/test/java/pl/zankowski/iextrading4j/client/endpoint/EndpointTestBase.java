@@ -14,6 +14,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -52,6 +53,21 @@ public class EndpointTestBase {
         assertThat(calledPaths).hasSize(paths.length);
         for (int i = 0; i < calledPaths.size(); i++) {
             assertThat(calledPaths.get(i)).isEqualTo(paths[i]);
+        }
+    }
+
+    protected void verifyCorrectQueries(String queryParam, Object queryValue) {
+        final ArgumentCaptor<String> queryParamArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        final ArgumentCaptor<Object> queryValueArgumentCaptor = ArgumentCaptor.forClass(Object.class);
+        verify(webTargetMock, atLeastOnce()).queryParam(queryParamArgumentCaptor.capture(), queryValueArgumentCaptor.capture());
+
+        List<String> calledQueryParams = queryParamArgumentCaptor.getAllValues();
+        List<Object> calledQueryValues = queryValueArgumentCaptor.getAllValues();
+        for (int i = 0; i < calledQueryParams.size(); i++) {
+            if (calledQueryParams.get(i).equals(queryParam)) {
+                Object value = calledQueryValues.get(i);
+                assertThat(value).isEqualTo(queryValue);
+            }
         }
     }
 
