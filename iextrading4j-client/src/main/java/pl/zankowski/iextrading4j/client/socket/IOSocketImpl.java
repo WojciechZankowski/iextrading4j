@@ -23,88 +23,34 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class IOSocketImpl implements WebSocket {
 
-    public static final String WEB_SOCKET_URL = "https://ws-api.iextrading.com/1.0";
-    public static final String PATH_DELIMITER = "/";
-    public static final String TOPS_PATH = "tops";
-    public static final String LAST_PATH = "last";
-    public static final String MESSAGE_EVENT = "message";
-
     public static final String SUBSCRIBE_EVENT = "subscribe";
     public static final String UNSUBSCRIBE_EVENT = "unsubscribe";
 
     private final Map<AsyncRequestType, Socket> requestSockets = new ConcurrentHashMap<>();
 
-    private final DataReceiver dataReceiver;
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final IOSocketConnectionFactory ioSocketConnectionFactory;
 
-    public IOSocketImpl(DataReceiver dataReceiver) {
-        this.dataReceiver = dataReceiver;
+    public IOSocketImpl(IOSocketWrapper ioSocketWrapper, DataReceiver dataReceiver) {
+        this.ioSocketConnectionFactory = new IOSocketConnectionFactory(ioSocketWrapper, dataReceiver);
     }
 
     @Override
     public void connect() throws SocketConnectException {
-        try {
-            initTOPSConnection();
-            initLastTradeConnection();
-        } catch (URISyntaxException e) {
-            throw new SocketConnectException();
-        }
+        connect(AsyncRequestType.TOPS);
+        connect(AsyncRequestType.LAST);
     }
 
     @Override
-    public void connect(AsyncRequestType asyncRequestType) throws URISyntaxException {
-        if (asyncRequestType == AsyncRequestType.TOPS) {
-            initTOPSConnection();
-        } else if (asyncRequestType == AsyncRequestType.LAST) {
-            initLastTradeConnection();
-        }
-    }
-
-    private void initTOPSConnection() throws URISyntaxException {
-        Socket socket = requestSockets.get(AsyncRequestType.TOPS);
-        if (socket == null) {
-            socket = IO.socket(String.join(PATH_DELIMITER, WEB_SOCKET_URL, TOPS_PATH));
-            socket.on(MESSAGE_EVENT, (args) -> {
-                for (Object arg : args) {
-                    notifyListenerOnTOPS((JSONObject) arg);
-                }
-            });
-            requestSockets.put(AsyncRequestType.TOPS, socket);
-        }
-        socket.connect();
-    }
-
-    private void notifyListenerOnTOPS(JSONObject jsonObject) {
+    public void connect(AsyncRequestType asyncRequestType) throws SocketConnectException {
         try {
-            if (dataReceiver != null) {
-                dataReceiver.onTOPS(objectMapper.readValue(jsonObject.toString(), TOPS.class));
+            Socket socket = requestSockets.get(asyncRequestType);
+            if (socket == null) {
+                socket = ioSocketConnectionFactory.initConnection(asyncRequestType);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void initLastTradeConnection() throws URISyntaxException {
-        Socket socket = requestSockets.get(AsyncRequestType.LAST);
-        if (socket == null) {
-            socket = IO.socket(String.join(PATH_DELIMITER, WEB_SOCKET_URL, LAST_PATH));
-            socket.on(MESSAGE_EVENT, (args) -> {
-                for (Object arg : args) {
-                    notifyListenerOnLastTrade((JSONObject) arg);
-                }
-            });
-            requestSockets.put(AsyncRequestType.LAST, socket);
-        }
-        socket.connect();
-    }
-
-    private void notifyListenerOnLastTrade(JSONObject jsonObject) {
-        try {
-            if (dataReceiver != null) {
-                dataReceiver.onLastTrade(objectMapper.readValue(jsonObject.toString(), LastTrade.class));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+            socket.connect();
+            requestSockets.put(asyncRequestType, socket);
+        } catch (URISyntaxException e) {
+            throw new SocketConnectException();
         }
     }
 

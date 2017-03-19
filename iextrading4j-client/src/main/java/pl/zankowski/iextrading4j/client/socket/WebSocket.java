@@ -15,7 +15,7 @@ public interface WebSocket {
 
     void connect() throws SocketConnectException;
 
-    void connect(AsyncRequestType asyncRequestType) throws URISyntaxException;
+    void connect(AsyncRequestType asyncRequestType) throws SocketConnectException;
 
     void subscribe(AsyncRequest asyncRequest) throws SubscribeException;
 
