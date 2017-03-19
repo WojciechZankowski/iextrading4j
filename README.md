@@ -384,7 +384,6 @@ class DataReceiverImpl implements DataReceiver {
 ## Roadmap
 
 * Do lots of unit tests
-* FIX double printing in toString() methods
 
 ## License
 
