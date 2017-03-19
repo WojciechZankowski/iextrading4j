@@ -1,5 +1,7 @@
 package pl.zankowski.iextrading4j.api.stats;
 
+import pl.zankowski.iextrading4j.api.util.DoubleUtil;
+
 /**
  * @author Wojciech Zankowski
  */
@@ -56,7 +58,7 @@ public class IntradayStat {
     @Override
     public String toString() {
         return "IntradayStat{" +
-                "value=" + value +
+                "value=" + DoubleUtil.printDouble(value) +
                 ", lastUpdated=" + lastUpdated +
                 '}';
     }

@@ -1,5 +1,7 @@
 package pl.zankowski.iextrading4j.api.tops;
 
+import pl.zankowski.iextrading4j.api.util.DoubleUtil;
+
 /**
  * @author Wojciech Zankowski
  */
@@ -81,7 +83,7 @@ public class LastTrade {
     public String toString() {
         return "LastTrade{" +
                 "symbol='" + symbol + '\'' +
-                ", price=" + price +
+                ", price=" + DoubleUtil.printDouble(price) +
                 ", size=" + size +
                 ", time=" + time +
                 '}';

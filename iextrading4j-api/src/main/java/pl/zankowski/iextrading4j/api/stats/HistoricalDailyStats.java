@@ -1,5 +1,7 @@
 package pl.zankowski.iextrading4j.api.stats;
 
+import pl.zankowski.iextrading4j.api.util.DoubleUtil;
+
 import java.time.LocalDate;
 
 /**
@@ -108,7 +110,7 @@ public class HistoricalDailyStats {
                 "date=" + date +
                 ", volume=" + volume +
                 ", routedVolume=" + routedVolume +
-                ", marketShare=" + marketShare +
+                ", marketShare=" + DoubleUtil.printDouble(marketShare) +
                 ", isHalfday=" + isHalfday +
                 ", litVolume=" + litVolume +
                 '}';

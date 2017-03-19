@@ -1,5 +1,7 @@
 package pl.zankowski.iextrading4j.api.market;
 
+import pl.zankowski.iextrading4j.api.util.DoubleUtil;
+
 /**
  * @author Wojciech Zankowski
  */
@@ -148,7 +150,7 @@ public class MarketVolume {
                 ", tapeA=" + tapeA +
                 ", tapeB=" + tapeB +
                 ", tapeC=" + tapeC +
-                ", marketPercent=" + marketPercent +
+                ", marketPercent=" + DoubleUtil.printDouble(marketPercent) +
                 ", lastUpdated=" + lastUpdated +
                 '}';
     }

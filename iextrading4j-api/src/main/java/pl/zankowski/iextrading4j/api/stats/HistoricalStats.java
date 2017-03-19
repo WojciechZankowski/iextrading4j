@@ -1,5 +1,7 @@
 package pl.zankowski.iextrading4j.api.stats;
 
+import pl.zankowski.iextrading4j.api.util.DoubleUtil;
+
 /**
  * @author Wojciech Zankowski
  */
@@ -530,56 +532,56 @@ public class HistoricalStats {
     @Override
     public String toString() {
         return "HistoricalStats{" +
-                "averageDailyVolume=" + averageDailyVolume +
-                ", averageDailyRoutedVolume=" + averageDailyRoutedVolume +
-                ", averageMarketShare=" + averageMarketShare +
-                ", averageOrderSize=" + averageOrderSize +
-                ", averageFillSize=" + averageFillSize +
-                ", bin100Percent=" + bin100Percent +
-                ", bin101Percent=" + bin101Percent +
-                ", bin200Percent=" + bin200Percent +
-                ", bin300Percent=" + bin300Percent +
-                ", bin400Percent=" + bin400Percent +
-                ", bin500Percent=" + bin500Percent +
-                ", bin1000Percent=" + bin1000Percent +
-                ", bin5000Percent=" + bin5000Percent +
-                ", bin10000Percent=" + bin10000Percent +
-                ", bin10000Trades=" + bin10000Trades +
-                ", bin20000Trades=" + bin20000Trades +
-                ", bin50000Trades=" + bin50000Trades +
-                ", uniqueSymbolsTraded=" + uniqueSymbolsTraded +
-                ", blockPercent=" + blockPercent +
-                ", selfCrossPercent=" + selfCrossPercent +
-                ", etfPercent=" + etfPercent +
-                ", largeCapPercent=" + largeCapPercent +
-                ", midCapPercent=" + midCapPercent +
-                ", smallCapPercent=" + smallCapPercent +
-                ", venueARCXFirstWaveWeight=" + venueARCXFirstWaveWeight +
-                ", venueBATSFirstWaveWeight=" + venueBATSFirstWaveWeight +
-                ", venueBATYFirstWaveWeight=" + venueBATYFirstWaveWeight +
-                ", venueEDGAFirstWaveWeight=" + venueEDGAFirstWaveWeight +
-                ", venueEDGXFirstWaveWeight=" + venueEDGXFirstWaveWeight +
-                ", venueOverallFirstWaveWeight=" + venueOverallFirstWaveWeight +
-                ", venueXASEFirstWaveWeight=" + venueXASEFirstWaveWeight +
-                ", venueXBOSFirstWaveWeight=" + venueXBOSFirstWaveWeight +
-                ", venueXCHIFirstWaveWeight=" + venueXCHIFirstWaveWeight +
-                ", venueXCISFirstWaveWeight=" + venueXCISFirstWaveWeight +
-                ", venueXNGSFirstWaveWeight=" + venueXNGSFirstWaveWeight +
-                ", venueXNYSFirstWaveWeight=" + venueXNYSFirstWaveWeight +
-                ", venueXPHLFirstWaveWeight=" + venueXPHLFirstWaveWeight +
-                ", venueARCXFirstWaveRate=" + venueARCXFirstWaveRate +
-                ", venueBATSFirstWaveRate=" + venueBATSFirstWaveRate +
-                ", venueBATYFirstWaveRate=" + venueBATYFirstWaveRate +
-                ", venueEDGAFirstWaveRate=" + venueEDGAFirstWaveRate +
-                ", venueEDGXFirstWaveRate=" + venueEDGXFirstWaveRate +
-                ", venueOverallFirstWaveRate=" + venueOverallFirstWaveRate +
-                ", venueXASEFirstWaveRate=" + venueXASEFirstWaveRate +
-                ", venueXBOSFirstWaveRate=" + venueXBOSFirstWaveRate +
-                ", venueXCHIFirstWaveRate=" + venueXCHIFirstWaveRate +
-                ", venueXCISFirstWaveRate=" + venueXCISFirstWaveRate +
-                ", venueXNGSFirstWaveRate=" + venueXNGSFirstWaveRate +
-                ", venueXNYSFirstWaveRate=" + venueXNYSFirstWaveRate +
-                ", venueXPHLFirstWaveRate=" + venueXPHLFirstWaveRate +
+                "averageDailyVolume=" + DoubleUtil.printDouble(averageDailyVolume) +
+                ", averageDailyRoutedVolume=" + DoubleUtil.printDouble(averageDailyRoutedVolume) +
+                ", averageMarketShare=" + DoubleUtil.printDouble(averageMarketShare) +
+                ", averageOrderSize=" + DoubleUtil.printDouble(averageOrderSize) +
+                ", averageFillSize=" + DoubleUtil.printDouble(averageFillSize) +
+                ", bin100Percent=" + DoubleUtil.printDouble(bin100Percent) +
+                ", bin101Percent=" + DoubleUtil.printDouble(bin101Percent) +
+                ", bin200Percent=" + DoubleUtil.printDouble(bin200Percent) +
+                ", bin300Percent=" + DoubleUtil.printDouble(bin300Percent) +
+                ", bin400Percent=" + DoubleUtil.printDouble(bin400Percent) +
+                ", bin500Percent=" + DoubleUtil.printDouble(bin500Percent) +
+                ", bin1000Percent=" + DoubleUtil.printDouble(bin1000Percent) +
+                ", bin5000Percent=" + DoubleUtil.printDouble(bin5000Percent) +
+                ", bin10000Percent=" + DoubleUtil.printDouble(bin10000Percent) +
+                ", bin10000Trades=" + DoubleUtil.printDouble(bin10000Trades) +
+                ", bin20000Trades=" + DoubleUtil.printDouble(bin20000Trades) +
+                ", bin50000Trades=" + DoubleUtil.printDouble(bin50000Trades) +
+                ", uniqueSymbolsTraded=" + DoubleUtil.printDouble(uniqueSymbolsTraded) +
+                ", blockPercent=" + DoubleUtil.printDouble(blockPercent) +
+                ", selfCrossPercent=" + DoubleUtil.printDouble(selfCrossPercent) +
+                ", etfPercent=" + DoubleUtil.printDouble(etfPercent) +
+                ", largeCapPercent=" + DoubleUtil.printDouble(largeCapPercent) +
+                ", midCapPercent=" + DoubleUtil.printDouble(midCapPercent) +
+                ", smallCapPercent=" + DoubleUtil.printDouble(smallCapPercent) +
+                ", venueARCXFirstWaveWeight=" + DoubleUtil.printDouble(venueARCXFirstWaveWeight) +
+                ", venueBATSFirstWaveWeight=" + DoubleUtil.printDouble(venueBATSFirstWaveWeight) +
+                ", venueBATYFirstWaveWeight=" + DoubleUtil.printDouble(venueBATYFirstWaveWeight) +
+                ", venueEDGAFirstWaveWeight=" + DoubleUtil.printDouble(venueEDGAFirstWaveWeight) +
+                ", venueEDGXFirstWaveWeight=" + DoubleUtil.printDouble(venueEDGXFirstWaveWeight) +
+                ", venueOverallFirstWaveWeight=" + DoubleUtil.printDouble(venueOverallFirstWaveWeight) +
+                ", venueXASEFirstWaveWeight=" + DoubleUtil.printDouble(venueXASEFirstWaveWeight) +
+                ", venueXBOSFirstWaveWeight=" + DoubleUtil.printDouble(venueXBOSFirstWaveWeight) +
+                ", venueXCHIFirstWaveWeight=" + DoubleUtil.printDouble(venueXCHIFirstWaveWeight) +
+                ", venueXCISFirstWaveWeight=" + DoubleUtil.printDouble(venueXCISFirstWaveWeight) +
+                ", venueXNGSFirstWaveWeight=" + DoubleUtil.printDouble(venueXNGSFirstWaveWeight) +
+                ", venueXNYSFirstWaveWeight=" + DoubleUtil.printDouble(venueXNYSFirstWaveWeight) +
+                ", venueXPHLFirstWaveWeight=" + DoubleUtil.printDouble(venueXPHLFirstWaveWeight) +
+                ", venueARCXFirstWaveRate=" + DoubleUtil.printDouble(venueARCXFirstWaveRate) +
+                ", venueBATSFirstWaveRate=" + DoubleUtil.printDouble(venueBATSFirstWaveRate) +
+                ", venueBATYFirstWaveRate=" + DoubleUtil.printDouble(venueBATYFirstWaveRate) +
+                ", venueEDGAFirstWaveRate=" + DoubleUtil.printDouble(venueEDGAFirstWaveRate) +
+                ", venueEDGXFirstWaveRate=" + DoubleUtil.printDouble(venueEDGXFirstWaveRate) +
+                ", venueOverallFirstWaveRate=" + DoubleUtil.printDouble(venueOverallFirstWaveRate) +
+                ", venueXASEFirstWaveRate=" + DoubleUtil.printDouble(venueXASEFirstWaveRate) +
+                ", venueXBOSFirstWaveRate=" + DoubleUtil.printDouble(venueXBOSFirstWaveRate) +
+                ", venueXCHIFirstWaveRate=" + DoubleUtil.printDouble(venueXCHIFirstWaveRate) +
+                ", venueXCISFirstWaveRate=" + DoubleUtil.printDouble(venueXCISFirstWaveRate) +
+                ", venueXNGSFirstWaveRate=" + DoubleUtil.printDouble(venueXNGSFirstWaveRate) +
+                ", venueXNYSFirstWaveRate=" + DoubleUtil.printDouble(venueXNYSFirstWaveRate) +
+                ", venueXPHLFirstWaveRate=" + DoubleUtil.printDouble(venueXPHLFirstWaveRate) +
                 '}';
     }
 

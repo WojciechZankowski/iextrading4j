@@ -1,5 +1,7 @@
 package pl.zankowski.iextrading4j.api.tops;
 
+import pl.zankowski.iextrading4j.api.util.DoubleUtil;
+
 /**
  * @author Wojciech Zankowski
  */
@@ -168,13 +170,13 @@ public class TOPS {
     public String toString() {
         return "TOPS{" +
                 "symbol='" + symbol + '\'' +
-                ", marketPercent=" + marketPercent +
+                ", marketPercent=" + DoubleUtil.printDouble(marketPercent) +
                 ", bidSize=" + bidSize +
-                ", bidPrice=" + bidPrice +
+                ", bidPrice=" + DoubleUtil.printDouble(bidPrice) +
                 ", askSize=" + askSize +
-                ", askPrice=" + askPrice +
+                ", askPrice=" + DoubleUtil.printDouble(askPrice) +
                 ", volume=" + volume +
-                ", lastSalePrice=" + lastSalePrice +
+                ", lastSalePrice=" + DoubleUtil.printDouble(lastSalePrice) +
                 ", lastSaleSize=" + lastSaleSize +
                 ", lastSaleTime=" + lastSaleTime +
                 ", lastUpdated=" + lastUpdated +

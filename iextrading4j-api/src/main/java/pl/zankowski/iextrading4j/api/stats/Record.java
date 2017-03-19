@@ -1,5 +1,7 @@
 package pl.zankowski.iextrading4j.api.stats;
 
+import pl.zankowski.iextrading4j.api.util.DoubleUtil;
+
 import java.time.LocalDate;
 
 /**
@@ -84,10 +86,10 @@ public class Record {
     @Override
     public String toString() {
         return "Record{" +
-                "recordValue=" + recordValue +
+                "recordValue=" + DoubleUtil.printDouble(recordValue) +
                 ", recordDate=" + recordDate +
-                ", previousDayValue=" + previousDayValue +
-                ", avg30Value=" + avg30Value +
+                ", previousDayValue=" + DoubleUtil.printDouble(previousDayValue) +
+                ", avg30Value=" + DoubleUtil.printDouble(avg30Value) +
                 '}';
     }
 
