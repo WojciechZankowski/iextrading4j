@@ -6,6 +6,8 @@ import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.socket.listener.DataReceiver;
 import pl.zankowski.iextrading4j.client.socket.model.AsyncRequest;
 import pl.zankowski.iextrading4j.client.socket.model.AsyncRequestType;
+import pl.zankowski.iextrading4j.client.socket.model.LastAsyncRequest;
+import pl.zankowski.iextrading4j.client.socket.model.TOPSAsyncRequest;
 import pl.zankowski.iextrading4j.client.socket.model.exception.SocketConnectException;
 import pl.zankowski.iextrading4j.client.socket.model.exception.SubscribeException;
 
@@ -30,12 +32,10 @@ public class AsyncSubscriptionExample {
 
                 if (iexTradingClient.getWebSocket().isConnected()) {
                     try {
-                        iexTradingClient.getWebSocket().subscribe(AsyncRequest.builder()
-                                .withAsyncRequestType(AsyncRequestType.TOPS)
+                        iexTradingClient.getWebSocket().subscribe(TOPSAsyncRequest.builder()
                                 .withAllSymbols()
                                 .build());
-                        iexTradingClient.getWebSocket().subscribe(AsyncRequest.builder()
-                                .withAsyncRequestType(AsyncRequestType.LAST)
+                        iexTradingClient.getWebSocket().subscribe(LastAsyncRequest.builder()
                                 .withAllSymbols()
                                 .build());
                     } catch (SubscribeException e) {

@@ -5,10 +5,20 @@ package pl.zankowski.iextrading4j.client.socket.model;
  */
 public class MarketAsyncRequest extends AsyncRequest {
 
-    public MarketAsyncRequest(String symbolList) {
-        super(AsyncRequestType.MARKET, symbolList);
+    public MarketAsyncRequest() {
+        super(AsyncRequestType.MARKET);
     }
 
+    public static MarketAsyncRequest.Builder builder() {
+        return new MarketAsyncRequest.Builder();
+    }
 
+    public static class Builder {
+
+        public MarketAsyncRequest build() {
+            return new MarketAsyncRequest();
+        }
+
+    }
 
 }
