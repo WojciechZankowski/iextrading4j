@@ -8,8 +8,8 @@ import pl.zankowski.iextrading4j.api.tops.TOPS;
  */
 public interface DataReceiver {
 
-    void onTOPS(TOPS tops);
+    void onEvent(TOPS tops);
 
-    void onLastTrade(LastTrade lastTrade);
+    void onEvent(LastTrade lastTrade);
 
 }

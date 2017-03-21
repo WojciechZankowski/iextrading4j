@@ -7,6 +7,7 @@ import pl.zankowski.iextrading4j.client.endpoint.stats.StatsEndpointImpl;
 import pl.zankowski.iextrading4j.client.endpoint.tops.TOPSEndpoint;
 import pl.zankowski.iextrading4j.client.endpoint.tops.TOPSEndpointImpl;
 import pl.zankowski.iextrading4j.client.socket.IOSocketImpl;
+import pl.zankowski.iextrading4j.client.socket.IOSocketWrapper;
 import pl.zankowski.iextrading4j.client.socket.WebSocket;
 import pl.zankowski.iextrading4j.client.socket.listener.DataReceiver;
 import pl.zankowski.iextrading4j.client.util.LocalDateObjectMapperContextResolver;
@@ -38,7 +39,7 @@ public class IEXTradingClient {
         topsEndpoint = new TOPSEndpointImpl(getRESTClient(), getBaseApiUrl());
         statsEndpoint = new StatsEndpointImpl(getRESTClient(), getBaseApiUrl());
         marketEndpoint = new MarketEndpointImpl(getRESTClient(), getBaseApiUrl());
-        this.webSocket = new IOSocketImpl(dataReceiver);
+        this.webSocket = new IOSocketImpl(new IOSocketWrapper(), dataReceiver);
     }
 
     public static IEXTradingClient create() {

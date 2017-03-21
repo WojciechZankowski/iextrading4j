@@ -56,12 +56,12 @@ public class AsyncSubscriptionExample {
     private class DataReceiverImpl implements DataReceiver {
 
         @Override
-        public void onTOPS(TOPS tops) {
+        public void onEvent(TOPS tops) {
             System.out.println(tops);
         }
 
         @Override
-        public void onLastTrade(LastTrade lastTrade) {
+        public void onEvent(LastTrade lastTrade) {
             System.out.println(lastTrade);
         }
     }
