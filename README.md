@@ -27,6 +27,8 @@ Java SE 8 is required to use IEXTrading4j library.
 </dependency>
 ```
 
+Library is up to IEX Trading API version [1.0] - 28.02.2017 
+
 ## IEX Trading
 
 IEX A Fair, Simple, Transparent Exchange.
@@ -391,11 +393,6 @@ class DataReceiverImpl implements DataReceiver {
 	
 }
 ```
-
-
-## Roadmap
-
-* Do lots of unit tests
 
 ## License
 
