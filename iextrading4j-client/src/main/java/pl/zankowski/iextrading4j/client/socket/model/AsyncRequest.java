@@ -9,9 +9,6 @@ import java.util.stream.Collectors;
  */
 public class AsyncRequest {
 
-    public static final String ALL_SYMBOLS = "firehose";
-    public static final String SYMBOL_DELIMITER = ",";
-
     private AsyncRequestType asyncRequestType;
     private String symbolList;
 
