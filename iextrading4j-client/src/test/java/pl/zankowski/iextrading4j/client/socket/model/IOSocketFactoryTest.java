@@ -3,7 +3,7 @@ package pl.zankowski.iextrading4j.client.socket.model;
 import io.socket.client.Socket;
 import org.junit.Before;
 import org.junit.Test;
-import pl.zankowski.iextrading4j.client.socket.IOSocketConnectionFactory;
+import pl.zankowski.iextrading4j.client.socket.IOSocketFactory;
 import pl.zankowski.iextrading4j.client.socket.IOSocketWrapper;
 import pl.zankowski.iextrading4j.client.socket.listener.DataReceiver;
 
@@ -18,9 +18,9 @@ import static org.mockito.Mockito.when;
 /**
  * @author Wojciech Zankowski
  */
-public class IOSocketConnectionFactoryTest {
+public class IOSocketFactoryTest {
 
-    private IOSocketConnectionFactory ioSocketConnectionFactory;
+    private IOSocketFactory ioSocketFactory;
 
     private DataReceiver dataReceiverMock;
     private IOSocketWrapper ioSocketWrapperMock;
@@ -31,7 +31,7 @@ public class IOSocketConnectionFactoryTest {
         dataReceiverMock = mock(DataReceiver.class);
         ioSocketWrapperMock = mock(IOSocketWrapper.class);
         socketMock = mock(Socket.class);
-        ioSocketConnectionFactory = new IOSocketConnectionFactory(ioSocketWrapperMock, dataReceiverMock);
+        ioSocketFactory = new IOSocketFactory(ioSocketWrapperMock, dataReceiverMock);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class IOSocketConnectionFactoryTest {
         when(ioSocketWrapperMock.socket(any())).thenReturn(socketMock);
         when(socketMock.on(any(), any())).thenReturn(null);
 
-        ioSocketConnectionFactory.initConnection(AsyncRequestType.TOPS);
+        ioSocketFactory.initSocket(AsyncRequestType.TOPS);
 
         verify(ioSocketWrapperMock).socket(eq("https://ws-api.iextrading.com/1.0/tops"));
     }
@@ -49,7 +49,7 @@ public class IOSocketConnectionFactoryTest {
         when(ioSocketWrapperMock.socket(any())).thenReturn(socketMock);
         when(socketMock.on(any(), any())).thenReturn(null);
 
-        ioSocketConnectionFactory.initConnection(AsyncRequestType.LAST);
+        ioSocketFactory.initSocket(AsyncRequestType.LAST);
 
         verify(ioSocketWrapperMock).socket(eq("https://ws-api.iextrading.com/1.0/last"));
     }

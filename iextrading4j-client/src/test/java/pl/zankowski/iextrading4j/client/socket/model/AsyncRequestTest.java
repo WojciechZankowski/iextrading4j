@@ -14,7 +14,7 @@ public class AsyncRequestTest {
         final String symbolList = "IBM;MSFT";
         final AsyncRequestType asyncRequestType = AsyncRequestType.TOPS;
 
-        AsyncRequest asyncRequest = new AsyncRequest(asyncRequestType, symbolList);
+        TOPSAsyncRequest asyncRequest = new TOPSAsyncRequest(symbolList);
 
         assertThat(asyncRequest.getAsyncRequestType()).isEqualTo(asyncRequestType);
         assertThat(asyncRequest.getSymbolList()).isEqualTo(symbolList);
@@ -24,8 +24,7 @@ public class AsyncRequestTest {
     public void shouldCorrectlyCreateAsyncRequestWithoutSymbolsByBuild() {
         final AsyncRequestType asyncRequestType = AsyncRequestType.TOPS;
 
-        AsyncRequest asyncRequest = AsyncRequest.builder()
-                .withAsyncRequestType(asyncRequestType)
+        TOPSAsyncRequest asyncRequest = TOPSAsyncRequest.builder()
                 .build();
 
         assertThat(asyncRequest.getAsyncRequestType()).isEqualTo(asyncRequestType);
@@ -37,8 +36,7 @@ public class AsyncRequestTest {
         final AsyncRequestType asyncRequestType = AsyncRequestType.LAST;
         final String symbol = "IBM";
 
-        AsyncRequest asyncRequest = AsyncRequest.builder()
-                .withAsyncRequestType(asyncRequestType)
+        LastAsyncRequest asyncRequest = LastAsyncRequest.builder()
                 .withSymbol(symbol)
                 .build();
 
@@ -52,14 +50,13 @@ public class AsyncRequestTest {
         final String symbol_1 = "IBM";
         final String symbol_2 = "MSFT";
 
-        AsyncRequest asyncRequest = AsyncRequest.builder()
-                .withAsyncRequestType(asyncRequestType)
+        TOPSAsyncRequest asyncRequest = TOPSAsyncRequest.builder()
                 .withSymbol(symbol_1)
                 .withSymbol(symbol_2)
                 .build();
 
         assertThat(asyncRequest.getAsyncRequestType()).isEqualTo(asyncRequestType);
-        String[] elements = asyncRequest.getSymbolList().split(AsyncRequest.SYMBOL_DELIMITER);
+        String[] elements = asyncRequest.getSymbolList().split(TOPSAsyncRequest.SYMBOL_DELIMITER);
         assertThat(elements).contains(symbol_1);
         assertThat(elements).contains(symbol_2);
     }
@@ -68,13 +65,12 @@ public class AsyncRequestTest {
     public void shouldCorrectlyCreateAsyncRequestWithAllSymbolsByBuilder() {
         final AsyncRequestType asyncRequestType = AsyncRequestType.LAST;
 
-        AsyncRequest asyncRequest = AsyncRequest.builder()
-                .withAsyncRequestType(asyncRequestType)
+        LastAsyncRequest asyncRequest = LastAsyncRequest.builder()
                 .withAllSymbols()
                 .build();
 
         assertThat(asyncRequest.getAsyncRequestType()).isEqualTo(asyncRequestType);
-        assertThat(asyncRequest.getSymbolList()).isEqualTo(AsyncRequest.ALL_SYMBOLS);
+        assertThat(asyncRequest.getSymbolList()).isEqualTo(LastAsyncRequest.ALL_SYMBOLS);
     }
 
     @Test
@@ -82,14 +78,13 @@ public class AsyncRequestTest {
         final AsyncRequestType asyncRequestType = AsyncRequestType.LAST;
         final String symbol = "IBM";
 
-        AsyncRequest asyncRequest = AsyncRequest.builder()
-                .withAsyncRequestType(asyncRequestType)
+        LastAsyncRequest asyncRequest = LastAsyncRequest.builder()
                 .withSymbol(symbol)
                 .withAllSymbols()
                 .build();
 
         assertThat(asyncRequest.getAsyncRequestType()).isEqualTo(asyncRequestType);
-        assertThat(asyncRequest.getSymbolList()).isEqualTo(AsyncRequest.ALL_SYMBOLS);
+        assertThat(asyncRequest.getSymbolList()).isEqualTo(LastAsyncRequest.ALL_SYMBOLS);
     }
 
 

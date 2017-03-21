@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.samples;
 
+import pl.zankowski.iextrading4j.api.market.MarketVolume;
 import pl.zankowski.iextrading4j.api.tops.LastTrade;
 import pl.zankowski.iextrading4j.api.tops.TOPS;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
@@ -7,10 +8,12 @@ import pl.zankowski.iextrading4j.client.socket.listener.DataReceiver;
 import pl.zankowski.iextrading4j.client.socket.model.AsyncRequest;
 import pl.zankowski.iextrading4j.client.socket.model.AsyncRequestType;
 import pl.zankowski.iextrading4j.client.socket.model.LastAsyncRequest;
+import pl.zankowski.iextrading4j.client.socket.model.MarketAsyncRequest;
 import pl.zankowski.iextrading4j.client.socket.model.TOPSAsyncRequest;
 import pl.zankowski.iextrading4j.client.socket.model.exception.SocketConnectException;
 import pl.zankowski.iextrading4j.client.socket.model.exception.SubscribeException;
 
+import java.util.Arrays;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -38,6 +41,8 @@ public class AsyncSubscriptionExample {
                         iexTradingClient.getWebSocket().subscribe(LastAsyncRequest.builder()
                                 .withAllSymbols()
                                 .build());
+                        iexTradingClient.getWebSocket().subscribe(MarketAsyncRequest.builder()
+                                    .build());
                     } catch (SubscribeException e) {
                         e.printStackTrace();
                     }
@@ -63,6 +68,11 @@ public class AsyncSubscriptionExample {
         @Override
         public void onEvent(LastTrade lastTrade) {
             System.out.println(lastTrade);
+        }
+
+        @Override
+        public void onEvent(MarketVolume[] marketVolumes) {
+            Arrays.stream(marketVolumes).forEach(System.out::println);
         }
     }
 
