@@ -1,19 +1,16 @@
 package pl.zankowski.iextrading4j.client.socket;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import io.socket.client.IO;
 import io.socket.client.Socket;
-import org.json.JSONObject;
-import pl.zankowski.iextrading4j.api.tops.LastTrade;
-import pl.zankowski.iextrading4j.api.tops.TOPS;
 import pl.zankowski.iextrading4j.client.socket.listener.DataReceiver;
 import pl.zankowski.iextrading4j.client.socket.model.AsyncRequest;
 import pl.zankowski.iextrading4j.client.socket.model.AsyncRequestType;
+import pl.zankowski.iextrading4j.client.socket.model.LastAsyncRequest;
+import pl.zankowski.iextrading4j.client.socket.model.MarketAsyncRequest;
+import pl.zankowski.iextrading4j.client.socket.model.TOPSAsyncRequest;
 import pl.zankowski.iextrading4j.client.socket.model.exception.SocketConnectException;
 import pl.zankowski.iextrading4j.client.socket.model.exception.SubscribeException;
 import pl.zankowski.iextrading4j.client.socket.model.exception.UnsubscribeException;
 
-import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -28,16 +25,17 @@ public class IOSocketImpl implements WebSocket {
 
     private final Map<AsyncRequestType, Socket> requestSockets = new ConcurrentHashMap<>();
 
-    private final IOSocketConnectionFactory ioSocketConnectionFactory;
+    private final IOSocketFactory ioSocketFactory;
 
     public IOSocketImpl(IOSocketWrapper ioSocketWrapper, DataReceiver dataReceiver) {
-        this.ioSocketConnectionFactory = new IOSocketConnectionFactory(ioSocketWrapper, dataReceiver);
+        this.ioSocketFactory = new IOSocketFactory(ioSocketWrapper, dataReceiver);
     }
 
     @Override
     public void connect() throws SocketConnectException {
         connect(AsyncRequestType.TOPS);
         connect(AsyncRequestType.LAST);
+        connect(AsyncRequestType.MARKET);
     }
 
     @Override
@@ -45,7 +43,7 @@ public class IOSocketImpl implements WebSocket {
         try {
             Socket socket = requestSockets.get(asyncRequestType);
             if (socket == null) {
-                socket = ioSocketConnectionFactory.initConnection(asyncRequestType);
+                socket = ioSocketFactory.initSocket(asyncRequestType);
             }
             socket.connect();
             requestSockets.put(asyncRequestType, socket);
@@ -55,21 +53,49 @@ public class IOSocketImpl implements WebSocket {
     }
 
     @Override
-    public void subscribe(AsyncRequest asyncRequest) throws SubscribeException {
+    public void subscribe(TOPSAsyncRequest topsAsyncRequest) throws SubscribeException {
+        subscribe(topsAsyncRequest, topsAsyncRequest.getSymbolList());
+    }
+
+    @Override
+    public void subscribe(LastAsyncRequest lastAsyncRequest) throws SubscribeException {
+        subscribe(lastAsyncRequest, lastAsyncRequest.getSymbolList());
+    }
+
+    @Override
+    public void subscribe(MarketAsyncRequest marketAsyncRequest) throws SubscribeException {
+        subscribe(marketAsyncRequest, new Object[0]);
+    }
+
+    private void subscribe(AsyncRequest asyncRequest, Object... args) throws SubscribeException {
         Socket socket = requestSockets.get(asyncRequest.getAsyncRequestType());
         if (socket == null || !socket.connected()) {
             throw new SubscribeException("Socket not connected");
         }
-        socket.emit(SUBSCRIBE_EVENT, asyncRequest.getSymbolList());
+        socket.emit(SUBSCRIBE_EVENT, args);
     }
 
     @Override
-    public void unsubscribe(AsyncRequest asyncRequest) throws UnsubscribeException {
+    public void unsubscribe(TOPSAsyncRequest topsAsyncRequest) throws UnsubscribeException {
+        unsubscribe(topsAsyncRequest, topsAsyncRequest.getSymbolList());
+    }
+
+    @Override
+    public void unsubscribe(LastAsyncRequest lastAsyncRequest) throws UnsubscribeException {
+        unsubscribe(lastAsyncRequest, lastAsyncRequest.getSymbolList());
+    }
+
+    @Override
+    public void unsubscribe(MarketAsyncRequest marketAsyncRequest) throws UnsubscribeException {
+        unsubscribe(marketAsyncRequest);
+    }
+
+    private void unsubscribe(AsyncRequest asyncRequest, Object... args) throws UnsubscribeException {
         Socket socket = requestSockets.get(asyncRequest.getAsyncRequestType());
         if (socket == null || !socket.connected()) {
             throw new UnsubscribeException("Socket not connected");
         }
-        socket.emit(UNSUBSCRIBE_EVENT, asyncRequest.getSymbolList());
+        socket.emit(UNSUBSCRIBE_EVENT, args);
     }
 
     @Override

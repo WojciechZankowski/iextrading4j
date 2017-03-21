@@ -6,6 +6,7 @@ package pl.zankowski.iextrading4j.client.socket.model;
 public enum AsyncRequestType {
 
     TOPS,
-    LAST;
+    LAST,
+    MARKET;
 
 }
