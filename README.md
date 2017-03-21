@@ -337,6 +337,12 @@ HistoricalDailyStats{date=2017-02-22, volume=137030945, routedVolume=38173711, m
 
 > WebSocket support is limited at this time to Node.js server clients and socket.io browser clients. We use socket.io for our WebSocket server. The WebSocket examples in our documentation assume a socket.io browser client is being used. We're planning to rewrite our WebSocket server for broader support.
 
+Supported endpoints:
+
+* TOPS ``` https://ws-api.iextrading.com/1.0/tops ```
+* Last ``` https://ws-api.iextrading.com/1.0/last ```
+* Market ``` https://ws-api.iextrading.com/1.0/market ```
+
 Code example:
 
 ```java
@@ -347,14 +353,14 @@ while(true) {
 
 	if (iexTradingClient.getWebSocket().isConnected()) {
 		try {
-			iexTradingClient.getWebSocket().subscribe(AsyncRequest.builder()
-					.withAsyncRequestType(AsyncRequestType.TOPS)
-					.withAllSymbols()
-					.build());
-			iexTradingClient.getWebSocket().subscribe(AsyncRequest.builder()
-					.withAsyncRequestType(AsyncRequestType.LAST)
-					.withAllSymbols()
-					.build());
+			iexTradingClient.getWebSocket().subscribe(TOPSAsyncRequest.builder()
+                                .withAllSymbols()
+                                .build());
+                        iexTradingClient.getWebSocket().subscribe(LastAsyncRequest.builder()
+                                .withAllSymbols()
+                                .build());
+                        iexTradingClient.getWebSocket().subscribe(MarketAsyncRequest.builder()
+                                    .build());
 		} catch (SubscribeException e) {
 			e.printStackTrace();
 		}
@@ -377,6 +383,12 @@ class DataReceiverImpl implements DataReceiver {
 	public void onLastTrade(LastTrade lastTrade) {
 		System.out.println(lastTrade);
 	}
+	
+	@Override
+        public void onEvent(MarketVolume[] marketVolumes) {
+            	Arrays.stream(marketVolumes).forEach(System.out::println);
+        }
+	
 }
 ```
 
