@@ -2,6 +2,8 @@ package pl.zankowski.iextrading4j.client;
 
 import pl.zankowski.iextrading4j.client.endpoint.market.MarketEndpoint;
 import pl.zankowski.iextrading4j.client.endpoint.market.MarketEndpointImpl;
+import pl.zankowski.iextrading4j.client.endpoint.refdata.RefDataEndpoint;
+import pl.zankowski.iextrading4j.client.endpoint.refdata.RefDataEndpointImpl;
 import pl.zankowski.iextrading4j.client.endpoint.stats.StatsEndpoint;
 import pl.zankowski.iextrading4j.client.endpoint.stats.StatsEndpointImpl;
 import pl.zankowski.iextrading4j.client.endpoint.tops.TOPSEndpoint;
@@ -26,6 +28,7 @@ public class IEXTradingClient {
     private final TOPSEndpoint topsEndpoint;
     private final StatsEndpoint statsEndpoint;
     private final MarketEndpoint marketEndpoint;
+    private final RefDataEndpoint refDataEndpoint;
 
     private final WebSocket webSocket;
 
@@ -39,6 +42,7 @@ public class IEXTradingClient {
         topsEndpoint = new TOPSEndpointImpl(getRESTClient(), getBaseApiUrl());
         statsEndpoint = new StatsEndpointImpl(getRESTClient(), getBaseApiUrl());
         marketEndpoint = new MarketEndpointImpl(getRESTClient(), getBaseApiUrl());
+        refDataEndpoint = new RefDataEndpointImpl(getRESTClient(), getBaseApiUrl());
         this.webSocket = new IOSocketImpl(new IOSocketWrapper(), dataReceiver);
     }
 
@@ -72,6 +76,10 @@ public class IEXTradingClient {
 
     public MarketEndpoint getMarketEndpoint() {
         return marketEndpoint;
+    }
+
+    public RefDataEndpoint getRefDataEndpoint() {
+        return refDataEndpoint;
     }
 
     public WebSocket getWebSocket() {
