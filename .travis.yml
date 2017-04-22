@@ -1,8 +1,15 @@
 language: java
 sudo: false
 
+addons:
+  sonarqube:
+    organization: "wojciechzankowski-github"
+
 jdk:
 - oraclejdk8
+
+script:
+- sonar-scanner
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
