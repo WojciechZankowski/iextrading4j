@@ -1,9 +1,5 @@
 package pl.zankowski.iextrading4j.client.socket.model;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 /**
  * @author Wojciech Zankowski
  */

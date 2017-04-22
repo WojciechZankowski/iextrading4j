@@ -1,6 +1,5 @@
 package pl.zankowski.iextrading4j.client.socket;
 
-import pl.zankowski.iextrading4j.client.socket.model.AsyncRequest;
 import pl.zankowski.iextrading4j.client.socket.model.AsyncRequestType;
 import pl.zankowski.iextrading4j.client.socket.model.LastAsyncRequest;
 import pl.zankowski.iextrading4j.client.socket.model.MarketAsyncRequest;
@@ -8,8 +7,6 @@ import pl.zankowski.iextrading4j.client.socket.model.TOPSAsyncRequest;
 import pl.zankowski.iextrading4j.client.socket.model.exception.SocketConnectException;
 import pl.zankowski.iextrading4j.client.socket.model.exception.SubscribeException;
 import pl.zankowski.iextrading4j.client.socket.model.exception.UnsubscribeException;
-
-import java.net.URISyntaxException;
 
 /**
  * @author Wojciech Zankowski

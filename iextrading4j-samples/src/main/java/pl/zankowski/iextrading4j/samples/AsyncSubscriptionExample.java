@@ -5,8 +5,6 @@ import pl.zankowski.iextrading4j.api.tops.LastTrade;
 import pl.zankowski.iextrading4j.api.tops.TOPS;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.socket.listener.DataReceiver;
-import pl.zankowski.iextrading4j.client.socket.model.AsyncRequest;
-import pl.zankowski.iextrading4j.client.socket.model.AsyncRequestType;
 import pl.zankowski.iextrading4j.client.socket.model.LastAsyncRequest;
 import pl.zankowski.iextrading4j.client.socket.model.MarketAsyncRequest;
 import pl.zankowski.iextrading4j.client.socket.model.TOPSAsyncRequest;

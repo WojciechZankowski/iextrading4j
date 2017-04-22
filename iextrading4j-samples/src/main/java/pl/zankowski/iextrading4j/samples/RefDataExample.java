@@ -1,7 +1,6 @@
 package pl.zankowski.iextrading4j.samples;
 
 import pl.zankowski.iextrading4j.api.filter.RequestFilter;
-import pl.zankowski.iextrading4j.api.market.MarketVolume;
 import pl.zankowski.iextrading4j.api.refdata.ExchangeSymbol;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 
