@@ -11,6 +11,7 @@
   * [TOPS Endpoint](#tops-endpoint)
   * [Market Endpoint](#market-endpoint)
   * [Stats Endpoint](#stats-endpoint)
+  * [RefData Endpoint](#refdata-endpoint)
 * [Async Event Driven Subscriptions](#real-time-data)  
 * [Roadmap](#roadmap)
 * [License](#license)
@@ -23,11 +24,11 @@ Java SE 8 is required to use IEXTrading4j library.
 <dependency>
 	<groupId>pl.zankowski</groupId>
 	<artifactId>iextrading4j-all</artifactId>
-	<version>1.0.2</version>
+	<version>1.1.0</version>
 </dependency>
 ```
 
-Library is up to IEX Trading API version [1.0] - 28.02.2017 
+Library is up to IEX Trading API version [1.0] - 19.04.2017 
 
 ## IEX Trading
 
@@ -331,6 +332,27 @@ Result:
 HistoricalDailyStats{date=2017-03-10, volume=149135019, routedVolume=42123427, marketShare=0.021629999999999996, isHalfday=false, litVolume=39719692}
 ...
 HistoricalDailyStats{date=2017-02-22, volume=137030945, routedVolume=38173711, marketShare=0.02086, isHalfday=false, litVolume=34027926}
+```
+### RefData Endpoint
+
+#### Symbols
+
+* ``` /ref-data/symbols ```
+
+Code example:
+
+```java
+IEXTradingClient iexTradingClient = IEXTradingClient.create();
+ExchangeSymbol[] exchangeSymbols = iexTradingClient.getRefDataEndpoint().requestExchangeSymbols();
+Arrays.stream(exchangeSymbols).forEach(System.out::println);
+```
+
+Result:
+
+```
+ExchangeSymbol{symbol='MDYV', name='SPDR S&P 400 MID CAP VALUE E', date=2017-04-21, isEnabled=true}
+...
+ExchangeSymbol{symbol='MEMP', name='MEMORIAL PRODUCTION PARTNERS', date=2017-04-21, isEnabled=true}
 ```
 
 ## Real-time data
