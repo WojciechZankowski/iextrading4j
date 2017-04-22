@@ -21,3 +21,4 @@ All notable changes to this project will be documented in this file.
 
 
 [1.0.2]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_1_0_1...IT4J_RELEASE_1_0_2
+[1.1.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_1_0_2...IT4J_RELEASE_1_1_0
