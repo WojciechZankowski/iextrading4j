@@ -116,7 +116,7 @@ public class IOSocketImpl implements WebSocket {
 
     @Override
     public void disconnect() {
-        requestSockets.entrySet().forEach((entry) -> entry.getValue().disconnect());
+        requestSockets.entrySet().forEach(entry -> entry.getValue().disconnect());
     }
 
 }

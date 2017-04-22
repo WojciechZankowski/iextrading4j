@@ -49,7 +49,7 @@ public class IOSocketFactory {
 
     private Socket initLastTradeSocket() throws URISyntaxException {
         Socket socket = ioSocketWrapper.socket(String.join(PATH_DELIMITER, WEB_SOCKET_URL, LAST_PATH));
-        socket.on(MESSAGE_EVENT, (args) -> {
+        socket.on(MESSAGE_EVENT, args -> {
             for (Object arg : args) {
                 notifyListenerOnLastTrade((JSONObject) arg);
             }
@@ -59,7 +59,7 @@ public class IOSocketFactory {
 
     private Socket initTOPSSocket() throws URISyntaxException {
         Socket socket = ioSocketWrapper.socket(String.join(PATH_DELIMITER, WEB_SOCKET_URL, TOPS_PATH));
-        socket.on(MESSAGE_EVENT, (args) -> {
+        socket.on(MESSAGE_EVENT, args -> {
             for (Object arg : args) {
                 notifyListenerOnTOPS((JSONObject) arg);
             }
@@ -69,7 +69,7 @@ public class IOSocketFactory {
 
     private Socket initMarketSocket() throws URISyntaxException {
         Socket socket = ioSocketWrapper.socket(String.join(PATH_DELIMITER, WEB_SOCKET_URL, MARKET_PATH));
-        socket.on(MESSAGE_EVENT, (args) -> {
+        socket.on(MESSAGE_EVENT, args -> {
             for (Object arg : args) {
                 notifyListenerOnMarketVolume((JSONArray) arg);
             }
