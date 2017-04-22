@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2017-04-21
+
+### Added
+
+- Support to RefData/Symbols API Endpoint
+
 ## [1.0.2] - 2017-03-21
 
 ### Added
