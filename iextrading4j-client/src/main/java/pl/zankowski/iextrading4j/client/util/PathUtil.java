@@ -7,6 +7,8 @@ import javax.ws.rs.client.WebTarget;
  */
 public class PathUtil {
 
+    private PathUtil() {}
+
     public static WebTarget appendQuery(WebTarget webTarget, String param, String value) {
         return webTarget.queryParam(param, value);
     }

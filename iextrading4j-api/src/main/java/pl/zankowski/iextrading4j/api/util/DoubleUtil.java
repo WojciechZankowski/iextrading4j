@@ -9,6 +9,8 @@ import java.util.Locale;
  */
 public class DoubleUtil {
 
+    private DoubleUtil() {}
+
     private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
 
     static {
