@@ -18,6 +18,8 @@ public class TOPSDataBuilder {
     private int lastSaleSize = 100;
     private long lastSaleTime = 1489435198942L;
     private long lastUpdated = 1489435200006L;
+    private String sector = "pharmaceuticalsbiotechnology";
+    private String securityType = "commonstock";
 
     public static TOPS defaultTOPS() {
         return aTOPSDataBuilder().build();
@@ -82,9 +84,19 @@ public class TOPSDataBuilder {
         return this;
     }
 
+    public TOPSDataBuilder withSector(String sector) {
+        this.sector = sector;
+        return this;
+    }
+
+    public TOPSDataBuilder withSecurityType(String securityType) {
+        this.securityType = securityType;
+        return this;
+    }
+
     public TOPS build() {
         return new TOPS(symbol, marketPercent, bidSize, bidPrice, askSize, askPrice, volume, lastSalePrice,
-                lastSaleSize, lastSaleTime, lastUpdated);
+                lastSaleSize, lastSaleTime, lastUpdated, sector, securityType);
     }
 
 }

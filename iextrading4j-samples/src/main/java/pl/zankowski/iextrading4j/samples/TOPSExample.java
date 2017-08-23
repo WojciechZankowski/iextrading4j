@@ -4,6 +4,7 @@ import pl.zankowski.iextrading4j.api.filter.RequestFilter;
 import pl.zankowski.iextrading4j.api.tops.LastTrade;
 import pl.zankowski.iextrading4j.api.tops.TOPS;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
+import pl.zankowski.iextrading4j.client.endpoint.marketdata.tops.request.TOPSRequest;
 
 import java.util.Arrays;
 
@@ -12,77 +13,99 @@ import java.util.Arrays;
  */
 public class TOPSExample {
 
+    private final IEXTradingClient iexTradingClient = IEXTradingClient.create();
+
     public static void main(String[] args) {
-        IEXTradingClient iexTradingClient = IEXTradingClient.create();
+        TOPSExample topsExample = new TOPSExample();
 
-        requestAllTOPS(iexTradingClient);
-        requestColumnFilteredAllTOPS(iexTradingClient);
+//        topsExample.requestAllTOPS();
+//        topsExample.requestColumnFilteredAllTOPS();
+//
+//        topsExample.requestSymbolFilteredTOPS();
+//        topsExample.requestSymbolAndColumnFilteredTOPS();
 
-        requestSymbolFilteredTOPS(iexTradingClient);
-        requestSymbolAndColumnFilteredTOPS(iexTradingClient);
+        topsExample.requestAllLastTrades();
+        topsExample.requestColumnFilteredAllLastTrades();
 
-        requestAllLastTrades(iexTradingClient);
-        requestColumnFilteredAllLastTrades(iexTradingClient);
-
-        requestSymbolFilteredLastTrades(iexTradingClient);
-        requestSymbolAndColumnFilteredLastTrades(iexTradingClient);
+        topsExample.requestSymbolFilteredLastTrades();
+        topsExample.requestSymbolAndColumnFilteredLastTrades();
     }
 
-    private static void requestAllTOPS(IEXTradingClient iexTradingClient) {
-        TOPS[] allTOPS = iexTradingClient.getTopsEndpoint().requestTOPS();
+    private void requestAllTOPS() {
+        TOPS[] allTOPS = iexTradingClient.getTopsEndpoint().requestTOPS(TOPSRequest.builder()
+                .withAllSymbols()
+                .build());
         Arrays.stream(allTOPS).forEach(System.out::println);
     }
 
-    private static void requestColumnFilteredAllTOPS(IEXTradingClient iexTradingClient) {
+    private void requestColumnFilteredAllTOPS() {
         RequestFilter requestFilter = RequestFilter.builder()
                 .with("symbol")
                 .with("marketPercent")
                 .with("lastSaleSize")
                 .build();
-        TOPS[] allTOPS = iexTradingClient.getTopsEndpoint().requestTOPS(requestFilter);
+        TOPS[] allTOPS = iexTradingClient.getTopsEndpoint().requestTOPS(TOPSRequest.builder()
+                .withRequestFilter(requestFilter)
+                .withAllSymbols()
+                .build());
         Arrays.stream(allTOPS).forEach(System.out::println);
     }
 
-    private static void requestSymbolFilteredTOPS(IEXTradingClient iexTradingClient) {
-        TOPS[] filteredTOPS = iexTradingClient.getTopsEndpoint().requestTOPS("BCM", "IBM");
+    private void requestSymbolFilteredTOPS() {
+        TOPS[] filteredTOPS = iexTradingClient.getTopsEndpoint().requestTOPS(TOPSRequest.builder()
+                .withSymbols("BCM", "IBM")
+                .build());
         Arrays.stream(filteredTOPS).forEach(System.out::println);
     }
 
-    private static void requestSymbolAndColumnFilteredTOPS(IEXTradingClient iexTradingClient) {
+    private void requestSymbolAndColumnFilteredTOPS() {
         RequestFilter requestFilter = RequestFilter.builder()
                 .with("symbol")
                 .with("marketPercent")
                 .with("lastSaleSize")
                 .build();
-        TOPS[] filteredTOPS = iexTradingClient.getTopsEndpoint().requestTOPS(requestFilter,"BCM", "IBM");
+        TOPS[] filteredTOPS = iexTradingClient.getTopsEndpoint().requestTOPS(TOPSRequest.builder()
+                .withRequestFilter(requestFilter)
+                .withSymbols("BCM", "IBM")
+                .build());
         Arrays.stream(filteredTOPS).forEach(System.out::println);
     }
 
-    private static void requestAllLastTrades(IEXTradingClient iexTradingClient) {
-        LastTrade[] allLastTrades = iexTradingClient.getTopsEndpoint().requestLastTrades();
+    private void requestAllLastTrades() {
+        LastTrade[] allLastTrades = iexTradingClient.getTopsEndpoint().requestLastTrades(TOPSRequest.builder()
+                .withAllSymbols()
+                .build());
         Arrays.stream(allLastTrades).forEach(System.out::println);
     }
 
-    private static void requestColumnFilteredAllLastTrades(IEXTradingClient iexTradingClient) {
+    private void requestColumnFilteredAllLastTrades() {
         RequestFilter requestFilter = RequestFilter.builder()
                 .with("symbol")
                 .with("price")
                 .build();
-        LastTrade[] allLastTrades = iexTradingClient.getTopsEndpoint().requestLastTrades(requestFilter);
+        LastTrade[] allLastTrades = iexTradingClient.getTopsEndpoint().requestLastTrades(TOPSRequest.builder()
+                .withRequestFilter(requestFilter)
+                .withAllSymbols()
+                .build());
         Arrays.stream(allLastTrades).forEach(System.out::println);
     }
 
-    private static void requestSymbolFilteredLastTrades(IEXTradingClient iexTradingClient) {
-        LastTrade[] filteredLastTrades = iexTradingClient.getTopsEndpoint().requestLastTrades("BCM", "IBM");
+    private void requestSymbolFilteredLastTrades() {
+        LastTrade[] filteredLastTrades = iexTradingClient.getTopsEndpoint().requestLastTrades(TOPSRequest.builder()
+                .withSymbols("BCM", "IBM")
+                .build());
         Arrays.stream(filteredLastTrades).forEach(System.out::println);
     }
 
-    private static void requestSymbolAndColumnFilteredLastTrades(IEXTradingClient iexTradingClient) {
+    private void requestSymbolAndColumnFilteredLastTrades() {
         RequestFilter requestFilter = RequestFilter.builder()
                 .with("symbol")
                 .with("price")
                 .build();
-        LastTrade[] filteredLastTrades = iexTradingClient.getTopsEndpoint().requestLastTrades(requestFilter,"BCM", "IBM");
+        LastTrade[] filteredLastTrades = iexTradingClient.getTopsEndpoint().requestLastTrades(TOPSRequest.builder()
+                .withRequestFilter(requestFilter)
+                .withSymbols("BCM", "IBM")
+                .build());
         Arrays.stream(filteredLastTrades).forEach(System.out::println);
     }
 

@@ -1,7 +1,8 @@
-package pl.zankowski.iextrading4j.client.endpoint.tops;
+package pl.zankowski.iextrading4j.client.endpoint.marketdata.tops;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.contains;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -17,6 +18,7 @@ import pl.zankowski.iextrading4j.api.filter.RequestFilter;
 import pl.zankowski.iextrading4j.api.tops.LastTrade;
 import pl.zankowski.iextrading4j.api.tops.TOPS;
 import pl.zankowski.iextrading4j.client.endpoint.EndpointTestBase;
+import pl.zankowski.iextrading4j.client.endpoint.marketdata.tops.request.TOPSRequest;
 
 /**
  * @author Wojciech Zankowski
@@ -31,7 +33,7 @@ public class TOPSEndpointImplTest extends EndpointTestBase {
         when(builderMock.get(TOPS[].class)).thenReturn(expectedTOPS);
 
         TOPSEndpoint topsEndpoint = new TOPSEndpointImpl(clientMock, API_PATH);
-        TOPS[] actualTOPS = topsEndpoint.requestTOPS();
+        TOPS[] actualTOPS = topsEndpoint.requestTOPS(TOPSRequest.builder().withAllSymbols().build());
 
         assertThat(actualTOPS).isEqualTo(expectedTOPS);
         verifyCorrectPaths(TOPSEndpointImpl.TOPS_PATH);
@@ -46,7 +48,7 @@ public class TOPSEndpointImplTest extends EndpointTestBase {
         when(builderMock.get(TOPS[].class)).thenReturn(expectedTOPS);
 
         TOPSEndpoint topsEndpoint = new TOPSEndpointImpl(clientMock, API_PATH);
-        TOPS[] actualTOPS = topsEndpoint.requestTOPS(requestFilter);
+        TOPS[] actualTOPS = topsEndpoint.requestTOPS(TOPSRequest.builder().withRequestFilter(requestFilter).build());
 
         assertThat(actualTOPS).isEqualTo(expectedTOPS);
         verifyCorrectPaths(TOPSEndpointImpl.TOPS_PATH);
@@ -60,7 +62,7 @@ public class TOPSEndpointImplTest extends EndpointTestBase {
         when(builderMock.get(TOPS[].class)).thenReturn(expectedTOPS);
 
         TOPSEndpoint topsEndpoint = new TOPSEndpointImpl(clientMock, API_PATH);
-        TOPS[] actualTOPS = topsEndpoint.requestTOPS(IBM_STOCK);
+        TOPS[] actualTOPS = topsEndpoint.requestTOPS(TOPSRequest.builder().withSymbol(IBM_STOCK).build());
 
         assertThat(actualTOPS).isEqualTo(expectedTOPS);
         verifyCorrectPaths(TOPSEndpointImpl.TOPS_PATH);
@@ -75,11 +77,10 @@ public class TOPSEndpointImplTest extends EndpointTestBase {
         when(builderMock.get(TOPS[].class)).thenReturn(expectedTOPS);
 
         TOPSEndpoint topsEndpoint = new TOPSEndpointImpl(clientMock, API_PATH);
-        TOPS[] actualTOPS = topsEndpoint.requestTOPS(IBM_STOCK, MSFT_STOCK);
+        TOPS[] actualTOPS = topsEndpoint.requestTOPS(TOPSRequest.builder().withSymbols(IBM_STOCK, MSFT_STOCK).build());
 
         assertThat(actualTOPS).isEqualTo(expectedTOPS);
         verifyCorrectPaths(TOPSEndpointImpl.TOPS_PATH);
-        verify(webTargetMock).queryParam(eq(TOPSEndpointImpl.SYMBOL_QUERY_PARAM), eq(String.join(TOPSEndpointImpl.SYMBOL_DELIMITER, IBM_STOCK, MSFT_STOCK)));
     }
 
     @Test
@@ -88,7 +89,7 @@ public class TOPSEndpointImplTest extends EndpointTestBase {
         when(builderMock.get(LastTrade[].class)).thenReturn(expectedLastTrade);
 
         TOPSEndpoint topsEndpoint = new TOPSEndpointImpl(clientMock, API_PATH);
-        LastTrade[] actualLastTrade = topsEndpoint.requestLastTrades();
+        LastTrade[] actualLastTrade = topsEndpoint.requestLastTrades(TOPSRequest.builder().build());
 
         assertThat(actualLastTrade).isEqualTo(expectedLastTrade);
         verifyCorrectPaths(TOPSEndpointImpl.TOPS_PATH, TOPSEndpointImpl.LAST_TRADE_PATH);
@@ -103,7 +104,7 @@ public class TOPSEndpointImplTest extends EndpointTestBase {
         when(builderMock.get(LastTrade[].class)).thenReturn(expectedLastTrade);
 
         TOPSEndpoint topsEndpoint = new TOPSEndpointImpl(clientMock, API_PATH);
-        LastTrade[] actualLastTrade = topsEndpoint.requestLastTrades(requestFilter);
+        LastTrade[] actualLastTrade = topsEndpoint.requestLastTrades(TOPSRequest.builder().withRequestFilter(requestFilter).build());
 
         assertThat(actualLastTrade).isEqualTo(expectedLastTrade);
         verifyCorrectPaths(TOPSEndpointImpl.TOPS_PATH, TOPSEndpointImpl.LAST_TRADE_PATH);
@@ -117,7 +118,7 @@ public class TOPSEndpointImplTest extends EndpointTestBase {
         when(builderMock.get(LastTrade[].class)).thenReturn(expectedLastTrade);
 
         TOPSEndpoint topsEndpoint = new TOPSEndpointImpl(clientMock, API_PATH);
-        LastTrade[] actualLastTrade = topsEndpoint.requestLastTrades(IBM_STOCK);
+        LastTrade[] actualLastTrade = topsEndpoint.requestLastTrades(TOPSRequest.builder().withSymbol(IBM_STOCK).build());
 
         assertThat(actualLastTrade).isEqualTo(expectedLastTrade);
         verifyCorrectPaths(TOPSEndpointImpl.TOPS_PATH, TOPSEndpointImpl.LAST_TRADE_PATH);
@@ -132,12 +133,11 @@ public class TOPSEndpointImplTest extends EndpointTestBase {
         when(builderMock.get(LastTrade[].class)).thenReturn(expectedLastTrade);
 
         TOPSEndpoint topsEndpoint = new TOPSEndpointImpl(clientMock, API_PATH);
-        LastTrade[] actualLastTrade = topsEndpoint.requestLastTrades(IBM_STOCK, MSFT_STOCK);
+        LastTrade[] actualLastTrade = topsEndpoint.requestLastTrades(TOPSRequest.builder().withSymbols(IBM_STOCK, MSFT_STOCK).build());
 
         assertThat(actualLastTrade).isEqualTo(expectedLastTrade);
         verifyCorrectPaths(TOPSEndpointImpl.TOPS_PATH, TOPSEndpointImpl.LAST_TRADE_PATH);
         verify(webTargetMock, times(1)).queryParam(any(), any());
-        verify(webTargetMock).queryParam(eq(TOPSEndpointImpl.SYMBOL_QUERY_PARAM), eq(String.join(TOPSEndpointImpl.SYMBOL_DELIMITER, IBM_STOCK, MSFT_STOCK)));
     }
 
 }

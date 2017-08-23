@@ -11,23 +11,6 @@ import static pl.zankowski.iextrading4j.api.tops.builder.TOPSDataBuilder.default
 public class TOPSTest {
 
     @Test
-    public void shouldSuccessfullyCreateEmptyTOPS() {
-        TOPS tops = new TOPS();
-
-        assertThat(tops.getSymbol()).isNull();
-        assertThat(tops.getMarketPercent()).isEqualTo(0d);
-        assertThat(tops.getBidSize()).isEqualTo(0);
-        assertThat(tops.getBidPrice()).isEqualTo(0d);
-        assertThat(tops.getAskSize()).isEqualTo(0);
-        assertThat(tops.getAskPrice()).isEqualTo(0d);
-        assertThat(tops.getVolume()).isEqualTo(0L);
-        assertThat(tops.getLastSalePrice()).isEqualTo(0d);
-        assertThat(tops.getLastSaleSize()).isEqualTo(0);
-        assertThat(tops.getLastSaleTime()).isEqualTo(0L);
-        assertThat(tops.getLastUpdated()).isEqualTo(0L);
-    }
-
-    @Test
     public void shouldSuccessfullyCreateTOPS() {
         final String symbol = "IBM";
         final double marketPercent = 0.0179;
@@ -40,40 +23,11 @@ public class TOPSTest {
         final int lastSaleSize = 100;
         final long lastSaleTime = 1489435198942L;
         final long lastUpdated = 1489435200006L;
+        final String sector = "pharmaceuticalsbiotechnology";
+        final String securityType = "commonstock";
 
         TOPS tops = new TOPS(symbol, marketPercent, bidSize, bidPrice, askSize, askPrice, volume, lastSalePrice,
-                lastSaleSize, lastSaleTime, lastUpdated);
-
-        assertTOPS(tops, symbol, marketPercent, bidSize, bidPrice, askSize, askPrice, volume, lastSalePrice,
-                lastSaleSize, lastSaleTime, lastUpdated);
-    }
-
-    @Test
-    public void shouldSuccessfullySetValuesIntoEmptyTOPS() {
-        final String symbol = "IBM";
-        final double marketPercent = 0.0179;
-        final int bidSize = 0;
-        final double bidPrice = 0.0;
-        final int askSize = 0;
-        final double askPrice = 0.0;
-        final long volume = 62344;
-        final double lastSalePrice = 176.45;
-        final int lastSaleSize = 100;
-        final long lastSaleTime = 1489435198942L;
-        final long lastUpdated = 1489435200006L;
-
-        TOPS tops = new TOPS();
-        tops.setSymbol(symbol);
-        tops.setMarketPercent(marketPercent);
-        tops.setBidSize(bidSize);
-        tops.setBidPrice(bidPrice);
-        tops.setAskSize(askSize);
-        tops.setAskPrice(askPrice);
-        tops.setVolume(volume);
-        tops.setLastSalePrice(lastSalePrice);
-        tops.setLastSaleSize(lastSaleSize);
-        tops.setLastSaleTime(lastSaleTime);
-        tops.setLastUpdated(lastUpdated);
+                lastSaleSize, lastSaleTime, lastUpdated, sector, securityType);
 
         assertTOPS(tops, symbol, marketPercent, bidSize, bidPrice, askSize, askPrice, volume, lastSalePrice,
                 lastSaleSize, lastSaleTime, lastUpdated);

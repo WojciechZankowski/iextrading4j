@@ -2,14 +2,14 @@ package pl.zankowski.iextrading4j.client;
 
 import pl.zankowski.iextrading4j.client.endpoint.market.MarketEndpoint;
 import pl.zankowski.iextrading4j.client.endpoint.market.MarketEndpointImpl;
+import pl.zankowski.iextrading4j.client.endpoint.marketdata.tops.TOPSEndpoint;
+import pl.zankowski.iextrading4j.client.endpoint.marketdata.tops.TOPSEndpointImpl;
 import pl.zankowski.iextrading4j.client.endpoint.refdata.RefDataEndpoint;
 import pl.zankowski.iextrading4j.client.endpoint.refdata.RefDataEndpointImpl;
 import pl.zankowski.iextrading4j.client.endpoint.stats.StatsEndpoint;
 import pl.zankowski.iextrading4j.client.endpoint.stats.StatsEndpointImpl;
 import pl.zankowski.iextrading4j.client.endpoint.stocks.StocksEndpoint;
 import pl.zankowski.iextrading4j.client.endpoint.stocks.StocksEndpointImpl;
-import pl.zankowski.iextrading4j.client.endpoint.tops.TOPSEndpoint;
-import pl.zankowski.iextrading4j.client.endpoint.tops.TOPSEndpointImpl;
 import pl.zankowski.iextrading4j.client.socket.IOSocketImpl;
 import pl.zankowski.iextrading4j.client.socket.IOSocketWrapper;
 import pl.zankowski.iextrading4j.client.socket.WebSocket;

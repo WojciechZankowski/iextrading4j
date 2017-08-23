@@ -1,14 +1,16 @@
-package pl.zankowski.iextrading4j.client.endpoint.tops;
+package pl.zankowski.iextrading4j.client.endpoint.marketdata.tops;
 
 import pl.zankowski.iextrading4j.api.filter.RequestFilter;
 import pl.zankowski.iextrading4j.api.tops.LastTrade;
 import pl.zankowski.iextrading4j.api.tops.TOPS;
+import pl.zankowski.iextrading4j.client.endpoint.marketdata.tops.request.TOPSRequest;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriBuilder;
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static pl.zankowski.iextrading4j.api.filter.RequestFilter.FILTER_QUERY_NAME;
@@ -35,36 +37,26 @@ public class TOPSEndpointImpl implements TOPSEndpoint {
     }
 
     @Override
-    public TOPS[] requestTOPS(final String... symbols) {
+    public TOPS[] requestTOPS(final TOPSRequest topsRequest) {
         WebTarget webTarget = restClient.target(baseApiUrl);
         webTarget = appendPaths(webTarget, TOPS_PATH);
-        webTarget = appendSymbolQuery(webTarget, symbols);
+        webTarget = appendSymbolQuery(webTarget, topsRequest.getSymbols());
+        Optional<RequestFilter> requestFilterOptional = topsRequest.getRequestFilter();
+        if (requestFilterOptional.isPresent()) {
+            webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilterOptional.get().getColumnList());
+        }
         return webTarget.request(MediaType.APPLICATION_JSON).get(TOPS[].class);
     }
 
     @Override
-    public TOPS[] requestTOPS(final RequestFilter requestFilter, final String... symbols) {
-        WebTarget webTarget = restClient.target(baseApiUrl);
-        webTarget = appendPaths(webTarget, TOPS_PATH);
-        webTarget = appendSymbolQuery(webTarget, symbols);
-        webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilter.getColumnList());
-        return webTarget.request(MediaType.APPLICATION_JSON).get(TOPS[].class);
-    }
-
-    @Override
-    public LastTrade[] requestLastTrades(final String... symbols) {
+    public LastTrade[] requestLastTrades(final TOPSRequest topsRequest) {
         WebTarget webTarget = restClient.target(baseApiUrl);
         webTarget = appendPaths(webTarget, TOPS_PATH, LAST_TRADE_PATH);
-        webTarget = appendSymbolQuery(webTarget, symbols);
-        return webTarget.request(MediaType.APPLICATION_JSON).get(LastTrade[].class);
-    }
-
-    @Override
-    public LastTrade[] requestLastTrades(final RequestFilter requestFilter, final String... symbols) {
-        WebTarget webTarget = restClient.target(baseApiUrl);
-        webTarget = appendPaths(webTarget, TOPS_PATH, LAST_TRADE_PATH);
-        webTarget = appendSymbolQuery(webTarget, symbols);
-        webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilter.getColumnList());
+        webTarget = appendSymbolQuery(webTarget, topsRequest.getSymbols());
+        Optional<RequestFilter> requestFilterOptional = topsRequest.getRequestFilter();
+        if (requestFilterOptional.isPresent()) {
+            webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilterOptional.get().getColumnList());
+        }
         return webTarget.request(MediaType.APPLICATION_JSON).get(LastTrade[].class);
     }
 

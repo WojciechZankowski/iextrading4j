@@ -1,5 +1,7 @@
 package pl.zankowski.iextrading4j.api.tops;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import pl.zankowski.iextrading4j.api.util.DoubleUtil;
 
 /**
@@ -7,15 +9,16 @@ import pl.zankowski.iextrading4j.api.util.DoubleUtil;
  */
 public class LastTrade {
 
-    private String symbol;
-    private double price;
-    private int size;
-    private long time;
+    private final String symbol;
+    private final double price;
+    private final int size;
+    private final long time;
 
-    public LastTrade() {
-    }
-
-    public LastTrade(String symbol, double price, int size, long time) {
+    @JsonCreator
+    public LastTrade(@JsonProperty("symbol") String symbol,
+                     @JsonProperty("price") double price,
+                     @JsonProperty("size") int size,
+                     @JsonProperty("time") long time) {
         this.symbol = symbol;
         this.price = price;
         this.size = size;
@@ -26,32 +29,16 @@ public class LastTrade {
         return symbol;
     }
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
-
     public double getPrice() {
         return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public int getSize() {
         return size;
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-
     public long getTime() {
         return time;
-    }
-
-    public void setTime(long time) {
-        this.time = time;
     }
 
     @Override

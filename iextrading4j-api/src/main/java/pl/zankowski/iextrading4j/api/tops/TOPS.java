@@ -1,28 +1,41 @@
 package pl.zankowski.iextrading4j.api.tops;
 
-import pl.zankowski.iextrading4j.api.util.DoubleUtil;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author Wojciech Zankowski
  */
 public class TOPS {
 
-    private String symbol;
-    private double marketPercent;
-    private int bidSize;
-    private double bidPrice;
-    private int askSize;
-    private double askPrice;
-    private long volume;
-    private double lastSalePrice;
-    private int lastSaleSize;
-    private long lastSaleTime;
-    private long lastUpdated;
+    private final String symbol;
+    private final double marketPercent;
+    private final int bidSize;
+    private final double bidPrice;
+    private final int askSize;
+    private final double askPrice;
+    private final long volume;
+    private final double lastSalePrice;
+    private final int lastSaleSize;
+    private final long lastSaleTime;
+    private final long lastUpdated;
+    private final String sector;
+    private final String securityType;
 
-    public TOPS() {}
-
-    public TOPS(String symbol, double marketPercent, int bidSize, double bidPrice, int askSize, double askPrice,
-                long volume, double lastSalePrice, int lastSaleSize, long lastSaleTime, long lastUpdated) {
+    @JsonCreator
+    public TOPS(@JsonProperty("symbol") String symbol,
+                @JsonProperty("marketPercent") double marketPercent,
+                @JsonProperty("bidSize") int bidSize,
+                @JsonProperty("bidPrice") double bidPrice,
+                @JsonProperty("askSize") int askSize,
+                @JsonProperty("askPrice") double askPrice,
+                @JsonProperty("volume") long volume,
+                @JsonProperty("lastSalePrice") double lastSalePrice,
+                @JsonProperty("lastSaleSize") int lastSaleSize,
+                @JsonProperty("lastSaleTime") long lastSaleTime,
+                @JsonProperty("lastUpdated") long lastUpdated,
+                @JsonProperty("sector") String sector,
+                @JsonProperty("securityType") String securityType) {
         this.symbol = symbol;
         this.marketPercent = marketPercent;
         this.bidSize = bidSize;
@@ -34,94 +47,60 @@ public class TOPS {
         this.lastSaleSize = lastSaleSize;
         this.lastSaleTime = lastSaleTime;
         this.lastUpdated = lastUpdated;
+        this.sector = sector;
+        this.securityType = securityType;
     }
 
     public String getSymbol() {
         return symbol;
     }
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
-
     public double getMarketPercent() {
         return marketPercent;
-    }
-
-    public void setMarketPercent(double marketPercent) {
-        this.marketPercent = marketPercent;
     }
 
     public int getBidSize() {
         return bidSize;
     }
 
-    public void setBidSize(int bidSize) {
-        this.bidSize = bidSize;
-    }
-
     public double getBidPrice() {
         return bidPrice;
-    }
-
-    public void setBidPrice(double bidPrice) {
-        this.bidPrice = bidPrice;
     }
 
     public int getAskSize() {
         return askSize;
     }
 
-    public void setAskSize(int askSize) {
-        this.askSize = askSize;
-    }
-
     public double getAskPrice() {
         return askPrice;
-    }
-
-    public void setAskPrice(double askPrice) {
-        this.askPrice = askPrice;
     }
 
     public long getVolume() {
         return volume;
     }
 
-    public void setVolume(long volume) {
-        this.volume = volume;
-    }
-
     public double getLastSalePrice() {
         return lastSalePrice;
-    }
-
-    public void setLastSalePrice(double lastSalePrice) {
-        this.lastSalePrice = lastSalePrice;
     }
 
     public int getLastSaleSize() {
         return lastSaleSize;
     }
 
-    public void setLastSaleSize(int lastSaleSize) {
-        this.lastSaleSize = lastSaleSize;
-    }
-
     public long getLastSaleTime() {
         return lastSaleTime;
-    }
-
-    public void setLastSaleTime(long lastSaleTime) {
-        this.lastSaleTime = lastSaleTime;
     }
 
     public long getLastUpdated() {
         return lastUpdated;
     }
 
-    public void setLastUpdated(long lastUpdated) {
-        this.lastUpdated = lastUpdated;
+    public String getSector() {
+        return sector;
+    }
+
+    public String getSecurityType() {
+        return securityType;
     }
 
     @Override
@@ -141,7 +120,10 @@ public class TOPS {
         if (lastSaleSize != tops.lastSaleSize) return false;
         if (lastSaleTime != tops.lastSaleTime) return false;
         if (lastUpdated != tops.lastUpdated) return false;
-        return symbol != null ? symbol.equals(tops.symbol) : tops.symbol == null;
+        if (symbol != null ? !symbol.equals(tops.symbol) : tops.symbol != null) return false;
+        if (sector != null ? !sector.equals(tops.sector) : tops.sector != null) return false;
+        return securityType != null ? securityType.equals(tops.securityType) : tops.securityType == null;
+
     }
 
     @Override
@@ -163,6 +145,8 @@ public class TOPS {
         result = 31 * result + lastSaleSize;
         result = 31 * result + (int) (lastSaleTime ^ (lastSaleTime >>> 32));
         result = 31 * result + (int) (lastUpdated ^ (lastUpdated >>> 32));
+        result = 31 * result + (sector != null ? sector.hashCode() : 0);
+        result = 31 * result + (securityType != null ? securityType.hashCode() : 0);
         return result;
     }
 
@@ -170,16 +154,19 @@ public class TOPS {
     public String toString() {
         return "TOPS{" +
                 "symbol='" + symbol + '\'' +
-                ", marketPercent=" + DoubleUtil.printDouble(marketPercent) +
+                ", marketPercent=" + marketPercent +
                 ", bidSize=" + bidSize +
-                ", bidPrice=" + DoubleUtil.printDouble(bidPrice) +
+                ", bidPrice=" + bidPrice +
                 ", askSize=" + askSize +
-                ", askPrice=" + DoubleUtil.printDouble(askPrice) +
+                ", askPrice=" + askPrice +
                 ", volume=" + volume +
-                ", lastSalePrice=" + DoubleUtil.printDouble(lastSalePrice) +
+                ", lastSalePrice=" + lastSalePrice +
                 ", lastSaleSize=" + lastSaleSize +
                 ", lastSaleTime=" + lastSaleTime +
                 ", lastUpdated=" + lastUpdated +
+                ", sector='" + sector + '\'' +
+                ", securityType='" + securityType + '\'' +
                 '}';
     }
+
 }
