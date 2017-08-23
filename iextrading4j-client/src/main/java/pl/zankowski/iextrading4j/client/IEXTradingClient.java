@@ -6,6 +6,8 @@ import pl.zankowski.iextrading4j.client.endpoint.refdata.RefDataEndpoint;
 import pl.zankowski.iextrading4j.client.endpoint.refdata.RefDataEndpointImpl;
 import pl.zankowski.iextrading4j.client.endpoint.stats.StatsEndpoint;
 import pl.zankowski.iextrading4j.client.endpoint.stats.StatsEndpointImpl;
+import pl.zankowski.iextrading4j.client.endpoint.stocks.StocksEndpoint;
+import pl.zankowski.iextrading4j.client.endpoint.stocks.StocksEndpointImpl;
 import pl.zankowski.iextrading4j.client.endpoint.tops.TOPSEndpoint;
 import pl.zankowski.iextrading4j.client.endpoint.tops.TOPSEndpointImpl;
 import pl.zankowski.iextrading4j.client.socket.IOSocketImpl;
@@ -25,6 +27,7 @@ public class IEXTradingClient {
 
     public static final UriBuilder API_BASE_URL_V1 = UriBuilder.fromPath("https://api.iextrading.com/1.0");
 
+    private final StocksEndpoint stocksEndpoint;
     private final TOPSEndpoint topsEndpoint;
     private final StatsEndpoint statsEndpoint;
     private final MarketEndpoint marketEndpoint;
@@ -39,6 +42,7 @@ public class IEXTradingClient {
     }
 
     private IEXTradingClient(DataReceiver dataReceiver) {
+        stocksEndpoint = new StocksEndpointImpl(getRESTClient(), getBaseApiUrl());
         topsEndpoint = new TOPSEndpointImpl(getRESTClient(), getBaseApiUrl());
         statsEndpoint = new StatsEndpointImpl(getRESTClient(), getBaseApiUrl());
         marketEndpoint = new MarketEndpointImpl(getRESTClient(), getBaseApiUrl());
@@ -64,6 +68,10 @@ public class IEXTradingClient {
 
     protected UriBuilder getBaseApiUrl() {
         return API_BASE_URL_V1;
+    }
+
+    public StocksEndpoint getStocksEndpoint() {
+        return stocksEndpoint;
     }
 
     public TOPSEndpoint getTopsEndpoint() {

@@ -1,0 +1,334 @@
+package pl.zankowski.iextrading4j.api.stocks;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+/**
+ * @author Wojciech Zankowski
+ */
+public class Quote {
+
+    private final String symbol;
+    private final String companyName;
+    private final String primaryExchange;
+    private final String sector;
+    private final String calculationPrice;
+    private final double latestPrice;
+    private final String latestSource;
+    private final String latestTime;
+    private final long latestVolume;
+    private final double iexRealtimePrice;
+    private final long iexRealtimeSize;
+    private final long iexLastUpdated;
+    private final double delayedPrice;
+    private final long delayedPriceTime;
+    private final double previousClose;
+    private final double change;
+    private final double changePercent;
+    private final double iexMarketPercent;
+    private final long iexVolume;
+    private final double avgTotalVolume;
+    private final double iexBidPrice;
+    private final long iexBidSize;
+    private final double iexAskPrice;
+    private final long iexAskSize;
+    private final double marketCap;
+    private final double peRatio;
+    private final double week52High;
+    private final double week52Low;
+
+    @JsonCreator
+    public Quote(@JsonProperty("symbol") String symbol,
+                 @JsonProperty("companyName") String companyName,
+                 @JsonProperty("primaryExchange") String primaryExchange,
+                 @JsonProperty("secotr") String sector,
+                 @JsonProperty("calculationPrice") String calculationPrice,
+                 @JsonProperty("latestPrice") double latestPrice,
+                 @JsonProperty("latestSource") String latestSource,
+                 @JsonProperty("latestTime") String latestTime,
+                 @JsonProperty("latestVolume") long latestVolume,
+                 @JsonProperty("iexRealtimePrice") double iexRealtimePrice,
+                 @JsonProperty("iexRealtimeSize") long iexRealtimeSize,
+                 @JsonProperty("iexLastUpdated") long iexLastUpdated,
+                 @JsonProperty("delayedPrice") double delayedPrice,
+                 @JsonProperty("delayedPriceTime") long delayedPriceTime,
+                 @JsonProperty("previousClose") double previousClose,
+                 @JsonProperty("change") double change,
+                 @JsonProperty("changePercent") double changePercent,
+                 @JsonProperty("iexMarketPercent") double iexMarketPercent,
+                 @JsonProperty("iexVolume") long iexVolume,
+                 @JsonProperty("avgTotalVolume") double avgTotalVolume,
+                 @JsonProperty("iexBidPrice") double iexBidPrice,
+                 @JsonProperty("iexBidSize") long iexBidSize,
+                 @JsonProperty("iexAskPrice") double iexAskPrice,
+                 @JsonProperty("iexAskSize") long iexAskSize,
+                 @JsonProperty("marketCap") double marketCap,
+                 @JsonProperty("peRatio") double peRatio,
+                 @JsonProperty("week52High") double week52High,
+                 @JsonProperty("week52Low") double week52Low) {
+        this.symbol = symbol;
+        this.companyName = companyName;
+        this.primaryExchange = primaryExchange;
+        this.sector = sector;
+        this.calculationPrice = calculationPrice;
+        this.latestPrice = latestPrice;
+        this.latestSource = latestSource;
+        this.latestTime = latestTime;
+        this.latestVolume = latestVolume;
+        this.iexRealtimePrice = iexRealtimePrice;
+        this.iexRealtimeSize = iexRealtimeSize;
+        this.iexLastUpdated = iexLastUpdated;
+        this.delayedPrice = delayedPrice;
+        this.delayedPriceTime = delayedPriceTime;
+        this.previousClose = previousClose;
+        this.change = change;
+        this.changePercent = changePercent;
+        this.iexMarketPercent = iexMarketPercent;
+        this.iexVolume = iexVolume;
+        this.avgTotalVolume = avgTotalVolume;
+        this.iexBidPrice = iexBidPrice;
+        this.iexBidSize = iexBidSize;
+        this.iexAskPrice = iexAskPrice;
+        this.iexAskSize = iexAskSize;
+        this.marketCap = marketCap;
+        this.peRatio = peRatio;
+        this.week52High = week52High;
+        this.week52Low = week52Low;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public String getPrimaryExchange() {
+        return primaryExchange;
+    }
+
+    public String getSector() {
+        return sector;
+    }
+
+    public String getCalculationPrice() {
+        return calculationPrice;
+    }
+
+    public double getLatestPrice() {
+        return latestPrice;
+    }
+
+    public String getLatestSource() {
+        return latestSource;
+    }
+
+    public String getLatestTime() {
+        return latestTime;
+    }
+
+    public long getLatestVolume() {
+        return latestVolume;
+    }
+
+    public double getIexRealtimePrice() {
+        return iexRealtimePrice;
+    }
+
+    public long getIexRealtimeSize() {
+        return iexRealtimeSize;
+    }
+
+    public long getIexLastUpdated() {
+        return iexLastUpdated;
+    }
+
+    public double getDelayedPrice() {
+        return delayedPrice;
+    }
+
+    public long getDelayedPriceTime() {
+        return delayedPriceTime;
+    }
+
+    public double getPreviousClose() {
+        return previousClose;
+    }
+
+    public double getChange() {
+        return change;
+    }
+
+    public double getChangePercent() {
+        return changePercent;
+    }
+
+    public double getIexMarketPercent() {
+        return iexMarketPercent;
+    }
+
+    public long getIexVolume() {
+        return iexVolume;
+    }
+
+    public double getAvgTotalVolume() {
+        return avgTotalVolume;
+    }
+
+    public double getIexBidPrice() {
+        return iexBidPrice;
+    }
+
+    public long getIexBidSize() {
+        return iexBidSize;
+    }
+
+    public double getIexAskPrice() {
+        return iexAskPrice;
+    }
+
+    public long getIexAskSize() {
+        return iexAskSize;
+    }
+
+    public double getMarketCap() {
+        return marketCap;
+    }
+
+    public double getPeRatio() {
+        return peRatio;
+    }
+
+    public double getWeek52High() {
+        return week52High;
+    }
+
+    public double getWeek52Low() {
+        return week52Low;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Quote quote = (Quote) o;
+
+        if (Double.compare(quote.latestPrice, latestPrice) != 0) return false;
+        if (latestVolume != quote.latestVolume) return false;
+        if (Double.compare(quote.iexRealtimePrice, iexRealtimePrice) != 0) return false;
+        if (iexRealtimeSize != quote.iexRealtimeSize) return false;
+        if (iexLastUpdated != quote.iexLastUpdated) return false;
+        if (Double.compare(quote.delayedPrice, delayedPrice) != 0) return false;
+        if (delayedPriceTime != quote.delayedPriceTime) return false;
+        if (Double.compare(quote.previousClose, previousClose) != 0) return false;
+        if (Double.compare(quote.change, change) != 0) return false;
+        if (Double.compare(quote.changePercent, changePercent) != 0) return false;
+        if (Double.compare(quote.iexMarketPercent, iexMarketPercent) != 0) return false;
+        if (iexVolume != quote.iexVolume) return false;
+        if (Double.compare(quote.avgTotalVolume, avgTotalVolume) != 0) return false;
+        if (Double.compare(quote.iexBidPrice, iexBidPrice) != 0) return false;
+        if (iexBidSize != quote.iexBidSize) return false;
+        if (Double.compare(quote.iexAskPrice, iexAskPrice) != 0) return false;
+        if (iexAskSize != quote.iexAskSize) return false;
+        if (Double.compare(quote.marketCap, marketCap) != 0) return false;
+        if (Double.compare(quote.peRatio, peRatio) != 0) return false;
+        if (Double.compare(quote.week52High, week52High) != 0) return false;
+        if (Double.compare(quote.week52Low, week52Low) != 0) return false;
+        if (symbol != null ? !symbol.equals(quote.symbol) : quote.symbol != null) return false;
+        if (companyName != null ? !companyName.equals(quote.companyName) : quote.companyName != null) return false;
+        if (primaryExchange != null ? !primaryExchange.equals(quote.primaryExchange) : quote.primaryExchange != null)
+            return false;
+        if (sector != null ? !sector.equals(quote.sector) : quote.sector != null) return false;
+        if (calculationPrice != null ? !calculationPrice.equals(quote.calculationPrice) : quote.calculationPrice != null)
+            return false;
+        if (latestSource != null ? !latestSource.equals(quote.latestSource) : quote.latestSource != null) return false;
+        return latestTime != null ? latestTime.equals(quote.latestTime) : quote.latestTime == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = symbol != null ? symbol.hashCode() : 0;
+        result = 31 * result + (companyName != null ? companyName.hashCode() : 0);
+        result = 31 * result + (primaryExchange != null ? primaryExchange.hashCode() : 0);
+        result = 31 * result + (sector != null ? sector.hashCode() : 0);
+        result = 31 * result + (calculationPrice != null ? calculationPrice.hashCode() : 0);
+        temp = Double.doubleToLongBits(latestPrice);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (latestSource != null ? latestSource.hashCode() : 0);
+        result = 31 * result + (latestTime != null ? latestTime.hashCode() : 0);
+        result = 31 * result + (int) (latestVolume ^ (latestVolume >>> 32));
+        temp = Double.doubleToLongBits(iexRealtimePrice);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (int) (iexRealtimeSize ^ (iexRealtimeSize >>> 32));
+        result = 31 * result + (int) (iexLastUpdated ^ (iexLastUpdated >>> 32));
+        temp = Double.doubleToLongBits(delayedPrice);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (int) (delayedPriceTime ^ (delayedPriceTime >>> 32));
+        temp = Double.doubleToLongBits(previousClose);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(change);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(changePercent);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(iexMarketPercent);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (int) (iexVolume ^ (iexVolume >>> 32));
+        temp = Double.doubleToLongBits(avgTotalVolume);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(iexBidPrice);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (int) (iexBidSize ^ (iexBidSize >>> 32));
+        temp = Double.doubleToLongBits(iexAskPrice);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (int) (iexAskSize ^ (iexAskSize >>> 32));
+        temp = Double.doubleToLongBits(marketCap);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(peRatio);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(week52High);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(week52Low);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Quote{" +
+                "symbol='" + symbol + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", primaryExchange='" + primaryExchange + '\'' +
+                ", sector='" + sector + '\'' +
+                ", calculationPrice='" + calculationPrice + '\'' +
+                ", latestPrice=" + latestPrice +
+                ", latestSource='" + latestSource + '\'' +
+                ", latestTime='" + latestTime + '\'' +
+                ", latestVolume=" + latestVolume +
+                ", iexRealtimePrice=" + iexRealtimePrice +
+                ", iexRealtimeSize=" + iexRealtimeSize +
+                ", iexLastUpdated=" + iexLastUpdated +
+                ", delayedPrice=" + delayedPrice +
+                ", delayedPriceTime=" + delayedPriceTime +
+                ", previousClose=" + previousClose +
+                ", change=" + change +
+                ", changePercent=" + changePercent +
+                ", iexMarketPercent=" + iexMarketPercent +
+                ", iexVolume=" + iexVolume +
+                ", avgTotalVolume=" + avgTotalVolume +
+                ", iexBidPrice=" + iexBidPrice +
+                ", iexBidSize=" + iexBidSize +
+                ", iexAskPrice=" + iexAskPrice +
+                ", iexAskSize=" + iexAskSize +
+                ", marketCap=" + marketCap +
+                ", peRatio=" + peRatio +
+                ", week52High=" + week52High +
+                ", week52Low=" + week52Low +
+                '}';
+    }
+
+}
