@@ -14,14 +14,12 @@
     <dependencies>
         <dependency>
             <groupId>pl.zankowski</groupId>
-            <artifactId>iextrading4j-api</artifactId>
+            <artifactId>iextrading4j-client-rest</artifactId>
         </dependency>
 
         <dependency>
             <groupId>pl.zankowski</groupId>
-            <artifactId>iextrading4j-api</artifactId>
-            <type>test-jar</type>
-            <scope>test</scope>
+            <artifactId>iextrading4j-client-socket</artifactId>
         </dependency>
 
         <dependency>
@@ -42,11 +40,6 @@
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>io.socket</groupId>
-            <artifactId>socket.io-client</artifactId>
         </dependency>
 
         <dependency>

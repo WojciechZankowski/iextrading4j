@@ -39,6 +39,8 @@
         <module>iextrading4j-client</module>
         <module>iextrading4j-samples</module>
         <module>iextrading4j-all</module>
+        <module>iextrading4j-client-rest</module>
+        <module>iextrading4j-client-socket</module>
     </modules>
 
     <properties>
@@ -76,6 +78,18 @@
             <dependency>
                 <groupId>pl.zankowski</groupId>
                 <artifactId>iextrading4j-client</artifactId>
+                <version>1.1.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>pl.zankowski</groupId>
+                <artifactId>iextrading4j-client-rest</artifactId>
+                <version>1.1.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>pl.zankowski</groupId>
+                <artifactId>iextrading4j-client-socket</artifactId>
                 <version>1.1.1-SNAPSHOT</version>
             </dependency>
 

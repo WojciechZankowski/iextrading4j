@@ -29,7 +29,7 @@ public class AsyncSubscriptionExample {
             IEXTradingClient iexTradingClient = IEXTradingClient.create(new DataReceiverImpl());
             iexTradingClient.getWebSocket().connect();
 
-            while(true) {
+            while (true) {
 
                 if (iexTradingClient.getWebSocket().isConnected()) {
                     try {
@@ -40,7 +40,7 @@ public class AsyncSubscriptionExample {
                                 .withAllSymbols()
                                 .build());
                         iexTradingClient.getWebSocket().subscribe(MarketAsyncRequest.builder()
-                                    .build());
+                                .build());
                     } catch (SubscribeException e) {
                         e.printStackTrace();
                     }

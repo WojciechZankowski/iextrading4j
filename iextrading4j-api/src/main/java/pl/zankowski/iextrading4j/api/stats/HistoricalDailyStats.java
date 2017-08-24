@@ -64,25 +64,23 @@ public class HistoricalDailyStats {
 
         HistoricalDailyStats that = (HistoricalDailyStats) o;
 
-        if (volume != that.volume) return false;
-        if (routedVolume != that.routedVolume) return false;
-        if (Double.compare(that.marketShare, marketShare) != 0) return false;
-        if (isHalfday != that.isHalfday) return false;
-        if (litVolume != that.litVolume) return false;
-        return date != null ? date.equals(that.date) : that.date == null;
+        if (date != null ? !date.equals(that.date) : that.date != null) return false;
+        if (volume != null ? !volume.equals(that.volume) : that.volume != null) return false;
+        if (routedVolume != null ? !routedVolume.equals(that.routedVolume) : that.routedVolume != null) return false;
+        if (marketShare != null ? !marketShare.equals(that.marketShare) : that.marketShare != null) return false;
+        if (isHalfday != null ? !isHalfday.equals(that.isHalfday) : that.isHalfday != null) return false;
+        return litVolume != null ? litVolume.equals(that.litVolume) : that.litVolume == null;
+
     }
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = date != null ? date.hashCode() : 0;
-        result = 31 * result + (int) (volume ^ (volume >>> 32));
-        result = 31 * result + (int) (routedVolume ^ (routedVolume >>> 32));
-        temp = Double.doubleToLongBits(marketShare);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (isHalfday ? 1 : 0);
-        result = 31 * result + (int) (litVolume ^ (litVolume >>> 32));
+        int result = date != null ? date.hashCode() : 0;
+        result = 31 * result + (volume != null ? volume.hashCode() : 0);
+        result = 31 * result + (routedVolume != null ? routedVolume.hashCode() : 0);
+        result = 31 * result + (marketShare != null ? marketShare.hashCode() : 0);
+        result = 31 * result + (isHalfday != null ? isHalfday.hashCode() : 0);
+        result = 31 * result + (litVolume != null ? litVolume.hashCode() : 0);
         return result;
     }
 
