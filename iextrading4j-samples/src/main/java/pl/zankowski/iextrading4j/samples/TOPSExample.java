@@ -18,11 +18,11 @@ public class TOPSExample {
     public static void main(String[] args) {
         TOPSExample topsExample = new TOPSExample();
 
-//        topsExample.requestAllTOPS();
-//        topsExample.requestColumnFilteredAllTOPS();
-//
-//        topsExample.requestSymbolFilteredTOPS();
-//        topsExample.requestSymbolAndColumnFilteredTOPS();
+        topsExample.requestAllTOPS();
+        topsExample.requestColumnFilteredAllTOPS();
+
+        topsExample.requestSymbolFilteredTOPS();
+        topsExample.requestSymbolAndColumnFilteredTOPS();
 
         topsExample.requestAllLastTrades();
         topsExample.requestColumnFilteredAllLastTrades();

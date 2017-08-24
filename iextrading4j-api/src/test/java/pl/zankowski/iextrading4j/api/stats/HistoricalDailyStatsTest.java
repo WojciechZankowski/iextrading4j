@@ -13,18 +13,6 @@ import static pl.zankowski.iextrading4j.api.stats.builder.HistoricalDailyStatsDa
 public class HistoricalDailyStatsTest {
 
     @Test
-    public void shouldSuccessfullyCreateEmptyHistoricalDailyStats() {
-        HistoricalDailyStats historicalDailyStats = new HistoricalDailyStats();
-
-        assertThat(historicalDailyStats.getDate()).isNull();
-        assertThat(historicalDailyStats.getVolume()).isEqualTo(0L);
-        assertThat(historicalDailyStats.getRoutedVolume()).isEqualTo(0L);
-        assertThat(historicalDailyStats.getMarketShare()).isEqualTo(0d);
-        assertThat(historicalDailyStats.isHalfday()).isFalse();
-        assertThat(historicalDailyStats.getLitVolume()).isEqualTo(0L);
-    }
-
-    @Test
     public void shouldSuccessfullyCreateHistoricalDailyStats() {
         final LocalDate date = LocalDate.now();
         final long volume = 123L;
@@ -35,26 +23,6 @@ public class HistoricalDailyStatsTest {
 
         HistoricalDailyStats historicalDailyStats = new HistoricalDailyStats(date, volume, routedVolume,
                 marketShare, isHalfday, litVolume);
-
-        assertHistoricalDailyStats(historicalDailyStats, date, volume, routedVolume, marketShare, isHalfday, litVolume);
-    }
-
-    @Test
-    public void shouldSuccessfullySetDataIntoHistoricalDailyStats() {
-        final LocalDate date = LocalDate.now();
-        final long volume = 123L;
-        final long routedVolume = 234L;
-        final double marketShare = 53.12d;
-        final boolean isHalfday = true;
-        final long litVolume = 432L;
-
-        HistoricalDailyStats historicalDailyStats = new HistoricalDailyStats();
-        historicalDailyStats.setDate(date);
-        historicalDailyStats.setVolume(volume);
-        historicalDailyStats.setRoutedVolume(routedVolume);
-        historicalDailyStats.setMarketShare(marketShare);
-        historicalDailyStats.setIsHalfday(isHalfday);
-        historicalDailyStats.setLitVolume(litVolume);
 
         assertHistoricalDailyStats(historicalDailyStats, date, volume, routedVolume, marketShare, isHalfday, litVolume);
     }

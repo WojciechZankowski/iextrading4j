@@ -10,16 +10,16 @@ import static pl.zankowski.iextrading4j.api.stats.builder.IntradayStatsDataBuild
  */
 public class IntradayStatsTest {
 
-    @Test
-    public void shouldSuccessfullyCreateEmptyIntradayStats() {
-        IntradayStats intradayStats = new IntradayStats();
-
-        assertThat(intradayStats.getVolume()).isNull();
-        assertThat(intradayStats.getSymbolsTraded()).isNull();
-        assertThat(intradayStats.getRoutedVolume()).isNull();
-        assertThat(intradayStats.getNotional()).isNull();
-        assertThat(intradayStats.getMarketShare()).isNull();
-    }
+//    @Test
+//    public void shouldSuccessfullyCreateEmptyIntradayStats() {
+//        IntradayStats intradayStats = new IntradayStats();
+//
+//        assertThat(intradayStats.getVolume()).isNull();
+//        assertThat(intradayStats.getSymbolsTraded()).isNull();
+//        assertThat(intradayStats.getRoutedVolume()).isNull();
+//        assertThat(intradayStats.getNotional()).isNull();
+//        assertThat(intradayStats.getMarketShare()).isNull();
+//    }
 
     @Test
     public void shouldSuccessfullyCreateIntradayStats() {
@@ -33,23 +33,23 @@ public class IntradayStatsTest {
         assertIntradayStats(intradayStats, volume, symbolsTraded, routedVolume, notional, marketShare);
     }
 
-    @Test
-    public void shouldSuccessfullySetDataIntoEmptyIntradayStats() {
-        final IntradayStat volume = new IntradayStat(12d, 1489435195124L);
-        final IntradayStat symbolsTraded = new IntradayStat(23d, 1489435195124L);
-        final IntradayStat routedVolume = new IntradayStat(34d, 1489435195124L);
-        final IntradayStat notional = new IntradayStat(45d, 1489435195124L);
-        final IntradayStat marketShare = new IntradayStat(56d, 1489435195124L);
-
-        IntradayStats intradayStats = new IntradayStats();
-        intradayStats.setVolume(volume);
-        intradayStats.setSymbolsTraded(symbolsTraded);
-        intradayStats.setRoutedVolume(routedVolume);
-        intradayStats.setNotional(notional);
-        intradayStats.setMarketShare(marketShare);
-
-        assertIntradayStats(intradayStats, volume, symbolsTraded, routedVolume, notional, marketShare);
-    }
+//    @Test
+//    public void shouldSuccessfullySetDataIntoEmptyIntradayStats() {
+//        final IntradayStat volume = new IntradayStat(12d, 1489435195124L);
+//        final IntradayStat symbolsTraded = new IntradayStat(23d, 1489435195124L);
+//        final IntradayStat routedVolume = new IntradayStat(34d, 1489435195124L);
+//        final IntradayStat notional = new IntradayStat(45d, 1489435195124L);
+//        final IntradayStat marketShare = new IntradayStat(56d, 1489435195124L);
+//
+//        IntradayStats intradayStats = new IntradayStats();
+//        intradayStats.setVolume(volume);
+//        intradayStats.setSymbolsTraded(symbolsTraded);
+//        intradayStats.setRoutedVolume(routedVolume);
+//        intradayStats.setNotional(notional);
+//        intradayStats.setMarketShare(marketShare);
+//
+//        assertIntradayStats(intradayStats, volume, symbolsTraded, routedVolume, notional, marketShare);
+//    }
 
     @Test
     public void shouldSuccessfullyEqualTwoIntradayStats() {

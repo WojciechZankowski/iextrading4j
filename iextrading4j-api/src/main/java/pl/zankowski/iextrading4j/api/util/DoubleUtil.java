@@ -17,8 +17,8 @@ public class DoubleUtil {
         DECIMAL_FORMAT.setMaximumFractionDigits(340);
     }
 
-    public static String printDouble(double value) {
-        return DECIMAL_FORMAT.format(value);
+    public static String printDouble(Double value) {
+        return value == null ? "" : DECIMAL_FORMAT.format(value);
     }
 
 }

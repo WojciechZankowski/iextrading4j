@@ -2,23 +2,19 @@ package pl.zankowski.iextrading4j.client.endpoint.stats;
 
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.filter.RequestFilter;
-import pl.zankowski.iextrading4j.api.stats.HistoricalDailyStats;
-import pl.zankowski.iextrading4j.api.stats.HistoricalStats;
-import pl.zankowski.iextrading4j.api.stats.IntradayStats;
-import pl.zankowski.iextrading4j.api.stats.RecentStats;
-import pl.zankowski.iextrading4j.api.stats.RecordsStats;
+import pl.zankowski.iextrading4j.api.stats.*;
 import pl.zankowski.iextrading4j.client.endpoint.EndpointTestBase;
+import pl.zankowski.iextrading4j.client.endpoint.stats.request.HistoricalDailyStatsRequest;
+import pl.zankowski.iextrading4j.client.endpoint.stats.request.HistoricalStatsRequest;
+import pl.zankowski.iextrading4j.client.endpoint.stats.request.StatsRequest;
 
 import javax.ws.rs.core.UriBuilder;
-
 import java.time.LocalDate;
 import java.time.YearMonth;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static pl.zankowski.iextrading4j.api.stats.builder.HistoricalDailyStatsDataBuilder.defaultHistoricalDailyStats;
 import static pl.zankowski.iextrading4j.api.stats.builder.HistoricalStatsDataBuilder.defaultHistoricalStats;
 import static pl.zankowski.iextrading4j.api.stats.builder.IntradayStatsDataBuilder.defaultIntradayStats;
@@ -38,7 +34,7 @@ public class StatsEndpointImplTest extends EndpointTestBase {
         when(builderMock.get(IntradayStats.class)).thenReturn(expectedIntradayStats);
 
         StatsEndpoint statsEndpoint = new StatsEndpointImpl(clientMock, API_PATH);
-        IntradayStats actualIntradayStats = statsEndpoint.requestIntradayStats();
+        IntradayStats actualIntradayStats = statsEndpoint.requestIntradayStats(StatsRequest.builder().build());
 
         assertThat(actualIntradayStats).isEqualTo(expectedIntradayStats);
         verifyCorrectPaths(StatsEndpointImpl.STATS_PATH, StatsEndpointImpl.INTRADAY_PATH);
@@ -53,7 +49,7 @@ public class StatsEndpointImplTest extends EndpointTestBase {
         when(builderMock.get(IntradayStats.class)).thenReturn(expectedIntradayStats);
 
         StatsEndpoint statsEndpoint = new StatsEndpointImpl(clientMock, API_PATH);
-        IntradayStats actualIntradayStats = statsEndpoint.requestIntradayStats(requestFilter);
+        IntradayStats actualIntradayStats = statsEndpoint.requestIntradayStats(StatsRequest.builder().withRequestFilter(requestFilter).build());
 
         assertThat(actualIntradayStats).isEqualTo(expectedIntradayStats);
         verifyCorrectPaths(StatsEndpointImpl.STATS_PATH, StatsEndpointImpl.INTRADAY_PATH);
@@ -62,11 +58,11 @@ public class StatsEndpointImplTest extends EndpointTestBase {
 
     @Test
     public void shouldRequestRecentStats() {
-        final RecentStats[] expectedRecentStats = new RecentStats[] {defaultRecentStats()};
+        final RecentStats[] expectedRecentStats = new RecentStats[]{defaultRecentStats()};
         when(builderMock.get(RecentStats[].class)).thenReturn(expectedRecentStats);
 
         StatsEndpoint statsEndpoint = new StatsEndpointImpl(clientMock, API_PATH);
-        RecentStats[] actualRecentStats = statsEndpoint.requestRecentStat();
+        RecentStats[] actualRecentStats = statsEndpoint.requestRecentStat(StatsRequest.builder().build());
 
         assertThat(actualRecentStats).isEqualTo(expectedRecentStats);
         verifyCorrectPaths(StatsEndpointImpl.STATS_PATH, StatsEndpointImpl.RECENT_PATH);
@@ -75,13 +71,13 @@ public class StatsEndpointImplTest extends EndpointTestBase {
 
     @Test
     public void shouldRequestRecentStatsWithRequestFilter() {
-        final RecentStats[] expectedRecentStats = new RecentStats[] {defaultRecentStats()};
+        final RecentStats[] expectedRecentStats = new RecentStats[]{defaultRecentStats()};
         final String columnFilterList = "symbol;marketPrice";
         final RequestFilter requestFilter = new RequestFilter(columnFilterList);
         when(builderMock.get(RecentStats[].class)).thenReturn(expectedRecentStats);
 
         StatsEndpoint statsEndpoint = new StatsEndpointImpl(clientMock, API_PATH);
-        RecentStats[] actualRecentStats = statsEndpoint.requestRecentStat(requestFilter);
+        RecentStats[] actualRecentStats = statsEndpoint.requestRecentStat(StatsRequest.builder().withRequestFilter(requestFilter).build());
 
         assertThat(actualRecentStats).isEqualTo(expectedRecentStats);
         verifyCorrectPaths(StatsEndpointImpl.STATS_PATH, StatsEndpointImpl.RECENT_PATH);
@@ -94,7 +90,7 @@ public class StatsEndpointImplTest extends EndpointTestBase {
         when(builderMock.get(RecordsStats.class)).thenReturn(expectedRecordsStats);
 
         StatsEndpoint statsEndpoint = new StatsEndpointImpl(clientMock, API_PATH);
-        RecordsStats actualRecordsStats = statsEndpoint.requestRecordsStat();
+        RecordsStats actualRecordsStats = statsEndpoint.requestRecordsStat(StatsRequest.builder().build());
 
         assertThat(actualRecordsStats).isEqualTo(expectedRecordsStats);
         verifyCorrectPaths(StatsEndpointImpl.STATS_PATH, StatsEndpointImpl.RECORDS_PATH);
@@ -109,7 +105,7 @@ public class StatsEndpointImplTest extends EndpointTestBase {
         when(builderMock.get(RecordsStats.class)).thenReturn(expectedRecordsStats);
 
         StatsEndpoint statsEndpoint = new StatsEndpointImpl(clientMock, API_PATH);
-        RecordsStats actualRecordsStats = statsEndpoint.requestRecordsStat(requestFilter);
+        RecordsStats actualRecordsStats = statsEndpoint.requestRecordsStat(StatsRequest.builder().withRequestFilter(requestFilter).build());
 
         assertThat(actualRecordsStats).isEqualTo(expectedRecordsStats);
         verifyCorrectPaths(StatsEndpointImpl.STATS_PATH, StatsEndpointImpl.RECORDS_PATH);
@@ -118,11 +114,11 @@ public class StatsEndpointImplTest extends EndpointTestBase {
 
     @Test
     public void shouldRequestHistoricalStats() {
-        final HistoricalStats[] expectedHistoricalStats = new HistoricalStats[] {defaultHistoricalStats()};
+        final HistoricalStats[] expectedHistoricalStats = new HistoricalStats[]{defaultHistoricalStats()};
         when(builderMock.get(HistoricalStats[].class)).thenReturn(expectedHistoricalStats);
 
         StatsEndpoint statsEndpoint = new StatsEndpointImpl(clientMock, API_PATH);
-        HistoricalStats[] actualHistoricalStats = statsEndpoint.requestHistoricalStats();
+        HistoricalStats[] actualHistoricalStats = statsEndpoint.requestHistoricalStats(new HistoricalStatsRequest.Builder().build());
 
         assertThat(actualHistoricalStats).isEqualTo(expectedHistoricalStats);
         verifyCorrectPaths(StatsEndpointImpl.STATS_PATH, StatsEndpointImpl.HISTORICAL_PATH);
@@ -131,13 +127,14 @@ public class StatsEndpointImplTest extends EndpointTestBase {
 
     @Test
     public void shouldRequestHistoricalStatsWithRequestFilter() {
-        final HistoricalStats[] expectedHistoricalStats = new HistoricalStats[] {defaultHistoricalStats()};
+        final HistoricalStats[] expectedHistoricalStats = new HistoricalStats[]{defaultHistoricalStats()};
         final String columnFilterList = "symbol;marketPrice";
         final RequestFilter requestFilter = new RequestFilter(columnFilterList);
         when(builderMock.get(HistoricalStats[].class)).thenReturn(expectedHistoricalStats);
 
         StatsEndpoint statsEndpoint = new StatsEndpointImpl(clientMock, API_PATH);
-        HistoricalStats[] actualHistoricalStats = statsEndpoint.requestHistoricalStats(requestFilter);
+        HistoricalStats[] actualHistoricalStats = statsEndpoint.requestHistoricalStats(new HistoricalStatsRequest.Builder()
+                .withRequestFilter(requestFilter).build());
 
         assertThat(actualHistoricalStats).isEqualTo(expectedHistoricalStats);
         verifyCorrectPaths(StatsEndpointImpl.STATS_PATH, StatsEndpointImpl.HISTORICAL_PATH);
@@ -146,12 +143,13 @@ public class StatsEndpointImplTest extends EndpointTestBase {
 
     @Test
     public void shouldRequestHistoricalStatsWithYearMonth() {
-        final HistoricalStats[] expectedHistoricalStats = new HistoricalStats[] {defaultHistoricalStats()};
+        final HistoricalStats[] expectedHistoricalStats = new HistoricalStats[]{defaultHistoricalStats()};
         final YearMonth yearMonth = YearMonth.of(2017, 3);
         when(builderMock.get(HistoricalStats[].class)).thenReturn(expectedHistoricalStats);
 
         StatsEndpoint statsEndpoint = new StatsEndpointImpl(clientMock, API_PATH);
-        HistoricalStats[] actualHistoricalStats = statsEndpoint.requestHistoricalStats(yearMonth);
+        HistoricalStats[] actualHistoricalStats = statsEndpoint.requestHistoricalStats(new HistoricalStatsRequest.Builder()
+                .withDate(yearMonth).build());
 
         assertThat(actualHistoricalStats).isEqualTo(expectedHistoricalStats);
         verifyCorrectPaths(StatsEndpointImpl.STATS_PATH, StatsEndpointImpl.HISTORICAL_PATH);
@@ -160,14 +158,15 @@ public class StatsEndpointImplTest extends EndpointTestBase {
 
     @Test
     public void shouldRequestHistoricalStatsWithYearMonthAndRequestFilter() {
-        final HistoricalStats[] expectedHistoricalStats = new HistoricalStats[] {defaultHistoricalStats()};
+        final HistoricalStats[] expectedHistoricalStats = new HistoricalStats[]{defaultHistoricalStats()};
         final YearMonth yearMonth = YearMonth.of(2017, 3);
         final String columnFilterList = "symbol;marketPrice";
         final RequestFilter requestFilter = new RequestFilter(columnFilterList);
         when(builderMock.get(HistoricalStats[].class)).thenReturn(expectedHistoricalStats);
 
         StatsEndpoint statsEndpoint = new StatsEndpointImpl(clientMock, API_PATH);
-        HistoricalStats[] actualHistoricalStats = statsEndpoint.requestHistoricalStats(requestFilter, yearMonth);
+        HistoricalStats[] actualHistoricalStats = statsEndpoint.requestHistoricalStats(new HistoricalStatsRequest.Builder()
+                .withRequestFilter(requestFilter).withDate(yearMonth).build());
 
         assertThat(actualHistoricalStats).isEqualTo(expectedHistoricalStats);
         verifyCorrectPaths(StatsEndpointImpl.STATS_PATH, StatsEndpointImpl.HISTORICAL_PATH);
@@ -177,11 +176,11 @@ public class StatsEndpointImplTest extends EndpointTestBase {
 
     @Test
     public void shouldRequestHistoricalDailyStats() {
-        final HistoricalDailyStats[] expectedHistoricalDailyStats = new HistoricalDailyStats[] {defaultHistoricalDailyStats()};
+        final HistoricalDailyStats[] expectedHistoricalDailyStats = new HistoricalDailyStats[]{defaultHistoricalDailyStats()};
         when(builderMock.get(HistoricalDailyStats[].class)).thenReturn(expectedHistoricalDailyStats);
 
         StatsEndpoint statsEndpoint = new StatsEndpointImpl(clientMock, API_PATH);
-        HistoricalDailyStats[] actualHistoricalDailyStats = statsEndpoint.requestHistoricalDailyStats();
+        HistoricalDailyStats[] actualHistoricalDailyStats = statsEndpoint.requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder().build());
 
         assertThat(actualHistoricalDailyStats).isEqualTo(expectedHistoricalDailyStats);
         verifyCorrectPaths(StatsEndpointImpl.STATS_PATH, StatsEndpointImpl.HISTORICAL_PATH, StatsEndpointImpl.HISTORICAL_DAILY_PATH);
@@ -189,13 +188,14 @@ public class StatsEndpointImplTest extends EndpointTestBase {
 
     @Test
     public void shouldRequestHistoricalDailyStatsWithRequestFilter() {
-        final HistoricalDailyStats[] expectedHistoricalDailyStats = new HistoricalDailyStats[] {defaultHistoricalDailyStats()};
+        final HistoricalDailyStats[] expectedHistoricalDailyStats = new HistoricalDailyStats[]{defaultHistoricalDailyStats()};
         final String columnFilterList = "symbol;marketPrice";
         final RequestFilter requestFilter = new RequestFilter(columnFilterList);
         when(builderMock.get(HistoricalDailyStats[].class)).thenReturn(expectedHistoricalDailyStats);
 
         StatsEndpoint statsEndpoint = new StatsEndpointImpl(clientMock, API_PATH);
-        HistoricalDailyStats[] actualHistoricalDailyStats = statsEndpoint.requestHistoricalDailyStats(requestFilter);
+        HistoricalDailyStats[] actualHistoricalDailyStats = statsEndpoint.requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder()
+                .withRequestFilter(requestFilter).build());
 
         assertThat(actualHistoricalDailyStats).isEqualTo(expectedHistoricalDailyStats);
         verifyCorrectPaths(StatsEndpointImpl.STATS_PATH, StatsEndpointImpl.HISTORICAL_PATH, StatsEndpointImpl.HISTORICAL_DAILY_PATH);
@@ -204,12 +204,13 @@ public class StatsEndpointImplTest extends EndpointTestBase {
 
     @Test
     public void shouldRequestHistoricalDailyStatsWithYearMonth() {
-        final HistoricalDailyStats[] expectedHistoricalDailyStats = new HistoricalDailyStats[] {defaultHistoricalDailyStats()};
+        final HistoricalDailyStats[] expectedHistoricalDailyStats = new HistoricalDailyStats[]{defaultHistoricalDailyStats()};
         final YearMonth yearMonth = YearMonth.of(2017, 3);
         when(builderMock.get(HistoricalDailyStats[].class)).thenReturn(expectedHistoricalDailyStats);
 
         StatsEndpoint statsEndpoint = new StatsEndpointImpl(clientMock, API_PATH);
-        HistoricalDailyStats[] actualHistoricalDailyStats = statsEndpoint.requestHistoricalDailyStats(yearMonth);
+        HistoricalDailyStats[] actualHistoricalDailyStats = statsEndpoint.requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder()
+                .withDate(yearMonth).build());
 
         assertThat(actualHistoricalDailyStats).isEqualTo(expectedHistoricalDailyStats);
         verifyCorrectPaths(StatsEndpointImpl.STATS_PATH, StatsEndpointImpl.HISTORICAL_PATH, StatsEndpointImpl.HISTORICAL_DAILY_PATH);
@@ -218,14 +219,16 @@ public class StatsEndpointImplTest extends EndpointTestBase {
 
     @Test
     public void shouldRequestHistoricalDailyStatsWithYearMonthAndRequestFilter() {
-        final HistoricalDailyStats[] expectedHistoricalDailyStats = new HistoricalDailyStats[] {defaultHistoricalDailyStats()};
+        final HistoricalDailyStats[] expectedHistoricalDailyStats = new HistoricalDailyStats[]{defaultHistoricalDailyStats()};
         final YearMonth yearMonth = YearMonth.of(2017, 3);
         final String columnFilterList = "symbol;marketPrice";
         final RequestFilter requestFilter = new RequestFilter(columnFilterList);
         when(builderMock.get(HistoricalDailyStats[].class)).thenReturn(expectedHistoricalDailyStats);
 
         StatsEndpoint statsEndpoint = new StatsEndpointImpl(clientMock, API_PATH);
-        HistoricalDailyStats[] actualHistoricalDailyStats = statsEndpoint.requestHistoricalDailyStats(requestFilter, yearMonth);
+        HistoricalDailyStats[] actualHistoricalDailyStats = statsEndpoint.requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder()
+                .withRequestFilter(requestFilter)
+                .withDate(yearMonth).build());
 
         assertThat(actualHistoricalDailyStats).isEqualTo(expectedHistoricalDailyStats);
         verifyCorrectPaths(StatsEndpointImpl.STATS_PATH, StatsEndpointImpl.HISTORICAL_PATH, StatsEndpointImpl.HISTORICAL_DAILY_PATH);
@@ -235,12 +238,13 @@ public class StatsEndpointImplTest extends EndpointTestBase {
 
     @Test
     public void shouldRequestHistoricalDailyStatsWithDate() {
-        final HistoricalDailyStats[] expectedHistoricalDailyStats = new HistoricalDailyStats[] {defaultHistoricalDailyStats()};
+        final HistoricalDailyStats[] expectedHistoricalDailyStats = new HistoricalDailyStats[]{defaultHistoricalDailyStats()};
         final LocalDate localDate = LocalDate.of(2017, 3, 5);
         when(builderMock.get(HistoricalDailyStats[].class)).thenReturn(expectedHistoricalDailyStats);
 
         StatsEndpoint statsEndpoint = new StatsEndpointImpl(clientMock, API_PATH);
-        HistoricalDailyStats[] actualHistoricalDailyStats = statsEndpoint.requestHistoricalDailyStats(localDate);
+        HistoricalDailyStats[] actualHistoricalDailyStats = statsEndpoint.requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder()
+                .withDate(localDate).build());
 
         assertThat(actualHistoricalDailyStats).isEqualTo(expectedHistoricalDailyStats);
         verifyCorrectPaths(StatsEndpointImpl.STATS_PATH, StatsEndpointImpl.HISTORICAL_PATH, StatsEndpointImpl.HISTORICAL_DAILY_PATH);
@@ -249,14 +253,16 @@ public class StatsEndpointImplTest extends EndpointTestBase {
 
     @Test
     public void shouldRequestHistoricalDailyStatsWithDateAndRequestFilter() {
-        final HistoricalDailyStats[] expectedHistoricalDailyStats = new HistoricalDailyStats[] {defaultHistoricalDailyStats()};
+        final HistoricalDailyStats[] expectedHistoricalDailyStats = new HistoricalDailyStats[]{defaultHistoricalDailyStats()};
         final LocalDate localDate = LocalDate.of(2017, 3, 5);
         final String columnFilterList = "symbol;marketPrice";
         final RequestFilter requestFilter = new RequestFilter(columnFilterList);
         when(builderMock.get(HistoricalDailyStats[].class)).thenReturn(expectedHistoricalDailyStats);
 
         StatsEndpoint statsEndpoint = new StatsEndpointImpl(clientMock, API_PATH);
-        HistoricalDailyStats[] actualHistoricalDailyStats = statsEndpoint.requestHistoricalDailyStats(requestFilter, localDate);
+        HistoricalDailyStats[] actualHistoricalDailyStats = statsEndpoint.requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder()
+                .withRequestFilter(requestFilter)
+                .withDate(localDate).build());
 
         assertThat(actualHistoricalDailyStats).isEqualTo(expectedHistoricalDailyStats);
         verifyCorrectPaths(StatsEndpointImpl.STATS_PATH, StatsEndpointImpl.HISTORICAL_PATH, StatsEndpointImpl.HISTORICAL_DAILY_PATH);
@@ -266,12 +272,13 @@ public class StatsEndpointImplTest extends EndpointTestBase {
 
     @Test
     public void shouldRequestHistoricalDailyStatsWithLast() {
-        final HistoricalDailyStats[] expectedHistoricalDailyStats = new HistoricalDailyStats[] {defaultHistoricalDailyStats()};
+        final HistoricalDailyStats[] expectedHistoricalDailyStats = new HistoricalDailyStats[]{defaultHistoricalDailyStats()};
         final int last = 5;
         when(builderMock.get(HistoricalDailyStats[].class)).thenReturn(expectedHistoricalDailyStats);
 
         StatsEndpoint statsEndpoint = new StatsEndpointImpl(clientMock, API_PATH);
-        HistoricalDailyStats[] actualHistoricalDailyStats = statsEndpoint.requestHistoricalDailyStats(last);
+        HistoricalDailyStats[] actualHistoricalDailyStats = statsEndpoint.requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder()
+                .withLast(last).build());
 
         assertThat(actualHistoricalDailyStats).isEqualTo(expectedHistoricalDailyStats);
         verifyCorrectPaths(StatsEndpointImpl.STATS_PATH, StatsEndpointImpl.HISTORICAL_PATH, StatsEndpointImpl.HISTORICAL_DAILY_PATH);
@@ -280,14 +287,16 @@ public class StatsEndpointImplTest extends EndpointTestBase {
 
     @Test
     public void shouldRequestHistoricalDailyStatsWithLastAndRequestFilter() {
-        final HistoricalDailyStats[] expectedHistoricalDailyStats = new HistoricalDailyStats[] {defaultHistoricalDailyStats()};
+        final HistoricalDailyStats[] expectedHistoricalDailyStats = new HistoricalDailyStats[]{defaultHistoricalDailyStats()};
         final int last = 5;
         final String columnFilterList = "symbol;marketPrice";
         final RequestFilter requestFilter = new RequestFilter(columnFilterList);
         when(builderMock.get(HistoricalDailyStats[].class)).thenReturn(expectedHistoricalDailyStats);
 
         StatsEndpoint statsEndpoint = new StatsEndpointImpl(clientMock, API_PATH);
-        HistoricalDailyStats[] actualHistoricalDailyStats = statsEndpoint.requestHistoricalDailyStats(requestFilter, last);
+        HistoricalDailyStats[] actualHistoricalDailyStats = statsEndpoint.requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder()
+                .withRequestFilter(requestFilter)
+                .withLast(last).build());
 
         assertThat(actualHistoricalDailyStats).isEqualTo(expectedHistoricalDailyStats);
         verifyCorrectPaths(StatsEndpointImpl.STATS_PATH, StatsEndpointImpl.HISTORICAL_PATH, StatsEndpointImpl.HISTORICAL_DAILY_PATH);

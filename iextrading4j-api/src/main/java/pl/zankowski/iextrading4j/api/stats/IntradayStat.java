@@ -1,5 +1,7 @@
 package pl.zankowski.iextrading4j.api.stats;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import pl.zankowski.iextrading4j.api.util.DoubleUtil;
 
 /**
@@ -7,14 +9,13 @@ import pl.zankowski.iextrading4j.api.util.DoubleUtil;
  */
 public class IntradayStat {
 
-    private double value;
-    private long lastUpdated;
+    private final double value;
+    private final long lastUpdated;
 
-    public IntradayStat() {}
-
-    public IntradayStat(double value, long lastUpdated) {
+    @JsonCreator
+    public IntradayStat(@JsonProperty("value") double value,
+                        @JsonProperty("lastUpdated") long lastUpdated) {
         this.value = value;
-
         this.lastUpdated = lastUpdated;
     }
 
@@ -22,16 +23,8 @@ public class IntradayStat {
         return value;
     }
 
-    public void setValue(double value) {
-        this.value = value;
-    }
-
     public long getLastUpdated() {
         return lastUpdated;
-    }
-
-    public void setLastUpdated(long lastUpdated) {
-        this.lastUpdated = lastUpdated;
     }
 
     @Override

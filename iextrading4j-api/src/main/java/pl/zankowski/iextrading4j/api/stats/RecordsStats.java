@@ -1,18 +1,23 @@
 package pl.zankowski.iextrading4j.api.stats;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * @author Wojciech Zankowski
  */
 public class RecordsStats {
 
-    private Record volume;
-    private Record symbolsTraded;
-    private Record routedVolume;
-    private Record notional;
+    private final Record volume;
+    private final Record symbolsTraded;
+    private final Record routedVolume;
+    private final Record notional;
 
-    public RecordsStats() {}
-
-    public RecordsStats(Record volume, Record symbolsTraded, Record routedVolume, Record notional) {
+    @JsonCreator
+    public RecordsStats(@JsonProperty("volume") Record volume,
+                        @JsonProperty("symbolsTraded") Record symbolsTraded,
+                        @JsonProperty("routedVolume") Record routedVolume,
+                        @JsonProperty("notional") Record notional) {
         this.volume = volume;
         this.symbolsTraded = symbolsTraded;
         this.routedVolume = routedVolume;
@@ -23,32 +28,16 @@ public class RecordsStats {
         return volume;
     }
 
-    public void setVolume(Record volume) {
-        this.volume = volume;
-    }
-
     public Record getSymbolsTraded() {
         return symbolsTraded;
-    }
-
-    public void setSymbolsTraded(Record symbolsTraded) {
-        this.symbolsTraded = symbolsTraded;
     }
 
     public Record getRoutedVolume() {
         return routedVolume;
     }
 
-    public void setRoutedVolume(Record routedVolume) {
-        this.routedVolume = routedVolume;
-    }
-
     public Record getNotional() {
         return notional;
-    }
-
-    public void setNotional(Record notional) {
-        this.notional = notional;
     }
 
     @Override

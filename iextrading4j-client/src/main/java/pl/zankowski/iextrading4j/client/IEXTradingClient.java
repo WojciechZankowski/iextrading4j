@@ -2,6 +2,10 @@ package pl.zankowski.iextrading4j.client;
 
 import pl.zankowski.iextrading4j.client.endpoint.market.MarketEndpoint;
 import pl.zankowski.iextrading4j.client.endpoint.market.MarketEndpointImpl;
+import pl.zankowski.iextrading4j.client.endpoint.marketdata.deep.DEEPEndpoint;
+import pl.zankowski.iextrading4j.client.endpoint.marketdata.deep.DEEPEndpointImpl;
+import pl.zankowski.iextrading4j.client.endpoint.marketdata.hist.HISTEndpoint;
+import pl.zankowski.iextrading4j.client.endpoint.marketdata.hist.HISTEndpointImpl;
 import pl.zankowski.iextrading4j.client.endpoint.marketdata.tops.TOPSEndpoint;
 import pl.zankowski.iextrading4j.client.endpoint.marketdata.tops.TOPSEndpointImpl;
 import pl.zankowski.iextrading4j.client.endpoint.refdata.RefDataEndpoint;
@@ -29,6 +33,8 @@ public class IEXTradingClient {
 
     private final StocksEndpoint stocksEndpoint;
     private final TOPSEndpoint topsEndpoint;
+    private final HISTEndpoint histEndpoint;
+    private final DEEPEndpoint deepEndpoint;
     private final StatsEndpoint statsEndpoint;
     private final MarketEndpoint marketEndpoint;
     private final RefDataEndpoint refDataEndpoint;
@@ -44,6 +50,8 @@ public class IEXTradingClient {
     private IEXTradingClient(DataReceiver dataReceiver) {
         stocksEndpoint = new StocksEndpointImpl(getRESTClient(), getBaseApiUrl());
         topsEndpoint = new TOPSEndpointImpl(getRESTClient(), getBaseApiUrl());
+        histEndpoint = new HISTEndpointImpl(getRESTClient(), getBaseApiUrl());
+        deepEndpoint = new DEEPEndpointImpl(getRESTClient(), getBaseApiUrl());
         statsEndpoint = new StatsEndpointImpl(getRESTClient(), getBaseApiUrl());
         marketEndpoint = new MarketEndpointImpl(getRESTClient(), getBaseApiUrl());
         refDataEndpoint = new RefDataEndpointImpl(getRESTClient(), getBaseApiUrl());
@@ -76,6 +84,14 @@ public class IEXTradingClient {
 
     public TOPSEndpoint getTopsEndpoint() {
         return topsEndpoint;
+    }
+
+    public HISTEndpoint getHistEndpoint() {
+        return histEndpoint;
+    }
+
+    public DEEPEndpoint getDeepEndpoint() {
+        return deepEndpoint;
     }
 
     public StatsEndpoint getStatsEndpoint() {

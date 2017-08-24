@@ -1,5 +1,7 @@
 package pl.zankowski.iextrading4j.api.stats;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import pl.zankowski.iextrading4j.api.util.DoubleUtil;
 
 import java.time.LocalDate;
@@ -9,15 +11,16 @@ import java.time.LocalDate;
  */
 public class Record {
 
-    private double recordValue;
-    private LocalDate recordDate;
-    private double previousDayValue;
-    private double avg30Value;
+    private final double recordValue;
+    private final LocalDate recordDate;
+    private final double previousDayValue;
+    private final double avg30Value;
 
-    public Record() {
-    }
-
-    public Record(double recordValue, LocalDate recordDate, double previousDayValue, double avg30Value) {
+    @JsonCreator
+    public Record(@JsonProperty("recordValue") double recordValue,
+                  @JsonProperty("recordDate") LocalDate recordDate,
+                  @JsonProperty("previousDayValue") double previousDayValue,
+                  @JsonProperty("avg30Value") double avg30Value) {
         this.recordValue = recordValue;
         this.recordDate = recordDate;
         this.previousDayValue = previousDayValue;
@@ -28,32 +31,16 @@ public class Record {
         return recordValue;
     }
 
-    public void setRecordValue(double recordValue) {
-        this.recordValue = recordValue;
-    }
-
     public LocalDate getRecordDate() {
         return recordDate;
-    }
-
-    public void setRecordDate(LocalDate recordDate) {
-        this.recordDate = recordDate;
     }
 
     public double getPreviousDayValue() {
         return previousDayValue;
     }
 
-    public void setPreviousDayValue(double previousDayValue) {
-        this.previousDayValue = previousDayValue;
-    }
-
     public double getAvg30Value() {
         return avg30Value;
-    }
-
-    public void setAvg30Value(double avg30Value) {
-        this.avg30Value = avg30Value;
     }
 
     @Override

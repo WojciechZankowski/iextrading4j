@@ -1,22 +1,26 @@
 package pl.zankowski.iextrading4j.api.stats;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * @author Wojciech Zankowski
  */
 public class IntradayStats {
 
-    private IntradayStat volume;
-    private IntradayStat symbolsTraded;
-    private IntradayStat routedVolume;
-    private IntradayStat notional;
-    private IntradayStat marketShare;
+    private final IntradayStat volume;
+    private final IntradayStat symbolsTraded;
+    private final IntradayStat routedVolume;
+    private final IntradayStat notional;
+    private final IntradayStat marketShare;
 
-    public IntradayStats() {}
-
-    public IntradayStats(IntradayStat volume, IntradayStat symbolsTraded, IntradayStat routedVolume,
-                         IntradayStat notional, IntradayStat marketShare) {
+    @JsonCreator
+    public IntradayStats(@JsonProperty("volume") IntradayStat volume,
+                         @JsonProperty("symbolsTraded") IntradayStat symbolsTraded,
+                         @JsonProperty("routedVolume") IntradayStat routedVolume,
+                         @JsonProperty("notional") IntradayStat notional,
+                         @JsonProperty("marketShare") IntradayStat marketShare) {
         this.volume = volume;
-
         this.symbolsTraded = symbolsTraded;
         this.routedVolume = routedVolume;
         this.notional = notional;
@@ -27,40 +31,20 @@ public class IntradayStats {
         return volume;
     }
 
-    public void setVolume(IntradayStat volume) {
-        this.volume = volume;
-    }
-
     public IntradayStat getSymbolsTraded() {
         return symbolsTraded;
-    }
-
-    public void setSymbolsTraded(IntradayStat symbolsTraded) {
-        this.symbolsTraded = symbolsTraded;
     }
 
     public IntradayStat getRoutedVolume() {
         return routedVolume;
     }
 
-    public void setRoutedVolume(IntradayStat routedVolume) {
-        this.routedVolume = routedVolume;
-    }
-
     public IntradayStat getNotional() {
         return notional;
     }
 
-    public void setNotional(IntradayStat notional) {
-        this.notional = notional;
-    }
-
     public IntradayStat getMarketShare() {
         return marketShare;
-    }
-
-    public void setMarketShare(IntradayStat marketShare) {
-        this.marketShare = marketShare;
     }
 
     @Override

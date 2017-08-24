@@ -1,12 +1,11 @@
 package pl.zankowski.iextrading4j.samples;
 
 import pl.zankowski.iextrading4j.api.filter.RequestFilter;
-import pl.zankowski.iextrading4j.api.stats.HistoricalDailyStats;
-import pl.zankowski.iextrading4j.api.stats.HistoricalStats;
-import pl.zankowski.iextrading4j.api.stats.IntradayStats;
-import pl.zankowski.iextrading4j.api.stats.RecentStats;
-import pl.zankowski.iextrading4j.api.stats.RecordsStats;
+import pl.zankowski.iextrading4j.api.stats.*;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
+import pl.zankowski.iextrading4j.client.endpoint.stats.request.HistoricalDailyStatsRequest;
+import pl.zankowski.iextrading4j.client.endpoint.stats.request.HistoricalStatsRequest;
+import pl.zankowski.iextrading4j.client.endpoint.stats.request.StatsRequest;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -17,160 +16,180 @@ import java.util.Arrays;
  */
 public class StatsExample {
 
+    private final IEXTradingClient iexTradingClient = IEXTradingClient.create();
+
     public static void main(String[] args) {
-        IEXTradingClient iexTradingClient = IEXTradingClient.create();
+        StatsExample statsExample = new StatsExample();
 
-        requestIntradayStats(iexTradingClient);
-        requestColumnFilteredIntradayStats(iexTradingClient);
+        statsExample.requestIntradayStats();
+        statsExample.requestColumnFilteredIntradayStats();
 
-        requestRecentStats(iexTradingClient);
-        requestColumnFilteredRecentStats(iexTradingClient);
+        statsExample.requestRecentStats();
+        statsExample.requestColumnFilteredRecentStats();
 
-        requestRecordsStat(iexTradingClient);
-        requestColumnFilteredRecordsStat(iexTradingClient);
+        statsExample.requestRecordsStat();
+        statsExample.requestColumnFilteredRecordsStat();
 
-        requestLastDayHistoricalStats(iexTradingClient);
-        requestColumnFilteredLastDayHistoricalStats(iexTradingClient);
+        statsExample.requestLastDayHistoricalStats();
+        statsExample.requestColumnFilteredLastDayHistoricalStats();
 
-        requestYearMonthFilteredHistoricalStats(iexTradingClient);
-        requestYearMonthAndColumnFilteredHistoricalStats(iexTradingClient);
+        statsExample.requestYearMonthFilteredHistoricalStats();
+        statsExample.requestYearMonthAndColumnFilteredHistoricalStats();
 
-        requestLastDayHistoricalDailyStats(iexTradingClient);
-        requestColumnFilteredLastDayHistoricalDailyStats(iexTradingClient);
+        statsExample.requestLastDayHistoricalDailyStats();
+        statsExample.requestColumnFilteredLastDayHistoricalDailyStats();
 
-        requestYearMonthFilteredHistoricalDailyStats(iexTradingClient);
-        requestYearMonthAndColumnFilteredHistoricalDailyStats(iexTradingClient);
+        statsExample.requestYearMonthFilteredHistoricalDailyStats();
+        statsExample.requestYearMonthAndColumnFilteredHistoricalDailyStats();
 
-        requestDateFilteredHistoricalDailyStats(iexTradingClient);
-        requestDateAndColumnFilteredHistoricalDailyStats(iexTradingClient);
+        statsExample.requestDateFilteredHistoricalDailyStats();
+        statsExample.requestDateAndColumnFilteredHistoricalDailyStats();
 
-        requestLastHistoricalDailyStats(iexTradingClient);
-        requestColumnFilteredLastHistoricalDailyStats(iexTradingClient);
+        statsExample.requestLastHistoricalDailyStats();
+        statsExample.requestColumnFilteredLastHistoricalDailyStats();
     }
 
-    private static void requestIntradayStats(IEXTradingClient iexTradingClient) {
-        IntradayStats intradayStats = iexTradingClient.getStatsEndpoint().requestIntradayStats();
+    private void requestIntradayStats() {
+        IntradayStats intradayStats = iexTradingClient.getStatsEndpoint().requestIntradayStats(StatsRequest.builder().build());
         System.out.println(intradayStats);
     }
 
-    private static void requestColumnFilteredIntradayStats(IEXTradingClient iexTradingClient) {
+    private void requestColumnFilteredIntradayStats() {
         RequestFilter requestFilter = RequestFilter.builder()
                 .with("volume")
                 .with("marketShare")
                 .build();
-        IntradayStats intradayStats = iexTradingClient.getStatsEndpoint().requestIntradayStats(requestFilter);
+        IntradayStats intradayStats = iexTradingClient.getStatsEndpoint().requestIntradayStats(StatsRequest.builder()
+                .withRequestFilter(requestFilter)
+                .build());
         System.out.println(intradayStats);
     }
 
-    private static void requestRecentStats(IEXTradingClient iexTradingClient) {
-        RecentStats[] recentStats = iexTradingClient.getStatsEndpoint().requestRecentStat();
+    private void requestRecentStats() {
+        RecentStats[] recentStats = iexTradingClient.getStatsEndpoint().requestRecentStat(StatsRequest.builder().build());
         Arrays.stream(recentStats).forEach(System.out::println);
     }
 
-    private static void requestColumnFilteredRecentStats(IEXTradingClient iexTradingClient) {
+    private void requestColumnFilteredRecentStats() {
         RequestFilter requestFilter = RequestFilter.builder()
                 .with("volume")
                 .with("routedVolume")
                 .build();
-        RecentStats[] recentStats = iexTradingClient.getStatsEndpoint().requestRecentStat(requestFilter);
+        RecentStats[] recentStats = iexTradingClient.getStatsEndpoint().requestRecentStat(StatsRequest.builder()
+                .withRequestFilter(requestFilter).build());
         Arrays.stream(recentStats).forEach(System.out::println);
     }
 
-    private static void requestRecordsStat(IEXTradingClient iexTradingClient) {
-        RecordsStats recordsStat = iexTradingClient.getStatsEndpoint().requestRecordsStat();
+    private void requestRecordsStat() {
+        RecordsStats recordsStat = iexTradingClient.getStatsEndpoint().requestRecordsStat(StatsRequest.builder().build());
         System.out.println(recordsStat);
     }
 
-    private static void requestColumnFilteredRecordsStat(IEXTradingClient iexTradingClient) {
+    private void requestColumnFilteredRecordsStat() {
         RequestFilter requestFilter = RequestFilter.builder()
                 .with("volume")
                 .with("symbolsTraded")
                 .build();
-        RecordsStats recordsStat = iexTradingClient.getStatsEndpoint().requestRecordsStat(requestFilter);
+        RecordsStats recordsStat = iexTradingClient.getStatsEndpoint().requestRecordsStat(StatsRequest.builder()
+                .withRequestFilter(requestFilter).build());
         System.out.println(recordsStat);
     }
 
-    private static void requestLastDayHistoricalStats(IEXTradingClient iexTradingClient) {
-        HistoricalStats[] historicalStats = iexTradingClient.getStatsEndpoint().requestHistoricalStats();
+    private void requestLastDayHistoricalStats() {
+        HistoricalStats[] historicalStats = iexTradingClient.getStatsEndpoint().requestHistoricalStats(new HistoricalStatsRequest.Builder().build());
         Arrays.stream(historicalStats).forEach(System.out::println);
     }
 
-    private static void requestColumnFilteredLastDayHistoricalStats(IEXTradingClient iexTradingClient) {
+    private void requestColumnFilteredLastDayHistoricalStats() {
         RequestFilter requestFilter = RequestFilter.builder()
                 .with("averageDailyVolume")
                 .with("largeCapPercent")
                 .build();
-        HistoricalStats[] historicalStats = iexTradingClient.getStatsEndpoint().requestHistoricalStats(requestFilter);
+        HistoricalStats[] historicalStats = iexTradingClient.getStatsEndpoint().requestHistoricalStats(new HistoricalStatsRequest.Builder()
+                .withRequestFilter(requestFilter).build());
         Arrays.stream(historicalStats).forEach(System.out::println);
     }
 
-    private static void requestYearMonthFilteredHistoricalStats(IEXTradingClient iexTradingClient) {
-        HistoricalStats[] historicalStats = iexTradingClient.getStatsEndpoint().requestHistoricalStats(YearMonth.of(2017, 3));
+    private void requestYearMonthFilteredHistoricalStats() {
+        HistoricalStats[] historicalStats = iexTradingClient.getStatsEndpoint().requestHistoricalStats(new HistoricalStatsRequest.Builder()
+                .withDate(YearMonth.of(2017, 3)).build());
         Arrays.stream(historicalStats).forEach(System.out::println);
     }
 
-    private static void requestYearMonthAndColumnFilteredHistoricalStats(IEXTradingClient iexTradingClient) {
+    private void requestYearMonthAndColumnFilteredHistoricalStats() {
         RequestFilter requestFilter = RequestFilter.builder()
                 .with("averageDailyVolume")
                 .with("largeCapPercent")
                 .build();
-        HistoricalStats[] historicalStats = iexTradingClient.getStatsEndpoint().requestHistoricalStats(requestFilter, YearMonth.of(2017, 3));
+        HistoricalStats[] historicalStats = iexTradingClient.getStatsEndpoint().requestHistoricalStats(new HistoricalStatsRequest.Builder()
+                .withRequestFilter(requestFilter)
+                .withDate(YearMonth.of(2017, 3)).build());
         Arrays.stream(historicalStats).forEach(System.out::println);
     }
 
-    private static void requestLastDayHistoricalDailyStats(IEXTradingClient iexTradingClient) {
-        HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats();
+    private void requestLastDayHistoricalDailyStats() {
+        HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder().build());
         Arrays.stream(historicalDailyStats).forEach(System.out::println);
     }
 
-    private static void requestColumnFilteredLastDayHistoricalDailyStats(IEXTradingClient iexTradingClient) {
+    private void requestColumnFilteredLastDayHistoricalDailyStats() {
         RequestFilter requestFilter = RequestFilter.builder()
                 .with("date")
                 .with("volume")
                 .build();
-        HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(requestFilter);
+        HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder()
+                .withRequestFilter(requestFilter).build());
         Arrays.stream(historicalDailyStats).forEach(System.out::println);
     }
 
-    private static void requestYearMonthFilteredHistoricalDailyStats(IEXTradingClient iexTradingClient) {
-        HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(YearMonth.of(2017,3));
+    private void requestYearMonthFilteredHistoricalDailyStats() {
+        HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder()
+                .withDate(YearMonth.of(2017, 3)).build());
         Arrays.stream(historicalDailyStats).forEach(System.out::println);
     }
 
-    private static void requestYearMonthAndColumnFilteredHistoricalDailyStats(IEXTradingClient iexTradingClient) {
+    private void requestYearMonthAndColumnFilteredHistoricalDailyStats() {
         RequestFilter requestFilter = RequestFilter.builder()
                 .with("date")
                 .with("volume")
                 .build();
-        HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(requestFilter, YearMonth.of(2017,3));
+        HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder()
+                .withRequestFilter(requestFilter)
+                .withDate(YearMonth.of(2017, 3)).build());
         Arrays.stream(historicalDailyStats).forEach(System.out::println);
     }
 
-    private static void requestDateFilteredHistoricalDailyStats(IEXTradingClient iexTradingClient) {
-        HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(LocalDate.of(2017, 3, 6));
+    private void requestDateFilteredHistoricalDailyStats() {
+        HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder()
+                .withDate(LocalDate.of(2017, 3, 6)).build());
         Arrays.stream(historicalDailyStats).forEach(System.out::println);
     }
 
-    private static void requestDateAndColumnFilteredHistoricalDailyStats(IEXTradingClient iexTradingClient) {
+    private void requestDateAndColumnFilteredHistoricalDailyStats() {
         RequestFilter requestFilter = RequestFilter.builder()
                 .with("date")
                 .with("volume")
                 .build();
-        HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(requestFilter, LocalDate.of(2017, 3, 6));
+        HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder()
+                .withRequestFilter(requestFilter)
+                .withDate(LocalDate.of(2017, 3, 6)).build());
         Arrays.stream(historicalDailyStats).forEach(System.out::println);
     }
 
-    private static void requestLastHistoricalDailyStats(IEXTradingClient iexTradingClient) {
-        HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(13);
+    private void requestLastHistoricalDailyStats() {
+        HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder()
+                .withLast(13).build());
         Arrays.stream(historicalDailyStats).forEach(System.out::println);
     }
 
-    private static void requestColumnFilteredLastHistoricalDailyStats(IEXTradingClient iexTradingClient) {
+    private void requestColumnFilteredLastHistoricalDailyStats() {
         RequestFilter requestFilter = RequestFilter.builder()
                 .with("date")
                 .with("volume")
                 .build();
-        HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(requestFilter,13);
+        HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder()
+                .withRequestFilter(requestFilter)
+                .withLast(13).build());
         Arrays.stream(historicalDailyStats).forEach(System.out::println);
     }
 

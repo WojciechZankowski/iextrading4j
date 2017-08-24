@@ -6,6 +6,9 @@ import pl.zankowski.iextrading4j.api.stats.HistoricalStats;
 import pl.zankowski.iextrading4j.api.stats.IntradayStats;
 import pl.zankowski.iextrading4j.api.stats.RecentStats;
 import pl.zankowski.iextrading4j.api.stats.RecordsStats;
+import pl.zankowski.iextrading4j.client.endpoint.stats.request.HistoricalDailyStatsRequest;
+import pl.zankowski.iextrading4j.client.endpoint.stats.request.HistoricalStatsRequest;
+import pl.zankowski.iextrading4j.client.endpoint.stats.request.StatsRequest;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
@@ -14,6 +17,7 @@ import javax.ws.rs.core.UriBuilder;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 import static pl.zankowski.iextrading4j.api.filter.RequestFilter.FILTER_QUERY_NAME;
 import static pl.zankowski.iextrading4j.client.util.PathUtil.appendPaths;
@@ -48,145 +52,73 @@ public class StatsEndpointImpl implements StatsEndpoint {
     }
 
     @Override
-    public IntradayStats requestIntradayStats() {
+    public IntradayStats requestIntradayStats(StatsRequest statsRequest) {
         WebTarget webTarget = restClient.target(baseApiUrl);
         webTarget = appendPaths(webTarget, STATS_PATH, INTRADAY_PATH);
+        Optional<RequestFilter> requestFilterOptional = statsRequest.getRequestFilter();
+        if (requestFilterOptional.isPresent()) {
+            webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilterOptional.get().getColumnList());
+        }
         return webTarget.request(MediaType.APPLICATION_JSON).get(IntradayStats.class);
     }
 
     @Override
-    public IntradayStats requestIntradayStats(RequestFilter requestFilter) {
-        WebTarget webTarget = restClient.target(baseApiUrl);
-        webTarget = appendPaths(webTarget, STATS_PATH, INTRADAY_PATH);
-        webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilter.getColumnList());
-        return webTarget.request(MediaType.APPLICATION_JSON).get(IntradayStats.class);
-    }
-
-    @Override
-    public RecentStats[] requestRecentStat() {
+    public RecentStats[] requestRecentStat(StatsRequest statsRequest) {
         WebTarget webTarget = restClient.target(baseApiUrl);
         webTarget = appendPaths(webTarget, STATS_PATH, RECENT_PATH);
+        Optional<RequestFilter> requestFilterOptional = statsRequest.getRequestFilter();
+        if (requestFilterOptional.isPresent()) {
+            webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilterOptional.get().getColumnList());
+        }
         return webTarget.request(MediaType.APPLICATION_JSON).get(RecentStats[].class);
     }
 
     @Override
-    public RecentStats[] requestRecentStat(RequestFilter requestFilter) {
-        WebTarget webTarget = restClient.target(baseApiUrl);
-        webTarget = appendPaths(webTarget, STATS_PATH, RECENT_PATH);
-        webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilter.getColumnList());
-        return webTarget.request(MediaType.APPLICATION_JSON).get(RecentStats[].class);
-    }
-
-    @Override
-    public RecordsStats requestRecordsStat() {
+    public RecordsStats requestRecordsStat(StatsRequest statsRequest) {
         WebTarget webTarget = restClient.target(baseApiUrl);
         webTarget = appendPaths(webTarget, STATS_PATH, RECORDS_PATH);
+        Optional<RequestFilter> requestFilterOptional = statsRequest.getRequestFilter();
+        if (requestFilterOptional.isPresent()) {
+            webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilterOptional.get().getColumnList());
+        }
         return webTarget.request(MediaType.APPLICATION_JSON).get(RecordsStats.class);
     }
 
     @Override
-    public RecordsStats requestRecordsStat(RequestFilter requestFilter) {
-        WebTarget webTarget = restClient.target(baseApiUrl);
-        webTarget = appendPaths(webTarget, STATS_PATH, RECORDS_PATH);
-        webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilter.getColumnList());
-        return webTarget.request(MediaType.APPLICATION_JSON).get(RecordsStats.class);
-    }
-
-    @Override
-    public HistoricalStats[] requestHistoricalStats() {
+    public HistoricalStats[] requestHistoricalStats(HistoricalStatsRequest historicalStatsRequest) {
         WebTarget webTarget = restClient.target(baseApiUrl);
         webTarget = appendPaths(webTarget, STATS_PATH, HISTORICAL_PATH);
+        Optional<YearMonth> dateOptional = historicalStatsRequest.getDate();
+        if (dateOptional.isPresent()) {
+            webTarget = webTarget.queryParam(HISTORICAL_DATE_PARAM, YEARMONTH_PARAM_FORMATTER.format(dateOptional.get()));
+        }
+        Optional<RequestFilter> requestFilterOptional = historicalStatsRequest.getRequestFilter();
+        if (requestFilterOptional.isPresent()) {
+            webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilterOptional.get().getColumnList());
+        }
         return webTarget.request(MediaType.APPLICATION_JSON).get(HistoricalStats[].class);
     }
 
     @Override
-    public HistoricalStats[] requestHistoricalStats(RequestFilter requestFilter) {
-        WebTarget webTarget = restClient.target(baseApiUrl);
-        webTarget = appendPaths(webTarget, STATS_PATH, HISTORICAL_PATH);
-        webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilter.getColumnList());
-        return webTarget.request(MediaType.APPLICATION_JSON).get(HistoricalStats[].class);
-    }
-
-    @Override
-    public HistoricalStats[] requestHistoricalStats(YearMonth date) {
-        WebTarget webTarget = restClient.target(baseApiUrl);
-        webTarget = appendPaths(webTarget, STATS_PATH, HISTORICAL_PATH);
-        webTarget = webTarget.queryParam(HISTORICAL_DATE_PARAM, YEARMONTH_PARAM_FORMATTER.format(date));
-        return webTarget.request(MediaType.APPLICATION_JSON).get(HistoricalStats[].class);
-    }
-
-    @Override
-    public HistoricalStats[] requestHistoricalStats(RequestFilter requestFilter, YearMonth date) {
-        WebTarget webTarget = restClient.target(baseApiUrl);
-        webTarget = appendPaths(webTarget, STATS_PATH, HISTORICAL_PATH);
-        webTarget = webTarget.queryParam(HISTORICAL_DATE_PARAM, YEARMONTH_PARAM_FORMATTER.format(date));
-        webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilter.getColumnList());
-        return webTarget.request(MediaType.APPLICATION_JSON).get(HistoricalStats[].class);
-    }
-
-    @Override
-    public HistoricalDailyStats[] requestHistoricalDailyStats() {
+    public HistoricalDailyStats[] requestHistoricalDailyStats(HistoricalDailyStatsRequest historicalDailyStatsRequest) {
         WebTarget webTarget = restClient.target(baseApiUrl);
         webTarget = appendPaths(webTarget, STATS_PATH, HISTORICAL_PATH, HISTORICAL_DAILY_PATH);
-        return webTarget.request(MediaType.APPLICATION_JSON).get(HistoricalDailyStats[].class);
-    }
-
-    @Override
-    public HistoricalDailyStats[] requestHistoricalDailyStats(RequestFilter requestFilter) {
-        WebTarget webTarget = restClient.target(baseApiUrl);
-        webTarget = appendPaths(webTarget, STATS_PATH, HISTORICAL_PATH, HISTORICAL_DAILY_PATH);
-        webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilter.getColumnList());
-        return webTarget.request(MediaType.APPLICATION_JSON).get(HistoricalDailyStats[].class);
-    }
-
-    @Override
-    public HistoricalDailyStats[] requestHistoricalDailyStats(YearMonth date) {
-        WebTarget webTarget = restClient.target(baseApiUrl);
-        webTarget = appendPaths(webTarget, STATS_PATH, HISTORICAL_PATH, HISTORICAL_DAILY_PATH);
-        webTarget = webTarget.queryParam(HISTORICAL_DAILY_DATE_PARAM, YEARMONTH_PARAM_FORMATTER.format(date));
-        return webTarget.request(MediaType.APPLICATION_JSON).get(HistoricalDailyStats[].class);
-    }
-
-    @Override
-    public HistoricalDailyStats[] requestHistoricalDailyStats(RequestFilter requestFilter, YearMonth date) {
-        WebTarget webTarget = restClient.target(baseApiUrl);
-        webTarget = appendPaths(webTarget, STATS_PATH, HISTORICAL_PATH, HISTORICAL_DAILY_PATH);
-        webTarget = webTarget.queryParam(HISTORICAL_DAILY_DATE_PARAM, YEARMONTH_PARAM_FORMATTER.format(date));
-        webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilter.getColumnList());
-        return webTarget.request(MediaType.APPLICATION_JSON).get(HistoricalDailyStats[].class);
-    }
-
-    @Override
-    public HistoricalDailyStats[] requestHistoricalDailyStats(LocalDate date) {
-        WebTarget webTarget = restClient.target(baseApiUrl);
-        webTarget = appendPaths(webTarget, STATS_PATH, HISTORICAL_PATH, HISTORICAL_DAILY_PATH);
-        webTarget = webTarget.queryParam(HISTORICAL_DAILY_DATE_PARAM, DATE_PARAM_FORMATTER.format(date));
-        return webTarget.request(MediaType.APPLICATION_JSON).get(HistoricalDailyStats[].class);
-    }
-
-    @Override
-    public HistoricalDailyStats[] requestHistoricalDailyStats(RequestFilter requestFilter, LocalDate date) {
-        WebTarget webTarget = restClient.target(baseApiUrl);
-        webTarget = appendPaths(webTarget, STATS_PATH, HISTORICAL_PATH, HISTORICAL_DAILY_PATH);
-        webTarget = webTarget.queryParam(HISTORICAL_DAILY_DATE_PARAM, DATE_PARAM_FORMATTER.format(date));
-        webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilter.getColumnList());
-        return webTarget.request(MediaType.APPLICATION_JSON).get(HistoricalDailyStats[].class);
-    }
-
-    @Override
-    public HistoricalDailyStats[] requestHistoricalDailyStats(int last) {
-        WebTarget webTarget = restClient.target(baseApiUrl);
-        webTarget = appendPaths(webTarget, STATS_PATH, HISTORICAL_PATH, HISTORICAL_DAILY_PATH);
-        webTarget = webTarget.queryParam(HISTORICAL_DAILY_LAST_PARAM, last);
-        return webTarget.request(MediaType.APPLICATION_JSON).get(HistoricalDailyStats[].class);
-    }
-
-    @Override
-    public HistoricalDailyStats[] requestHistoricalDailyStats(RequestFilter requestFilter, int last) {
-        WebTarget webTarget = restClient.target(baseApiUrl);
-        webTarget = appendPaths(webTarget, STATS_PATH, HISTORICAL_PATH, HISTORICAL_DAILY_PATH);
-        webTarget = webTarget.queryParam(HISTORICAL_DAILY_LAST_PARAM, last);
-        webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilter.getColumnList());
+        Optional<YearMonth> dateOptional = historicalDailyStatsRequest.getDate();
+        if (dateOptional.isPresent()) {
+            webTarget = webTarget.queryParam(HISTORICAL_DATE_PARAM, YEARMONTH_PARAM_FORMATTER.format(dateOptional.get()));
+        }
+        Optional<LocalDate> fullDateOptional = historicalDailyStatsRequest.getFullDate();
+        if (fullDateOptional.isPresent() && !dateOptional.isPresent()) {
+            webTarget = webTarget.queryParam(HISTORICAL_DAILY_DATE_PARAM, DATE_PARAM_FORMATTER.format(fullDateOptional.get()));
+        }
+        Optional<Integer> lastOptional = historicalDailyStatsRequest.getLast();
+        if (lastOptional.isPresent() && !fullDateOptional.isPresent() && !dateOptional.isPresent()) {
+            webTarget = webTarget.queryParam(HISTORICAL_DAILY_LAST_PARAM, lastOptional.get());
+        }
+        Optional<RequestFilter> requestFilterOptional = historicalDailyStatsRequest.getRequestFilter();
+        if (requestFilterOptional.isPresent()) {
+            webTarget = appendQuery(webTarget, FILTER_QUERY_NAME, requestFilterOptional.get().getColumnList());
+        }
         return webTarget.request(MediaType.APPLICATION_JSON).get(HistoricalDailyStats[].class);
     }
 

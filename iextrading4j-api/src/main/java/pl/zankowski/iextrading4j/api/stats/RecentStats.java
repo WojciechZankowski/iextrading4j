@@ -1,5 +1,7 @@
 package pl.zankowski.iextrading4j.api.stats;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import pl.zankowski.iextrading4j.api.util.DoubleUtil;
 
 import java.time.LocalDate;
@@ -9,16 +11,20 @@ import java.time.LocalDate;
  */
 public class RecentStats {
 
-    private LocalDate date;
-    private long volume;
-    private long routedVolume;
-    private double marketShare;
-    private boolean isHalfday;
-    private long litVolume;
+    private final LocalDate date;
+    private final Long volume;
+    private final Long routedVolume;
+    private final Double marketShare;
+    private final Boolean isHalfday;
+    private final Long litVolume;
 
-    public RecentStats() {}
-
-    public RecentStats(LocalDate date, long volume, long routedVolume, double marketShare, boolean isHalfday, long litVolume) {
+    @JsonCreator
+    public RecentStats(@JsonProperty("date") LocalDate date,
+                       @JsonProperty("volume") Long volume,
+                       @JsonProperty("routedVolume") Long routedVolume,
+                       @JsonProperty("marketShare") Double marketShare,
+                       @JsonProperty("isHalfday") Boolean isHalfday,
+                       @JsonProperty("litVolume") Long litVolume) {
         this.date = date;
         this.volume = volume;
         this.routedVolume = routedVolume;
@@ -31,48 +37,24 @@ public class RecentStats {
         return date;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public long getVolume() {
+    public Long getVolume() {
         return volume;
     }
 
-    public void setVolume(long volume) {
-        this.volume = volume;
-    }
-
-    public long getRoutedVolume() {
+    public Long getRoutedVolume() {
         return routedVolume;
     }
 
-    public void setRoutedVolume(long routedVolume) {
-        this.routedVolume = routedVolume;
-    }
-
-    public double getMarketShare() {
+    public Double getMarketShare() {
         return marketShare;
     }
 
-    public void setMarketShare(double marketShare) {
-        this.marketShare = marketShare;
-    }
-
-    public boolean isHalfday() {
+    public Boolean isHalfday() {
         return isHalfday;
     }
 
-    public void setIsHalfday(boolean halfday) {
-        isHalfday = halfday;
-    }
-
-    public long getLitVolume() {
+    public Long getLitVolume() {
         return litVolume;
-    }
-
-    public void setLitVolume(long litVolume) {
-        this.litVolume = litVolume;
     }
 
     @Override

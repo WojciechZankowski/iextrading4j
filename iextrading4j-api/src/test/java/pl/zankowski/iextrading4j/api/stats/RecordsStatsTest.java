@@ -13,16 +13,6 @@ import static pl.zankowski.iextrading4j.api.stats.builder.RecordsStatsDataBuilde
 public class RecordsStatsTest {
 
     @Test
-    public void shouldSuccessfullyCreateEmptyRecordsStats() {
-        RecordsStats recordsStats = new RecordsStats();
-
-        assertThat(recordsStats.getVolume()).isNull();
-        assertThat(recordsStats.getSymbolsTraded()).isNull();
-        assertThat(recordsStats.getRoutedVolume()).isNull();
-        assertThat(recordsStats.getNotional()).isNull();
-    }
-
-    @Test
     public void shouldSuccessfullyCreateRecordsStats() {
         final Record volume = new Record(12d, LocalDate.now(), 11d, 10d);
         final Record symbolsTraded = new Record(23d, LocalDate.now(), 22d, 21d);
@@ -30,21 +20,6 @@ public class RecordsStatsTest {
         final Record notional = new Record(45d, LocalDate.now(), 43d, 42d);
 
         RecordsStats recordsStats = new RecordsStats(volume, symbolsTraded, routedVolume, notional);
-        assertRecordsStats(recordsStats, volume, symbolsTraded, routedVolume, notional);
-    }
-
-    @Test
-    public void shouldSuccessfullySetDataIntoEmptyRecordsStats() {
-        final Record volume = new Record(12d, LocalDate.now(), 11d, 10d);
-        final Record symbolsTraded = new Record(23d, LocalDate.now(), 22d, 21d);
-        final Record routedVolume = new Record(34d, LocalDate.now(), 32d, 31d);
-        final Record notional = new Record(45d, LocalDate.now(), 43d, 42d);
-
-        RecordsStats recordsStats = new RecordsStats();
-        recordsStats.setVolume(volume);
-        recordsStats.setSymbolsTraded(symbolsTraded);
-        recordsStats.setRoutedVolume(routedVolume);
-        recordsStats.setNotional(notional);
         assertRecordsStats(recordsStats, volume, symbolsTraded, routedVolume, notional);
     }
 

@@ -10,21 +10,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class HistoricalStatsTest {
 
     @Test
-    public void shouldSuccessfullyCreateEmptyHistoricalStats() {
-        HistoricalStats historicalStats = new HistoricalStats();
-
-        assertHistoricalStats(historicalStats, 0d, 0d, 0d, 0d, 0d,
-                0d, 0d, 0d, 0d, 0d, 0d,
-                0d, 0d, 0d, 0d, 0d, 0d,
-                0d, 0d, 0d, 0d, 0d, 0d,
-                0d, 0d, 0d, 0d, 0d, 0d,
-                0d, 0d, 0d, 0d, 0d, 0d,
-                0d, 0d, 0d, 0d, 0d, 0d,
-                0d, 0d, 0d, 0d, 0d, 0d,
-                0d, 0d, 0d);
-    }
-
-    @Test
     public void shouldSuccessfullyCreateHistoricalStats() {
         final double averageDailyVolume = 123.23d;
         final double averageDailyRoutedVolume = 123.23d;
