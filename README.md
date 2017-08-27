@@ -416,6 +416,11 @@ class DataReceiverImpl implements DataReceiver {
 	
 }
 ```
+## Roadmap
+
+* Add support to DEEP sockets
+* Better code coverage
+* Clean up
 
 ## License
 
