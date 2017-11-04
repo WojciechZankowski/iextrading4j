@@ -1,8 +1,5 @@
-package pl.zankowski.iextrading4j.api.deep;
+package pl.zankowski.iextrading4j.api.marketdata;
 
-/**
- * @author Wojciech Zankowski
- */
 public enum SystemEventType {
 
     MESSAGES_START('O'),

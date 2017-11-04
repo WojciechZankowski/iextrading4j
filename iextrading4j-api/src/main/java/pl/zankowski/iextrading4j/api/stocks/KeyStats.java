@@ -2,113 +2,115 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
-/**
- * @author Wojciech Zankowski
- */
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public class KeyStats {
 
     private final String companyName;
-    private final double marketcap;
-    private final double beta;
-    private final double week52high;
-    private final double week52low;
-    private final double week52change;
-    private final double shortInterest;
-    private final String shortDate;
-    private final double dividendRate;
-    private final double dividendYield;
-    private final String exDividendDate;
-    private final double latestEPS;
-    private final String latestEPSDate;
-    private final double sharesOutstanding;
-    private final double Float;
-    private final double returnOnEquity;
-    private final double consensusEPS;
-    private final int numberOfEstimates;
-    private final double EPSSurpriseDollar;
-    private final double EPSSurprisePercent;
+    private final BigDecimal marketcap;
+    private final BigDecimal beta;
+    private final BigDecimal week52high;
+    private final BigDecimal week52low;
+    private final BigDecimal week52change;
+    private final BigDecimal shortInterest;
+    private final LocalDate shortDate;
+    private final BigDecimal dividendRate;
+    private final BigDecimal dividendYield;
+    private final LocalDateTime exDividendDate;
+    private final BigDecimal latestEPS;
+    private final LocalDate latestEPSDate;
+    private final BigDecimal sharesOutstanding;
+    private final BigDecimal Float;
+    private final BigDecimal returnOnEquity;
+    private final BigDecimal consensusEPS;
+    private final BigDecimal numberOfEstimates;
+    private final BigDecimal EPSSurpriseDollar;
+    private final BigDecimal EPSSurprisePercent;
     private final String symbol;
-    private final double EBITDA;
-    private final double revenue;
-    private final double grossProfit;
-    private final double cash;
-    private final double debt;
-    private final double ttmEPS;
-    private final double revenuePerShare;
-    private final double revenuePerEmployee;
-    private final double peRatioHigh;
-    private final double peRatioLow;
-    private final double returnOnAssets;
-    private final double returnOnCapital;
-    private final double profitMargin;
-    private final double priceToSales;
-    private final double priceToBook;
-    private final double day200MovingAvg;
-    private final double day50MovingAvg;
-    private final double institutionPercent;
-    private final double insiderPercent;
-    private final double shortRatio;
-    private final double year5ChangePercent;
-    private final double year2ChangePercent;
-    private final double year1ChangePercent;
-    private final double ytdChangePercent;
-    private final double month6ChangePercent;
-    private final double month3ChangePercent;
-    private final double month1ChangePercent;
-    private final double day5ChangePercent;
+    private final BigDecimal EBITDA;
+    private final BigDecimal revenue;
+    private final BigDecimal grossProfit;
+    private final BigDecimal cash;
+    private final BigDecimal debt;
+    private final BigDecimal ttmEPS;
+    private final BigDecimal revenuePerShare;
+    private final BigDecimal revenuePerEmployee;
+    private final BigDecimal peRatioHigh;
+    private final BigDecimal peRatioLow;
+    private final BigDecimal returnOnAssets;
+    private final BigDecimal returnOnCapital;
+    private final BigDecimal profitMargin;
+    private final BigDecimal priceToSales;
+    private final BigDecimal priceToBook;
+    private final BigDecimal day200MovingAvg;
+    private final BigDecimal day50MovingAvg;
+    private final BigDecimal institutionPercent;
+    private final BigDecimal insiderPercent;
+    private final BigDecimal shortRatio;
+    private final BigDecimal year5ChangePercent;
+    private final BigDecimal year2ChangePercent;
+    private final BigDecimal year1ChangePercent;
+    private final BigDecimal ytdChangePercent;
+    private final BigDecimal month6ChangePercent;
+    private final BigDecimal month3ChangePercent;
+    private final BigDecimal month1ChangePercent;
+    private final BigDecimal day5ChangePercent;
 
     @JsonCreator
-    public KeyStats(@JsonProperty("companyName") String companyName,
-                    @JsonProperty("marketcap") double marketcap,
-                    @JsonProperty("beta") double beta,
-                    @JsonProperty("week52high") double week52high,
-                    @JsonProperty("week52low") double week52low,
-                    @JsonProperty("week52change") double week52change,
-                    @JsonProperty("shortInterest") double shortInterest,
-                    @JsonProperty("shortDate") String shortDate,
-                    @JsonProperty("dividendRate") double dividendRate,
-                    @JsonProperty("dividendYield") double dividendYield,
-                    @JsonProperty("exDividendDate") String exDividendDate,
-                    @JsonProperty("latestEPS") double latestEPS,
-                    @JsonProperty("latestEPSDate") String latestEPSDate,
-                    @JsonProperty("sharesOutstanding") double sharesOutstanding,
-                    @JsonProperty("float") double aFloat,
-                    @JsonProperty("returnOnEquity") double returnOnEquity,
-                    @JsonProperty("consensusEPS") double consensusEPS,
-                    @JsonProperty("numberOfEstimates") int numberOfEstimates,
-                    @JsonProperty("EPSSurpriseDollar") double EPSSurpriseDollar,
-                    @JsonProperty("EPSSurprisePercent") double EPSSurprisePercent,
+    public KeyStats(@JsonProperty("companyName") final String companyName,
+                    @JsonProperty("marketcap") final BigDecimal marketcap,
+                    @JsonProperty("beta") final BigDecimal beta,
+                    @JsonProperty("week52high") final BigDecimal week52high,
+                    @JsonProperty("week52low") final BigDecimal week52low,
+                    @JsonProperty("week52change") final BigDecimal week52change,
+                    @JsonProperty("shortInterest") final BigDecimal shortInterest,
+                    @JsonProperty("shortDate") final LocalDate shortDate,
+                    @JsonProperty("dividendRate") final BigDecimal dividendRate,
+                    @JsonProperty("dividendYield") final BigDecimal dividendYield,
+                    @JsonProperty("exDividendDate") final LocalDateTime exDividendDate,
+                    @JsonProperty("latestEPS") final BigDecimal latestEPS,
+                    @JsonProperty("latestEPSDate") final LocalDate latestEPSDate,
+                    @JsonProperty("sharesOutstanding") final BigDecimal sharesOutstanding,
+                    @JsonProperty("float") final BigDecimal aFloat,
+                    @JsonProperty("returnOnEquity") final BigDecimal returnOnEquity,
+                    @JsonProperty("consensusEPS") final BigDecimal consensusEPS,
+                    @JsonProperty("numberOfEstimates") final BigDecimal numberOfEstimates,
+                    @JsonProperty("EPSSurpriseDollar") final BigDecimal EPSSurpriseDollar,
+                    @JsonProperty("EPSSurprisePercent") final BigDecimal EPSSurprisePercent,
                     @JsonProperty("symbol") String symbol,
-                    @JsonProperty("EBITDA") double EBITDA,
-                    @JsonProperty("revenue") double revenue,
-                    @JsonProperty("grossProfit") double grossProfit,
-                    @JsonProperty("cash") double cash,
-                    @JsonProperty("debt") double debt,
-                    @JsonProperty("ttmEPS") double ttmEPS,
-                    @JsonProperty("revenuePerShare") double revenuePerShare,
-                    @JsonProperty("revenuePerEmployee") double revenuePerEmployee,
-                    @JsonProperty("peRatioHigh") double peRatioHigh,
-                    @JsonProperty("peRatioLow") double peRatioLow,
-                    @JsonProperty("returnOnAssets") double returnOnAssets,
-                    @JsonProperty("returnOnCapital") double returnOnCapital,
-                    @JsonProperty("profitMargin") double profitMargin,
-                    @JsonProperty("priceToSales") double priceToSales,
-                    @JsonProperty("priceToBook") double priceToBook,
-                    @JsonProperty("day200MovingAvg") double day200MovingAvg,
-                    @JsonProperty("day50MovingAvg") double day50MovingAvg,
-                    @JsonProperty("institutionPercent") double institutionPercent,
-                    @JsonProperty("insiderPercent") double insiderPercent,
-                    @JsonProperty("shortRatio") double shortRatio,
-                    @JsonProperty("year5ChangePercent") double year5ChangePercent,
-                    @JsonProperty("year2ChangePercent") double year2ChangePercent,
-                    @JsonProperty("year1ChangePercent") double year1ChangePercent,
-                    @JsonProperty("ytdChangePercent") double ytdChangePercent,
-                    @JsonProperty("month6ChangePercent") double month6ChangePercent,
-                    @JsonProperty("month3ChangePercent") double month3ChangePercent,
-                    @JsonProperty("month1ChangePercent") double month1ChangePercent,
-                    @JsonProperty("day5ChangePercent") double day5ChangePercent )
-    {
+                    @JsonProperty("EBITDA") final BigDecimal EBITDA,
+                    @JsonProperty("revenue") final BigDecimal revenue,
+                    @JsonProperty("grossProfit") final BigDecimal grossProfit,
+                    @JsonProperty("cash") final BigDecimal cash,
+                    @JsonProperty("debt") final BigDecimal debt,
+                    @JsonProperty("ttmEPS") final BigDecimal ttmEPS,
+                    @JsonProperty("revenuePerShare") final BigDecimal revenuePerShare,
+                    @JsonProperty("revenuePerEmployee") final BigDecimal revenuePerEmployee,
+                    @JsonProperty("peRatioHigh") final BigDecimal peRatioHigh,
+                    @JsonProperty("peRatioLow") final BigDecimal peRatioLow,
+                    @JsonProperty("returnOnAssets") final BigDecimal returnOnAssets,
+                    @JsonProperty("returnOnCapital") final BigDecimal returnOnCapital,
+                    @JsonProperty("profitMargin") final BigDecimal profitMargin,
+                    @JsonProperty("priceToSales") final BigDecimal priceToSales,
+                    @JsonProperty("priceToBook") final BigDecimal priceToBook,
+                    @JsonProperty("day200MovingAvg") final BigDecimal day200MovingAvg,
+                    @JsonProperty("day50MovingAvg") final BigDecimal day50MovingAvg,
+                    @JsonProperty("institutionPercent") final BigDecimal institutionPercent,
+                    @JsonProperty("insiderPercent") final BigDecimal insiderPercent,
+                    @JsonProperty("shortRatio") final BigDecimal shortRatio,
+                    @JsonProperty("year5ChangePercent") final BigDecimal year5ChangePercent,
+                    @JsonProperty("year2ChangePercent") final BigDecimal year2ChangePercent,
+                    @JsonProperty("year1ChangePercent") final BigDecimal year1ChangePercent,
+                    @JsonProperty("ytdChangePercent") final BigDecimal ytdChangePercent,
+                    @JsonProperty("month6ChangePercent") final BigDecimal month6ChangePercent,
+                    @JsonProperty("month3ChangePercent") final BigDecimal month3ChangePercent,
+                    @JsonProperty("month1ChangePercent") final BigDecimal month1ChangePercent,
+                    @JsonProperty("day5ChangePercent") final BigDecimal day5ChangePercent) {
         this.companyName = companyName;
         this.marketcap = marketcap;
         this.beta = beta;
@@ -160,594 +162,323 @@ public class KeyStats {
         this.day5ChangePercent = day5ChangePercent;
     }
 
-
-    @Override
-    public boolean equals( final Object o )
-    {
-        if ( this == o )
-        {
-            return true;
-        }
-        if ( o == null || getClass() != o.getClass() )
-        {
-            return false;
-        }
-
-        final KeyStats keyStats = (KeyStats) o;
-
-        if ( Double.compare( keyStats.marketcap, marketcap ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.beta, beta ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.week52high, week52high ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.week52low, week52low ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.week52change, week52change ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.shortInterest, shortInterest ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.dividendRate, dividendRate ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.dividendYield, dividendYield ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.latestEPS, latestEPS ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.sharesOutstanding, sharesOutstanding ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.Float, Float ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.returnOnEquity, returnOnEquity ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.consensusEPS, consensusEPS ) != 0 )
-        {
-            return false;
-        }
-        if ( numberOfEstimates != keyStats.numberOfEstimates )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.EPSSurpriseDollar, EPSSurpriseDollar ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.EPSSurprisePercent, EPSSurprisePercent ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.EBITDA, EBITDA ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.revenue, revenue ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.grossProfit, grossProfit ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.cash, cash ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.debt, debt ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.ttmEPS, ttmEPS ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.revenuePerShare, revenuePerShare ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.revenuePerEmployee, revenuePerEmployee ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.peRatioHigh, peRatioHigh ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.peRatioLow, peRatioLow ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.returnOnAssets, returnOnAssets ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.returnOnCapital, returnOnCapital ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.profitMargin, profitMargin ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.priceToSales, priceToSales ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.priceToBook, priceToBook ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.day200MovingAvg, day200MovingAvg ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.day50MovingAvg, day50MovingAvg ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.institutionPercent, institutionPercent ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.insiderPercent, insiderPercent ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.shortRatio, shortRatio ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.year5ChangePercent, year5ChangePercent ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.year2ChangePercent, year2ChangePercent ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.year1ChangePercent, year1ChangePercent ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.ytdChangePercent, ytdChangePercent ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.month6ChangePercent, month6ChangePercent ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.month3ChangePercent, month3ChangePercent ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.month1ChangePercent, month1ChangePercent ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( keyStats.day5ChangePercent, day5ChangePercent ) != 0 )
-        {
-            return false;
-        }
-        if ( companyName != null
-             ? !companyName.equals( keyStats.companyName )
-             : keyStats.companyName != null )
-        {
-            return false;
-        }
-        if ( shortDate != null
-             ? !shortDate.equals( keyStats.shortDate )
-             : keyStats.shortDate != null )
-        {
-            return false;
-        }
-        if ( exDividendDate != null
-             ? !exDividendDate.equals( keyStats.exDividendDate )
-             : keyStats.exDividendDate != null )
-        {
-            return false;
-        }
-        if ( latestEPSDate != null
-             ? !latestEPSDate.equals( keyStats.latestEPSDate )
-             : keyStats.latestEPSDate != null )
-        {
-            return false;
-        }
-        return symbol != null
-               ? symbol.equals( keyStats.symbol )
-               : keyStats.symbol == null;
-    }
-
-    @Override
-    public int hashCode()
-    {
-        int result;
-        long temp;
-        result = companyName != null
-                 ? companyName.hashCode()
-                 : 0;
-        temp = Double.doubleToLongBits( marketcap );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( beta );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( week52high );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( week52low );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( week52change );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( shortInterest );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (shortDate != null
-                                ? shortDate.hashCode()
-                                : 0);
-        temp = Double.doubleToLongBits( dividendRate );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( dividendYield );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (exDividendDate != null
-                                ? exDividendDate.hashCode()
-                                : 0);
-        temp = Double.doubleToLongBits( latestEPS );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (latestEPSDate != null
-                                ? latestEPSDate.hashCode()
-                                : 0);
-        temp = Double.doubleToLongBits( sharesOutstanding );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( Float );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( returnOnEquity );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( consensusEPS );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + numberOfEstimates;
-        temp = Double.doubleToLongBits( EPSSurpriseDollar );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( EPSSurprisePercent );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (symbol != null
-                                ? symbol.hashCode()
-                                : 0);
-        temp = Double.doubleToLongBits( EBITDA );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( revenue );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( grossProfit );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( cash );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( debt );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( ttmEPS );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( revenuePerShare );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( revenuePerEmployee );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( peRatioHigh );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( peRatioLow );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( returnOnAssets );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( returnOnCapital );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( profitMargin );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( priceToSales );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( priceToBook );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( day200MovingAvg );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( day50MovingAvg );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( institutionPercent );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( insiderPercent );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( shortRatio );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( year5ChangePercent );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( year2ChangePercent );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( year1ChangePercent );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( ytdChangePercent );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( month6ChangePercent );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( month3ChangePercent );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( month1ChangePercent );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( day5ChangePercent );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        return result;
-    }
     public String getCompanyName() {
         return companyName;
     }
 
-    public double getMarketcap() {
+    public BigDecimal getMarketcap() {
         return marketcap;
     }
 
-    public double getBeta() {
+    public BigDecimal getBeta() {
         return beta;
     }
 
-    public double getWeek52high() {
+    public BigDecimal getWeek52high() {
         return week52high;
     }
 
-    public double getWeek52low() {
+    public BigDecimal getWeek52low() {
         return week52low;
     }
 
-    public double getWeek52change() {
+    public BigDecimal getWeek52change() {
         return week52change;
     }
 
-    public double getShortInterest() {
+    public BigDecimal getShortInterest() {
         return shortInterest;
     }
 
-    public String getShortDate() {
+    public LocalDate getShortDate() {
         return shortDate;
     }
 
-    public double getDividendRate() {
+    public BigDecimal getDividendRate() {
         return dividendRate;
     }
 
-    public double getDividendYield() {
+    public BigDecimal getDividendYield() {
         return dividendYield;
     }
 
-    public String getExDividendDate() {
+    public LocalDateTime getExDividendDate() {
         return exDividendDate;
     }
 
-    public double getLatestEPS() {
+    public BigDecimal getLatestEPS() {
         return latestEPS;
     }
 
-    public String getLatestEPSDate() {
+    public LocalDate getLatestEPSDate() {
         return latestEPSDate;
     }
 
-    public double getSharesOutstanding() {
+    public BigDecimal getSharesOutstanding() {
         return sharesOutstanding;
     }
 
-    public double getFloat() {
+    public BigDecimal getFloat() {
         return Float;
     }
 
-    public double getReturnOnEquity() {
+    public BigDecimal getReturnOnEquity() {
         return returnOnEquity;
     }
 
-    public double getConsensusEPS() {
+    public BigDecimal getConsensusEPS() {
         return consensusEPS;
     }
 
-    public int getNumberOfEstimates() {
+    public BigDecimal getNumberOfEstimates() {
         return numberOfEstimates;
+    }
+
+    public BigDecimal getEPSSurpriseDollar() {
+        return EPSSurpriseDollar;
+    }
+
+    public BigDecimal getEPSSurprisePercent() {
+        return EPSSurprisePercent;
     }
 
     public String getSymbol() {
         return symbol;
     }
 
-    public double getEBITDA() {
+    public BigDecimal getEBITDA() {
         return EBITDA;
     }
 
-    public double getRevenue() {
+    public BigDecimal getRevenue() {
         return revenue;
     }
 
-    public double getGrossProfit() {
+    public BigDecimal getGrossProfit() {
         return grossProfit;
     }
 
-    public double getCash() {
+    public BigDecimal getCash() {
         return cash;
     }
 
-    public double getDebt() {
+    public BigDecimal getDebt() {
         return debt;
     }
 
-    public double getTtmEPS() {
+    public BigDecimal getTtmEPS() {
         return ttmEPS;
     }
 
-    public double getRevenuePerShare() {
+    public BigDecimal getRevenuePerShare() {
         return revenuePerShare;
     }
 
-    public double getRevenuePerEmployee() {
+    public BigDecimal getRevenuePerEmployee() {
         return revenuePerEmployee;
     }
 
-    public double getPeRatioHigh() {
+    public BigDecimal getPeRatioHigh() {
         return peRatioHigh;
     }
 
-    public double getPeRatioLow() {
+    public BigDecimal getPeRatioLow() {
         return peRatioLow;
     }
 
-    public double getEPSSurpriseDollar() {
-        return EPSSurpriseDollar;
-    }
-
-    public double getEPSSurprisePercent() {
-        return EPSSurprisePercent;
-    }
-
-    public double getReturnOnAssets() {
+    public BigDecimal getReturnOnAssets() {
         return returnOnAssets;
     }
 
-    public double getReturnOnCapital() {
+    public BigDecimal getReturnOnCapital() {
         return returnOnCapital;
     }
 
-    public double getProfitMargin() {
+    public BigDecimal getProfitMargin() {
         return profitMargin;
     }
 
-    public double getPriceToSales() {
+    public BigDecimal getPriceToSales() {
         return priceToSales;
     }
 
-    public double getPriceToBook() {
+    public BigDecimal getPriceToBook() {
         return priceToBook;
     }
 
-    public double getDay200MovingAvg() {
+    public BigDecimal getDay200MovingAvg() {
         return day200MovingAvg;
     }
 
-    public double getDay50MovingAvg() {
+    public BigDecimal getDay50MovingAvg() {
         return day50MovingAvg;
     }
 
-    public double getInstitutionPercent() {
+    public BigDecimal getInstitutionPercent() {
         return institutionPercent;
     }
 
-    public double getInsiderPercent() {
+    public BigDecimal getInsiderPercent() {
         return insiderPercent;
     }
 
-    public double getShortRatio() {
+    public BigDecimal getShortRatio() {
         return shortRatio;
     }
 
-    public double getYear5ChangePercent()
-    {
+    public BigDecimal getYear5ChangePercent() {
         return year5ChangePercent;
     }
 
-    public double getYear2ChangePercent()
-    {
+    public BigDecimal getYear2ChangePercent() {
         return year2ChangePercent;
     }
 
-    public double getYear1ChangePercent()
-    {
+    public BigDecimal getYear1ChangePercent() {
         return year1ChangePercent;
     }
 
-    public double getYtdChangePercent()
-    {
+    public BigDecimal getYtdChangePercent() {
         return ytdChangePercent;
     }
 
-    public double getMonth6ChangePercent()
-    {
+    public BigDecimal getMonth6ChangePercent() {
         return month6ChangePercent;
     }
 
-    public double getMonth3ChangePercent()
-    {
+    public BigDecimal getMonth3ChangePercent() {
         return month3ChangePercent;
     }
 
-    public double getMonth1ChangePercent()
-    {
+    public BigDecimal getMonth1ChangePercent() {
         return month1ChangePercent;
     }
 
-    public double getDay5ChangePercent()
-    {
+    public BigDecimal getDay5ChangePercent() {
         return day5ChangePercent;
     }
 
     @Override
-    public String toString()
-    {
-        final StringBuilder sb = new StringBuilder( "KeyStats{" );
-        sb.append( "companyName='" ).append( companyName ).append( '\'' );
-        sb.append( ", marketcap=" ).append( marketcap );
-        sb.append( ", beta=" ).append( beta );
-        sb.append( ", week52high=" ).append( week52high );
-        sb.append( ", week52low=" ).append( week52low );
-        sb.append( ", week52change=" ).append( week52change );
-        sb.append( ", shortInterest=" ).append( shortInterest );
-        sb.append( ", shortDate='" ).append( shortDate ).append( '\'' );
-        sb.append( ", dividendRate=" ).append( dividendRate );
-        sb.append( ", dividendYield=" ).append( dividendYield );
-        sb.append( ", exDividendDate='" ).append( exDividendDate ).append( '\'' );
-        sb.append( ", latestEPS=" ).append( latestEPS );
-        sb.append( ", latestEPSDate='" ).append( latestEPSDate ).append( '\'' );
-        sb.append( ", sharesOutstanding=" ).append( sharesOutstanding );
-        sb.append( ", Float=" ).append( Float );
-        sb.append( ", returnOnEquity=" ).append( returnOnEquity );
-        sb.append( ", consensusEPS=" ).append( consensusEPS );
-        sb.append( ", numberOfEstimates=" ).append( numberOfEstimates );
-        sb.append( ", EPSSurpriseDollar=" ).append( EPSSurpriseDollar );
-        sb.append( ", EPSSurprisePercent=" ).append( EPSSurprisePercent );
-        sb.append( ", symbol='" ).append( symbol ).append( '\'' );
-        sb.append( ", EBITDA=" ).append( EBITDA );
-        sb.append( ", revenue=" ).append( revenue );
-        sb.append( ", grossProfit=" ).append( grossProfit );
-        sb.append( ", cash=" ).append( cash );
-        sb.append( ", debt=" ).append( debt );
-        sb.append( ", ttmEPS=" ).append( ttmEPS );
-        sb.append( ", revenuePerShare=" ).append( revenuePerShare );
-        sb.append( ", revenuePerEmployee=" ).append( revenuePerEmployee );
-        sb.append( ", peRatioHigh=" ).append( peRatioHigh );
-        sb.append( ", peRatioLow=" ).append( peRatioLow );
-        sb.append( ", returnOnAssets=" ).append( returnOnAssets );
-        sb.append( ", returnOnCapital=" ).append( returnOnCapital );
-        sb.append( ", profitMargin=" ).append( profitMargin );
-        sb.append( ", priceToSales=" ).append( priceToSales );
-        sb.append( ", priceToBook=" ).append( priceToBook );
-        sb.append( ", day200MovingAvg=" ).append( day200MovingAvg );
-        sb.append( ", day50MovingAvg=" ).append( day50MovingAvg );
-        sb.append( ", institutionPercent=" ).append( institutionPercent );
-        sb.append( ", insiderPercent=" ).append( insiderPercent );
-        sb.append( ", shortRatio=" ).append( shortRatio );
-        sb.append( ", year5ChangePercent=" ).append( year5ChangePercent );
-        sb.append( ", year2ChangePercent=" ).append( year2ChangePercent );
-        sb.append( ", year1ChangePercent=" ).append( year1ChangePercent );
-        sb.append( ", ytdChangePercent=" ).append( ytdChangePercent );
-        sb.append( ", month6ChangePercent=" ).append( month6ChangePercent );
-        sb.append( ", month3ChangePercent=" ).append( month3ChangePercent );
-        sb.append( ", month1ChangePercent=" ).append( month1ChangePercent );
-        sb.append( ", day5ChangePercent=" ).append( day5ChangePercent );
-        sb.append( '}' );
-        return sb.toString();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        KeyStats keyStats = (KeyStats) o;
+        return Objects.equal(companyName, keyStats.companyName) &&
+                Objects.equal(marketcap, keyStats.marketcap) &&
+                Objects.equal(beta, keyStats.beta) &&
+                Objects.equal(week52high, keyStats.week52high) &&
+                Objects.equal(week52low, keyStats.week52low) &&
+                Objects.equal(week52change, keyStats.week52change) &&
+                Objects.equal(shortInterest, keyStats.shortInterest) &&
+                Objects.equal(shortDate, keyStats.shortDate) &&
+                Objects.equal(dividendRate, keyStats.dividendRate) &&
+                Objects.equal(dividendYield, keyStats.dividendYield) &&
+                Objects.equal(exDividendDate, keyStats.exDividendDate) &&
+                Objects.equal(latestEPS, keyStats.latestEPS) &&
+                Objects.equal(latestEPSDate, keyStats.latestEPSDate) &&
+                Objects.equal(sharesOutstanding, keyStats.sharesOutstanding) &&
+                Objects.equal(Float, keyStats.Float) &&
+                Objects.equal(returnOnEquity, keyStats.returnOnEquity) &&
+                Objects.equal(consensusEPS, keyStats.consensusEPS) &&
+                Objects.equal(numberOfEstimates, keyStats.numberOfEstimates) &&
+                Objects.equal(EPSSurpriseDollar, keyStats.EPSSurpriseDollar) &&
+                Objects.equal(EPSSurprisePercent, keyStats.EPSSurprisePercent) &&
+                Objects.equal(symbol, keyStats.symbol) &&
+                Objects.equal(EBITDA, keyStats.EBITDA) &&
+                Objects.equal(revenue, keyStats.revenue) &&
+                Objects.equal(grossProfit, keyStats.grossProfit) &&
+                Objects.equal(cash, keyStats.cash) &&
+                Objects.equal(debt, keyStats.debt) &&
+                Objects.equal(ttmEPS, keyStats.ttmEPS) &&
+                Objects.equal(revenuePerShare, keyStats.revenuePerShare) &&
+                Objects.equal(revenuePerEmployee, keyStats.revenuePerEmployee) &&
+                Objects.equal(peRatioHigh, keyStats.peRatioHigh) &&
+                Objects.equal(peRatioLow, keyStats.peRatioLow) &&
+                Objects.equal(returnOnAssets, keyStats.returnOnAssets) &&
+                Objects.equal(returnOnCapital, keyStats.returnOnCapital) &&
+                Objects.equal(profitMargin, keyStats.profitMargin) &&
+                Objects.equal(priceToSales, keyStats.priceToSales) &&
+                Objects.equal(priceToBook, keyStats.priceToBook) &&
+                Objects.equal(day200MovingAvg, keyStats.day200MovingAvg) &&
+                Objects.equal(day50MovingAvg, keyStats.day50MovingAvg) &&
+                Objects.equal(institutionPercent, keyStats.institutionPercent) &&
+                Objects.equal(insiderPercent, keyStats.insiderPercent) &&
+                Objects.equal(shortRatio, keyStats.shortRatio) &&
+                Objects.equal(year5ChangePercent, keyStats.year5ChangePercent) &&
+                Objects.equal(year2ChangePercent, keyStats.year2ChangePercent) &&
+                Objects.equal(year1ChangePercent, keyStats.year1ChangePercent) &&
+                Objects.equal(ytdChangePercent, keyStats.ytdChangePercent) &&
+                Objects.equal(month6ChangePercent, keyStats.month6ChangePercent) &&
+                Objects.equal(month3ChangePercent, keyStats.month3ChangePercent) &&
+                Objects.equal(month1ChangePercent, keyStats.month1ChangePercent) &&
+                Objects.equal(day5ChangePercent, keyStats.day5ChangePercent);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(companyName, marketcap, beta, week52high, week52low, week52change,
+                shortInterest, shortDate, dividendRate, dividendYield, exDividendDate, latestEPS,
+                latestEPSDate, sharesOutstanding, Float, returnOnEquity, consensusEPS, numberOfEstimates,
+                EPSSurpriseDollar, EPSSurprisePercent, symbol, EBITDA, revenue, grossProfit, cash, debt,
+                ttmEPS, revenuePerShare, revenuePerEmployee, peRatioHigh, peRatioLow, returnOnAssets,
+                returnOnCapital, profitMargin, priceToSales, priceToBook, day200MovingAvg, day50MovingAvg,
+                institutionPercent, insiderPercent, shortRatio, year5ChangePercent, year2ChangePercent,
+                year1ChangePercent, ytdChangePercent, month6ChangePercent, month3ChangePercent,
+                month1ChangePercent, day5ChangePercent);
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("companyName", companyName)
+                .add("marketcap", marketcap)
+                .add("beta", beta)
+                .add("week52high", week52high)
+                .add("week52low", week52low)
+                .add("week52change", week52change)
+                .add("shortInterest", shortInterest)
+                .add("shortDate", shortDate)
+                .add("dividendRate", dividendRate)
+                .add("dividendYield", dividendYield)
+                .add("exDividendDate", exDividendDate)
+                .add("latestEPS", latestEPS)
+                .add("latestEPSDate", latestEPSDate)
+                .add("sharesOutstanding", sharesOutstanding)
+                .add("Float", Float)
+                .add("returnOnEquity", returnOnEquity)
+                .add("consensusEPS", consensusEPS)
+                .add("numberOfEstimates", numberOfEstimates)
+                .add("EPSSurpriseDollar", EPSSurpriseDollar)
+                .add("EPSSurprisePercent", EPSSurprisePercent)
+                .add("symbol", symbol)
+                .add("EBITDA", EBITDA)
+                .add("revenue", revenue)
+                .add("grossProfit", grossProfit)
+                .add("cash", cash)
+                .add("debt", debt)
+                .add("ttmEPS", ttmEPS)
+                .add("revenuePerShare", revenuePerShare)
+                .add("revenuePerEmployee", revenuePerEmployee)
+                .add("peRatioHigh", peRatioHigh)
+                .add("peRatioLow", peRatioLow)
+                .add("returnOnAssets", returnOnAssets)
+                .add("returnOnCapital", returnOnCapital)
+                .add("profitMargin", profitMargin)
+                .add("priceToSales", priceToSales)
+                .add("priceToBook", priceToBook)
+                .add("day200MovingAvg", day200MovingAvg)
+                .add("day50MovingAvg", day50MovingAvg)
+                .add("institutionPercent", institutionPercent)
+                .add("insiderPercent", insiderPercent)
+                .add("shortRatio", shortRatio)
+                .add("year5ChangePercent", year5ChangePercent)
+                .add("year2ChangePercent", year2ChangePercent)
+                .add("year1ChangePercent", year1ChangePercent)
+                .add("ytdChangePercent", ytdChangePercent)
+                .add("month6ChangePercent", month6ChangePercent)
+                .add("month3ChangePercent", month3ChangePercent)
+                .add("month1ChangePercent", month1ChangePercent)
+                .add("day5ChangePercent", day5ChangePercent)
+                .toString();
+    }
 }

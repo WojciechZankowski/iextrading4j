@@ -1,7 +1,7 @@
 package pl.zankowski.iextrading4j.client.endpoint.marketdata.deep;
 
+import pl.zankowski.iextrading4j.api.marketdata.*;
 import pl.zankowski.iextrading4j.client.endpoint.marketdata.deep.request.DEEPRequest;
-import pl.zankowski.iextrading4j.api.deep.*;
 
 import java.util.Map;
 

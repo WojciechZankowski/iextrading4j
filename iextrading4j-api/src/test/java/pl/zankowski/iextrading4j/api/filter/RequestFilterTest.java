@@ -27,7 +27,7 @@ public class RequestFilterTest {
     @Test
     public void shouldReturnSingleColumnInColumnList() {
         final String column = "marketPrice";
-        RequestFilter requestFilter = RequestFilter.builder().with(column).build();
+        RequestFilter requestFilter = RequestFilter.builder().withColumn(column).build();
 
         assertThat(requestFilter.getColumnList()).isEqualTo(column);
     }
@@ -37,11 +37,11 @@ public class RequestFilterTest {
         final String marketPriceColumn = "marketPrice";
         final String symbolColumn = "symbol";
         RequestFilter requestFilter = RequestFilter.builder()
-                .with(marketPriceColumn)
-                .with(symbolColumn)
+                .withColumn(marketPriceColumn)
+                .withColumn(symbolColumn)
                 .build();
 
-        String[] elements = requestFilter.getColumnList().split(RequestFilter.FILTER_DELIMITER);
+        String[] elements = requestFilter.getColumnList().split(",");
         assertThat(elements).hasSize(2);
         assertThat(elements).contains(marketPriceColumn);
         assertThat(elements).contains(symbolColumn);

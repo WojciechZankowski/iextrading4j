@@ -26,8 +26,8 @@ public class RefDataExample {
 
     private void requestExchangeSymbolsWithRequestFilter(IEXTradingClient iexTradingClient) {
         RequestFilter requestFilter = RequestFilter.builder()
-                .with("symbol")
-                .with("name")
+                .withColumn("symbol")
+                .withColumn("name")
                 .build();
         ExchangeSymbol[] exchangeSymbols = iexTradingClient.getRefDataEndpoint().requestExchangeSymbols(requestFilter);
         Arrays.stream(exchangeSymbols).forEach(System.out::println);

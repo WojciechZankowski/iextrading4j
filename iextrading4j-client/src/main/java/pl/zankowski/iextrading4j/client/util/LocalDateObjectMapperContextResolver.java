@@ -1,13 +1,11 @@
 package pl.zankowski.iextrading4j.client.util;
 
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.deser.DeserializationProblemHandler;
+import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.deser.std.StdScalarDeserializer;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import pl.zankowski.iextrading4j.api.marketdata.Auction;
 
 import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.Provider;
@@ -26,6 +24,7 @@ public class LocalDateObjectMapperContextResolver implements ContextResolver<Obj
         JavaTimeModule javaTimeModule = new JavaTimeModule();
         javaTimeModule.addDeserializer(double.class, new EmptyStringDeserializer());
         objectMapper.registerModule(javaTimeModule);
+        objectMapper.registerModule(newModule());
         objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
     }
 
@@ -48,6 +47,26 @@ public class LocalDateObjectMapperContextResolver implements ContextResolver<Obj
             }
 
             return parser.getDoubleValue();
+        }
+    }
+
+    private Module newModule() {
+        SimpleModule simpleModule = new SimpleModule();
+
+        simpleModule.addDeserializer(Auction.class, new AuctionDeserializer());
+
+        return simpleModule;
+    }
+
+    private class AuctionDeserializer extends JsonDeserializer<Auction> {
+
+        @Override
+        public Auction deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
+            final String value = p.getValueAsString();
+            if (value == null) {
+                return null;
+            }
+            return p.readValueAs(Auction.class);
         }
     }
 

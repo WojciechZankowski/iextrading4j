@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.samples;
 
-import pl.zankowski.iextrading4j.api.deep.*;
+import pl.zankowski.iextrading4j.api.marketdata.*;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.endpoint.marketdata.deep.request.DEEPRequest;
 
@@ -16,14 +16,14 @@ public class DEEPExample {
     public static void main(String[] args) {
         DEEPExample deepExample = new DEEPExample();
         deepExample.testDEEPRequest();
-        deepExample.testBookRequest();
-        deepExample.testTradesRequest();
-        deepExample.testSystemEventRequest();
-        deepExample.testTradingStatusRequest();
-        deepExample.testOpHaltStatusRequest();
-        deepExample.testSsrStatusRequest();
-        deepExample.testSecurityEventRequest();
-        deepExample.testTradeBreaksRequest();
+//        deepExample.testBookRequest();
+//        deepExample.testTradesRequest();
+//        deepExample.testSystemEventRequest();
+//        deepExample.testTradingStatusRequest();
+//        deepExample.testOpHaltStatusRequest();
+//        deepExample.testSsrStatusRequest();
+//        deepExample.testSecurityEventRequest();
+//        deepExample.testTradeBreaksRequest();
     }
 
     private void testDEEPRequest() {

@@ -2,10 +2,12 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
-/**
- * @author Wojciech Zankowski
- */
+@JsonPropertyOrder({"symbol, companyName", "exchange", "industry", "website",
+        "description", "CEO", "issueType", "sector"})
 public class Company {
 
     private final String symbol;
@@ -19,15 +21,15 @@ public class Company {
     private final String sector;
 
     @JsonCreator
-    public Company(@JsonProperty("symbol") String symbol,
-                   @JsonProperty("companyName") String companyName,
-                   @JsonProperty("exchange") String exchange,
-                   @JsonProperty("industry") String industry,
-                   @JsonProperty("website") String website,
-                   @JsonProperty("description") String description,
-                   @JsonProperty("CEO") String CEO,
-                   @JsonProperty("issueType") String issueType,
-                   @JsonProperty("sector") String sector) {
+    public Company(@JsonProperty("symbol") final String symbol,
+                   @JsonProperty("companyName") final String companyName,
+                   @JsonProperty("exchange") final String exchange,
+                   @JsonProperty("industry") final String industry,
+                   @JsonProperty("website") final String website,
+                   @JsonProperty("description") final String description,
+                   @JsonProperty("CEO") final String CEO,
+                   @JsonProperty("issueType") final String issueType,
+                   @JsonProperty("sector") final String sector) {
         this.symbol = symbol;
         this.companyName = companyName;
         this.exchange = exchange;
@@ -79,48 +81,36 @@ public class Company {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Company company = (Company) o;
-
-        if (symbol != null ? !symbol.equals(company.symbol) : company.symbol != null) return false;
-        if (companyName != null ? !companyName.equals(company.companyName) : company.companyName != null) return false;
-        if (exchange != null ? !exchange.equals(company.exchange) : company.exchange != null) return false;
-        if (industry != null ? !industry.equals(company.industry) : company.industry != null) return false;
-        if (website != null ? !website.equals(company.website) : company.website != null) return false;
-        if (description != null ? !description.equals(company.description) : company.description != null) return false;
-        if (CEO != null ? !CEO.equals(company.CEO) : company.CEO != null) return false;
-        if (issueType != null ? !issueType.equals(company.issueType) : company.issueType != null) return false;
-        return sector != null ? sector.equals(company.sector) : company.sector == null;
-
+        return Objects.equal(symbol, company.symbol) &&
+                Objects.equal(companyName, company.companyName) &&
+                Objects.equal(exchange, company.exchange) &&
+                Objects.equal(industry, company.industry) &&
+                Objects.equal(website, company.website) &&
+                Objects.equal(description, company.description) &&
+                Objects.equal(CEO, company.CEO) &&
+                Objects.equal(issueType, company.issueType) &&
+                Objects.equal(sector, company.sector);
     }
 
     @Override
     public int hashCode() {
-        int result = symbol != null ? symbol.hashCode() : 0;
-        result = 31 * result + (companyName != null ? companyName.hashCode() : 0);
-        result = 31 * result + (exchange != null ? exchange.hashCode() : 0);
-        result = 31 * result + (industry != null ? industry.hashCode() : 0);
-        result = 31 * result + (website != null ? website.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (CEO != null ? CEO.hashCode() : 0);
-        result = 31 * result + (issueType != null ? issueType.hashCode() : 0);
-        result = 31 * result + (sector != null ? sector.hashCode() : 0);
-        return result;
+        return Objects.hashCode(symbol, companyName, exchange, industry, website,
+                description, CEO, issueType, sector);
     }
 
     @Override
     public String toString() {
-        return "Company{" +
-                "symbol='" + symbol + '\'' +
-                ", companyName='" + companyName + '\'' +
-                ", exchange='" + exchange + '\'' +
-                ", industry='" + industry + '\'' +
-                ", website='" + website + '\'' +
-                ", description='" + description + '\'' +
-                ", CEO='" + CEO + '\'' +
-                ", issueType='" + issueType + '\'' +
-                ", sector='" + sector + '\'' +
-                '}';
+        return MoreObjects.toStringHelper(this)
+                .add("symbol", symbol)
+                .add("companyName", companyName)
+                .add("exchange", exchange)
+                .add("industry", industry)
+                .add("website", website)
+                .add("description", description)
+                .add("CEO", CEO)
+                .add("issueType", issueType)
+                .add("sector", sector)
+                .toString();
     }
-
 }

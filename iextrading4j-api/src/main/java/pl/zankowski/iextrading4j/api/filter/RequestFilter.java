@@ -1,44 +1,43 @@
 package pl.zankowski.iextrading4j.api.filter;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
-/**
- * @author Wojciech Zankowski
- */
 public class RequestFilter {
 
-	public static final String FILTER_DELIMITER = ",";
-	public static final String FILTER_QUERY_NAME = "filter";
+    public static final String FILTER_QUERY_NAME = "filter";
 
-	private final String columnList;
+    private final String columnList;
 
-	public RequestFilter(String columnList) {
-		this.columnList = columnList;
-	}
+    public RequestFilter(final String columnList) {
+        this.columnList = columnList;
+    }
 
-	public String getColumnList() {
-		return columnList;
-	}
+    public String getColumnList() {
+        return columnList;
+    }
 
-	public static RequestFilter.Builder builder() {
-		return new RequestFilter.Builder();
-	}
+    public static RequestFilterBuilder builder() {
+        return new RequestFilterBuilder();
+    }
 
-	public static class Builder {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RequestFilter that = (RequestFilter) o;
+        return Objects.equal(columnList, that.columnList);
+    }
 
-		private final Set<String> columns = new HashSet<>();
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(columnList);
+    }
 
-		public Builder with(String column) {
-			this.columns.add(column);
-			return this;
-		}
-
-		public RequestFilter build() {
-			return new RequestFilter(columns.stream().collect(Collectors.joining(FILTER_DELIMITER)));
-		}
-
-	}
-
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("columnList", columnList)
+                .toString();
+    }
 }

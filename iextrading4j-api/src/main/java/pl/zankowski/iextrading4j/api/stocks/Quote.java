@@ -2,83 +2,91 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
-/**
- * @author Wojciech Zankowski
- */
-public class Quote {
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+@JsonPropertyOrder({"symbol", "companyName", "primaryExchange", "sector", "calculationPrice",
+        "open", "openTime", "close", "closeTime", "latestPrice", "latestSource", "latestTime",
+        "latestUpdate", "latestVolume", "iexRealtimePrice", "iexRealtimeSize", "iexLastUpdated",
+        "delayedPrice", "delayedPriceTime", "previousClose", "change", "changePercent", "iexMarketPercent",
+        "iexVolume", "avgTotalVolume", "iexBidPrice", "iexBidSize", "iexAskPrice", "iexAskSize",
+        "marketCap", "peRatio", "week52High", "week52Low", "ytdChange"})
+public class Quote implements Serializable {
 
     private final String symbol;
     private final String companyName;
     private final String primaryExchange;
     private final String sector;
     private final String calculationPrice;
-    private final double open;
-    private final long openTime;
-    private final double close;
-    private final long closeTime;
-    private final double latestPrice;
+    private final BigDecimal open;
+    private final Long openTime;
+    private final BigDecimal close;
+    private final Long closeTime;
+    private final BigDecimal latestPrice;
     private final String latestSource;
     private final String latestTime;
-    private final long latestUpdate;
-    private final long latestVolume;
-    private final double iexRealtimePrice;
-    private final long iexRealtimeSize;
-    private final long iexLastUpdated;
-    private final double delayedPrice;
-    private final long delayedPriceTime;
-    private final double previousClose;
-    private final double change;
-    private final double changePercent;
-    private final double iexMarketPercent;
-    private final long iexVolume;
-    private final double avgTotalVolume;
-    private final double iexBidPrice;
-    private final long iexBidSize;
-    private final double iexAskPrice;
-    private final long iexAskSize;
-    private final double marketCap;
-    private final double peRatio;
-    private final double week52High;
-    private final double week52Low;
-    private final double ytdChange;
+    private final Long latestUpdate;
+    private final BigDecimal latestVolume;
+    private final BigDecimal iexRealtimePrice;
+    private final BigDecimal iexRealtimeSize;
+    private final Long iexLastUpdated;
+    private final BigDecimal delayedPrice;
+    private final Long delayedPriceTime;
+    private final BigDecimal previousClose;
+    private final BigDecimal change;
+    private final BigDecimal changePercent;
+    private final BigDecimal iexMarketPercent;
+    private final BigDecimal iexVolume;
+    private final BigDecimal avgTotalVolume;
+    private final BigDecimal iexBidPrice;
+    private final BigDecimal iexBidSize;
+    private final BigDecimal iexAskPrice;
+    private final BigDecimal iexAskSize;
+    private final BigDecimal marketCap;
+    private final BigDecimal peRatio;
+    private final BigDecimal week52High;
+    private final BigDecimal week52Low;
+    private final BigDecimal ytdChange;
 
     @JsonCreator
-    public Quote(@JsonProperty("symbol") String symbol,
-                 @JsonProperty("companyName") String companyName,
-                 @JsonProperty("primaryExchange") String primaryExchange,
-                 @JsonProperty("sector") String sector,
-                 @JsonProperty("calculationPrice") String calculationPrice,
-                 @JsonProperty("open") double open,
-                 @JsonProperty("openTime") long openTime,
-                 @JsonProperty("close") double close,
-                 @JsonProperty("closeTime") long closeTime,
-                 @JsonProperty("latestPrice") double latestPrice,
-                 @JsonProperty("latestSource") String latestSource,
-                 @JsonProperty("latestTime") String latestTime,
-                 @JsonProperty("latestUpdate") long latestUpdate,
-                 @JsonProperty("latestVolume") long latestVolume,
-                 @JsonProperty("iexRealtimePrice") double iexRealtimePrice,
-                 @JsonProperty("iexRealtimeSize") long iexRealtimeSize,
-                 @JsonProperty("iexLastUpdated") long iexLastUpdated,
-                 @JsonProperty("delayedPrice") double delayedPrice,
-                 @JsonProperty("delayedPriceTime") long delayedPriceTime,
-                 @JsonProperty("previousClose") double previousClose,
-                 @JsonProperty("change") double change,
-                 @JsonProperty("changePercent") double changePercent,
-                 @JsonProperty("iexMarketPercent") double iexMarketPercent,
-                 @JsonProperty("iexVolume") long iexVolume,
-                 @JsonProperty("avgTotalVolume") double avgTotalVolume,
-                 @JsonProperty("iexBidPrice") double iexBidPrice,
-                 @JsonProperty("iexBidSize") long iexBidSize,
-                 @JsonProperty("iexAskPrice") double iexAskPrice,
-                 @JsonProperty("iexAskSize") long iexAskSize,
-                 @JsonProperty("marketCap") double marketCap,
-                 @JsonProperty("peRatio") double peRatio,
-                 @JsonProperty("week52High") double week52High,
-                 @JsonProperty("week52Low") double week52Low,
-                 @JsonProperty("ytdChange") double ytdChange)
-    {
+    public Quote(@JsonProperty("symbol") final String symbol,
+                 @JsonProperty("companyName") final String companyName,
+                 @JsonProperty("primaryExchange") final String primaryExchange,
+                 @JsonProperty("sector") final String sector,
+                 @JsonProperty("calculationPrice") final String calculationPrice,
+                 @JsonProperty("open") final BigDecimal open,
+                 @JsonProperty("openTime") final Long openTime,
+                 @JsonProperty("close") final BigDecimal close,
+                 @JsonProperty("closeTime") final Long closeTime,
+                 @JsonProperty("latestPrice") final BigDecimal latestPrice,
+                 @JsonProperty("latestSource") final String latestSource,
+                 @JsonProperty("latestTime") final String latestTime,
+                 @JsonProperty("latestUpdate") final Long latestUpdate,
+                 @JsonProperty("latestVolume") final BigDecimal latestVolume,
+                 @JsonProperty("iexRealtimePrice") final BigDecimal iexRealtimePrice,
+                 @JsonProperty("iexRealtimeSize") final BigDecimal iexRealtimeSize,
+                 @JsonProperty("iexLastUpdated") final Long iexLastUpdated,
+                 @JsonProperty("delayedPrice") final BigDecimal delayedPrice,
+                 @JsonProperty("delayedPriceTime") final Long delayedPriceTime,
+                 @JsonProperty("previousClose") final BigDecimal previousClose,
+                 @JsonProperty("change") final BigDecimal change,
+                 @JsonProperty("changePercent") final BigDecimal changePercent,
+                 @JsonProperty("iexMarketPercent") final BigDecimal iexMarketPercent,
+                 @JsonProperty("iexVolume") final BigDecimal iexVolume,
+                 @JsonProperty("avgTotalVolume") final BigDecimal avgTotalVolume,
+                 @JsonProperty("iexBidPrice") final BigDecimal iexBidPrice,
+                 @JsonProperty("iexBidSize") final BigDecimal iexBidSize,
+                 @JsonProperty("iexAskPrice") final BigDecimal iexAskPrice,
+                 @JsonProperty("iexAskSize") final BigDecimal iexAskSize,
+                 @JsonProperty("marketCap") final BigDecimal marketCap,
+                 @JsonProperty("peRatio") final BigDecimal peRatio,
+                 @JsonProperty("week52High") final BigDecimal week52High,
+                 @JsonProperty("week52Low") final BigDecimal week52Low,
+                 @JsonProperty("ytdChange") final BigDecimal ytdChange) {
         this.symbol = symbol;
         this.companyName = companyName;
         this.primaryExchange = primaryExchange;
@@ -135,12 +143,23 @@ public class Quote {
         return calculationPrice;
     }
 
-    public double getOpen() { return open; }
-    public long getOpenTime() { return openTime; }
+    public BigDecimal getOpen() {
+        return open;
+    }
 
-    public double getClose() { return close; }
-    public long getCloseTime() { return closeTime; }
-    public double getLatestPrice() {
+    public Long getOpenTime() {
+        return openTime;
+    }
+
+    public BigDecimal getClose() {
+        return close;
+    }
+
+    public Long getCloseTime() {
+        return closeTime;
+    }
+
+    public BigDecimal getLatestPrice() {
         return latestPrice;
     }
 
@@ -151,364 +170,183 @@ public class Quote {
     public String getLatestTime() {
         return latestTime;
     }
-    public long getLatestUpdate() { return latestUpdate; }
 
-    public long getLatestVolume() {
+    public Long getLatestUpdate() {
+        return latestUpdate;
+    }
+
+    public BigDecimal getLatestVolume() {
         return latestVolume;
     }
 
-    public double getIexRealtimePrice() {
+    public BigDecimal getIexRealtimePrice() {
         return iexRealtimePrice;
     }
 
-    public long getIexRealtimeSize() {
+    public BigDecimal getIexRealtimeSize() {
         return iexRealtimeSize;
     }
 
-    public long getIexLastUpdated() {
+    public Long getIexLastUpdated() {
         return iexLastUpdated;
     }
 
-    public double getDelayedPrice() {
+    public BigDecimal getDelayedPrice() {
         return delayedPrice;
     }
 
-    public long getDelayedPriceTime() {
+    public Long getDelayedPriceTime() {
         return delayedPriceTime;
     }
 
-    public double getPreviousClose() {
+    public BigDecimal getPreviousClose() {
         return previousClose;
     }
 
-    public double getChange() {
+    public BigDecimal getChange() {
         return change;
     }
 
-    public double getChangePercent() {
+    public BigDecimal getChangePercent() {
         return changePercent;
     }
 
-    public double getIexMarketPercent() {
+    public BigDecimal getIexMarketPercent() {
         return iexMarketPercent;
     }
 
-    public long getIexVolume() {
+    public BigDecimal getIexVolume() {
         return iexVolume;
     }
 
-    public double getAvgTotalVolume() {
+    public BigDecimal getAvgTotalVolume() {
         return avgTotalVolume;
     }
 
-    public double getIexBidPrice() {
+    public BigDecimal getIexBidPrice() {
         return iexBidPrice;
     }
 
-    public long getIexBidSize() {
+    public BigDecimal getIexBidSize() {
         return iexBidSize;
     }
 
-    public double getIexAskPrice() {
+    public BigDecimal getIexAskPrice() {
         return iexAskPrice;
     }
 
-    public long getIexAskSize() {
+    public BigDecimal getIexAskSize() {
         return iexAskSize;
     }
 
-    public double getMarketCap() {
+    public BigDecimal getMarketCap() {
         return marketCap;
     }
 
-    public double getPeRatio() {
+    public BigDecimal getPeRatio() {
         return peRatio;
     }
 
-    public double getWeek52High() {
+    public BigDecimal getWeek52High() {
         return week52High;
     }
 
-    public double getWeek52Low() {
+    public BigDecimal getWeek52Low() {
         return week52Low;
     }
-    public double getYtdChange() { return ytdChange; }
 
-    @Override
-    public boolean equals( final Object o )
-    {
-        if ( this == o )
-        {
-            return true;
-        }
-        if ( o == null || getClass() != o.getClass() )
-        {
-            return false;
-        }
-
-        final Quote quote = (Quote) o;
-
-        if ( Double.compare( quote.open, open ) != 0 )
-        {
-            return false;
-        }
-        if ( openTime != quote.openTime )
-        {
-            return false;
-        }
-        if ( Double.compare( quote.close, close ) != 0 )
-        {
-            return false;
-        }
-        if ( closeTime != quote.closeTime )
-        {
-            return false;
-        }
-        if ( Double.compare( quote.latestPrice, latestPrice ) != 0 )
-        {
-            return false;
-        }
-        if ( latestUpdate != quote.latestUpdate )
-        {
-            return false;
-        }
-        if ( latestVolume != quote.latestVolume )
-        {
-            return false;
-        }
-        if ( Double.compare( quote.iexRealtimePrice, iexRealtimePrice ) != 0 )
-        {
-            return false;
-        }
-        if ( iexRealtimeSize != quote.iexRealtimeSize )
-        {
-            return false;
-        }
-        if ( iexLastUpdated != quote.iexLastUpdated )
-        {
-            return false;
-        }
-        if ( Double.compare( quote.delayedPrice, delayedPrice ) != 0 )
-        {
-            return false;
-        }
-        if ( delayedPriceTime != quote.delayedPriceTime )
-        {
-            return false;
-        }
-        if ( Double.compare( quote.previousClose, previousClose ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( quote.change, change ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( quote.changePercent, changePercent ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( quote.iexMarketPercent, iexMarketPercent ) != 0 )
-        {
-            return false;
-        }
-        if ( iexVolume != quote.iexVolume )
-        {
-            return false;
-        }
-        if ( Double.compare( quote.avgTotalVolume, avgTotalVolume ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( quote.iexBidPrice, iexBidPrice ) != 0 )
-        {
-            return false;
-        }
-        if ( iexBidSize != quote.iexBidSize )
-        {
-            return false;
-        }
-        if ( Double.compare( quote.iexAskPrice, iexAskPrice ) != 0 )
-        {
-            return false;
-        }
-        if ( iexAskSize != quote.iexAskSize )
-        {
-            return false;
-        }
-        if ( Double.compare( quote.marketCap, marketCap ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( quote.peRatio, peRatio ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( quote.week52High, week52High ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( quote.week52Low, week52Low ) != 0 )
-        {
-            return false;
-        }
-        if ( Double.compare( quote.ytdChange, ytdChange ) != 0 )
-        {
-            return false;
-        }
-        if ( symbol != null
-             ? !symbol.equals( quote.symbol )
-             : quote.symbol != null )
-        {
-            return false;
-        }
-        if ( companyName != null
-             ? !companyName.equals( quote.companyName )
-             : quote.companyName != null )
-        {
-            return false;
-        }
-        if ( primaryExchange != null
-             ? !primaryExchange.equals( quote.primaryExchange )
-             : quote.primaryExchange != null )
-        {
-            return false;
-        }
-        if ( sector != null
-             ? !sector.equals( quote.sector )
-             : quote.sector != null )
-        {
-            return false;
-        }
-        if ( calculationPrice != null
-             ? !calculationPrice.equals( quote.calculationPrice )
-             : quote.calculationPrice != null )
-        {
-            return false;
-        }
-        if ( latestSource != null
-             ? !latestSource.equals( quote.latestSource )
-             : quote.latestSource != null )
-        {
-            return false;
-        }
-        return latestTime != null
-               ? latestTime.equals( quote.latestTime )
-               : quote.latestTime == null;
+    public BigDecimal getYtdChange() {
+        return ytdChange;
     }
 
     @Override
-    public int hashCode()
-    {
-        int result;
-        long temp;
-        result = symbol != null
-                 ? symbol.hashCode()
-                 : 0;
-        result = 31 * result + (companyName != null
-                                ? companyName.hashCode()
-                                : 0);
-        result = 31 * result + (primaryExchange != null
-                                ? primaryExchange.hashCode()
-                                : 0);
-        result = 31 * result + (sector != null
-                                ? sector.hashCode()
-                                : 0);
-        result = 31 * result + (calculationPrice != null
-                                ? calculationPrice.hashCode()
-                                : 0);
-        temp = Double.doubleToLongBits( open );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (int) (openTime ^ (openTime >>> 32));
-        temp = Double.doubleToLongBits( close );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (int) (closeTime ^ (closeTime >>> 32));
-        temp = Double.doubleToLongBits( latestPrice );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (latestSource != null
-                                ? latestSource.hashCode()
-                                : 0);
-        result = 31 * result + (latestTime != null
-                                ? latestTime.hashCode()
-                                : 0);
-        result = 31 * result + (int) (latestUpdate ^ (latestUpdate >>> 32));
-        result = 31 * result + (int) (latestVolume ^ (latestVolume >>> 32));
-        temp = Double.doubleToLongBits( iexRealtimePrice );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (int) (iexRealtimeSize ^ (iexRealtimeSize >>> 32));
-        result = 31 * result + (int) (iexLastUpdated ^ (iexLastUpdated >>> 32));
-        temp = Double.doubleToLongBits( delayedPrice );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (int) (delayedPriceTime ^ (delayedPriceTime >>> 32));
-        temp = Double.doubleToLongBits( previousClose );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( change );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( changePercent );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( iexMarketPercent );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (int) (iexVolume ^ (iexVolume >>> 32));
-        temp = Double.doubleToLongBits( avgTotalVolume );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( iexBidPrice );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (int) (iexBidSize ^ (iexBidSize >>> 32));
-        temp = Double.doubleToLongBits( iexAskPrice );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (int) (iexAskSize ^ (iexAskSize >>> 32));
-        temp = Double.doubleToLongBits( marketCap );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( peRatio );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( week52High );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( week52Low );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits( ytdChange );
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Quote quote = (Quote) o;
+        return Objects.equal(symbol, quote.symbol) &&
+                Objects.equal(companyName, quote.companyName) &&
+                Objects.equal(primaryExchange, quote.primaryExchange) &&
+                Objects.equal(sector, quote.sector) &&
+                Objects.equal(calculationPrice, quote.calculationPrice) &&
+                Objects.equal(open, quote.open) &&
+                Objects.equal(openTime, quote.openTime) &&
+                Objects.equal(close, quote.close) &&
+                Objects.equal(closeTime, quote.closeTime) &&
+                Objects.equal(latestPrice, quote.latestPrice) &&
+                Objects.equal(latestSource, quote.latestSource) &&
+                Objects.equal(latestTime, quote.latestTime) &&
+                Objects.equal(latestUpdate, quote.latestUpdate) &&
+                Objects.equal(latestVolume, quote.latestVolume) &&
+                Objects.equal(iexRealtimePrice, quote.iexRealtimePrice) &&
+                Objects.equal(iexRealtimeSize, quote.iexRealtimeSize) &&
+                Objects.equal(iexLastUpdated, quote.iexLastUpdated) &&
+                Objects.equal(delayedPrice, quote.delayedPrice) &&
+                Objects.equal(delayedPriceTime, quote.delayedPriceTime) &&
+                Objects.equal(previousClose, quote.previousClose) &&
+                Objects.equal(change, quote.change) &&
+                Objects.equal(changePercent, quote.changePercent) &&
+                Objects.equal(iexMarketPercent, quote.iexMarketPercent) &&
+                Objects.equal(iexVolume, quote.iexVolume) &&
+                Objects.equal(avgTotalVolume, quote.avgTotalVolume) &&
+                Objects.equal(iexBidPrice, quote.iexBidPrice) &&
+                Objects.equal(iexBidSize, quote.iexBidSize) &&
+                Objects.equal(iexAskPrice, quote.iexAskPrice) &&
+                Objects.equal(iexAskSize, quote.iexAskSize) &&
+                Objects.equal(marketCap, quote.marketCap) &&
+                Objects.equal(peRatio, quote.peRatio) &&
+                Objects.equal(week52High, quote.week52High) &&
+                Objects.equal(week52Low, quote.week52Low) &&
+                Objects.equal(ytdChange, quote.ytdChange);
     }
 
     @Override
-    public String toString()
-    {
-        final StringBuilder sb = new StringBuilder( "Quote{" );
-        sb.append( "symbol='" ).append( symbol ).append( '\'' );
-        sb.append( ", companyName='" ).append( companyName ).append( '\'' );
-        sb.append( ", primaryExchange='" ).append( primaryExchange ).append( '\'' );
-        sb.append( ", sector='" ).append( sector ).append( '\'' );
-        sb.append( ", calculationPrice='" ).append( calculationPrice ).append( '\'' );
-        sb.append( ", open=" ).append( open );
-        sb.append( ", openTime=" ).append( openTime );
-        sb.append( ", close=" ).append( close );
-        sb.append( ", closeTime=" ).append( closeTime );
-        sb.append( ", latestPrice=" ).append( latestPrice );
-        sb.append( ", latestSource='" ).append( latestSource ).append( '\'' );
-        sb.append( ", latestTime='" ).append( latestTime ).append( '\'' );
-        sb.append( ", latestUpdate=" ).append( latestUpdate );
-        sb.append( ", latestVolume=" ).append( latestVolume );
-        sb.append( ", iexRealtimePrice=" ).append( iexRealtimePrice );
-        sb.append( ", iexRealtimeSize=" ).append( iexRealtimeSize );
-        sb.append( ", iexLastUpdated=" ).append( iexLastUpdated );
-        sb.append( ", delayedPrice=" ).append( delayedPrice );
-        sb.append( ", delayedPriceTime=" ).append( delayedPriceTime );
-        sb.append( ", previousClose=" ).append( previousClose );
-        sb.append( ", change=" ).append( change );
-        sb.append( ", changePercent=" ).append( changePercent );
-        sb.append( ", iexMarketPercent=" ).append( iexMarketPercent );
-        sb.append( ", iexVolume=" ).append( iexVolume );
-        sb.append( ", avgTotalVolume=" ).append( avgTotalVolume );
-        sb.append( ", iexBidPrice=" ).append( iexBidPrice );
-        sb.append( ", iexBidSize=" ).append( iexBidSize );
-        sb.append( ", iexAskPrice=" ).append( iexAskPrice );
-        sb.append( ", iexAskSize=" ).append( iexAskSize );
-        sb.append( ", marketCap=" ).append( marketCap );
-        sb.append( ", peRatio=" ).append( peRatio );
-        sb.append( ", week52High=" ).append( week52High );
-        sb.append( ", week52Low=" ).append( week52Low );
-        sb.append( ", ytdChange=" ).append( ytdChange );
-        sb.append( '}' );
-        return sb.toString();
+    public int hashCode() {
+        return Objects.hashCode(symbol, companyName, primaryExchange, sector, calculationPrice,
+                open, openTime, close, closeTime, latestPrice, latestSource, latestTime, latestUpdate,
+                latestVolume, iexRealtimePrice, iexRealtimeSize, iexLastUpdated, delayedPrice,
+                delayedPriceTime, previousClose, change, changePercent, iexMarketPercent, iexVolume,
+                avgTotalVolume, iexBidPrice, iexBidSize, iexAskPrice, iexAskSize, marketCap, peRatio,
+                week52High, week52Low, ytdChange);
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("symbol", symbol)
+                .add("companyName", companyName)
+                .add("primaryExchange", primaryExchange)
+                .add("sector", sector)
+                .add("calculationPrice", calculationPrice)
+                .add("open", open)
+                .add("openTime", openTime)
+                .add("close", close)
+                .add("closeTime", closeTime)
+                .add("latestPrice", latestPrice)
+                .add("latestSource", latestSource)
+                .add("latestTime", latestTime)
+                .add("latestUpdate", latestUpdate)
+                .add("latestVolume", latestVolume)
+                .add("iexRealtimePrice", iexRealtimePrice)
+                .add("iexRealtimeSize", iexRealtimeSize)
+                .add("iexLastUpdated", iexLastUpdated)
+                .add("delayedPrice", delayedPrice)
+                .add("delayedPriceTime", delayedPriceTime)
+                .add("previousClose", previousClose)
+                .add("change", change)
+                .add("changePercent", changePercent)
+                .add("iexMarketPercent", iexMarketPercent)
+                .add("iexVolume", iexVolume)
+                .add("avgTotalVolume", avgTotalVolume)
+                .add("iexBidPrice", iexBidPrice)
+                .add("iexBidSize", iexBidSize)
+                .add("iexAskPrice", iexAskPrice)
+                .add("iexAskSize", iexAskSize)
+                .add("marketCap", marketCap)
+                .add("peRatio", peRatio)
+                .add("week52High", week52High)
+                .add("week52Low", week52Low)
+                .add("ytdChange", ytdChange)
+                .toString();
     }
 }

@@ -1,8 +1,5 @@
-package pl.zankowski.iextrading4j.api.deep;
+package pl.zankowski.iextrading4j.api.marketdata;
 
-/**
- * @author Wojciech Zankowski
- */
 public enum TradingStatusType {
 
     TRADING_HALTED('H'),

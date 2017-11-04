@@ -25,8 +25,8 @@ public class MarketExample {
 
     private static void requestMarketsVolumeWithRequestFilter(IEXTradingClient iexTradingClient) {
         RequestFilter requestFilter = RequestFilter.builder()
-                .with("mic")
-                .with("marketPercent")
+                .withColumn("mic")
+                .withColumn("marketPercent")
                 .build();
         MarketVolume[] marketsVolume = iexTradingClient.getMarketEndpoint().requestMarketVolume(requestFilter);
         Arrays.stream(marketsVolume).forEach(System.out::println);

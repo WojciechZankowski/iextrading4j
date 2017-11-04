@@ -2,54 +2,57 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
-/**
- * @author Wojciech Zankowski
- */
-public class Financial {
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
-    private final String reportDate;
-    private final double grossProfit;
-    private final double costOfRevenue;
-    private final double operatingRevenue;
-    private final double totalRevenue;
-    private final double operatingIncome;
-    private final double netIncome;
-    private final double researchAndDevelopment;
-    private final double operatingExpense;
-    private final double currentAssets;
-    private final double totalAssets;
-    private final double totalLiabilities;
-    private final double currentCash;
-    private final double currentDebt;
-    private final double totalCash;
-    private final double totalDebt;
-    private final double shareholderEquity;
-    private final double cashChange;
-    private final double cashFlow;
+public class Financial implements Serializable {
+
+    private final LocalDate reportDate;
+    private final BigDecimal grossProfit;
+    private final BigDecimal costOfRevenue;
+    private final BigDecimal operatingRevenue;
+    private final BigDecimal totalRevenue;
+    private final BigDecimal operatingIncome;
+    private final BigDecimal netIncome;
+    private final BigDecimal researchAndDevelopment;
+    private final BigDecimal operatingExpense;
+    private final BigDecimal currentAssets;
+    private final BigDecimal totalAssets;
+    private final BigDecimal totalLiabilities;
+    private final BigDecimal currentCash;
+    private final BigDecimal currentDebt;
+    private final BigDecimal totalCash;
+    private final BigDecimal totalDebt;
+    private final BigDecimal shareholderEquity;
+    private final BigDecimal cashChange;
+    private final BigDecimal cashFlow;
     private final String operatingGainsLosses;
 
     @JsonCreator
-    public Financial(@JsonProperty("reportDate") String reportDate,
-                     @JsonProperty("grossProfit") double grossProfit,
-                     @JsonProperty("costOfRevenue") double costOfRevenue,
-                     @JsonProperty("operatingRevenue") double operatingRevenue,
-                     @JsonProperty("totalRevenue") double totalRevenue,
-                     @JsonProperty("operatingIncome") double operatingIncome,
-                     @JsonProperty("netIncome") double netIncome,
-                     @JsonProperty("researchAndDevelopment") double researchAndDevelopment,
-                     @JsonProperty("operatingExpense") double operatingExpense,
-                     @JsonProperty("currentAssets") double currentAssets,
-                     @JsonProperty("totalAssets") double totalAssets,
-                     @JsonProperty("totalLiabilities") double totalLiabilities,
-                     @JsonProperty("currentCash") double currentCash,
-                     @JsonProperty("currentDebt") double currentDebt,
-                     @JsonProperty("totalCash") double totalCash,
-                     @JsonProperty("totalDebt") double totalDebt,
-                     @JsonProperty("shareholderEquity") double shareholderEquity,
-                     @JsonProperty("cashChange") double cashChange,
-                     @JsonProperty("cashFlow") double cashFlow,
-                     @JsonProperty("operatingGainsLosses") String operatingGainsLosses) {
+    public Financial(@JsonProperty("reportDate") final LocalDate reportDate,
+                     @JsonProperty("grossProfit") final BigDecimal grossProfit,
+                     @JsonProperty("costOfRevenue") final BigDecimal costOfRevenue,
+                     @JsonProperty("operatingRevenue") final BigDecimal operatingRevenue,
+                     @JsonProperty("totalRevenue") final BigDecimal totalRevenue,
+                     @JsonProperty("operatingIncome") final BigDecimal operatingIncome,
+                     @JsonProperty("netIncome") final BigDecimal netIncome,
+                     @JsonProperty("researchAndDevelopment") final BigDecimal researchAndDevelopment,
+                     @JsonProperty("operatingExpense") final BigDecimal operatingExpense,
+                     @JsonProperty("currentAssets") final BigDecimal currentAssets,
+                     @JsonProperty("totalAssets") final BigDecimal totalAssets,
+                     @JsonProperty("totalLiabilities") final BigDecimal totalLiabilities,
+                     @JsonProperty("currentCash") final BigDecimal currentCash,
+                     @JsonProperty("currentDebt") final BigDecimal currentDebt,
+                     @JsonProperty("totalCash") final BigDecimal totalCash,
+                     @JsonProperty("totalDebt") final BigDecimal totalDebt,
+                     @JsonProperty("shareholderEquity") final BigDecimal shareholderEquity,
+                     @JsonProperty("cashChange") final BigDecimal cashChange,
+                     @JsonProperty("cashFlow") final BigDecimal cashFlow,
+                     @JsonProperty("operatingGainsLosses") final String operatingGainsLosses) {
         this.reportDate = reportDate;
         this.grossProfit = grossProfit;
         this.costOfRevenue = costOfRevenue;
@@ -72,79 +75,79 @@ public class Financial {
         this.operatingGainsLosses = operatingGainsLosses;
     }
 
-    public String getReportDate() {
+    public LocalDate getReportDate() {
         return reportDate;
     }
 
-    public double getGrossProfit() {
+    public BigDecimal getGrossProfit() {
         return grossProfit;
     }
 
-    public double getCostOfRevenue() {
+    public BigDecimal getCostOfRevenue() {
         return costOfRevenue;
     }
 
-    public double getOperatingRevenue() {
+    public BigDecimal getOperatingRevenue() {
         return operatingRevenue;
     }
 
-    public double getTotalRevenue() {
+    public BigDecimal getTotalRevenue() {
         return totalRevenue;
     }
 
-    public double getOperatingIncome() {
+    public BigDecimal getOperatingIncome() {
         return operatingIncome;
     }
 
-    public double getNetIncome() {
+    public BigDecimal getNetIncome() {
         return netIncome;
     }
 
-    public double getResearchAndDevelopment() {
+    public BigDecimal getResearchAndDevelopment() {
         return researchAndDevelopment;
     }
 
-    public double getOperatingExpense() {
+    public BigDecimal getOperatingExpense() {
         return operatingExpense;
     }
 
-    public double getCurrentAssets() {
+    public BigDecimal getCurrentAssets() {
         return currentAssets;
     }
 
-    public double getTotalAssets() {
+    public BigDecimal getTotalAssets() {
         return totalAssets;
     }
 
-    public double getTotalLiabilities() {
+    public BigDecimal getTotalLiabilities() {
         return totalLiabilities;
     }
 
-    public double getCurrentCash() {
+    public BigDecimal getCurrentCash() {
         return currentCash;
     }
 
-    public double getCurrentDebt() {
+    public BigDecimal getCurrentDebt() {
         return currentDebt;
     }
 
-    public double getTotalCash() {
+    public BigDecimal getTotalCash() {
         return totalCash;
     }
 
-    public double getTotalDebt() {
+    public BigDecimal getTotalDebt() {
         return totalDebt;
     }
 
-    public double getShareholderEquity() {
+    public BigDecimal getShareholderEquity() {
         return shareholderEquity;
     }
 
-    public double getCashChange() {
+    public BigDecimal getCashChange() {
         return cashChange;
     }
 
-    public double getCashFlow() {
+    public BigDecimal getCashFlow() {
         return cashFlow;
     }
 
@@ -156,101 +159,60 @@ public class Financial {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Financial financial = (Financial) o;
-
-        if (Double.compare(financial.grossProfit, grossProfit) != 0) return false;
-        if (Double.compare(financial.costOfRevenue, costOfRevenue) != 0) return false;
-        if (Double.compare(financial.operatingRevenue, operatingRevenue) != 0) return false;
-        if (Double.compare(financial.totalRevenue, totalRevenue) != 0) return false;
-        if (Double.compare(financial.operatingIncome, operatingIncome) != 0) return false;
-        if (Double.compare(financial.netIncome, netIncome) != 0) return false;
-        if (Double.compare(financial.researchAndDevelopment, researchAndDevelopment) != 0) return false;
-        if (Double.compare(financial.operatingExpense, operatingExpense) != 0) return false;
-        if (Double.compare(financial.currentAssets, currentAssets) != 0) return false;
-        if (Double.compare(financial.totalAssets, totalAssets) != 0) return false;
-        if (Double.compare(financial.totalLiabilities, totalLiabilities) != 0) return false;
-        if (Double.compare(financial.currentCash, currentCash) != 0) return false;
-        if (Double.compare(financial.currentDebt, currentDebt) != 0) return false;
-        if (Double.compare(financial.totalCash, totalCash) != 0) return false;
-        if (Double.compare(financial.totalDebt, totalDebt) != 0) return false;
-        if (Double.compare(financial.shareholderEquity, shareholderEquity) != 0) return false;
-        if (Double.compare(financial.cashChange, cashChange) != 0) return false;
-        if (Double.compare(financial.cashFlow, cashFlow) != 0) return false;
-        if (reportDate != null ? !reportDate.equals(financial.reportDate) : financial.reportDate != null) return false;
-        return operatingGainsLosses != null ? operatingGainsLosses.equals(financial.operatingGainsLosses) : financial.operatingGainsLosses == null;
-
+        return Objects.equal(reportDate, financial.reportDate) &&
+                Objects.equal(grossProfit, financial.grossProfit) &&
+                Objects.equal(costOfRevenue, financial.costOfRevenue) &&
+                Objects.equal(operatingRevenue, financial.operatingRevenue) &&
+                Objects.equal(totalRevenue, financial.totalRevenue) &&
+                Objects.equal(operatingIncome, financial.operatingIncome) &&
+                Objects.equal(netIncome, financial.netIncome) &&
+                Objects.equal(researchAndDevelopment, financial.researchAndDevelopment) &&
+                Objects.equal(operatingExpense, financial.operatingExpense) &&
+                Objects.equal(currentAssets, financial.currentAssets) &&
+                Objects.equal(totalAssets, financial.totalAssets) &&
+                Objects.equal(totalLiabilities, financial.totalLiabilities) &&
+                Objects.equal(currentCash, financial.currentCash) &&
+                Objects.equal(currentDebt, financial.currentDebt) &&
+                Objects.equal(totalCash, financial.totalCash) &&
+                Objects.equal(totalDebt, financial.totalDebt) &&
+                Objects.equal(shareholderEquity, financial.shareholderEquity) &&
+                Objects.equal(cashChange, financial.cashChange) &&
+                Objects.equal(cashFlow, financial.cashFlow) &&
+                Objects.equal(operatingGainsLosses, financial.operatingGainsLosses);
     }
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = reportDate != null ? reportDate.hashCode() : 0;
-        temp = Double.doubleToLongBits(grossProfit);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(costOfRevenue);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(operatingRevenue);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(totalRevenue);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(operatingIncome);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(netIncome);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(researchAndDevelopment);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(operatingExpense);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(currentAssets);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(totalAssets);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(totalLiabilities);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(currentCash);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(currentDebt);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(totalCash);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(totalDebt);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(shareholderEquity);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(cashChange);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(cashFlow);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (operatingGainsLosses != null ? operatingGainsLosses.hashCode() : 0);
-        return result;
+        return Objects.hashCode(reportDate, grossProfit, costOfRevenue, operatingRevenue,
+                totalRevenue, operatingIncome, netIncome, researchAndDevelopment, operatingExpense,
+                currentAssets, totalAssets, totalLiabilities, currentCash, currentDebt, totalCash,
+                totalDebt, shareholderEquity, cashChange, cashFlow, operatingGainsLosses);
     }
 
     @Override
     public String toString() {
-        return "Financial{" +
-                "reportDate='" + reportDate + '\'' +
-                ", grossProfit=" + grossProfit +
-                ", costOfRevenue=" + costOfRevenue +
-                ", operatingRevenue=" + operatingRevenue +
-                ", totalRevenue=" + totalRevenue +
-                ", operatingIncome=" + operatingIncome +
-                ", netIncome=" + netIncome +
-                ", researchAndDevelopment=" + researchAndDevelopment +
-                ", operatingExpense=" + operatingExpense +
-                ", currentAssets=" + currentAssets +
-                ", totalAssets=" + totalAssets +
-                ", totalLiabilities=" + totalLiabilities +
-                ", currentCash=" + currentCash +
-                ", currentDebt=" + currentDebt +
-                ", totalCash=" + totalCash +
-                ", totalDebt=" + totalDebt +
-                ", shareholderEquity=" + shareholderEquity +
-                ", cashChange=" + cashChange +
-                ", cashFlow=" + cashFlow +
-                ", operatingGainsLosses='" + operatingGainsLosses + '\'' +
-                '}';
+        return MoreObjects.toStringHelper(this)
+                .add("reportDate", reportDate)
+                .add("grossProfit", grossProfit)
+                .add("costOfRevenue", costOfRevenue)
+                .add("operatingRevenue", operatingRevenue)
+                .add("totalRevenue", totalRevenue)
+                .add("operatingIncome", operatingIncome)
+                .add("netIncome", netIncome)
+                .add("researchAndDevelopment", researchAndDevelopment)
+                .add("operatingExpense", operatingExpense)
+                .add("currentAssets", currentAssets)
+                .add("totalAssets", totalAssets)
+                .add("totalLiabilities", totalLiabilities)
+                .add("currentCash", currentCash)
+                .add("currentDebt", currentDebt)
+                .add("totalCash", totalCash)
+                .add("totalDebt", totalDebt)
+                .add("shareholderEquity", shareholderEquity)
+                .add("cashChange", cashChange)
+                .add("cashFlow", cashFlow)
+                .add("operatingGainsLosses", operatingGainsLosses)
+                .toString();
     }
-
 }

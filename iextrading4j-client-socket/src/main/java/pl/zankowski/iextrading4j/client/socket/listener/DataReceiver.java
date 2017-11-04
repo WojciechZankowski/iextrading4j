@@ -1,8 +1,8 @@
 package pl.zankowski.iextrading4j.client.socket.listener;
 
 import pl.zankowski.iextrading4j.api.market.MarketVolume;
-import pl.zankowski.iextrading4j.api.tops.LastTrade;
-import pl.zankowski.iextrading4j.api.tops.TOPS;
+import pl.zankowski.iextrading4j.api.marketdata.LastTrade;
+import pl.zankowski.iextrading4j.api.marketdata.TOPS;
 
 /**
  * @author Wojciech Zankowski

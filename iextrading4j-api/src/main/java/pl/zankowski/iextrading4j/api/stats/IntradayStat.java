@@ -2,28 +2,31 @@ package pl.zankowski.iextrading4j.api.stats;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import pl.zankowski.iextrading4j.api.util.DoubleUtil;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
-/**
- * @author Wojciech Zankowski
- */
-public class IntradayStat {
+import java.io.Serializable;
+import java.math.BigDecimal;
 
-    private final double value;
-    private final long lastUpdated;
+@JsonPropertyOrder({"value", "lastUpdated"})
+public class IntradayStat implements Serializable {
+
+    private final BigDecimal value;
+    private final Long lastUpdated;
 
     @JsonCreator
-    public IntradayStat(@JsonProperty("value") double value,
-                        @JsonProperty("lastUpdated") long lastUpdated) {
+    public IntradayStat(@JsonProperty("value") final BigDecimal value,
+                        @JsonProperty("lastUpdated") final Long lastUpdated) {
         this.value = value;
         this.lastUpdated = lastUpdated;
     }
 
-    public double getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 
-    public long getLastUpdated() {
+    public Long getLastUpdated() {
         return lastUpdated;
     }
 
@@ -31,29 +34,21 @@ public class IntradayStat {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         IntradayStat that = (IntradayStat) o;
-
-        if (Double.compare(that.value, value) != 0) return false;
-        return lastUpdated == that.lastUpdated;
+        return Objects.equal(value, that.value) &&
+                Objects.equal(lastUpdated, that.lastUpdated);
     }
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        temp = Double.doubleToLongBits(value);
-        result = (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (int) (lastUpdated ^ (lastUpdated >>> 32));
-        return result;
+        return Objects.hashCode(value, lastUpdated);
     }
 
     @Override
     public String toString() {
-        return "IntradayStat{" +
-                "value=" + DoubleUtil.printDouble(value) +
-                ", lastUpdated=" + lastUpdated +
-                '}';
+        return MoreObjects.toStringHelper(this)
+                .add("value", value)
+                .add("lastUpdated", lastUpdated)
+                .toString();
     }
-
 }

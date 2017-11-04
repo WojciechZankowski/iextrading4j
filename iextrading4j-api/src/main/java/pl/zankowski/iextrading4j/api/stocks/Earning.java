@@ -2,32 +2,39 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
-/**
- * @author Wojciech Zankowski
- */
-public class Earning {
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
-    private final double actualEPS;
-    private final double consensusEPS;
-    private final double estimatedEPS;
+@JsonPropertyOrder({"actualEPS", "consensusEPS", "estimatedEPS", "announceTime",
+        "numberOfEstimates", "EPSSurpriseDollar", "EPSReportDate", "fiscalPeriod",
+        "fiscalEndDate"})
+public class Earning implements Serializable {
+
+    private final BigDecimal actualEPS;
+    private final BigDecimal consensusEPS;
+    private final BigDecimal estimatedEPS;
     private final String announceTime;
-    private final double numberOfEstimates;
-    private final double EPSSurpriseDollar;
-    private final String EPSReportDate;
+    private final BigDecimal numberOfEstimates;
+    private final BigDecimal EPSSurpriseDollar;
+    private final LocalDate EPSReportDate;
     private final String fiscalPeriod;
-    private final String fiscalEndDate;
+    private final LocalDate fiscalEndDate;
 
     @JsonCreator
-    public Earning(@JsonProperty("actualEPS") double actualEPS,
-                   @JsonProperty("consensusEPS") double consensusEPS,
-                   @JsonProperty("estimatedEPS") double estimatedEPS,
-                   @JsonProperty("announceTime") String announceTime,
-                   @JsonProperty("numberOfEstimates") double numberOfEstimates,
-                   @JsonProperty("EPSSurpriseDollar") double EPSSurpriseDollar,
-                   @JsonProperty("EPSReportDate") String EPSReportDate,
-                   @JsonProperty("fiscalPeriod") String fiscalPeriod,
-                   @JsonProperty("fiscalEndDate") String fiscalEndDate) {
+    public Earning(@JsonProperty("actualEPS") final BigDecimal actualEPS,
+                   @JsonProperty("consensusEPS") final BigDecimal consensusEPS,
+                   @JsonProperty("estimatedEPS") final BigDecimal estimatedEPS,
+                   @JsonProperty("announceTime") final String announceTime,
+                   @JsonProperty("numberOfEstimates") final BigDecimal numberOfEstimates,
+                   @JsonProperty("EPSSurpriseDollar") final BigDecimal EPSSurpriseDollar,
+                   @JsonProperty("EPSReportDate") final LocalDate EPSReportDate,
+                   @JsonProperty("fiscalPeriod") final String fiscalPeriod,
+                   @JsonProperty("fiscalEndDate") final LocalDate fiscalEndDate) {
         this.actualEPS = actualEPS;
         this.consensusEPS = consensusEPS;
         this.estimatedEPS = estimatedEPS;
@@ -39,15 +46,15 @@ public class Earning {
         this.fiscalEndDate = fiscalEndDate;
     }
 
-    public double getActualEPS() {
+    public BigDecimal getActualEPS() {
         return actualEPS;
     }
 
-    public double getConsensusEPS() {
+    public BigDecimal getConsensusEPS() {
         return consensusEPS;
     }
 
-    public double getEstimatedEPS() {
+    public BigDecimal getEstimatedEPS() {
         return estimatedEPS;
     }
 
@@ -55,15 +62,15 @@ public class Earning {
         return announceTime;
     }
 
-    public double getNumberOfEstimates() {
+    public BigDecimal getNumberOfEstimates() {
         return numberOfEstimates;
     }
 
-    public double getEPSSurpriseDollar() {
+    public BigDecimal getEPSSurpriseDollar() {
         return EPSSurpriseDollar;
     }
 
-    public String getEPSReportDate() {
+    public LocalDate getEPSReportDate() {
         return EPSReportDate;
     }
 
@@ -71,7 +78,7 @@ public class Earning {
         return fiscalPeriod;
     }
 
-    public String getFiscalEndDate() {
+    public LocalDate getFiscalEndDate() {
         return fiscalEndDate;
     }
 
@@ -79,58 +86,36 @@ public class Earning {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Earning earning = (Earning) o;
-
-        if (Double.compare(earning.actualEPS, actualEPS) != 0) return false;
-        if (Double.compare(earning.consensusEPS, consensusEPS) != 0) return false;
-        if (Double.compare(earning.estimatedEPS, estimatedEPS) != 0) return false;
-        if (Double.compare(earning.numberOfEstimates, numberOfEstimates) != 0) return false;
-        if (Double.compare(earning.EPSSurpriseDollar, EPSSurpriseDollar) != 0) return false;
-        if (announceTime != null ? !announceTime.equals(earning.announceTime) : earning.announceTime != null)
-            return false;
-        if (EPSReportDate != null ? !EPSReportDate.equals(earning.EPSReportDate) : earning.EPSReportDate != null)
-            return false;
-        if (fiscalPeriod != null ? !fiscalPeriod.equals(earning.fiscalPeriod) : earning.fiscalPeriod != null)
-            return false;
-        return fiscalEndDate != null ? fiscalEndDate.equals(earning.fiscalEndDate) : earning.fiscalEndDate == null;
-
+        return Objects.equal(actualEPS, earning.actualEPS) &&
+                Objects.equal(consensusEPS, earning.consensusEPS) &&
+                Objects.equal(estimatedEPS, earning.estimatedEPS) &&
+                Objects.equal(announceTime, earning.announceTime) &&
+                Objects.equal(numberOfEstimates, earning.numberOfEstimates) &&
+                Objects.equal(EPSSurpriseDollar, earning.EPSSurpriseDollar) &&
+                Objects.equal(EPSReportDate, earning.EPSReportDate) &&
+                Objects.equal(fiscalPeriod, earning.fiscalPeriod) &&
+                Objects.equal(fiscalEndDate, earning.fiscalEndDate);
     }
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        temp = Double.doubleToLongBits(actualEPS);
-        result = (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(consensusEPS);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(estimatedEPS);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (announceTime != null ? announceTime.hashCode() : 0);
-        temp = Double.doubleToLongBits(numberOfEstimates);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(EPSSurpriseDollar);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (EPSReportDate != null ? EPSReportDate.hashCode() : 0);
-        result = 31 * result + (fiscalPeriod != null ? fiscalPeriod.hashCode() : 0);
-        result = 31 * result + (fiscalEndDate != null ? fiscalEndDate.hashCode() : 0);
-        return result;
+        return Objects.hashCode(actualEPS, consensusEPS, estimatedEPS, announceTime,
+                numberOfEstimates, EPSSurpriseDollar, EPSReportDate, fiscalPeriod, fiscalEndDate);
     }
 
     @Override
     public String toString() {
-        return "Earning{" +
-                "actualEPS=" + actualEPS +
-                ", consensusEPS=" + consensusEPS +
-                ", estimatedEPS=" + estimatedEPS +
-                ", announceTime='" + announceTime + '\'' +
-                ", numberOfEstimates=" + numberOfEstimates +
-                ", EPSSurpriseDollar=" + EPSSurpriseDollar +
-                ", EPSReportDate='" + EPSReportDate + '\'' +
-                ", fiscalPeriod='" + fiscalPeriod + '\'' +
-                ", fiscalEndDate='" + fiscalEndDate + '\'' +
-                '}';
+        return MoreObjects.toStringHelper(this)
+                .add("actualEPS", actualEPS)
+                .add("consensusEPS", consensusEPS)
+                .add("estimatedEPS", estimatedEPS)
+                .add("announceTime", announceTime)
+                .add("numberOfEstimates", numberOfEstimates)
+                .add("EPSSurpriseDollar", EPSSurpriseDollar)
+                .add("EPSReportDate", EPSReportDate)
+                .add("fiscalPeriod", fiscalPeriod)
+                .add("fiscalEndDate", fiscalEndDate)
+                .toString();
     }
-
 }

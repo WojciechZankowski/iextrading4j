@@ -1,8 +1,8 @@
 package pl.zankowski.iextrading4j.samples;
 
 import pl.zankowski.iextrading4j.api.filter.RequestFilter;
-import pl.zankowski.iextrading4j.api.tops.LastTrade;
-import pl.zankowski.iextrading4j.api.tops.TOPS;
+import pl.zankowski.iextrading4j.api.marketdata.LastTrade;
+import pl.zankowski.iextrading4j.api.marketdata.TOPS;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.endpoint.marketdata.tops.request.TOPSRequest;
 
@@ -40,9 +40,9 @@ public class TOPSExample {
 
     private void requestColumnFilteredAllTOPS() {
         RequestFilter requestFilter = RequestFilter.builder()
-                .with("symbol")
-                .with("marketPercent")
-                .with("lastSaleSize")
+                .withColumn("symbol")
+                .withColumn("marketPercent")
+                .withColumn("lastSaleSize")
                 .build();
         TOPS[] allTOPS = iexTradingClient.getTopsEndpoint().requestTOPS(TOPSRequest.builder()
                 .withRequestFilter(requestFilter)
@@ -60,9 +60,9 @@ public class TOPSExample {
 
     private void requestSymbolAndColumnFilteredTOPS() {
         RequestFilter requestFilter = RequestFilter.builder()
-                .with("symbol")
-                .with("marketPercent")
-                .with("lastSaleSize")
+                .withColumn("symbol")
+                .withColumn("marketPercent")
+                .withColumn("lastSaleSize")
                 .build();
         TOPS[] filteredTOPS = iexTradingClient.getTopsEndpoint().requestTOPS(TOPSRequest.builder()
                 .withRequestFilter(requestFilter)
@@ -80,8 +80,8 @@ public class TOPSExample {
 
     private void requestColumnFilteredAllLastTrades() {
         RequestFilter requestFilter = RequestFilter.builder()
-                .with("symbol")
-                .with("price")
+                .withColumn("symbol")
+                .withColumn("price")
                 .build();
         LastTrade[] allLastTrades = iexTradingClient.getTopsEndpoint().requestLastTrades(TOPSRequest.builder()
                 .withRequestFilter(requestFilter)
@@ -99,8 +99,8 @@ public class TOPSExample {
 
     private void requestSymbolAndColumnFilteredLastTrades() {
         RequestFilter requestFilter = RequestFilter.builder()
-                .with("symbol")
-                .with("price")
+                .withColumn("symbol")
+                .withColumn("price")
                 .build();
         LastTrade[] filteredLastTrades = iexTradingClient.getTopsEndpoint().requestLastTrades(TOPSRequest.builder()
                 .withRequestFilter(requestFilter)

@@ -11,21 +11,6 @@ import static pl.zankowski.iextrading4j.api.market.builder.MarketVolumeDataBuild
 public class MarketVolumeTest {
 
     @Test
-    public void shouldSuccessfullyCreateEmptyMarketVolume() {
-        MarketVolume marketVolume = new MarketVolume();
-
-        assertThat(marketVolume.getMic()).isNull();
-        assertThat(marketVolume.getTapeId()).isNull();
-        assertThat(marketVolume.getVenueName()).isNull();
-        assertThat(marketVolume.getVolume()).isEqualTo(0L);
-        assertThat(marketVolume.getTapeA()).isEqualTo(0L);
-        assertThat(marketVolume.getTapeB()).isEqualTo(0L);
-        assertThat(marketVolume.getTapeC()).isEqualTo(0L);
-        assertThat(marketVolume.getMarketPercent()).isEqualTo(0d);
-        assertThat(marketVolume.getLastUpdated()).isEqualTo(0L);
-    }
-
-    @Test
     public void shouldSuccessfullyCreateMarketVolume() {
         final String mic = "XCHI";
         final String tapeId = "M";
@@ -39,32 +24,6 @@ public class MarketVolumeTest {
 
         MarketVolume marketVolume = new MarketVolume(mic, tapeId, venueName, volume, tapeA, tapeB,
                 tapeC, marketPercent, lastUpdated);
-        assertMarketVolume(marketVolume, mic, tapeId, venueName, volume, tapeA, tapeB, tapeC, marketPercent, lastUpdated);
-    }
-
-    @Test
-    public void shouldSuccessfullySetValuesIntoEmptyObject() {
-        final String mic = "XCHI";
-        final String tapeId = "M";
-        final String venueName = "CHX";
-        final long volume = 16475000;
-        final long tapeA = 5155704;
-        final long tapeB = 7013233;
-        final long tapeC = 4306063;
-        final double marketPercent = 0.00266;
-        final long lastUpdated = 1489438707493L;
-
-        MarketVolume marketVolume = new MarketVolume();
-        marketVolume.setMic(mic);
-        marketVolume.setTapeId(tapeId);
-        marketVolume.setVenueName(venueName);
-        marketVolume.setVolume(volume);
-        marketVolume.setTapeA(tapeA);
-        marketVolume.setTapeB(tapeB);
-        marketVolume.setTapeC(tapeC);
-        marketVolume.setMarketPercent(marketPercent);
-        marketVolume.setLastUpdated(lastUpdated);
-
         assertMarketVolume(marketVolume, mic, tapeId, venueName, volume, tapeA, tapeB, tapeC, marketPercent, lastUpdated);
     }
 

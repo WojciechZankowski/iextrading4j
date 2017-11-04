@@ -14,6 +14,11 @@
     <dependencies>
         <dependency>
             <groupId>pl.zankowski</groupId>
+            <artifactId>iextrading4j-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>pl.zankowski</groupId>
             <artifactId>iextrading4j-client-rest</artifactId>
         </dependency>
 

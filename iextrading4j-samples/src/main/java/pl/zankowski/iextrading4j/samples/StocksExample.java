@@ -19,16 +19,16 @@ public class StocksExample {
 
     public static void main(String[] args) {
         StocksExample stocksExample = new StocksExample();
-        stocksExample.testQuote();
+//        stocksExample.testQuote();
         stocksExample.testChart();
-        stocksExample.testCompany();
-        stocksExample.testKeyStats();
-        stocksExample.testNews();
-        stocksExample.testFinancials();
-        stocksExample.testEarnings();
-        stocksExample.testLogo();
-        stocksExample.testPrice();
-        stocksExample.testDelayedQuote();
+//        stocksExample.testCompany();
+//        stocksExample.testKeyStats();
+//        stocksExample.testNews();
+//        stocksExample.testFinancials();
+//        stocksExample.testEarnings();
+//        stocksExample.testLogo();
+//        stocksExample.testPrice();
+//        stocksExample.testDelayedQuote();
     }
 
     private void testQuote() {

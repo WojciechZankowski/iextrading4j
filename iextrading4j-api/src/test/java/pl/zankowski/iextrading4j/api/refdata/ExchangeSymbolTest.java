@@ -13,16 +13,6 @@ import static pl.zankowski.iextrading4j.api.refdata.builder.ExchangeSymbolDataBu
 public class ExchangeSymbolTest {
 
     @Test
-    public void shouldSuccessfullyCreateEmptyExchangeSymbol() {
-        ExchangeSymbol exchangeSymbol = new ExchangeSymbol();
-
-        assertThat(exchangeSymbol.getSymbol()).isNull();
-        assertThat(exchangeSymbol.getName()).isNull();
-        assertThat(exchangeSymbol.getDate()).isNull();
-        assertThat(exchangeSymbol.isEnabled()).isFalse();
-    }
-
-    @Test
     public void shouldSuccessfullyCreateExchangeSymbol() {
         final String symbol = "MEIP";
         final String name = "MEI PHARMA INC";
@@ -30,22 +20,6 @@ public class ExchangeSymbolTest {
         final boolean isEnabled = true;
 
         ExchangeSymbol exchangeSymbol = new ExchangeSymbol(symbol, name, date, isEnabled);
-        assertExchangeSymbol(exchangeSymbol, symbol, name, date, isEnabled);
-    }
-
-    @Test
-    public void shouldSuccessfullySetValuesIntoEmptyObject() {
-        final String symbol = "MEIP";
-        final String name = "MEI PHARMA INC";
-        final LocalDate date = LocalDate.of(2017, 04, 21);
-        final boolean isEnabled = true;
-
-        ExchangeSymbol exchangeSymbol = new ExchangeSymbol();
-        exchangeSymbol.setSymbol(symbol);
-        exchangeSymbol.setName(name);
-        exchangeSymbol.setDate(date);
-        exchangeSymbol.setIsEnabled(isEnabled);
-
         assertExchangeSymbol(exchangeSymbol, symbol, name, date, isEnabled);
     }
 

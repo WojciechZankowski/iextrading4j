@@ -56,8 +56,8 @@ public class StatsExample {
 
     private void requestColumnFilteredIntradayStats() {
         RequestFilter requestFilter = RequestFilter.builder()
-                .with("volume")
-                .with("marketShare")
+                .withColumn("volume")
+                .withColumn("marketShare")
                 .build();
         IntradayStats intradayStats = iexTradingClient.getStatsEndpoint().requestIntradayStats(StatsRequest.builder()
                 .withRequestFilter(requestFilter)
@@ -72,8 +72,8 @@ public class StatsExample {
 
     private void requestColumnFilteredRecentStats() {
         RequestFilter requestFilter = RequestFilter.builder()
-                .with("volume")
-                .with("routedVolume")
+                .withColumn("volume")
+                .withColumn("routedVolume")
                 .build();
         RecentStats[] recentStats = iexTradingClient.getStatsEndpoint().requestRecentStat(StatsRequest.builder()
                 .withRequestFilter(requestFilter).build());
@@ -87,8 +87,8 @@ public class StatsExample {
 
     private void requestColumnFilteredRecordsStat() {
         RequestFilter requestFilter = RequestFilter.builder()
-                .with("volume")
-                .with("symbolsTraded")
+                .withColumn("volume")
+                .withColumn("symbolsTraded")
                 .build();
         RecordsStats recordsStat = iexTradingClient.getStatsEndpoint().requestRecordsStat(StatsRequest.builder()
                 .withRequestFilter(requestFilter).build());
@@ -102,8 +102,8 @@ public class StatsExample {
 
     private void requestColumnFilteredLastDayHistoricalStats() {
         RequestFilter requestFilter = RequestFilter.builder()
-                .with("averageDailyVolume")
-                .with("largeCapPercent")
+                .withColumn("averageDailyVolume")
+                .withColumn("largeCapPercent")
                 .build();
         HistoricalStats[] historicalStats = iexTradingClient.getStatsEndpoint().requestHistoricalStats(new HistoricalStatsRequest.Builder()
                 .withRequestFilter(requestFilter).build());
@@ -118,8 +118,8 @@ public class StatsExample {
 
     private void requestYearMonthAndColumnFilteredHistoricalStats() {
         RequestFilter requestFilter = RequestFilter.builder()
-                .with("averageDailyVolume")
-                .with("largeCapPercent")
+                .withColumn("averageDailyVolume")
+                .withColumn("largeCapPercent")
                 .build();
         HistoricalStats[] historicalStats = iexTradingClient.getStatsEndpoint().requestHistoricalStats(new HistoricalStatsRequest.Builder()
                 .withRequestFilter(requestFilter)
@@ -134,8 +134,8 @@ public class StatsExample {
 
     private void requestColumnFilteredLastDayHistoricalDailyStats() {
         RequestFilter requestFilter = RequestFilter.builder()
-                .with("date")
-                .with("volume")
+                .withColumn("date")
+                .withColumn("volume")
                 .build();
         HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder()
                 .withRequestFilter(requestFilter).build());
@@ -150,8 +150,8 @@ public class StatsExample {
 
     private void requestYearMonthAndColumnFilteredHistoricalDailyStats() {
         RequestFilter requestFilter = RequestFilter.builder()
-                .with("date")
-                .with("volume")
+                .withColumn("date")
+                .withColumn("volume")
                 .build();
         HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder()
                 .withRequestFilter(requestFilter)
@@ -167,8 +167,8 @@ public class StatsExample {
 
     private void requestDateAndColumnFilteredHistoricalDailyStats() {
         RequestFilter requestFilter = RequestFilter.builder()
-                .with("date")
-                .with("volume")
+                .withColumn("date")
+                .withColumn("volume")
                 .build();
         HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder()
                 .withRequestFilter(requestFilter)
@@ -184,8 +184,8 @@ public class StatsExample {
 
     private void requestColumnFilteredLastHistoricalDailyStats() {
         RequestFilter requestFilter = RequestFilter.builder()
-                .with("date")
-                .with("volume")
+                .withColumn("date")
+                .withColumn("volume")
                 .build();
         HistoricalDailyStats[] historicalDailyStats = iexTradingClient.getStatsEndpoint().requestHistoricalDailyStats(new HistoricalDailyStatsRequest.Builder()
                 .withRequestFilter(requestFilter)

@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.api.tops.builder;
 
-import pl.zankowski.iextrading4j.api.tops.TOPS;
+import pl.zankowski.iextrading4j.api.marketdata.TOPS;
 
 /**
  * @author Wojciech Zankowski

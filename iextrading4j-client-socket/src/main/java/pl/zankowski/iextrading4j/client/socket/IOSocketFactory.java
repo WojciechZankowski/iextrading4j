@@ -5,8 +5,8 @@ import io.socket.client.Socket;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import pl.zankowski.iextrading4j.api.market.MarketVolume;
-import pl.zankowski.iextrading4j.api.tops.LastTrade;
-import pl.zankowski.iextrading4j.api.tops.TOPS;
+import pl.zankowski.iextrading4j.api.marketdata.LastTrade;
+import pl.zankowski.iextrading4j.api.marketdata.TOPS;
 import pl.zankowski.iextrading4j.client.socket.listener.DataReceiver;
 import pl.zankowski.iextrading4j.client.socket.model.AsyncRequestType;
 

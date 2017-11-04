@@ -1,6 +1,7 @@
 package pl.zankowski.iextrading4j.api.tops;
 
 import org.junit.Test;
+import pl.zankowski.iextrading4j.api.marketdata.LastTrade;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static pl.zankowski.iextrading4j.api.tops.builder.LastTradeDataBuilder.defaultLastTrade;

@@ -14,8 +14,8 @@ import javax.ws.rs.core.UriBuilder;
 import org.junit.Test;
 
 import pl.zankowski.iextrading4j.api.filter.RequestFilter;
-import pl.zankowski.iextrading4j.api.tops.LastTrade;
-import pl.zankowski.iextrading4j.api.tops.TOPS;
+import pl.zankowski.iextrading4j.api.marketdata.LastTrade;
+import pl.zankowski.iextrading4j.api.marketdata.TOPS;
 import pl.zankowski.iextrading4j.client.endpoint.EndpointTestBase;
 import pl.zankowski.iextrading4j.client.endpoint.marketdata.tops.request.TOPSRequest;
 
