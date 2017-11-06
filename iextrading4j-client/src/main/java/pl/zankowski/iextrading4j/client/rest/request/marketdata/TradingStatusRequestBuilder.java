@@ -11,7 +11,7 @@ public class TradingStatusRequestBuilder extends AbstractMarketDataRequestBuilde
 
     @Override
     public RestRequest<Map<String, TradingStatus>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<Map<String, TradingStatus>>builder()
                 .withPath("/deep/trading-status").get()
                 .withResponse(new GenericType<Map<String, TradingStatus>>() {})
                 .addQueryParam(getSymbols())

@@ -11,7 +11,7 @@ public class SecurityEventRequestBuilder extends AbstractMarketDataRequestBuilde
 
     @Override
     public RestRequest<Map<String, SecurityEvent>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<Map<String, SecurityEvent>>builder()
                 .withPath("/deep/security-event").get()
                 .withResponse(new GenericType<Map<String, SecurityEvent>>() {})
                 .addQueryParam(getSymbols())

@@ -11,7 +11,7 @@ public class SsrStatusRequestBuilder extends AbstractMarketDataRequestBuilder<Ma
 
     @Override
     public RestRequest<Map<String, SsrStatus>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<Map<String, SsrStatus>>builder()
                 .withPath("/deep/ssr-status").get()
                 .withResponse(new GenericType<Map<String, SsrStatus>>() {})
                 .addQueryParam(getSymbols())

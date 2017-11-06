@@ -11,7 +11,7 @@ public class VenueVolumeRequestBuilder extends AbstractStocksRequestBuilder<List
 
     @Override
     public RestRequest<List<VenueVolume>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<List<VenueVolume>>builder()
                 .withPath("/stock/{symbol}/volume-by-venue")
                 .addPathParam("symbol", getSymbol()).get()
                 .withResponse(new GenericType<List<VenueVolume>>() {})

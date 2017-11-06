@@ -8,7 +8,6 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.Response;
-import java.io.Serializable;
 import java.util.Map;
 
 import static java.util.stream.Collectors.joining;

@@ -22,7 +22,7 @@ public class DividendsRequestBuilder extends AbstractStocksRequestBuilder<List<D
 
     @Override
     public RestRequest<List<Dividends>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<List<Dividends>>builder()
                 .withPath("/stock/{symbol}/dividends/{range}")
                 .addPathParam("symbol", getSymbol())
                 .addPathParam("range", getDividendRange().getCode()).get()

@@ -8,7 +8,7 @@ public class KeyStatsRequestBuilder extends AbstractStocksRequestBuilder<KeyStat
 
     @Override
     public RestRequest<KeyStats> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<KeyStats>builder()
                 .withPath("/stock/{symbol}/stats")
                 .addPathParam("symbol", getSymbol()).get()
                 .withResponse(KeyStats.class)

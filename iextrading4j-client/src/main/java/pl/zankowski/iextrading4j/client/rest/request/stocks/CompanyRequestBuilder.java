@@ -8,7 +8,7 @@ public class CompanyRequestBuilder extends AbstractStocksRequestBuilder<Company,
 
     @Override
     public RestRequest<Company> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<Company>builder()
                 .withPath("/stock/{symbol}/company")
                 .addPathParam("symbol", getSymbol()).get()
                 .withResponse(Company.class)

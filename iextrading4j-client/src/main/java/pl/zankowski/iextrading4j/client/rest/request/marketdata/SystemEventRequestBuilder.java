@@ -8,7 +8,7 @@ public class SystemEventRequestBuilder extends AbstractMarketDataRequestBuilder<
 
     @Override
     public RestRequest<SystemEvent> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<SystemEvent>builder()
                 .withPath("/deep/system-event").get()
                 .withResponse(SystemEvent.class)
                 .addQueryParam(getSymbols())

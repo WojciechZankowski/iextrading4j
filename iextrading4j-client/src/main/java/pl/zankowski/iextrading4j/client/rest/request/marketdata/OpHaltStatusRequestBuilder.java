@@ -11,7 +11,7 @@ public class OpHaltStatusRequestBuilder extends AbstractMarketDataRequestBuilder
 
     @Override
     public RestRequest<Map<String, OpHaltStatus>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<Map<String, OpHaltStatus>>builder()
                 .withPath("/deep/op-halt-status").get()
                 .withResponse(new GenericType<Map<String, OpHaltStatus>>() {})
                 .addQueryParam(getSymbols())

@@ -8,7 +8,7 @@ public class DelayedQuoteRequestBuilder extends AbstractStocksRequestBuilder<Del
 
     @Override
     public RestRequest<DelayedQuote> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<DelayedQuote>builder()
                 .withPath("/stock/{symbol}/delayed-quote")
                 .addPathParam("symbol", getSymbol()).get()
                 .withResponse(DelayedQuote.class)

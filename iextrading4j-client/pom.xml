@@ -18,16 +18,6 @@
         </dependency>
 
         <dependency>
-            <groupId>pl.zankowski</groupId>
-            <artifactId>iextrading4j-client-rest</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>pl.zankowski</groupId>
-            <artifactId>iextrading4j-client-socket</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>javax.ws.rs</groupId>
             <artifactId>javax.ws.rs-api</artifactId>
         </dependency>
@@ -45,6 +35,11 @@
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.socket</groupId>
+            <artifactId>socket.io-client</artifactId>
         </dependency>
 
         <dependency>

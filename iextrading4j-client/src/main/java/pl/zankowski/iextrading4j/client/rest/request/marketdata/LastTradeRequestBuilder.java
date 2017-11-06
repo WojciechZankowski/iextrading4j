@@ -11,7 +11,7 @@ public class LastTradeRequestBuilder extends AbstractMarketDataRequestBuilder<Li
 
     @Override
     public RestRequest<List<LastTrade>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<List<LastTrade>>builder()
                 .withPath("/tops/last").get()
                 .withResponse(new GenericType<List<LastTrade>>() {})
                 .addQueryParam(getSymbols())

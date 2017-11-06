@@ -46,14 +46,14 @@ public class ChartRequestBuilder extends AbstractStocksRequestBuilder<List<Chart
     }
 
     private RestRequest<List<Chart>> request() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<List<Chart>>builder()
                 .withPath("/stock/{symbol}/chart").get()
                 .withResponse(new GenericType<List<Chart>>() {})
                 .build();
     }
 
     private RestRequest<List<Chart>> requestWithRange() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<List<Chart>>builder()
                 .withPath("/stock/{symbol}/chart/{range}")
                 .addPathParam("symbol", getSymbol())
                 .addPathParam("range", getChartRange().getCode()).get()
@@ -62,7 +62,7 @@ public class ChartRequestBuilder extends AbstractStocksRequestBuilder<List<Chart
     }
 
     private RestRequest<List<Chart>> requestWithDate() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<List<Chart>>builder()
                 .withPath("/stock/{symbol}/chart/date/{date}")
                 .addPathParam("symbol", getSymbol())
                 .addPathParam("date", DATE_TIME_FORMATTER.format(date)).get()

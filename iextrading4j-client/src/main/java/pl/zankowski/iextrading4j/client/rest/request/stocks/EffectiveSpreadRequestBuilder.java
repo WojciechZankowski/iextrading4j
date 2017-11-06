@@ -11,7 +11,7 @@ public class EffectiveSpreadRequestBuilder extends AbstractStocksRequestBuilder<
 
     @Override
     public RestRequest<List<EffectiveSpread>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<List<EffectiveSpread>>builder()
                 .withPath("/stock/{symbol}/effective-spread")
                 .addPathParam("symbol", getSymbol()).get()
                 .withResponse(new GenericType<List<EffectiveSpread>>() {})

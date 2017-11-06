@@ -15,7 +15,7 @@ public class QuoteRequestBuilder extends AbstractStocksRequestBuilder<Quote, Quo
 
     @Override
     public RestRequest<Quote> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<Quote>builder()
                 .withPath("/stock/{symbol}/quote")
                 .addPathParam("symbol", getSymbol()).get()
                 .withResponse(Quote.class)

@@ -11,7 +11,7 @@ public class RecordStatsRequestBuilder extends AbstractRequestFilterBuilder<Reco
 
     @Override
     public RestRequest<RecordsStats> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<RecordsStats>builder()
                 .withPath("/stats/records").get()
                 .withResponse(RecordsStats.class)
                 .addQueryParam(getFilterParams())

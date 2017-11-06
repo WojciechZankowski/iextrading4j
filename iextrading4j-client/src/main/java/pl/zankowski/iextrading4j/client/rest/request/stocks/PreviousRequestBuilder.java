@@ -8,7 +8,7 @@ public class PreviousRequestBuilder extends AbstractStocksRequestBuilder<BarData
 
     @Override
     public RestRequest<BarData> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<BarData>builder()
                 .withPath("/stock/{symbol}/previous")
                 .addPathParam("symbol", getSymbol()).get()
                 .withResponse(BarData.class)

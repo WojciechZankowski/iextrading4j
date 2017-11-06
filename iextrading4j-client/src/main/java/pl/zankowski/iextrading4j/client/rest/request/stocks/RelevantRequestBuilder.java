@@ -8,7 +8,7 @@ public class RelevantRequestBuilder extends AbstractStocksRequestBuilder<Relevan
 
     @Override
     public RestRequest<Relevant> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<Relevant>builder()
                 .withPath("/stock/{symbol}/relevant")
                 .addPathParam("symbol", getSymbol()).get()
                 .withResponse(Relevant.class)

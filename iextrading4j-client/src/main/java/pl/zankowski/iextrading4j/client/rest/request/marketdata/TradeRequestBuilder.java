@@ -12,7 +12,7 @@ public class TradeRequestBuilder extends AbstractMarketDataRequestBuilder<Map<St
 
     @Override
     public RestRequest<Map<String, List<Trade>>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<Map<String, List<Trade>>>builder()
                 .withPath("/deep/trades").get()
                 .withResponse(new GenericType<Map<String, List<Trade>>>() {})
                 .addQueryParam(getSymbols())

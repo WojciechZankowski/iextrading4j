@@ -14,7 +14,7 @@ public class MarketRequestBuilder extends AbstractRequestFilterBuilder<List<Mark
 
     @Override
     public RestRequest<List<MarketVolume>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<List<MarketVolume>>builder()
                 .withPath("/market").get()
                 .withResponse(new GenericType<List<MarketVolume>>() {})
                 .addQueryParam(getFilterParams())

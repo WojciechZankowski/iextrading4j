@@ -9,7 +9,7 @@ public class PriceRequestBuilder extends AbstractStocksRequestBuilder<BigDecimal
 
     @Override
     public RestRequest<BigDecimal> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<BigDecimal>builder()
                 .withPath("/stock/{symbol}/price")
                 .addPathParam("symbol", getSymbol()).get()
                 .withResponse(BigDecimal.class)

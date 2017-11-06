@@ -22,7 +22,7 @@ public class SplitsRequestBuilder extends AbstractStocksRequestBuilder<List<Spli
 
     @Override
     public RestRequest<List<Split>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<List<Split>>builder()
                 .withPath("/stock/{symbol}/splits/{range}")
                 .addPathParam("symbol", getSymbol())
                 .addPathParam("range", getSplitsRange().getCode()).get()

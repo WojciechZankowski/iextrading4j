@@ -9,7 +9,7 @@ public class IntradayStatsRequestBuilder extends AbstractRequestFilterBuilder<In
 
     @Override
     public RestRequest<IntradayStats> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<IntradayStats>builder()
                 .withPath("/stats/intraday").get()
                 .withResponse(IntradayStats.class)
                 .addQueryParam(getFilterParams())

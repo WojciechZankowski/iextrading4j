@@ -8,7 +8,7 @@ public class OpenCloseRequestBuilder extends AbstractStocksRequestBuilder<OpenCl
 
     @Override
     public RestRequest<OpenClose> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<OpenClose>builder()
                 .withPath("/stock/{symbol}/open-close")
                 .addPathParam("symbol", getSymbol()).get()
                 .withResponse(OpenClose.class)

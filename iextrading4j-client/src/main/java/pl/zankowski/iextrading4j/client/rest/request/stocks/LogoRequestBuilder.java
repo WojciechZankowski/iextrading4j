@@ -8,7 +8,7 @@ public class LogoRequestBuilder extends AbstractStocksRequestBuilder<Logo, LogoR
 
     @Override
     public RestRequest<Logo> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<Logo>builder()
                 .withPath("/stock/{symbol}/logo")
                 .addPathParam("symbol", getSymbol()).get()
                 .withResponse(Logo.class)

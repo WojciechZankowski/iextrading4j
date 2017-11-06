@@ -22,7 +22,7 @@ public class NewsRequestBuilder extends AbstractStocksRequestBuilder<List<News>,
 
     @Override
     public RestRequest<List<News>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<List<News>>builder()
                 .withPath("/stock/{symbol}/news/last/{range}")
                 .addPathParam("symbol", getSymbol())
                 .addPathParam("range", String.valueOf(last)).get()

@@ -23,7 +23,7 @@ public class ListRequestBuilder implements IRestRequestBuilder<List<Quote>> {
 
     @Override
     public RestRequest<List<Quote>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<List<Quote>>builder()
                 .withPath("/stock/market/list/{type}")
                 .addPathParam("type", getListType().name().toLowerCase()).get()
                 .withResponse(new GenericType<List<Quote>>() {})

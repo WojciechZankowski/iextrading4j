@@ -10,7 +10,7 @@ public class PeersRequestBuilder extends AbstractStocksRequestBuilder<List<Strin
 
     @Override
     public RestRequest<List<String>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<List<String>>builder()
                 .withPath("/stock/{symbol}/peers")
                 .addPathParam("symbol", getSymbol()).get()
                 .withResponse(new GenericType<List<String>>() {})

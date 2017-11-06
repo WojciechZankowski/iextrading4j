@@ -12,7 +12,7 @@ public class RecentStatsRequestBuilder extends AbstractRequestFilterBuilder<List
 
     @Override
     public RestRequest<List<RecentStats>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<List<RecentStats>>builder()
                 .withPath("/stats/recent").get()
                 .withResponse(new GenericType<List<RecentStats>>() {})
                 .addQueryParam(getFilterParams())

@@ -8,7 +8,7 @@ public class DeepRequestBuilder extends AbstractMarketDataRequestBuilder<DEEP, D
 
     @Override
     public RestRequest<DEEP> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<DEEP>builder()
                 .withPath("/deep").get()
                 .withResponse(DEEP.class)
                 .addQueryParam(getSymbols())

@@ -11,7 +11,7 @@ public class TopsRequestBuilder extends AbstractMarketDataRequestBuilder<List<TO
 
     @Override
     public RestRequest<List<TOPS>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<List<TOPS>>builder()
                 .withPath("/tops").get()
                 .withResponse(new GenericType<List<TOPS>>() {})
                 .addQueryParam(getSymbols())

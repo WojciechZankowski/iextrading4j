@@ -11,7 +11,7 @@ public class BookRequestBuilder extends AbstractMarketDataRequestBuilder<Map<Str
 
     @Override
     public RestRequest<Map<String, Book>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<Map<String, Book>>builder()
                 .withPath("/deep/book").get()
                 .withResponse(new GenericType<Map<String, Book>>() {})
                 .addQueryParam(getSymbols())

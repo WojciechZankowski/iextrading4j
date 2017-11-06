@@ -12,7 +12,7 @@ public class SymbolsRequestBuilder extends AbstractRequestFilterBuilder<List<Exc
 
     @Override
     public RestRequest<List<ExchangeSymbol>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<List<ExchangeSymbol>>builder()
                 .withPath("/ref-data/symbols").get()
                 .withResponse(new GenericType<List<ExchangeSymbol>>() {})
                 .addQueryParam(getFilterParams())

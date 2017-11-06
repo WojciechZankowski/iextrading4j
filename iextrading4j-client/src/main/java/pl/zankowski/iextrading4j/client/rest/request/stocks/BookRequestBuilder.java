@@ -11,7 +11,7 @@ public class BookRequestBuilder extends AbstractStocksRequestBuilder<Book, BookR
 
     @Override
     public RestRequest<Book> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<Book>builder()
                 .withPath("/stock/{symbol}/book")
                 .addPathParam("symbol", getSymbol()).get()
                 .withResponse(Book.class)

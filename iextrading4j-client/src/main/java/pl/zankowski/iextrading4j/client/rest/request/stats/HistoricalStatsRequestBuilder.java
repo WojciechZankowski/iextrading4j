@@ -34,7 +34,7 @@ public class HistoricalStatsRequestBuilder extends AbstractRequestFilterBuilder<
 
     @Override
     public RestRequest<List<HistoricalStats>> build() {
-        return RestRequestBuilder.builder()
+        return RestRequestBuilder.<List<HistoricalStats>>builder()
                 .withPath("/stats/historical").get()
                 .withResponse(new GenericType<List<HistoricalStats>>() {})
                 .addQueryParam(getDateParams())

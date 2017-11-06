@@ -3,39 +3,37 @@ package pl.zankowski.iextrading4j.client;
 import pl.zankowski.iextrading4j.client.rest.endpoint.GenericRestEndpoint;
 import pl.zankowski.iextrading4j.client.rest.manager.RestManager;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
-import pl.zankowski.iextrading4j.client.socket.IOSocketImpl;
-import pl.zankowski.iextrading4j.client.socket.IOSocketWrapper;
-import pl.zankowski.iextrading4j.client.socket.WebSocket;
-import pl.zankowski.iextrading4j.client.socket.listener.DataReceiver;
+import pl.zankowski.iextrading4j.client.socket.endpoint.GenericSocketEndpoint;
+import pl.zankowski.iextrading4j.client.socket.manager.SocketManager;
+import pl.zankowski.iextrading4j.client.socket.manager.SocketRequest;
+import pl.zankowski.iextrading4j.client.socket.manager.SocketWrapper;
+
+import java.util.function.Consumer;
 
 public class IEXTradingClient {
 
     private final GenericRestEndpoint genericRestEndpoint;
-    private final WebSocket webSocket;
+    private final GenericSocketEndpoint genericSocketEndpoint;
 
     private IEXTradingClient() {
-        this(null);
-    }
-
-    private IEXTradingClient(DataReceiver dataReceiver) {
         genericRestEndpoint = new GenericRestEndpoint(new RestManager());
-        this.webSocket = new IOSocketImpl(new IOSocketWrapper(), dataReceiver);
+        genericSocketEndpoint = new GenericSocketEndpoint(new SocketManager(new SocketWrapper()));
     }
 
     public static IEXTradingClient create() {
         return new IEXTradingClient();
     }
 
-    public static IEXTradingClient create(DataReceiver dataReceiver) {
-        return new IEXTradingClient(dataReceiver);
-    }
-
-    public WebSocket getWebSocket() {
-        return webSocket;
-    }
-
     public <R> R executeRequest(final RestRequest<R> restRequest) {
         return genericRestEndpoint.executeRequest(restRequest);
+    }
+
+    public <R> void subscribe(final SocketRequest<R> socketRequest, final Consumer<R> consumer) {
+        genericSocketEndpoint.subscribe(socketRequest, consumer);
+    }
+
+    public <R> void unsubscribe(final SocketRequest<R> socketRequest) {
+        genericSocketEndpoint.unsubscribe(socketRequest);
     }
 
 }
