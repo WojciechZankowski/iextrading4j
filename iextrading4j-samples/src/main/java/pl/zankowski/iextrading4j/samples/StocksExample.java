@@ -3,7 +3,7 @@ package pl.zankowski.iextrading4j.samples;
 import pl.zankowski.iextrading4j.api.stocks.*;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.endpoint.stocks.StocksEndpoint;
-import pl.zankowski.iextrading4j.client.endpoint.stocks.request.ChartRange;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.ChartRange;
 import pl.zankowski.iextrading4j.client.endpoint.stocks.request.ChartRequest;
 import pl.zankowski.iextrading4j.client.endpoint.stocks.request.NewsRequest;
 import pl.zankowski.iextrading4j.client.endpoint.stocks.request.StockRequest;

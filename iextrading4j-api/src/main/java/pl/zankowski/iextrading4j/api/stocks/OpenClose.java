@@ -6,8 +6,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
+import java.io.Serializable;
+
 @JsonPropertyOrder({"open", "close"})
-public class OpenClose {
+public class OpenClose implements Serializable {
 
     private final Point open;
     private final Point close;

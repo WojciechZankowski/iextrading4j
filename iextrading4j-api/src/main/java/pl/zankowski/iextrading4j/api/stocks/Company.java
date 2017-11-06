@@ -6,9 +6,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
+import java.io.Serializable;
+
 @JsonPropertyOrder({"symbol, companyName", "exchange", "industry", "website",
         "description", "CEO", "issueType", "sector"})
-public class Company {
+public class Company implements Serializable {
 
     private final String symbol;
     private final String companyName;

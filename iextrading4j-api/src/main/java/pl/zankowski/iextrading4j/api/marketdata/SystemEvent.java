@@ -12,7 +12,7 @@ import java.io.Serializable;
 public class SystemEvent implements Serializable {
 
     private final SystemEventType systemEvent;
-    private final long timestamp;
+    private final Long timestamp;
 
     @JsonCreator
     public SystemEvent(@JsonProperty("systemEvent") final Character systemEvent,
@@ -34,8 +34,8 @@ public class SystemEvent implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SystemEvent that = (SystemEvent) o;
-        return timestamp == that.timestamp &&
-                systemEvent == that.systemEvent;
+        return systemEvent == that.systemEvent &&
+                Objects.equal(timestamp, that.timestamp);
     }
 
     @Override

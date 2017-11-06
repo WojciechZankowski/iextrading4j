@@ -14,11 +14,11 @@ public class TradingStatus {
     private final Long timestamp;
 
     @JsonCreator
-    public TradingStatus(@JsonProperty("status") final Character status,
-                         @JsonProperty("reason") final String reason,
+    public TradingStatus(@JsonProperty("status") final TradingStatusType status,
+                         @JsonProperty("reason") final TradingStatusReasonType reason,
                          @JsonProperty("timestamp") final Long timestamp) {
-        this.status = TradingStatusType.getTradingStatusType(status);
-        this.reason = TradingStatusReasonType.getTradingStatusReasonType(reason);
+        this.status = status;
+        this.reason = reason;
         this.timestamp = timestamp;
     }
 

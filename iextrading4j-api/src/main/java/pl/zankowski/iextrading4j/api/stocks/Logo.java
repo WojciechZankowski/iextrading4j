@@ -6,8 +6,10 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
+import java.io.Serializable;
+
 @JsonPropertyOrder({"url"})
-public class Logo {
+public class Logo implements Serializable {
 
     private final String url;
 
