@@ -35,6 +35,17 @@ public class ChartRequestBuilder extends AbstractStocksRequestBuilder<ArrayList<
         return this;
     }
 
+    @Override
+    public RestRequest<ArrayList<Chart>> build() {
+        if (chartRange != null) {
+            return requestWithRange();
+        } else if (date != null) {
+            return requestWithDate();
+        } else {
+            return request();
+        }
+    }
+
     private RestRequest<ArrayList<Chart>> request() {
         return RestRequestBuilder.builder()
                 .withPath("/stock/{symbol}/chart").get()
@@ -58,17 +69,6 @@ public class ChartRequestBuilder extends AbstractStocksRequestBuilder<ArrayList<
                 .addPathParam("date", DATE_TIME_FORMATTER.format(date)).get()
                 .withResponse(new GenericType<List<Chart>>() {})
                 .build();
-    }
-
-    @Override
-    public RestRequest<ArrayList<Chart>> build() {
-        if (chartRange != null) {
-            return requestWithRange();
-        } else if (date != null) {
-            return requestWithDate();
-        } else {
-            return request();
-        }
     }
 
 }
