@@ -1,4 +1,4 @@
-package pl.zankowski.iextrading4j.samples;
+package pl.zankowski.iextrading4j.sample.rest;
 
 import pl.zankowski.iextrading4j.api.stats.HistoricalDailyStats;
 import pl.zankowski.iextrading4j.api.stats.HistoricalStats;
