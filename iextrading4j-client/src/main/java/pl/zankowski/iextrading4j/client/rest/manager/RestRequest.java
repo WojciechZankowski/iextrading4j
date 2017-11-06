@@ -9,7 +9,7 @@ import java.util.Map;
 
 import static pl.zankowski.iextrading4j.api.util.MapUtil.immutableMap;
 
-public class RestRequest<R extends Serializable> implements Serializable {
+public class RestRequest<R> implements Serializable {
 
     private final GenericType<R> responseType;
     private final String path;

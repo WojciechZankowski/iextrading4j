@@ -1,9 +1,8 @@
 package pl.zankowski.iextrading4j.client.rest.manager;
 
 import javax.ws.rs.core.GenericType;
-import java.io.Serializable;
 
-public interface IRestResponseTypeRequestBuilder<R extends Serializable> {
+public interface IRestResponseTypeRequestBuilder<R> {
 
     IRestParamRequestBuilder<R> withResponse(Class<R> responseType);
 

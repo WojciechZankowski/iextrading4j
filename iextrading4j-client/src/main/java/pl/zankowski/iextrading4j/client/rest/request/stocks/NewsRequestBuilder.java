@@ -5,9 +5,9 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
-import java.util.ArrayList;
+import java.util.List;
 
-public class NewsRequestBuilder extends AbstractStocksRequestBuilder<ArrayList<News>, NewsRequestBuilder> {
+public class NewsRequestBuilder extends AbstractStocksRequestBuilder<List<News>, NewsRequestBuilder> {
 
     private int last = 10;
 
@@ -21,12 +21,12 @@ public class NewsRequestBuilder extends AbstractStocksRequestBuilder<ArrayList<N
     }
 
     @Override
-    public RestRequest<ArrayList<News>> build() {
+    public RestRequest<List<News>> build() {
         return RestRequestBuilder.builder()
                 .withPath("/stock/{symbol}/news/last/{range}")
                 .addPathParam("symbol", getSymbol())
                 .addPathParam("range", String.valueOf(last)).get()
-                .withResponse(new GenericType<ArrayList<News>>() {})
+                .withResponse(new GenericType<List<News>>() {})
                 .build();
     }
 

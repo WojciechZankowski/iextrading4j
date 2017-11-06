@@ -1,28 +1,21 @@
 package pl.zankowski.iextrading4j.client.rest.request.refdata;
 
-import pl.zankowski.iextrading4j.api.marketdata.HIST;
 import pl.zankowski.iextrading4j.api.refdata.ExchangeSymbol;
-import pl.zankowski.iextrading4j.client.rest.manager.IRestParamRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.AbstractRequestFilterBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.marketdata.HistRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+import java.util.List;
 
-public class SymbolsRequestBuilder extends AbstractRequestFilterBuilder<ArrayList<ExchangeSymbol>, HistRequestBuilder> {
+public class SymbolsRequestBuilder extends AbstractRequestFilterBuilder<List<ExchangeSymbol>, SymbolsRequestBuilder> {
 
     @Override
-    public RestRequest<ArrayList<ExchangeSymbol>> build() {
-        IRestParamRequestBuilder restRequestBuilder = RestRequestBuilder.builder()
+    public RestRequest<List<ExchangeSymbol>> build() {
+        return RestRequestBuilder.builder()
                 .withPath("/ref-data/symbols").get()
-                .withResponse(new GenericType<ArrayList<ExchangeSymbol>>() {});
-
-        applyRequestFilter(restRequestBuilder);
-
-        return restRequestBuilder.build();
+                .withResponse(new GenericType<List<ExchangeSymbol>>() {})
+                .addQueryParam(getFilterParams())
+                .build();
     }
 }

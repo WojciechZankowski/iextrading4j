@@ -4,7 +4,7 @@ import pl.zankowski.iextrading4j.client.rest.request.IRestRequestBuilder;
 
 import java.io.Serializable;
 
-public abstract class AbstractStocksRequestBuilder<R extends Serializable, B extends IRestRequestBuilder<R>> implements IRestRequestBuilder<R> {
+public abstract class AbstractStocksRequestBuilder<R, B extends IRestRequestBuilder<R>> implements IRestRequestBuilder<R> {
 
     private String symbol;
 

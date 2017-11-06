@@ -7,6 +7,6 @@ import java.io.Serializable;
 
 public interface IRestEndpoint extends IEndpoint {
 
-    <R extends Serializable> R execute(RestRequest<R> restRequest);
+    <R> R execute(RestRequest<R> restRequest);
 
 }

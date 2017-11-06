@@ -16,16 +16,19 @@ public class ExchangeSymbol implements Serializable {
     private final String name;
     private final LocalDate date;
     private final Boolean isEnabled;
+    private final String type;
 
     @JsonCreator
     public ExchangeSymbol(@JsonProperty("symbol") final String symbol,
                           @JsonProperty("name") final String name,
                           @JsonProperty("date") final LocalDate date,
-                          @JsonProperty("isEnabled") final Boolean isEnabled) {
+                          @JsonProperty("isEnabled") final Boolean isEnabled,
+                          @JsonProperty("type") final String type) {
         this.symbol = symbol;
         this.name = name;
         this.date = date;
         this.isEnabled = isEnabled;
+        this.type = type;
     }
 
     public String getSymbol() {
@@ -44,6 +47,10 @@ public class ExchangeSymbol implements Serializable {
         return isEnabled;
     }
 
+    public String getType() {
+        return type;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -52,12 +59,13 @@ public class ExchangeSymbol implements Serializable {
         return Objects.equal(symbol, that.symbol) &&
                 Objects.equal(name, that.name) &&
                 Objects.equal(date, that.date) &&
-                Objects.equal(isEnabled, that.isEnabled);
+                Objects.equal(isEnabled, that.isEnabled) &&
+                Objects.equal(type, that.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(symbol, name, date, isEnabled);
+        return Objects.hashCode(symbol, name, date, isEnabled, type);
     }
 
     @Override
@@ -67,6 +75,8 @@ public class ExchangeSymbol implements Serializable {
                 .add("name", name)
                 .add("date", date)
                 .add("isEnabled", isEnabled)
+                .add("type", type)
                 .toString();
     }
+
 }

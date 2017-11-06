@@ -1,25 +1,22 @@
 package pl.zankowski.iextrading4j.client.rest.request.marketdata;
 
 import pl.zankowski.iextrading4j.api.marketdata.Book;
-import pl.zankowski.iextrading4j.client.rest.manager.IRestParamRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
-import java.util.HashMap;
+import java.util.Map;
 
-public class BookRequestBuilder extends AbstractMarketDataRequestBuilder<HashMap<String, Book>, BookRequestBuilder> {
+public class BookRequestBuilder extends AbstractMarketDataRequestBuilder<Map<String, Book>, BookRequestBuilder> {
 
     @Override
-    public RestRequest<HashMap<String, Book>> build() {
-        IRestParamRequestBuilder restRequestBuilder = RestRequestBuilder.builder()
+    public RestRequest<Map<String, Book>> build() {
+        return RestRequestBuilder.builder()
                 .withPath("/deep/book").get()
-                .withResponse(new GenericType<HashMap<String, Book>>() {});
-
-        applySymbols(restRequestBuilder);
-        applyRequestFilter(restRequestBuilder);
-
-        return restRequestBuilder.build();
+                .withResponse(new GenericType<Map<String, Book>>() {})
+                .addQueryParam(getSymbols())
+                .addQueryParam(getFilterParams())
+                .build();
     }
 
 }

@@ -14,7 +14,7 @@ public abstract class AbstractRestEndpoint implements IRestEndpoint {
     }
 
     @Override
-    public <R extends Serializable> R execute(final RestRequest<R> restRequest) {
+    public <R> R execute(final RestRequest<R> restRequest) {
         return restManager.executeRequest(restRequest).getResponse();
     }
 

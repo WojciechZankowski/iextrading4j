@@ -8,7 +8,7 @@ import java.util.Map;
 
 import static pl.zankowski.iextrading4j.client.rest.manager.MethodType.GET;
 
-public class RestRequestBuilder<R extends Serializable> implements IRestPathRequestBuilder<R>,
+public class RestRequestBuilder<R> implements IRestPathRequestBuilder<R>,
         IRestRequestTypeBuilder<R>, IRestResponseTypeRequestBuilder<R>, IRestParamRequestBuilder<R> {
 
     private GenericType<R> responseType;
@@ -24,7 +24,7 @@ public class RestRequestBuilder<R extends Serializable> implements IRestPathRequ
         this.pathParams = Maps.newHashMap();
     }
 
-    public static <R extends Serializable> IRestPathRequestBuilder builder() {
+    public static <R> IRestPathRequestBuilder builder() {
         return new RestRequestBuilder<R>();
     }
 
@@ -49,6 +49,12 @@ public class RestRequestBuilder<R extends Serializable> implements IRestPathRequ
     @Override
     public IRestParamRequestBuilder<R> addQueryParam(final String key, final String value) {
         this.queryParams.put(key, value);
+        return this;
+    }
+
+    @Override
+    public IRestParamRequestBuilder<R> addQueryParam(Map<String, String> queryParams) {
+        this.queryParams.putAll(queryParams);
         return this;
     }
 

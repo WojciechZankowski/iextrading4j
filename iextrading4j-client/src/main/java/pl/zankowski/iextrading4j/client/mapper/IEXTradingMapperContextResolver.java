@@ -14,6 +14,7 @@ import pl.zankowski.iextrading4j.api.stocks.DividendType;
 import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.Provider;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Provider
 public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMapper> {
@@ -45,6 +46,7 @@ public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMa
 
         module.addDeserializer(BigDecimal.class, new EmptyStringDeserializer());
         module.addDeserializer(Auction.class, new AuctionDeserializer());
+        module.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer());
 
         module.addSerializer(TradingStatusType.class, new TradingStatusTypeSerializer());
         module.addDeserializer(TradingStatusType.class, new TradingStatusTypeDeserializer());

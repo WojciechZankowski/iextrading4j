@@ -4,8 +4,6 @@ import pl.zankowski.iextrading4j.api.stocks.Logo;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 
-import javax.ws.rs.core.GenericType;
-
 public class LogoRequestBuilder extends AbstractStocksRequestBuilder<Logo, LogoRequestBuilder> {
 
     @Override
@@ -13,7 +11,7 @@ public class LogoRequestBuilder extends AbstractStocksRequestBuilder<Logo, LogoR
         return RestRequestBuilder.builder()
                 .withPath("/stock/{symbol}/logo")
                 .addPathParam("symbol", getSymbol()).get()
-                .withResponse(new GenericType<Logo>() {})
+                .withResponse(Logo.class)
                 .build();
     }
 

@@ -5,7 +5,7 @@ import com.google.common.base.Objects;
 
 import java.io.Serializable;
 
-public class RestResponse<R extends Serializable> {
+public class RestResponse<R> {
 
     private final R response;
     private final String message;

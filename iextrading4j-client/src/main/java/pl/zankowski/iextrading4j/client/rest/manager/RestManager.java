@@ -22,7 +22,7 @@ public class RestManager {
         this.restClient.register(IEXTradingMapperContextResolver.class);
     }
 
-    public <R extends Serializable> RestResponse<R> executeRequest(final RestRequest<R> restRequest) {
+    public <R> RestResponse<R> executeRequest(final RestRequest<R> restRequest) {
         final String url = createURL(restRequest);
 
         final Invocation.Builder invocationBuilder = restClient.target(url)
@@ -54,7 +54,7 @@ public class RestManager {
         }
     }
 
-    private <R extends Serializable> String createURL(final RestRequest<R> restRequest) {
+    private <R> String createURL(final RestRequest<R> restRequest) {
         return new StringBuilder()
                 .append(getServicePath())
                 .append(createPath(restRequest.getPath(), restRequest.getPathParams()))

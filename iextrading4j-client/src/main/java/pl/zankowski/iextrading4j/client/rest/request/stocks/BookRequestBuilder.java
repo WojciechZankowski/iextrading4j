@@ -14,7 +14,7 @@ public class BookRequestBuilder extends AbstractStocksRequestBuilder<Book, BookR
         return RestRequestBuilder.builder()
                 .withPath("/stock/{symbol}/book")
                 .addPathParam("symbol", getSymbol()).get()
-                .withResponse(new GenericType<Book>() {})
+                .withResponse(Book.class)
                 .build();
     }
 

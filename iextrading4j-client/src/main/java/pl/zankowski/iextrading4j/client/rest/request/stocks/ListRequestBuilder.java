@@ -6,9 +6,9 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.IRestRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
-import java.util.ArrayList;
+import java.util.List;
 
-public class ListRequestBuilder implements IRestRequestBuilder<ArrayList<Quote>> {
+public class ListRequestBuilder implements IRestRequestBuilder<List<Quote>> {
 
     private ListType listType;
 
@@ -22,11 +22,11 @@ public class ListRequestBuilder implements IRestRequestBuilder<ArrayList<Quote>>
     }
 
     @Override
-    public RestRequest<ArrayList<Quote>> build() {
+    public RestRequest<List<Quote>> build() {
         return RestRequestBuilder.builder()
                 .withPath("/stock/market/list/{type}")
                 .addPathParam("type", getListType().name().toLowerCase()).get()
-                .withResponse(new GenericType<ArrayList<Quote>>() {})
+                .withResponse(new GenericType<List<Quote>>() {})
                 .build();
     }
 

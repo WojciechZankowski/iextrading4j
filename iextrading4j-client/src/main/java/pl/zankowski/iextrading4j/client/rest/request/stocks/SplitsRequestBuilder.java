@@ -5,9 +5,9 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
-import java.util.ArrayList;
+import java.util.List;
 
-public class SplitsRequestBuilder extends AbstractStocksRequestBuilder<ArrayList<Split>, SplitsRequestBuilder> {
+public class SplitsRequestBuilder extends AbstractStocksRequestBuilder<List<Split>, SplitsRequestBuilder> {
 
     private SplitsRange splitsRange = SplitsRange.ONE_MONTH;
 
@@ -21,12 +21,12 @@ public class SplitsRequestBuilder extends AbstractStocksRequestBuilder<ArrayList
     }
 
     @Override
-    public RestRequest<ArrayList<Split>> build() {
+    public RestRequest<List<Split>> build() {
         return RestRequestBuilder.builder()
                 .withPath("/stock/{symbol}/splits/{range}")
                 .addPathParam("symbol", getSymbol())
                 .addPathParam("range", getSplitsRange().getCode()).get()
-                .withResponse(new GenericType<ArrayList<Split>>() {})
+                .withResponse(new GenericType<List<Split>>() {})
                 .build();
     }
 

@@ -2,7 +2,7 @@ package pl.zankowski.iextrading4j.client.rest.manager;
 
 import java.io.Serializable;
 
-public class RestResponseBuilder<R extends Serializable> {
+public class RestResponseBuilder<R> {
 
     private R response;
     private String message;

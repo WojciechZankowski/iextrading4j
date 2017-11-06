@@ -12,7 +12,7 @@ public class GenericRestEndpoint extends AbstractRestEndpoint {
         super(restManager);
     }
 
-    public <R extends Serializable> R executeRequest(final RestRequest<R> restRequest) {
+    public <R> R executeRequest(final RestRequest<R> restRequest) {
         return execute(restRequest);
     }
 

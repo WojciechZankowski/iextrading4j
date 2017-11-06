@@ -5,9 +5,9 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
-import java.util.ArrayList;
+import java.util.List;
 
-public class DividendsRequestBuilder extends AbstractStocksRequestBuilder<ArrayList<Dividends>, DividendsRequestBuilder> {
+public class DividendsRequestBuilder extends AbstractStocksRequestBuilder<List<Dividends>, DividendsRequestBuilder> {
 
     private DividendRange dividendRange = DividendRange.ONE_MONTH;
 
@@ -21,12 +21,12 @@ public class DividendsRequestBuilder extends AbstractStocksRequestBuilder<ArrayL
     }
 
     @Override
-    public RestRequest<ArrayList<Dividends>> build() {
+    public RestRequest<List<Dividends>> build() {
         return RestRequestBuilder.builder()
                 .withPath("/stock/{symbol}/dividends/{range}")
                 .addPathParam("symbol", getSymbol())
                 .addPathParam("range", getDividendRange().getCode()).get()
-                .withResponse(new GenericType<ArrayList<Dividends>>() {})
+                .withResponse(new GenericType<List<Dividends>>() {})
                 .build();
     }
 

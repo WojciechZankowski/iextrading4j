@@ -1,24 +1,24 @@
-package pl.zankowski.iextrading4j.client.rest.request.marketdata;
+package pl.zankowski.iextrading4j.client.rest.request.stats;
 
 import com.google.common.collect.ImmutableMap;
-import pl.zankowski.iextrading4j.api.marketdata.HIST;
+import pl.zankowski.iextrading4j.api.stats.HistoricalStats;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.AbstractRequestFilterBuilder;
 
 import javax.ws.rs.core.GenericType;
-import java.time.LocalDate;
+import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
-public class HistRequestBuilder extends AbstractRequestFilterBuilder<List<HIST>, HistRequestBuilder> {
+public class HistoricalStatsRequestBuilder extends AbstractRequestFilterBuilder<List<HistoricalStats>, HistoricalStatsRequestBuilder> {
 
-    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMdd");
+    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyyMM");
 
-    private LocalDate date;
+    private YearMonth date;
 
-    public HistRequestBuilder withDate(final LocalDate date) {
+    public HistoricalStatsRequestBuilder withDate(YearMonth date) {
         this.date = date;
         return this;
     }
@@ -33,13 +33,12 @@ public class HistRequestBuilder extends AbstractRequestFilterBuilder<List<HIST>,
     }
 
     @Override
-    public RestRequest<List<HIST>> build() {
+    public RestRequest<List<HistoricalStats>> build() {
         return RestRequestBuilder.builder()
-                .withPath("/hist").get()
-                .withResponse(new GenericType<List<HIST>>() {})
+                .withPath("/stats/historical").get()
+                .withResponse(new GenericType<List<HistoricalStats>>() {})
                 .addQueryParam(getDateParams())
                 .addQueryParam(getFilterParams())
                 .build();
     }
-
 }

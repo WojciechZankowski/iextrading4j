@@ -5,16 +5,16 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
-import java.util.ArrayList;
+import java.util.List;
 
-public class VenueVolumeRequestBuilder extends AbstractStocksRequestBuilder<ArrayList<VenueVolume>, VenueVolumeRequestBuilder> {
+public class VenueVolumeRequestBuilder extends AbstractStocksRequestBuilder<List<VenueVolume>, VenueVolumeRequestBuilder> {
 
     @Override
-    public RestRequest<ArrayList<VenueVolume>> build() {
+    public RestRequest<List<VenueVolume>> build() {
         return RestRequestBuilder.builder()
                 .withPath("/stock/{symbol}/volume-by-venue")
                 .addPathParam("symbol", getSymbol()).get()
-                .withResponse(new GenericType<ArrayList<VenueVolume>>() {})
+                .withResponse(new GenericType<List<VenueVolume>>() {})
                 .build();
     }
 

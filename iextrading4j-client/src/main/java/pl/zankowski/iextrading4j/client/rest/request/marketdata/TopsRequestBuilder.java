@@ -1,23 +1,21 @@
 package pl.zankowski.iextrading4j.client.rest.request.marketdata;
 
-import pl.zankowski.iextrading4j.api.marketdata.LastTrade;
-import pl.zankowski.iextrading4j.client.rest.manager.IRestParamRequestBuilder;
+import pl.zankowski.iextrading4j.api.marketdata.TOPS;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 
-import java.util.ArrayList;
+import javax.ws.rs.core.GenericType;
+import java.util.List;
 
-public class TopsRequestBuilder extends AbstractMarketDataRequestBuilder<ArrayList<LastTrade>, TopsRequestBuilder> {
+public class TopsRequestBuilder extends AbstractMarketDataRequestBuilder<List<TOPS>, TopsRequestBuilder> {
 
     @Override
-    public RestRequest<ArrayList<LastTrade>> build() {
-        IRestParamRequestBuilder restRequestBuilder = RestRequestBuilder.builder()
+    public RestRequest<List<TOPS>> build() {
+        return RestRequestBuilder.builder()
                 .withPath("/tops").get()
-                .withResponse(ArrayList.class);
-
-        applyRequestFilter(restRequestBuilder);
-        applySymbols(restRequestBuilder);
-
-        return restRequestBuilder.build();
+                .withResponse(new GenericType<List<TOPS>>() {})
+                .addQueryParam(getSymbols())
+                .addQueryParam(getFilterParams())
+                .build();
     }
 }

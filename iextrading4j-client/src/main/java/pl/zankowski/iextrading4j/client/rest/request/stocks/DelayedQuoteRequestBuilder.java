@@ -4,8 +4,6 @@ import pl.zankowski.iextrading4j.api.stocks.DelayedQuote;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 
-import javax.ws.rs.core.GenericType;
-
 public class DelayedQuoteRequestBuilder extends AbstractStocksRequestBuilder<DelayedQuote, DelayedQuoteRequestBuilder> {
 
     @Override
@@ -13,7 +11,7 @@ public class DelayedQuoteRequestBuilder extends AbstractStocksRequestBuilder<Del
         return RestRequestBuilder.builder()
                 .withPath("/stock/{symbol}/delayed-quote")
                 .addPathParam("symbol", getSymbol()).get()
-                .withResponse(new GenericType<DelayedQuote>() {})
+                .withResponse(DelayedQuote.class)
                 .build();
     }
 
