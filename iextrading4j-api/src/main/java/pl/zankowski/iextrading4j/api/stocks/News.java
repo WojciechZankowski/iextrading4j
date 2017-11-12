@@ -7,12 +7,12 @@ import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @JsonPropertyOrder({"datetime", "headline", "source", "url", "summary", "related"})
 public class News implements Serializable {
 
-    private final LocalDateTime datetime;
+    private final OffsetDateTime datetime;
     private final String headline;
     private final String source;
     private final String url;
@@ -20,7 +20,7 @@ public class News implements Serializable {
     private final String related;
 
     @JsonCreator
-    public News(@JsonProperty("datetime") final LocalDateTime datetime,
+    public News(@JsonProperty("datetime") final OffsetDateTime datetime,
                 @JsonProperty("headline") final String headline,
                 @JsonProperty("source") final String source,
                 @JsonProperty("url") final String url,
@@ -34,7 +34,7 @@ public class News implements Serializable {
         this.related = related;
     }
 
-    public LocalDateTime getDatetime() {
+    public OffsetDateTime getDatetime() {
         return datetime;
     }
 

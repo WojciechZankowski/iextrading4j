@@ -1,0 +1,18 @@
+[
+  {
+    "datetime": "2017-11-10T16:06:00-05:00",
+    "headline": "Netflix dropped 5 percent this week, after rallying all year",
+    "source": "CNBC",
+    "url": "https://api.iextrading.com/1.0/stock/aapl/article/8464142968106298",
+    "summary": "No summary available.",
+    "related": "AAPL,AMZN,FB,GOOGL,NFLX"
+  },
+  {
+    "datetime": "2017-11-10T14:16:00-05:00",
+    "headline": "Apple will issue a fix for iPhone X devices that seize up in the cold",
+    "source": "CNBC",
+    "url": "https://api.iextrading.com/1.0/stock/aapl/article/5121696418454999",
+    "summary": "No summary available.",
+    "related": "AAPL"
+  }
+]

@@ -4,7 +4,7 @@ import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -14,7 +14,7 @@ public class NewsTest {
 
     @Test
     public void constructor() {
-        final LocalDateTime datetime = fixture.create(LocalDateTime.class);
+        final OffsetDateTime datetime = fixture.create(OffsetDateTime.class);
         final String headline = fixture.create(String.class);
         final String source = fixture.create(String.class);
         final String url = fixture.create(String.class);
