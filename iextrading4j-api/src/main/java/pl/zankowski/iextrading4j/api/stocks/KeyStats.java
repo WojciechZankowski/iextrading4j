@@ -1,6 +1,7 @@
 package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
@@ -22,6 +23,7 @@ public class KeyStats implements Serializable {
     private final LocalDate shortDate;
     private final BigDecimal dividendRate;
     private final BigDecimal dividendYield;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.S")
     private final LocalDateTime exDividendDate;
     private final BigDecimal latestEPS;
     private final LocalDate latestEPSDate;

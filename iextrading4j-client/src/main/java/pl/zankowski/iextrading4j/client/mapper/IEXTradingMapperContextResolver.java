@@ -47,7 +47,6 @@ public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMa
 
         module.addDeserializer(BigDecimal.class, new EmptyStringDeserializer());
         module.addDeserializer(Auction.class, new AuctionDeserializer());
-        module.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer());
 
         module.addSerializer(SystemEventType.class, new SystemEventTypeSerializer());
         module.addDeserializer(SystemEventType.class, new SystemEventTypeDeserializer());
