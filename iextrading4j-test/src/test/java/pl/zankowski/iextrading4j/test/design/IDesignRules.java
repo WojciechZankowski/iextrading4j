@@ -1,4 +1,4 @@
-package pl.zankowski.iextrading4j.client.global;
+package pl.zankowski.iextrading4j.test.design;
 
 import java.util.Set;
 

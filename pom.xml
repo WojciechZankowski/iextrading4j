@@ -39,6 +39,7 @@
         <module>iextrading4j-client</module>
         <module>iextrading4j-samples</module>
         <module>iextrading4j-all</module>
+        <module>iextrading4j-test</module>
     </modules>
 
     <properties>
@@ -143,6 +144,28 @@
                 <groupId>org.reflections</groupId>
                 <artifactId>reflections</artifactId>
                 <version>0.9.11</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-module-junit4</artifactId>
+                <version>1.7.3</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-api-mockito2</artifactId>
+                <version>1.7.3</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.tomakehurst</groupId>
+                <artifactId>wiremock-standalone</artifactId>
+                <version>2.11.0</version>
+                <scope>test</scope>
             </dependency>
 
             <dependency>

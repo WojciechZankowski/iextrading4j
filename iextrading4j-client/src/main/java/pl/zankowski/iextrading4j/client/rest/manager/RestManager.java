@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.client.rest.manager;
 
 import pl.zankowski.iextrading4j.client.mapper.IEXTradingMapperContextResolver;
 
-import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
@@ -14,19 +13,20 @@ import static java.util.stream.Collectors.joining;
 
 public class RestManager {
 
-    private final Client restClient;
+    public static final String API_URL = "https://api.iextrading.com/1.0";
+
+    private final RestClient restClient;
 
     public RestManager() {
-        this.restClient = ClientBuilder.newClient();
-        this.restClient.register(IEXTradingMapperContextResolver.class);
+        this.restClient = new RestClient(ClientBuilder.newClient(), new RestClientMetadata());
+        this.restClient.getClient().register(IEXTradingMapperContextResolver.class);
     }
 
     public <R> RestResponse<R> executeRequest(final RestRequest<R> restRequest) {
         final String url = createURL(restRequest);
 
-        final Invocation.Builder invocationBuilder = restClient.target(url)
-                .request(MediaType.APPLICATION_JSON)
-                .headers(new MultivaluedHashMap<>(restRequest.getHeaderParams()));
+        final Invocation.Builder invocationBuilder = restClient.getClient().target(url)
+                .request(MediaType.APPLICATION_JSON);
 
         Response response = null;
 
@@ -85,7 +85,7 @@ public class RestManager {
     }
 
     private String getServicePath() {
-        return "https://api.iextrading.com/1.0";
+        return restClient.getRestClientMetadata().getUrl();
     }
 
 }

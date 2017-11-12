@@ -1,6 +1,6 @@
-package pl.zankowski.iextrading4j.client.global.api;
+package pl.zankowski.iextrading4j.test.design.api;
 
-import pl.zankowski.iextrading4j.client.global.IDesignRule;
+import pl.zankowski.iextrading4j.test.design.IDesignRule;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;

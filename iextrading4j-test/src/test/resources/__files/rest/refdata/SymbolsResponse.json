@@ -1,0 +1,16 @@
+[
+  {
+    "symbol": "A",
+    "name": "Agilent Technologies Inc.",
+    "date": "2017-11-10",
+    "isEnabled": true,
+    "type": "cs"
+  },
+  {
+    "symbol": "AA",
+    "name": "Alcoa Corporation",
+    "date": "2017-11-10",
+    "isEnabled": true,
+    "type": "cs"
+  }
+]

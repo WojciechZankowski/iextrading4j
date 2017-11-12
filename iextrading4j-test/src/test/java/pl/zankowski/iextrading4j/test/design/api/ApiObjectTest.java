@@ -1,13 +1,13 @@
-package pl.zankowski.iextrading4j.client.global.api;
+package pl.zankowski.iextrading4j.test.design.api;
 
 import com.google.common.collect.Lists;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.reflections.Reflections;
-import pl.zankowski.iextrading4j.client.global.AbstractViolationTests;
-import pl.zankowski.iextrading4j.client.global.IDesignRules;
-import pl.zankowski.iextrading4j.client.global.RuleCode;
-import pl.zankowski.iextrading4j.client.global.ViolationsScanner;
+import pl.zankowski.iextrading4j.test.design.AbstractViolationTests;
+import pl.zankowski.iextrading4j.test.design.IDesignRules;
+import pl.zankowski.iextrading4j.test.design.RuleCode;
+import pl.zankowski.iextrading4j.test.design.ViolationsScanner;
 
 import java.util.List;
 

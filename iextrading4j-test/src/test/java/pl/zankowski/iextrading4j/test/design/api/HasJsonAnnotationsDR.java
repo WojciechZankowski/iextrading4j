@@ -1,9 +1,9 @@
-package pl.zankowski.iextrading4j.client.global.api;
+package pl.zankowski.iextrading4j.test.design.api;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import pl.zankowski.iextrading4j.client.global.DesignRuleInput;
-import pl.zankowski.iextrading4j.client.global.RuleCode;
+import pl.zankowski.iextrading4j.test.design.RuleCode;
+import pl.zankowski.iextrading4j.test.design.DesignRuleInput;
 
 import java.lang.annotation.Annotation;
 

@@ -1,7 +1,7 @@
-package pl.zankowski.iextrading4j.client.global.api;
+package pl.zankowski.iextrading4j.test.design.api;
 
-import pl.zankowski.iextrading4j.client.global.DesignRuleInput;
-import pl.zankowski.iextrading4j.client.global.RuleCode;
+import pl.zankowski.iextrading4j.test.design.RuleCode;
+import pl.zankowski.iextrading4j.test.design.DesignRuleInput;
 
 public class InheritsSerializableDR extends AbstractApiDR {
 

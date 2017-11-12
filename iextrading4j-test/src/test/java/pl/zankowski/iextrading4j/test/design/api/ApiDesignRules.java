@@ -1,14 +1,12 @@
-package pl.zankowski.iextrading4j.client.global.api;
+package pl.zankowski.iextrading4j.test.design.api;
 
-import pl.zankowski.iextrading4j.client.global.IDesignRule;
-import pl.zankowski.iextrading4j.client.global.IDesignRules;
-import pl.zankowski.iextrading4j.client.global.RuleCode;
-import pl.zankowski.iextrading4j.client.global.Scope;
+import pl.zankowski.iextrading4j.test.design.IDesignRule;
+import pl.zankowski.iextrading4j.test.design.RuleCode;
+import pl.zankowski.iextrading4j.test.design.Scope;
+import pl.zankowski.iextrading4j.test.design.IDesignRules;
 
 import java.util.HashSet;
 import java.util.Set;
-
-import static pl.zankowski.iextrading4j.client.global.Scope.API;
 
 public class ApiDesignRules implements IDesignRules {
 
@@ -24,7 +22,7 @@ public class ApiDesignRules implements IDesignRules {
 
     @Override
     public Scope getScope() {
-        return API;
+        return Scope.API;
     }
 
     @Override
