@@ -7,25 +7,26 @@ import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @JsonPropertyOrder({"date", "volume", "routedVolume", "marketShare", "isHalfday", "litVolume"})
 public class RecentStats implements Serializable {
 
     private final LocalDate date;
-    private final Long volume;
-    private final Long routedVolume;
-    private final Double marketShare;
+    private final BigDecimal volume;
+    private final BigDecimal routedVolume;
+    private final BigDecimal marketShare;
     private final Boolean isHalfday;
-    private final Long litVolume;
+    private final BigDecimal litVolume;
 
     @JsonCreator
     public RecentStats(@JsonProperty("date") final LocalDate date,
-                       @JsonProperty("volume") final Long volume,
-                       @JsonProperty("routedVolume") final Long routedVolume,
-                       @JsonProperty("marketShare") final Double marketShare,
+                       @JsonProperty("volume") final BigDecimal volume,
+                       @JsonProperty("routedVolume") final BigDecimal routedVolume,
+                       @JsonProperty("marketShare") final BigDecimal marketShare,
                        @JsonProperty("isHalfday") final Boolean isHalfday,
-                       @JsonProperty("litVolume") final Long litVolume) {
+                       @JsonProperty("litVolume") final BigDecimal litVolume) {
         this.date = date;
         this.volume = volume;
         this.routedVolume = routedVolume;
@@ -38,15 +39,15 @@ public class RecentStats implements Serializable {
         return date;
     }
 
-    public Long getVolume() {
+    public BigDecimal getVolume() {
         return volume;
     }
 
-    public Long getRoutedVolume() {
+    public BigDecimal getRoutedVolume() {
         return routedVolume;
     }
 
-    public Double getMarketShare() {
+    public BigDecimal getMarketShare() {
         return marketShare;
     }
 
@@ -54,7 +55,7 @@ public class RecentStats implements Serializable {
         return isHalfday;
     }
 
-    public Long getLitVolume() {
+    public BigDecimal getLitVolume() {
         return litVolume;
     }
 

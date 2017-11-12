@@ -12,7 +12,7 @@ import java.io.Serializable;
 public class SecurityEvent implements Serializable {
 
     private final SecurityEventType securityEvent;
-    private final long timestamp;
+    private final Long timestamp;
 
     @JsonCreator
     public SecurityEvent(@JsonProperty("securityEvent") final SecurityEventType securityEvent,
@@ -34,13 +34,13 @@ public class SecurityEvent implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         SecurityEvent that = (SecurityEvent) o;
-        return timestamp == that.timestamp &&
-                securityEvent == that.securityEvent;
+        return securityEvent == that.securityEvent &&
+                Objects.equal(timestamp, that.timestamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(securityEvent, timestamp);
+        return Objects.hashCode(getSecurityEvent(), getTimestamp());
     }
 
     @Override

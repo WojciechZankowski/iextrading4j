@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import pl.zankowski.iextrading4j.api.marketdata.Auction;
+import pl.zankowski.iextrading4j.api.marketdata.SystemEventType;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatusReasonType;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatusType;
 import pl.zankowski.iextrading4j.api.stocks.DividendQualification;
@@ -47,6 +48,9 @@ public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMa
         module.addDeserializer(BigDecimal.class, new EmptyStringDeserializer());
         module.addDeserializer(Auction.class, new AuctionDeserializer());
         module.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer());
+
+        module.addSerializer(SystemEventType.class, new SystemEventTypeSerializer());
+        module.addDeserializer(SystemEventType.class, new SystemEventTypeDeserializer());
 
         module.addSerializer(TradingStatusType.class, new TradingStatusTypeSerializer());
         module.addDeserializer(TradingStatusType.class, new TradingStatusTypeDeserializer());

@@ -22,8 +22,8 @@ public class DEEP implements Serializable {
     private final BigDecimal volume;
     private final BigDecimal lastSalePrice;
     private final BigDecimal lastSaleSize;
-    private final BigDecimal lastSaleTime;
-    private final BigDecimal lastUpdated;
+    private final Long lastSaleTime;
+    private final Long lastUpdated;
     private final List<BookEntry> bids;
     private final List<BookEntry> asks;
     private final SystemEvent systemEvent;
@@ -41,8 +41,8 @@ public class DEEP implements Serializable {
                 @JsonProperty("volume") final BigDecimal volume,
                 @JsonProperty("lastSalePrice") final BigDecimal lastSalePrice,
                 @JsonProperty("lastSaleSize") final BigDecimal lastSaleSize,
-                @JsonProperty("lastSaleTime") final BigDecimal lastSaleTime,
-                @JsonProperty("lastUpdated") final BigDecimal lastUpdated,
+                @JsonProperty("lastSaleTime") final Long lastSaleTime,
+                @JsonProperty("lastUpdated") final Long lastUpdated,
                 @JsonProperty("bids") final List<BookEntry> bids,
                 @JsonProperty("asks") final List<BookEntry> asks,
                 @JsonProperty("systemEvent") final SystemEvent systemEvent,
@@ -92,11 +92,11 @@ public class DEEP implements Serializable {
         return lastSaleSize;
     }
 
-    public BigDecimal getLastSaleTime() {
+    public Long getLastSaleTime() {
         return lastSaleTime;
     }
 
-    public BigDecimal getLastUpdated() {
+    public Long getLastUpdated() {
         return lastUpdated;
     }
 

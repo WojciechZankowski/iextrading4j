@@ -1,11 +1,9 @@
-package pl.zankowski.iextrading4j.api.filter;
+package pl.zankowski.iextrading4j.client.rest.request.filter;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 public class RequestFilter {
-
-    public static final String FILTER_QUERY_NAME = "filter";
 
     private final String columnList;
 

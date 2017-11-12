@@ -1,6 +1,7 @@
-package pl.zankowski.iextrading4j.api.filter;
+package pl.zankowski.iextrading4j.client.rest.request.filter;
 
-import java.util.HashSet;
+import com.google.common.collect.Sets;
+
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -8,7 +9,7 @@ public class RequestFilterBuilder {
 
     private static final String FILTER_DELIMITER = ",";
 
-    private final Set<String> columns = new HashSet<>();
+    private final Set<String> columns = Sets.newHashSet();
 
     public RequestFilterBuilder withColumn(String column) {
         this.columns.add(column);

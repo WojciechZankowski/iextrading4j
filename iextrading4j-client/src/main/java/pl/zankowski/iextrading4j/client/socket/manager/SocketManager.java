@@ -53,7 +53,9 @@ public class SocketManager {
         Arrays.stream(args).forEach(arg -> {
             try {
                 consumer.accept(mapObject(arg, request));
-            } catch (IOException e) {}
+            } catch (IOException e) {
+                System.out.println(e);
+            }
         });
     }
 

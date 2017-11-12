@@ -1,7 +1,7 @@
 package pl.zankowski.iextrading4j.client.rest.request;
 
 import com.google.common.collect.ImmutableMap;
-import pl.zankowski.iextrading4j.api.filter.RequestFilter;
+import pl.zankowski.iextrading4j.client.rest.request.filter.RequestFilter;
 
 import java.util.Map;
 

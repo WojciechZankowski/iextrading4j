@@ -1,18 +1,21 @@
 package pl.zankowski.iextrading4j.api.marketdata;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @JsonPropertyOrder({"link", "date", "feed", "version", "protocol", "size"})
 public class HIST implements Serializable {
 
     private final String link;
-    private final String date;
+    @JsonFormat(pattern = "yyyyMMdd")
+    private final LocalDate date;
     private final String feed;
     private final String version;
     private final String protocol;
@@ -20,7 +23,7 @@ public class HIST implements Serializable {
 
     @JsonCreator
     public HIST(@JsonProperty("link") final String link,
-                @JsonProperty("date") final String date,
+                @JsonProperty("date") final LocalDate date,
                 @JsonProperty("feed") final String feed,
                 @JsonProperty("version") final String version,
                 @JsonProperty("protocol") final String protocol,
@@ -37,7 +40,7 @@ public class HIST implements Serializable {
         return link;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 

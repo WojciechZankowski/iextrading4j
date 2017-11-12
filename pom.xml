@@ -39,8 +39,6 @@
         <module>iextrading4j-client</module>
         <module>iextrading4j-samples</module>
         <module>iextrading4j-all</module>
-        <module>iextrading4j-client-rest</module>
-        <module>iextrading4j-client-socket</module>
     </modules>
 
     <properties>
@@ -132,13 +130,33 @@
             <dependency>
                 <groupId>io.socket</groupId>
                 <artifactId>socket.io-client</artifactId>
-                <version>0.8.3</version>
+                <version>1.0.0</version>
             </dependency>
 
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>23.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.reflections</groupId>
+                <artifactId>reflections</artifactId>
+                <version>0.9.11</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.flextrade.jfixture</groupId>
+                <artifactId>jfixture</artifactId>
+                <version>2.7.2</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>nl.jqno.equalsverifier</groupId>
+                <artifactId>equalsverifier</artifactId>
+                <version>2.3.3</version>
+                <scope>test</scope>
             </dependency>
 
             <dependency>
