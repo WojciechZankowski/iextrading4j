@@ -8,7 +8,6 @@ import com.google.common.base.Objects;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @JsonPropertyOrder({"minute", "average", "notional", "numberOfTrades", "high",
         "low", "volume", "date", "open", "close", "unadjustedClose", "unadjustedVolume",
@@ -22,7 +21,7 @@ public class Chart implements Serializable {
     private final BigDecimal high;
     private final BigDecimal low;
     private final BigDecimal volume;
-    private final LocalDate date;
+    private final String date;
     private final BigDecimal open;
     private final BigDecimal close;
     private final BigDecimal unadjustedClose;
@@ -41,7 +40,7 @@ public class Chart implements Serializable {
                  @JsonProperty("high") final BigDecimal high,
                  @JsonProperty("low") final BigDecimal low,
                  @JsonProperty("volume") final BigDecimal volume,
-                 @JsonProperty("date") final LocalDate date,
+                 @JsonProperty("date") final String date,
                  @JsonProperty("open") final BigDecimal open,
                  @JsonProperty("close") final BigDecimal close,
                  @JsonProperty("unadjustedClose") final BigDecimal unadjustedClose,
@@ -98,7 +97,7 @@ public class Chart implements Serializable {
         return volume;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 

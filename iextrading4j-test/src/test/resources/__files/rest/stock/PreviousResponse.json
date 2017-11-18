@@ -1,0 +1,13 @@
+{
+  "symbol": "AAPL",
+  "date": "2017-11-16",
+  "open": 171.18,
+  "high": 171.87,
+  "low": 170.3,
+  "close": 171.1,
+  "volume": 23637484,
+  "unadjustedVolume": 23637484,
+  "change": 2.02,
+  "changePercent": 1.195,
+  "vwap": 171.1673
+}

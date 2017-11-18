@@ -22,7 +22,7 @@ public class ChartTest {
         final BigDecimal high = fixture.create(BigDecimal.class);
         final BigDecimal low = fixture.create(BigDecimal.class);
         final BigDecimal volume = fixture.create(BigDecimal.class);
-        final LocalDate date = fixture.create(LocalDate.class);
+        final String date = fixture.create(String.class);
         final BigDecimal open = fixture.create(BigDecimal.class);
         final BigDecimal close = fixture.create(BigDecimal.class);
         final BigDecimal unadjustedClose = fixture.create(BigDecimal.class);
