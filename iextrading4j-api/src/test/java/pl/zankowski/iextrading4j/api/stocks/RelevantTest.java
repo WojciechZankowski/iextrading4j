@@ -21,7 +21,7 @@ public class RelevantTest {
 
         final Relevant relevant = new Relevant(peers, symbols);
 
-        assertThat(relevant.getPeers()).isEqualTo(peers);
+        assertThat(relevant.isPeers()).isEqualTo(peers);
         assertThat(relevant.getSymbols()).isEqualTo(symbols);
     }
 

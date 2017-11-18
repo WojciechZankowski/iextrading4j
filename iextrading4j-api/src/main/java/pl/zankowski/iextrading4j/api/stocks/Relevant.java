@@ -22,7 +22,7 @@ public class Relevant implements Serializable {
         this.symbols = symbols;
     }
 
-    public Boolean getPeers() {
+    public Boolean isPeers() {
         return peers;
     }
 

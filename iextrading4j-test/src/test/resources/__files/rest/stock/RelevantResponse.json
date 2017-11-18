@@ -1,0 +1,11 @@
+{
+  "peers": true,
+  "symbols": [
+    "MSFT",
+    "NOK",
+    "IBM",
+    "HPQ",
+    "GOOGL",
+    "XLK"
+  ]
+}

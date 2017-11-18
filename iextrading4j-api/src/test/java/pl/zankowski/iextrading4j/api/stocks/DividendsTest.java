@@ -20,19 +20,23 @@ public class DividendsTest {
         final LocalDate recordDate = fixture.create(LocalDate.class);
         final LocalDate declaredDate = fixture.create(LocalDate.class);
         final BigDecimal amount = fixture.create(BigDecimal.class);
+        final String flag = fixture.create(String.class);
         final DividendType dividendType = fixture.create(DividendType.class);
         final DividendQualification qualification = fixture.create(DividendQualification.class);
+        final String indicated = fixture.create(String.class);
 
         final Dividends dividends = new Dividends(exDate, paymentDate, recordDate, declaredDate, amount,
-                dividendType, qualification);
+                flag, dividendType, qualification, indicated);
 
         assertThat(dividends.getExDate()).isEqualTo(exDate);
         assertThat(dividends.getPaymentDate()).isEqualTo(paymentDate);
         assertThat(dividends.getRecordDate()).isEqualTo(recordDate);
         assertThat(dividends.getDeclaredDate()).isEqualTo(declaredDate);
         assertThat(dividends.getAmount()).isEqualTo(amount);
+        assertThat(dividends.getFlag()).isEqualTo(flag);
         assertThat(dividends.getType()).isEqualTo(dividendType);
         assertThat(dividends.getQualified()).isEqualTo(qualification);
+        assertThat(dividends.getIndicated()).isEqualTo(indicated);
     }
 
     @Test
