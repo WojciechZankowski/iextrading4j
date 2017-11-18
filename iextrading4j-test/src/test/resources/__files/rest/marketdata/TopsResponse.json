@@ -1,28 +1,17 @@
 [
   {
-    "symbol": "SNAP",
-    "marketPercent": 0.00901,
-    "bidSize": 200,
-    "bidPrice": 110.94,
-    "askSize": 100,
-    "askPrice": 111.82,
-    "volume": 177265,
-    "lastSalePrice": 111.76,
-    "lastSaleSize": 5,
-    "lastSaleTime": 1480446905681,
-    "lastUpdated": 1480446910557
-  },
-  {
-    "symbol": "FB",
-    "marketPercent": 0.01465,
-    "bidSize": 200,
-    "bidPrice": 120.8,
-    "askSize": 100,
-    "askPrice": 122.5,
-    "volume": 205208,
-    "lastSalePrice": 121.41,
-    "lastSaleSize": 100,
-    "lastSaleTime": 1480446908666,
-    "lastUpdated": 1480446923942
+    "symbol": "AAPL",
+    "marketPercent": 0.01341,
+    "bidSize": 100,
+    "bidPrice": 166.18,
+    "askSize": 315,
+    "askPrice": 172,
+    "volume": 184260,
+    "lastSalePrice": 170.435,
+    "lastSaleSize": 60,
+    "lastSaleTime": 1510943467901,
+    "lastUpdated": 1510943543270,
+    "sector": "technologyhardwareequipmen",
+    "securityType": "commonstock"
   }
 ]

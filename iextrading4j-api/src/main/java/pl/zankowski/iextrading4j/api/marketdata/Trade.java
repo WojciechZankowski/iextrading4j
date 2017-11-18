@@ -56,23 +56,23 @@ public class Trade implements Serializable {
         return tradeId;
     }
 
-    public Boolean getISO() {
+    public Boolean isISO() {
         return isISO;
     }
 
-    public Boolean getOddLot() {
+    public Boolean isOddLot() {
         return isOddLot;
     }
 
-    public Boolean getOutsideRegularHours() {
+    public Boolean isOutsideRegularHours() {
         return isOutsideRegularHours;
     }
 
-    public Boolean getSinglePriceCross() {
+    public Boolean isSinglePriceCross() {
         return isSinglePriceCross;
     }
 
-    public Boolean getTradeThroughExempt() {
+    public Boolean isTradeThroughExempt() {
         return isTradeThroughExempt;
     }
 

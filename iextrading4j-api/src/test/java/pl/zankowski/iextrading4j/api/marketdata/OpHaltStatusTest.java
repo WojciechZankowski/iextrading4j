@@ -17,7 +17,7 @@ public class OpHaltStatusTest {
 
         final OpHaltStatus opHaltStatus = new OpHaltStatus(isHalted, timestamp);
 
-        assertThat(opHaltStatus.getHalted()).isEqualTo(isHalted);
+        assertThat(opHaltStatus.isHalted()).isEqualTo(isHalted);
         assertThat(opHaltStatus.getTimestamp()).isEqualTo(timestamp);
     }
 

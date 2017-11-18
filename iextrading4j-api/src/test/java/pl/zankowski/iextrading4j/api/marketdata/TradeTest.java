@@ -30,11 +30,11 @@ public class TradeTest {
         assertThat(trade.getPrice()).isEqualTo(price);
         assertThat(trade.getSize()).isEqualTo(size);
         assertThat(trade.getTradeId()).isEqualTo(tradeId);
-        assertThat(trade.getISO()).isEqualTo(isISO);
-        assertThat(trade.getOddLot()).isEqualTo(isOddLot);
-        assertThat(trade.getOutsideRegularHours()).isEqualTo(isOutsideRegularHours);
-        assertThat(trade.getSinglePriceCross()).isEqualTo(isSinglePriceCross);
-        assertThat(trade.getTradeThroughExempt()).isEqualTo(isTradeThroughExample);
+        assertThat(trade.isISO()).isEqualTo(isISO);
+        assertThat(trade.isOddLot()).isEqualTo(isOddLot);
+        assertThat(trade.isOutsideRegularHours()).isEqualTo(isOutsideRegularHours);
+        assertThat(trade.isSinglePriceCross()).isEqualTo(isSinglePriceCross);
+        assertThat(trade.isTradeThroughExempt()).isEqualTo(isTradeThroughExample);
         assertThat(trade.getTimestamp()).isEqualTo(timestamp);
     }
 

@@ -21,7 +21,7 @@ public class OpHaltStatus implements Serializable {
         this.timestamp = timestamp;
     }
 
-    public Boolean getHalted() {
+    public Boolean isHalted() {
         return isHalted;
     }
 
