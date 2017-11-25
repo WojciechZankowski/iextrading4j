@@ -1,11 +1,7 @@
 package pl.zankowski.iextrading4j.client.rest.manager;
 
-import pl.zankowski.iextrading4j.client.mapper.IEXTradingMapperContextResolver;
-
-import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.Response;
 import java.util.Map;
 
@@ -13,13 +9,10 @@ import static java.util.stream.Collectors.joining;
 
 public class RestManager {
 
-    public static final String API_URL = "https://api.iextrading.com/1.0";
-
     private final RestClient restClient;
 
-    public RestManager() {
-        this.restClient = new RestClient(ClientBuilder.newClient(), new RestClientMetadata());
-        this.restClient.getClient().register(IEXTradingMapperContextResolver.class);
+    public RestManager(final RestClient restClient) {
+        this.restClient = restClient;
     }
 
     public <R> RestResponse<R> executeRequest(final RestRequest<R> restRequest) {

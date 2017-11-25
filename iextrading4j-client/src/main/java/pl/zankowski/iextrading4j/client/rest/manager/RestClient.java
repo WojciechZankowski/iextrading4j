@@ -10,7 +10,7 @@ public class RestClient {
     private final Client client;
     private final RestClientMetadata restClientMetadata;
 
-    public RestClient(Client client, RestClientMetadata restClientMetadata) {
+    public RestClient(final Client client, final RestClientMetadata restClientMetadata) {
         this.client = client;
         this.restClientMetadata = restClientMetadata;
     }

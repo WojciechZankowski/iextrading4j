@@ -1,6 +1,9 @@
 package pl.zankowski.iextrading4j.client;
 
+import pl.zankowski.iextrading4j.client.mapper.IEXTradingMapperContextResolver;
 import pl.zankowski.iextrading4j.client.rest.endpoint.GenericRestEndpoint;
+import pl.zankowski.iextrading4j.client.rest.manager.RestClient;
+import pl.zankowski.iextrading4j.client.rest.manager.RestClientMetadata;
 import pl.zankowski.iextrading4j.client.rest.manager.RestManager;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.socket.endpoint.GenericSocketEndpoint;
@@ -8,6 +11,7 @@ import pl.zankowski.iextrading4j.client.socket.manager.SocketManager;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketRequest;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketWrapper;
 
+import javax.ws.rs.client.ClientBuilder;
 import java.util.function.Consumer;
 
 public class IEXTradingClient {
@@ -16,7 +20,10 @@ public class IEXTradingClient {
     private final GenericSocketEndpoint genericSocketEndpoint;
 
     private IEXTradingClient() {
-        genericRestEndpoint = new GenericRestEndpoint(new RestManager());
+        final RestClient restClient = new RestClient(ClientBuilder.newClient(), new RestClientMetadata());
+        restClient.getClient().register(IEXTradingMapperContextResolver.class);
+
+        genericRestEndpoint = new GenericRestEndpoint(new RestManager(restClient));
         genericSocketEndpoint = new GenericSocketEndpoint(new SocketManager(new SocketWrapper()));
     }
 

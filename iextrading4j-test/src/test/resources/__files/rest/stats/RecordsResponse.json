@@ -1,0 +1,26 @@
+{
+  "volume": {
+    "recordValue": 233000477,
+    "recordDate": "2016-01-20",
+    "previousDayValue": 60916575,
+    "avg30Value": 169446718
+  },
+  "symbolsTraded": {
+    "recordValue": 6086,
+    "recordDate": "2017-07-05",
+    "previousDayValue": 5172,
+    "avg30Value": 5695
+  },
+  "routedVolume": {
+    "recordValue": 74855222,
+    "recordDate": "2016-11-10",
+    "previousDayValue": 14825505,
+    "avg30Value": 45024147
+  },
+  "notional": {
+    "recordValue": 10772885363.2202,
+    "recordDate": "2017-10-27",
+    "previousDayValue": 2698087404.9412,
+    "avg30Value": 7731908805.708
+  }
+}
