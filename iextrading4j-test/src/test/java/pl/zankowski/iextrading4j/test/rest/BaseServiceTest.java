@@ -17,7 +17,7 @@ import static org.mockito.Mockito.when;
 import static org.powermock.api.mockito.PowerMockito.whenNew;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({RestManager.class})
+@PrepareForTest({IEXTradingClient.class})
 @PowerMockIgnore({"javax.net.ssl.*"})
 public abstract class BaseServiceTest {
 

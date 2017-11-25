@@ -13,10 +13,14 @@
 
     <dependencies>
 
+        <!-- Internal -->
+
         <dependency>
             <groupId>pl.zankowski</groupId>
             <artifactId>iextrading4j-client</artifactId>
         </dependency>
+
+        <!-- Tests -->
 
         <dependency>
             <groupId>com.github.tomakehurst</groupId>

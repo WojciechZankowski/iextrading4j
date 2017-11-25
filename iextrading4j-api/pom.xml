@@ -13,10 +13,20 @@
     <packaging>jar</packaging>
 
     <dependencies>
+
+        <!-- Libraries -->
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>
+
+        <!-- Tests -->
 
         <dependency>
             <groupId>junit</groupId>
@@ -48,10 +58,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-        </dependency>
     </dependencies>
 
     <build>

@@ -12,10 +12,15 @@
     <artifactId>iextrading4j-client</artifactId>
 
     <dependencies>
+
+        <!-- Internal -->
+
         <dependency>
             <groupId>pl.zankowski</groupId>
             <artifactId>iextrading4j-api</artifactId>
         </dependency>
+
+        <!-- Libraries -->
 
         <dependency>
             <groupId>javax.ws.rs</groupId>
@@ -41,6 +46,8 @@
             <groupId>io.socket</groupId>
             <artifactId>socket.io-client</artifactId>
         </dependency>
+
+        <!-- Tests -->
 
         <dependency>
             <groupId>junit</groupId>
