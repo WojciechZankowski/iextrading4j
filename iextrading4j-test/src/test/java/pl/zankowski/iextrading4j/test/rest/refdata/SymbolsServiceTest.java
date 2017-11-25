@@ -36,6 +36,7 @@ public class SymbolsServiceTest extends BaseServiceTest {
         assertThat(aSymbol.getDate()).isEqualTo(LocalDate.of(2017, 11, 10));
         assertThat(aSymbol.getEnabled()).isTrue();
         assertThat(aSymbol.getType()).isEqualTo("cs");
+        assertThat(aSymbol.getIexId()).isEqualTo(12042);
 
         final ExchangeSymbol aaSymbol = exchangeSymbols.get(1);
         assertThat(aaSymbol.getSymbol()).isEqualTo("AA");
@@ -43,6 +44,7 @@ public class SymbolsServiceTest extends BaseServiceTest {
         assertThat(aaSymbol.getDate()).isEqualTo(LocalDate.of(2017, 11, 10));
         assertThat(aaSymbol.getEnabled()).isTrue();
         assertThat(aaSymbol.getType()).isEqualTo("cs");
+        assertThat(aaSymbol.getIexId()).isEqualTo(6667);
     }
 
 }

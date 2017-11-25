@@ -19,14 +19,16 @@ public class ExchangeSymbolTest {
         final LocalDate date = fixture.create(LocalDate.class);
         final Boolean isEnabled = fixture.create(Boolean.class);
         final String type = fixture.create(String.class);
+        final Long iexId = fixture.create(Long.class);
 
-        final ExchangeSymbol exchangeSymbol = new ExchangeSymbol(symbol, name, date, isEnabled, type);
+        final ExchangeSymbol exchangeSymbol = new ExchangeSymbol(symbol, name, date, isEnabled, type, iexId);
 
         assertThat(exchangeSymbol.getSymbol()).isEqualTo(symbol);
         assertThat(exchangeSymbol.getName()).isEqualTo(name);
         assertThat(exchangeSymbol.getDate()).isEqualTo(date);
         assertThat(exchangeSymbol.getEnabled()).isEqualTo(isEnabled);
         assertThat(exchangeSymbol.getType()).isEqualTo(type);
+        assertThat(exchangeSymbol.getIexId()).isEqualTo(iexId);
     }
 
     @Test

@@ -9,7 +9,7 @@ import com.google.common.base.Objects;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-@JsonPropertyOrder({"symbol", "name", "date", "isEnabled"})
+@JsonPropertyOrder({"symbol", "name", "date", "isEnabled", "type", "iexId"})
 public class ExchangeSymbol implements Serializable {
 
     private final String symbol;
@@ -17,18 +17,21 @@ public class ExchangeSymbol implements Serializable {
     private final LocalDate date;
     private final Boolean isEnabled;
     private final String type;
+    private final Long iexId;
 
     @JsonCreator
     public ExchangeSymbol(@JsonProperty("symbol") final String symbol,
                           @JsonProperty("name") final String name,
                           @JsonProperty("date") final LocalDate date,
                           @JsonProperty("isEnabled") final Boolean isEnabled,
-                          @JsonProperty("type") final String type) {
+                          @JsonProperty("type") final String type,
+                          @JsonProperty("iexId") final Long iexId) {
         this.symbol = symbol;
         this.name = name;
         this.date = date;
         this.isEnabled = isEnabled;
         this.type = type;
+        this.iexId = iexId;
     }
 
     public String getSymbol() {
@@ -51,6 +54,10 @@ public class ExchangeSymbol implements Serializable {
         return type;
     }
 
+    public Long getIexId() {
+        return iexId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -60,12 +67,13 @@ public class ExchangeSymbol implements Serializable {
                 Objects.equal(name, that.name) &&
                 Objects.equal(date, that.date) &&
                 Objects.equal(isEnabled, that.isEnabled) &&
-                Objects.equal(type, that.type);
+                Objects.equal(type, that.type) &&
+                Objects.equal(iexId, that.iexId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(symbol, name, date, isEnabled, type);
+        return Objects.hashCode(symbol, name, date, isEnabled, type, iexId);
     }
 
     @Override
@@ -76,7 +84,7 @@ public class ExchangeSymbol implements Serializable {
                 .add("date", date)
                 .add("isEnabled", isEnabled)
                 .add("type", type)
+                .add("iexId", iexId)
                 .toString();
     }
-
 }

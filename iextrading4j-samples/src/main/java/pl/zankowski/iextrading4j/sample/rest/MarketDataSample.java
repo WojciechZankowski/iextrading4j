@@ -36,18 +36,18 @@ public class MarketDataSample {
     public static void main(String[] args) {
         final MarketDataSample sampleSuite = new MarketDataSample();
 
-//        sampleSuite.bookRequestSample();
-//        sampleSuite.deepRequestSample();
+        sampleSuite.bookRequestSample();
+        sampleSuite.deepRequestSample();
         sampleSuite.histRequestSample();
-//        sampleSuite.lastTradeRequestSample();
-//        sampleSuite.opHaltStatusRequestSample();
-//        sampleSuite.securityEventRequestSample();
-//        sampleSuite.ssrStatusRequestSample();
-//        sampleSuite.systemEventRequestSample();
-//        sampleSuite.topsRequestSample();
-//        sampleSuite.tradeBreakRequestSample();
-//        sampleSuite.tradeRequestSample();
-//        sampleSuite.tradingStatusRequestSample();
+        sampleSuite.lastTradeRequestSample();
+        sampleSuite.opHaltStatusRequestSample();
+        sampleSuite.securityEventRequestSample();
+        sampleSuite.ssrStatusRequestSample();
+        sampleSuite.systemEventRequestSample();
+        sampleSuite.topsRequestSample();
+        sampleSuite.tradeBreakRequestSample();
+        sampleSuite.tradeRequestSample();
+        sampleSuite.tradingStatusRequestSample();
     }
 
 
