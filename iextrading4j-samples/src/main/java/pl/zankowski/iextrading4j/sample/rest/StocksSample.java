@@ -109,6 +109,7 @@ public class StocksSample {
                 .withSymbol("AAPL")
                 .withDividendRange(DividendRange.SIX_MONTHS)
                 .build());
+        System.out.println(dividends);
     }
 
     private void earningsRequestSample() {

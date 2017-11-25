@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.sample.rest;
 
+import pl.zankowski.iextrading4j.api.marketdata.Auction;
 import pl.zankowski.iextrading4j.api.marketdata.Book;
 import pl.zankowski.iextrading4j.api.marketdata.DEEP;
 import pl.zankowski.iextrading4j.api.marketdata.HIST;
@@ -12,6 +13,7 @@ import pl.zankowski.iextrading4j.api.marketdata.TOPS;
 import pl.zankowski.iextrading4j.api.marketdata.Trade;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatus;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
+import pl.zankowski.iextrading4j.client.rest.request.marketdata.AuctionRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.BookRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.DeepRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.HistRequestBuilder;
@@ -48,8 +50,8 @@ public class MarketDataSample {
         sampleSuite.tradeBreakRequestSample();
         sampleSuite.tradeRequestSample();
         sampleSuite.tradingStatusRequestSample();
+        sampleSuite.auctionRequestSample();
     }
-
 
     private void bookRequestSample() {
         final Map<String, Book> books = iexTradingClient.executeRequest(new BookRequestBuilder()
@@ -134,6 +136,13 @@ public class MarketDataSample {
                 .withSymbol("AAPL")
                 .build());
         System.out.println(tradingStatus);
+    }
+
+    private void auctionRequestSample() {
+        final Map<String, Auction> auction = iexTradingClient.executeRequest(new AuctionRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(auction);
     }
 
 }
