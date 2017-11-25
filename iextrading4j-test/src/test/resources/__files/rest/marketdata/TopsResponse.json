@@ -1,0 +1,17 @@
+[
+  {
+    "symbol": "AAPL",
+    "marketPercent": 0.01341,
+    "bidSize": 100,
+    "bidPrice": 166.18,
+    "askSize": 315,
+    "askPrice": 172,
+    "volume": 184260,
+    "lastSalePrice": 170.435,
+    "lastSaleSize": 60,
+    "lastSaleTime": 1510943467901,
+    "lastUpdated": 1510943543270,
+    "sector": "technologyhardwareequipmen",
+    "securityType": "commonstock"
+  }
+]

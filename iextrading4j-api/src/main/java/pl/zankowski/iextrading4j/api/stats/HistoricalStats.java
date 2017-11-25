@@ -2,115 +2,116 @@ package pl.zankowski.iextrading4j.api.stats;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import pl.zankowski.iextrading4j.api.util.DoubleUtil;
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
-/**
- * @author Wojciech Zankowski
- */
-public class HistoricalStats {
+import java.io.Serializable;
+import java.math.BigDecimal;
 
-    private final Double averageDailyVolume;
-    private final Double averageDailyRoutedVolume;
-    private final Double averageMarketShare;
-    private final Double averageOrderSize;
-    private final Double averageFillSize;
-    private final Double bin100Percent;
-    private final Double bin101Percent;
-    private final Double bin200Percent;
-    private final Double bin300Percent;
-    private final Double bin400Percent;
-    private final Double bin500Percent;
-    private final Double bin1000Percent;
-    private final Double bin5000Percent;
-    private final Double bin10000Percent;
-    private final Double bin10000Trades;
-    private final Double bin20000Trades;
-    private final Double bin50000Trades;
-    private final Double uniqueSymbolsTraded;
-    private final Double blockPercent;
-    private final Double selfCrossPercent;
-    private final Double etfPercent;
-    private final Double largeCapPercent;
-    private final Double midCapPercent;
-    private final Double smallCapPercent;
-    private final Double venueARCXFirstWaveWeight;
-    private final Double venueBATSFirstWaveWeight;
-    private final Double venueBATYFirstWaveWeight;
-    private final Double venueEDGAFirstWaveWeight;
-    private final Double venueEDGXFirstWaveWeight;
-    private final Double venueOverallFirstWaveWeight;
-    private final Double venueXASEFirstWaveWeight;
-    private final Double venueXBOSFirstWaveWeight;
-    private final Double venueXCHIFirstWaveWeight;
-    private final Double venueXCISFirstWaveWeight;
-    private final Double venueXNGSFirstWaveWeight;
-    private final Double venueXNYSFirstWaveWeight;
-    private final Double venueXPHLFirstWaveWeight;
-    private final Double venueARCXFirstWaveRate;
-    private final Double venueBATSFirstWaveRate;
-    private final Double venueBATYFirstWaveRate;
-    private final Double venueEDGAFirstWaveRate;
-    private final Double venueEDGXFirstWaveRate;
-    private final Double venueOverallFirstWaveRate;
-    private final Double venueXASEFirstWaveRate;
-    private final Double venueXBOSFirstWaveRate;
-    private final Double venueXCHIFirstWaveRate;
-    private final Double venueXCISFirstWaveRate;
-    private final Double venueXNGSFirstWaveRate;
-    private final Double venueXNYSFirstWaveRate;
-    private final Double venueXPHLFirstWaveRate;
+public class HistoricalStats implements Serializable {
+
+    private final BigDecimal averageDailyVolume;
+    private final BigDecimal averageDailyRoutedVolume;
+    private final BigDecimal averageMarketShare;
+    private final BigDecimal averageOrderSize;
+    private final BigDecimal averageFillSize;
+    private final BigDecimal bin100Percent;
+    private final BigDecimal bin101Percent;
+    private final BigDecimal bin200Percent;
+    private final BigDecimal bin300Percent;
+    private final BigDecimal bin400Percent;
+    private final BigDecimal bin500Percent;
+    private final BigDecimal bin1000Percent;
+    private final BigDecimal bin5000Percent;
+    private final BigDecimal bin10000Percent;
+    private final BigDecimal bin10000Trades;
+    private final BigDecimal bin20000Trades;
+    private final BigDecimal bin50000Trades;
+    private final BigDecimal uniqueSymbolsTraded;
+    private final BigDecimal blockPercent;
+    private final BigDecimal selfCrossPercent;
+    private final BigDecimal etfPercent;
+    private final BigDecimal largeCapPercent;
+    private final BigDecimal midCapPercent;
+    private final BigDecimal smallCapPercent;
+    private final BigDecimal venueARCXFirstWaveWeight;
+    private final BigDecimal venueBATSFirstWaveWeight;
+    private final BigDecimal venueBATYFirstWaveWeight;
+    private final BigDecimal venueEDGAFirstWaveWeight;
+    private final BigDecimal venueEDGXFirstWaveWeight;
+    private final BigDecimal venueOverallFirstWaveWeight;
+    private final BigDecimal venueXASEFirstWaveWeight;
+    private final BigDecimal venueXBOSFirstWaveWeight;
+    private final BigDecimal venueXCHIFirstWaveWeight;
+    private final BigDecimal venueXCISFirstWaveWeight;
+    private final BigDecimal venueXNGSFirstWaveWeight;
+    private final BigDecimal venueXNYSFirstWaveWeight;
+    private final BigDecimal venueXPHLFirstWaveWeight;
+    private final BigDecimal venueARCXFirstWaveRate;
+    private final BigDecimal venueBATSFirstWaveRate;
+    private final BigDecimal venueBATYFirstWaveRate;
+    private final BigDecimal venueEDGAFirstWaveRate;
+    private final BigDecimal venueEDGXFirstWaveRate;
+    private final BigDecimal venueOverallFirstWaveRate;
+    private final BigDecimal venueXASEFirstWaveRate;
+    private final BigDecimal venueXBOSFirstWaveRate;
+    private final BigDecimal venueXCHIFirstWaveRate;
+    private final BigDecimal venueXCISFirstWaveRate;
+    private final BigDecimal venueXNGSFirstWaveRate;
+    private final BigDecimal venueXNYSFirstWaveRate;
+    private final BigDecimal venueXPHLFirstWaveRate;
 
     @JsonCreator
-    public HistoricalStats(@JsonProperty("averageDailyVolume") Double averageDailyVolume,
-                           @JsonProperty("averageDailyRoutedVolume") Double averageDailyRoutedVolume,
-                           @JsonProperty("averageMarketShare") Double averageMarketShare,
-                           @JsonProperty("averageOrderSize") Double averageOrderSize,
-                           @JsonProperty("averageFillSize") Double averageFillSize,
-                           @JsonProperty("bin100Percent") Double bin100Percent,
-                           @JsonProperty("bin101Percent") Double bin101Percent,
-                           @JsonProperty("bin200Percent") Double bin200Percent,
-                           @JsonProperty("bin300Percent") Double bin300Percent,
-                           @JsonProperty("bin400Percent") Double bin400Percent,
-                           @JsonProperty("bin500Percent") Double bin500Percent,
-                           @JsonProperty("bin1000Percent") Double bin1000Percent,
-                           @JsonProperty("bin5000Percent") Double bin5000Percent,
-                           @JsonProperty("bin10000Percent") Double bin10000Percent,
-                           @JsonProperty("bin10000Trades") Double bin10000Trades,
-                           @JsonProperty("bin20000Trades") Double bin20000Trades,
-                           @JsonProperty("bin50000Trades") Double bin50000Trades,
-                           @JsonProperty("uniqueSymbolsTraded") Double uniqueSymbolsTraded,
-                           @JsonProperty("blockPercent") Double blockPercent,
-                           @JsonProperty("selfCrossPercent") Double selfCrossPercent,
-                           @JsonProperty("etfPercent") Double etfPercent,
-                           @JsonProperty("largeCapPercent") Double largeCapPercent,
-                           @JsonProperty("midCapPercent") Double midCapPercent,
-                           @JsonProperty("smallCapPercent") Double smallCapPercent,
-                           @JsonProperty("venueARCXFirstWaveWeight") Double venueARCXFirstWaveWeight,
-                           @JsonProperty("venueBATSFirstWaveWeight") Double venueBATSFirstWaveWeight,
-                           @JsonProperty("venueBATYFirstWaveWeight") Double venueBATYFirstWaveWeight,
-                           @JsonProperty("venueEDGAFirstWaveWeight") Double venueEDGAFirstWaveWeight,
-                           @JsonProperty("venueEDGXFirstWaveWeight") Double venueEDGXFirstWaveWeight,
-                           @JsonProperty("venueOverallFirstWaveWeight") Double venueOverallFirstWaveWeight,
-                           @JsonProperty("venueXASEFirstWaveWeight") Double venueXASEFirstWaveWeight,
-                           @JsonProperty("venueXBOSFirstWaveWeight") Double venueXBOSFirstWaveWeight,
-                           @JsonProperty("venueXCHIFirstWaveWeight") Double venueXCHIFirstWaveWeight,
-                           @JsonProperty("venueXCISFirstWaveWeight") Double venueXCISFirstWaveWeight,
-                           @JsonProperty("venueXNGSFirstWaveWeight") Double venueXNGSFirstWaveWeight,
-                           @JsonProperty("venueXNYSFirstWaveWeight") Double venueXNYSFirstWaveWeight,
-                           @JsonProperty("venueXPHLFirstWaveWeight") Double venueXPHLFirstWaveWeight,
-                           @JsonProperty("venueARCXFirstWaveRate") Double venueARCXFirstWaveRate,
-                           @JsonProperty("venueBATSFirstWaveRate") Double venueBATSFirstWaveRate,
-                           @JsonProperty("venueBATYFirstWaveRate") Double venueBATYFirstWaveRate,
-                           @JsonProperty("venueEDGAFirstWaveRate") Double venueEDGAFirstWaveRate,
-                           @JsonProperty("venueEDGXFirstWaveRate") Double venueEDGXFirstWaveRate,
-                           @JsonProperty("venueOverallFirstWaveRate") Double venueOverallFirstWaveRate,
-                           @JsonProperty("venueXASEFirstWaveRate") Double venueXASEFirstWaveRate,
-                           @JsonProperty("venueXBOSFirstWaveRate") Double venueXBOSFirstWaveRate,
-                           @JsonProperty("venueXCHIFirstWaveRate") Double venueXCHIFirstWaveRate,
-                           @JsonProperty("venueXCISFirstWaveRate") Double venueXCISFirstWaveRate,
-                           @JsonProperty("venueXNGSFirstWaveRate") Double venueXNGSFirstWaveRate,
-                           @JsonProperty("venueXNYSFirstWaveRate") Double venueXNYSFirstWaveRate,
-                           @JsonProperty("venueXPHLFirstWaveRate") Double venueXPHLFirstWaveRate) {
+    public HistoricalStats(@JsonProperty("averageDailyVolume") final BigDecimal averageDailyVolume,
+                           @JsonProperty("averageDailyRoutedVolume") final BigDecimal averageDailyRoutedVolume,
+                           @JsonProperty("averageMarketShare") final BigDecimal averageMarketShare,
+                           @JsonProperty("averageOrderSize") final BigDecimal averageOrderSize,
+                           @JsonProperty("averageFillSize") final BigDecimal averageFillSize,
+                           @JsonProperty("bin100Percent") final BigDecimal bin100Percent,
+                           @JsonProperty("bin101Percent") final BigDecimal bin101Percent,
+                           @JsonProperty("bin200Percent") final BigDecimal bin200Percent,
+                           @JsonProperty("bin300Percent") final BigDecimal bin300Percent,
+                           @JsonProperty("bin400Percent") final BigDecimal bin400Percent,
+                           @JsonProperty("bin500Percent") final BigDecimal bin500Percent,
+                           @JsonProperty("bin1000Percent") final BigDecimal bin1000Percent,
+                           @JsonProperty("bin5000Percent") final BigDecimal bin5000Percent,
+                           @JsonProperty("bin10000Percent") final BigDecimal bin10000Percent,
+                           @JsonProperty("bin10000Trades") final BigDecimal bin10000Trades,
+                           @JsonProperty("bin20000Trades") final BigDecimal bin20000Trades,
+                           @JsonProperty("bin50000Trades") final BigDecimal bin50000Trades,
+                           @JsonProperty("uniqueSymbolsTraded") final BigDecimal uniqueSymbolsTraded,
+                           @JsonProperty("blockPercent") final BigDecimal blockPercent,
+                           @JsonProperty("selfCrossPercent") final BigDecimal selfCrossPercent,
+                           @JsonProperty("etfPercent") final BigDecimal etfPercent,
+                           @JsonProperty("largeCapPercent") final BigDecimal largeCapPercent,
+                           @JsonProperty("midCapPercent") final BigDecimal midCapPercent,
+                           @JsonProperty("smallCapPercent") final BigDecimal smallCapPercent,
+                           @JsonProperty("venueARCXFirstWaveWeight") final BigDecimal venueARCXFirstWaveWeight,
+                           @JsonProperty("venueBATSFirstWaveWeight") final BigDecimal venueBATSFirstWaveWeight,
+                           @JsonProperty("venueBATYFirstWaveWeight") final BigDecimal venueBATYFirstWaveWeight,
+                           @JsonProperty("venueEDGAFirstWaveWeight") final BigDecimal venueEDGAFirstWaveWeight,
+                           @JsonProperty("venueEDGXFirstWaveWeight") final BigDecimal venueEDGXFirstWaveWeight,
+                           @JsonProperty("venueOverallFirstWaveWeight") final BigDecimal venueOverallFirstWaveWeight,
+                           @JsonProperty("venueXASEFirstWaveWeight") final BigDecimal venueXASEFirstWaveWeight,
+                           @JsonProperty("venueXBOSFirstWaveWeight") final BigDecimal venueXBOSFirstWaveWeight,
+                           @JsonProperty("venueXCHIFirstWaveWeight") final BigDecimal venueXCHIFirstWaveWeight,
+                           @JsonProperty("venueXCISFirstWaveWeight") final BigDecimal venueXCISFirstWaveWeight,
+                           @JsonProperty("venueXNGSFirstWaveWeight") final BigDecimal venueXNGSFirstWaveWeight,
+                           @JsonProperty("venueXNYSFirstWaveWeight") final BigDecimal venueXNYSFirstWaveWeight,
+                           @JsonProperty("venueXPHLFirstWaveWeight") final BigDecimal venueXPHLFirstWaveWeight,
+                           @JsonProperty("venueARCXFirstWaveRate") final BigDecimal venueARCXFirstWaveRate,
+                           @JsonProperty("venueBATSFirstWaveRate") final BigDecimal venueBATSFirstWaveRate,
+                           @JsonProperty("venueBATYFirstWaveRate") final BigDecimal venueBATYFirstWaveRate,
+                           @JsonProperty("venueEDGAFirstWaveRate") final BigDecimal venueEDGAFirstWaveRate,
+                           @JsonProperty("venueEDGXFirstWaveRate") final BigDecimal venueEDGXFirstWaveRate,
+                           @JsonProperty("venueOverallFirstWaveRate") final BigDecimal venueOverallFirstWaveRate,
+                           @JsonProperty("venueXASEFirstWaveRate") final BigDecimal venueXASEFirstWaveRate,
+                           @JsonProperty("venueXBOSFirstWaveRate") final BigDecimal venueXBOSFirstWaveRate,
+                           @JsonProperty("venueXCHIFirstWaveRate") final BigDecimal venueXCHIFirstWaveRate,
+                           @JsonProperty("venueXCISFirstWaveRate") final BigDecimal venueXCISFirstWaveRate,
+                           @JsonProperty("venueXNGSFirstWaveRate") final BigDecimal venueXNGSFirstWaveRate,
+                           @JsonProperty("venueXNYSFirstWaveRate") final BigDecimal venueXNYSFirstWaveRate,
+                           @JsonProperty("venueXPHLFirstWaveRate") final BigDecimal venueXPHLFirstWaveRate) {
         this.averageDailyVolume = averageDailyVolume;
         this.averageDailyRoutedVolume = averageDailyRoutedVolume;
         this.averageMarketShare = averageMarketShare;
@@ -163,261 +164,331 @@ public class HistoricalStats {
         this.venueXPHLFirstWaveRate = venueXPHLFirstWaveRate;
     }
 
-    public Double getAverageDailyVolume() {
+    public BigDecimal getAverageDailyVolume() {
         return averageDailyVolume;
     }
 
-    public Double getAverageDailyRoutedVolume() {
+    public BigDecimal getAverageDailyRoutedVolume() {
         return averageDailyRoutedVolume;
     }
 
-    public Double getAverageMarketShare() {
+    public BigDecimal getAverageMarketShare() {
         return averageMarketShare;
     }
 
-    public Double getAverageOrderSize() {
+    public BigDecimal getAverageOrderSize() {
         return averageOrderSize;
     }
 
-    public Double getAverageFillSize() {
+    public BigDecimal getAverageFillSize() {
         return averageFillSize;
     }
 
-    public Double getBin100Percent() {
+    public BigDecimal getBin100Percent() {
         return bin100Percent;
     }
 
-    public Double getBin101Percent() {
+    public BigDecimal getBin101Percent() {
         return bin101Percent;
     }
 
-    public Double getBin200Percent() {
+    public BigDecimal getBin200Percent() {
         return bin200Percent;
     }
 
-    public Double getBin300Percent() {
+    public BigDecimal getBin300Percent() {
         return bin300Percent;
     }
 
-    public Double getBin400Percent() {
+    public BigDecimal getBin400Percent() {
         return bin400Percent;
     }
 
-    public Double getBin500Percent() {
+    public BigDecimal getBin500Percent() {
         return bin500Percent;
     }
 
-    public Double getBin1000Percent() {
+    public BigDecimal getBin1000Percent() {
         return bin1000Percent;
     }
 
-    public Double getBin5000Percent() {
+    public BigDecimal getBin5000Percent() {
         return bin5000Percent;
     }
 
-    public Double getBin10000Percent() {
+    public BigDecimal getBin10000Percent() {
         return bin10000Percent;
-
     }
 
-    public Double getBin10000Trades() {
+    public BigDecimal getBin10000Trades() {
         return bin10000Trades;
     }
 
-    public Double getBin20000Trades() {
+    public BigDecimal getBin20000Trades() {
         return bin20000Trades;
     }
 
-    public Double getBin50000Trades() {
+    public BigDecimal getBin50000Trades() {
         return bin50000Trades;
     }
 
-    public Double getUniqueSymbolsTraded() {
+    public BigDecimal getUniqueSymbolsTraded() {
         return uniqueSymbolsTraded;
     }
 
-    public Double getBlockPercent() {
+    public BigDecimal getBlockPercent() {
         return blockPercent;
     }
 
-    public Double getSelfCrossPercent() {
+    public BigDecimal getSelfCrossPercent() {
         return selfCrossPercent;
     }
 
-    public Double getEtfPercent() {
+    public BigDecimal getEtfPercent() {
         return etfPercent;
     }
 
-    public Double getLargeCapPercent() {
+    public BigDecimal getLargeCapPercent() {
         return largeCapPercent;
     }
 
-    public Double getMidCapPercent() {
+    public BigDecimal getMidCapPercent() {
         return midCapPercent;
     }
 
-    public Double getSmallCapPercent() {
+    public BigDecimal getSmallCapPercent() {
         return smallCapPercent;
     }
 
-    public Double getVenueARCXFirstWaveWeight() {
+    public BigDecimal getVenueARCXFirstWaveWeight() {
         return venueARCXFirstWaveWeight;
     }
 
-    public Double getVenueBATSFirstWaveWeight() {
+    public BigDecimal getVenueBATSFirstWaveWeight() {
         return venueBATSFirstWaveWeight;
     }
 
-    public Double getVenueBATYFirstWaveWeight() {
+    public BigDecimal getVenueBATYFirstWaveWeight() {
         return venueBATYFirstWaveWeight;
     }
 
-    public Double getVenueEDGAFirstWaveWeight() {
+    public BigDecimal getVenueEDGAFirstWaveWeight() {
         return venueEDGAFirstWaveWeight;
     }
 
-    public Double getVenueEDGXFirstWaveWeight() {
+    public BigDecimal getVenueEDGXFirstWaveWeight() {
         return venueEDGXFirstWaveWeight;
     }
 
-    public Double getVenueOverallFirstWaveWeight() {
+    public BigDecimal getVenueOverallFirstWaveWeight() {
         return venueOverallFirstWaveWeight;
     }
 
-    public Double getVenueXASEFirstWaveWeight() {
+    public BigDecimal getVenueXASEFirstWaveWeight() {
         return venueXASEFirstWaveWeight;
     }
 
-    public Double getVenueXBOSFirstWaveWeight() {
+    public BigDecimal getVenueXBOSFirstWaveWeight() {
         return venueXBOSFirstWaveWeight;
     }
 
-    public Double getVenueXCHIFirstWaveWeight() {
+    public BigDecimal getVenueXCHIFirstWaveWeight() {
         return venueXCHIFirstWaveWeight;
     }
 
-    public Double getVenueXCISFirstWaveWeight() {
+    public BigDecimal getVenueXCISFirstWaveWeight() {
         return venueXCISFirstWaveWeight;
     }
 
-    public Double getVenueXNGSFirstWaveWeight() {
+    public BigDecimal getVenueXNGSFirstWaveWeight() {
         return venueXNGSFirstWaveWeight;
     }
 
-    public Double getVenueXNYSFirstWaveWeight() {
+    public BigDecimal getVenueXNYSFirstWaveWeight() {
         return venueXNYSFirstWaveWeight;
     }
 
-    public Double getVenueXPHLFirstWaveWeight() {
+    public BigDecimal getVenueXPHLFirstWaveWeight() {
         return venueXPHLFirstWaveWeight;
     }
 
-    public Double getVenueARCXFirstWaveRate() {
+    public BigDecimal getVenueARCXFirstWaveRate() {
         return venueARCXFirstWaveRate;
     }
 
-    public Double getVenueBATSFirstWaveRate() {
+    public BigDecimal getVenueBATSFirstWaveRate() {
         return venueBATSFirstWaveRate;
     }
 
-    public Double getVenueBATYFirstWaveRate() {
+    public BigDecimal getVenueBATYFirstWaveRate() {
         return venueBATYFirstWaveRate;
     }
 
-    public Double getVenueEDGAFirstWaveRate() {
+    public BigDecimal getVenueEDGAFirstWaveRate() {
         return venueEDGAFirstWaveRate;
     }
 
-    public Double getVenueEDGXFirstWaveRate() {
+    public BigDecimal getVenueEDGXFirstWaveRate() {
         return venueEDGXFirstWaveRate;
     }
 
-    public Double getVenueOverallFirstWaveRate() {
+    public BigDecimal getVenueOverallFirstWaveRate() {
         return venueOverallFirstWaveRate;
     }
 
-    public Double getVenueXASEFirstWaveRate() {
+    public BigDecimal getVenueXASEFirstWaveRate() {
         return venueXASEFirstWaveRate;
     }
 
-    public Double getVenueXBOSFirstWaveRate() {
+    public BigDecimal getVenueXBOSFirstWaveRate() {
         return venueXBOSFirstWaveRate;
     }
 
-    public Double getVenueXCHIFirstWaveRate() {
+    public BigDecimal getVenueXCHIFirstWaveRate() {
         return venueXCHIFirstWaveRate;
     }
 
-    public Double getVenueXCISFirstWaveRate() {
+    public BigDecimal getVenueXCISFirstWaveRate() {
         return venueXCISFirstWaveRate;
     }
 
-    public Double getVenueXNGSFirstWaveRate() {
+    public BigDecimal getVenueXNGSFirstWaveRate() {
         return venueXNGSFirstWaveRate;
     }
 
-    public Double getVenueXNYSFirstWaveRate() {
+    public BigDecimal getVenueXNYSFirstWaveRate() {
         return venueXNYSFirstWaveRate;
     }
 
-    public Double getVenueXPHLFirstWaveRate() {
+    public BigDecimal getVenueXPHLFirstWaveRate() {
         return venueXPHLFirstWaveRate;
     }
 
     @Override
-    public String toString() {
-        return "HistoricalStats{" +
-                "averageDailyVolume=" + DoubleUtil.printDouble(averageDailyVolume) +
-                ", averageDailyRoutedVolume=" + DoubleUtil.printDouble(averageDailyRoutedVolume) +
-                ", averageMarketShare=" + DoubleUtil.printDouble(averageMarketShare) +
-                ", averageOrderSize=" + DoubleUtil.printDouble(averageOrderSize) +
-                ", averageFillSize=" + DoubleUtil.printDouble(averageFillSize) +
-                ", bin100Percent=" + DoubleUtil.printDouble(bin100Percent) +
-                ", bin101Percent=" + DoubleUtil.printDouble(bin101Percent) +
-                ", bin200Percent=" + DoubleUtil.printDouble(bin200Percent) +
-                ", bin300Percent=" + DoubleUtil.printDouble(bin300Percent) +
-                ", bin400Percent=" + DoubleUtil.printDouble(bin400Percent) +
-                ", bin500Percent=" + DoubleUtil.printDouble(bin500Percent) +
-                ", bin1000Percent=" + DoubleUtil.printDouble(bin1000Percent) +
-                ", bin5000Percent=" + DoubleUtil.printDouble(bin5000Percent) +
-                ", bin10000Percent=" + DoubleUtil.printDouble(bin10000Percent) +
-                ", bin10000Trades=" + DoubleUtil.printDouble(bin10000Trades) +
-                ", bin20000Trades=" + DoubleUtil.printDouble(bin20000Trades) +
-                ", bin50000Trades=" + DoubleUtil.printDouble(bin50000Trades) +
-                ", uniqueSymbolsTraded=" + DoubleUtil.printDouble(uniqueSymbolsTraded) +
-                ", blockPercent=" + DoubleUtil.printDouble(blockPercent) +
-                ", selfCrossPercent=" + DoubleUtil.printDouble(selfCrossPercent) +
-                ", etfPercent=" + DoubleUtil.printDouble(etfPercent) +
-                ", largeCapPercent=" + DoubleUtil.printDouble(largeCapPercent) +
-                ", midCapPercent=" + DoubleUtil.printDouble(midCapPercent) +
-                ", smallCapPercent=" + DoubleUtil.printDouble(smallCapPercent) +
-                ", venueARCXFirstWaveWeight=" + DoubleUtil.printDouble(venueARCXFirstWaveWeight) +
-                ", venueBATSFirstWaveWeight=" + DoubleUtil.printDouble(venueBATSFirstWaveWeight) +
-                ", venueBATYFirstWaveWeight=" + DoubleUtil.printDouble(venueBATYFirstWaveWeight) +
-                ", venueEDGAFirstWaveWeight=" + DoubleUtil.printDouble(venueEDGAFirstWaveWeight) +
-                ", venueEDGXFirstWaveWeight=" + DoubleUtil.printDouble(venueEDGXFirstWaveWeight) +
-                ", venueOverallFirstWaveWeight=" + DoubleUtil.printDouble(venueOverallFirstWaveWeight) +
-                ", venueXASEFirstWaveWeight=" + DoubleUtil.printDouble(venueXASEFirstWaveWeight) +
-                ", venueXBOSFirstWaveWeight=" + DoubleUtil.printDouble(venueXBOSFirstWaveWeight) +
-                ", venueXCHIFirstWaveWeight=" + DoubleUtil.printDouble(venueXCHIFirstWaveWeight) +
-                ", venueXCISFirstWaveWeight=" + DoubleUtil.printDouble(venueXCISFirstWaveWeight) +
-                ", venueXNGSFirstWaveWeight=" + DoubleUtil.printDouble(venueXNGSFirstWaveWeight) +
-                ", venueXNYSFirstWaveWeight=" + DoubleUtil.printDouble(venueXNYSFirstWaveWeight) +
-                ", venueXPHLFirstWaveWeight=" + DoubleUtil.printDouble(venueXPHLFirstWaveWeight) +
-                ", venueARCXFirstWaveRate=" + DoubleUtil.printDouble(venueARCXFirstWaveRate) +
-                ", venueBATSFirstWaveRate=" + DoubleUtil.printDouble(venueBATSFirstWaveRate) +
-                ", venueBATYFirstWaveRate=" + DoubleUtil.printDouble(venueBATYFirstWaveRate) +
-                ", venueEDGAFirstWaveRate=" + DoubleUtil.printDouble(venueEDGAFirstWaveRate) +
-                ", venueEDGXFirstWaveRate=" + DoubleUtil.printDouble(venueEDGXFirstWaveRate) +
-                ", venueOverallFirstWaveRate=" + DoubleUtil.printDouble(venueOverallFirstWaveRate) +
-                ", venueXASEFirstWaveRate=" + DoubleUtil.printDouble(venueXASEFirstWaveRate) +
-                ", venueXBOSFirstWaveRate=" + DoubleUtil.printDouble(venueXBOSFirstWaveRate) +
-                ", venueXCHIFirstWaveRate=" + DoubleUtil.printDouble(venueXCHIFirstWaveRate) +
-                ", venueXCISFirstWaveRate=" + DoubleUtil.printDouble(venueXCISFirstWaveRate) +
-                ", venueXNGSFirstWaveRate=" + DoubleUtil.printDouble(venueXNGSFirstWaveRate) +
-                ", venueXNYSFirstWaveRate=" + DoubleUtil.printDouble(venueXNYSFirstWaveRate) +
-                ", venueXPHLFirstWaveRate=" + DoubleUtil.printDouble(venueXPHLFirstWaveRate) +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        HistoricalStats that = (HistoricalStats) o;
+        return Objects.equal(averageDailyVolume, that.averageDailyVolume) &&
+                Objects.equal(averageDailyRoutedVolume, that.averageDailyRoutedVolume) &&
+                Objects.equal(averageMarketShare, that.averageMarketShare) &&
+                Objects.equal(averageOrderSize, that.averageOrderSize) &&
+                Objects.equal(averageFillSize, that.averageFillSize) &&
+                Objects.equal(bin100Percent, that.bin100Percent) &&
+                Objects.equal(bin101Percent, that.bin101Percent) &&
+                Objects.equal(bin200Percent, that.bin200Percent) &&
+                Objects.equal(bin300Percent, that.bin300Percent) &&
+                Objects.equal(bin400Percent, that.bin400Percent) &&
+                Objects.equal(bin500Percent, that.bin500Percent) &&
+                Objects.equal(bin1000Percent, that.bin1000Percent) &&
+                Objects.equal(bin5000Percent, that.bin5000Percent) &&
+                Objects.equal(bin10000Percent, that.bin10000Percent) &&
+                Objects.equal(bin10000Trades, that.bin10000Trades) &&
+                Objects.equal(bin20000Trades, that.bin20000Trades) &&
+                Objects.equal(bin50000Trades, that.bin50000Trades) &&
+                Objects.equal(uniqueSymbolsTraded, that.uniqueSymbolsTraded) &&
+                Objects.equal(blockPercent, that.blockPercent) &&
+                Objects.equal(selfCrossPercent, that.selfCrossPercent) &&
+                Objects.equal(etfPercent, that.etfPercent) &&
+                Objects.equal(largeCapPercent, that.largeCapPercent) &&
+                Objects.equal(midCapPercent, that.midCapPercent) &&
+                Objects.equal(smallCapPercent, that.smallCapPercent) &&
+                Objects.equal(venueARCXFirstWaveWeight, that.venueARCXFirstWaveWeight) &&
+                Objects.equal(venueBATSFirstWaveWeight, that.venueBATSFirstWaveWeight) &&
+                Objects.equal(venueBATYFirstWaveWeight, that.venueBATYFirstWaveWeight) &&
+                Objects.equal(venueEDGAFirstWaveWeight, that.venueEDGAFirstWaveWeight) &&
+                Objects.equal(venueEDGXFirstWaveWeight, that.venueEDGXFirstWaveWeight) &&
+                Objects.equal(venueOverallFirstWaveWeight, that.venueOverallFirstWaveWeight) &&
+                Objects.equal(venueXASEFirstWaveWeight, that.venueXASEFirstWaveWeight) &&
+                Objects.equal(venueXBOSFirstWaveWeight, that.venueXBOSFirstWaveWeight) &&
+                Objects.equal(venueXCHIFirstWaveWeight, that.venueXCHIFirstWaveWeight) &&
+                Objects.equal(venueXCISFirstWaveWeight, that.venueXCISFirstWaveWeight) &&
+                Objects.equal(venueXNGSFirstWaveWeight, that.venueXNGSFirstWaveWeight) &&
+                Objects.equal(venueXNYSFirstWaveWeight, that.venueXNYSFirstWaveWeight) &&
+                Objects.equal(venueXPHLFirstWaveWeight, that.venueXPHLFirstWaveWeight) &&
+                Objects.equal(venueARCXFirstWaveRate, that.venueARCXFirstWaveRate) &&
+                Objects.equal(venueBATSFirstWaveRate, that.venueBATSFirstWaveRate) &&
+                Objects.equal(venueBATYFirstWaveRate, that.venueBATYFirstWaveRate) &&
+                Objects.equal(venueEDGAFirstWaveRate, that.venueEDGAFirstWaveRate) &&
+                Objects.equal(venueEDGXFirstWaveRate, that.venueEDGXFirstWaveRate) &&
+                Objects.equal(venueOverallFirstWaveRate, that.venueOverallFirstWaveRate) &&
+                Objects.equal(venueXASEFirstWaveRate, that.venueXASEFirstWaveRate) &&
+                Objects.equal(venueXBOSFirstWaveRate, that.venueXBOSFirstWaveRate) &&
+                Objects.equal(venueXCHIFirstWaveRate, that.venueXCHIFirstWaveRate) &&
+                Objects.equal(venueXCISFirstWaveRate, that.venueXCISFirstWaveRate) &&
+                Objects.equal(venueXNGSFirstWaveRate, that.venueXNGSFirstWaveRate) &&
+                Objects.equal(venueXNYSFirstWaveRate, that.venueXNYSFirstWaveRate) &&
+                Objects.equal(venueXPHLFirstWaveRate, that.venueXPHLFirstWaveRate);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(averageDailyVolume, averageDailyRoutedVolume, averageMarketShare,
+                averageOrderSize, averageFillSize, bin100Percent, bin101Percent, bin200Percent, bin300Percent,
+                bin400Percent, bin500Percent, bin1000Percent, bin5000Percent, bin10000Percent, bin10000Trades,
+                bin20000Trades, bin50000Trades, uniqueSymbolsTraded, blockPercent, selfCrossPercent, etfPercent,
+                largeCapPercent, midCapPercent, smallCapPercent, venueARCXFirstWaveWeight, venueBATSFirstWaveWeight,
+                venueBATYFirstWaveWeight, venueEDGAFirstWaveWeight, venueEDGXFirstWaveWeight, venueOverallFirstWaveWeight,
+                venueXASEFirstWaveWeight, venueXBOSFirstWaveWeight, venueXCHIFirstWaveWeight, venueXCISFirstWaveWeight,
+                venueXNGSFirstWaveWeight, venueXNYSFirstWaveWeight, venueXPHLFirstWaveWeight, venueARCXFirstWaveRate,
+                venueBATSFirstWaveRate, venueBATYFirstWaveRate, venueEDGAFirstWaveRate, venueEDGXFirstWaveRate,
+                venueOverallFirstWaveRate, venueXASEFirstWaveRate, venueXBOSFirstWaveRate, venueXCHIFirstWaveRate,
+                venueXCISFirstWaveRate, venueXNGSFirstWaveRate, venueXNYSFirstWaveRate, venueXPHLFirstWaveRate);
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("averageDailyVolume", averageDailyVolume)
+                .add("averageDailyRoutedVolume", averageDailyRoutedVolume)
+                .add("averageMarketShare", averageMarketShare)
+                .add("averageOrderSize", averageOrderSize)
+                .add("averageFillSize", averageFillSize)
+                .add("bin100Percent", bin100Percent)
+                .add("bin101Percent", bin101Percent)
+                .add("bin200Percent", bin200Percent)
+                .add("bin300Percent", bin300Percent)
+                .add("bin400Percent", bin400Percent)
+                .add("bin500Percent", bin500Percent)
+                .add("bin1000Percent", bin1000Percent)
+                .add("bin5000Percent", bin5000Percent)
+                .add("bin10000Percent", bin10000Percent)
+                .add("bin10000Trades", bin10000Trades)
+                .add("bin20000Trades", bin20000Trades)
+                .add("bin50000Trades", bin50000Trades)
+                .add("uniqueSymbolsTraded", uniqueSymbolsTraded)
+                .add("blockPercent", blockPercent)
+                .add("selfCrossPercent", selfCrossPercent)
+                .add("etfPercent", etfPercent)
+                .add("largeCapPercent", largeCapPercent)
+                .add("midCapPercent", midCapPercent)
+                .add("smallCapPercent", smallCapPercent)
+                .add("venueARCXFirstWaveWeight", venueARCXFirstWaveWeight)
+                .add("venueBATSFirstWaveWeight", venueBATSFirstWaveWeight)
+                .add("venueBATYFirstWaveWeight", venueBATYFirstWaveWeight)
+                .add("venueEDGAFirstWaveWeight", venueEDGAFirstWaveWeight)
+                .add("venueEDGXFirstWaveWeight", venueEDGXFirstWaveWeight)
+                .add("venueOverallFirstWaveWeight", venueOverallFirstWaveWeight)
+                .add("venueXASEFirstWaveWeight", venueXASEFirstWaveWeight)
+                .add("venueXBOSFirstWaveWeight", venueXBOSFirstWaveWeight)
+                .add("venueXCHIFirstWaveWeight", venueXCHIFirstWaveWeight)
+                .add("venueXCISFirstWaveWeight", venueXCISFirstWaveWeight)
+                .add("venueXNGSFirstWaveWeight", venueXNGSFirstWaveWeight)
+                .add("venueXNYSFirstWaveWeight", venueXNYSFirstWaveWeight)
+                .add("venueXPHLFirstWaveWeight", venueXPHLFirstWaveWeight)
+                .add("venueARCXFirstWaveRate", venueARCXFirstWaveRate)
+                .add("venueBATSFirstWaveRate", venueBATSFirstWaveRate)
+                .add("venueBATYFirstWaveRate", venueBATYFirstWaveRate)
+                .add("venueEDGAFirstWaveRate", venueEDGAFirstWaveRate)
+                .add("venueEDGXFirstWaveRate", venueEDGXFirstWaveRate)
+                .add("venueOverallFirstWaveRate", venueOverallFirstWaveRate)
+                .add("venueXASEFirstWaveRate", venueXASEFirstWaveRate)
+                .add("venueXBOSFirstWaveRate", venueXBOSFirstWaveRate)
+                .add("venueXCHIFirstWaveRate", venueXCHIFirstWaveRate)
+                .add("venueXCISFirstWaveRate", venueXCISFirstWaveRate)
+                .add("venueXNGSFirstWaveRate", venueXNGSFirstWaveRate)
+                .add("venueXNYSFirstWaveRate", venueXNYSFirstWaveRate)
+                .add("venueXPHLFirstWaveRate", venueXPHLFirstWaveRate)
+                .toString();
+    }
 }

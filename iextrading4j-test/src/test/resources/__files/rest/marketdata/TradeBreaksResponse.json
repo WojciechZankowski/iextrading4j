@@ -1,0 +1,15 @@
+{
+  "SNAP": [
+    {
+      "price": 156.1,
+      "size": 100,
+      "tradeId": 517341294,
+      "isISO": false,
+      "isOddLot": false,
+      "isOutsideRegularHours": false,
+      "isSinglePriceCross": false,
+      "isTradeThroughExempt": false,
+      "timestamp": 1494619192003
+    }
+  ]
+}

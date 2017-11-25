@@ -2,13 +2,17 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
-/**
- * @author Wojciech Zankowski
- */
-public class News {
+import java.io.Serializable;
+import java.time.OffsetDateTime;
 
-    private final String datetime;
+@JsonPropertyOrder({"datetime", "headline", "source", "url", "summary", "related"})
+public class News implements Serializable {
+
+    private final OffsetDateTime datetime;
     private final String headline;
     private final String source;
     private final String url;
@@ -16,12 +20,12 @@ public class News {
     private final String related;
 
     @JsonCreator
-    public News(@JsonProperty("datetime") String datetime,
-                @JsonProperty("headline") String headline,
-                @JsonProperty("source") String source,
-                @JsonProperty("url") String url,
-                @JsonProperty("summary") String summary,
-                @JsonProperty("related") String related) {
+    public News(@JsonProperty("datetime") final OffsetDateTime datetime,
+                @JsonProperty("headline") final String headline,
+                @JsonProperty("source") final String source,
+                @JsonProperty("url") final String url,
+                @JsonProperty("summary") final String summary,
+                @JsonProperty("related") final String related) {
         this.datetime = datetime;
         this.headline = headline;
         this.source = source;
@@ -30,7 +34,7 @@ public class News {
         this.related = related;
     }
 
-    public String getDatetime() {
+    public OffsetDateTime getDatetime() {
         return datetime;
     }
 
@@ -58,39 +62,29 @@ public class News {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         News news = (News) o;
-
-        if (datetime != null ? !datetime.equals(news.datetime) : news.datetime != null) return false;
-        if (headline != null ? !headline.equals(news.headline) : news.headline != null) return false;
-        if (source != null ? !source.equals(news.source) : news.source != null) return false;
-        if (url != null ? !url.equals(news.url) : news.url != null) return false;
-        if (summary != null ? !summary.equals(news.summary) : news.summary != null) return false;
-        return related != null ? related.equals(news.related) : news.related == null;
-
+        return Objects.equal(datetime, news.datetime) &&
+                Objects.equal(headline, news.headline) &&
+                Objects.equal(source, news.source) &&
+                Objects.equal(url, news.url) &&
+                Objects.equal(summary, news.summary) &&
+                Objects.equal(related, news.related);
     }
 
     @Override
     public int hashCode() {
-        int result = datetime != null ? datetime.hashCode() : 0;
-        result = 31 * result + (headline != null ? headline.hashCode() : 0);
-        result = 31 * result + (source != null ? source.hashCode() : 0);
-        result = 31 * result + (url != null ? url.hashCode() : 0);
-        result = 31 * result + (summary != null ? summary.hashCode() : 0);
-        result = 31 * result + (related != null ? related.hashCode() : 0);
-        return result;
+        return Objects.hashCode(datetime, headline, source, url, summary, related);
     }
 
     @Override
     public String toString() {
-        return "News{" +
-                "datetime='" + datetime + '\'' +
-                ", headline='" + headline + '\'' +
-                ", source='" + source + '\'' +
-                ", url='" + url + '\'' +
-                ", summary='" + summary + '\'' +
-                ", related='" + related + '\'' +
-                '}';
+        return MoreObjects.toStringHelper(this)
+                .add("datetime", datetime)
+                .add("headline", headline)
+                .add("source", source)
+                .add("url", url)
+                .add("summary", summary)
+                .add("related", related)
+                .toString();
     }
-    
 }

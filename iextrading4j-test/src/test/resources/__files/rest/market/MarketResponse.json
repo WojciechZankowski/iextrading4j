@@ -1,0 +1,24 @@
+[
+  {
+    "mic": "XPHL",
+    "tapeId": "X",
+    "venueName": "NASDAQ PSX",
+    "volume": 151449455,
+    "tapeA": 151449455,
+    "tapeB": 0,
+    "tapeC": 0,
+    "marketPercent": 0.98842,
+    "lastUpdated": 1510408410385
+  },
+  {
+    "mic": "TRF",
+    "tapeId": "-",
+    "venueName": "TRF Volume",
+    "volume": 309400,
+    "tapeA": 123400,
+    "tapeB": 31300,
+    "tapeC": 154700,
+    "marketPercent": 0.00202,
+    "lastUpdated": 1510408411468
+  }
+]

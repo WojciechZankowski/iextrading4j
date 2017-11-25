@@ -1,0 +1,69 @@
+{
+  "quote": {
+    "symbol": "AAPL",
+    "companyName": "Apple Inc.",
+    "primaryExchange": "Nasdaq Global Select",
+    "sector": "Technology",
+    "calculationPrice": "tops",
+    "open": 170.89,
+    "openTime": 1510929000472,
+    "close": 171.1,
+    "closeTime": 1510866000375,
+    "latestPrice": 170.42,
+    "latestSource": "IEX real time price",
+    "latestTime": "1:21:56 PM",
+    "latestUpdate": 1510942916161,
+    "latestVolume": 13574815,
+    "iexRealtimePrice": 170.42,
+    "iexRealtimeSize": 100,
+    "iexLastUpdated": 1510942916161,
+    "delayedPrice": 170.45,
+    "delayedPriceTime": 1510942025430,
+    "previousClose": 171.1,
+    "change": -0.68,
+    "changePercent": -0.00397,
+    "iexMarketPercent": 0.0135,
+    "iexVolume": 183260,
+    "avgTotalVolume": 26499527,
+    "iexBidPrice": 166.18,
+    "iexBidSize": 100,
+    "iexAskPrice": 172,
+    "iexAskSize": 315,
+    "marketCap": 874989451040,
+    "peRatio": 19.37,
+    "week52High": 176.24,
+    "week52Low": 108.25,
+    "ytdChange": 0.47309513560051647
+  },
+  "bids": [
+    {
+      "price": 166.18,
+      "size": 100,
+      "timestamp": 1510960265246
+    }
+  ],
+  "asks": [
+    {
+      "price": 170.42,
+      "size": 100,
+      "timestamp": 1510960908460
+    }
+  ],
+  "trades": [
+    {
+      "price": 170.42,
+      "size": 100,
+      "tradeId": 353430061,
+      "isISO": false,
+      "isOddLot": false,
+      "isOutsideRegularHours": false,
+      "isSinglePriceCross": false,
+      "isTradeThroughExempt": false,
+      "timestamp": 1510960916161
+    }
+  ],
+  "systemEvent": {
+    "systemEvent": "R",
+    "timestamp": 1510947000001
+  }
+}

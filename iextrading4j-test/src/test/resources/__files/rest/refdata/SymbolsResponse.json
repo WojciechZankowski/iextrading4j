@@ -1,0 +1,18 @@
+[
+  {
+    "symbol": "A",
+    "name": "Agilent Technologies Inc.",
+    "date": "2017-11-10",
+    "isEnabled": true,
+    "type": "cs",
+    "iexId": "12042"
+  },
+  {
+    "symbol": "AA",
+    "name": "Alcoa Corporation",
+    "date": "2017-11-10",
+    "isEnabled": true,
+    "type": "cs",
+    "iexId": "6667"
+  }
+]

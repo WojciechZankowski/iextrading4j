@@ -1,0 +1,16 @@
+{
+  "symbol": "AAPL",
+  "earnings": [
+    {
+      "actualEPS": 1.67,
+      "consensusEPS": 1.57,
+      "estimatedEPS": 1.57,
+      "announceTime": "AMC",
+      "numberOfEstimates": 13,
+      "EPSSurpriseDollar": 0.1,
+      "EPSReportDate": "2017-08-01",
+      "fiscalPeriod": "Q3 2017",
+      "fiscalEndDate": "2017-06-30"
+    }
+  ]
+}

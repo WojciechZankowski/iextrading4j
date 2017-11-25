@@ -2,29 +2,31 @@ package pl.zankowski.iextrading4j.api.stats;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import pl.zankowski.iextrading4j.api.util.DoubleUtil;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
-/**
- * @author Wojciech Zankowski
- */
-public class HistoricalDailyStats {
+@JsonPropertyOrder({"date", "volume", "routedVolume", "marketShare", "isHalfday", "litVolume"})
+public class HistoricalDailyStats implements Serializable {
 
     private final LocalDate date;
-    private final Long volume;
-    private final Long routedVolume;
-    private final Double marketShare;
+    private final BigDecimal volume;
+    private final BigDecimal routedVolume;
+    private final BigDecimal marketShare;
     private final Boolean isHalfday;
-    private final Long litVolume;
+    private final BigDecimal litVolume;
 
     @JsonCreator
-    public HistoricalDailyStats(@JsonProperty("date") LocalDate date,
-                                @JsonProperty("volume") Long volume,
-                                @JsonProperty("routedVolume") Long routedVolume,
-                                @JsonProperty("marketShare") Double marketShare,
-                                @JsonProperty("isHalfday") Boolean isHalfday,
-                                @JsonProperty("litVolume") Long litVolume) {
+    public HistoricalDailyStats(@JsonProperty("date") final LocalDate date,
+                                @JsonProperty("volume") final BigDecimal volume,
+                                @JsonProperty("routedVolume") final BigDecimal routedVolume,
+                                @JsonProperty("marketShare") final BigDecimal marketShare,
+                                @JsonProperty("isHalfday") final Boolean isHalfday,
+                                @JsonProperty("litVolume") final BigDecimal litVolume) {
         this.date = date;
         this.volume = volume;
         this.routedVolume = routedVolume;
@@ -37,15 +39,15 @@ public class HistoricalDailyStats {
         return date;
     }
 
-    public Long getVolume() {
+    public BigDecimal getVolume() {
         return volume;
     }
 
-    public Long getRoutedVolume() {
+    public BigDecimal getRoutedVolume() {
         return routedVolume;
     }
 
-    public Double getMarketShare() {
+    public BigDecimal getMarketShare() {
         return marketShare;
     }
 
@@ -53,7 +55,7 @@ public class HistoricalDailyStats {
         return isHalfday;
     }
 
-    public Long getLitVolume() {
+    public BigDecimal getLitVolume() {
         return litVolume;
     }
 
@@ -61,39 +63,29 @@ public class HistoricalDailyStats {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         HistoricalDailyStats that = (HistoricalDailyStats) o;
-
-        if (date != null ? !date.equals(that.date) : that.date != null) return false;
-        if (volume != null ? !volume.equals(that.volume) : that.volume != null) return false;
-        if (routedVolume != null ? !routedVolume.equals(that.routedVolume) : that.routedVolume != null) return false;
-        if (marketShare != null ? !marketShare.equals(that.marketShare) : that.marketShare != null) return false;
-        if (isHalfday != null ? !isHalfday.equals(that.isHalfday) : that.isHalfday != null) return false;
-        return litVolume != null ? litVolume.equals(that.litVolume) : that.litVolume == null;
-
+        return Objects.equal(date, that.date) &&
+                Objects.equal(volume, that.volume) &&
+                Objects.equal(routedVolume, that.routedVolume) &&
+                Objects.equal(marketShare, that.marketShare) &&
+                Objects.equal(isHalfday, that.isHalfday) &&
+                Objects.equal(litVolume, that.litVolume);
     }
 
     @Override
     public int hashCode() {
-        int result = date != null ? date.hashCode() : 0;
-        result = 31 * result + (volume != null ? volume.hashCode() : 0);
-        result = 31 * result + (routedVolume != null ? routedVolume.hashCode() : 0);
-        result = 31 * result + (marketShare != null ? marketShare.hashCode() : 0);
-        result = 31 * result + (isHalfday != null ? isHalfday.hashCode() : 0);
-        result = 31 * result + (litVolume != null ? litVolume.hashCode() : 0);
-        return result;
+        return Objects.hashCode(date, volume, routedVolume, marketShare, isHalfday, litVolume);
     }
 
     @Override
     public String toString() {
-        return "HistoricalDailyStats{" +
-                "date=" + date +
-                ", volume=" + volume +
-                ", routedVolume=" + routedVolume +
-                ", marketShare=" + DoubleUtil.printDouble(marketShare) +
-                ", isHalfday=" + isHalfday +
-                ", litVolume=" + litVolume +
-                '}';
+        return MoreObjects.toStringHelper(this)
+                .add("date", date)
+                .add("volume", volume)
+                .add("routedVolume", routedVolume)
+                .add("marketShare", marketShare)
+                .add("isHalfday", isHalfday)
+                .add("litVolume", litVolume)
+                .toString();
     }
-
 }

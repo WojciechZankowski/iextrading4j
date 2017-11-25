@@ -1,112 +1,46 @@
 package pl.zankowski.iextrading4j.client;
 
-import pl.zankowski.iextrading4j.client.endpoint.market.MarketEndpoint;
-import pl.zankowski.iextrading4j.client.endpoint.market.MarketEndpointImpl;
-import pl.zankowski.iextrading4j.client.endpoint.marketdata.deep.DEEPEndpoint;
-import pl.zankowski.iextrading4j.client.endpoint.marketdata.deep.DEEPEndpointImpl;
-import pl.zankowski.iextrading4j.client.endpoint.marketdata.hist.HISTEndpoint;
-import pl.zankowski.iextrading4j.client.endpoint.marketdata.hist.HISTEndpointImpl;
-import pl.zankowski.iextrading4j.client.endpoint.marketdata.tops.TOPSEndpoint;
-import pl.zankowski.iextrading4j.client.endpoint.marketdata.tops.TOPSEndpointImpl;
-import pl.zankowski.iextrading4j.client.endpoint.refdata.RefDataEndpoint;
-import pl.zankowski.iextrading4j.client.endpoint.refdata.RefDataEndpointImpl;
-import pl.zankowski.iextrading4j.client.endpoint.stats.StatsEndpoint;
-import pl.zankowski.iextrading4j.client.endpoint.stats.StatsEndpointImpl;
-import pl.zankowski.iextrading4j.client.endpoint.stocks.StocksEndpoint;
-import pl.zankowski.iextrading4j.client.endpoint.stocks.StocksEndpointImpl;
-import pl.zankowski.iextrading4j.client.socket.IOSocketImpl;
-import pl.zankowski.iextrading4j.client.socket.IOSocketWrapper;
-import pl.zankowski.iextrading4j.client.socket.WebSocket;
-import pl.zankowski.iextrading4j.client.socket.listener.DataReceiver;
-import pl.zankowski.iextrading4j.client.util.LocalDateObjectMapperContextResolver;
+import pl.zankowski.iextrading4j.client.mapper.IEXTradingMapperContextResolver;
+import pl.zankowski.iextrading4j.client.rest.endpoint.GenericRestEndpoint;
+import pl.zankowski.iextrading4j.client.rest.manager.RestClient;
+import pl.zankowski.iextrading4j.client.rest.manager.RestClientMetadata;
+import pl.zankowski.iextrading4j.client.rest.manager.RestManager;
+import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
+import pl.zankowski.iextrading4j.client.socket.endpoint.GenericSocketEndpoint;
+import pl.zankowski.iextrading4j.client.socket.manager.SocketManager;
+import pl.zankowski.iextrading4j.client.socket.manager.SocketRequest;
+import pl.zankowski.iextrading4j.client.socket.manager.SocketWrapper;
 
-import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.core.UriBuilder;
+import java.util.function.Consumer;
 
-/**
- * @author Wojciech Zankowski
- */
 public class IEXTradingClient {
 
-    public static final UriBuilder API_BASE_URL_V1 = UriBuilder.fromPath("https://api.iextrading.com/1.0");
-
-    private final StocksEndpoint stocksEndpoint;
-    private final TOPSEndpoint topsEndpoint;
-    private final HISTEndpoint histEndpoint;
-    private final DEEPEndpoint deepEndpoint;
-    private final StatsEndpoint statsEndpoint;
-    private final MarketEndpoint marketEndpoint;
-    private final RefDataEndpoint refDataEndpoint;
-
-    private final WebSocket webSocket;
-
-    private Client restClient;
+    private final GenericRestEndpoint genericRestEndpoint;
+    private final GenericSocketEndpoint genericSocketEndpoint;
 
     private IEXTradingClient() {
-        this(null);
-    }
+        final RestClient restClient = new RestClient(ClientBuilder.newClient(), new RestClientMetadata());
+        restClient.getClient().register(IEXTradingMapperContextResolver.class);
 
-    private IEXTradingClient(DataReceiver dataReceiver) {
-        stocksEndpoint = new StocksEndpointImpl(getRESTClient(), getBaseApiUrl());
-        topsEndpoint = new TOPSEndpointImpl(getRESTClient(), getBaseApiUrl());
-        histEndpoint = new HISTEndpointImpl(getRESTClient(), getBaseApiUrl());
-        deepEndpoint = new DEEPEndpointImpl(getRESTClient(), getBaseApiUrl());
-        statsEndpoint = new StatsEndpointImpl(getRESTClient(), getBaseApiUrl());
-        marketEndpoint = new MarketEndpointImpl(getRESTClient(), getBaseApiUrl());
-        refDataEndpoint = new RefDataEndpointImpl(getRESTClient(), getBaseApiUrl());
-        this.webSocket = new IOSocketImpl(new IOSocketWrapper(), dataReceiver);
+        genericRestEndpoint = new GenericRestEndpoint(new RestManager(restClient));
+        genericSocketEndpoint = new GenericSocketEndpoint(new SocketManager(new SocketWrapper()));
     }
 
     public static IEXTradingClient create() {
         return new IEXTradingClient();
     }
 
-    public static IEXTradingClient create(DataReceiver dataReceiver) {
-        return new IEXTradingClient(dataReceiver);
+    public <R> R executeRequest(final RestRequest<R> restRequest) {
+        return genericRestEndpoint.executeRequest(restRequest);
     }
 
-    protected Client getRESTClient() {
-        if (restClient == null) {
-            restClient = ClientBuilder.newClient();
-            restClient.register(LocalDateObjectMapperContextResolver.class);
-        }
-        return restClient;
+    public <R> void subscribe(final SocketRequest<R> socketRequest, final Consumer<R> consumer) {
+        genericSocketEndpoint.subscribe(socketRequest, consumer);
     }
 
-    protected UriBuilder getBaseApiUrl() {
-        return API_BASE_URL_V1;
+    public <R> void unsubscribe(final SocketRequest<R> socketRequest) {
+        genericSocketEndpoint.unsubscribe(socketRequest);
     }
 
-    public StocksEndpoint getStocksEndpoint() {
-        return stocksEndpoint;
-    }
-
-    public TOPSEndpoint getTopsEndpoint() {
-        return topsEndpoint;
-    }
-
-    public HISTEndpoint getHistEndpoint() {
-        return histEndpoint;
-    }
-
-    public DEEPEndpoint getDeepEndpoint() {
-        return deepEndpoint;
-    }
-
-    public StatsEndpoint getStatsEndpoint() {
-        return statsEndpoint;
-    }
-
-    public MarketEndpoint getMarketEndpoint() {
-        return marketEndpoint;
-    }
-
-    public RefDataEndpoint getRefDataEndpoint() {
-        return refDataEndpoint;
-    }
-
-    public WebSocket getWebSocket() {
-        return webSocket;
-    }
 }

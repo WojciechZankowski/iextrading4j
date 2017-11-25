@@ -1,43 +1,36 @@
 package pl.zankowski.iextrading4j.api.stats;
 
+import com.flextrade.jfixture.JFixture;
+import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
 
-import java.time.LocalDate;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static pl.zankowski.iextrading4j.api.stats.builder.RecordsStatsDataBuilder.defaultRecordsStats;
 
-/**
- * @author Wojciech Zankowski
- */
 public class RecordsStatsTest {
 
-    @Test
-    public void shouldSuccessfullyCreateRecordsStats() {
-        final Record volume = new Record(12d, LocalDate.now(), 11d, 10d);
-        final Record symbolsTraded = new Record(23d, LocalDate.now(), 22d, 21d);
-        final Record routedVolume = new Record(34d, LocalDate.now(), 32d, 31d);
-        final Record notional = new Record(45d, LocalDate.now(), 43d, 42d);
-
-        RecordsStats recordsStats = new RecordsStats(volume, symbolsTraded, routedVolume, notional);
-        assertRecordsStats(recordsStats, volume, symbolsTraded, routedVolume, notional);
-    }
+    private final JFixture fixture = new JFixture();
 
     @Test
-    public void shouldSuccessfullyEqualTwoRecordsStats() {
-        RecordsStats recordsStats_1 = defaultRecordsStats();
-        RecordsStats recordsStats_2 = defaultRecordsStats();
+    public void constructor() {
+        final Record volume = fixture.create(Record.class);
+        final Record symbolsTraded = fixture.create(Record.class);
+        final Record routedVolume = fixture.create(Record.class);
+        final Record notional = fixture.create(Record.class);
 
-        assertThat(recordsStats_1.equals(recordsStats_2)).isTrue();
-        assertThat(recordsStats_1.hashCode()).isEqualTo(recordsStats_2.hashCode());
-    }
+        final RecordsStats recordsStats = new RecordsStats(volume, symbolsTraded,
+                routedVolume, notional);
 
-    private void assertRecordsStats(RecordsStats recordsStats, Record volume, Record symbolsTraded,
-                                    Record routedVolume, Record notional) {
         assertThat(recordsStats.getVolume()).isEqualTo(volume);
         assertThat(recordsStats.getSymbolsTraded()).isEqualTo(symbolsTraded);
         assertThat(recordsStats.getRoutedVolume()).isEqualTo(routedVolume);
         assertThat(recordsStats.getNotional()).isEqualTo(notional);
+    }
+
+    @Test
+    public void equalsContract() {
+        EqualsVerifier.forClass(RecordsStats.class)
+                .usingGetClass()
+                .verify();
     }
 
 }

@@ -1,27 +1,38 @@
 package pl.zankowski.iextrading4j.api.market;
 
-import pl.zankowski.iextrading4j.api.util.DoubleUtil;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
-/**
- * @author Wojciech Zankowski
- */
-public class MarketVolume {
+import java.io.Serializable;
+import java.math.BigDecimal;
 
-    private String mic;
-    private String tapeId;
-    private String venueName;
-    private long volume;
-    private long tapeA;
-    private long tapeB;
-    private long tapeC;
-    private double marketPercent;
-    private long lastUpdated;
+@JsonPropertyOrder({"mic", "tapeId", "venueName", "volume", "tapeA", "tapeB",
+        "tapeC", "marketPercent", "lastUpdated"})
+public class MarketVolume implements Serializable {
 
-    public MarketVolume() {
-    }
+    private final String mic;
+    private final String tapeId;
+    private final String venueName;
+    private final BigDecimal volume;
+    private final BigDecimal tapeA;
+    private final BigDecimal tapeB;
+    private final BigDecimal tapeC;
+    private final BigDecimal marketPercent;
+    private final Long lastUpdated;
 
-    public MarketVolume(String mic, String tapeId, String venueName, long volume, long tapeA, long tapeB, long tapeC,
-                        double marketPercent, long lastUpdated) {
+    @JsonCreator
+    public MarketVolume(@JsonProperty("mic") final String mic,
+                        @JsonProperty("tapeId") final String tapeId,
+                        @JsonProperty("venueName") final String venueName,
+                        @JsonProperty("volume") final BigDecimal volume,
+                        @JsonProperty("tapeA") final BigDecimal tapeA,
+                        @JsonProperty("tapeB") final BigDecimal tapeB,
+                        @JsonProperty("tapeC") final BigDecimal tapeC,
+                        @JsonProperty("marketPercent") final BigDecimal marketPercent,
+                        @JsonProperty("lastUpdated") final Long lastUpdated) {
         this.mic = mic;
         this.tapeId = tapeId;
         this.venueName = venueName;
@@ -37,122 +48,72 @@ public class MarketVolume {
         return mic;
     }
 
-    public void setMic(String mic) {
-        this.mic = mic;
-    }
-
     public String getTapeId() {
         return tapeId;
-    }
-
-    public void setTapeId(String tapeId) {
-        this.tapeId = tapeId;
     }
 
     public String getVenueName() {
         return venueName;
     }
 
-    public void setVenueName(String venueName) {
-        this.venueName = venueName;
-    }
-
-    public long getVolume() {
+    public BigDecimal getVolume() {
         return volume;
     }
 
-    public void setVolume(long volume) {
-        this.volume = volume;
-    }
-
-    public long getTapeA() {
+    public BigDecimal getTapeA() {
         return tapeA;
     }
 
-    public void setTapeA(long tapeA) {
-        this.tapeA = tapeA;
-    }
-
-    public long getTapeB() {
+    public BigDecimal getTapeB() {
         return tapeB;
     }
 
-    public void setTapeB(long tapeB) {
-        this.tapeB = tapeB;
-    }
-
-    public long getTapeC() {
+    public BigDecimal getTapeC() {
         return tapeC;
     }
 
-    public void setTapeC(long tapeC) {
-        this.tapeC = tapeC;
-    }
-
-    public double getMarketPercent() {
+    public BigDecimal getMarketPercent() {
         return marketPercent;
     }
 
-    public void setMarketPercent(double marketPercent) {
-        this.marketPercent = marketPercent;
-    }
-
-    public long getLastUpdated() {
+    public Long getLastUpdated() {
         return lastUpdated;
-    }
-
-    public void setLastUpdated(long lastUpdated) {
-        this.lastUpdated = lastUpdated;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         MarketVolume that = (MarketVolume) o;
-
-        if (volume != that.volume) return false;
-        if (tapeA != that.tapeA) return false;
-        if (tapeB != that.tapeB) return false;
-        if (tapeC != that.tapeC) return false;
-        if (Double.compare(that.marketPercent, marketPercent) != 0) return false;
-        if (lastUpdated != that.lastUpdated) return false;
-        if (mic != null ? !mic.equals(that.mic) : that.mic != null) return false;
-        if (tapeId != null ? !tapeId.equals(that.tapeId) : that.tapeId != null) return false;
-        return venueName != null ? venueName.equals(that.venueName) : that.venueName == null;
+        return Objects.equal(mic, that.mic) &&
+                Objects.equal(tapeId, that.tapeId) &&
+                Objects.equal(venueName, that.venueName) &&
+                Objects.equal(volume, that.volume) &&
+                Objects.equal(tapeA, that.tapeA) &&
+                Objects.equal(tapeB, that.tapeB) &&
+                Objects.equal(tapeC, that.tapeC) &&
+                Objects.equal(marketPercent, that.marketPercent) &&
+                Objects.equal(lastUpdated, that.lastUpdated);
     }
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = mic != null ? mic.hashCode() : 0;
-        result = 31 * result + (tapeId != null ? tapeId.hashCode() : 0);
-        result = 31 * result + (venueName != null ? venueName.hashCode() : 0);
-        result = 31 * result + (int) (volume ^ (volume >>> 32));
-        result = 31 * result + (int) (tapeA ^ (tapeA >>> 32));
-        result = 31 * result + (int) (tapeB ^ (tapeB >>> 32));
-        result = 31 * result + (int) (tapeC ^ (tapeC >>> 32));
-        temp = Double.doubleToLongBits(marketPercent);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (int) (lastUpdated ^ (lastUpdated >>> 32));
-        return result;
+        return Objects.hashCode(mic, tapeId, venueName, volume, tapeA, tapeB,
+                tapeC, marketPercent, lastUpdated);
     }
 
     @Override
     public String toString() {
-        return "MarketVolume{" +
-                "mic='" + mic + '\'' +
-                ", tapeId='" + tapeId + '\'' +
-                ", venueName='" + venueName + '\'' +
-                ", volume=" + volume +
-                ", tapeA=" + tapeA +
-                ", tapeB=" + tapeB +
-                ", tapeC=" + tapeC +
-                ", marketPercent=" + DoubleUtil.printDouble(marketPercent) +
-                ", lastUpdated=" + lastUpdated +
-                '}';
+        return MoreObjects.toStringHelper(this)
+                .add("mic", mic)
+                .add("tapeId", tapeId)
+                .add("venueName", venueName)
+                .add("volume", volume)
+                .add("tapeA", tapeA)
+                .add("tapeB", tapeB)
+                .add("tapeC", tapeC)
+                .add("marketPercent", marketPercent)
+                .add("lastUpdated", lastUpdated)
+                .toString();
     }
-
 }

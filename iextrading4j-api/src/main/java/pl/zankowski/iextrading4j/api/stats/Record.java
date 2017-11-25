@@ -2,32 +2,34 @@ package pl.zankowski.iextrading4j.api.stats;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import pl.zankowski.iextrading4j.api.util.DoubleUtil;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
-/**
- * @author Wojciech Zankowski
- */
-public class Record {
+@JsonPropertyOrder({"recordValue", "recordDate", "previousDayValue", "avg30Value"})
+public class Record implements Serializable {
 
-    private final double recordValue;
+    private final BigDecimal recordValue;
     private final LocalDate recordDate;
-    private final double previousDayValue;
-    private final double avg30Value;
+    private final BigDecimal previousDayValue;
+    private final BigDecimal avg30Value;
 
     @JsonCreator
-    public Record(@JsonProperty("recordValue") double recordValue,
-                  @JsonProperty("recordDate") LocalDate recordDate,
-                  @JsonProperty("previousDayValue") double previousDayValue,
-                  @JsonProperty("avg30Value") double avg30Value) {
+    public Record(@JsonProperty("recordValue") final BigDecimal recordValue,
+                  @JsonProperty("recordDate") final LocalDate recordDate,
+                  @JsonProperty("previousDayValue") final BigDecimal previousDayValue,
+                  @JsonProperty("avg30Value") final BigDecimal avg30Value) {
         this.recordValue = recordValue;
         this.recordDate = recordDate;
         this.previousDayValue = previousDayValue;
         this.avg30Value = avg30Value;
     }
 
-    public double getRecordValue() {
+    public BigDecimal getRecordValue() {
         return recordValue;
     }
 
@@ -35,11 +37,11 @@ public class Record {
         return recordDate;
     }
 
-    public double getPreviousDayValue() {
+    public BigDecimal getPreviousDayValue() {
         return previousDayValue;
     }
 
-    public double getAvg30Value() {
+    public BigDecimal getAvg30Value() {
         return avg30Value;
     }
 
@@ -47,37 +49,25 @@ public class Record {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Record record = (Record) o;
-
-        if (Double.compare(record.recordValue, recordValue) != 0) return false;
-        if (Double.compare(record.previousDayValue, previousDayValue) != 0) return false;
-        if (Double.compare(record.avg30Value, avg30Value) != 0) return false;
-        return recordDate != null ? recordDate.equals(record.recordDate) : record.recordDate == null;
+        return Objects.equal(recordValue, record.recordValue) &&
+                Objects.equal(recordDate, record.recordDate) &&
+                Objects.equal(previousDayValue, record.previousDayValue) &&
+                Objects.equal(avg30Value, record.avg30Value);
     }
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        temp = Double.doubleToLongBits(recordValue);
-        result = (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (recordDate != null ? recordDate.hashCode() : 0);
-        temp = Double.doubleToLongBits(previousDayValue);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(avg30Value);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        return result;
+        return Objects.hashCode(recordValue, recordDate, previousDayValue, avg30Value);
     }
 
     @Override
     public String toString() {
-        return "Record{" +
-                "recordValue=" + DoubleUtil.printDouble(recordValue) +
-                ", recordDate=" + recordDate +
-                ", previousDayValue=" + DoubleUtil.printDouble(previousDayValue) +
-                ", avg30Value=" + DoubleUtil.printDouble(avg30Value) +
-                '}';
+        return MoreObjects.toStringHelper(this)
+                .add("recordValue", recordValue)
+                .add("recordDate", recordDate)
+                .add("previousDayValue", previousDayValue)
+                .add("avg30Value", avg30Value)
+                .toString();
     }
-
 }

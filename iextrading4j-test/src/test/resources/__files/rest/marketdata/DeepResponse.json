@@ -1,0 +1,60 @@
+{
+  "symbol": "SNAP",
+  "marketPercent": 0.00833,
+  "volume": 81454,
+  "lastSalePrice": 12.835,
+  "lastSaleSize": 100,
+  "lastSaleTime": 1510943576182,
+  "lastUpdated": 1510943602639,
+  "bids": [
+    {
+      "price": 12.84,
+      "size": 100,
+      "timestamp": 1510961602639
+    }
+  ],
+  "asks": [
+    {
+      "price": 13.22,
+      "size": 100,
+      "timestamp": 1510961308975
+    }
+  ],
+  "systemEvent": {
+    "systemEvent": "R",
+    "timestamp": 1510947000001
+  },
+  "tradingStatus": {
+    "status": "T",
+    "reason": "    ",
+    "timestamp": 1510939321339
+  },
+  "opHaltStatus": {
+    "isHalted": false,
+    "timestamp": 1510939321339
+  },
+  "ssrStatus": {
+    "isSSR": false,
+    "detail": " ",
+    "timestamp": 1510939321339
+  },
+  "securityEvent": {
+    "securityEvent": "MarketOpen",
+    "timestamp": 1510947000001
+  },
+  "trades": [
+    {
+      "price": 12.835,
+      "size": 100,
+      "tradeId": 364415895,
+      "isISO": false,
+      "isOddLot": false,
+      "isOutsideRegularHours": false,
+      "isSinglePriceCross": false,
+      "isTradeThroughExempt": false,
+      "timestamp": 1510961576182
+    }
+  ],
+  "tradeBreaks": [],
+  "auction": {}
+}

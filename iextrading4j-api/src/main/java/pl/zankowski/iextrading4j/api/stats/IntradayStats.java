@@ -2,11 +2,14 @@ package pl.zankowski.iextrading4j.api.stats;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
-/**
- * @author Wojciech Zankowski
- */
-public class IntradayStats {
+import java.io.Serializable;
+
+@JsonPropertyOrder({"volume", "symbolsTraded", "routedVolume", "notional", "marketShare"})
+public class IntradayStats implements Serializable {
 
     private final IntradayStat volume;
     private final IntradayStat symbolsTraded;
@@ -15,11 +18,11 @@ public class IntradayStats {
     private final IntradayStat marketShare;
 
     @JsonCreator
-    public IntradayStats(@JsonProperty("volume") IntradayStat volume,
-                         @JsonProperty("symbolsTraded") IntradayStat symbolsTraded,
-                         @JsonProperty("routedVolume") IntradayStat routedVolume,
-                         @JsonProperty("notional") IntradayStat notional,
-                         @JsonProperty("marketShare") IntradayStat marketShare) {
+    public IntradayStats(@JsonProperty("volume") final IntradayStat volume,
+                         @JsonProperty("symbolsTraded") final IntradayStat symbolsTraded,
+                         @JsonProperty("routedVolume") final IntradayStat routedVolume,
+                         @JsonProperty("notional") final IntradayStat notional,
+                         @JsonProperty("marketShare") final IntradayStat marketShare) {
         this.volume = volume;
         this.symbolsTraded = symbolsTraded;
         this.routedVolume = routedVolume;
@@ -51,36 +54,27 @@ public class IntradayStats {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         IntradayStats that = (IntradayStats) o;
-
-        if (volume != null ? !volume.equals(that.volume) : that.volume != null) return false;
-        if (symbolsTraded != null ? !symbolsTraded.equals(that.symbolsTraded) : that.symbolsTraded != null)
-            return false;
-        if (routedVolume != null ? !routedVolume.equals(that.routedVolume) : that.routedVolume != null) return false;
-        if (notional != null ? !notional.equals(that.notional) : that.notional != null) return false;
-        return marketShare != null ? marketShare.equals(that.marketShare) : that.marketShare == null;
+        return Objects.equal(volume, that.volume) &&
+                Objects.equal(symbolsTraded, that.symbolsTraded) &&
+                Objects.equal(routedVolume, that.routedVolume) &&
+                Objects.equal(notional, that.notional) &&
+                Objects.equal(marketShare, that.marketShare);
     }
 
     @Override
     public int hashCode() {
-        int result = volume != null ? volume.hashCode() : 0;
-        result = 31 * result + (symbolsTraded != null ? symbolsTraded.hashCode() : 0);
-        result = 31 * result + (routedVolume != null ? routedVolume.hashCode() : 0);
-        result = 31 * result + (notional != null ? notional.hashCode() : 0);
-        result = 31 * result + (marketShare != null ? marketShare.hashCode() : 0);
-        return result;
+        return Objects.hashCode(volume, symbolsTraded, routedVolume, notional, marketShare);
     }
 
     @Override
     public String toString() {
-        return "IntradayStats{" +
-                "volume=" + volume +
-                ", symbolsTraded=" + symbolsTraded +
-                ", routedVolume=" + routedVolume +
-                ", notional=" + notional +
-                ", marketShare=" + marketShare +
-                '}';
+        return MoreObjects.toStringHelper(this)
+                .add("volume", volume)
+                .add("symbolsTraded", symbolsTraded)
+                .add("routedVolume", routedVolume)
+                .add("notional", notional)
+                .add("marketShare", marketShare)
+                .toString();
     }
-
 }

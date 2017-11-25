@@ -1,49 +1,43 @@
 package pl.zankowski.iextrading4j.api.stats;
 
+import com.flextrade.jfixture.JFixture;
+import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static pl.zankowski.iextrading4j.api.stats.builder.HistoricalDailyStatsDataBuilder.defaultHistoricalDailyStats;
 
-/**
- * @author Wojciech Zankowski
- */
 public class HistoricalDailyStatsTest {
 
-    @Test
-    public void shouldSuccessfullyCreateHistoricalDailyStats() {
-        final LocalDate date = LocalDate.now();
-        final long volume = 123L;
-        final long routedVolume = 234L;
-        final double marketShare = 53.12d;
-        final boolean isHalfday = true;
-        final long litVolume = 432L;
-
-        HistoricalDailyStats historicalDailyStats = new HistoricalDailyStats(date, volume, routedVolume,
-                marketShare, isHalfday, litVolume);
-
-        assertHistoricalDailyStats(historicalDailyStats, date, volume, routedVolume, marketShare, isHalfday, litVolume);
-    }
+    private final JFixture fixture = new JFixture();
 
     @Test
-    public void shouldSuccessfullyEqualTwoHistoricalDailyStats() {
-        HistoricalDailyStats historicalDailyStats_1 = defaultHistoricalDailyStats();
-        HistoricalDailyStats historicalDailyStats_2 = defaultHistoricalDailyStats();
+    public void constructor() {
+        final LocalDate date = fixture.create(LocalDate.class);
+        final BigDecimal volume = fixture.create(BigDecimal.class);
+        final BigDecimal routedVolume = fixture.create(BigDecimal.class);
+        final BigDecimal marketShare = fixture.create(BigDecimal.class);
+        final Boolean isHalfday = fixture.create(Boolean.class);
+        final BigDecimal litVolume = fixture.create(BigDecimal.class);
 
-        assertThat(historicalDailyStats_1.equals(historicalDailyStats_2)).isTrue();
-        assertThat(historicalDailyStats_1.hashCode()).isEqualTo(historicalDailyStats_2.hashCode());
-    }
+        final HistoricalDailyStats historicalDailyStats = new HistoricalDailyStats(date, volume,
+                routedVolume, marketShare, isHalfday, litVolume);
 
-    private void assertHistoricalDailyStats(HistoricalDailyStats historicalDailyStats, LocalDate date, long volume,
-                                            long routedVolume, double marketShare, boolean isHalfday, long litVolume) {
         assertThat(historicalDailyStats.getDate()).isEqualTo(date);
         assertThat(historicalDailyStats.getVolume()).isEqualTo(volume);
         assertThat(historicalDailyStats.getRoutedVolume()).isEqualTo(routedVolume);
         assertThat(historicalDailyStats.getMarketShare()).isEqualTo(marketShare);
         assertThat(historicalDailyStats.isHalfday()).isEqualTo(isHalfday);
         assertThat(historicalDailyStats.getLitVolume()).isEqualTo(litVolume);
+    }
+
+    @Test
+    public void equalsContract() {
+        EqualsVerifier.forClass(HistoricalDailyStats.class)
+                .usingGetClass()
+                .verify();
     }
 
 }

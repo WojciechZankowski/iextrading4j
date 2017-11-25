@@ -1,43 +1,39 @@
 package pl.zankowski.iextrading4j.api.stats;
 
+import com.flextrade.jfixture.JFixture;
+import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static pl.zankowski.iextrading4j.api.stats.builder.RecordDataBuilder.defaultRecord;
 
-/**
- * @author Wojciech Zankowski
- */
 public class RecordTest {
 
-    @Test
-    public void shouldSuccessfullyCreateRecord() {
-        final double recordValue = 324d;
-        final LocalDate recordDate = LocalDate.now();
-        final double previousDayValue = 321d;
-        final double avg30Value = 320d;
-
-        Record record = new Record(recordValue, recordDate, previousDayValue, avg30Value);
-        assertRecord(record, recordValue, recordDate, previousDayValue, avg30Value);
-    }
+    private final JFixture fixture = new JFixture();
 
     @Test
-    public void shouldSuccessfullyEqualTwoRecord() {
-        Record record_1 = defaultRecord();
-        Record record_2 = defaultRecord();
+    public void constructor() {
+        final BigDecimal recordValue = fixture.create(BigDecimal.class);
+        final LocalDate recordDate = fixture.create(LocalDate.class);
+        final BigDecimal previousDayValue = fixture.create(BigDecimal.class);
+        final BigDecimal avg30Value = fixture.create(BigDecimal.class);
 
-        assertThat(record_1.equals(record_2)).isTrue();
-        assertThat(record_1.hashCode()).isEqualTo(record_2.hashCode());
-    }
+        final Record record = new Record(recordValue, recordDate, previousDayValue,
+                avg30Value);
 
-    private void assertRecord(Record record, double recordValue, LocalDate recordDate, double previousDayValue,
-                              double avg30Value) {
         assertThat(record.getRecordValue()).isEqualTo(recordValue);
         assertThat(record.getRecordDate()).isEqualTo(recordDate);
         assertThat(record.getPreviousDayValue()).isEqualTo(previousDayValue);
         assertThat(record.getAvg30Value()).isEqualTo(avg30Value);
+    }
+
+    @Test
+    public void equalsContract() {
+        EqualsVerifier.forClass(Record.class)
+                .usingGetClass()
+                .verify();
     }
 
 }

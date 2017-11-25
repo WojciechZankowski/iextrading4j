@@ -2,11 +2,14 @@ package pl.zankowski.iextrading4j.api.stats;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
-/**
- * @author Wojciech Zankowski
- */
-public class RecordsStats {
+import java.io.Serializable;
+
+@JsonPropertyOrder({"volume", "symbolsTraded", "routedVolume", "notional"})
+public class RecordsStats implements Serializable {
 
     private final Record volume;
     private final Record symbolsTraded;
@@ -14,10 +17,10 @@ public class RecordsStats {
     private final Record notional;
 
     @JsonCreator
-    public RecordsStats(@JsonProperty("volume") Record volume,
-                        @JsonProperty("symbolsTraded") Record symbolsTraded,
-                        @JsonProperty("routedVolume") Record routedVolume,
-                        @JsonProperty("notional") Record notional) {
+    public RecordsStats(@JsonProperty("volume") final Record volume,
+                        @JsonProperty("symbolsTraded") final Record symbolsTraded,
+                        @JsonProperty("routedVolume") final Record routedVolume,
+                        @JsonProperty("notional") final Record notional) {
         this.volume = volume;
         this.symbolsTraded = symbolsTraded;
         this.routedVolume = routedVolume;
@@ -44,33 +47,25 @@ public class RecordsStats {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         RecordsStats that = (RecordsStats) o;
-
-        if (volume != null ? !volume.equals(that.volume) : that.volume != null) return false;
-        if (symbolsTraded != null ? !symbolsTraded.equals(that.symbolsTraded) : that.symbolsTraded != null)
-            return false;
-        if (routedVolume != null ? !routedVolume.equals(that.routedVolume) : that.routedVolume != null) return false;
-        return notional != null ? notional.equals(that.notional) : that.notional == null;
+        return Objects.equal(volume, that.volume) &&
+                Objects.equal(symbolsTraded, that.symbolsTraded) &&
+                Objects.equal(routedVolume, that.routedVolume) &&
+                Objects.equal(notional, that.notional);
     }
 
     @Override
     public int hashCode() {
-        int result = volume != null ? volume.hashCode() : 0;
-        result = 31 * result + (symbolsTraded != null ? symbolsTraded.hashCode() : 0);
-        result = 31 * result + (routedVolume != null ? routedVolume.hashCode() : 0);
-        result = 31 * result + (notional != null ? notional.hashCode() : 0);
-        return result;
+        return Objects.hashCode(volume, symbolsTraded, routedVolume, notional);
     }
 
     @Override
     public String toString() {
-        return "RecordsStats{" +
-                "volume=" + volume +
-                ", symbolsTraded=" + symbolsTraded +
-                ", routedVolume=" + routedVolume +
-                ", notional=" + notional +
-                '}';
+        return MoreObjects.toStringHelper(this)
+                .add("volume", volume)
+                .add("symbolsTraded", symbolsTraded)
+                .add("routedVolume", routedVolume)
+                .add("notional", notional)
+                .toString();
     }
-
 }
