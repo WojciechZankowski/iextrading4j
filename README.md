@@ -67,4 +67,16 @@ Data provided for free by [IEX](https://iextrading.com/developer).
 
 IEX Trading API Exhibit A: [Exhibit A](https://iextrading.com/api-exhibit-a)
 
+## Others
 
+# [IEXTrading4j HIST](https://github.com/WojciechZankowski/iextrading4j-hist)
+
+IEX Trading allows users to receive their market data completly for free. Their data can be accessed in real-time during market session or can be downloaded as recorded sessions in PCAP data format. Market Data is transported in binary format and can be read according to specification shared on their site. 
+
+This library allows you to transform binary packets into human readable Market Data events in Java.
+
+More on this topic can found here: [IEX Trading Market Data](https://www.iextrading.com/trading/market-data/)
+
+# [IEXTrading4j BOOK](https://github.com/WojciechZankowski/iextrading4j-book)
+
+IEXTrading4j Book library allows to build incremental Order Book based on PriceLevelUpdateMessages from DEEP market data stream. OrderBook implementation follows description from specification.
