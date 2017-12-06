@@ -17,6 +17,8 @@ public class Quote {
     private final long openTime;
     private final double close;
     private final long closeTime;
+    private final double high;
+    private final double low;
     private final double latestPrice;
     private final String latestSource;
     private final String latestTime;
@@ -53,6 +55,8 @@ public class Quote {
                  @JsonProperty("openTime") long openTime,
                  @JsonProperty("close") double close,
                  @JsonProperty("closeTime") long closeTime,
+                 @JsonProperty("high") double high,
+                 @JsonProperty("low") double low,
                  @JsonProperty("latestPrice") double latestPrice,
                  @JsonProperty("latestSource") String latestSource,
                  @JsonProperty("latestTime") String latestTime,
@@ -88,6 +92,8 @@ public class Quote {
         this.openTime = openTime;
         this.close = close;
         this.closeTime = closeTime;
+        this.high = high;
+        this.low = low;
         this.latestPrice = latestPrice;
         this.latestSource = latestSource;
         this.latestTime = latestTime;
@@ -140,9 +146,9 @@ public class Quote {
 
     public double getClose() { return close; }
     public long getCloseTime() { return closeTime; }
-    public double getLatestPrice() {
-        return latestPrice;
-    }
+    public double getHigh() { return high; }
+    public double getLow() { return low; }
+    public double getLatestPrice() { return latestPrice; }
 
     public String getLatestSource() {
         return latestSource;
@@ -261,6 +267,14 @@ public class Quote {
             return false;
         }
         if ( closeTime != quote.closeTime )
+        {
+            return false;
+        }
+        if ( Double.compare( quote.high, high ) != 0 )
+        {
+            return false;
+        }
+        if ( Double.compare( quote.low, low ) != 0 )
         {
             return false;
         }
@@ -423,6 +437,10 @@ public class Quote {
         temp = Double.doubleToLongBits( close );
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (int) (closeTime ^ (closeTime >>> 32));
+        temp = Double.doubleToLongBits( high );
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits( low );
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits( latestPrice );
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (latestSource != null
@@ -483,6 +501,8 @@ public class Quote {
         sb.append( ", openTime=" ).append( openTime );
         sb.append( ", close=" ).append( close );
         sb.append( ", closeTime=" ).append( closeTime );
+        sb.append( ", high=" ).append( high );
+        sb.append( ", low=" ).append( low );
         sb.append( ", latestPrice=" ).append( latestPrice );
         sb.append( ", latestSource='" ).append( latestSource ).append( '\'' );
         sb.append( ", latestTime='" ).append( latestTime ).append( '\'' );
