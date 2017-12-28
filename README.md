@@ -6,6 +6,7 @@
 ## Table of Contents
 
 * [Quick Start](#quick-start)
+* [Description](#description)
 * [IEX Trading](#iex-trading)
 * [How to](#how-to)
 * [Wiki](#wiki)
@@ -24,6 +25,12 @@ Java SE 8 is required to use IEXTrading4j library.
 ```
 
 Library is up to IEX Trading API version [1.0] - 25.11.2017 
+
+## Description
+
+IEXTrading4j library allows to receive all data available in API provided by IEXTrading company. They allow to use their market data completly for free, so go and try it out!
+
+Data & API description: https://iextrading.com/developer
 
 ## IEX Trading
 
