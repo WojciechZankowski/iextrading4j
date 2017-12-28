@@ -39,6 +39,8 @@ public class QuoteServiceTest extends BaseServiceTest {
         assertThat(quote.getOpenTime()).isEqualTo(1510929000472L);
         assertThat(quote.getClose()).isEqualTo(BigDecimal.valueOf(171.1));
         assertThat(quote.getCloseTime()).isEqualTo(1510866000375L);
+        assertThat(quote.getHigh()).isEqualTo(BigDecimal.valueOf(170.78));
+        assertThat(quote.getLow()).isEqualTo(BigDecimal.valueOf(169.71));
         assertThat(quote.getLatestPrice()).isEqualTo(BigDecimal.valueOf(170.39));
         assertThat(quote.getLatestSource()).isEqualTo("IEX real time price");
         assertThat(quote.getLatestTime()).isEqualTo("1:18:58 PM");

@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 @JsonPropertyOrder({"symbol", "companyName", "primaryExchange", "sector", "calculationPrice",
-        "open", "openTime", "close", "closeTime", "latestPrice", "latestSource", "latestTime",
+        "open", "openTime", "close", "closeTime", "high", "low", "latestPrice", "latestSource", "latestTime",
         "latestUpdate", "latestVolume", "iexRealtimePrice", "iexRealtimeSize", "iexLastUpdated",
         "delayedPrice", "delayedPriceTime", "previousClose", "change", "changePercent", "iexMarketPercent",
         "iexVolume", "avgTotalVolume", "iexBidPrice", "iexBidSize", "iexAskPrice", "iexAskSize",
@@ -26,6 +26,8 @@ public class Quote implements Serializable {
     private final Long openTime;
     private final BigDecimal close;
     private final Long closeTime;
+    private final BigDecimal high;
+    private final BigDecimal low;
     private final BigDecimal latestPrice;
     private final String latestSource;
     private final String latestTime;
@@ -62,6 +64,8 @@ public class Quote implements Serializable {
                  @JsonProperty("openTime") final Long openTime,
                  @JsonProperty("close") final BigDecimal close,
                  @JsonProperty("closeTime") final Long closeTime,
+                 @JsonProperty("high") final BigDecimal high,
+                 @JsonProperty("low") final BigDecimal low,
                  @JsonProperty("latestPrice") final BigDecimal latestPrice,
                  @JsonProperty("latestSource") final String latestSource,
                  @JsonProperty("latestTime") final String latestTime,
@@ -96,6 +100,8 @@ public class Quote implements Serializable {
         this.openTime = openTime;
         this.close = close;
         this.closeTime = closeTime;
+        this.high = high;
+        this.low = low;
         this.latestPrice = latestPrice;
         this.latestSource = latestSource;
         this.latestTime = latestTime;
@@ -157,6 +163,14 @@ public class Quote implements Serializable {
 
     public Long getCloseTime() {
         return closeTime;
+    }
+
+    public BigDecimal getHigh() {
+        return high;
+    }
+
+    public BigDecimal getLow() {
+        return low;
     }
 
     public BigDecimal getLatestPrice() {
@@ -273,6 +287,8 @@ public class Quote implements Serializable {
                 Objects.equal(openTime, quote.openTime) &&
                 Objects.equal(close, quote.close) &&
                 Objects.equal(closeTime, quote.closeTime) &&
+                Objects.equal(high, quote.high) &&
+                Objects.equal(low, quote.low) &&
                 Objects.equal(latestPrice, quote.latestPrice) &&
                 Objects.equal(latestSource, quote.latestSource) &&
                 Objects.equal(latestTime, quote.latestTime) &&
@@ -303,8 +319,8 @@ public class Quote implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hashCode(symbol, companyName, primaryExchange, sector, calculationPrice,
-                open, openTime, close, closeTime, latestPrice, latestSource, latestTime, latestUpdate,
-                latestVolume, iexRealtimePrice, iexRealtimeSize, iexLastUpdated, delayedPrice,
+                open, openTime, close, closeTime, high, low, latestPrice, latestSource, latestTime,
+                latestUpdate, latestVolume, iexRealtimePrice, iexRealtimeSize, iexLastUpdated, delayedPrice,
                 delayedPriceTime, previousClose, change, changePercent, iexMarketPercent, iexVolume,
                 avgTotalVolume, iexBidPrice, iexBidSize, iexAskPrice, iexAskSize, marketCap, peRatio,
                 week52High, week52Low, ytdChange);
@@ -322,6 +338,8 @@ public class Quote implements Serializable {
                 .add("openTime", openTime)
                 .add("close", close)
                 .add("closeTime", closeTime)
+                .add("high", high)
+                .add("low", low)
                 .add("latestPrice", latestPrice)
                 .add("latestSource", latestSource)
                 .add("latestTime", latestTime)
