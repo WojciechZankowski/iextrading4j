@@ -20,11 +20,11 @@ Java SE 8 is required to use IEXTrading4j library.
 <dependency>
 	<groupId>pl.zankowski</groupId>
 	<artifactId>iextrading4j-all</artifactId>
-	<version>2.0.0</version>
+	<version>2.0.1</version>
 </dependency>
 ```
 
-Library is up to IEX Trading API version [1.0] - 25.11.2017 
+Library is up to IEX Trading API version [1.0] - 28.12.2017 
 
 ## Description
 
