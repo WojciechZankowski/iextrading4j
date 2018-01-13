@@ -65,7 +65,7 @@ public class FinancialTest {
 
     @Test
     public void equalsContract() {
-        EqualsVerifier.forClass(EffectiveSpread.class)
+        EqualsVerifier.forClass(Financial.class)
                 .usingGetClass()
                 .verify();
     }
