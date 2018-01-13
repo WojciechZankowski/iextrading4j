@@ -47,7 +47,8 @@ public class ChartRequestBuilder extends AbstractStocksRequestBuilder<List<Chart
 
     private RestRequest<List<Chart>> request() {
         return RestRequestBuilder.<List<Chart>>builder()
-                .withPath("/stock/{symbol}/chart").get()
+                .withPath("/stock/{symbol}/chart")
+                .addPathParam("symbol", getSymbol()).get()
                 .withResponse(new GenericType<List<Chart>>() {})
                 .build();
     }

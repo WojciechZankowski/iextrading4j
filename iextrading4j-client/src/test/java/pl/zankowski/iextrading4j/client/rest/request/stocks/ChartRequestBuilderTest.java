@@ -1,0 +1,69 @@
+package pl.zankowski.iextrading4j.client.rest.request.stocks;
+
+import org.junit.Test;
+import pl.zankowski.iextrading4j.api.stocks.Chart;
+import pl.zankowski.iextrading4j.client.rest.manager.MethodType;
+import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
+
+import javax.ws.rs.core.GenericType;
+import java.time.LocalDate;
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.entry;
+
+public class ChartRequestBuilderTest  {
+
+    @Test
+    public void shouldSuccessfullyCreateRequest() {
+        final String symbol = "IBM";
+
+        final RestRequest<List<Chart>> request = new ChartRequestBuilder()
+                .withSymbol(symbol)
+                .build();
+
+        assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
+        assertThat(request.getPath()).isEqualTo("/stock/{symbol}/chart");
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {});
+        assertThat(request.getPathParams()).containsExactly(entry("symbol", symbol));
+        assertThat(request.getQueryParams()).isEmpty();
+    }
+
+    @Test
+    public void shouldSuccessfullyCreateRequestWithRange() {
+        final String symbol = "IBM";
+        final ChartRange chartRange = ChartRange.ONE_DAY;
+
+        final RestRequest<List<Chart>> request = new ChartRequestBuilder()
+                .withSymbol(symbol)
+                .withChartRange(chartRange)
+                .build();
+
+        assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
+        assertThat(request.getPath()).isEqualTo("/stock/{symbol}/chart/{range}");
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {});
+        assertThat(request.getPathParams()).contains(
+                entry("range", chartRange.getCode()),
+                entry("symbol", symbol));
+        assertThat(request.getQueryParams()).isEmpty();
+    }
+
+    @Test
+    public void shouldSuccessfullyCreateRequestWithDate() {
+        final String symbol = "IBM";
+
+        final RestRequest<List<Chart>> request = new ChartRequestBuilder()
+                .withSymbol(symbol)
+                .withDate(LocalDate.of(2017, 5, 5))
+                .build();
+
+        assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
+        assertThat(request.getPath()).isEqualTo("/stock/{symbol}/chart/date/{date}");
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {});
+        assertThat(request.getPathParams()).containsExactly(
+                entry("date", "2017-05-05"),
+                entry("symbol", symbol));
+        assertThat(request.getQueryParams()).isEmpty();
+    }
+
+}
