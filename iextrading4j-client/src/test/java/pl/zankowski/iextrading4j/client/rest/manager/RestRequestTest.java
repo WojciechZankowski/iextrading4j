@@ -5,20 +5,12 @@ import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
 
 import javax.ws.rs.core.GenericType;
-
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
 public class RestRequestTest {
-
-    @Test
-    public void equalsContract() {
-        EqualsVerifier.forClass(RestRequest.class)
-                .usingGetClass()
-                .verify();
-    }
 
     @Test
     public void constructor() {
@@ -34,11 +26,17 @@ public class RestRequestTest {
 
         assertThat(restRequest.getResponseType()).isEqualTo(responseTypeMock);
         assertThat(restRequest.getPath()).isEqualTo(path);
-        assertThat(restRequest.getMethodType()).isEqualTo(methodType
-        );
+        assertThat(restRequest.getMethodType()).isEqualTo(methodType);
         assertThat(restRequest.getHeaderParams()).isEqualTo(headerParams);
         assertThat(restRequest.getQueryParams()).isEqualTo(queryParams);
         assertThat(restRequest.getPathParams()).isEqualTo(pathParams);
+    }
+
+    @Test
+    public void equalsContract() {
+        EqualsVerifier.forClass(RestRequest.class)
+                .usingGetClass()
+                .verify();
     }
 
 }
