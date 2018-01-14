@@ -13,7 +13,7 @@ public class MarketAsyncRequestBuilder implements IAsyncRequest<List<MarketVolum
     @Override
     public SocketRequest<List<MarketVolume>> build() {
         return SocketRequestBuilder.<List<MarketVolume>>builder()
-                .withPath("/tops")
+                .withPath("/market")
                 .withResponse(new TypeReference<List<MarketVolume>>() {})
                 .build();
     }

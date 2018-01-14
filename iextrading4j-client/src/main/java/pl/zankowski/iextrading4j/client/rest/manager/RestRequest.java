@@ -4,7 +4,6 @@ import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import javax.ws.rs.core.GenericType;
-import java.io.Serializable;
 import java.util.Map;
 
 import static pl.zankowski.iextrading4j.api.util.MapUtil.immutableMap;

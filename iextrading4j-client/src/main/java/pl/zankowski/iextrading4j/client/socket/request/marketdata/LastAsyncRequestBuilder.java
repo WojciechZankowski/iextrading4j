@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.client.socket.request.marketdata;
 
+import pl.zankowski.iextrading4j.api.marketdata.LastTrade;
 import pl.zankowski.iextrading4j.api.marketdata.TOPS;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketRequest;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketRequestBuilder;
@@ -11,31 +12,31 @@ import java.util.Set;
 
 import static java.util.stream.Collectors.joining;
 
-public class TopsAsyncRequestBuilder implements IAsyncRequest<TOPS> {
+public class LastAsyncRequestBuilder implements IAsyncRequest<LastTrade> {
 
     private Set<String> symbols = new HashSet<>();
 
-    public TopsAsyncRequestBuilder withSymbol(String symbol) {
+    public LastAsyncRequestBuilder withSymbol(String symbol) {
         this.symbols.add(symbol);
         return this;
     }
 
-    public TopsAsyncRequestBuilder withSymbols(String... symbols) {
+    public LastAsyncRequestBuilder withSymbols(String... symbols) {
         this.symbols.addAll(Arrays.asList(symbols));
         return this;
     }
 
-    public TopsAsyncRequestBuilder withAllSymbols() {
+    public LastAsyncRequestBuilder withAllSymbols() {
         this.symbols.clear();
         this.symbols.add("firehose");
         return this;
     }
 
     @Override
-    public SocketRequest<TOPS> build() {
-        return SocketRequestBuilder.<TOPS>builder()
-                .withPath("/tops")
-                .withResponse(TOPS.class)
+    public SocketRequest<LastTrade> build() {
+        return SocketRequestBuilder.<LastTrade>builder()
+                .withPath("/last")
+                .withResponse(LastTrade.class)
                 .addParam(symbols.stream().collect(joining(",")))
                 .build();
     }
