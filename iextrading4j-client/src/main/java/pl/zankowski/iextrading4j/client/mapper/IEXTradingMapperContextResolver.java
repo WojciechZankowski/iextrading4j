@@ -30,14 +30,14 @@ public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMa
     }
 
     private ObjectMapper initializeObjectMapper() {
-        final ObjectMapper objectMapper = new ObjectMapper();
+        final ObjectMapper customMapper = new ObjectMapper();
 
-        objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+        customMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 
-        objectMapper.registerModule(new JavaTimeModule());
-        objectMapper.registerModule(iexTradingModule());
+        customMapper.registerModule(new JavaTimeModule());
+        customMapper.registerModule(iexTradingModule());
 
-        return objectMapper;
+        return customMapper;
     }
 
     private Module iexTradingModule() {

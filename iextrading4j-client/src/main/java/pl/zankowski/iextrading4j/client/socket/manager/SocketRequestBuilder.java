@@ -3,7 +3,6 @@ package pl.zankowski.iextrading4j.client.socket.manager;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.common.collect.Lists;
 
-import javax.ws.rs.core.GenericType;
 import java.util.List;
 
 public class SocketRequestBuilder<R> implements ISocketParamRequestBuilder<R>, ISocketPathRequestBuilder<R>,
@@ -18,7 +17,7 @@ public class SocketRequestBuilder<R> implements ISocketParamRequestBuilder<R>, I
     }
 
     public static <R> ISocketPathRequestBuilder<R> builder() {
-        return new SocketRequestBuilder<R>();
+        return new SocketRequestBuilder<>();
     }
 
     @Override

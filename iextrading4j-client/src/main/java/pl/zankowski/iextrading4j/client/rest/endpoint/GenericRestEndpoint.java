@@ -4,8 +4,6 @@ import pl.zankowski.iextrading4j.client.rest.AbstractRestEndpoint;
 import pl.zankowski.iextrading4j.client.rest.manager.RestManager;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 
-import java.io.Serializable;
-
 public class GenericRestEndpoint extends AbstractRestEndpoint {
 
     public GenericRestEndpoint(final RestManager restManager) {

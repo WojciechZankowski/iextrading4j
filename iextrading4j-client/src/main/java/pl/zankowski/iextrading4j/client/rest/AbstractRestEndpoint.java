@@ -3,8 +3,6 @@ package pl.zankowski.iextrading4j.client.rest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestManager;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 
-import java.io.Serializable;
-
 public abstract class AbstractRestEndpoint implements IRestEndpoint {
 
     private final RestManager restManager;

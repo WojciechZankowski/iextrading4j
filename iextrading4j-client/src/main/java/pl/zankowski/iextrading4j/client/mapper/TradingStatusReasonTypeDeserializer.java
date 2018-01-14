@@ -1,7 +1,6 @@
 package pl.zankowski.iextrading4j.client.mapper;
 
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatusReasonType;
@@ -11,7 +10,7 @@ import java.io.IOException;
 public class TradingStatusReasonTypeDeserializer extends JsonDeserializer<TradingStatusReasonType> {
 
     @Override
-    public TradingStatusReasonType deserialize(final JsonParser parser, final DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public TradingStatusReasonType deserialize(final JsonParser parser, final DeserializationContext ctxt) throws IOException {
         final String value = parser.getValueAsString();
         if (value == null) {
             return TradingStatusReasonType.UNKNOWN;

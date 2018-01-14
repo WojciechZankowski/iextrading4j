@@ -5,8 +5,6 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.AbstractRequestFilterBuilder;
 
-import javax.ws.rs.core.GenericType;
-
 public class RecordStatsRequestBuilder extends AbstractRequestFilterBuilder<RecordsStats, RecordStatsRequestBuilder> {
 
     @Override

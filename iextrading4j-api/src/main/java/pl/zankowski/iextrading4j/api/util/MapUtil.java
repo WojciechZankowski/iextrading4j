@@ -6,6 +6,9 @@ import java.util.Map;
 
 public class MapUtil {
 
+    private MapUtil() {
+    }
+
     public static <K, V> Map<K, V> immutableMap(final Map<K, V> map) {
         return map == null
                 ? ImmutableMap.of()

@@ -12,6 +12,7 @@ import java.util.List;
 public class ChartRequestBuilder extends AbstractStocksRequestBuilder<List<Chart>, ChartRequestBuilder> {
 
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ISO_DATE;
+    private static final String SYMBOL_PARAM_NAME = "symbol";
 
     private LocalDate date;
     private ChartRange chartRange;
@@ -48,7 +49,7 @@ public class ChartRequestBuilder extends AbstractStocksRequestBuilder<List<Chart
     private RestRequest<List<Chart>> request() {
         return RestRequestBuilder.<List<Chart>>builder()
                 .withPath("/stock/{symbol}/chart")
-                .addPathParam("symbol", getSymbol()).get()
+                .addPathParam(SYMBOL_PARAM_NAME, getSymbol()).get()
                 .withResponse(new GenericType<List<Chart>>() {})
                 .build();
     }
@@ -56,7 +57,7 @@ public class ChartRequestBuilder extends AbstractStocksRequestBuilder<List<Chart
     private RestRequest<List<Chart>> requestWithRange() {
         return RestRequestBuilder.<List<Chart>>builder()
                 .withPath("/stock/{symbol}/chart/{range}")
-                .addPathParam("symbol", getSymbol())
+                .addPathParam(SYMBOL_PARAM_NAME, getSymbol())
                 .addPathParam("range", getChartRange().getCode()).get()
                 .withResponse(new GenericType<List<Chart>>() {})
                 .build();
@@ -65,7 +66,7 @@ public class ChartRequestBuilder extends AbstractStocksRequestBuilder<List<Chart
     private RestRequest<List<Chart>> requestWithDate() {
         return RestRequestBuilder.<List<Chart>>builder()
                 .withPath("/stock/{symbol}/chart/date/{date}")
-                .addPathParam("symbol", getSymbol())
+                .addPathParam(SYMBOL_PARAM_NAME, getSymbol())
                 .addPathParam("date", DATE_TIME_FORMATTER.format(date)).get()
                 .withResponse(new GenericType<List<Chart>>() {})
                 .build();

@@ -3,8 +3,6 @@ package pl.zankowski.iextrading4j.client.rest.manager;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
-import java.io.Serializable;
-
 public class RestResponse<R> {
 
     private final R response;

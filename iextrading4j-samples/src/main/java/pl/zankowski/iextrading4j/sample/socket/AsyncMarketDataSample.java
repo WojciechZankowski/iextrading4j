@@ -20,7 +20,7 @@ public class AsyncMarketDataSample {
         new Semaphore(0).acquire();
     }
 
-    private final Consumer<TOPS> TOPS_CONSUMER = System.out::println;
+    private static final Consumer<TOPS> TOPS_CONSUMER = System.out::println;
 
     private void topsAsyncRequestSample() {
         final SocketRequest<TOPS> socketRequest = new TopsAsyncRequestBuilder()
