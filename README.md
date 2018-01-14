@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.org/WojciechZankowski/iextrading4j.svg?branch=master)](https://travis-ci.org/WojciechZankowski/iextrading4j)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/pl.zankowski/iextrading4j-all/badge.svg)](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22pl.zankowski%22%20AND%20a%3A%22iextrading4j-all%22)
+[![Quality Gate](https://sonarcloud.io/api/badges/gate?key=pl.zankowski:iextrading4j)](https://sonarcloud.io/dashboard/index/pl.zankowski:iextrading4j)
+[![codecov](https://codecov.io/gh/WojciechZankowski/iextrading4j/branch/master/graph/badge.svg)](https://codecov.io/gh/WojciechZankowski/iextrading4j)
+
 
 ## Table of Contents
 
