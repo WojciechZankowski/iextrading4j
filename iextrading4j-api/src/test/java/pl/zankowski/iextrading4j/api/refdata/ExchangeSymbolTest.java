@@ -13,12 +13,12 @@ public class ExchangeSymbolTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void construct() {
+    public void constructor() {
         final String symbol = fixture.create(String.class);
         final String name = fixture.create(String.class);
         final LocalDate date = fixture.create(LocalDate.class);
         final Boolean isEnabled = fixture.create(Boolean.class);
-        final String type = fixture.create(String.class);
+        final SymbolType type = fixture.create(SymbolType.class);
         final Long iexId = fixture.create(Long.class);
 
         final ExchangeSymbol exchangeSymbol = new ExchangeSymbol(symbol, name, date, isEnabled, type, iexId);

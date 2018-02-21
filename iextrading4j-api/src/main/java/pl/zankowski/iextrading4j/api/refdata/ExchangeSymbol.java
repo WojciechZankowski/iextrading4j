@@ -16,7 +16,7 @@ public class ExchangeSymbol implements Serializable {
     private final String name;
     private final LocalDate date;
     private final Boolean isEnabled;
-    private final String type;
+    private final SymbolType type;
     private final Long iexId;
 
     @JsonCreator
@@ -24,7 +24,7 @@ public class ExchangeSymbol implements Serializable {
                           @JsonProperty("name") final String name,
                           @JsonProperty("date") final LocalDate date,
                           @JsonProperty("isEnabled") final Boolean isEnabled,
-                          @JsonProperty("type") final String type,
+                          @JsonProperty("type") final SymbolType type,
                           @JsonProperty("iexId") final Long iexId) {
         this.symbol = symbol;
         this.name = name;
@@ -50,7 +50,7 @@ public class ExchangeSymbol implements Serializable {
         return isEnabled;
     }
 
-    public String getType() {
+    public SymbolType getType() {
         return type;
     }
 

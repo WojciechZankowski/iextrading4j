@@ -5,13 +5,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
+import pl.zankowski.iextrading4j.api.util.ListUtil;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 @JsonPropertyOrder({"minute", "average", "notional", "numberOfTrades", "high",
         "low", "volume", "date", "open", "close", "unadjustedClose", "unadjustedVolume",
-        "change", "changeInPercent", "vwap", "label", "changeOverTime"})
+        "change", "changeInPercent", "vwap", "label", "changeOverTime", "simplifyFactor"})
 public class Chart implements Serializable {
 
     private final String minute;
@@ -31,6 +33,7 @@ public class Chart implements Serializable {
     private final BigDecimal vwap;
     private final String label;
     private final BigDecimal changeOverTime;
+    private final List<BigDecimal> simplifyFactor;
 
     @JsonCreator
     public Chart(@JsonProperty("minute") final String minute,
@@ -49,7 +52,8 @@ public class Chart implements Serializable {
                  @JsonProperty("changePercent") final BigDecimal changePercent,
                  @JsonProperty("vwap") final BigDecimal vwap,
                  @JsonProperty("label") final String label,
-                 @JsonProperty("changeOverTime") final BigDecimal changeOverTime) {
+                 @JsonProperty("changeOverTime") final BigDecimal changeOverTime,
+                 @JsonProperty("simplifyFactor") final List<BigDecimal> simplifyFactor) {
         this.minute = minute;
         this.average = average;
         this.notional = notional;
@@ -67,6 +71,7 @@ public class Chart implements Serializable {
         this.vwap = vwap;
         this.label = label;
         this.changeOverTime = changeOverTime;
+        this.simplifyFactor = ListUtil.immutableList(simplifyFactor);
     }
 
     public String getMinute() {
@@ -137,6 +142,10 @@ public class Chart implements Serializable {
         return changeOverTime;
     }
 
+    public List<BigDecimal> getSimplifyFactor() {
+        return simplifyFactor;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -158,14 +167,15 @@ public class Chart implements Serializable {
                 Objects.equal(changePercent, chart.changePercent) &&
                 Objects.equal(vwap, chart.vwap) &&
                 Objects.equal(label, chart.label) &&
-                Objects.equal(changeOverTime, chart.changeOverTime);
+                Objects.equal(changeOverTime, chart.changeOverTime) &&
+                Objects.equal(simplifyFactor, chart.simplifyFactor);
     }
 
     @Override
     public int hashCode() {
         return Objects.hashCode(minute, average, notional, numberOfTrades, high, low, volume,
                 date, open, close, unadjustedClose, unadjustedVolume, change, changePercent,
-                vwap, label, changeOverTime);
+                vwap, label, changeOverTime, simplifyFactor);
     }
 
     @Override
@@ -188,6 +198,7 @@ public class Chart implements Serializable {
                 .add("vwap", vwap)
                 .add("label", label)
                 .add("changeOverTime", changeOverTime)
+                .add("simplifyFactor", simplifyFactor)
                 .toString();
     }
 }

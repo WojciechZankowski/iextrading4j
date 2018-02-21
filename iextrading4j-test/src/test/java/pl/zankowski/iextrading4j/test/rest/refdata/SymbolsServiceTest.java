@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.test.rest.refdata;
 
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.refdata.ExchangeSymbol;
+import pl.zankowski.iextrading4j.api.refdata.SymbolType;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.SymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
 
@@ -35,7 +36,7 @@ public class SymbolsServiceTest extends BaseServiceTest {
         assertThat(aSymbol.getName()).isEqualTo("Agilent Technologies Inc.");
         assertThat(aSymbol.getDate()).isEqualTo(LocalDate.of(2017, 11, 10));
         assertThat(aSymbol.getEnabled()).isTrue();
-        assertThat(aSymbol.getType()).isEqualTo("cs");
+        assertThat(aSymbol.getType()).isEqualTo(SymbolType.CS);
         assertThat(aSymbol.getIexId()).isEqualTo(12042);
 
         final ExchangeSymbol aaSymbol = exchangeSymbols.get(1);
@@ -43,7 +44,7 @@ public class SymbolsServiceTest extends BaseServiceTest {
         assertThat(aaSymbol.getName()).isEqualTo("Alcoa Corporation");
         assertThat(aaSymbol.getDate()).isEqualTo(LocalDate.of(2017, 11, 10));
         assertThat(aaSymbol.getEnabled()).isTrue();
-        assertThat(aaSymbol.getType()).isEqualTo("cs");
+        assertThat(aaSymbol.getType()).isEqualTo(SymbolType.CS);
         assertThat(aaSymbol.getIexId()).isEqualTo(6667);
     }
 

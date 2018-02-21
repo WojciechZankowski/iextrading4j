@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.client.rest.request.stocks;
 
+import com.google.common.collect.Maps;
 import pl.zankowski.iextrading4j.api.stocks.Chart;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
@@ -8,14 +9,32 @@ import javax.ws.rs.core.GenericType;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Map;
 
 public class ChartRequestBuilder extends AbstractStocksRequestBuilder<List<Chart>, ChartRequestBuilder> {
 
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ISO_DATE;
     private static final String SYMBOL_PARAM_NAME = "symbol";
 
+    private final Map<String, String> queryParameters = Maps.newHashMap();
+
     private LocalDate date;
     private ChartRange chartRange;
+
+    public ChartRequestBuilder withChartReset() {
+        this.queryParameters.put("chartReset", Boolean.TRUE.toString());
+        return this;
+    }
+
+    public ChartRequestBuilder withChartSimplify() {
+        this.queryParameters.put("chartSimplify", Boolean.TRUE.toString());
+        return this;
+    }
+
+    public ChartRequestBuilder withChartInterval(final Integer interval) {
+        this.queryParameters.put("chartInterval", String.valueOf(interval));
+        return this;
+    }
 
     public LocalDate getDate() {
         return date;
@@ -51,6 +70,7 @@ public class ChartRequestBuilder extends AbstractStocksRequestBuilder<List<Chart
                 .withPath("/stock/{symbol}/chart")
                 .addPathParam(SYMBOL_PARAM_NAME, getSymbol()).get()
                 .withResponse(new GenericType<List<Chart>>() {})
+                .addQueryParam(queryParameters)
                 .build();
     }
 
@@ -60,6 +80,7 @@ public class ChartRequestBuilder extends AbstractStocksRequestBuilder<List<Chart
                 .addPathParam(SYMBOL_PARAM_NAME, getSymbol())
                 .addPathParam("range", getChartRange().getCode()).get()
                 .withResponse(new GenericType<List<Chart>>() {})
+                .addQueryParam(queryParameters)
                 .build();
     }
 
@@ -69,6 +90,7 @@ public class ChartRequestBuilder extends AbstractStocksRequestBuilder<List<Chart
                 .addPathParam(SYMBOL_PARAM_NAME, getSymbol())
                 .addPathParam("date", DATE_TIME_FORMATTER.format(date)).get()
                 .withResponse(new GenericType<List<Chart>>() {})
+                .addQueryParam(queryParameters)
                 .build();
     }
 

@@ -1,11 +1,13 @@
 package pl.zankowski.iextrading4j.api.stocks;
 
 import com.flextrade.jfixture.JFixture;
+import com.google.common.collect.Lists;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -32,10 +34,12 @@ public class ChartTest {
         final BigDecimal vwap = fixture.create(BigDecimal.class);
         final String label = fixture.create(String.class);
         final BigDecimal changeOverTime = fixture.create(BigDecimal.class);
+        final List<BigDecimal> simplifyFactor = Lists.newArrayList(
+                fixture.collections().createCollection(BigDecimal.class));
 
         final Chart chart = new Chart(minute, average, notional, numberOfTrades, high, low, volume,
                 date, open, close, unadjustedClose, unadjustedVolume, change, changePercent, vwap,
-                label, changeOverTime);
+                label, changeOverTime, simplifyFactor);
 
         assertThat(chart.getMinute()).isEqualTo(minute);
         assertThat(chart.getAverage()).isEqualTo(average);
@@ -54,6 +58,7 @@ public class ChartTest {
         assertThat(chart.getVwap()).isEqualTo(vwap);
         assertThat(chart.getLabel()).isEqualTo(label);
         assertThat(chart.getChangeOverTime()).isEqualTo(changeOverTime);
+        assertThat(chart.getSimplifyFactor()).isEqualTo(simplifyFactor);
     }
 
     @Test

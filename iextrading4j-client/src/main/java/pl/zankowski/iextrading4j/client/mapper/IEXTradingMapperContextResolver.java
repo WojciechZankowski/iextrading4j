@@ -8,6 +8,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import pl.zankowski.iextrading4j.api.marketdata.SystemEventType;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatusReasonType;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatusType;
+import pl.zankowski.iextrading4j.api.refdata.SymbolType;
 import pl.zankowski.iextrading4j.api.stocks.DividendQualification;
 import pl.zankowski.iextrading4j.api.stocks.DividendType;
 
@@ -59,6 +60,9 @@ public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMa
 
         module.addSerializer(DividendType.class, new DividendTypeSerializer());
         module.addDeserializer(DividendType.class, new DividendTypeDeserializer());
+
+        module.addSerializer(SymbolType.class, new SymbolTypeSerializer());
+        module.addDeserializer(SymbolType.class, new SymbolTypeDeserializer());
 
         return module;
     }

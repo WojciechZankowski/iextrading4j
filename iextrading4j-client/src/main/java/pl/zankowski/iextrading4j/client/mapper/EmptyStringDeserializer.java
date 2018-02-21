@@ -21,7 +21,12 @@ public class EmptyStringDeserializer extends StdScalarDeserializer<BigDecimal> {
             return null;
         }
 
-        return parser.getDecimalValue();
+        try {
+            return parser.getDecimalValue();
+        } catch (IOException e) {
+            // At least try, sometimes they return number as a string...
+            return new BigDecimal(val);
+        }
     }
 
 }

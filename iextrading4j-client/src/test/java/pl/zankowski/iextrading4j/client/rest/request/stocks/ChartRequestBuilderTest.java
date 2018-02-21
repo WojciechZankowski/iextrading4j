@@ -66,4 +66,53 @@ public class ChartRequestBuilderTest  {
         assertThat(request.getQueryParams()).isEmpty();
     }
 
+    @Test
+    public void shouldSuccessfullyCreateRequestWithChartReset() {
+        final String symbol = "IBM";
+
+        final RestRequest<List<Chart>> request = new ChartRequestBuilder()
+                .withSymbol(symbol)
+                .withChartReset()
+                .build();
+
+        assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
+        assertThat(request.getPath()).isEqualTo("/stock/{symbol}/chart");
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {});
+        assertThat(request.getPathParams()).containsExactly(entry("symbol", symbol));
+        assertThat(request.getQueryParams()).containsExactly(entry("chartReset", "true"));
+    }
+
+    @Test
+    public void shouldSuccessfullyCreateRequestWithChartSimplify() {
+        final String symbol = "IBM";
+
+        final RestRequest<List<Chart>> request = new ChartRequestBuilder()
+                .withSymbol(symbol)
+                .withChartSimplify()
+                .build();
+
+        assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
+        assertThat(request.getPath()).isEqualTo("/stock/{symbol}/chart");
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {});
+        assertThat(request.getPathParams()).containsExactly(entry("symbol", symbol));
+        assertThat(request.getQueryParams()).containsExactly(entry("chartSimplify", "true"));
+    }
+
+    @Test
+    public void shouldSuccessfullyCreateRequestWithChartInterval() {
+        final String symbol = "IBM";
+        final Integer chartInterval = 5;
+
+        final RestRequest<List<Chart>> request = new ChartRequestBuilder()
+                .withSymbol(symbol)
+                .withChartInterval(chartInterval)
+                .build();
+
+        assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
+        assertThat(request.getPath()).isEqualTo("/stock/{symbol}/chart");
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {});
+        assertThat(request.getPathParams()).containsExactly(entry("symbol", symbol));
+        assertThat(request.getQueryParams()).containsExactly(entry("chartInterval", String.valueOf(chartInterval)));
+    }
+
 }
