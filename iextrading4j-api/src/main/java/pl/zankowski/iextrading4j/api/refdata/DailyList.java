@@ -1,17 +1,24 @@
 package pl.zankowski.iextrading4j.api.refdata;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@JsonPropertyOrder({"recordId", "dailyListTimestamp"})
 public abstract class DailyList implements Serializable {
 
     private final String recordId;
     private final LocalDateTime dailyListTimestamp;
 
-    public DailyList(final String recordId, final LocalDateTime dailyListTimestamp) {
+    @JsonCreator
+    public DailyList(
+            @JsonProperty("RecordID") final String recordId,
+            @JsonProperty("DailyListTimestamp") final LocalDateTime dailyListTimestamp) {
         this.recordId = recordId;
         this.dailyListTimestamp = dailyListTimestamp;
     }
