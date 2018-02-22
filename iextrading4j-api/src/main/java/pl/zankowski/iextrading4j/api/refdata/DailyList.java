@@ -1,5 +1,7 @@
 package pl.zankowski.iextrading4j.api.refdata;
 
+import com.google.common.base.MoreObjects;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -34,5 +36,13 @@ public abstract class DailyList implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(recordId, dailyListTimestamp);
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("recordId", recordId)
+                .add("dailyListTimestamp", dailyListTimestamp)
+                .toString();
     }
 }
