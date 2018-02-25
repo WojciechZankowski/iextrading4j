@@ -7,9 +7,9 @@ import com.fasterxml.jackson.databind.deser.std.StdScalarDeserializer;
 import java.io.IOException;
 import java.math.BigDecimal;
 
-public class EmptyStringDeserializer extends StdScalarDeserializer<BigDecimal> {
+class EmptyStringDeserializer extends StdScalarDeserializer<BigDecimal> {
 
-    public EmptyStringDeserializer() {
+    EmptyStringDeserializer() {
         super(BigDecimal.class);
     }
 

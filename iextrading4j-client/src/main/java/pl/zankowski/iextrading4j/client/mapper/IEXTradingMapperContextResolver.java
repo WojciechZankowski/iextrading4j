@@ -8,6 +8,16 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import pl.zankowski.iextrading4j.api.marketdata.SystemEventType;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatusReasonType;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatusType;
+import pl.zankowski.iextrading4j.api.refdata.DelistingReason;
+import pl.zankowski.iextrading4j.api.refdata.DividendTypeId;
+import pl.zankowski.iextrading4j.api.refdata.FinancialStatus;
+import pl.zankowski.iextrading4j.api.refdata.IssueEvent;
+import pl.zankowski.iextrading4j.api.refdata.IssueSubType;
+import pl.zankowski.iextrading4j.api.refdata.IssueType;
+import pl.zankowski.iextrading4j.api.refdata.ListingCenter;
+import pl.zankowski.iextrading4j.api.refdata.LuldTier;
+import pl.zankowski.iextrading4j.api.refdata.PaymentFrequency;
+import pl.zankowski.iextrading4j.api.refdata.QualifiedDividendType;
 import pl.zankowski.iextrading4j.api.refdata.SymbolType;
 import pl.zankowski.iextrading4j.api.stocks.DividendQualification;
 import pl.zankowski.iextrading4j.api.stocks.DividendType;
@@ -46,6 +56,45 @@ public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMa
 
         module.addDeserializer(BigDecimal.class, new EmptyStringDeserializer());
 
+        module.addSerializer(DelistingReason.class, new DelistingReasonSerializer());
+        module.addDeserializer(DelistingReason.class, new DelistingReasonDeserializer());
+
+        module.addSerializer(DividendQualification.class, new DividendQualificationSerializer());
+        module.addDeserializer(DividendQualification.class, new DividendQualificationDeserializer());
+
+        module.addSerializer(DividendType.class, new DividendTypeSerializer());
+        module.addDeserializer(DividendType.class, new DividendTypeDeserializer());
+
+        module.addSerializer(DividendTypeId.class, new DividendTypeIdSerializer());
+        module.addDeserializer(DividendTypeId.class, new DividendTypeIdDeserializer());
+
+        module.addSerializer(FinancialStatus.class, new FinancialStatusSerializer());
+        module.addDeserializer(FinancialStatus.class, new FinancialStatusDeserializer());
+
+        module.addSerializer(IssueEvent.class, new IssueEventSerializer());
+        module.addDeserializer(IssueEvent.class, new IssueEventDeserializer());
+
+        module.addSerializer(IssueSubType.class, new IssueSubTypeSerializer());
+        module.addDeserializer(IssueSubType.class, new IssueSubTypeDeserializer());
+
+        module.addSerializer(IssueType.class, new IssueTypeSerializer());
+        module.addDeserializer(IssueType.class, new IssueTypeDeserializer());
+
+        module.addSerializer(ListingCenter.class, new ListingCenterSerializer());
+        module.addDeserializer(ListingCenter.class, new ListingCenterDeserializer());
+
+        module.addSerializer(LuldTier.class, new LuldTierSerializer());
+        module.addDeserializer(LuldTier.class, new LuldTierDeserializer());
+
+        module.addSerializer(PaymentFrequency.class, new PaymentFrequencySerializer());
+        module.addDeserializer(PaymentFrequency.class, new PaymentFrequencyDeserializer());
+
+        module.addSerializer(QualifiedDividendType.class, new QualifiedDividendTypeSerializer());
+        module.addDeserializer(QualifiedDividendType.class, new QualifiedDividendTypeDeserializer());
+
+        module.addSerializer(SymbolType.class, new SymbolTypeSerializer());
+        module.addDeserializer(SymbolType.class, new SymbolTypeDeserializer());
+
         module.addSerializer(SystemEventType.class, new SystemEventTypeSerializer());
         module.addDeserializer(SystemEventType.class, new SystemEventTypeDeserializer());
 
@@ -54,15 +103,6 @@ public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMa
 
         module.addSerializer(TradingStatusReasonType.class, new TradingStatusReasonTypeSerializer());
         module.addDeserializer(TradingStatusReasonType.class, new TradingStatusReasonTypeDeserializer());
-
-        module.addSerializer(DividendQualification.class, new DividendQualificationSerializer());
-        module.addDeserializer(DividendQualification.class, new DividendQualificationDeserializer());
-
-        module.addSerializer(DividendType.class, new DividendTypeSerializer());
-        module.addDeserializer(DividendType.class, new DividendTypeDeserializer());
-
-        module.addSerializer(SymbolType.class, new SymbolTypeSerializer());
-        module.addDeserializer(SymbolType.class, new SymbolTypeDeserializer());
 
         return module;
     }

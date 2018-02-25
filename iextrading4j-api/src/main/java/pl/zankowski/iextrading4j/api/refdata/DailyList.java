@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@JsonPropertyOrder({"recordId", "dailyListTimestamp"})
+@JsonPropertyOrder({"RecordId", "DailyListTimestamp"})
 public abstract class DailyList implements Serializable {
 
     private final String recordId;

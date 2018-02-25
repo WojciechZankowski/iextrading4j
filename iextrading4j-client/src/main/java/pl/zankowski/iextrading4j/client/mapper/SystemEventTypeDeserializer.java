@@ -1,37 +1,29 @@
 package pl.zankowski.iextrading4j.client.mapper;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.ImmutableBiMap;
 import pl.zankowski.iextrading4j.api.marketdata.SystemEventType;
 
-import java.io.IOException;
+import static pl.zankowski.iextrading4j.api.marketdata.SystemEventType.MESSAGES_END;
+import static pl.zankowski.iextrading4j.api.marketdata.SystemEventType.MESSAGES_START;
+import static pl.zankowski.iextrading4j.api.marketdata.SystemEventType.REGULAR_MARKET_HOURS_END;
+import static pl.zankowski.iextrading4j.api.marketdata.SystemEventType.REGULAR_MARKET_HOURS_START;
+import static pl.zankowski.iextrading4j.api.marketdata.SystemEventType.SYSTEM_HOURS_END;
+import static pl.zankowski.iextrading4j.api.marketdata.SystemEventType.SYSTEM_HOURS_START;
 
-public class SystemEventTypeDeserializer extends JsonDeserializer<SystemEventType> {
+class SystemEventTypeDeserializer extends AbstractEnumDeserializer<SystemEventType> {
 
-    @Override
-    public SystemEventType deserialize(final JsonParser parser, final DeserializationContext ctxt) throws IOException {
-        final String value = parser.getValueAsString();
-        if (value == null) {
-            return SystemEventType.UNKNOWN;
-        }
+    static final BiMap<String, SystemEventType> SYSTEM_EVENT_TYPE_MAPPER = ImmutableBiMap.<String, SystemEventType>builder()
+            .put("O", MESSAGES_START)
+            .put("S", SYSTEM_HOURS_START)
+            .put("R", REGULAR_MARKET_HOURS_START)
+            .put("M", REGULAR_MARKET_HOURS_END)
+            .put("E", SYSTEM_HOURS_END)
+            .put("C", MESSAGES_END)
+            .build();
 
-        switch (value) {
-            case "O":
-                return SystemEventType.MESSAGES_START;
-            case "S":
-                return SystemEventType.SYSTEM_HOURS_START;
-            case "R":
-                return SystemEventType.REGULAR_MARKET_HOURS_START;
-            case "M":
-                return SystemEventType.REGULAR_MARKET_HOURS_END;
-            case "E":
-                return SystemEventType.SYSTEM_HOURS_END;
-            case "C":
-                return SystemEventType.MESSAGES_END;
-            default:
-                return SystemEventType.UNKNOWN;
-        }
+    SystemEventTypeDeserializer() {
+        super(SYSTEM_EVENT_TYPE_MAPPER, SystemEventType.UNKNOWN);
     }
 
 }

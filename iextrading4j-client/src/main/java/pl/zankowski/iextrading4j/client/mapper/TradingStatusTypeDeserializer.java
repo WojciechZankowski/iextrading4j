@@ -1,32 +1,26 @@
 package pl.zankowski.iextrading4j.client.mapper;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.ImmutableBiMap;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatusType;
 
-import java.io.IOException;
+import static pl.zankowski.iextrading4j.api.marketdata.TradingStatusType.TRADING_HALTED;
+import static pl.zankowski.iextrading4j.api.marketdata.TradingStatusType.TRADING_HALT_RELEASED_INTO_ORDER_ACCEPTANCE_PERIOD;
+import static pl.zankowski.iextrading4j.api.marketdata.TradingStatusType.TRADING_ON_IEX;
+import static pl.zankowski.iextrading4j.api.marketdata.TradingStatusType.TRADING_PAUSED_AND_ORDER_ACCEPTANCE_PERIOD_ON_IEX;
 
-public class TradingStatusTypeDeserializer extends JsonDeserializer<TradingStatusType> {
+class TradingStatusTypeDeserializer extends AbstractEnumDeserializer<TradingStatusType> {
 
-    @Override
-    public TradingStatusType deserialize(final JsonParser parser, final DeserializationContext ctxt) throws IOException {
-        final String value = parser.getValueAsString();
-        if (value == null) {
-            return TradingStatusType.UNKNOWN;
-        }
+    static final BiMap<String, TradingStatusType> TRADING_STATUS_TYPE_MAPPER = ImmutableBiMap.<String, TradingStatusType>builder()
+            .put("H", TRADING_HALTED)
+            .put("O", TRADING_HALT_RELEASED_INTO_ORDER_ACCEPTANCE_PERIOD)
+            .put("P", TRADING_PAUSED_AND_ORDER_ACCEPTANCE_PERIOD_ON_IEX)
+            .put("T", TRADING_ON_IEX)
+            .build();
 
-        if ("H".equals(value)) {
-            return TradingStatusType.TRADING_HALTED;
-        } else if ("O".equals(value)) {
-            return TradingStatusType.TRADING_HALT_RELEASED_INTO_ORDER_ACCEPTANCE_PERIOD;
-        } else if ("P".equals(value)) {
-            return TradingStatusType.TRADING_PAUSED_AND_ORDER_ACCEPTANCE_PERIOD_ON_IEX;
-        } else if ("T".equals(value)) {
-            return TradingStatusType.TRADING_ON_IEX;
-        }
-
-        return TradingStatusType.UNKNOWN;
+    TradingStatusTypeDeserializer() {
+        super(TRADING_STATUS_TYPE_MAPPER, TradingStatusType.UNKNOWN);
     }
+
 
 }

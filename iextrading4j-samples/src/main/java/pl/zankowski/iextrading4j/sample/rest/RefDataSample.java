@@ -1,7 +1,7 @@
 package pl.zankowski.iextrading4j.sample.rest;
 
 import pl.zankowski.iextrading4j.api.refdata.ExchangeSymbol;
-import pl.zankowski.iextrading4j.api.refdata.NextDayExDate;
+import pl.zankowski.iextrading4j.api.refdata.IEXNextDayExDate;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.NextDayExDateRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.SymbolsRequestBuilder;
@@ -26,10 +26,10 @@ public class RefDataSample {
     }
 
     private void nextDayExDateRequestSample() {
-        final List<NextDayExDate> nextDayExDateList = iexTradingClient.executeRequest(new NextDayExDateRequestBuilder()
+        final List<IEXNextDayExDate> IEXNextDayExDateList = iexTradingClient.executeRequest(new NextDayExDateRequestBuilder()
                 .withSample()
                 .build());
-        System.out.println(nextDayExDateList);
+        System.out.println(IEXNextDayExDateList);
     }
 
 }

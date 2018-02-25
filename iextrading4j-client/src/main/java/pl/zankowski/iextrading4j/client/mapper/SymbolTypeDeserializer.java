@@ -1,26 +1,39 @@
 package pl.zankowski.iextrading4j.client.mapper;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.ImmutableBiMap;
 import pl.zankowski.iextrading4j.api.refdata.SymbolType;
 
-import java.io.IOException;
+import static pl.zankowski.iextrading4j.api.refdata.SymbolType.ADR;
+import static pl.zankowski.iextrading4j.api.refdata.SymbolType.BO;
+import static pl.zankowski.iextrading4j.api.refdata.SymbolType.CLOSED_END_FUND;
+import static pl.zankowski.iextrading4j.api.refdata.SymbolType.COMMON_STOCK;
+import static pl.zankowski.iextrading4j.api.refdata.SymbolType.ETF;
+import static pl.zankowski.iextrading4j.api.refdata.SymbolType.LIMITED_PARTNERSHIP;
+import static pl.zankowski.iextrading4j.api.refdata.SymbolType.NOT_AVAILABLE;
+import static pl.zankowski.iextrading4j.api.refdata.SymbolType.PS;
+import static pl.zankowski.iextrading4j.api.refdata.SymbolType.REIT;
+import static pl.zankowski.iextrading4j.api.refdata.SymbolType.SECONDARY_ISSUE;
+import static pl.zankowski.iextrading4j.api.refdata.SymbolType.SU;
 
-public class SymbolTypeDeserializer extends JsonDeserializer<SymbolType> {
+class SymbolTypeDeserializer extends AbstractEnumDeserializer<SymbolType> {
 
-    @Override
-    public SymbolType deserialize(final JsonParser parser, final DeserializationContext ctxt) throws IOException {
-        final String value = parser.getValueAsString();
-        if (value == null || value.isEmpty()) {
-            return SymbolType.UNKNOWN;
-        }
+    static final BiMap<String, SymbolType> SYMBOL_TYPE_MAPPER = ImmutableBiMap.<String, SymbolType>builder()
+            .put("ad", ADR)
+            .put("re", REIT)
+            .put("ce", CLOSED_END_FUND)
+            .put("si", SECONDARY_ISSUE)
+            .put("lp", LIMITED_PARTNERSHIP)
+            .put("cs", COMMON_STOCK)
+            .put("et", ETF)
+            .put("ps", PS)
+            .put("bo", BO)
+            .put("su", SU)
+            .put("N/A", NOT_AVAILABLE)
+            .build();
 
-        switch (value) {
-            case "N/A":
-                return SymbolType.NOT_AVAILABLE;
-            default:
-                return SymbolType.valueOf(value.toUpperCase());
-        }
+    SymbolTypeDeserializer() {
+        super(SYMBOL_TYPE_MAPPER, SymbolType.UNKNOWN);
     }
+
 }

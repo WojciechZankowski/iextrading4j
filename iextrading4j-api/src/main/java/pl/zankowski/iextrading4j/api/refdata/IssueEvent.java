@@ -1,0 +1,15 @@
+package pl.zankowski.iextrading4j.api.refdata;
+
+public enum IssueEvent {
+
+    SECURITY_ADDITION,
+    ANTICIPATED_SECURITY_ADDITION,
+    ISSUE_SUSPENSION,
+    ISSUE_DELETION,
+    NAME_SYMBOL_CHANGE,
+    FINANCIAL_STATUS_CHANGE,
+    CUSIP_CHANGE,
+    TRADING_DETAILS_CHANGE,
+    UNKNOWN;
+
+}

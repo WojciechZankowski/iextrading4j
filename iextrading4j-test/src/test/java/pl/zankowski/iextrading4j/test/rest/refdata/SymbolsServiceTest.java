@@ -36,7 +36,7 @@ public class SymbolsServiceTest extends BaseServiceTest {
         assertThat(aSymbol.getName()).isEqualTo("Agilent Technologies Inc.");
         assertThat(aSymbol.getDate()).isEqualTo(LocalDate.of(2017, 11, 10));
         assertThat(aSymbol.getEnabled()).isTrue();
-        assertThat(aSymbol.getType()).isEqualTo(SymbolType.CS);
+        assertThat(aSymbol.getType()).isEqualTo(SymbolType.COMMON_STOCK);
         assertThat(aSymbol.getIexId()).isEqualTo(12042);
 
         final ExchangeSymbol aaSymbol = exchangeSymbols.get(1);
@@ -44,7 +44,7 @@ public class SymbolsServiceTest extends BaseServiceTest {
         assertThat(aaSymbol.getName()).isEqualTo("Alcoa Corporation");
         assertThat(aaSymbol.getDate()).isEqualTo(LocalDate.of(2017, 11, 10));
         assertThat(aaSymbol.getEnabled()).isTrue();
-        assertThat(aaSymbol.getType()).isEqualTo(SymbolType.CS);
+        assertThat(aaSymbol.getType()).isEqualTo(SymbolType.COMMON_STOCK);
         assertThat(aaSymbol.getIexId()).isEqualTo(6667);
     }
 

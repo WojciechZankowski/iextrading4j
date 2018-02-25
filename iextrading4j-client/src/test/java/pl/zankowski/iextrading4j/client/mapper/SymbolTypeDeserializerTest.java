@@ -60,7 +60,7 @@ public class SymbolTypeDeserializerTest {
 
         final SymbolType result = deserializer.deserialize(parserMock, contextMock);
 
-        assertThat(result).isEqualTo(SymbolType.CS);
+        assertThat(result).isEqualTo(SymbolType.COMMON_STOCK);
     }
 
 }

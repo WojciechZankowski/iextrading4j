@@ -64,7 +64,7 @@ public class SymbolTypeSerializerTest {
     public void shouldWriteStringFromValue() throws IOException {
         final JsonGenerator jsonGeneratorMock = mock(JsonGenerator.class);
         final SerializerProvider serializerProviderMock = mock(SerializerProvider.class);
-        final SymbolType input = SymbolType.CS;
+        final SymbolType input = SymbolType.COMMON_STOCK;
 
         serializer.serialize(input, jsonGeneratorMock, serializerProviderMock);
 

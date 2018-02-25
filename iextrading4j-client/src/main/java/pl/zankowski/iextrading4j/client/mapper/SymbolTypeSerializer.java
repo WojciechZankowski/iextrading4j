@@ -1,25 +1,12 @@
 package pl.zankowski.iextrading4j.client.mapper;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import pl.zankowski.iextrading4j.api.refdata.SymbolType;
 
-import java.io.IOException;
+import static pl.zankowski.iextrading4j.client.mapper.SymbolTypeDeserializer.SYMBOL_TYPE_MAPPER;
 
-public class SymbolTypeSerializer extends JsonSerializer<SymbolType> {
+class SymbolTypeSerializer extends AbstractEnumSerializer<SymbolType> {
 
-    @Override
-    public void serialize(final SymbolType value, final JsonGenerator gen, final SerializerProvider serializers) throws IOException {
-        if (value == null || value == SymbolType.UNKNOWN) {
-            gen.writeNull();
-            return;
-        }
-
-        if (value == SymbolType.NOT_AVAILABLE) {
-            gen.writeString("N/A");
-        } else {
-            gen.writeString(value.name().toLowerCase());
-        }
+    SymbolTypeSerializer() {
+        super(SYMBOL_TYPE_MAPPER.inverse(), SymbolType.UNKNOWN);
     }
 }
