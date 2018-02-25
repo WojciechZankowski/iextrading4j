@@ -7,9 +7,9 @@ import com.fasterxml.jackson.databind.deser.std.StdScalarDeserializer;
 import java.io.IOException;
 import java.math.BigDecimal;
 
-class EmptyStringDeserializer extends StdScalarDeserializer<BigDecimal> {
+class HackyBigDecimalDeserializer extends StdScalarDeserializer<BigDecimal> {
 
-    EmptyStringDeserializer() {
+    HackyBigDecimalDeserializer() {
         super(BigDecimal.class);
     }
 
@@ -17,14 +17,16 @@ class EmptyStringDeserializer extends StdScalarDeserializer<BigDecimal> {
     public BigDecimal deserialize(final JsonParser parser, final DeserializationContext ctx) throws IOException {
         final String val = parser.getValueAsString();
 
-        if ("N/A".equalsIgnoreCase(val)) {
+        // #HACK Sometimes instead of a null they return N/A in number field
+        // #HACK In Daily List they return empty String if number is N/A
+        if (val == null || "N/A".equalsIgnoreCase(val) || val.isEmpty()) {
             return null;
         }
 
         try {
             return parser.getDecimalValue();
         } catch (IOException e) {
-            // At least try, sometimes they return number as a string...
+            // #HACK In Daily List they return numbers as a String
             return new BigDecimal(val);
         }
     }

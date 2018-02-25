@@ -5,52 +5,50 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import pl.zankowski.iextrading4j.api.refdata.Flag;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class EmptyStringDeserializerTest {
+public class FlagDeserializerTest {
 
-    private EmptyStringDeserializer emptyStringDeserializer;
+    private FlagDeserializer deserializer;
 
     @Before
     public void setUp() {
-        emptyStringDeserializer = new EmptyStringDeserializer();
+        deserializer = new FlagDeserializer();
     }
 
     @After
     public void tearDown() {
-        emptyStringDeserializer = null;
+        deserializer = null;
     }
 
     @Test
-    public void shouldReturnNullIfValueIsNull() throws IOException {
+    public void shouldReturnUnknownTypeIfValueIsNull() throws IOException {
         final JsonParser parserMock = mock(JsonParser.class);
         final DeserializationContext contextMock = mock(DeserializationContext.class);
 
-        when(parserMock.getValueAsString()).thenReturn("N/A");
+        when(parserMock.getValueAsString()).thenReturn(null);
 
-        final BigDecimal result = emptyStringDeserializer.deserialize(parserMock, contextMock);
+        final Flag result = deserializer.deserialize(parserMock, contextMock);
 
-        assertThat(result).isNull();
+        assertThat(result).isEqualTo(Flag.UNKNOWN);
     }
 
     @Test
     public void shouldCreateEnumBasedOnValue() throws IOException {
         final JsonParser parserMock = mock(JsonParser.class);
         final DeserializationContext contextMock = mock(DeserializationContext.class);
-        final BigDecimal value = BigDecimal.valueOf(3);
 
-        when(parserMock.getValueAsString()).thenReturn(value.toString());
-        when(parserMock.getDecimalValue()).thenReturn(value);
+        when(parserMock.getValueAsString()).thenReturn("Y");
 
-        final BigDecimal result = emptyStringDeserializer.deserialize(parserMock, contextMock);
+        final Flag result = deserializer.deserialize(parserMock, contextMock);
 
-        assertThat(result).isEqualTo(value);
+        assertThat(result).isEqualTo(Flag.YES);
     }
 
 }

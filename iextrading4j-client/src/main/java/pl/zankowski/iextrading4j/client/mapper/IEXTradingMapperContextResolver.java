@@ -11,6 +11,7 @@ import pl.zankowski.iextrading4j.api.marketdata.TradingStatusType;
 import pl.zankowski.iextrading4j.api.refdata.DelistingReason;
 import pl.zankowski.iextrading4j.api.refdata.DividendTypeId;
 import pl.zankowski.iextrading4j.api.refdata.FinancialStatus;
+import pl.zankowski.iextrading4j.api.refdata.Flag;
 import pl.zankowski.iextrading4j.api.refdata.IssueEvent;
 import pl.zankowski.iextrading4j.api.refdata.IssueSubType;
 import pl.zankowski.iextrading4j.api.refdata.IssueType;
@@ -25,6 +26,7 @@ import pl.zankowski.iextrading4j.api.stocks.DividendType;
 import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.Provider;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Provider
 public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMapper> {
@@ -54,7 +56,8 @@ public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMa
     private Module iexTradingModule() {
         final SimpleModule module = new SimpleModule("iexTradingModule");
 
-        module.addDeserializer(BigDecimal.class, new EmptyStringDeserializer());
+        module.addDeserializer(BigDecimal.class, new HackyBigDecimalDeserializer());
+        module.addDeserializer(LocalDate.class, new HackyLocalDateDeserializer());
 
         module.addSerializer(DelistingReason.class, new DelistingReasonSerializer());
         module.addDeserializer(DelistingReason.class, new DelistingReasonDeserializer());
@@ -70,6 +73,9 @@ public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMa
 
         module.addSerializer(FinancialStatus.class, new FinancialStatusSerializer());
         module.addDeserializer(FinancialStatus.class, new FinancialStatusDeserializer());
+
+        module.addSerializer(Flag.class, new FlagSerializer());
+        module.addDeserializer(Flag.class, new FlagDeserializer());
 
         module.addSerializer(IssueEvent.class, new IssueEventSerializer());
         module.addDeserializer(IssueEvent.class, new IssueEventDeserializer());

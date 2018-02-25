@@ -7,7 +7,7 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import javax.ws.rs.core.GenericType;
 import java.util.List;
 
-public class NextDayExDateRequestBuilder extends AbstractDailyListRequestBuilder<List<IEXNextDayExDate>, NextDayExDateRequestBuilder> {
+public class IEXNextDayExDateRequestBuilder extends AbstractDailyListRequestBuilder<List<IEXNextDayExDate>, IEXNextDayExDateRequestBuilder> {
 
     @Override
     public RestRequest<List<IEXNextDayExDate>> build() {
