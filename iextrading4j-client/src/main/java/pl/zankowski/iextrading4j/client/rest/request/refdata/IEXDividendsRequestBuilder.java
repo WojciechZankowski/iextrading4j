@@ -17,4 +17,5 @@ public class IEXDividendsRequestBuilder extends AbstractDailyListRequestBuilder<
                 .withResponse(new GenericType<List<IEXDividends>>() {})
                 .build();
     }
+
 }

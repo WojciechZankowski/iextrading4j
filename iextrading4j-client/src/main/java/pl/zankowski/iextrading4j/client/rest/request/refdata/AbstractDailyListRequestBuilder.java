@@ -12,8 +12,10 @@ public abstract class AbstractDailyListRequestBuilder<R, B extends IRestRequestB
     private boolean sample;
     private LocalDate date;
 
-    public String getPeriod() {
-        return sample ? "sample" : DATE_PARAM_FORMATTER.format(date);
+    String getPeriod() {
+        return sample
+                ? "sample"
+                : date == null ? "" : DATE_PARAM_FORMATTER.format(date);
     }
 
     public B withDate(final LocalDate date) {
