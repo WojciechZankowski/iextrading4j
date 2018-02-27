@@ -10,6 +10,7 @@ import static pl.zankowski.iextrading4j.api.refdata.IssueEvent.FINANCIAL_STATUS_
 import static pl.zankowski.iextrading4j.api.refdata.IssueEvent.ISSUE_DELETION;
 import static pl.zankowski.iextrading4j.api.refdata.IssueEvent.ISSUE_SUSPENSION;
 import static pl.zankowski.iextrading4j.api.refdata.IssueEvent.NAME_SYMBOL_CHANGE;
+import static pl.zankowski.iextrading4j.api.refdata.IssueEvent.NOT_AVAILABLE;
 import static pl.zankowski.iextrading4j.api.refdata.IssueEvent.SECURITY_ADDITION;
 import static pl.zankowski.iextrading4j.api.refdata.IssueEvent.TRADING_DETAILS_CHANGE;
 
@@ -24,6 +25,7 @@ class IssueEventDeserializer extends AbstractEnumDeserializer<IssueEvent> {
             .put("FS", FINANCIAL_STATUS_CHANGE)
             .put("CC", CUSIP_CHANGE)
             .put("TD", TRADING_DETAILS_CHANGE)
+            .put("", NOT_AVAILABLE)
             .build();
 
     IssueEventDeserializer() {

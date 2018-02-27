@@ -1,0 +1,32 @@
+[
+  {
+    "RecordID": " DV20171108154436478",
+    "DailyListTimestamp": "2017-11-08T17:00:00",
+    "EventType": "CHANGE",
+    "SymbolinINETSymbology": "ZEXIT",
+    "SymbolinCQSSymbology": "ZEXIT",
+    "SymbolinCMSSymbology": "ZEXIT",
+    "SecurityName": "ZEXIT Common Stock",
+    "CompanyName": "ZEXIT Test Company",
+    "DeclarationDate": "2017-11-01",
+    "AmountDescription": "fnl",
+    "PaymentFrequency": "O",
+    "ExDate": "2017-11-09",
+    "RecordDate": "2017-11-13",
+    "PaymentDate": "2017-11-17",
+    "DividendTypeID": "XS",
+    "StockAdjustmentFactor": "1.1",
+    "StockAmount": ".1",
+    "CashAmount": "0",
+    "PostSplitShares": "0",
+    "PreSplitShares": "0",
+    "QualifiedDividend": "Y",
+    "ExercisePriceAmount": "0",
+    "ElectionorExpirationDate": "0",
+    "GrossAmount": "0",
+    "NetAmount": "0",
+    "BasisNotes": "",
+    "NotesforEachEntry": "ZEXIT is paying a 10% stock dividend",
+    "RecordUpdateTime": "2017-11-08T16:48:47"
+  }
+]

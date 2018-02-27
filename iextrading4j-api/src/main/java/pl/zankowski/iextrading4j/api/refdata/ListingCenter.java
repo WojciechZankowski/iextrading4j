@@ -19,6 +19,7 @@ public enum ListingCenter {
     NASDAQ_PSX,
     CBOE_BYX,
     CBOE_BZX,
+    NOT_AVAILABLE,
     UNKNOWN;
 
 }

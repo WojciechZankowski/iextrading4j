@@ -17,6 +17,7 @@ import static pl.zankowski.iextrading4j.api.refdata.ListingCenter.NASDAQ_BX;
 import static pl.zankowski.iextrading4j.api.refdata.ListingCenter.NASDAQ_PSX;
 import static pl.zankowski.iextrading4j.api.refdata.ListingCenter.NASDAQ_STOCK_EXCHANGE;
 import static pl.zankowski.iextrading4j.api.refdata.ListingCenter.NEW_YORK_STOCK_EXCHANGE;
+import static pl.zankowski.iextrading4j.api.refdata.ListingCenter.NOT_AVAILABLE;
 import static pl.zankowski.iextrading4j.api.refdata.ListingCenter.NYSE_AMERICAN;
 import static pl.zankowski.iextrading4j.api.refdata.ListingCenter.NYSE_ARCA;
 import static pl.zankowski.iextrading4j.api.refdata.ListingCenter.NYSE_NATIONAL;
@@ -42,6 +43,7 @@ class ListingCenterDeserializer extends AbstractEnumDeserializer<ListingCenter> 
             .put("X", NASDAQ_PSX)
             .put("Y", CBOE_BYX)
             .put("Z", CBOE_BZX)
+            .put("", NOT_AVAILABLE)
             .build();
 
     ListingCenterDeserializer() {

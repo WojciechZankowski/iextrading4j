@@ -13,5 +13,6 @@ public enum FinancialStatus {
     CREATIONS_SUSPENDED,
     REDEMPTIONS_SUSPENDED,
     LIQUIDATION,
+    NOT_AVAILABLE,
     UNKNOWN;
 }

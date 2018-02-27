@@ -14,6 +14,7 @@ import static pl.zankowski.iextrading4j.api.refdata.FinancialStatus.CREATIONS_SU
 import static pl.zankowski.iextrading4j.api.refdata.FinancialStatus.LATE_FILING;
 import static pl.zankowski.iextrading4j.api.refdata.FinancialStatus.LIQUIDATION;
 import static pl.zankowski.iextrading4j.api.refdata.FinancialStatus.NORMAL;
+import static pl.zankowski.iextrading4j.api.refdata.FinancialStatus.NOT_AVAILABLE;
 import static pl.zankowski.iextrading4j.api.refdata.FinancialStatus.REDEMPTIONS_SUSPENDED;
 import static pl.zankowski.iextrading4j.api.refdata.FinancialStatus.UNKNOWN;
 
@@ -31,6 +32,7 @@ class FinancialStatusDeserializer extends AbstractEnumDeserializer<FinancialStat
             .put("8", CREATIONS_SUSPENDED)
             .put("9", REDEMPTIONS_SUSPENDED)
             .put("A", LIQUIDATION)
+            .put("", NOT_AVAILABLE)
             .build();
 
     FinancialStatusDeserializer() {

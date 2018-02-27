@@ -10,6 +10,7 @@ public enum IssueEvent {
     FINANCIAL_STATUS_CHANGE,
     CUSIP_CHANGE,
     TRADING_DETAILS_CHANGE,
+    NOT_AVAILABLE,
     UNKNOWN;
 
 }
