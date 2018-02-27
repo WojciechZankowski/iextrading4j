@@ -145,10 +145,10 @@ public class StocksSample {
     }
 
     private void openCloseRequestSample() {
-        final OpenClose openClose = iexTradingClient.executeRequest(new OpenCloseRequestBuilder()
+        final Ohlc ohlc = iexTradingClient.executeRequest(new OpenCloseRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(openClose);
+        System.out.println(ohlc);
     }
 
     private void peersRequestSample() {

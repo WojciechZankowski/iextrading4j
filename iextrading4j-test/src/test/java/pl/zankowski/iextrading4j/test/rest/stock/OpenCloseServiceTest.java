@@ -1,7 +1,7 @@
 package pl.zankowski.iextrading4j.test.rest.stock;
 
 import org.junit.Test;
-import pl.zankowski.iextrading4j.api.stocks.OpenClose;
+import pl.zankowski.iextrading4j.api.stocks.Ohlc;
 import pl.zankowski.iextrading4j.api.stocks.Point;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.OpenCloseRequestBuilder;
 import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
@@ -27,17 +27,20 @@ public class OpenCloseServiceTest extends BaseServiceTest {
                         .withHeader("Content-Type", "application/json")
                         .withBodyFile("/rest/stock/OpenCloseResponse.json")));
 
-        final OpenClose openClose = iexTradingClient.executeRequest(new OpenCloseRequestBuilder()
+        final Ohlc ohlc = iexTradingClient.executeRequest(new OpenCloseRequestBuilder()
                 .withSymbol("aapl")
                 .build());
 
-        final Point open = openClose.getOpen();
+        final Point open = ohlc.getOpen();
         assertThat(open.getPrice()).isEqualTo(BigDecimal.valueOf(170.89));
         assertThat(open.getTime()).isEqualTo(1510929000472L);
 
-        final Point close = openClose.getClose();
+        final Point close = ohlc.getClose();
         assertThat(close.getPrice()).isEqualTo(BigDecimal.valueOf(171.1));
         assertThat(close.getTime()).isEqualTo(1510866000375L);
+
+        assertThat(ohlc.getHigh()).isEqualTo(BigDecimal.valueOf(172.2));
+        assertThat(ohlc.getLow()).isEqualTo(BigDecimal.valueOf(170.44));
     }
 
 }
