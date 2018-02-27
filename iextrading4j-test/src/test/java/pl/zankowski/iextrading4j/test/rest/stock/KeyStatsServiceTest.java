@@ -81,6 +81,7 @@ public class KeyStatsServiceTest extends BaseServiceTest {
         assertThat(keyStats.getMonth3ChangePercent()).isEqualTo(BigDecimal.valueOf(0.0630630630630631));
         assertThat(keyStats.getMonth1ChangePercent()).isEqualTo(BigDecimal.valueOf(0.07017763322491868));
         assertThat(keyStats.getDay5ChangePercent()).isEqualTo(BigDecimal.valueOf(-0.020438541249212763));
+        assertThat(keyStats.getDay30ChangePercent()).isEqualTo(BigDecimal.valueOf(0.010616070924388703));
     }
 
 }
