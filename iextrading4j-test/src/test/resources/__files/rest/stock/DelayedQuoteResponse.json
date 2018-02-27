@@ -1,6 +1,8 @@
 {
   "symbol": "AAPL",
   "delayedPrice": 170.5,
+  "high":180.48,
+  "low":178.83,
   "delayedSize": 9,
   "delayedPriceTime": 1510942340633,
   "processedTime": 1510943241506

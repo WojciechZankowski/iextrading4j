@@ -32,6 +32,8 @@ public class DelayedQuoteServiceTest extends BaseServiceTest {
 
         assertThat(delayedQuote.getSymbol()).isEqualTo("AAPL");
         assertThat(delayedQuote.getDelayedPrice()).isEqualTo(BigDecimal.valueOf(170.5));
+        assertThat(delayedQuote.getHigh()).isEqualTo(BigDecimal.valueOf(180.48));
+        assertThat(delayedQuote.getLow()).isEqualTo(BigDecimal.valueOf(178.83));
         assertThat(delayedQuote.getDelayedSize()).isEqualTo(BigDecimal.valueOf(9));
         assertThat(delayedQuote.getDelayedPriceTime()).isEqualTo(1510942340633L);
         assertThat(delayedQuote.getProcessedTime()).isEqualTo(1510943241506L);

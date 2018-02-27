@@ -9,12 +9,14 @@ import com.google.common.base.Objects;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-@JsonPropertyOrder({"symbol", "delayedPrice", "delayedSize", "delayedPriceTime",
+@JsonPropertyOrder({"symbol", "delayedPrice", "high", "low", "delayedSize", "delayedPriceTime",
         "processedTime"})
 public class DelayedQuote implements Serializable {
 
     private final String symbol;
     private final BigDecimal delayedPrice;
+    private final BigDecimal high;
+    private final BigDecimal low;
     private final BigDecimal delayedSize;
     private final Long delayedPriceTime;
     private final Long processedTime;
@@ -22,11 +24,15 @@ public class DelayedQuote implements Serializable {
     @JsonCreator
     public DelayedQuote(@JsonProperty("symbol") final String symbol,
                         @JsonProperty("delayedPrice") final BigDecimal delayedPrice,
+                        @JsonProperty("high") final BigDecimal high,
+                        @JsonProperty("low") final BigDecimal low,
                         @JsonProperty("delayedSize") final BigDecimal delayedSize,
                         @JsonProperty("delayedPriceTime") final Long delayedPriceTime,
                         @JsonProperty("processedTime") final Long processedTime) {
         this.symbol = symbol;
         this.delayedPrice = delayedPrice;
+        this.high = high;
+        this.low = low;
         this.delayedSize = delayedSize;
         this.delayedPriceTime = delayedPriceTime;
         this.processedTime = processedTime;
@@ -38,6 +44,14 @@ public class DelayedQuote implements Serializable {
 
     public BigDecimal getDelayedPrice() {
         return delayedPrice;
+    }
+
+    public BigDecimal getHigh() {
+        return high;
+    }
+
+    public BigDecimal getLow() {
+        return low;
     }
 
     public BigDecimal getDelayedSize() {
@@ -53,12 +67,14 @@ public class DelayedQuote implements Serializable {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        DelayedQuote that = (DelayedQuote) o;
+        final DelayedQuote that = (DelayedQuote) o;
         return Objects.equal(symbol, that.symbol) &&
                 Objects.equal(delayedPrice, that.delayedPrice) &&
+                Objects.equal(high, that.high) &&
+                Objects.equal(low, that.low) &&
                 Objects.equal(delayedSize, that.delayedSize) &&
                 Objects.equal(delayedPriceTime, that.delayedPriceTime) &&
                 Objects.equal(processedTime, that.processedTime);
@@ -66,7 +82,7 @@ public class DelayedQuote implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(symbol, delayedPrice, delayedSize, delayedPriceTime, processedTime);
+        return Objects.hashCode(symbol, delayedPrice, high, low, delayedSize, delayedPriceTime, processedTime);
     }
 
     @Override
@@ -74,6 +90,8 @@ public class DelayedQuote implements Serializable {
         return MoreObjects.toStringHelper(this)
                 .add("symbol", symbol)
                 .add("delayedPrice", delayedPrice)
+                .add("high", high)
+                .add("low", low)
                 .add("delayedSize", delayedSize)
                 .add("delayedPriceTime", delayedPriceTime)
                 .add("processedTime", processedTime)
