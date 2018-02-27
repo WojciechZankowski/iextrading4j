@@ -4,9 +4,9 @@ import com.flextrade.jfixture.JFixture;
 import com.google.common.collect.Lists;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
+import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -65,6 +65,12 @@ public class ChartTest {
     public void equalsContract() {
         EqualsVerifier.forClass(Chart.class)
                 .usingGetClass()
+                .verify();
+    }
+
+    @Test
+    public void toStringVerification() {
+        ToStringVerifier.forObject(fixture.create(Chart.class))
                 .verify();
     }
 

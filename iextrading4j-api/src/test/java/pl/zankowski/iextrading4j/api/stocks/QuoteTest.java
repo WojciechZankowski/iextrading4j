@@ -3,6 +3,7 @@ package pl.zankowski.iextrading4j.api.stocks;
 import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
+import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
 import java.math.BigDecimal;
 
@@ -70,6 +71,7 @@ public class QuoteTest {
         assertThat(quote.getLow()).isEqualTo(low);
         assertThat(quote.getLatestPrice()).isEqualTo(latestPrice);
         assertThat(quote.getLatestSource()).isEqualTo(latestSource);
+        assertThat(quote.getLatestTime()).isEqualTo(latestTime);
         assertThat(quote.getLatestUpdate()).isEqualTo(latestUpdate);
         assertThat(quote.getLatestVolume()).isEqualTo(latestVolume);
         assertThat(quote.getIexRealtimePrice()).isEqualTo(iexRealtimePrice);
@@ -98,6 +100,12 @@ public class QuoteTest {
     public void equalsContract() {
         EqualsVerifier.forClass(Quote.class)
                 .usingGetClass()
+                .verify();
+    }
+
+    @Test
+    public void toStringVerification() {
+        ToStringVerifier.forObject(fixture.create(Quote.class))
                 .verify();
     }
 

@@ -7,6 +7,7 @@ import org.junit.Test;
 import pl.zankowski.iextrading4j.api.marketdata.BookEntry;
 import pl.zankowski.iextrading4j.api.marketdata.SystemEvent;
 import pl.zankowski.iextrading4j.api.marketdata.Trade;
+import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
 import java.util.List;
 
@@ -40,6 +41,12 @@ public class BookTest {
     public void equalsContract() {
         EqualsVerifier.forClass(Book.class)
                 .usingGetClass()
+                .verify();
+    }
+
+    @Test
+    public void toStringVerification() {
+        ToStringVerifier.forObject(fixture.create(Book.class))
                 .verify();
     }
 

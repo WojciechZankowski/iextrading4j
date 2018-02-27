@@ -45,11 +45,4 @@ public abstract class DailyList implements Serializable {
         return Objects.hash(recordId, dailyListTimestamp);
     }
 
-    @Override
-    public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("recordId", recordId)
-                .add("dailyListTimestamp", dailyListTimestamp)
-                .toString();
-    }
 }

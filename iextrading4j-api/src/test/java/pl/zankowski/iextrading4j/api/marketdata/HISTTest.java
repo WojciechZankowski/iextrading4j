@@ -3,6 +3,7 @@ package pl.zankowski.iextrading4j.api.marketdata;
 import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
+import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
 import java.time.LocalDate;
 
@@ -35,6 +36,12 @@ public class HISTTest {
     public void equalsContract() {
         EqualsVerifier.forClass(HIST.class)
                 .usingGetClass()
+                .verify();
+    }
+
+    @Test
+    public void toStringVerification() {
+        ToStringVerifier.forObject(fixture.create(HIST.class))
                 .verify();
     }
 

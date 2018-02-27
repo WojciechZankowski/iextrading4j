@@ -13,8 +13,8 @@ public class HasOverriddenEqualsHashCodeAndToStringDR extends AbstractApiDR {
 
     @Override
     public void check(DesignRuleInput input) {
-        if (!isEnum(input.getClazz()) && (!hasOverriddenEquals(input.getClazz()) || !hasOverriddenHashCode(input.getClazz())
-                || !hasOverriddenToString(input.getClazz()))) {
+        if (!isEnum(input.getClazz()) && !isAbstract(input.getClazz()) && (!hasOverriddenEquals(input.getClazz())
+                || !hasOverriddenHashCode(input.getClazz()) || !hasOverriddenToString(input.getClazz()))) {
             input.getStore().put(CODE.getCodeName(), input.getClazzName());
         }
     }

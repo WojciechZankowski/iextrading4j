@@ -3,6 +3,7 @@ package pl.zankowski.iextrading4j.api.stats;
 import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
+import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -37,6 +38,12 @@ public class HistoricalDailyStatsTest {
     public void equalsContract() {
         EqualsVerifier.forClass(HistoricalDailyStats.class)
                 .usingGetClass()
+                .verify();
+    }
+
+    @Test
+    public void toStringVerification() {
+        ToStringVerifier.forObject(fixture.create(HistoricalDailyStats.class))
                 .verify();
     }
 

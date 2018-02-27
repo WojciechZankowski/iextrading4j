@@ -36,4 +36,8 @@ public abstract class AbstractApiDR implements IDesignRule {
         return clazz.isEnum();
     }
 
+    protected boolean isAbstract(Class<?> clazz) {
+        return Modifier.isAbstract(clazz.getModifiers());
+    }
+
 }
