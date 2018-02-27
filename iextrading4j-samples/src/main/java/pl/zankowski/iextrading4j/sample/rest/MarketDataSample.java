@@ -5,6 +5,7 @@ import pl.zankowski.iextrading4j.api.marketdata.Book;
 import pl.zankowski.iextrading4j.api.marketdata.DEEP;
 import pl.zankowski.iextrading4j.api.marketdata.HIST;
 import pl.zankowski.iextrading4j.api.marketdata.LastTrade;
+import pl.zankowski.iextrading4j.api.marketdata.OfficialPrice;
 import pl.zankowski.iextrading4j.api.marketdata.OpHaltStatus;
 import pl.zankowski.iextrading4j.api.marketdata.SecurityEvent;
 import pl.zankowski.iextrading4j.api.marketdata.SsrStatus;
@@ -18,6 +19,7 @@ import pl.zankowski.iextrading4j.client.rest.request.marketdata.BookRequestBuild
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.DeepRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.HistRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.LastTradeRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.marketdata.OfficialPriceRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.OpHaltStatusRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.SecurityEventRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.SsrStatusRequestBuilder;
@@ -43,6 +45,7 @@ public class MarketDataSample {
         sampleSuite.histRequestSample();
         sampleSuite.lastTradeRequestSample();
         sampleSuite.opHaltStatusRequestSample();
+        sampleSuite.officialPriceRequestSample();
         sampleSuite.securityEventRequestSample();
         sampleSuite.ssrStatusRequestSample();
         sampleSuite.systemEventRequestSample();
@@ -87,6 +90,13 @@ public class MarketDataSample {
                 .withSymbol("AAPL")
                 .build());
         System.out.println(opHaltStatuses);
+    }
+
+    private void officialPriceRequestSample() {
+        final Map<String, OfficialPrice> officialPriceMap = iexTradingClient.executeRequest(new OfficialPriceRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(officialPriceMap);
     }
 
     private void securityEventRequestSample() {

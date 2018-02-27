@@ -12,36 +12,16 @@ import pl.zankowski.iextrading4j.api.stocks.Financials;
 import pl.zankowski.iextrading4j.api.stocks.KeyStats;
 import pl.zankowski.iextrading4j.api.stocks.Logo;
 import pl.zankowski.iextrading4j.api.stocks.News;
+import pl.zankowski.iextrading4j.api.stocks.Ohlc;
 import pl.zankowski.iextrading4j.api.stocks.OpenClose;
 import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.api.stocks.Relevant;
+import pl.zankowski.iextrading4j.api.stocks.ShortInterest;
 import pl.zankowski.iextrading4j.api.stocks.Split;
+import pl.zankowski.iextrading4j.api.stocks.ThresholdSecurities;
 import pl.zankowski.iextrading4j.api.stocks.VenueVolume;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.BookRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.ChartRange;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.ChartRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.CompanyRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.DelayedQuoteRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.DividendRange;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.DividendsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.EarningsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.EffectiveSpreadRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.FinancialsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.KeyStatsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.ListRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.ListType;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.LogoRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.NewsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.OpenCloseRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.PeersRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.PreviousRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.PriceRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.QuoteRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.RelevantRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.SplitsRange;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.SplitsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.VenueVolumeRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.*;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -73,6 +53,9 @@ public class StocksSample {
         sampleSuite.relevantRequestSample();
         sampleSuite.splitsRequestSample();
         sampleSuite.venueVolumeRequestSample();
+        sampleSuite.ohlcRequestSample();
+        sampleSuite.shortInterestRequestSample();
+        sampleSuite.thresholdSecuritiesRequestSample();
     }
 
     private void bookRequestSample() {
@@ -216,6 +199,27 @@ public class StocksSample {
                 .withSymbol("AAPL")
                 .build());
         System.out.println(venueVolumeList);
+    }
+
+    private void ohlcRequestSample() {
+        final Ohlc ohlc = iexTradingClient.executeRequest(new OhlcRequestBuilder()
+                .withSymbol("aapl")
+                .build());
+        System.out.println(ohlc);
+    }
+
+    private void shortInterestRequestSample() {
+        final List<ShortInterest> shortInterestList = iexTradingClient.executeRequest(new ShortInterestRequestBuilder()
+                .withSample()
+                .build());
+        System.out.println(shortInterestList);
+    }
+
+    private void thresholdSecuritiesRequestSample() {
+        final List<ThresholdSecurities> thresholdSecuritiesList = iexTradingClient.executeRequest(new ThresholdSecuritiesRequestBuilder()
+                .withSample()
+                .build());
+        System.out.println(thresholdSecuritiesList);
     }
 
 }
