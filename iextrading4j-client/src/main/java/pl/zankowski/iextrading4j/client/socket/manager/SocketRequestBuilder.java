@@ -27,12 +27,6 @@ public class SocketRequestBuilder<R> implements ISocketParamRequestBuilder<R>, I
     }
 
     @Override
-    public ISocketParamRequestBuilder<R> withResponse(final Class<R> responseType) {
-        this.responseType = new TypeReference<R>() {};
-        return this;
-    }
-
-    @Override
     public ISocketParamRequestBuilder<R> withResponse(final TypeReference<R> genericType) {
         this.responseType = genericType;
         return this;

@@ -1,8 +1,10 @@
 package pl.zankowski.iextrading4j.sample.socket;
 
+import pl.zankowski.iextrading4j.api.marketdata.LastTrade;
 import pl.zankowski.iextrading4j.api.marketdata.TOPS;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketRequest;
+import pl.zankowski.iextrading4j.client.socket.request.marketdata.LastAsyncRequestBuilder;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.TopsAsyncRequestBuilder;
 
 import java.util.concurrent.Semaphore;
@@ -16,6 +18,7 @@ public class AsyncMarketDataSample {
         final AsyncMarketDataSample sampleSuite = new AsyncMarketDataSample();
 
         sampleSuite.topsAsyncRequestSample();
+        sampleSuite.lastAsyncRequestSample();
 
         new Semaphore(0).acquire();
     }
@@ -23,11 +26,21 @@ public class AsyncMarketDataSample {
     private static final Consumer<TOPS> TOPS_CONSUMER = System.out::println;
 
     private void topsAsyncRequestSample() {
-        final SocketRequest<TOPS> socketRequest = new TopsAsyncRequestBuilder()
-                .withAllSymbols()
+        final SocketRequest<TOPS> request = new TopsAsyncRequestBuilder()
+                .withSymbol("aapl")
                 .build();
 
-        iexTradingClient.subscribe(socketRequest, TOPS_CONSUMER);
+        iexTradingClient.subscribe(request, TOPS_CONSUMER);
+    }
+
+    private static final Consumer<LastTrade> LAST_CONSUMER = System.out::println;
+
+    private void lastAsyncRequestSample() {
+        final SocketRequest<LastTrade> request = new LastAsyncRequestBuilder()
+                .withSymbol("aapl")
+                .build();
+
+        iexTradingClient.subscribe(request, LAST_CONSUMER);
     }
 
 }

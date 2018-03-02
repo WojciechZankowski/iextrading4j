@@ -31,7 +31,7 @@ public class SocketManager {
             }
 
             final Socket socket = socketWrapper.socket(url).connect();
-            socket.emit("subscribe", request.getParams())
+            socket.emit("subscribe", request.getParams().toArray())
                     .on("message", args -> processResponse(args, request, consumer));
 
             socketStore.put(request, socket);

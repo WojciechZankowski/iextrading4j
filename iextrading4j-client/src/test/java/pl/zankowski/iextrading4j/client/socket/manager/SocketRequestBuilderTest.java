@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.client.socket.manager;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.flextrade.jfixture.JFixture;
 import org.junit.Test;
 
@@ -15,7 +16,7 @@ public class SocketRequestBuilderTest {
 
         final SocketRequest<String> request = SocketRequestBuilder.<String>builder()
                 .withPath(path)
-                .withResponse(String.class)
+                .withResponse(new TypeReference<String>() {})
                 .build();
 
         assertThat(request.getParams()).isEmpty();

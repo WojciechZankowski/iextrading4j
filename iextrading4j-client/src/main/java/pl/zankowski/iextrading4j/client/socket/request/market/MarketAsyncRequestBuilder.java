@@ -4,11 +4,11 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import pl.zankowski.iextrading4j.api.market.MarketVolume;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketRequest;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketRequestBuilder;
-import pl.zankowski.iextrading4j.client.socket.request.IAsyncRequest;
+import pl.zankowski.iextrading4j.client.socket.request.IAsyncRequestBuilder;
 
 import java.util.List;
 
-public class MarketAsyncRequestBuilder implements IAsyncRequest<List<MarketVolume>> {
+public class MarketAsyncRequestBuilder implements IAsyncRequestBuilder<List<MarketVolume>> {
 
     @Override
     public SocketRequest<List<MarketVolume>> build() {
