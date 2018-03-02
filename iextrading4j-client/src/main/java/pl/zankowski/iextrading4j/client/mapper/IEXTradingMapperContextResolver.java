@@ -20,6 +20,7 @@ import pl.zankowski.iextrading4j.api.refdata.LuldTier;
 import pl.zankowski.iextrading4j.api.refdata.PaymentFrequency;
 import pl.zankowski.iextrading4j.api.refdata.QualifiedDividendType;
 import pl.zankowski.iextrading4j.api.refdata.SymbolType;
+import pl.zankowski.iextrading4j.api.stocks.ChartRange;
 import pl.zankowski.iextrading4j.api.stocks.DividendQualification;
 import pl.zankowski.iextrading4j.api.stocks.DividendType;
 
@@ -58,6 +59,9 @@ public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMa
 
         module.addDeserializer(BigDecimal.class, new HackyBigDecimalDeserializer());
         module.addDeserializer(LocalDate.class, new HackyLocalDateDeserializer());
+
+        module.addSerializer(ChartRange.class, new ChartRangeSerializer());
+        module.addDeserializer(ChartRange.class, new ChartRangeDeserializer());
 
         module.addSerializer(DelistingReason.class, new DelistingReasonSerializer());
         module.addDeserializer(DelistingReason.class, new DelistingReasonDeserializer());

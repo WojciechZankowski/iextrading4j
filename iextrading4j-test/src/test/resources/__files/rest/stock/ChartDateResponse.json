@@ -1,0 +1,21 @@
+[
+  {
+    "date": "20180129",
+    "minute": "09:30",
+    "label": "09:30 AM",
+    "high": 169.9,
+    "low": 168.74,
+    "average": 169.546,
+    "volume": 34492,
+    "notional": 5847991.62,
+    "numberOfTrades": 335,
+    "marketHigh": 170.16,
+    "marketLow": 168.74,
+    "marketAverage": 169.695,
+    "marketVolume": 2618304,
+    "marketNotional": 444312772.8062,
+    "marketNumberOfTrades": 10710,
+    "changeOverTime": 0,
+    "marketChangeOverTime": 0
+  }
+]

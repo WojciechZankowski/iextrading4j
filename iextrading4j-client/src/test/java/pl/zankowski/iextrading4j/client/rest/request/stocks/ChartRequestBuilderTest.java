@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.client.rest.request.stocks;
 
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.stocks.Chart;
+import pl.zankowski.iextrading4j.api.stocks.ChartRange;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 
@@ -61,7 +62,7 @@ public class ChartRequestBuilderTest  {
         assertThat(request.getPath()).isEqualTo("/stock/{symbol}/chart/date/{date}");
         assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {});
         assertThat(request.getPathParams()).containsExactly(
-                entry("date", "2017-05-05"),
+                entry("date", "20170505"),
                 entry("symbol", symbol));
         assertThat(request.getQueryParams()).isEmpty();
     }

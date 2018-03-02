@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2017-12-01",
+    "open": 169.95,
+    "high": 171.67,
+    "low": 168.5,
+    "close": 171.05,
+    "volume": 39759288,
+    "unadjustedVolume": 39759288,
+    "change": -0.8,
+    "changePercent": -0.466,
+    "vwap": 170.4191,
+    "label": "Dec 1, 17",
+    "changeOverTime": 0
+  }
+]

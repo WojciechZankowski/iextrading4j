@@ -4,8 +4,6 @@ import java.time.format.DateTimeFormatter;
 
 public class RequestUtil {
 
-    public static final DateTimeFormatter ISO_DATE_FORMATTER = DateTimeFormatter.ISO_DATE;
-
     public static final DateTimeFormatter IEX_DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMdd");
     public static final DateTimeFormatter IEX_YEAR_MONTH_FORMATTER = DateTimeFormatter.ofPattern("yyyyMM");
 

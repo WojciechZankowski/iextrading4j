@@ -1,4 +1,4 @@
-package pl.zankowski.iextrading4j.client.rest.request.stocks;
+package pl.zankowski.iextrading4j.api.stocks;
 
 public enum ChartRange {
 
@@ -20,6 +20,15 @@ public enum ChartRange {
 
     public String getCode() {
         return code;
+    }
+
+    public static ChartRange getValueFromCode(final String code) {
+        for (final ChartRange range : values()) {
+            if (range.getCode().equals(code)) {
+                return range;
+            }
+        }
+        throw new IllegalArgumentException("Not valid chart range: " + code);
     }
 
 }

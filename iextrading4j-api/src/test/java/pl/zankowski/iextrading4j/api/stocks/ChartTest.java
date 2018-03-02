@@ -18,6 +18,13 @@ public class ChartTest {
     @Test
     public void constructor() {
         final String minute = fixture.create(String.class);
+        final BigDecimal marketAverage = fixture.create(BigDecimal.class);
+        final BigDecimal marketNotional = fixture.create(BigDecimal.class);
+        final BigDecimal marketNumberOfTrades = fixture.create(BigDecimal.class);
+        final BigDecimal marketHigh = fixture.create(BigDecimal.class);
+        final BigDecimal marketLow = fixture.create(BigDecimal.class);
+        final BigDecimal marketVolume = fixture.create(BigDecimal.class);
+        final BigDecimal marketChangeOverTime = fixture.create(BigDecimal.class);
         final BigDecimal average = fixture.create(BigDecimal.class);
         final BigDecimal notional = fixture.create(BigDecimal.class);
         final BigDecimal numberOfTrades = fixture.create(BigDecimal.class);
@@ -27,7 +34,6 @@ public class ChartTest {
         final String date = fixture.create(String.class);
         final BigDecimal open = fixture.create(BigDecimal.class);
         final BigDecimal close = fixture.create(BigDecimal.class);
-        final BigDecimal unadjustedClose = fixture.create(BigDecimal.class);
         final BigDecimal unadjustedVolume = fixture.create(BigDecimal.class);
         final BigDecimal change = fixture.create(BigDecimal.class);
         final BigDecimal changePercent = fixture.create(BigDecimal.class);
@@ -37,11 +43,19 @@ public class ChartTest {
         final List<BigDecimal> simplifyFactor = Lists.newArrayList(
                 fixture.collections().createCollection(BigDecimal.class));
 
-        final Chart chart = new Chart(minute, average, notional, numberOfTrades, high, low, volume,
-                date, open, close, unadjustedClose, unadjustedVolume, change, changePercent, vwap,
-                label, changeOverTime, simplifyFactor);
+        final Chart chart = new Chart(minute, marketAverage, marketNotional, marketNumberOfTrades, marketHigh,
+                marketLow, marketVolume, marketChangeOverTime, average, notional, numberOfTrades, simplifyFactor,
+                high, low, volume, label, changeOverTime, date, open, close, unadjustedVolume, change,
+                changePercent, vwap);
 
         assertThat(chart.getMinute()).isEqualTo(minute);
+        assertThat(chart.getMarketAverage()).isEqualByComparingTo(marketAverage);
+        assertThat(chart.getMarketNotional()).isEqualByComparingTo(marketNotional);
+        assertThat(chart.getMarketNumberOfTrades()).isEqualByComparingTo(marketNumberOfTrades);
+        assertThat(chart.getMarketHigh()).isEqualByComparingTo(marketHigh);
+        assertThat(chart.getMarketLow()).isEqualByComparingTo(marketLow);
+        assertThat(chart.getMarketVolume()).isEqualByComparingTo(marketVolume);
+        assertThat(chart.getMarketChangeOverTime()).isEqualByComparingTo(marketChangeOverTime);
         assertThat(chart.getAverage()).isEqualTo(average);
         assertThat(chart.getNotional()).isEqualTo(notional);
         assertThat(chart.getNumberOfTrades()).isEqualTo(numberOfTrades);
@@ -51,7 +65,6 @@ public class ChartTest {
         assertThat(chart.getDate()).isEqualTo(date);
         assertThat(chart.getOpen()).isEqualTo(open);
         assertThat(chart.getClose()).isEqualTo(close);
-        assertThat(chart.getUnadjustedClose()).isEqualTo(unadjustedClose);
         assertThat(chart.getUnadjustedVolume()).isEqualTo(unadjustedVolume);
         assertThat(chart.getChange()).isEqualTo(change);
         assertThat(chart.getChangePercent()).isEqualTo(changePercent);
