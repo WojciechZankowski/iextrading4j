@@ -211,6 +211,7 @@ public class StocksSample {
     private void shortInterestRequestSample() {
         final List<ShortInterest> shortInterestList = iexTradingClient.executeRequest(new ShortInterestRequestBuilder()
                 .withSample()
+                .withMarket()
                 .build());
         System.out.println(shortInterestList);
     }
@@ -218,6 +219,7 @@ public class StocksSample {
     private void thresholdSecuritiesRequestSample() {
         final List<ThresholdSecurities> thresholdSecuritiesList = iexTradingClient.executeRequest(new ThresholdSecuritiesRequestBuilder()
                 .withSample()
+                .withMarket()
                 .build());
         System.out.println(thresholdSecuritiesList);
     }

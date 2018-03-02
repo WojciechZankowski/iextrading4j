@@ -1,6 +1,7 @@
 package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
@@ -34,7 +35,7 @@ public class ShortInterest implements Serializable {
 
     @JsonCreator
     public ShortInterest(
-            @JsonProperty("SettlementDate") final LocalDate settlementDate,
+            @JsonProperty("SettlementDate") @JsonFormat(pattern = "yyyyMMdd") final LocalDate settlementDate,
             @JsonProperty("SymbolinINETSymbology") final String symbolInINETSymbology,
             @JsonProperty("SymbolinCQSSymbology") final String symbolInCQSSymbology,
             @JsonProperty("SymbolinCMSSymbology") final String symbolInCMSSymbology,

@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.client.mapper;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 
 import java.io.IOException;
@@ -14,6 +15,15 @@ class HackyLocalDateDeserializer extends LocalDateDeserializer {
 
     HackyLocalDateDeserializer() {
         super(DEFAULT_FORMATTER);
+    }
+
+    HackyLocalDateDeserializer(DateTimeFormatter dtf) {
+        super(dtf);
+    }
+
+    @Override
+    protected JsonDeserializer<LocalDate> withDateFormat(DateTimeFormatter dtf) {
+        return new HackyLocalDateDeserializer(dtf);
     }
 
     @Override

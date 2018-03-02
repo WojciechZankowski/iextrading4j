@@ -1,0 +1,18 @@
+[
+  {
+    "SettlementDate": "20171013",
+    "SecurityName": "ZIEXT Common Stock",
+    "CurrentShortInterest": 5363,
+    "PreviousShortInterest": 5730,
+    "PercentChange": -0.064049,
+    "AverageDailyVolume": 2113,
+    "DaystoCover": 2.54,
+    "StockAdjustmentFlag": "N",
+    "RevisionFlag": "N",
+    "SymbolinINETSymbology": "ZIEXT",
+    "SymbolinCQSSymbology": "ZIEXT",
+    "SymbolinCMSSymbology": "ZIEXT",
+    "NewIssueFlag": "N",
+    "CompanyName": "ZIEXT Test Company"
+  }
+]
