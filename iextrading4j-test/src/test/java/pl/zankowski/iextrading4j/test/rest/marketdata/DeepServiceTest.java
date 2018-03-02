@@ -4,6 +4,7 @@ import org.junit.Test;
 import pl.zankowski.iextrading4j.api.marketdata.Auction;
 import pl.zankowski.iextrading4j.api.marketdata.BookEntry;
 import pl.zankowski.iextrading4j.api.marketdata.DEEP;
+import pl.zankowski.iextrading4j.api.marketdata.OfficialPrice;
 import pl.zankowski.iextrading4j.api.marketdata.OpHaltStatus;
 import pl.zankowski.iextrading4j.api.marketdata.SecurityEvent;
 import pl.zankowski.iextrading4j.api.marketdata.SecurityEventType;
@@ -113,6 +114,11 @@ public class DeepServiceTest extends BaseServiceTest {
         assertThat(auction.getExtensionNumber()).isNull();
         assertThat(auction.getStartTime()).isNull();
         assertThat(auction.getLastUpdate()).isNull();
+
+        final OfficialPrice officialPrice = deep.getOfficialPrice();
+        assertThat(officialPrice.getTimestamp()).isNull();
+        assertThat(officialPrice.getPrice()).isNull();
+        assertThat(officialPrice.getPriceType()).isNull();
     }
 
 }

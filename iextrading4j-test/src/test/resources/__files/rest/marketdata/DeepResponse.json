@@ -56,5 +56,6 @@
     }
   ],
   "tradeBreaks": [],
-  "auction": {}
+  "auction": {},
+  "officialPrice": {}
 }

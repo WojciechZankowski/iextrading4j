@@ -38,10 +38,11 @@ public class DEEPTest {
         final List<Trade> tradeBreaks = Lists.newArrayList(fixture.collections()
                 .createCollection(Trade.class, 2));
         final Auction auction = fixture.create(Auction.class);
+        final OfficialPrice officialPrice = fixture.create(OfficialPrice.class);
 
         final DEEP deep = new DEEP(symbol, marketPercent, volume, lastSalePrice, lastSaleSize, lastSaleTime,
                 lastUpdated, bids, asks, systemEvent, tradingStatus, opHaltStatus, ssrStatus,
-                securityEvent, trades, tradeBreaks, auction);
+                securityEvent, trades, tradeBreaks, auction, officialPrice);
 
         assertThat(deep.getSymbol()).isEqualTo(symbol);
         assertThat(deep.getMarketPercent()).isEqualTo(marketPercent);
@@ -60,6 +61,7 @@ public class DEEPTest {
         assertThat(deep.getTrades()).isEqualTo(trades);
         assertThat(deep.getTradeBreaks()).isEqualTo(tradeBreaks);
         assertThat(deep.getAuction()).isEqualTo(auction);
+        assertThat(deep.getOfficialPrice()).isEqualTo(officialPrice);
     }
 
     @Test

@@ -14,7 +14,7 @@ import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 
 @JsonPropertyOrder({"symbol", "marketPercent", "volume", "lastSalePrice", "lastSaleSize",
         "lastSaleTime", "bids", "asks", "systemEvent", "tradingStatus", "opHaltStatus",
-        "ssrStatus", "securityEvent", "trades", "tradeBreaks", "auction"})
+        "ssrStatus", "securityEvent", "trades", "tradeBreaks", "auction", "officialPrice"})
 public class DEEP implements Serializable {
 
     private final String symbol;
@@ -34,25 +34,28 @@ public class DEEP implements Serializable {
     private final List<Trade> trades;
     private final List<Trade> tradeBreaks;
     private final Auction auction;
+    private final OfficialPrice officialPrice;
 
     @JsonCreator
-    public DEEP(@JsonProperty("symbol") final String symbol,
-                @JsonProperty("marketPercent") final BigDecimal marketPercent,
-                @JsonProperty("volume") final BigDecimal volume,
-                @JsonProperty("lastSalePrice") final BigDecimal lastSalePrice,
-                @JsonProperty("lastSaleSize") final BigDecimal lastSaleSize,
-                @JsonProperty("lastSaleTime") final Long lastSaleTime,
-                @JsonProperty("lastUpdated") final Long lastUpdated,
-                @JsonProperty("bids") final List<BookEntry> bids,
-                @JsonProperty("asks") final List<BookEntry> asks,
-                @JsonProperty("systemEvent") final SystemEvent systemEvent,
-                @JsonProperty("tradingStatus") final TradingStatus tradingStatus,
-                @JsonProperty("opHaltStatus") final OpHaltStatus opHaltStatus,
-                @JsonProperty("ssrStatus") final SsrStatus ssrStatus,
-                @JsonProperty("securityEvent") final SecurityEvent securityEvent,
-                @JsonProperty("trades") final List<Trade> trades,
-                @JsonProperty("tradeBreaks") final List<Trade> tradeBreaks,
-                @JsonProperty("auction") final Auction auction) {
+    public DEEP(
+            @JsonProperty("symbol") final String symbol,
+            @JsonProperty("marketPercent") final BigDecimal marketPercent,
+            @JsonProperty("volume") final BigDecimal volume,
+            @JsonProperty("lastSalePrice") final BigDecimal lastSalePrice,
+            @JsonProperty("lastSaleSize") final BigDecimal lastSaleSize,
+            @JsonProperty("lastSaleTime") final Long lastSaleTime,
+            @JsonProperty("lastUpdated") final Long lastUpdated,
+            @JsonProperty("bids") final List<BookEntry> bids,
+            @JsonProperty("asks") final List<BookEntry> asks,
+            @JsonProperty("systemEvent") final SystemEvent systemEvent,
+            @JsonProperty("tradingStatus") final TradingStatus tradingStatus,
+            @JsonProperty("opHaltStatus") final OpHaltStatus opHaltStatus,
+            @JsonProperty("ssrStatus") final SsrStatus ssrStatus,
+            @JsonProperty("securityEvent") final SecurityEvent securityEvent,
+            @JsonProperty("trades") final List<Trade> trades,
+            @JsonProperty("tradeBreaks") final List<Trade> tradeBreaks,
+            @JsonProperty("auction") final Auction auction,
+            @JsonProperty("officialPrice") final OfficialPrice officialPrice) {
         this.symbol = symbol;
         this.marketPercent = marketPercent;
         this.volume = volume;
@@ -70,6 +73,7 @@ public class DEEP implements Serializable {
         this.trades = immutableList(trades);
         this.tradeBreaks = immutableList(tradeBreaks);
         this.auction = auction;
+        this.officialPrice = officialPrice;
     }
 
     public String getSymbol() {
@@ -140,6 +144,10 @@ public class DEEP implements Serializable {
         return auction;
     }
 
+    public OfficialPrice getOfficialPrice() {
+        return officialPrice;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -161,14 +169,15 @@ public class DEEP implements Serializable {
                 Objects.equal(securityEvent, deep.securityEvent) &&
                 Objects.equal(trades, deep.trades) &&
                 Objects.equal(tradeBreaks, deep.tradeBreaks) &&
-                Objects.equal(auction, deep.auction);
+                Objects.equal(auction, deep.auction) &&
+                Objects.equal(officialPrice, deep.officialPrice);
     }
 
     @Override
     public int hashCode() {
         return Objects.hashCode(symbol, marketPercent, volume, lastSalePrice, lastSaleSize,
                 lastSaleTime, lastUpdated, bids, asks, systemEvent, tradingStatus, opHaltStatus,
-                ssrStatus, securityEvent, trades, tradeBreaks, auction);
+                ssrStatus, securityEvent, trades, tradeBreaks, auction, officialPrice);
     }
 
     @Override
@@ -191,6 +200,7 @@ public class DEEP implements Serializable {
                 .add("trades", trades)
                 .add("tradeBreaks", tradeBreaks)
                 .add("auction", auction)
+                .add("officialPrice", officialPrice)
                 .toString();
     }
 }
