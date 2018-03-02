@@ -1,8 +1,5 @@
 package pl.zankowski.iextrading4j.client.rest.request.stocks;
 
-/**
- * @author Wojciech Zankowski
- */
 public enum ChartRange {
 
     ONE_DAY("1d"),

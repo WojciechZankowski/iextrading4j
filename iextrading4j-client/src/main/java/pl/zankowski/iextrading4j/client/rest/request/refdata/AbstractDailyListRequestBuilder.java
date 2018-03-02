@@ -3,11 +3,10 @@ package pl.zankowski.iextrading4j.client.rest.request.refdata;
 import pl.zankowski.iextrading4j.client.rest.request.IRestRequestBuilder;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
+import static pl.zankowski.iextrading4j.client.rest.request.util.RequestUtil.IEX_DATE_FORMATTER;
 
 public abstract class AbstractDailyListRequestBuilder<R, B extends IRestRequestBuilder<R>> implements IRestRequestBuilder<R> {
-
-    private static final DateTimeFormatter DATE_PARAM_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMdd");
 
     private boolean sample;
     private LocalDate date;
@@ -15,7 +14,7 @@ public abstract class AbstractDailyListRequestBuilder<R, B extends IRestRequestB
     String getPeriod() {
         return sample
                 ? "sample"
-                : date == null ? "" : DATE_PARAM_FORMATTER.format(date);
+                : date == null ? "" : IEX_DATE_FORMATTER.format(date);
     }
 
     public B withDate(final LocalDate date) {

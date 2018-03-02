@@ -6,12 +6,11 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public class ThresholdSecuritiesRequestBuilder extends AbstractStocksRequestBuilder<List<ThresholdSecurities>, ThresholdSecuritiesRequestBuilder> {
+import static pl.zankowski.iextrading4j.client.rest.request.util.RequestUtil.IEX_DATE_FORMATTER;
 
-    private static final DateTimeFormatter DATE_PARAM_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMdd");
+public class ThresholdSecuritiesRequestBuilder extends AbstractStocksRequestBuilder<List<ThresholdSecurities>, ThresholdSecuritiesRequestBuilder> {
 
     private String date;
 
@@ -20,7 +19,7 @@ public class ThresholdSecuritiesRequestBuilder extends AbstractStocksRequestBuil
     }
 
     public ThresholdSecuritiesRequestBuilder withDate(final LocalDate date) {
-        this.date = DATE_PARAM_FORMATTER.format(date);
+        this.date = IEX_DATE_FORMATTER.format(date);
         return this;
     }
 

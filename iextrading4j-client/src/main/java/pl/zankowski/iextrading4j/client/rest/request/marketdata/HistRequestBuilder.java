@@ -8,13 +8,12 @@ import pl.zankowski.iextrading4j.client.rest.request.AbstractRequestFilterBuilde
 
 import javax.ws.rs.core.GenericType;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
-public class HistRequestBuilder extends AbstractRequestFilterBuilder<List<HIST>, HistRequestBuilder> {
+import static pl.zankowski.iextrading4j.client.rest.request.util.RequestUtil.IEX_DATE_FORMATTER;
 
-    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMdd");
+public class HistRequestBuilder extends AbstractRequestFilterBuilder<List<HIST>, HistRequestBuilder> {
 
     private LocalDate date;
 
@@ -26,7 +25,7 @@ public class HistRequestBuilder extends AbstractRequestFilterBuilder<List<HIST>,
     private Map<String, String> getDateParams() {
         if (date != null) {
             return ImmutableMap.<String, String>builder()
-                    .put("date", DATE_TIME_FORMATTER.format(date))
+                    .put("date", IEX_DATE_FORMATTER.format(date))
                     .build();
         }
         return ImmutableMap.of();

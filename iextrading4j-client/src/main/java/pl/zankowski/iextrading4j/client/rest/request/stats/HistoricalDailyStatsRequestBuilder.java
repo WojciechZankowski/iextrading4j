@@ -9,14 +9,13 @@ import pl.zankowski.iextrading4j.client.rest.request.AbstractRequestFilterBuilde
 import javax.ws.rs.core.GenericType;
 import java.time.LocalDate;
 import java.time.YearMonth;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
-public class HistoricalDailyStatsRequestBuilder extends AbstractRequestFilterBuilder<List<HistoricalDailyStats>, HistoricalDailyStatsRequestBuilder> {
+import static pl.zankowski.iextrading4j.client.rest.request.util.RequestUtil.IEX_DATE_FORMATTER;
+import static pl.zankowski.iextrading4j.client.rest.request.util.RequestUtil.IEX_YEAR_MONTH_FORMATTER;
 
-    private static final DateTimeFormatter YEARMONTH_PARAM_FORMATTER = DateTimeFormatter.ofPattern("yyyyMM");
-    private static final DateTimeFormatter DATE_PARAM_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMdd");
+public class HistoricalDailyStatsRequestBuilder extends AbstractRequestFilterBuilder<List<HistoricalDailyStats>, HistoricalDailyStatsRequestBuilder> {
 
     private Integer last;
     private YearMonth date;
@@ -40,11 +39,11 @@ public class HistoricalDailyStatsRequestBuilder extends AbstractRequestFilterBui
     private Map<String, String> getDateParams() {
         if (date != null) {
             return ImmutableMap.<String, String>builder()
-                    .put("date", YEARMONTH_PARAM_FORMATTER.format(date))
+                    .put("date", IEX_YEAR_MONTH_FORMATTER.format(date))
                     .build();
         } else if (fullDate != null) {
             return ImmutableMap.<String, String>builder()
-                    .put("date", DATE_PARAM_FORMATTER.format(fullDate))
+                    .put("date", IEX_DATE_FORMATTER.format(fullDate))
                     .build();
         } else if (last != null) {
             return ImmutableMap.<String, String>builder()

@@ -7,13 +7,13 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
+import static pl.zankowski.iextrading4j.client.rest.request.util.RequestUtil.ISO_DATE_FORMATTER;
+
 public class ChartRequestBuilder extends AbstractStocksRequestBuilder<List<Chart>, ChartRequestBuilder> {
 
-    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ISO_DATE;
     private static final String SYMBOL_PARAM_NAME = "symbol";
 
     private final Map<String, String> queryParameters = Maps.newHashMap();
@@ -88,7 +88,7 @@ public class ChartRequestBuilder extends AbstractStocksRequestBuilder<List<Chart
         return RestRequestBuilder.<List<Chart>>builder()
                 .withPath("/stock/{symbol}/chart/date/{date}")
                 .addPathParam(SYMBOL_PARAM_NAME, getSymbol())
-                .addPathParam("date", DATE_TIME_FORMATTER.format(date)).get()
+                .addPathParam("date", ISO_DATE_FORMATTER.format(date)).get()
                 .withResponse(new GenericType<List<Chart>>() {})
                 .addQueryParam(queryParameters)
                 .build();

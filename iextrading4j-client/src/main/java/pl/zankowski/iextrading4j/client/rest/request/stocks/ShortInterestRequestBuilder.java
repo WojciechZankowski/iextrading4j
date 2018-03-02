@@ -6,12 +6,11 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public class ShortInterestRequestBuilder extends AbstractStocksRequestBuilder<List<ShortInterest>, ShortInterestRequestBuilder> {
+import static pl.zankowski.iextrading4j.client.rest.request.util.RequestUtil.IEX_DATE_FORMATTER;
 
-    private static final DateTimeFormatter DATE_PARAM_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMdd");
+public class ShortInterestRequestBuilder extends AbstractStocksRequestBuilder<List<ShortInterest>, ShortInterestRequestBuilder> {
 
     private String date;
 
@@ -20,7 +19,7 @@ public class ShortInterestRequestBuilder extends AbstractStocksRequestBuilder<Li
     }
 
     public ShortInterestRequestBuilder withDate(final LocalDate date) {
-        this.date = DATE_PARAM_FORMATTER.format(date);
+        this.date = IEX_DATE_FORMATTER.format(date);
         return this;
     }
 
