@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 public enum ChartRange {
 
+    INTRADAY("today"),
     ONE_DAY("1d"),
     ONE_MONTH("1m"),
     THREE_MONTHS("3m"),

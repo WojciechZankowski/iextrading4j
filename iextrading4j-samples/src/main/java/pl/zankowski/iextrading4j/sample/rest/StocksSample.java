@@ -7,6 +7,7 @@ import pl.zankowski.iextrading4j.api.stocks.ChartRange;
 import pl.zankowski.iextrading4j.api.stocks.Company;
 import pl.zankowski.iextrading4j.api.stocks.DelayedQuote;
 import pl.zankowski.iextrading4j.api.stocks.Dividends;
+import pl.zankowski.iextrading4j.api.stocks.DynamicChart;
 import pl.zankowski.iextrading4j.api.stocks.Earnings;
 import pl.zankowski.iextrading4j.api.stocks.EffectiveSpread;
 import pl.zankowski.iextrading4j.api.stocks.Financials;
@@ -19,6 +20,7 @@ import pl.zankowski.iextrading4j.api.stocks.Relevant;
 import pl.zankowski.iextrading4j.api.stocks.ShortInterest;
 import pl.zankowski.iextrading4j.api.stocks.Split;
 import pl.zankowski.iextrading4j.api.stocks.ThresholdSecurities;
+import pl.zankowski.iextrading4j.api.stocks.TimeSeries;
 import pl.zankowski.iextrading4j.api.stocks.VenueVolume;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.*;
@@ -38,6 +40,7 @@ public class StocksSample {
         sampleSuite.companyRequestSample();
         sampleSuite.delayedQuoteRequestSample();
         sampleSuite.dividendsRequestSample();
+        sampleSuite.dynamicChartRequestSample();
         sampleSuite.earningsRequestSample();
         sampleSuite.effectiveSpreadRequestSample();
         sampleSuite.financialsRequestSample();
@@ -55,6 +58,7 @@ public class StocksSample {
         sampleSuite.venueVolumeRequestSample();
         sampleSuite.ohlcRequestSample();
         sampleSuite.shortInterestRequestSample();
+        sampleSuite.timeSeriesRequestSample();
         sampleSuite.thresholdSecuritiesRequestSample();
     }
 
@@ -71,6 +75,13 @@ public class StocksSample {
                 .withSymbol("AAPL")
                 .build());
         System.out.println(chartList);
+    }
+
+    private void dynamicChartRequestSample() {
+        final DynamicChart dynamicChart = iexTradingClient.executeRequest(new DynamicChartRequestBuilder()
+                .withSymbol("aapl")
+                .build());
+        System.out.println(dynamicChart);
     }
 
     private void companyRequestSample() {
@@ -214,6 +225,13 @@ public class StocksSample {
                 .withMarket()
                 .build());
         System.out.println(shortInterestList);
+    }
+
+    private void timeSeriesRequestSample() {
+        final List<TimeSeries> timeSeriesList = iexTradingClient.executeRequest(new TimeSeriesRequestBuilder()
+                .withSymbol("aapl")
+                .build());
+        System.out.println(timeSeriesList);
     }
 
     private void thresholdSecuritiesRequestSample() {
