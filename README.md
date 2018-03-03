@@ -54,6 +54,8 @@ Check out their beautiful site: [IEX Trading](https://iextrading.com/)
 
 ## How to
 
+### Sync requests
+
 To build request use classes that extend ``` IRestRequestBuilder ``` interface. Example request:
 
 ```java
@@ -62,6 +64,21 @@ final Quote quote = iexTradingClient.executeRequest(new QuoteRequestBuilder()
         .withSymbol("AAPL")
         .build());
 System.out.println(quote);
+```
+
+### Async requests
+
+To build request use classes that extend ``` IAsyncRequestBuilder ``` interface. Example request:
+
+```java
+final IEXTradingClient iexTradingClient = IEXTradingClient.create();
+
+final Consumer<TOPS> TOPS_CONSUMER = System.out::println;
+final SocketRequest<TOPS> request = new TopsAsyncRequestBuilder()
+          .withAllSymbols()
+          .build();
+	  
+iexTradingClient.subscribe(request, TOPS_CONSUMER);
 ```
 
 ## Wiki
