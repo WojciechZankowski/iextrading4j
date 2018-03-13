@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
-- Fixed issue with KeyStats
+- Fixed issue with KeyStats // [Issue#15](https://github.com/WojciechZankowski/iextrading4j/issues/15) 
 
 ## [2.1.0] - 2018-03-02
 
