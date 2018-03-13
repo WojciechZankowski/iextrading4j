@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.1.1] - 2018-03-13
+
+### Changed
+
+- Fixed issue with KeyStats
+
 ## [2.1.0] - 2018-03-02
 
 ### Added
@@ -62,3 +68,4 @@ All notable changes to this project will be documented in this file.
 [2.0.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_1_1_0...IT4J_RELEASE_2_0_0
 [2.0.1]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_0_0...IT4J_RELEASE_2_0_1
 [2.1.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_0_1...IT4J_RELEASE_2_1_0
+[2.1.1]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_0...IT4J_RELEASE_2_1_1
