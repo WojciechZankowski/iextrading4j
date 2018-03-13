@@ -60,7 +60,7 @@ public class KeyStatsServiceTest extends BaseServiceTest {
         assertThat(keyStats.getDebt()).isEqualTo(BigDecimal.valueOf(410090000000L));
         assertThat(keyStats.getTtmEPS()).isEqualTo(BigDecimal.valueOf(8.8));
         assertThat(keyStats.getRevenuePerShare()).isEqualTo(BigDecimal.valueOf(45));
-        assertThat(keyStats.getRevenuePerEmployee()).isEqualTo(BigDecimal.valueOf(1976155));
+        assertThat(keyStats.getRevenuePerEmployee()).isNull();
         assertThat(keyStats.getPeRatioHigh()).isEqualTo(BigDecimal.valueOf(114.1));
         assertThat(keyStats.getPeRatioLow()).isEqualTo(BigDecimal.ZERO);
         assertThat(keyStats.getReturnOnAssets()).isEqualTo(BigDecimal.valueOf(13.6));

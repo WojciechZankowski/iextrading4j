@@ -28,6 +28,7 @@ import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.Provider;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Provider
 public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMapper> {
@@ -59,6 +60,7 @@ public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMa
 
         module.addDeserializer(BigDecimal.class, new HackyBigDecimalDeserializer());
         module.addDeserializer(LocalDate.class, new HackyLocalDateDeserializer());
+        module.addDeserializer(LocalDateTime.class, new HackyLocalDateTimeDeserializer());
 
         module.addSerializer(ChartRange.class, new ChartRangeSerializer());
         module.addDeserializer(ChartRange.class, new ChartRangeDeserializer());

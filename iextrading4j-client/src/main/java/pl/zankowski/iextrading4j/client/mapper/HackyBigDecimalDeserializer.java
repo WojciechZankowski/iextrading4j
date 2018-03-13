@@ -19,7 +19,8 @@ class HackyBigDecimalDeserializer extends StdScalarDeserializer<BigDecimal> {
 
         // #HACK Sometimes instead of a null they return N/A in number field
         // #HACK In Daily List they return empty String if number is N/A
-        if (val == null || "N/A".equalsIgnoreCase(val) || val.isEmpty()) {
+        // #HACK In Key Stats they return NaN for revenuePerEmployee
+        if (val == null || "N/A".equalsIgnoreCase(val) || "NaN".equalsIgnoreCase(val) || val.isEmpty()) {
             return null;
         }
 

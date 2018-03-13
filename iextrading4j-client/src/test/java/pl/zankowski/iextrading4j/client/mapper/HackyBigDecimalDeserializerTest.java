@@ -40,6 +40,18 @@ public class HackyBigDecimalDeserializerTest {
     }
 
     @Test
+    public void shouldReturnNullIfValueIsNaN() throws IOException {
+        final JsonParser parserMock = mock(JsonParser.class);
+        final DeserializationContext contextMock = mock(DeserializationContext.class);
+
+        when(parserMock.getValueAsString()).thenReturn("NaN");
+
+        final BigDecimal result = hackyBigDecimalDeserializer.deserialize(parserMock, contextMock);
+
+        assertThat(result).isNull();
+    }
+
+    @Test
     public void shouldReturnNullIfValueIsNull() throws IOException {
         final JsonParser parserMock = mock(JsonParser.class);
         final DeserializationContext contextMock = mock(DeserializationContext.class);

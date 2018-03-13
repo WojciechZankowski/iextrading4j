@@ -1,26 +1,26 @@
 package pl.zankowski.iextrading4j.client.mapper;
 
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.JsonTokenId;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class HackyLocalDateDeserializerTest {
+public class HackyLocalDateTimeDeserializerTest {
 
-    private HackyLocalDateDeserializer deserializer;
+    private HackyLocalDateTimeDeserializer deserializer;
 
     @Before
     public void setUp() {
-        deserializer = new HackyLocalDateDeserializer();
+        deserializer = new HackyLocalDateTimeDeserializer();
     }
 
     @After
@@ -35,7 +35,7 @@ public class HackyLocalDateDeserializerTest {
 
         when(parserMock.getValueAsString()).thenReturn("0");
 
-        final LocalDate result = deserializer.deserialize(parserMock, contextMock);
+        final LocalDateTime result = deserializer.deserialize(parserMock, contextMock);
 
         assertThat(result).isNull();
     }
@@ -47,24 +47,24 @@ public class HackyLocalDateDeserializerTest {
 
         when(parserMock.getValueAsString()).thenReturn(null);
 
-        final LocalDate result = deserializer.deserialize(parserMock, contextMock);
+        final LocalDateTime result = deserializer.deserialize(parserMock, contextMock);
 
         assertThat(result).isNull();
     }
 
     @Test
-    public void shouldCreateLocalDateBasedOnValue() throws IOException {
+    public void shouldCreateLocalDateTimeBasedOnValue() throws IOException {
         final JsonParser parserMock = mock(JsonParser.class);
         final DeserializationContext contextMock = mock(DeserializationContext.class);
-        final String date = "2015-05-05";
+        final String dateTime = "2015-05-05T19:19:19";
 
-        when(parserMock.getText()).thenReturn(date);
-        when(parserMock.getValueAsString()).thenReturn(date);
-        when(parserMock.hasToken(JsonToken.VALUE_STRING)).thenReturn(true);
+        when(parserMock.getText()).thenReturn(dateTime);
+        when(parserMock.getValueAsString()).thenReturn(dateTime);
+        when(parserMock.hasTokenId(JsonTokenId.ID_STRING)).thenReturn(true);
 
-        final LocalDate result = deserializer.deserialize(parserMock, contextMock);
+        final LocalDateTime result = deserializer.deserialize(parserMock, contextMock);
 
-        assertThat(result).isEqualTo(LocalDate.of(2015, 5, 5));
+        assertThat(result).isEqualTo(LocalDateTime.of(2015, 5, 5, 19, 19, 19));
     }
 
 }

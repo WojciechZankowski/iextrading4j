@@ -27,7 +27,7 @@
   "debt": 410090000000,
   "ttmEPS": 8.8,
   "revenuePerShare": 45,
-  "revenuePerEmployee": 1976155,
+  "revenuePerEmployee": "NaN",
   "peRatioHigh": 114.1,
   "peRatioLow": 0,
   "returnOnAssets": 13.6,
