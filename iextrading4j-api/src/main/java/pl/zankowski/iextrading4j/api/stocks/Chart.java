@@ -11,9 +11,9 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @JsonPropertyOrder({"minute", "marketAverage", "marketNotional", "marketNumberOfTrades", "marketHigh",
-        "marketLow", "marketVolume", "marketChangeOverTime", "average", "notional", "numberOfTrades", "high",
-        "low", "volume", "date", "open", "close", "unadjustedVolume", "change", "changeInPercent", "vwap",
-        "label", "changeOverTime", "simplifyFactor"})
+        "marketLow", "marketVolume", "marketChangeOverTime", "marketOpen", "marketClose", "average", "notional",
+        "numberOfTrades", "high", "low", "volume", "date", "open", "close", "unadjustedVolume",
+        "change", "changeInPercent", "vwap", "label", "changeOverTime", "simplifyFactor"})
 public class Chart extends TimeSeries {
 
     private final String minute;
@@ -24,6 +24,8 @@ public class Chart extends TimeSeries {
     private final BigDecimal marketLow;
     private final BigDecimal marketVolume;
     private final BigDecimal marketChangeOverTime;
+    private final BigDecimal marketOpen;
+    private final BigDecimal marketClose;
     private final BigDecimal average;
     private final BigDecimal notional;
     private final BigDecimal numberOfTrades;
@@ -39,6 +41,8 @@ public class Chart extends TimeSeries {
             @JsonProperty("marketLow") final BigDecimal marketLow,
             @JsonProperty("marketVolume") final BigDecimal marketVolume,
             @JsonProperty("marketChangeOverTime") final BigDecimal marketChangeOverTime,
+            @JsonProperty("marketOpen") final BigDecimal marketOpen,
+            @JsonProperty("marketClose") final BigDecimal marketClose,
             @JsonProperty("average") final BigDecimal average,
             @JsonProperty("notional") final BigDecimal notional,
             @JsonProperty("numberOfTrades") final BigDecimal numberOfTrades,
@@ -64,6 +68,8 @@ public class Chart extends TimeSeries {
         this.marketLow = marketLow;
         this.marketVolume = marketVolume;
         this.marketChangeOverTime = marketChangeOverTime;
+        this.marketOpen = marketOpen;
+        this.marketClose = marketClose;
         this.average = average;
         this.notional = notional;
         this.numberOfTrades = numberOfTrades;
@@ -102,6 +108,14 @@ public class Chart extends TimeSeries {
         return marketChangeOverTime;
     }
 
+    public BigDecimal getMarketOpen() {
+        return marketOpen;
+    }
+
+    public BigDecimal getMarketClose() {
+        return marketClose;
+    }
+
     public BigDecimal getAverage() {
         return average;
     }
@@ -132,6 +146,8 @@ public class Chart extends TimeSeries {
                 Objects.equal(marketLow, chart.marketLow) &&
                 Objects.equal(marketVolume, chart.marketVolume) &&
                 Objects.equal(marketChangeOverTime, chart.marketChangeOverTime) &&
+                Objects.equal(marketOpen, chart.marketOpen) &&
+                Objects.equal(marketClose, chart.marketClose) &&
                 Objects.equal(average, chart.average) &&
                 Objects.equal(notional, chart.notional) &&
                 Objects.equal(numberOfTrades, chart.numberOfTrades) &&
@@ -141,8 +157,8 @@ public class Chart extends TimeSeries {
     @Override
     public int hashCode() {
         return Objects.hashCode(super.hashCode(), minute, marketAverage, marketNotional, marketNumberOfTrades,
-                marketHigh, marketLow, marketVolume, marketChangeOverTime, average, notional, numberOfTrades,
-                simplifyFactor);
+                marketHigh, marketLow, marketVolume, marketChangeOverTime, marketOpen, marketClose, average,
+                notional, numberOfTrades, simplifyFactor);
     }
 
     @Override
@@ -156,6 +172,8 @@ public class Chart extends TimeSeries {
                 .add("marketLow", marketLow)
                 .add("marketVolume", marketVolume)
                 .add("marketChangeOverTime", marketChangeOverTime)
+                .add("marketOpen", marketOpen)
+                .add("marketClose", marketClose)
                 .add("average", average)
                 .add("notional", notional)
                 .add("numberOfTrades", numberOfTrades)

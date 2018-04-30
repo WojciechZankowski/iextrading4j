@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.sample.rest;
 
+import pl.zankowski.iextrading4j.api.refdata.ExchangeSymbol;
 import pl.zankowski.iextrading4j.api.stocks.BarData;
 import pl.zankowski.iextrading4j.api.stocks.Book;
 import pl.zankowski.iextrading4j.api.stocks.Chart;
@@ -23,6 +24,7 @@ import pl.zankowski.iextrading4j.api.stocks.ThresholdSecurities;
 import pl.zankowski.iextrading4j.api.stocks.TimeSeries;
 import pl.zankowski.iextrading4j.api.stocks.VenueVolume;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
+import pl.zankowski.iextrading4j.client.rest.request.refdata.SymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.*;
 
 import java.math.BigDecimal;
@@ -184,10 +186,14 @@ public class StocksSample {
     }
 
     private void quoteRequestSample() {
-        final Quote quote = iexTradingClient.executeRequest(new QuoteRequestBuilder()
-                .withSymbol("AAPL")
-                .build());
-        System.out.println(quote);
+        final List<ExchangeSymbol> exchangeSymbols = iexTradingClient.executeRequest(new SymbolsRequestBuilder().build());
+        for (final ExchangeSymbol exchangeSymbol : exchangeSymbols) {
+            final Quote quote = iexTradingClient.executeRequest(new QuoteRequestBuilder()
+                    .withSymbol(exchangeSymbol.getSymbol())
+                    .build());
+
+            System.out.println(quote);
+        }
     }
 
     private void relevantRequestSample() {

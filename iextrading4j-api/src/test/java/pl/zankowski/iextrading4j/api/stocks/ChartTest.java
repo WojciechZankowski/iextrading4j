@@ -25,6 +25,8 @@ public class ChartTest {
         final BigDecimal marketLow = fixture.create(BigDecimal.class);
         final BigDecimal marketVolume = fixture.create(BigDecimal.class);
         final BigDecimal marketChangeOverTime = fixture.create(BigDecimal.class);
+        final BigDecimal marketOpen = fixture.create(BigDecimal.class);
+        final BigDecimal marketClose = fixture.create(BigDecimal.class);
         final BigDecimal average = fixture.create(BigDecimal.class);
         final BigDecimal notional = fixture.create(BigDecimal.class);
         final BigDecimal numberOfTrades = fixture.create(BigDecimal.class);
@@ -44,9 +46,9 @@ public class ChartTest {
                 fixture.collections().createCollection(BigDecimal.class));
 
         final Chart chart = new Chart(minute, marketAverage, marketNotional, marketNumberOfTrades, marketHigh,
-                marketLow, marketVolume, marketChangeOverTime, average, notional, numberOfTrades, simplifyFactor,
-                high, low, volume, label, changeOverTime, date, open, close, unadjustedVolume, change,
-                changePercent, vwap);
+                marketLow, marketVolume, marketChangeOverTime, marketOpen, marketClose, average, notional,
+                numberOfTrades, simplifyFactor, high, low, volume, label, changeOverTime, date, open, close,
+                unadjustedVolume, change, changePercent, vwap);
 
         assertThat(chart.getMinute()).isEqualTo(minute);
         assertThat(chart.getMarketAverage()).isEqualByComparingTo(marketAverage);
@@ -56,6 +58,8 @@ public class ChartTest {
         assertThat(chart.getMarketLow()).isEqualByComparingTo(marketLow);
         assertThat(chart.getMarketVolume()).isEqualByComparingTo(marketVolume);
         assertThat(chart.getMarketChangeOverTime()).isEqualByComparingTo(marketChangeOverTime);
+        assertThat(chart.getMarketOpen()).isEqualByComparingTo(marketOpen);
+        assertThat(chart.getMarketClose()).isEqualByComparingTo(marketClose);
         assertThat(chart.getAverage()).isEqualTo(average);
         assertThat(chart.getNotional()).isEqualTo(notional);
         assertThat(chart.getNumberOfTrades()).isEqualTo(numberOfTrades);

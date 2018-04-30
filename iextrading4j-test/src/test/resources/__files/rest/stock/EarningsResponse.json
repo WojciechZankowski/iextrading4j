@@ -10,7 +10,11 @@
       "EPSSurpriseDollar": 0.1,
       "EPSReportDate": "2017-08-01",
       "fiscalPeriod": "Q3 2017",
-      "fiscalEndDate": "2017-06-30"
+      "fiscalEndDate": "2017-06-30",
+      "yearAgo": 3.36,
+      "yearAgoChangePercent": 16,
+      "estimatedChangePercent": 14,
+      "symbolId": 11
     }
   ]
 }

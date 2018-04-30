@@ -27,7 +27,7 @@ public class AsyncMarketDataSample {
 
     private void topsAsyncRequestSample() {
         final SocketRequest<TOPS> request = new TopsAsyncRequestBuilder()
-                .withSymbol("aapl")
+                .withAllSymbols()
                 .build();
 
         iexTradingClient.subscribe(request, TOPS_CONSUMER);
@@ -37,7 +37,7 @@ public class AsyncMarketDataSample {
 
     private void lastAsyncRequestSample() {
         final SocketRequest<LastTrade> request = new LastAsyncRequestBuilder()
-                .withSymbol("aapl")
+                .withAllSymbols()
                 .build();
 
         iexTradingClient.subscribe(request, LAST_CONSUMER);

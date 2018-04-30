@@ -1,6 +1,5 @@
 package pl.zankowski.iextrading4j.test.rest.stock;
 
-import org.assertj.core.internal.cglib.core.Local;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.stocks.Earning;
 import pl.zankowski.iextrading4j.api.stocks.Earnings;
@@ -47,6 +46,10 @@ public class EarningsServiceTest extends BaseServiceTest {
         assertThat(earning.getEPSReportDate()).isEqualTo(LocalDate.of(2017, 8, 1));
         assertThat(earning.getFiscalPeriod()).isEqualTo("Q3 2017");
         assertThat(earning.getFiscalEndDate()).isEqualTo(LocalDate.of(2017, 6, 30));
+        assertThat(earning.getYearAgo()).isEqualByComparingTo(BigDecimal.valueOf(3.36));
+        assertThat(earning.getYearAgoChangePercent()).isEqualByComparingTo(BigDecimal.valueOf(16));
+        assertThat(earning.getEstimatedChangePercent()).isEqualByComparingTo(BigDecimal.valueOf(14));
+        assertThat(earning.getSymbolId()).isEqualByComparingTo(BigDecimal.valueOf(11));
     }
 
 }

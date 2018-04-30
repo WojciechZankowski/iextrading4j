@@ -49,6 +49,8 @@ public class ChartServiceTest extends BaseServiceTest {
         assertThat(point.getMarketAverage()).isEqualByComparingTo(BigDecimal.valueOf(178.611));
         assertThat(point.getMarketVolume()).isEqualByComparingTo(BigDecimal.valueOf(830360));
         assertThat(point.getMarketNotional()).isEqualByComparingTo(BigDecimal.valueOf(148311474.4978));
+        assertThat(point.getMarketOpen()).isEqualByComparingTo(BigDecimal.valueOf(162.11));
+        assertThat(point.getMarketClose()).isEqualByComparingTo(BigDecimal.valueOf(161.88));
         assertThat(point.getChangeOverTime()).isEqualTo(BigDecimal.ZERO);
         assertThat(point.getMarketChangeOverTime()).isEqualByComparingTo(BigDecimal.ZERO);
     }

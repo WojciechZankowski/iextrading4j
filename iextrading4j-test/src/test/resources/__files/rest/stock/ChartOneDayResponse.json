@@ -16,6 +16,10 @@
     "marketNotional": 148311474.4978,
     "marketNumberOfTrades": 1672,
     "changeOverTime": 0,
-    "marketChangeOverTime": 0
+    "marketChangeOverTime": 0,
+    "open": 162.145,
+    "close": 162.32,
+    "marketOpen": 162.11,
+    "marketClose": 161.88
   }
 ]
