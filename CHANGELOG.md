@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.1.2] - 2018-04-30
+
+### Changed
+
+- Fixed issue with One-day Chart // [Issue#19](https://github.com/WojciechZankowski/iextrading4j/issues/19)
+- Add new fields to Earning model
+
 ## [2.1.1] - 2018-03-13
 
 ### Changed
@@ -69,3 +76,4 @@ All notable changes to this project will be documented in this file.
 [2.0.1]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_0_0...IT4J_RELEASE_2_0_1
 [2.1.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_0_1...IT4J_RELEASE_2_1_0
 [2.1.1]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_0...IT4J_RELEASE_2_1_1
+[2.1.1]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_1...IT4J_RELEASE_2_1_2
