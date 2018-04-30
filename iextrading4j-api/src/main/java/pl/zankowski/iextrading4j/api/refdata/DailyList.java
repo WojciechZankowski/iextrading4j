@@ -3,7 +3,6 @@ package pl.zankowski.iextrading4j.api.refdata;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.google.common.base.MoreObjects;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
