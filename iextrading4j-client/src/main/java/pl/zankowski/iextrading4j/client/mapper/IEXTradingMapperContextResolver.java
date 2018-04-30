@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.client.mapper;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -48,6 +49,7 @@ public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMa
         final ObjectMapper customMapper = new ObjectMapper();
 
         customMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+        customMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
         customMapper.registerModule(new JavaTimeModule());
         customMapper.registerModule(iexTradingModule());
