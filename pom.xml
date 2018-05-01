@@ -146,14 +146,14 @@
             <dependency>
                 <groupId>org.powermock</groupId>
                 <artifactId>powermock-module-junit4</artifactId>
-                <version>1.7.4</version>
+                <version>1.7.3</version>
                 <scope>test</scope>
             </dependency>
 
             <dependency>
                 <groupId>org.powermock</groupId>
                 <artifactId>powermock-api-mockito2</artifactId>
-                <version>1.7.4</version>
+                <version>1.7.3</version>
                 <scope>test</scope>
             </dependency>
 
