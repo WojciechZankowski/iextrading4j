@@ -41,7 +41,7 @@ public class SocketManager {
     }
 
     public <T> void unsubscribe(final SocketRequest<T> request) {
-        final Socket socket = socketStore.get(request);
+        final Socket socket = socketStore.remove(request);
         if (socket == null) {
             return;
         }
@@ -54,7 +54,7 @@ public class SocketManager {
             try {
                 consumer.accept(mapObject(arg, request));
             } catch (IOException e) {
-                System.out.println(e);
+                throw new IllegalStateException(e.getMessage(), e);
             }
         });
     }
