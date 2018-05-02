@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.1.3] - 2018-05-02
+
+### Changed
+
+- Turned off throwing exception on unknown model properties
+
 ## [2.1.2] - 2018-04-30
 
 ### Changed
@@ -77,3 +83,4 @@ All notable changes to this project will be documented in this file.
 [2.1.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_0_1...IT4J_RELEASE_2_1_0
 [2.1.1]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_0...IT4J_RELEASE_2_1_1
 [2.1.2]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_1...IT4J_RELEASE_2_1_2
+[2.1.3]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_2...IT4J_RELEASE_2_1_3
