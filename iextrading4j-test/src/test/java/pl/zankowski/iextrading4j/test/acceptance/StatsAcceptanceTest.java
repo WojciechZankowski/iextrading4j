@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.test.acceptance;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.stats.HistoricalDailyStats;
 import pl.zankowski.iextrading4j.api.stats.HistoricalStats;
@@ -24,6 +25,7 @@ public class StatsAcceptanceTest extends AcceptanceTestBase {
         System.out.println(intradayStats);
     }
 
+    @Ignore
     @Test
     public void recentAcceptanceTest() {
         final List<RecentStats> recentStats = iexTradingClient.executeRequest(new RecentStatsRequestBuilder()
