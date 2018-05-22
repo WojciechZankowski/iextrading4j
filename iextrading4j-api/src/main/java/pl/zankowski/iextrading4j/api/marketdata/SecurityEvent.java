@@ -15,8 +15,9 @@ public class SecurityEvent implements Serializable {
     private final Long timestamp;
 
     @JsonCreator
-    public SecurityEvent(@JsonProperty("securityEvent") final SecurityEventType securityEvent,
-                         @JsonProperty("timestamp") final Long timestamp) {
+    public SecurityEvent(
+            @JsonProperty("securityEvent") final SecurityEventType securityEvent,
+            @JsonProperty("timestamp") final Long timestamp) {
         this.securityEvent = securityEvent;
         this.timestamp = timestamp;
     }

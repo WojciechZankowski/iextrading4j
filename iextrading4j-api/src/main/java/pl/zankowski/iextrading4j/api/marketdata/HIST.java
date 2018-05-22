@@ -22,12 +22,13 @@ public class HIST implements Serializable {
     private final String size;
 
     @JsonCreator
-    public HIST(@JsonProperty("link") final String link,
-                @JsonProperty("date") final LocalDate date,
-                @JsonProperty("feed") final String feed,
-                @JsonProperty("version") final String version,
-                @JsonProperty("protocol") final String protocol,
-                @JsonProperty("size") final String size) {
+    public HIST(
+            @JsonProperty("link") final String link,
+            @JsonProperty("date") final LocalDate date,
+            @JsonProperty("feed") final String feed,
+            @JsonProperty("version") final String version,
+            @JsonProperty("protocol") final String protocol,
+            @JsonProperty("size") final String size) {
         this.link = link;
         this.date = date;
         this.feed = feed;

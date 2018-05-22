@@ -3,6 +3,7 @@ package pl.zankowski.iextrading4j.client.rest.manager;
 import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
+import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -25,6 +26,12 @@ public class RestResponseTest {
     public void equalsContract() {
         EqualsVerifier.forClass(RestResponse.class)
                 .usingGetClass()
+                .verify();
+    }
+
+    @Test
+    public void toStringVerification() {
+        ToStringVerifier.forObject(new RestResponse<>(null, null))
                 .verify();
     }
 

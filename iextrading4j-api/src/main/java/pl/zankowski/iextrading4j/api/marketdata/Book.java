@@ -18,8 +18,9 @@ public class Book implements Serializable {
     private final List<BookEntry> asks;
 
     @JsonCreator
-    public Book(@JsonProperty("bids") final List<BookEntry> bids,
-                @JsonProperty("asks") final List<BookEntry> asks) {
+    public Book(
+            @JsonProperty("bids") final List<BookEntry> bids,
+            @JsonProperty("asks") final List<BookEntry> asks) {
         this.bids = immutableList(bids);
         this.asks = immutableList(asks);
     }

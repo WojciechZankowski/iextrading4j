@@ -9,6 +9,8 @@ import com.google.common.base.Objects;
 import java.io.Serializable;
 import java.util.List;
 
+import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
+
 @JsonPropertyOrder({"symbol", "earnings"})
 public class Earnings implements Serializable {
 
@@ -16,10 +18,11 @@ public class Earnings implements Serializable {
     private final List<Earning> earnings;
 
     @JsonCreator
-    public Earnings(@JsonProperty("symbol") final String symbol,
-                    @JsonProperty("earnings") final List<Earning> earnings) {
+    public Earnings(
+            @JsonProperty("symbol") final String symbol,
+            @JsonProperty("earnings") final List<Earning> earnings) {
         this.symbol = symbol;
-        this.earnings = earnings;
+        this.earnings = immutableList(earnings);
     }
 
     public String getSymbol() {

@@ -20,12 +20,13 @@ public class News implements Serializable {
     private final String related;
 
     @JsonCreator
-    public News(@JsonProperty("datetime") final OffsetDateTime datetime,
-                @JsonProperty("headline") final String headline,
-                @JsonProperty("source") final String source,
-                @JsonProperty("url") final String url,
-                @JsonProperty("summary") final String summary,
-                @JsonProperty("related") final String related) {
+    public News(
+            @JsonProperty("datetime") final OffsetDateTime datetime,
+            @JsonProperty("headline") final String headline,
+            @JsonProperty("source") final String source,
+            @JsonProperty("url") final String url,
+            @JsonProperty("summary") final String summary,
+            @JsonProperty("related") final String related) {
         this.datetime = datetime;
         this.headline = headline;
         this.source = source;

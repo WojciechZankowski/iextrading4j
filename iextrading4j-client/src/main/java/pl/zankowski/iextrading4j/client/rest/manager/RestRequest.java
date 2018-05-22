@@ -17,7 +17,7 @@ public class RestRequest<R> {
     private final Map<String, String> queryParams;
     private final Map<String, String> pathParams;
 
-    RestRequest(final GenericType<R> responseType, final String path, final MethodType methodType,
+    public RestRequest(final GenericType<R> responseType, final String path, final MethodType methodType,
                 final Map<String, String> headerParams, final Map<String, String> queryParams,
                 final Map<String, String> pathParams) {
         this.responseType = responseType;

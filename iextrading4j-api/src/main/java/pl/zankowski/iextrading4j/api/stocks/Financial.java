@@ -33,26 +33,27 @@ public class Financial implements Serializable {
     private final String operatingGainsLosses;
 
     @JsonCreator
-    public Financial(@JsonProperty("reportDate") final LocalDate reportDate,
-                     @JsonProperty("grossProfit") final BigDecimal grossProfit,
-                     @JsonProperty("costOfRevenue") final BigDecimal costOfRevenue,
-                     @JsonProperty("operatingRevenue") final BigDecimal operatingRevenue,
-                     @JsonProperty("totalRevenue") final BigDecimal totalRevenue,
-                     @JsonProperty("operatingIncome") final BigDecimal operatingIncome,
-                     @JsonProperty("netIncome") final BigDecimal netIncome,
-                     @JsonProperty("researchAndDevelopment") final BigDecimal researchAndDevelopment,
-                     @JsonProperty("operatingExpense") final BigDecimal operatingExpense,
-                     @JsonProperty("currentAssets") final BigDecimal currentAssets,
-                     @JsonProperty("totalAssets") final BigDecimal totalAssets,
-                     @JsonProperty("totalLiabilities") final BigDecimal totalLiabilities,
-                     @JsonProperty("currentCash") final BigDecimal currentCash,
-                     @JsonProperty("currentDebt") final BigDecimal currentDebt,
-                     @JsonProperty("totalCash") final BigDecimal totalCash,
-                     @JsonProperty("totalDebt") final BigDecimal totalDebt,
-                     @JsonProperty("shareholderEquity") final BigDecimal shareholderEquity,
-                     @JsonProperty("cashChange") final BigDecimal cashChange,
-                     @JsonProperty("cashFlow") final BigDecimal cashFlow,
-                     @JsonProperty("operatingGainsLosses") final String operatingGainsLosses) {
+    public Financial(
+            @JsonProperty("reportDate") final LocalDate reportDate,
+            @JsonProperty("grossProfit") final BigDecimal grossProfit,
+            @JsonProperty("costOfRevenue") final BigDecimal costOfRevenue,
+            @JsonProperty("operatingRevenue") final BigDecimal operatingRevenue,
+            @JsonProperty("totalRevenue") final BigDecimal totalRevenue,
+            @JsonProperty("operatingIncome") final BigDecimal operatingIncome,
+            @JsonProperty("netIncome") final BigDecimal netIncome,
+            @JsonProperty("researchAndDevelopment") final BigDecimal researchAndDevelopment,
+            @JsonProperty("operatingExpense") final BigDecimal operatingExpense,
+            @JsonProperty("currentAssets") final BigDecimal currentAssets,
+            @JsonProperty("totalAssets") final BigDecimal totalAssets,
+            @JsonProperty("totalLiabilities") final BigDecimal totalLiabilities,
+            @JsonProperty("currentCash") final BigDecimal currentCash,
+            @JsonProperty("currentDebt") final BigDecimal currentDebt,
+            @JsonProperty("totalCash") final BigDecimal totalCash,
+            @JsonProperty("totalDebt") final BigDecimal totalDebt,
+            @JsonProperty("shareholderEquity") final BigDecimal shareholderEquity,
+            @JsonProperty("cashChange") final BigDecimal cashChange,
+            @JsonProperty("cashFlow") final BigDecimal cashFlow,
+            @JsonProperty("operatingGainsLosses") final String operatingGainsLosses) {
         this.reportDate = reportDate;
         this.grossProfit = grossProfit;
         this.costOfRevenue = costOfRevenue;

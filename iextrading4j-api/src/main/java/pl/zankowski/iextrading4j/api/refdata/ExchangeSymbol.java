@@ -20,12 +20,13 @@ public class ExchangeSymbol implements Serializable {
     private final Long iexId;
 
     @JsonCreator
-    public ExchangeSymbol(@JsonProperty("symbol") final String symbol,
-                          @JsonProperty("name") final String name,
-                          @JsonProperty("date") final LocalDate date,
-                          @JsonProperty("isEnabled") final Boolean isEnabled,
-                          @JsonProperty("type") final SymbolType type,
-                          @JsonProperty("iexId") final Long iexId) {
+    public ExchangeSymbol(
+            @JsonProperty("symbol") final String symbol,
+            @JsonProperty("name") final String name,
+            @JsonProperty("date") final LocalDate date,
+            @JsonProperty("isEnabled") final Boolean isEnabled,
+            @JsonProperty("type") final SymbolType type,
+            @JsonProperty("iexId") final Long iexId) {
         this.symbol = symbol;
         this.name = name;
         this.date = date;

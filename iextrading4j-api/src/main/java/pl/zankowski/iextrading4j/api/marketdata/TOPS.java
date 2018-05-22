@@ -29,19 +29,20 @@ public class TOPS implements Serializable {
     private final String securityType;
 
     @JsonCreator
-    public TOPS(@JsonProperty("symbol") final String symbol,
-                @JsonProperty("marketPercent") final BigDecimal marketPercent,
-                @JsonProperty("bidSize") final BigDecimal bidSize,
-                @JsonProperty("bidPrice") final BigDecimal bidPrice,
-                @JsonProperty("askSize") final BigDecimal askSize,
-                @JsonProperty("askPrice") final BigDecimal askPrice,
-                @JsonProperty("volume") final BigDecimal volume,
-                @JsonProperty("lastSalePrice") final BigDecimal lastSalePrice,
-                @JsonProperty("lastSaleSize") final BigDecimal lastSaleSize,
-                @JsonProperty("lastSaleTime") final Long lastSaleTime,
-                @JsonProperty("lastUpdated") final Long lastUpdated,
-                @JsonProperty("sector") final String sector,
-                @JsonProperty("securityType") final String securityType) {
+    public TOPS(
+            @JsonProperty("symbol") final String symbol,
+            @JsonProperty("marketPercent") final BigDecimal marketPercent,
+            @JsonProperty("bidSize") final BigDecimal bidSize,
+            @JsonProperty("bidPrice") final BigDecimal bidPrice,
+            @JsonProperty("askSize") final BigDecimal askSize,
+            @JsonProperty("askPrice") final BigDecimal askPrice,
+            @JsonProperty("volume") final BigDecimal volume,
+            @JsonProperty("lastSalePrice") final BigDecimal lastSalePrice,
+            @JsonProperty("lastSaleSize") final BigDecimal lastSaleSize,
+            @JsonProperty("lastSaleTime") final Long lastSaleTime,
+            @JsonProperty("lastUpdated") final Long lastUpdated,
+            @JsonProperty("sector") final String sector,
+            @JsonProperty("securityType") final String securityType) {
         this.symbol = symbol;
         this.marketPercent = marketPercent;
         this.bidSize = bidSize;

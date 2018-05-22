@@ -25,15 +25,16 @@ public class Dividends implements Serializable {
     private final String indicated;
 
     @JsonCreator
-    public Dividends(@JsonProperty("exDate") final LocalDate exDate,
-                     @JsonProperty("paymentDate") final LocalDate paymentDate,
-                     @JsonProperty("recordDate") final LocalDate recordDate,
-                     @JsonProperty("declaredDate") final LocalDate declaredDate,
-                     @JsonProperty("amount") final BigDecimal amount,
-                     @JsonProperty("flag") final String flag,
-                     @JsonProperty("type") final DividendType type,
-                     @JsonProperty("qualified") final DividendQualification qualified,
-                     @JsonProperty("indicated") final String indicated) {
+    public Dividends(
+            @JsonProperty("exDate") final LocalDate exDate,
+            @JsonProperty("paymentDate") final LocalDate paymentDate,
+            @JsonProperty("recordDate") final LocalDate recordDate,
+            @JsonProperty("declaredDate") final LocalDate declaredDate,
+            @JsonProperty("amount") final BigDecimal amount,
+            @JsonProperty("flag") final String flag,
+            @JsonProperty("type") final DividendType type,
+            @JsonProperty("qualified") final DividendQualification qualified,
+            @JsonProperty("indicated") final String indicated) {
         this.exDate = exDate;
         this.paymentDate = paymentDate;
         this.recordDate = recordDate;

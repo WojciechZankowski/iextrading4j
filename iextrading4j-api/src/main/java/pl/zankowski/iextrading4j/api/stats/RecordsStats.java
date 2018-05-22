@@ -17,10 +17,11 @@ public class RecordsStats implements Serializable {
     private final Record notional;
 
     @JsonCreator
-    public RecordsStats(@JsonProperty("volume") final Record volume,
-                        @JsonProperty("symbolsTraded") final Record symbolsTraded,
-                        @JsonProperty("routedVolume") final Record routedVolume,
-                        @JsonProperty("notional") final Record notional) {
+    public RecordsStats(
+            @JsonProperty("volume") final Record volume,
+            @JsonProperty("symbolsTraded") final Record symbolsTraded,
+            @JsonProperty("routedVolume") final Record routedVolume,
+            @JsonProperty("notional") final Record notional) {
         this.volume = volume;
         this.symbolsTraded = symbolsTraded;
         this.routedVolume = routedVolume;

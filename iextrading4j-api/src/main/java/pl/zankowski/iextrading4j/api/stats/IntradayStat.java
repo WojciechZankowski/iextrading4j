@@ -16,8 +16,9 @@ public class IntradayStat implements Serializable {
     private final Long lastUpdated;
 
     @JsonCreator
-    public IntradayStat(@JsonProperty("value") final BigDecimal value,
-                        @JsonProperty("lastUpdated") final Long lastUpdated) {
+    public IntradayStat(
+            @JsonProperty("value") final BigDecimal value,
+            @JsonProperty("lastUpdated") final Long lastUpdated) {
         this.value = value;
         this.lastUpdated = lastUpdated;
     }

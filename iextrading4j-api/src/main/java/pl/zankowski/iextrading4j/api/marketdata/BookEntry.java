@@ -17,9 +17,10 @@ public class BookEntry implements Serializable {
     private final Long timestamp;
 
     @JsonCreator
-    public BookEntry(@JsonProperty("price") final BigDecimal price,
-                     @JsonProperty("size") final BigDecimal size,
-                     @JsonProperty("timestamp") final Long timestamp) {
+    public BookEntry(
+            @JsonProperty("price") final BigDecimal price,
+            @JsonProperty("size") final BigDecimal size,
+            @JsonProperty("timestamp") final Long timestamp) {
         this.price = price;
         this.size = size;
         this.timestamp = timestamp;

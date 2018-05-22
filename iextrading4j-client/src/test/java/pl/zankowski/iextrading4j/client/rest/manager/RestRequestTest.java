@@ -3,6 +3,7 @@ package pl.zankowski.iextrading4j.client.rest.manager;
 import com.google.common.collect.ImmutableMap;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
+import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
 import javax.ws.rs.core.GenericType;
 import java.util.Map;
@@ -36,6 +37,13 @@ public class RestRequestTest {
     public void equalsContract() {
         EqualsVerifier.forClass(RestRequest.class)
                 .usingGetClass()
+                .verify();
+    }
+
+    @Test
+    public void toStringVerification() {
+        ToStringVerifier.forObject(new RestRequest<>(null, null, null,
+                null, null, null))
                 .verify();
     }
 

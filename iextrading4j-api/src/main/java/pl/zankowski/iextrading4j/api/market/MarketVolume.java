@@ -24,15 +24,16 @@ public class MarketVolume implements Serializable {
     private final Long lastUpdated;
 
     @JsonCreator
-    public MarketVolume(@JsonProperty("mic") final String mic,
-                        @JsonProperty("tapeId") final String tapeId,
-                        @JsonProperty("venueName") final String venueName,
-                        @JsonProperty("volume") final BigDecimal volume,
-                        @JsonProperty("tapeA") final BigDecimal tapeA,
-                        @JsonProperty("tapeB") final BigDecimal tapeB,
-                        @JsonProperty("tapeC") final BigDecimal tapeC,
-                        @JsonProperty("marketPercent") final BigDecimal marketPercent,
-                        @JsonProperty("lastUpdated") final Long lastUpdated) {
+    public MarketVolume(
+            @JsonProperty("mic") final String mic,
+            @JsonProperty("tapeId") final String tapeId,
+            @JsonProperty("venueName") final String venueName,
+            @JsonProperty("volume") final BigDecimal volume,
+            @JsonProperty("tapeA") final BigDecimal tapeA,
+            @JsonProperty("tapeB") final BigDecimal tapeB,
+            @JsonProperty("tapeC") final BigDecimal tapeC,
+            @JsonProperty("marketPercent") final BigDecimal marketPercent,
+            @JsonProperty("lastUpdated") final Long lastUpdated) {
         this.mic = mic;
         this.tapeId = tapeId;
         this.venueName = venueName;

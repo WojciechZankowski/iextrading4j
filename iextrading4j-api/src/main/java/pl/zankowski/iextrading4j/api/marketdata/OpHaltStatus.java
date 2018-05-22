@@ -15,8 +15,9 @@ public class OpHaltStatus implements Serializable {
     private final Long timestamp;
 
     @JsonCreator
-    public OpHaltStatus(@JsonProperty("isHalted") final Boolean isHalted,
-                        @JsonProperty("timestamp") final Long timestamp) {
+    public OpHaltStatus(
+            @JsonProperty("isHalted") final Boolean isHalted,
+            @JsonProperty("timestamp") final Long timestamp) {
         this.isHalted = isHalted;
         this.timestamp = timestamp;
     }

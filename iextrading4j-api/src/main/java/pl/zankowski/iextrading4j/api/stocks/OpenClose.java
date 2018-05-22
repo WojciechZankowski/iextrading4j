@@ -15,8 +15,9 @@ public class OpenClose implements Serializable {
     private final Point close;
 
     @JsonCreator
-    public OpenClose(@JsonProperty("open") final Point open,
-                     @JsonProperty("close") final Point close) {
+    public OpenClose(
+            @JsonProperty("open") final Point open,
+            @JsonProperty("close") final Point close) {
         this.open = open;
         this.close = close;
     }

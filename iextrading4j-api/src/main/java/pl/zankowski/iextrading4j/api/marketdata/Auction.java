@@ -29,18 +29,19 @@ public class Auction implements Serializable {
     private final Long lastUpdate;
 
     @JsonCreator
-    public Auction(@JsonProperty("auctionType") final AuctionType auctionType,
-                   @JsonProperty("pairedShares") final BigDecimal pairedShares,
-                   @JsonProperty("imbalanceShares") final BigDecimal imbalanceShares,
-                   @JsonProperty("referencePrice") final BigDecimal referencePrice,
-                   @JsonProperty("indicativePrice") final BigDecimal indicativePrice,
-                   @JsonProperty("auctionBookPrice") final BigDecimal auctionBookPrice,
-                   @JsonProperty("collarReferencePrice") final BigDecimal collarReferencePrice,
-                   @JsonProperty("lowerCollarPrice") final BigDecimal lowerCollarPrice,
-                   @JsonProperty("upperCollarPrice") final BigDecimal upperCollarPrice,
-                   @JsonProperty("extensionNumber") final BigDecimal extensionNumber,
-                   @JsonProperty("startTime") final LocalTime startTime,
-                   @JsonProperty("lastUpdate") final Long lastUpdate) {
+    public Auction(
+            @JsonProperty("auctionType") final AuctionType auctionType,
+            @JsonProperty("pairedShares") final BigDecimal pairedShares,
+            @JsonProperty("imbalanceShares") final BigDecimal imbalanceShares,
+            @JsonProperty("referencePrice") final BigDecimal referencePrice,
+            @JsonProperty("indicativePrice") final BigDecimal indicativePrice,
+            @JsonProperty("auctionBookPrice") final BigDecimal auctionBookPrice,
+            @JsonProperty("collarReferencePrice") final BigDecimal collarReferencePrice,
+            @JsonProperty("lowerCollarPrice") final BigDecimal lowerCollarPrice,
+            @JsonProperty("upperCollarPrice") final BigDecimal upperCollarPrice,
+            @JsonProperty("extensionNumber") final BigDecimal extensionNumber,
+            @JsonProperty("startTime") final LocalTime startTime,
+            @JsonProperty("lastUpdate") final Long lastUpdate) {
         this.auctionType = auctionType;
         this.pairedShares = pairedShares;
         this.imbalanceShares = imbalanceShares;

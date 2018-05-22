@@ -9,6 +9,8 @@ import com.google.common.base.Objects;
 import java.io.Serializable;
 import java.util.List;
 
+import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
+
 @JsonPropertyOrder({"peers", "symbols"})
 public class Relevant implements Serializable {
 
@@ -16,10 +18,11 @@ public class Relevant implements Serializable {
     private final List<String> symbols;
 
     @JsonCreator
-    public Relevant(@JsonProperty("peers") final Boolean peers,
-                    @JsonProperty("symbols") final List<String> symbols) {
+    public Relevant(
+            @JsonProperty("peers") final Boolean peers,
+            @JsonProperty("symbols") final List<String> symbols) {
         this.peers = peers;
-        this.symbols = symbols;
+        this.symbols = immutableList(symbols);
     }
 
     public Boolean isPeers() {

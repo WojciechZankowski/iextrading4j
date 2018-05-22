@@ -19,10 +19,11 @@ public class Record implements Serializable {
     private final BigDecimal avg30Value;
 
     @JsonCreator
-    public Record(@JsonProperty("recordValue") final BigDecimal recordValue,
-                  @JsonProperty("recordDate") final LocalDate recordDate,
-                  @JsonProperty("previousDayValue") final BigDecimal previousDayValue,
-                  @JsonProperty("avg30Value") final BigDecimal avg30Value) {
+    public Record(
+            @JsonProperty("recordValue") final BigDecimal recordValue,
+            @JsonProperty("recordDate") final LocalDate recordDate,
+            @JsonProperty("previousDayValue") final BigDecimal previousDayValue,
+            @JsonProperty("avg30Value") final BigDecimal avg30Value) {
         this.recordValue = recordValue;
         this.recordDate = recordDate;
         this.previousDayValue = previousDayValue;

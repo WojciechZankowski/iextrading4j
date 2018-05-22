@@ -15,8 +15,9 @@ public class SystemEvent implements Serializable {
     private final Long timestamp;
 
     @JsonCreator
-    public SystemEvent(@JsonProperty("systemEvent") final SystemEventType systemEvent,
-                       @JsonProperty("timestamp") final Long timestamp) {
+    public SystemEvent(
+            @JsonProperty("systemEvent") final SystemEventType systemEvent,
+            @JsonProperty("timestamp") final Long timestamp) {
         this.systemEvent = systemEvent;
         this.timestamp = timestamp;
     }

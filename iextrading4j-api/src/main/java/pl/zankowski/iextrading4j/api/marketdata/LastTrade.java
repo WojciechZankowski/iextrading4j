@@ -18,10 +18,11 @@ public class LastTrade implements Serializable {
     private final Long time;
 
     @JsonCreator
-    public LastTrade(@JsonProperty("symbol") final String symbol,
-                     @JsonProperty("price") final BigDecimal price,
-                     @JsonProperty("size") final BigDecimal size,
-                     @JsonProperty("time") final Long time) {
+    public LastTrade(
+            @JsonProperty("symbol") final String symbol,
+            @JsonProperty("price") final BigDecimal price,
+            @JsonProperty("size") final BigDecimal size,
+            @JsonProperty("time") final Long time) {
         this.symbol = symbol;
         this.price = price;
         this.size = size;

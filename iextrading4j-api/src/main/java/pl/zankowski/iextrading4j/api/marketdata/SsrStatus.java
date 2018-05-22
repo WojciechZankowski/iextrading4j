@@ -16,9 +16,10 @@ public class SsrStatus implements Serializable {
     private final Long timestamp;
 
     @JsonCreator
-    public SsrStatus(@JsonProperty("isSSR") final Boolean isSSR,
-                     @JsonProperty("detail") final String detail,
-                     @JsonProperty("timestamp") final Long timestamp) {
+    public SsrStatus(
+            @JsonProperty("isSSR") final Boolean isSSR,
+            @JsonProperty("detail") final String detail,
+            @JsonProperty("timestamp") final Long timestamp) {
         this.isSSR = isSSR;
         this.detail = detail;
         this.timestamp = timestamp;

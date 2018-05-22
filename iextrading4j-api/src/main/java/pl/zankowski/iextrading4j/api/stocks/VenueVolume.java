@@ -22,12 +22,13 @@ public class VenueVolume implements Serializable {
     private final BigDecimal avgMarketPercent;
 
     @JsonCreator
-    public VenueVolume(@JsonProperty("volume") final BigDecimal volume,
-                       @JsonProperty("venue") final String venue,
-                       @JsonProperty("venueName") final String venueName,
-                       @JsonProperty("date") final LocalDate date,
-                       @JsonProperty("marketPercent") final BigDecimal marketPercent,
-                       @JsonProperty("avgMarketPercent") final BigDecimal avgMarketPercent) {
+    public VenueVolume(
+            @JsonProperty("volume") final BigDecimal volume,
+            @JsonProperty("venue") final String venue,
+            @JsonProperty("venueName") final String venueName,
+            @JsonProperty("date") final LocalDate date,
+            @JsonProperty("marketPercent") final BigDecimal marketPercent,
+            @JsonProperty("avgMarketPercent") final BigDecimal avgMarketPercent) {
         this.volume = volume;
         this.venue = venue;
         this.venueName = venueName;

@@ -16,9 +16,10 @@ public class TradingStatus implements Serializable {
     private final Long timestamp;
 
     @JsonCreator
-    public TradingStatus(@JsonProperty("status") final TradingStatusType status,
-                         @JsonProperty("reason") final TradingStatusReasonType reason,
-                         @JsonProperty("timestamp") final Long timestamp) {
+    public TradingStatus(
+            @JsonProperty("status") final TradingStatusType status,
+            @JsonProperty("reason") final TradingStatusReasonType reason,
+            @JsonProperty("timestamp") final Long timestamp) {
         this.status = status;
         this.reason = reason;
         this.timestamp = timestamp;

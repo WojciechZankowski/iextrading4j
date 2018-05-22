@@ -22,13 +22,14 @@ public class DelayedQuote implements Serializable {
     private final Long processedTime;
 
     @JsonCreator
-    public DelayedQuote(@JsonProperty("symbol") final String symbol,
-                        @JsonProperty("delayedPrice") final BigDecimal delayedPrice,
-                        @JsonProperty("high") final BigDecimal high,
-                        @JsonProperty("low") final BigDecimal low,
-                        @JsonProperty("delayedSize") final BigDecimal delayedSize,
-                        @JsonProperty("delayedPriceTime") final Long delayedPriceTime,
-                        @JsonProperty("processedTime") final Long processedTime) {
+    public DelayedQuote(
+            @JsonProperty("symbol") final String symbol,
+            @JsonProperty("delayedPrice") final BigDecimal delayedPrice,
+            @JsonProperty("high") final BigDecimal high,
+            @JsonProperty("low") final BigDecimal low,
+            @JsonProperty("delayedSize") final BigDecimal delayedSize,
+            @JsonProperty("delayedPriceTime") final Long delayedPriceTime,
+            @JsonProperty("processedTime") final Long processedTime) {
         this.symbol = symbol;
         this.delayedPrice = delayedPrice;
         this.high = high;

@@ -24,11 +24,12 @@ public class Book implements Serializable {
     private final SystemEvent systemEvent;
 
     @JsonCreator
-    public Book(@JsonProperty("quote") final Quote quote,
-                @JsonProperty("bids") final List<BookEntry> bids,
-                @JsonProperty("asks") final List<BookEntry> asks,
-                @JsonProperty("trades") final List<Trade> trades,
-                @JsonProperty("systemEvent") final SystemEvent systemEvent) {
+    public Book(
+            @JsonProperty("quote") final Quote quote,
+            @JsonProperty("bids") final List<BookEntry> bids,
+            @JsonProperty("asks") final List<BookEntry> asks,
+            @JsonProperty("trades") final List<Trade> trades,
+            @JsonProperty("systemEvent") final SystemEvent systemEvent) {
         this.quote = quote;
         this.bids = immutableList(bids);
         this.asks = immutableList(asks);

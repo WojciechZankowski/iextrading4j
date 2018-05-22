@@ -21,12 +21,13 @@ public class HistoricalDailyStats implements Serializable {
     private final BigDecimal litVolume;
 
     @JsonCreator
-    public HistoricalDailyStats(@JsonProperty("date") final LocalDate date,
-                                @JsonProperty("volume") final BigDecimal volume,
-                                @JsonProperty("routedVolume") final BigDecimal routedVolume,
-                                @JsonProperty("marketShare") final BigDecimal marketShare,
-                                @JsonProperty("isHalfday") final Boolean isHalfday,
-                                @JsonProperty("litVolume") final BigDecimal litVolume) {
+    public HistoricalDailyStats(
+            @JsonProperty("date") final LocalDate date,
+            @JsonProperty("volume") final BigDecimal volume,
+            @JsonProperty("routedVolume") final BigDecimal routedVolume,
+            @JsonProperty("marketShare") final BigDecimal marketShare,
+            @JsonProperty("isHalfday") final Boolean isHalfday,
+            @JsonProperty("litVolume") final BigDecimal litVolume) {
         this.date = date;
         this.volume = volume;
         this.routedVolume = routedVolume;

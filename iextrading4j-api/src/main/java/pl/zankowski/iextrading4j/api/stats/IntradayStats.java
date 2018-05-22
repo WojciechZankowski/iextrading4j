@@ -18,11 +18,12 @@ public class IntradayStats implements Serializable {
     private final IntradayStat marketShare;
 
     @JsonCreator
-    public IntradayStats(@JsonProperty("volume") final IntradayStat volume,
-                         @JsonProperty("symbolsTraded") final IntradayStat symbolsTraded,
-                         @JsonProperty("routedVolume") final IntradayStat routedVolume,
-                         @JsonProperty("notional") final IntradayStat notional,
-                         @JsonProperty("marketShare") final IntradayStat marketShare) {
+    public IntradayStats(
+            @JsonProperty("volume") final IntradayStat volume,
+            @JsonProperty("symbolsTraded") final IntradayStat symbolsTraded,
+            @JsonProperty("routedVolume") final IntradayStat routedVolume,
+            @JsonProperty("notional") final IntradayStat notional,
+            @JsonProperty("marketShare") final IntradayStat marketShare) {
         this.volume = volume;
         this.symbolsTraded = symbolsTraded;
         this.routedVolume = routedVolume;

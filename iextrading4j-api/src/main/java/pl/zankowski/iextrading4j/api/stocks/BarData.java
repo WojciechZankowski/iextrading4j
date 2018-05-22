@@ -27,17 +27,18 @@ public class BarData implements Serializable {
     private final BigDecimal vwap;
 
     @JsonCreator
-    public BarData(@JsonProperty("symbol") final String symbol,
-                   @JsonProperty("date") final LocalDate date,
-                   @JsonProperty("open") final BigDecimal open,
-                   @JsonProperty("high") final BigDecimal high,
-                   @JsonProperty("low") final BigDecimal low,
-                   @JsonProperty("close") final BigDecimal close,
-                   @JsonProperty("volume") final BigDecimal volume,
-                   @JsonProperty("unadjustedVolume") final BigDecimal unadjustedVolume,
-                   @JsonProperty("change") final BigDecimal change,
-                   @JsonProperty("changePercent") final BigDecimal changePercent,
-                   @JsonProperty("vwap") final BigDecimal vwap) {
+    public BarData(
+            @JsonProperty("symbol") final String symbol,
+            @JsonProperty("date") final LocalDate date,
+            @JsonProperty("open") final BigDecimal open,
+            @JsonProperty("high") final BigDecimal high,
+            @JsonProperty("low") final BigDecimal low,
+            @JsonProperty("close") final BigDecimal close,
+            @JsonProperty("volume") final BigDecimal volume,
+            @JsonProperty("unadjustedVolume") final BigDecimal unadjustedVolume,
+            @JsonProperty("change") final BigDecimal change,
+            @JsonProperty("changePercent") final BigDecimal changePercent,
+            @JsonProperty("vwap") final BigDecimal vwap) {
         this.symbol = symbol;
         this.date = date;
         this.open = open;

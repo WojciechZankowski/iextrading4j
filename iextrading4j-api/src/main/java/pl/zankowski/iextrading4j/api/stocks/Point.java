@@ -16,8 +16,9 @@ public class Point implements Serializable {
     private final Long time;
 
     @JsonCreator
-    public Point(@JsonProperty("price") final BigDecimal price,
-                 @JsonProperty("time") final Long time) {
+    public Point(
+            @JsonProperty("price") final BigDecimal price,
+            @JsonProperty("time") final Long time) {
         this.price = price;
         this.time = time;
     }

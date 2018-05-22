@@ -23,15 +23,16 @@ public class Company implements Serializable {
     private final String sector;
 
     @JsonCreator
-    public Company(@JsonProperty("symbol") final String symbol,
-                   @JsonProperty("companyName") final String companyName,
-                   @JsonProperty("exchange") final String exchange,
-                   @JsonProperty("industry") final String industry,
-                   @JsonProperty("website") final String website,
-                   @JsonProperty("description") final String description,
-                   @JsonProperty("CEO") final String CEO,
-                   @JsonProperty("issueType") final String issueType,
-                   @JsonProperty("sector") final String sector) {
+    public Company(
+            @JsonProperty("symbol") final String symbol,
+            @JsonProperty("companyName") final String companyName,
+            @JsonProperty("exchange") final String exchange,
+            @JsonProperty("industry") final String industry,
+            @JsonProperty("website") final String website,
+            @JsonProperty("description") final String description,
+            @JsonProperty("CEO") final String CEO,
+            @JsonProperty("issueType") final String issueType,
+            @JsonProperty("sector") final String sector) {
         this.symbol = symbol;
         this.companyName = companyName;
         this.exchange = exchange;

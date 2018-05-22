@@ -20,12 +20,13 @@ public class EffectiveSpread implements Serializable {
     private final BigDecimal priceImprovement;
 
     @JsonCreator
-    public EffectiveSpread(@JsonProperty("volume") final BigDecimal volume,
-                           @JsonProperty("venue") final String venue,
-                           @JsonProperty("venueName") final String venueName,
-                           @JsonProperty("effectiveSpread") final BigDecimal effectiveSpread,
-                           @JsonProperty("effectiveQuoted") final BigDecimal effectiveQuoted,
-                           @JsonProperty("priceImprovement") BigDecimal priceImprovement) {
+    public EffectiveSpread(
+            @JsonProperty("volume") final BigDecimal volume,
+            @JsonProperty("venue") final String venue,
+            @JsonProperty("venueName") final String venueName,
+            @JsonProperty("effectiveSpread") final BigDecimal effectiveSpread,
+            @JsonProperty("effectiveQuoted") final BigDecimal effectiveQuoted,
+            @JsonProperty("priceImprovement") BigDecimal priceImprovement) {
         this.volume = volume;
         this.venue = venue;
         this.venueName = venueName;

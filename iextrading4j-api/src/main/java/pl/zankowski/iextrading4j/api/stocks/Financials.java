@@ -18,8 +18,9 @@ public class Financials implements Serializable {
     private final List<Financial> financials;
 
     @JsonCreator
-    public Financials(@JsonProperty("symbol") final String symbol,
-                      @JsonProperty("financials") final List<Financial> financials) {
+    public Financials(
+            @JsonProperty("symbol") final String symbol,
+            @JsonProperty("financials") final List<Financial> financials) {
         this.symbol = symbol;
         this.financials = immutableList(financials);
     }

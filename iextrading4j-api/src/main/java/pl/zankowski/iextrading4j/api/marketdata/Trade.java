@@ -24,15 +24,16 @@ public class Trade implements Serializable {
     private final Long timestamp;
 
     @JsonCreator
-    public Trade(@JsonProperty("price") final BigDecimal price,
-                 @JsonProperty("size") final BigDecimal size,
-                 @JsonProperty("tradeId") final Long tradeId,
-                 @JsonProperty("isISO") final Boolean isISO,
-                 @JsonProperty("isOddLot") final Boolean isOddLot,
-                 @JsonProperty("isOutsideRegularHours") final Boolean isOutsideRegularHours,
-                 @JsonProperty("isSinglePriceCross") final Boolean isSinglePriceCross,
-                 @JsonProperty("isTradeThroughExempt") final Boolean isTradeThroughExempt,
-                 @JsonProperty("timestamp") final Long timestamp) {
+    public Trade(
+            @JsonProperty("price") final BigDecimal price,
+            @JsonProperty("size") final BigDecimal size,
+            @JsonProperty("tradeId") final Long tradeId,
+            @JsonProperty("isISO") final Boolean isISO,
+            @JsonProperty("isOddLot") final Boolean isOddLot,
+            @JsonProperty("isOutsideRegularHours") final Boolean isOutsideRegularHours,
+            @JsonProperty("isSinglePriceCross") final Boolean isSinglePriceCross,
+            @JsonProperty("isTradeThroughExempt") final Boolean isTradeThroughExempt,
+            @JsonProperty("timestamp") final Long timestamp) {
         this.price = price;
         this.size = size;
         this.tradeId = tradeId;

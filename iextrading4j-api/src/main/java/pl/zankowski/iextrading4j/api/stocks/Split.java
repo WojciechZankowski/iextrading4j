@@ -23,13 +23,14 @@ public class Split implements Serializable {
     private final BigDecimal forFactor;
 
     @JsonCreator
-    public Split(@JsonProperty("exDate") final LocalDate exDate,
-                 @JsonProperty("declaredDate") final LocalDate declaredDate,
-                 @JsonProperty("recordDate") final LocalDate recordDate,
-                 @JsonProperty("paymentDate") final LocalDate paymentDate,
-                 @JsonProperty("ratio") final BigDecimal ratio,
-                 @JsonProperty("toFactor") final BigDecimal toFactor,
-                 @JsonProperty("forFactor") final BigDecimal forFactor) {
+    public Split(
+            @JsonProperty("exDate") final LocalDate exDate,
+            @JsonProperty("declaredDate") final LocalDate declaredDate,
+            @JsonProperty("recordDate") final LocalDate recordDate,
+            @JsonProperty("paymentDate") final LocalDate paymentDate,
+            @JsonProperty("ratio") final BigDecimal ratio,
+            @JsonProperty("toFactor") final BigDecimal toFactor,
+            @JsonProperty("forFactor") final BigDecimal forFactor) {
         this.exDate = exDate;
         this.declaredDate = declaredDate;
         this.recordDate = recordDate;
