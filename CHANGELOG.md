@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.1.4] - 2018-05-22
+
+### Added
+
+- Extended price and extended price time to the Quote model
+
 ## [2.1.3] - 2018-05-02
 
 ### Changed
@@ -84,3 +90,4 @@ All notable changes to this project will be documented in this file.
 [2.1.1]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_0...IT4J_RELEASE_2_1_1
 [2.1.2]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_1...IT4J_RELEASE_2_1_2
 [2.1.3]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_2...IT4J_RELEASE_2_1_3
+[2.1.4]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_3...IT4J_RELEASE_2_1_4
