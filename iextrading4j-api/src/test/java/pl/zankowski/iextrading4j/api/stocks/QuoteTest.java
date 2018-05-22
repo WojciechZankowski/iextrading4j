@@ -36,6 +36,8 @@ public class QuoteTest {
         final Long iexLastUpdated = fixture.create(Long.class);
         final BigDecimal delayedPrice = fixture.create(BigDecimal.class);
         final Long delayedPriceTime = fixture.create(Long.class);
+        final BigDecimal extendedPrice = fixture.create(BigDecimal.class);
+        final Long extendedPriceTime = fixture.create(Long.class);
         final BigDecimal previousClose = fixture.create(BigDecimal.class);
         final BigDecimal change = fixture.create(BigDecimal.class);
         final BigDecimal changePercent = fixture.create(BigDecimal.class);
@@ -55,8 +57,9 @@ public class QuoteTest {
         final Quote quote = new Quote(symbol, companyName, primaryExchange, sector, calculationPrice, open,
                 openTime, close, closeTime, high, low, latestPrice, latestSource, latestTime, latestUpdate,
                 latestVolume, iexRealtimePrice, iexRealtimeSize, iexLastUpdated, delayedPrice, delayedPriceTime,
-                previousClose, change, changePercent, iexMarketPercent, iexVolume, avgTotalVolume, iexBidPrice,
-                iexBidSize, iexAskPrice, iexAskSize, marketCap, peRatio, week52High, week52Low, ytdChange);
+                extendedPrice, extendedPriceTime, previousClose, change, changePercent, iexMarketPercent, iexVolume,
+                avgTotalVolume, iexBidPrice, iexBidSize, iexAskPrice, iexAskSize, marketCap, peRatio, week52High,
+                week52Low, ytdChange);
 
         assertThat(quote.getSymbol()).isEqualTo(symbol);
         assertThat(quote.getCompanyName()).isEqualTo(companyName);
@@ -79,6 +82,8 @@ public class QuoteTest {
         assertThat(quote.getIexLastUpdated()).isEqualTo(iexLastUpdated);
         assertThat(quote.getDelayedPrice()).isEqualTo(delayedPrice);
         assertThat(quote.getDelayedPriceTime()).isEqualTo(delayedPriceTime);
+        assertThat(quote.getExtendedPrice()).isEqualTo(extendedPrice);
+        assertThat(quote.getExtendedPriceTime()).isEqualTo(extendedPriceTime);
         assertThat(quote.getPreviousClose()).isEqualTo(previousClose);
         assertThat(quote.getChange()).isEqualTo(change);
         assertThat(quote.getChangePercent()).isEqualTo(changePercent);
