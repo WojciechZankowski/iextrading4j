@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.1.5] - 2018-05-24
+
+### Added
+
+- Largest Trades endpoint
+- Extended change and extended changePercent to the Quote model
+
 ## [2.1.4] - 2018-05-22
 
 ### Added
