@@ -13,6 +13,7 @@
 * [How to](#how-to)
 * [Wiki](#wiki)
 * [License](#license)
+* [Others](#others)
 
 ## Quick Start
 
@@ -22,11 +23,11 @@ Java SE 8 is required to use IEXTrading4j library.
 <dependency>
 	<groupId>pl.zankowski</groupId>
 	<artifactId>iextrading4j-all</artifactId>
-	<version>2.1.4</version>
+	<version>2.1.5</version>
 </dependency>
 ```
 
-Library is up to IEX Trading API version [1.0] - 22.05.2017 
+Library is up to IEX Trading API version [1.0] - 24.05.2017 
 
 ## Description
 
@@ -108,3 +109,7 @@ More on this topic can found here: [IEX Trading Market Data](https://www.iextrad
 # [IEXTrading4j BOOK](https://github.com/WojciechZankowski/iextrading4j-book)
 
 IEXTrading4j Book library allows to build incremental Order Book based on PriceLevelUpdateMessages from DEEP market data stream. OrderBook implementation follows description from specification.
+
+# [IEXTrading4j FIX](https://github.com/WojciechZankowski/iextrading4j-fix)
+
+IEXTrading4j FIX project provides open source FIX dictionary that follows IEX FIX specification. It allows to easily integrate your systems with IEX FIX connectivity using libraries like QuickFIX or QuickFIX/J.
