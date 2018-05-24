@@ -24,6 +24,16 @@ public abstract class AbstractChartRequestBuilder<R, B extends IRestRequestBuild
         return (B) this;
     }
 
+    public B withChangeFromClose() {
+        this.queryParameters.put("changeFromClose", Boolean.TRUE.toString());
+        return (B) this;
+    }
+
+    public B withChartLast(final Integer lastElements) {
+        this.queryParameters.put("chartLast", String.valueOf(lastElements));
+        return (B) this;
+    }
+
     Map<String, String> getQueryParameters() {
         return queryParameters;
     }

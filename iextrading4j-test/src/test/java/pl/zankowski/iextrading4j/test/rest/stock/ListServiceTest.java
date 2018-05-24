@@ -129,6 +129,10 @@ public class ListServiceTest extends BaseServiceTest {
         assertThat(quote.getIexLastUpdated()).isEqualTo(1510943220257L);
         assertThat(quote.getDelayedPrice()).isEqualTo(BigDecimal.valueOf(44.915));
         assertThat(quote.getDelayedPriceTime()).isEqualTo(1510942387434L);
+        assertThat(quote.getExtendedPrice()).isEqualTo(BigDecimal.valueOf(187.64));
+        assertThat(quote.getExtendedChange()).isEqualTo(BigDecimal.valueOf(-0.08));
+        assertThat(quote.getExtendedChangePercent()).isEqualTo(BigDecimal.valueOf(-0.00042));
+        assertThat(quote.getExtendedPriceTime()).isEqualTo(1526936340405L);
         assertThat(quote.getPreviousClose()).isEqualTo(BigDecimal.valueOf(45.65));
         assertThat(quote.getChange()).isEqualTo(BigDecimal.valueOf(-0.77));
         assertThat(quote.getChangePercent()).isEqualTo(BigDecimal.valueOf(-0.01687));

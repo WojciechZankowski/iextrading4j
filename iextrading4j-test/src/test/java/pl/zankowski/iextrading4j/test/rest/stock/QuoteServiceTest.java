@@ -51,6 +51,10 @@ public class QuoteServiceTest extends BaseServiceTest {
         assertThat(quote.getIexLastUpdated()).isEqualTo(1510942738831L);
         assertThat(quote.getDelayedPrice()).isEqualTo(BigDecimal.valueOf(170.59));
         assertThat(quote.getDelayedPriceTime()).isEqualTo(1510941879189L);
+        assertThat(quote.getExtendedPrice()).isEqualTo(BigDecimal.valueOf(187.64));
+        assertThat(quote.getExtendedChange()).isEqualTo(BigDecimal.valueOf(-0.08));
+        assertThat(quote.getExtendedChangePercent()).isEqualTo(BigDecimal.valueOf(-0.00042));
+        assertThat(quote.getExtendedPriceTime()).isEqualTo(1526936340405L);
         assertThat(quote.getPreviousClose()).isEqualTo(BigDecimal.valueOf(171.1));
         assertThat(quote.getChange()).isEqualTo(BigDecimal.valueOf(-0.71));
         assertThat(quote.getChangePercent()).isEqualTo(BigDecimal.valueOf(-0.00415));

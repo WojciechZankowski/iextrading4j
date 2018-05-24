@@ -13,7 +13,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.entry;
 
-public class ChartRequestBuilderTest  {
+public class ChartRequestBuilderTest {
 
     @Test
     public void shouldSuccessfullyCreateRequest() {
@@ -25,7 +25,8 @@ public class ChartRequestBuilderTest  {
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
         assertThat(request.getPath()).isEqualTo("/stock/{symbol}/chart");
-        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {});
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {
+        });
         assertThat(request.getPathParams()).containsExactly(entry("symbol", symbol));
         assertThat(request.getQueryParams()).isEmpty();
     }
@@ -42,7 +43,8 @@ public class ChartRequestBuilderTest  {
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
         assertThat(request.getPath()).isEqualTo("/stock/{symbol}/chart/{range}");
-        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {});
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {
+        });
         assertThat(request.getPathParams()).contains(
                 entry("range", chartRange.getCode()),
                 entry("symbol", symbol));
@@ -60,7 +62,8 @@ public class ChartRequestBuilderTest  {
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
         assertThat(request.getPath()).isEqualTo("/stock/{symbol}/chart/date/{date}");
-        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {});
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {
+        });
         assertThat(request.getPathParams()).containsExactly(
                 entry("date", "20170505"),
                 entry("symbol", symbol));
@@ -78,7 +81,8 @@ public class ChartRequestBuilderTest  {
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
         assertThat(request.getPath()).isEqualTo("/stock/{symbol}/chart");
-        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {});
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {
+        });
         assertThat(request.getPathParams()).containsExactly(entry("symbol", symbol));
         assertThat(request.getQueryParams()).containsExactly(entry("chartReset", "true"));
     }
@@ -94,7 +98,8 @@ public class ChartRequestBuilderTest  {
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
         assertThat(request.getPath()).isEqualTo("/stock/{symbol}/chart");
-        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {});
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {
+        });
         assertThat(request.getPathParams()).containsExactly(entry("symbol", symbol));
         assertThat(request.getQueryParams()).containsExactly(entry("chartSimplify", "true"));
     }
@@ -111,9 +116,45 @@ public class ChartRequestBuilderTest  {
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
         assertThat(request.getPath()).isEqualTo("/stock/{symbol}/chart");
-        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {});
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {
+        });
         assertThat(request.getPathParams()).containsExactly(entry("symbol", symbol));
         assertThat(request.getQueryParams()).containsExactly(entry("chartInterval", String.valueOf(chartInterval)));
+    }
+
+    @Test
+    public void shouldSuccessfullyCreateRequestWithChangeFromClose() {
+        final String symbol = "IBM";
+
+        final RestRequest<List<Chart>> request = new ChartRequestBuilder()
+                .withSymbol(symbol)
+                .withChangeFromClose()
+                .build();
+
+        assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
+        assertThat(request.getPath()).isEqualTo("/stock/{symbol}/chart");
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {
+        });
+        assertThat(request.getPathParams()).containsExactly(entry("symbol", symbol));
+        assertThat(request.getQueryParams()).containsExactly(entry("changeFromClose", "true"));
+    }
+
+    @Test
+    public void shouldSuccessfullyCreateRequestWithChartLast() {
+        final String symbol = "IBM";
+        final Integer chartLast = 5;
+
+        final RestRequest<List<Chart>> request = new ChartRequestBuilder()
+                .withSymbol(symbol)
+                .withChartLast(chartLast)
+                .build();
+
+        assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
+        assertThat(request.getPath()).isEqualTo("/stock/{symbol}/chart");
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Chart>>() {
+        });
+        assertThat(request.getPathParams()).containsExactly(entry("symbol", symbol));
+        assertThat(request.getQueryParams()).containsExactly(entry("chartLast", String.valueOf(chartLast)));
     }
 
 }

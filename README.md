@@ -34,6 +34,8 @@ IEXTrading4j library allows to receive all data available in API provided by IEX
 
 Data & API description: https://iextrading.com/developer
 
+Unofficial library listed on [IEXTrading](https://iextrading.com/developer/docs/#unofficial-libraries-and-integrations)
+
 ## IEX Trading
 
 IEX A Fair, Simple, Transparent Exchange.

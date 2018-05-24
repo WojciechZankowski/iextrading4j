@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.test.acceptance;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.stocks.BarData;
 import pl.zankowski.iextrading4j.api.stocks.Book;
@@ -13,6 +14,7 @@ import pl.zankowski.iextrading4j.api.stocks.Earnings;
 import pl.zankowski.iextrading4j.api.stocks.EffectiveSpread;
 import pl.zankowski.iextrading4j.api.stocks.Financials;
 import pl.zankowski.iextrading4j.api.stocks.KeyStats;
+import pl.zankowski.iextrading4j.api.stocks.LargestTrade;
 import pl.zankowski.iextrading4j.api.stocks.Logo;
 import pl.zankowski.iextrading4j.api.stocks.News;
 import pl.zankowski.iextrading4j.api.stocks.Ohlc;
@@ -39,12 +41,55 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void chartRequestAcceptanceTest() {
+    public void oneDayChartRequestAcceptanceTest() {
+        final List<Chart> chartList = iexTradingClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.ONE_DAY)
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(chartList);
+    }
+
+    @Test
+    public void oneMonthChartRequestAcceptanceTest() {
         final List<Chart> chartList = iexTradingClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
                 .build());
         System.out.println(chartList);
+    }
+
+    @Test
+    public void chartParametersAcceptanceTest() {
+        final List<Chart> chartList_1 = iexTradingClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.ONE_MONTH)
+                .withSymbol("AAPL")
+                .withChartReset()
+                .build());
+        System.out.println(chartList_1);
+        final List<Chart> chartList_2 = iexTradingClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.ONE_MONTH)
+                .withSymbol("AAPL")
+                .withChartSimplify()
+                .build());
+        System.out.println(chartList_2);
+        final List<Chart> chartList_3 = iexTradingClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.ONE_MONTH)
+                .withSymbol("AAPL")
+                .withChartInterval(4)
+                .build());
+        System.out.println(chartList_3);
+        final List<Chart> chartList_4 = iexTradingClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.ONE_MONTH)
+                .withSymbol("AAPL")
+                .withChangeFromClose()
+                .build());
+        System.out.println(chartList_4);
+        final List<Chart> chartList_5 = iexTradingClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.ONE_MONTH)
+                .withSymbol("AAPL")
+                .withChartLast(4)
+                .build());
+        System.out.println(chartList_5);
     }
 
     @Test
@@ -110,6 +155,15 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .build());
         System.out.println(keyStats);
+    }
+
+
+    @Test
+    public void largestTradeAcceptanceTest() {
+        final List<LargestTrade> largestTradeList = iexTradingClient.executeRequest(new LargestTradeRequestBuilder()
+                .withSymbol("aapl")
+                .build());
+        System.out.println(largestTradeList);
     }
 
     @Test
