@@ -7,7 +7,7 @@ import java.util.Map;
 
 public abstract class AbstractChartRequestBuilder<R, B extends IRestRequestBuilder<R>> extends AbstractStocksRequestBuilder<R, B> {
 
-    private final Map<String, String> queryParameters = Maps.newHashMap();
+    protected final Map<String, String> queryParameters = Maps.newHashMap();
 
     public B withChartReset() {
         this.queryParameters.put("chartReset", Boolean.TRUE.toString());

@@ -1,8 +1,8 @@
 package pl.zankowski.iextrading4j.test.acceptance;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.stocks.BarData;
+import pl.zankowski.iextrading4j.api.stocks.BatchStocks;
 import pl.zankowski.iextrading4j.api.stocks.Book;
 import pl.zankowski.iextrading4j.api.stocks.Chart;
 import pl.zankowski.iextrading4j.api.stocks.ChartRange;
@@ -33,6 +33,195 @@ import java.util.List;
 public class StocksAcceptanceTest extends AcceptanceTestBase {
 
     @Test
+    public void batchBookRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.BOOK)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchChartRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.CHART)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchCompanyRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.COMPANY)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchDelayedQuoteRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.DELAYED_QUOTE)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchDividendsRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.DIVIDENDS)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchEffectiveSpreadRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.EFFECTIVE_SPREAD)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchFinancialsRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.FINANCIALS)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchThresholdSecuritiesRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.THRESHOLD_SECURITIES)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchShortInterestRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.SHORT_INTEREST)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchKeyStatsRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.KEY_STATS)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchLargestTradesRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.LARGEST_TRADES)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchLogoRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.LOGO)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchNewsRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.NEWS)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchOhlcRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.OHLC)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchPeersRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.PEERS)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchPreviousRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.PREVIOUS)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchPriceRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.PRICE)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchQuoteRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.QUOTE)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchRelevantRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.RELEVANT)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchSplitsRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.SPLITS)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
+    public void batchVolumeByVenueRequestAcceptanceTest() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.VOLUME_BY_VENUE)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    @Test
     public void bookRequestAcceptanceTest() {
         final Book book = iexTradingClient.executeRequest(new BookRequestBuilder()
                 .withSymbol("AAPL")
@@ -59,37 +248,53 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void chartParametersAcceptanceTest() {
-        final List<Chart> chartList_1 = iexTradingClient.executeRequest(new ChartRequestBuilder()
+    public void chartWithResetAcceptanceTest() {
+        final List<Chart> chartList = iexTradingClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
                 .withChartReset()
                 .build());
-        System.out.println(chartList_1);
-        final List<Chart> chartList_2 = iexTradingClient.executeRequest(new ChartRequestBuilder()
+        System.out.println(chartList);
+    }
+
+    @Test
+    public void chartWithSimplifyAcceptanceTest() {
+        final List<Chart> chartList = iexTradingClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
                 .withChartSimplify()
                 .build());
-        System.out.println(chartList_2);
-        final List<Chart> chartList_3 = iexTradingClient.executeRequest(new ChartRequestBuilder()
+        System.out.println(chartList);
+    }
+
+    @Test
+    public void chartWithIntervalAcceptanceTest() {
+        final List<Chart> chartList = iexTradingClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
                 .withChartInterval(4)
                 .build());
-        System.out.println(chartList_3);
-        final List<Chart> chartList_4 = iexTradingClient.executeRequest(new ChartRequestBuilder()
+        System.out.println(chartList);
+    }
+
+    @Test
+    public void chartWithChangeFromCloseAcceptanceTest() {
+        final List<Chart> chartList = iexTradingClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
                 .withChangeFromClose()
                 .build());
-        System.out.println(chartList_4);
-        final List<Chart> chartList_5 = iexTradingClient.executeRequest(new ChartRequestBuilder()
+        System.out.println(chartList);
+    }
+
+    @Test
+    public void chartWithLastAcceptanceTest() {
+        final List<Chart> chartList = iexTradingClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
                 .withChartLast(4)
                 .build());
-        System.out.println(chartList_5);
+        System.out.println(chartList);
     }
 
     @Test

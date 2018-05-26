@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.sample.rest;
 
 import pl.zankowski.iextrading4j.api.refdata.ExchangeSymbol;
 import pl.zankowski.iextrading4j.api.stocks.BarData;
+import pl.zankowski.iextrading4j.api.stocks.BatchStocks;
 import pl.zankowski.iextrading4j.api.stocks.Book;
 import pl.zankowski.iextrading4j.api.stocks.Chart;
 import pl.zankowski.iextrading4j.api.stocks.ChartRange;
@@ -37,6 +38,7 @@ public class StocksSample {
     public static void main(String[] args) {
         final StocksSample sampleSuite = new StocksSample();
 
+        sampleSuite.batchRequestSample();
         sampleSuite.bookRequestSample();
         sampleSuite.chartRequestSample();
         sampleSuite.companyRequestSample();
@@ -62,6 +64,16 @@ public class StocksSample {
         sampleSuite.shortInterestRequestSample();
         sampleSuite.timeSeriesRequestSample();
         sampleSuite.thresholdSecuritiesRequestSample();
+    }
+
+    private void batchRequestSample() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.BOOK)
+                .addType(BatchStocksType.COMPANY)
+                .addType(BatchStocksType.EARNINGS)
+                .build());
+        System.out.println(batchStocks);
     }
 
     private void bookRequestSample() {
