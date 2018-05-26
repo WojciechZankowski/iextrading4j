@@ -29,6 +29,7 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.*;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 public class StocksAcceptanceTest extends AcceptanceTestBase {
 
@@ -492,6 +493,20 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withMarket()
                 .build());
         System.out.println(thresholdSecuritiesList);
+    }
+
+    @Test
+    public void ohlcMarketAcceptanceTest() {
+        final Map<String, Ohlc> ohlcMap = iexTradingClient.executeRequest(new OhlcMarketRequestBuilder()
+                .build());
+        System.out.println(ohlcMap);
+    }
+
+    @Test
+    public void previousMarketAcceptanceTest() {
+        final Map<String, BarData> barDataMap = iexTradingClient.executeRequest(new PreviousMarketRequestBuilder()
+                .build());
+        System.out.println(barDataMap);
     }
 
 }

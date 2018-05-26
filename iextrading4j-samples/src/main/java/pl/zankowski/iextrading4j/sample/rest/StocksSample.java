@@ -30,6 +30,7 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.*;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 public class StocksSample {
 
@@ -64,6 +65,8 @@ public class StocksSample {
         sampleSuite.shortInterestRequestSample();
         sampleSuite.timeSeriesRequestSample();
         sampleSuite.thresholdSecuritiesRequestSample();
+        sampleSuite.ohlcMarketRequestSample();
+        sampleSuite.previousMarketRequestSample();
     }
 
     private void batchRequestSample() {
@@ -190,6 +193,12 @@ public class StocksSample {
         System.out.println(bar);
     }
 
+    private void previousMarketRequestSample() {
+        final Map<String, BarData> barDataMap = iexTradingClient.executeRequest(new PreviousMarketRequestBuilder()
+                .build());
+        System.out.println(barDataMap);
+    }
+
     private void priceRequestSample() {
         final BigDecimal price = iexTradingClient.executeRequest(new PriceRequestBuilder()
                 .withSymbol("AAPL")
@@ -235,6 +244,12 @@ public class StocksSample {
                 .withSymbol("aapl")
                 .build());
         System.out.println(ohlc);
+    }
+
+    private void ohlcMarketRequestSample() {
+        final Map<String, Ohlc> ohlcMap = iexTradingClient.executeRequest(new OhlcMarketRequestBuilder()
+                .build());
+        System.out.println(ohlcMap);
     }
 
     private void shortInterestRequestSample() {
