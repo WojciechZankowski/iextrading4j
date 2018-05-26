@@ -40,6 +40,7 @@ public class StocksSample {
         final StocksSample sampleSuite = new StocksSample();
 
         sampleSuite.batchRequestSample();
+        sampleSuite.batchMarketRequestSample();
         sampleSuite.bookRequestSample();
         sampleSuite.chartRequestSample();
         sampleSuite.companyRequestSample();
@@ -77,6 +78,15 @@ public class StocksSample {
                 .addType(BatchStocksType.EARNINGS)
                 .build());
         System.out.println(batchStocks);
+    }
+
+    private void batchMarketRequestSample() {
+        final Map<String, BatchStocks> batchStocksMap = iexTradingClient.executeRequest(new BatchMarketStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.COMPANY)
+                .addType(BatchStocksType.EARNINGS)
+                .build());
+        System.out.println(batchStocksMap);
     }
 
     private void bookRequestSample() {

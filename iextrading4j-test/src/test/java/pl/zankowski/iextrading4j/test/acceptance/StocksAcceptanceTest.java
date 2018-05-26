@@ -34,6 +34,15 @@ import java.util.Map;
 public class StocksAcceptanceTest extends AcceptanceTestBase {
 
     @Test
+    public void batchBookMarketRequestAcceptanceTest() {
+        final Map<String, BatchStocks> batchStocksMap = iexTradingClient.executeRequest(new BatchMarketStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.BOOK)
+                .build());
+        System.out.println(batchStocksMap);
+    }
+
+    @Test
     public void batchBookRequestAcceptanceTest() {
         final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
                 .withSymbol("AAPL")
