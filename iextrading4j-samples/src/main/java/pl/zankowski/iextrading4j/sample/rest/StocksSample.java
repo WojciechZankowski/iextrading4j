@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.sample.rest;
 
 import pl.zankowski.iextrading4j.api.refdata.ExchangeSymbol;
 import pl.zankowski.iextrading4j.api.stocks.BarData;
+import pl.zankowski.iextrading4j.api.stocks.BatchStocks;
 import pl.zankowski.iextrading4j.api.stocks.Book;
 import pl.zankowski.iextrading4j.api.stocks.Chart;
 import pl.zankowski.iextrading4j.api.stocks.ChartRange;
@@ -29,6 +30,7 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.*;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 public class StocksSample {
 
@@ -37,6 +39,8 @@ public class StocksSample {
     public static void main(String[] args) {
         final StocksSample sampleSuite = new StocksSample();
 
+        sampleSuite.batchRequestSample();
+        sampleSuite.batchMarketRequestSample();
         sampleSuite.bookRequestSample();
         sampleSuite.chartRequestSample();
         sampleSuite.companyRequestSample();
@@ -62,6 +66,27 @@ public class StocksSample {
         sampleSuite.shortInterestRequestSample();
         sampleSuite.timeSeriesRequestSample();
         sampleSuite.thresholdSecuritiesRequestSample();
+        sampleSuite.ohlcMarketRequestSample();
+        sampleSuite.previousMarketRequestSample();
+    }
+
+    private void batchRequestSample() {
+        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.BOOK)
+                .addType(BatchStocksType.COMPANY)
+                .addType(BatchStocksType.EARNINGS)
+                .build());
+        System.out.println(batchStocks);
+    }
+
+    private void batchMarketRequestSample() {
+        final Map<String, BatchStocks> batchStocksMap = iexTradingClient.executeRequest(new BatchMarketStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.COMPANY)
+                .addType(BatchStocksType.EARNINGS)
+                .build());
+        System.out.println(batchStocksMap);
     }
 
     private void bookRequestSample() {
@@ -178,6 +203,12 @@ public class StocksSample {
         System.out.println(bar);
     }
 
+    private void previousMarketRequestSample() {
+        final Map<String, BarData> barDataMap = iexTradingClient.executeRequest(new PreviousMarketRequestBuilder()
+                .build());
+        System.out.println(barDataMap);
+    }
+
     private void priceRequestSample() {
         final BigDecimal price = iexTradingClient.executeRequest(new PriceRequestBuilder()
                 .withSymbol("AAPL")
@@ -223,6 +254,12 @@ public class StocksSample {
                 .withSymbol("aapl")
                 .build());
         System.out.println(ohlc);
+    }
+
+    private void ohlcMarketRequestSample() {
+        final Map<String, Ohlc> ohlcMap = iexTradingClient.executeRequest(new OhlcMarketRequestBuilder()
+                .build());
+        System.out.println(ohlcMap);
     }
 
     private void shortInterestRequestSample() {
