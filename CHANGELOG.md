@@ -1,6 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.1.6] - 2018-05-27
+
+### Added
+
+- Stock Batch endpoint
+- Stock Market Batch endpoint
+- OHLC Market endpoint
+- Previous Market endpoint
+
 ## [2.1.5] - 2018-05-24
 
 ### Added
@@ -99,3 +108,4 @@ All notable changes to this project will be documented in this file.
 [2.1.3]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_2...IT4J_RELEASE_2_1_3
 [2.1.4]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_3...IT4J_RELEASE_2_1_4
 [2.1.5]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_4...IT4J_RELEASE_2_1_5
+[2.1.6]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_5...IT4J_RELEASE_2_1_6
