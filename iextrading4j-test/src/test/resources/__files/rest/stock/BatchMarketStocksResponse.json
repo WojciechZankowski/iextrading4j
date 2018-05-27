@@ -1,0 +1,15 @@
+{
+  "AAPL": {
+    "company": {
+      "symbol": "AAPL",
+      "companyName": "Apple Inc.",
+      "exchange": "Nasdaq Global Select",
+      "industry": "Computer Hardware",
+      "website": "http://www.apple.com",
+      "description": "Apple Inc is designs, manufactures and markets mobile communication and media devices and personal computers, and sells a variety of related software, services, accessories, networking solutions and third-party digital content and applications.",
+      "CEO": "Timothy D. Cook",
+      "issueType": "cs",
+      "sector": "Technology"
+    }
+  }
+}
