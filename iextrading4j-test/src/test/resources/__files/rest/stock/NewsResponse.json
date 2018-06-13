@@ -5,7 +5,8 @@
     "source": "CNBC",
     "url": "https://api.iextrading.com/1.0/stock/aapl/article/8464142968106298",
     "summary": "No summary available.",
-    "related": "AAPL,AMZN,FB,GOOGL,NFLX"
+    "related": "AAPL,AMZN,FB,GOOGL,NFLX",
+    "image": "https://api.iextrading.com/1.0/stock/aapl/news-image/8505362764378508"
   },
   {
     "datetime": "2017-11-10T14:16:00-05:00",
@@ -13,6 +14,7 @@
     "source": "CNBC",
     "url": "https://api.iextrading.com/1.0/stock/aapl/article/5121696418454999",
     "summary": "No summary available.",
-    "related": "AAPL"
+    "related": "AAPL",
+    "image": "https://api.iextrading.com/1.0/stock/market/news-image/6570157284679204"
   }
 ]

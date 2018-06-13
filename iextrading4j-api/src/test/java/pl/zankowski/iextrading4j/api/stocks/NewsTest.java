@@ -21,8 +21,9 @@ public class NewsTest {
         final String url = fixture.create(String.class);
         final String summary = fixture.create(String.class);
         final String related = fixture.create(String.class);
+        final String image = fixture.create(String.class);
 
-        final News news = new News(datetime, headline, source, url, summary, related);
+        final News news = new News(datetime, headline, source, url, summary, related, image);
 
         assertThat(news.getDatetime()).isEqualTo(datetime);
         assertThat(news.getHeadline()).isEqualTo(headline);
@@ -30,6 +31,7 @@ public class NewsTest {
         assertThat(news.getUrl()).isEqualTo(url);
         assertThat(news.getSummary()).isEqualTo(summary);
         assertThat(news.getRelated()).isEqualTo(related);
+        assertThat(news.getImage()).isEqualTo(image);
     }
 
     @Test

@@ -9,7 +9,7 @@ import com.google.common.base.Objects;
 import java.io.Serializable;
 import java.time.OffsetDateTime;
 
-@JsonPropertyOrder({"datetime", "headline", "source", "url", "summary", "related"})
+@JsonPropertyOrder({"datetime", "headline", "source", "url", "summary", "related", "image"})
 public class News implements Serializable {
 
     private final OffsetDateTime datetime;
@@ -18,6 +18,7 @@ public class News implements Serializable {
     private final String url;
     private final String summary;
     private final String related;
+    private final String image;
 
     @JsonCreator
     public News(
@@ -26,13 +27,15 @@ public class News implements Serializable {
             @JsonProperty("source") final String source,
             @JsonProperty("url") final String url,
             @JsonProperty("summary") final String summary,
-            @JsonProperty("related") final String related) {
+            @JsonProperty("related") final String related,
+            @JsonProperty("image") final String image) {
         this.datetime = datetime;
         this.headline = headline;
         this.source = source;
         this.url = url;
         this.summary = summary;
         this.related = related;
+        this.image = image;
     }
 
     public OffsetDateTime getDatetime() {
@@ -59,6 +62,10 @@ public class News implements Serializable {
         return related;
     }
 
+    public String getImage() {
+        return image;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -69,12 +76,13 @@ public class News implements Serializable {
                 Objects.equal(source, news.source) &&
                 Objects.equal(url, news.url) &&
                 Objects.equal(summary, news.summary) &&
-                Objects.equal(related, news.related);
+                Objects.equal(related, news.related) &&
+                Objects.equal(image, news.image);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(datetime, headline, source, url, summary, related);
+        return Objects.hashCode(datetime, headline, source, url, summary, related, image);
     }
 
     @Override
@@ -86,6 +94,7 @@ public class News implements Serializable {
                 .add("url", url)
                 .add("summary", summary)
                 .add("related", related)
+                .add("image", image)
                 .toString();
     }
 }

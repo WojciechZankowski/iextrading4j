@@ -42,6 +42,7 @@ public class NewsServiceTest extends BaseServiceTest {
         assertThat(firstNews.getUrl()).isEqualTo("https://api.iextrading.com/1.0/stock/aapl/article/8464142968106298");
         assertThat(firstNews.getSummary()).isEqualTo("No summary available.");
         assertThat(firstNews.getRelated()).isEqualTo("AAPL,AMZN,FB,GOOGL,NFLX");
+        assertThat(firstNews.getImage()).isEqualTo("https://api.iextrading.com/1.0/stock/aapl/news-image/8505362764378508");
 
         final News secondNews = newsList.get(1);
         assertThat(secondNews.getDatetime()).isEqualTo(OffsetDateTime.of(
@@ -52,6 +53,7 @@ public class NewsServiceTest extends BaseServiceTest {
         assertThat(secondNews.getUrl()).isEqualTo("https://api.iextrading.com/1.0/stock/aapl/article/5121696418454999");
         assertThat(secondNews.getSummary()).isEqualTo("No summary available.");
         assertThat(secondNews.getRelated()).isEqualTo("AAPL");
+        assertThat(secondNews.getImage()).isEqualTo("https://api.iextrading.com/1.0/stock/market/news-image/6570157284679204");
     }
 
 }
