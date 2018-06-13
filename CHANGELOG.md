@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.1.7] - 2018-06-13
+
+### Added
+
+- News image added to the News model
+
 ## [2.1.6] - 2018-05-27
 
 ### Added
@@ -109,3 +115,4 @@ All notable changes to this project will be documented in this file.
 [2.1.4]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_3...IT4J_RELEASE_2_1_4
 [2.1.5]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_4...IT4J_RELEASE_2_1_5
 [2.1.6]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_5...IT4J_RELEASE_2_1_6
+[2.1.7]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_6...IT4J_RELEASE_2_1_7
