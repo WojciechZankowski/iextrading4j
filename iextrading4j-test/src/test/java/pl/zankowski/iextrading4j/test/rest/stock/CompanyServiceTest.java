@@ -37,6 +37,7 @@ public class CompanyServiceTest extends BaseServiceTest {
         assertThat(company.getCEO()).isEqualTo("Timothy D. Cook");
         assertThat(company.getIssueType()).isEqualTo("cs");
         assertThat(company.getSector()).isEqualTo("Technology");
+        assertThat(company.getTags()).containsExactly("Technology", "Consumer Electronics", "Computer Hardware");
     }
 
 }

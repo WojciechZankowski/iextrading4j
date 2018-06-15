@@ -1,9 +1,12 @@
 package pl.zankowski.iextrading4j.api.stocks;
 
 import com.flextrade.jfixture.JFixture;
+import com.google.common.collect.Lists;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,9 +25,10 @@ public class CompanyTest {
         final String ceo = fixture.create(String.class);
         final String issueType = fixture.create(String.class);
         final String sector = fixture.create(String.class);
+        final List<String> tags = Lists.newArrayList(fixture.collections().createCollection(String.class));
 
         final Company company = new Company(symbol, companyName, exchange,
-                industry, website, description, ceo, issueType, sector);
+                industry, website, description, ceo, issueType, sector, tags);
 
         assertThat(company.getSymbol()).isEqualTo(symbol);
         assertThat(company.getCompanyName()).isEqualTo(companyName);
@@ -35,6 +39,7 @@ public class CompanyTest {
         assertThat(company.getCEO()).isEqualTo(ceo);
         assertThat(company.getIssueType()).isEqualTo(issueType);
         assertThat(company.getSector()).isEqualTo(sector);
+        assertThat(company.getTags()).isEqualTo(tags);
     }
 
     @Test

@@ -7,9 +7,12 @@ import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
+import java.util.List;
+
+import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 
 @JsonPropertyOrder({"symbol, companyName", "exchange", "industry", "website",
-        "description", "CEO", "issueType", "sector"})
+        "description", "CEO", "issueType", "sector", "tags"})
 public class Company implements Serializable {
 
     private final String symbol;
@@ -21,6 +24,7 @@ public class Company implements Serializable {
     private final String CEO;
     private final String issueType;
     private final String sector;
+    private final List<String> tags;
 
     @JsonCreator
     public Company(
@@ -32,7 +36,8 @@ public class Company implements Serializable {
             @JsonProperty("description") final String description,
             @JsonProperty("CEO") final String CEO,
             @JsonProperty("issueType") final String issueType,
-            @JsonProperty("sector") final String sector) {
+            @JsonProperty("sector") final String sector,
+            @JsonProperty("tags") final List<String> tags) {
         this.symbol = symbol;
         this.companyName = companyName;
         this.exchange = exchange;
@@ -42,6 +47,7 @@ public class Company implements Serializable {
         this.CEO = CEO;
         this.issueType = issueType;
         this.sector = sector;
+        this.tags = immutableList(tags);
     }
 
     public String getSymbol() {
@@ -80,6 +86,10 @@ public class Company implements Serializable {
         return sector;
     }
 
+    public List<String> getTags() {
+        return tags;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -93,13 +103,14 @@ public class Company implements Serializable {
                 Objects.equal(description, company.description) &&
                 Objects.equal(CEO, company.CEO) &&
                 Objects.equal(issueType, company.issueType) &&
-                Objects.equal(sector, company.sector);
+                Objects.equal(sector, company.sector) &&
+                Objects.equal(tags, company.tags);
     }
 
     @Override
     public int hashCode() {
         return Objects.hashCode(symbol, companyName, exchange, industry, website,
-                description, CEO, issueType, sector);
+                description, CEO, issueType, sector, tags);
     }
 
     @Override
@@ -114,6 +125,7 @@ public class Company implements Serializable {
                 .add("CEO", CEO)
                 .add("issueType", issueType)
                 .add("sector", sector)
+                .add("tags", tags)
                 .toString();
     }
 }
