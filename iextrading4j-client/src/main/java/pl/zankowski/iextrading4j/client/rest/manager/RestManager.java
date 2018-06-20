@@ -1,5 +1,7 @@
 package pl.zankowski.iextrading4j.client.rest.manager;
 
+import pl.zankowski.iextrading4j.api.exception.IEXTradingException;
+
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -8,6 +10,9 @@ import java.util.Map;
 import static java.util.stream.Collectors.joining;
 
 public class RestManager {
+
+    private static final int SUCCESS = 200;
+    private static final int WRITE_SUCCESS = 201;
 
     private final RestClient restClient;
 
@@ -33,17 +38,24 @@ public class RestManager {
                     throw new IllegalStateException("Method Type not supported.");
             }
 
+            if (!isSuccessful(response)) {
+                final String errorMessage = response.readEntity(String.class);
+                throw new IEXTradingException(errorMessage, response.getStatus());
+            }
+
             return new RestResponseBuilder<R>()
                     .withMessage(response.getStatusInfo().getReasonPhrase())
                     .withResponse(response.readEntity(restRequest.getResponseType()))
                     .build();
-        } catch (Exception e) {
-            throw new IllegalStateException(e.getMessage(), e);
         } finally {
             if (response != null) {
                 response.close();
             }
         }
+    }
+
+    private boolean isSuccessful(final Response response) {
+        return response.getStatus() == SUCCESS || response.getStatus() == WRITE_SUCCESS;
     }
 
     private <R> String createURL(final RestRequest<R> restRequest) {
