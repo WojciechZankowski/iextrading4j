@@ -12,7 +12,11 @@ public abstract class AbstractSymbolAsyncRequestBuilder<R, B extends IAsyncReque
 
     private Set<String> symbols = new HashSet<>();
 
-    protected String getSymbols() {
+    protected Set<String> getSymbols() {
+        return symbols;
+    }
+
+    protected String getSymbol() {
         return symbols.stream().collect(joining(","));
     }
 

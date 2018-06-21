@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.client.socket.manager;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Maps;
 import io.socket.client.Socket;
@@ -31,13 +32,20 @@ public class SocketManager {
             }
 
             final Socket socket = socketWrapper.socket(url).connect();
-            socket.emit("subscribe", request.getParams().toArray())
+            socket.emit("subscribe", mapParam(request.getParam()))
                     .on("message", args -> processResponse(args, request, consumer));
 
             socketStore.put(request, socket);
         } catch (Exception e) {
             throw new IllegalStateException(e.getMessage(), e);
         }
+    }
+
+    private String mapParam(final Object param) throws JsonProcessingException {
+        if (param instanceof String) {
+            return String.valueOf(param);
+        }
+        return objectMapper.writeValueAsString(param);
     }
 
     public <T> void unsubscribe(final SocketRequest<T> request) {

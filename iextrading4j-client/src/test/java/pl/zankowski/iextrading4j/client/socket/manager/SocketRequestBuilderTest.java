@@ -19,7 +19,7 @@ public class SocketRequestBuilderTest {
                 .withResponse(new TypeReference<String>() {})
                 .build();
 
-        assertThat(request.getParams()).isEmpty();
+        assertThat(request.getParam()).isNull();
         assertThat(request.getPath()).isEqualTo(path);
     }
 

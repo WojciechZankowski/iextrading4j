@@ -6,10 +6,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
-import java.io.Serializable;
-
 @JsonPropertyOrder({"isSSR", "detail", "timestamp"})
-public class SsrStatus implements Serializable {
+public class SsrStatus extends DeepResult {
 
     private final Boolean isSSR;
     private final String detail;

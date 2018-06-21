@@ -5,7 +5,6 @@ import com.flextrade.jfixture.JFixture;
 import com.google.common.collect.Lists;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
-import pl.zankowski.iextrading4j.api.marketdata.LastTrade;
 
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class SocketRequestTest {
 
         assertThat(request.getPath()).isEqualTo(path);
         assertThat(request.getResponseType()).isEqualTo(responseType);
-        assertThat(request.getParams()).isEqualTo(params);
+        assertThat(request.getParam()).isEqualTo(params);
     }
 
     @Test

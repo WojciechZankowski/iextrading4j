@@ -17,7 +17,7 @@ public class TopsAsyncRequestBuilderTest {
                 .build();
 
         assertThat(request.getPath()).isEqualTo("/tops");
-        assertThat(request.getParams()).contains(symbol);
+        assertThat(String.valueOf(request.getParam())).contains(symbol);
     }
 
 }

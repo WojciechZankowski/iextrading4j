@@ -6,12 +6,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 @JsonPropertyOrder({"price", "size", "tradeId", "isISO", "isOddLot", "isOutsideRegularHours",
         "isSinglePriceCross", "isTradeThroughExempt", "timestamp"})
-public class Trade implements Serializable {
+public class Trade extends DeepResult {
 
     private final BigDecimal price;
     private final BigDecimal size;

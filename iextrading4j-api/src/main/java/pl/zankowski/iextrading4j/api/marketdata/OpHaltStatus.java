@@ -6,10 +6,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
-import java.io.Serializable;
-
 @JsonPropertyOrder({"isHalted", "timestamp"})
-public class OpHaltStatus implements Serializable {
+public class OpHaltStatus extends DeepResult {
 
     private final Boolean isHalted;
     private final Long timestamp;

@@ -12,7 +12,7 @@ public class LastAsyncRequestBuilder extends AbstractSymbolAsyncRequestBuilder<L
         return SocketRequestBuilder.<LastTrade>builder()
                 .withPath("/last")
                 .withResponse(new TypeReference<LastTrade>() {})
-                .addParam(getSymbols())
+                .withParam(getSymbols())
                 .build();
     }
 }

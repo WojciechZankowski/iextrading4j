@@ -14,7 +14,7 @@ public class AbstractSymbolAsyncRequestBuilderTest {
                 .withAllSymbols()
                 .build();
 
-        assertThat(request.getParams()).contains("firehose");
+        assertThat(request.getParam()).isEqualTo("firehose");
     }
 
     @Test
@@ -26,7 +26,8 @@ public class AbstractSymbolAsyncRequestBuilderTest {
                 .withSymbols(ibmSymbol, aaplSymbol)
                 .build();
 
-        assertThat(request.getParams().get(0)).containsSequence(ibmSymbol).containsSequence(aaplSymbol);
+        final String param = String.valueOf(request.getParam());
+        assertThat(param).containsSequence(ibmSymbol).containsSequence(aaplSymbol);
     }
 
 }

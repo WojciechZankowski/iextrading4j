@@ -12,12 +12,12 @@ public class SocketRequest<R> {
 
     private final TypeReference<R> responseType;
     private final String path;
-    private final List<String> params;
+    private final Object param;
 
-    public SocketRequest(final TypeReference<R> responseType, final String path, final List<String> params) {
+    public SocketRequest(final TypeReference<R> responseType, final String path, final Object param) {
         this.responseType = responseType;
         this.path = path;
-        this.params = immutableList(params);
+        this.param = param;
     }
 
     public TypeReference<R> getResponseType() {
@@ -28,8 +28,8 @@ public class SocketRequest<R> {
         return path;
     }
 
-    public List<String> getParams() {
-        return params;
+    public Object getParam() {
+        return param;
     }
 
     @Override
@@ -39,12 +39,12 @@ public class SocketRequest<R> {
         SocketRequest<?> that = (SocketRequest<?>) o;
         return Objects.equal(responseType, that.responseType) &&
                 Objects.equal(path, that.path) &&
-                Objects.equal(params, that.params);
+                Objects.equal(param, that.param);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(responseType, path, params);
+        return Objects.hashCode(responseType, path, param);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class SocketRequest<R> {
         return MoreObjects.toStringHelper(this)
                 .add("responseType", responseType)
                 .add("path", path)
-                .add("params", params)
+                .add("param", param)
                 .toString();
     }
 }
