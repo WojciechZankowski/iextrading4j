@@ -11,7 +11,7 @@ public class HasOneConstructorDR extends AbstractApiDR {
 
     @Override
     public void check(DesignRuleInput input) {
-        if (!isEnum(input.getClazz()) && !hasOneConstructor(input.getClazz())) {
+        if (!isEnum(input.getClazz()) && !hasOneConstructor(input.getClazz()) && !isAbstract(input.getClazz())) {
             input.getStore().put(CODE.getCodeName(), input.getClazzName());
         }
     }

@@ -16,8 +16,8 @@ public class HasJsonAnnotationsDR extends AbstractApiDR {
 
     @Override
     public void check(DesignRuleInput input) {
-        if (!isEnum(input.getClazz()) && hasOneConstructor(input.getClazz()) && (!isAnnotated(input.getClazz())
-                || !hasValidParameterAnnotations(input.getClazz()))) {
+        if (!isEnum(input.getClazz()) && !isAbstract(input.getClazz()) && hasOneConstructor(input.getClazz())
+                && (!isAnnotated(input.getClazz()) || !hasValidParameterAnnotations(input.getClazz()))) {
             input.getStore().put(CODE.getCodeName(), input.getClazzName());
         }
     }
