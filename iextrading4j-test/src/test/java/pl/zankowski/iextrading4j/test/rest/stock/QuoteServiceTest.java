@@ -3,7 +3,7 @@ package pl.zankowski.iextrading4j.test.rest.stock;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.QuoteRequestBuilder;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.math.BigDecimal;
 
@@ -14,7 +14,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class QuoteServiceTest extends BaseServiceTest {
+public class QuoteServiceTest extends BaseRestServiceTest {
 
     @Test
     public void quoteServiceTest() {

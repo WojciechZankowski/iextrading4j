@@ -4,7 +4,7 @@ import org.junit.Test;
 import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ListRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ListType;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -16,7 +16,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ListServiceTest extends BaseServiceTest {
+public class ListServiceTest extends BaseRestServiceTest {
 
     @Test
     public void mostActiveListServiceTest() {

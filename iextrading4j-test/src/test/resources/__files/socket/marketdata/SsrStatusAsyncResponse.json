@@ -1,0 +1,10 @@
+{
+  "symbol": "AAPL",
+  "messageType": "ssr",
+  "data": {
+    "isSSR": false,
+    "detail": " ",
+    "timestamp": 1529666486387
+  },
+  "seq": 1
+}

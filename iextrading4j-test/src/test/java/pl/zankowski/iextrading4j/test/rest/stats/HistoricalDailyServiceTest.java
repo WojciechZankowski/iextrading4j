@@ -3,7 +3,7 @@ package pl.zankowski.iextrading4j.test.rest.stats;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.stats.HistoricalDailyStats;
 import pl.zankowski.iextrading4j.client.rest.request.stats.HistoricalDailyStatsRequestBuilder;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -17,7 +17,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class HistoricalDailyServiceTest extends BaseServiceTest {
+public class HistoricalDailyServiceTest extends BaseRestServiceTest {
 
     @Test
     public void historicalDailyServiceTest() {

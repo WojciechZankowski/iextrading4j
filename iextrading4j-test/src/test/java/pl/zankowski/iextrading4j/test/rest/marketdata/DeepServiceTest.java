@@ -16,7 +16,7 @@ import pl.zankowski.iextrading4j.api.marketdata.TradingStatus;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatusReasonType;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatusType;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.DeepRequestBuilder;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -28,7 +28,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DeepServiceTest extends BaseServiceTest {
+public class DeepServiceTest extends BaseRestServiceTest {
 
     @Test
     public void deepServiceTest() {

@@ -4,7 +4,7 @@ import org.junit.Test;
 import pl.zankowski.iextrading4j.api.stocks.Earning;
 import pl.zankowski.iextrading4j.api.stocks.Earnings;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.EarningsRequestBuilder;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -17,7 +17,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class EarningsServiceTest extends BaseServiceTest {
+public class EarningsServiceTest extends BaseRestServiceTest {
 
     @Test
     public void earningsServiceTest() {

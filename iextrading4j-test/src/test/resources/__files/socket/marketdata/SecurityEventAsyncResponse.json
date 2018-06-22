@@ -1,0 +1,9 @@
+{
+  "symbol": "AAPL",
+  "messageType": "securityevent",
+  "data": {
+    "securityEvent": "MarketClose",
+    "timestamp": 1529611200000
+  },
+  "seq": 2
+}

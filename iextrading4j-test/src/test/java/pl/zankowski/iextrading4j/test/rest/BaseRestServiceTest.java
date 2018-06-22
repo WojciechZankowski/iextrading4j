@@ -19,7 +19,7 @@ import static org.powermock.api.mockito.PowerMockito.whenNew;
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({IEXTradingClient.class})
 @PowerMockIgnore({"javax.net.ssl.*"})
-public abstract class BaseServiceTest {
+public abstract class BaseRestServiceTest {
 
     @Rule
     public WireMockRule wireMockRule = new WireMockRule(8089);

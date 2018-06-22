@@ -1,0 +1,9 @@
+{
+  "symbol": "AAPL",
+  "messageType": "ophaltstatus",
+  "data": {
+    "isHalted": false,
+    "timestamp": 1529666486387
+  },
+  "seq": 1
+}

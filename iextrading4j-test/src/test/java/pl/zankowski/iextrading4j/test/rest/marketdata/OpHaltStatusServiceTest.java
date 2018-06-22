@@ -3,7 +3,7 @@ package pl.zankowski.iextrading4j.test.rest.marketdata;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.marketdata.OpHaltStatus;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.OpHaltStatusRequestBuilder;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.util.Map;
 
@@ -14,7 +14,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class OpHaltStatusServiceTest extends BaseServiceTest {
+public class OpHaltStatusServiceTest extends BaseRestServiceTest {
 
     @Test
     public void opHaltStatusServiceTest() {

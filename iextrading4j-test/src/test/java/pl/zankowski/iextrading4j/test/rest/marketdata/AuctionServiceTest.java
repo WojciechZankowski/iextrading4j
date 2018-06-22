@@ -4,7 +4,7 @@ import org.junit.Test;
 import pl.zankowski.iextrading4j.api.marketdata.Auction;
 import pl.zankowski.iextrading4j.api.marketdata.AuctionType;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.AuctionRequestBuilder;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.math.BigDecimal;
 import java.time.LocalTime;
@@ -17,7 +17,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AuctionServiceTest extends BaseServiceTest {
+public class AuctionServiceTest extends BaseRestServiceTest {
 
     @Test
     public void auctionServiceTest() {

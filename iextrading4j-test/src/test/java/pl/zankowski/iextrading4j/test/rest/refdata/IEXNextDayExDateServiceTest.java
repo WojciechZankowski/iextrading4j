@@ -6,7 +6,7 @@ import pl.zankowski.iextrading4j.api.refdata.IEXNextDayExDate;
 import pl.zankowski.iextrading4j.api.refdata.PaymentFrequency;
 import pl.zankowski.iextrading4j.api.refdata.QualifiedDividendType;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.IEXNextDayExDateRequestBuilder;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -20,7 +20,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class IEXNextDayExDateServiceTest extends BaseServiceTest {
+public class IEXNextDayExDateServiceTest extends BaseRestServiceTest {
 
     @Test
     public void nextDayExDateServiceTest() {

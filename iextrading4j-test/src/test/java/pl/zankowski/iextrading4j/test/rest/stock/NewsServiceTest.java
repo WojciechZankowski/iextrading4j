@@ -3,7 +3,7 @@ package pl.zankowski.iextrading4j.test.rest.stock;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.stocks.News;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.NewsRequestBuilder;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
@@ -17,7 +17,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class NewsServiceTest extends BaseServiceTest {
+public class NewsServiceTest extends BaseRestServiceTest {
 
     @Test
     public void newsServiceTest() {

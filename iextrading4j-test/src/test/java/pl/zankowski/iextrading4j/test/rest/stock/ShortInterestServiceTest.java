@@ -4,7 +4,7 @@ import org.junit.Test;
 import pl.zankowski.iextrading4j.api.refdata.Flag;
 import pl.zankowski.iextrading4j.api.stocks.ShortInterest;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ShortInterestRequestBuilder;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -17,7 +17,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ShortInterestServiceTest extends BaseServiceTest {
+public class ShortInterestServiceTest extends BaseRestServiceTest {
 
     @Test
     public void shortInterestServiceTest() {
