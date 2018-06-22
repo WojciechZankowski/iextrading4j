@@ -1,6 +1,18 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.2.0] - 2018-06-22
+
+### Added
+
+- Support for DEEP websocket requests
+- Exception handling
+- E2E websocket tests
+
+### Changed
+
+- Fixed toString method in Chart model // [Issue#22](https://github.com/WojciechZankowski/iextrading4j/issues/22)
+
 ## [2.1.8] - 2018-06-15
 
 ### Added
@@ -123,3 +135,4 @@ All notable changes to this project will be documented in this file.
 [2.1.6]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_5...IT4J_RELEASE_2_1_6
 [2.1.7]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_6...IT4J_RELEASE_2_1_7
 [2.1.8]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_7...IT4J_RELEASE_2_1_8
+[2.2.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_8...IT4J_RELEASE_2_2_0

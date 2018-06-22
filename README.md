@@ -23,7 +23,7 @@ Java SE 8 is required to use IEXTrading4j library.
 <dependency>
 	<groupId>pl.zankowski</groupId>
 	<artifactId>iextrading4j-all</artifactId>
-	<version>2.1.8</version>
+	<version>2.2.0</version>
 </dependency>
 ```
 
@@ -56,7 +56,7 @@ Check out their beautiful site: [IEX Trading](https://iextrading.com/)
 
 ## How to
 
-### Sync requests
+### Synchronous requests
 
 To build request use classes that extend ``` IRestRequestBuilder ``` interface. Example request:
 
@@ -68,7 +68,22 @@ final Quote quote = iexTradingClient.executeRequest(new QuoteRequestBuilder()
 System.out.println(quote);
 ```
 
-### Async requests
+### Batch synchronous request
+
+Instead of creating multiple requests, some data can accessed in single Batch:
+
+```java
+final IEXTradingClient iexTradingClient = IEXTradingClient.create();
+final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+        .withSymbol("AAPL")
+        .addType(BatchStocksType.BOOK)
+        .addType(BatchStocksType.COMPANY)
+        .addType(BatchStocksType.EARNINGS)
+        .build());
+System.out.println(batchStocks);
+```
+
+### Asynchronous requests
 
 To build request use classes that extend ``` IAsyncRequestBuilder ``` interface. Example request:
 
@@ -81,6 +96,24 @@ final SocketRequest<TOPS> request = new TopsAsyncRequestBuilder()
           .build();
 	  
 iexTradingClient.subscribe(request, TOPS_CONSUMER);
+```
+
+### DEEP asynchronous request
+
+To get multiple data almost in real-time using socket technology you can use DEEP request with multiple channels:  
+
+```java
+final IEXTradingClient iexTradingClient = IEXTradingClient.create();
+
+final Consumer<DeepAsyncResponse<DeepResult>> DEEP_ASYNC_RESPONSE_CONSUMER = System.out::println;
+final SocketRequest<DeepAsyncResponse<DeepResult>> request = new DeepAsyncRequestBuilder()
+        .addChannel(DeepChannel.TRADING_STATUS)
+        .addChannel(DeepChannel.AUCTION)
+        .addChannel(DeepChannel.TRADES)
+        .withSymbol("AAPL")
+        .build();
+
+iexTradingClient.subscribe(request, DEEP_ASYNC_RESPONSE_CONSUMER);
 ```
 
 ## Wiki
