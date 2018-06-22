@@ -2,11 +2,9 @@ package pl.zankowski.iextrading4j.test.rest.marketdata;
 
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.marketdata.OfficialPrice;
-import pl.zankowski.iextrading4j.api.marketdata.OpHaltStatus;
 import pl.zankowski.iextrading4j.api.marketdata.PriceType;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.OfficialPriceRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.marketdata.OpHaltStatusRequestBuilder;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.math.BigDecimal;
 import java.util.Map;
@@ -18,7 +16,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class OfficialPriceServiceTest  extends BaseServiceTest {
+public class OfficialPriceServiceTest  extends BaseRestServiceTest {
 
     @Test
     public void officialPriceServiceTest() {

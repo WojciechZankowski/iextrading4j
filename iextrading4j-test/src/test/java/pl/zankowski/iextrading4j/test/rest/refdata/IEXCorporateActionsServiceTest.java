@@ -9,7 +9,7 @@ import pl.zankowski.iextrading4j.api.refdata.IssueEvent;
 import pl.zankowski.iextrading4j.api.refdata.ListingCenter;
 import pl.zankowski.iextrading4j.api.refdata.LuldTier;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.IEXCorporateActionsRequestBuilder;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -23,7 +23,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class IEXCorporateActionsServiceTest extends BaseServiceTest {
+public class IEXCorporateActionsServiceTest extends BaseRestServiceTest {
 
     @Test
     public void corporateActionsServiceTest() {

@@ -6,10 +6,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
-import java.io.Serializable;
-
 @JsonPropertyOrder({"securityEvent", "timestamp"})
-public class SecurityEvent implements Serializable {
+public class SecurityEvent extends DeepResult {
 
     private final SecurityEventType securityEvent;
     private final Long timestamp;

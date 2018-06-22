@@ -6,14 +6,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalTime;
 
 @JsonPropertyOrder({"auctionType", "pairedShares", "imbalanceShares", "referencePrice",
         "indicativePrice", "auctionBookPrice", "collarReferencePrice", "lowerCollarPrice",
         "upperCollarPrice", "extensionNumber", "startTime", "lastUpdate"})
-public class Auction implements Serializable {
+public class Auction extends DeepResult {
 
     private final AuctionType auctionType;
     private final BigDecimal pairedShares;

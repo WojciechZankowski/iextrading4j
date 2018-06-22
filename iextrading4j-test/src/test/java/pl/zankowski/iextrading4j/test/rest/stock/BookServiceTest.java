@@ -8,7 +8,7 @@ import pl.zankowski.iextrading4j.api.marketdata.Trade;
 import pl.zankowski.iextrading4j.api.stocks.Book;
 import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.BookRequestBuilder;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.math.BigDecimal;
 
@@ -19,7 +19,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BookServiceTest extends BaseServiceTest {
+public class BookServiceTest extends BaseRestServiceTest {
 
     @Test
     public void bookServiceTest() {

@@ -10,11 +10,7 @@ public class SocketRequestBuilder<R> implements ISocketParamRequestBuilder<R>, I
 
     private TypeReference<R> responseType;
     private String path;
-    private List<String> params;
-
-    private SocketRequestBuilder() {
-        params = Lists.newArrayList();
-    }
+    private Object param;
 
     public static <R> ISocketPathRequestBuilder<R> builder() {
         return new SocketRequestBuilder<>();
@@ -33,15 +29,15 @@ public class SocketRequestBuilder<R> implements ISocketParamRequestBuilder<R>, I
     }
 
     @Override
-    public ISocketParamRequestBuilder<R> addParam(final String param) {
-        this.params.add(param);
+    public ISocketParamRequestBuilder<R> withParam(final Object param) {
+        this.param = param;
         return this;
     }
 
 
     @Override
     public SocketRequest<R> build() {
-        return new SocketRequest<>(responseType, path, params);
+        return new SocketRequest<>(responseType, path, param);
     }
 
 }

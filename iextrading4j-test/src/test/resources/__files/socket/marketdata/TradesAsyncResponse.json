@@ -1,0 +1,16 @@
+{
+  "symbol": "AAPL",
+  "messageType": "trades",
+  "data": {
+    "price": 185.8100,
+    "size": 100,
+    "tradeId": 517936386,
+    "isISO": true,
+    "isOddLot": false,
+    "isOutsideRegularHours": false,
+    "isSinglePriceCross": false,
+    "isTradeThroughExempt": false,
+    "timestamp": 1529689623331
+  },
+  "seq": 2964
+}

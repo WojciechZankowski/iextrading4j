@@ -52,7 +52,7 @@ public class SocketManagerTest {
         socketManager.subscribe(request, consumer);
 
         verify(socket).connect();
-        verify(socket).emit("subscribe", params.toArray());
+        verify(socket).emit("subscribe", "[\"Test\",\"Test2\"]");
         verify(socket).on(eq("message"), listenerCaptor.capture());
 
         listenerCaptor.getValue().call("\""+response+"\"");

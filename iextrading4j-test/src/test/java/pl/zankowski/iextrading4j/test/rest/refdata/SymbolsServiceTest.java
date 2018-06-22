@@ -4,7 +4,7 @@ import org.junit.Test;
 import pl.zankowski.iextrading4j.api.refdata.ExchangeSymbol;
 import pl.zankowski.iextrading4j.api.refdata.SymbolType;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.SymbolsRequestBuilder;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -16,7 +16,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SymbolsServiceTest extends BaseServiceTest {
+public class SymbolsServiceTest extends BaseRestServiceTest {
 
     @Test
     public void symbolsServiceTest() {

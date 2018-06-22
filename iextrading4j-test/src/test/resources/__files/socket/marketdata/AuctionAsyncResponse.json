@@ -1,0 +1,19 @@
+{
+  "symbol": "AAPL",
+  "messageType": "auction",
+  "data": {
+    "auctionType": "Open",
+    "pairedShares": 3600,
+    "imbalanceShares": 600,
+    "referencePrice": 1.05,
+    "indicativePrice": 1.05,
+    "auctionBookPrice": 1.05,
+    "collarReferencePrice": 1.05,
+    "lowerCollarPrice": 0.5,
+    "upperCollarPrice": 1.6,
+    "extensionNumber": 0,
+    "startTime": "09:30:00",
+    "lastUpdate": 1506706199025
+  },
+  "seq": 1
+}

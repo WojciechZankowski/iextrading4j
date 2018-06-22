@@ -3,7 +3,7 @@ package pl.zankowski.iextrading4j.test.rest.marketdata;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.marketdata.TOPS;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.TopsRequestBuilder;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -15,7 +15,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TopsServiceTest extends BaseServiceTest {
+public class TopsServiceTest extends BaseRestServiceTest {
 
     @Test
     public void topsServiceTest() {

@@ -4,7 +4,7 @@ import org.junit.Test;
 import pl.zankowski.iextrading4j.api.marketdata.SecurityEvent;
 import pl.zankowski.iextrading4j.api.marketdata.SecurityEventType;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.SecurityEventRequestBuilder;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.util.Map;
 
@@ -15,7 +15,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SecurityEventServiceTest extends BaseServiceTest {
+public class SecurityEventServiceTest extends BaseRestServiceTest {
 
     @Test
     public void securityEventServiceTest() {

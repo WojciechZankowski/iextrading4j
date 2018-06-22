@@ -4,7 +4,11 @@ public class IEXTradingException extends RuntimeException {
 
     public static final String DEFAULT_PREFIX = "Message received from IEX Trading: ";
 
-    private final int status;
+    private int status;
+
+    public IEXTradingException(final String message) {
+        super(DEFAULT_PREFIX + message);
+    }
 
     public IEXTradingException(final String message, final int status) {
         super(DEFAULT_PREFIX + message);

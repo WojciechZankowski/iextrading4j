@@ -4,7 +4,7 @@ import org.junit.Test;
 import pl.zankowski.iextrading4j.api.marketdata.Book;
 import pl.zankowski.iextrading4j.api.marketdata.BookEntry;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.BookRequestBuilder;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -17,7 +17,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BookServiceTest extends BaseServiceTest {
+public class BookServiceTest extends BaseRestServiceTest {
 
     @Test
     public void bookServiceTest() {

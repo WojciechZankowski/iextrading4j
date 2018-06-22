@@ -1,0 +1,10 @@
+{
+  "symbol": "AAPL",
+  "messageType": "tradingstatus",
+  "data": {
+    "status": "T",
+    "reason": "    ",
+    "timestamp": 1529666486387
+  },
+  "seq": 1
+}

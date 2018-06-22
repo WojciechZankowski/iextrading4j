@@ -6,13 +6,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
-import java.io.Serializable;
 import java.util.List;
 
 import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 
 @JsonPropertyOrder({"bids", "asks"})
-public class Book implements Serializable {
+public class Book extends DeepResult {
 
     private final List<BookEntry> bids;
     private final List<BookEntry> asks;

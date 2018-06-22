@@ -4,7 +4,7 @@ import org.junit.Test;
 import pl.zankowski.iextrading4j.api.stocks.Ohlc;
 import pl.zankowski.iextrading4j.api.stocks.Point;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.OpenCloseRequestBuilder;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.math.BigDecimal;
 
@@ -15,7 +15,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class OpenCloseServiceTest extends BaseServiceTest {
+public class OpenCloseServiceTest extends BaseRestServiceTest {
 
     @Test
     public void openCloseServiceTest() {

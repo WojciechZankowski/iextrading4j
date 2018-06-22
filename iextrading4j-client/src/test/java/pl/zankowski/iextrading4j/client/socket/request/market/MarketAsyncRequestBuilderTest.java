@@ -15,7 +15,7 @@ public class MarketAsyncRequestBuilderTest {
         final SocketRequest<List<MarketVolume>> request = new MarketAsyncRequestBuilder().build();
 
         assertThat(request.getPath()).isEqualTo("/market");
-        assertThat(request.getParams()).isEmpty();
+        assertThat(request.getParam()).isNull();
     }
 
 }

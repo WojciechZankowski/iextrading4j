@@ -8,13 +8,22 @@ import static pl.zankowski.iextrading4j.api.exception.IEXTradingException.DEFAUL
 public class IEXTradingExceptionTest {
 
     @Test
-    public void shouldSuccessfullyCreateException() {
+    public void shouldSuccessfullyCreateExceptionWithStatus() {
         final String message = "test";
         final int statusCode = 500;
 
         final IEXTradingException exception = new IEXTradingException(message, statusCode);
 
         assertThat(exception.getStatus()).isEqualTo(statusCode);
+        assertThat(exception.getMessage()).containsSequence(DEFAULT_PREFIX, message);
+    }
+
+    @Test
+    public void shouldSuccessfullyCreateException() {
+        final String message = "test";
+
+        final IEXTradingException exception = new IEXTradingException(message);
+
         assertThat(exception.getMessage()).containsSequence(DEFAULT_PREFIX, message);
     }
 

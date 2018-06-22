@@ -1,0 +1,21 @@
+{
+  "symbol": "AAPL",
+  "messageType": "book",
+  "data": {
+    "bids": [
+      {
+        "price": 185.76,
+        "size": 100,
+        "timestamp": 1529689655974
+      }
+    ],
+    "asks": [
+      {
+        "price": 190.34,
+        "size": 100,
+        "timestamp": 1529688635926
+      }
+    ]
+  },
+  "seq": 5458
+}

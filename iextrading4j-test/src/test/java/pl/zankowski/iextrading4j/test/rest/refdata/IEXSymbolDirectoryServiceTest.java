@@ -8,7 +8,7 @@ import pl.zankowski.iextrading4j.api.refdata.IssueSubType;
 import pl.zankowski.iextrading4j.api.refdata.IssueType;
 import pl.zankowski.iextrading4j.api.refdata.LuldTier;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.IEXSymbolDirectoryRequestBuilder;
-import pl.zankowski.iextrading4j.test.rest.BaseServiceTest;
+import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -22,7 +22,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class IEXSymbolDirectoryServiceTest extends BaseServiceTest {
+public class IEXSymbolDirectoryServiceTest extends BaseRestServiceTest {
 
     @Test
     public void symbolDirectoryServiceTest() {

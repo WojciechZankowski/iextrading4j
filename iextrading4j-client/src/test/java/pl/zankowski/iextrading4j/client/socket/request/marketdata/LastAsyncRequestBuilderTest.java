@@ -17,7 +17,7 @@ public class LastAsyncRequestBuilderTest {
                 .build();
 
         assertThat(request.getPath()).isEqualTo("/last");
-        assertThat(request.getParams()).contains(symbol);
+        assertThat(String.valueOf(request.getParam())).contains(symbol);
     }
 
 }

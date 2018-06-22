@@ -6,10 +6,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
-import java.io.Serializable;
-
 @JsonPropertyOrder({"status", "reason", "timestamp"})
-public class TradingStatus implements Serializable {
+public class TradingStatus extends DeepResult {
 
     private final TradingStatusType status;
     private final TradingStatusReasonType reason;
