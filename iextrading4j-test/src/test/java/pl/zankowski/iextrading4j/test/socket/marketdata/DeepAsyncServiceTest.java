@@ -2,20 +2,15 @@ package pl.zankowski.iextrading4j.test.socket.marketdata;
 
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
-import pl.zankowski.iextrading4j.api.marketdata.DeepResult;
-import pl.zankowski.iextrading4j.api.marketdata.OpHaltStatus;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatus;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatusReasonType;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatusType;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.DeepAsyncRequestBuilder;
-import pl.zankowski.iextrading4j.client.socket.request.marketdata.OpHaltStatusAsyncRequestBuilder;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepAsyncResponse;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepChannel;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepConsumerAdapter;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepMessageType;
 import pl.zankowski.iextrading4j.test.socket.BaseSocketServiceTest;
-
-import java.util.function.Consumer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.spy;
