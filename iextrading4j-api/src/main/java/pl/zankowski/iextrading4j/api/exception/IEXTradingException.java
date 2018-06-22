@@ -7,7 +7,7 @@ public class IEXTradingException extends RuntimeException {
     private int status;
 
     public IEXTradingException(final String message) {
-        super(message);
+        super(DEFAULT_PREFIX + message);
     }
 
     public IEXTradingException(final String message, final int status) {

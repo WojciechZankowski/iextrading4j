@@ -39,35 +39,35 @@ public class StocksSample {
     public static void main(String[] args) {
         final StocksSample sampleSuite = new StocksSample();
 
-        sampleSuite.batchRequestSample();
-        sampleSuite.batchMarketRequestSample();
-        sampleSuite.bookRequestSample();
+//        sampleSuite.batchRequestSample();
+//        sampleSuite.batchMarketRequestSample();
+//        sampleSuite.bookRequestSample();
         sampleSuite.chartRequestSample();
-        sampleSuite.companyRequestSample();
-        sampleSuite.delayedQuoteRequestSample();
-        sampleSuite.dividendsRequestSample();
-        sampleSuite.dynamicChartRequestSample();
-        sampleSuite.earningsRequestSample();
-        sampleSuite.effectiveSpreadRequestSample();
-        sampleSuite.financialsRequestSample();
-        sampleSuite.keyStatsRequestSample();
-        sampleSuite.listRequestSample();
-        sampleSuite.logoRequestSample();
-        sampleSuite.newsRequestSample();
-        sampleSuite.openCloseRequestSample();
-        sampleSuite.peersRequestSample();
-        sampleSuite.previousRequestSample();
-        sampleSuite.priceRequestSample();
-        sampleSuite.quoteRequestSample();
-        sampleSuite.relevantRequestSample();
-        sampleSuite.splitsRequestSample();
-        sampleSuite.venueVolumeRequestSample();
-        sampleSuite.ohlcRequestSample();
-        sampleSuite.shortInterestRequestSample();
-        sampleSuite.timeSeriesRequestSample();
-        sampleSuite.thresholdSecuritiesRequestSample();
-        sampleSuite.ohlcMarketRequestSample();
-        sampleSuite.previousMarketRequestSample();
+//        sampleSuite.companyRequestSample();
+//        sampleSuite.delayedQuoteRequestSample();
+//        sampleSuite.dividendsRequestSample();
+//        sampleSuite.dynamicChartRequestSample();
+//        sampleSuite.earningsRequestSample();
+//        sampleSuite.effectiveSpreadRequestSample();
+//        sampleSuite.financialsRequestSample();
+//        sampleSuite.keyStatsRequestSample();
+//        sampleSuite.listRequestSample();
+//        sampleSuite.logoRequestSample();
+//        sampleSuite.newsRequestSample();
+//        sampleSuite.openCloseRequestSample();
+//        sampleSuite.peersRequestSample();
+//        sampleSuite.previousRequestSample();
+//        sampleSuite.priceRequestSample();
+//        sampleSuite.quoteRequestSample();
+//        sampleSuite.relevantRequestSample();
+//        sampleSuite.splitsRequestSample();
+//        sampleSuite.venueVolumeRequestSample();
+//        sampleSuite.ohlcRequestSample();
+//        sampleSuite.shortInterestRequestSample();
+//        sampleSuite.timeSeriesRequestSample();
+//        sampleSuite.thresholdSecuritiesRequestSample();
+//        sampleSuite.ohlcMarketRequestSample();
+//        sampleSuite.previousMarketRequestSample();
     }
 
     private void batchRequestSample() {

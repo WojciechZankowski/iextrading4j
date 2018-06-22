@@ -164,6 +164,18 @@ public class Chart extends TimeSeries {
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
+                .add("date", getDate())
+                .add("open", getOpen())
+                .add("high", getHigh())
+                .add("low", getLow())
+                .add("close", getClose())
+                .add("volume", getVolume())
+                .add("unadjustedVolume", getUnadjustedVolume())
+                .add("change", getChange())
+                .add("changePercent", getChangePercent())
+                .add("vwap", getVwap())
+                .add("label", getLabel())
+                .add("changeOverTime", getChangeOverTime())
                 .add("minute", minute)
                 .add("marketAverage", marketAverage)
                 .add("marketNotional", marketNotional)

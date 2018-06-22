@@ -7,6 +7,8 @@ import com.google.common.base.Objects;
 
 import java.util.Set;
 
+import static pl.zankowski.iextrading4j.api.util.SetUtil.immutableSet;
+
 @JsonPropertyOrder({"symbols", "channels"})
 public class DeepAsyncRequest {
 
@@ -17,8 +19,8 @@ public class DeepAsyncRequest {
     public DeepAsyncRequest(
             @JsonProperty("symbols") final Set<String> symbols,
             @JsonProperty("channels") final Set<DeepChannel> channels) {
-        this.symbols = symbols;
-        this.channels = channels;
+        this.symbols = immutableSet(symbols);
+        this.channels = immutableSet(channels);
     }
 
     public Set<String> getSymbols() {

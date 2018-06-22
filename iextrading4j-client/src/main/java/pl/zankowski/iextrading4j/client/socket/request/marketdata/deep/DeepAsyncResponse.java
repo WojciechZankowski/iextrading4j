@@ -16,8 +16,10 @@ import pl.zankowski.iextrading4j.api.marketdata.SystemEvent;
 import pl.zankowski.iextrading4j.api.marketdata.Trade;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatus;
 
+import java.io.Serializable;
+
 @JsonPropertyOrder({"symbol", "messageType", "data", "seq"})
-public class DeepAsyncResponse<T extends DeepResult> {
+public class DeepAsyncResponse<T extends DeepResult> implements Serializable {
 
     private final String symbol;
     private final DeepMessageType messageType;

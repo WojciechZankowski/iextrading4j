@@ -12,7 +12,7 @@ public class TopsAsyncRequestBuilder extends AbstractSymbolAsyncRequestBuilder<T
         return SocketRequestBuilder.<TOPS>builder()
                 .withPath("/tops")
                 .withResponse(new TypeReference<TOPS>() {})
-                .withParam(getSymbols())
+                .withParam(getSymbol())
                 .build();
     }
 }
