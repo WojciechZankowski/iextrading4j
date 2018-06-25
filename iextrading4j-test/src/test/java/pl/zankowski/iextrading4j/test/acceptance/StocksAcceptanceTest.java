@@ -39,7 +39,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.BOOK)
                 .build());
-        System.out.println(batchStocksMap);
     }
 
     @Test
@@ -48,7 +47,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.BOOK)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -57,7 +55,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.CHART)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -66,7 +63,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.COMPANY)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -75,7 +71,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.DELAYED_QUOTE)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -84,7 +79,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.DIVIDENDS)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -93,7 +87,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.EFFECTIVE_SPREAD)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -102,7 +95,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.FINANCIALS)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -111,7 +103,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.THRESHOLD_SECURITIES)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -120,7 +111,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.SHORT_INTEREST)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -129,7 +119,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.KEY_STATS)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -138,7 +127,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.LARGEST_TRADES)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -147,7 +135,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.LOGO)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -156,7 +143,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.NEWS)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -165,7 +151,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.OHLC)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -174,7 +159,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.PEERS)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -183,7 +167,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.PREVIOUS)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -192,7 +175,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.PRICE)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -201,7 +183,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.QUOTE)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -210,7 +191,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.RELEVANT)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -219,7 +199,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.SPLITS)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -228,7 +207,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.VOLUME_BY_VENUE)
                 .build());
-        System.out.println(batchStocks);
     }
 
     @Test
@@ -236,7 +214,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final Book book = iexTradingClient.executeRequest(new BookRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(book);
     }
 
     @Test
@@ -245,7 +222,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withChartRange(ChartRange.ONE_DAY)
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(chartList);
     }
 
     @Test
@@ -254,7 +230,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(chartList);
     }
 
     @Test
@@ -264,7 +239,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .withChartReset()
                 .build());
-        System.out.println(chartList);
     }
 
     @Test
@@ -274,7 +248,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .withChartSimplify()
                 .build());
-        System.out.println(chartList);
     }
 
     @Test
@@ -284,7 +257,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .withChartInterval(4)
                 .build());
-        System.out.println(chartList);
     }
 
     @Test
@@ -294,7 +266,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .withChangeFromClose()
                 .build());
-        System.out.println(chartList);
     }
 
     @Test
@@ -304,7 +275,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .withChartLast(4)
                 .build());
-        System.out.println(chartList);
     }
 
     @Test
@@ -312,7 +282,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final DynamicChart dynamicChart = iexTradingClient.executeRequest(new DynamicChartRequestBuilder()
                 .withSymbol("aapl")
                 .build());
-        System.out.println(dynamicChart);
     }
 
     @Test
@@ -320,7 +289,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final Company company = iexTradingClient.executeRequest(new CompanyRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(company);
     }
 
     @Test
@@ -328,7 +296,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final DelayedQuote delayedQuote = iexTradingClient.executeRequest(new DelayedQuoteRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(delayedQuote);
     }
 
     @Test
@@ -337,7 +304,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .withDividendRange(DividendRange.SIX_MONTHS)
                 .build());
-        System.out.println(dividends);
     }
 
     @Test
@@ -345,7 +311,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final Earnings earnings = iexTradingClient.executeRequest(new EarningsRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(earnings);
     }
 
     @Test
@@ -353,7 +318,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final List<EffectiveSpread> effectiveSpreads = iexTradingClient.executeRequest(new EffectiveSpreadRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(effectiveSpreads);
     }
 
     @Test
@@ -361,7 +325,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final Financials financials = iexTradingClient.executeRequest(new FinancialsRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(financials);
     }
 
     @Test
@@ -369,7 +332,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final KeyStats keyStats = iexTradingClient.executeRequest(new KeyStatsRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(keyStats);
     }
 
 
@@ -378,7 +340,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final List<LargestTrade> largestTradeList = iexTradingClient.executeRequest(new LargestTradeRequestBuilder()
                 .withSymbol("aapl")
                 .build());
-        System.out.println(largestTradeList);
     }
 
     @Test
@@ -386,7 +347,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final List<Quote> quoteList = iexTradingClient.executeRequest(new ListRequestBuilder()
                 .withListType(ListType.IEXVOLUME)
                 .build());
-        System.out.println(quoteList);
     }
 
     @Test
@@ -394,7 +354,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final Logo logo = iexTradingClient.executeRequest(new LogoRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(logo);
     }
 
     @Test
@@ -402,7 +361,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final List<News> newsList = iexTradingClient.executeRequest(new NewsRequestBuilder()
                 .withWorldNews()
                 .build());
-        System.out.println(newsList);
     }
 
     @Test
@@ -410,7 +368,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final Ohlc ohlc = iexTradingClient.executeRequest(new OpenCloseRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(ohlc);
     }
 
     @Test
@@ -418,7 +375,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final List<String> peers = iexTradingClient.executeRequest(new PeersRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(peers);
     }
 
     @Test
@@ -426,7 +382,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final BarData bar = iexTradingClient.executeRequest(new PreviousRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(bar);
     }
 
     @Test
@@ -434,7 +389,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final BigDecimal price = iexTradingClient.executeRequest(new PriceRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(price);
     }
 
     @Test
@@ -442,7 +396,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final Quote quote = iexTradingClient.executeRequest(new QuoteRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(quote);
     }
 
     @Test
@@ -450,7 +403,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final Relevant relevant = iexTradingClient.executeRequest(new RelevantRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(relevant);
     }
 
     @Test
@@ -459,7 +411,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .withSplitsRange(SplitsRange.FIVE_YEARS)
                 .build());
-        System.out.println(splitList);
     }
 
     @Test
@@ -467,7 +418,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final List<VenueVolume> venueVolumeList = iexTradingClient.executeRequest(new VenueVolumeRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(venueVolumeList);
     }
 
     @Test
@@ -475,7 +425,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final Ohlc ohlc = iexTradingClient.executeRequest(new OhlcRequestBuilder()
                 .withSymbol("aapl")
                 .build());
-        System.out.println(ohlc);
     }
 
     @Test
@@ -484,7 +433,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSample()
                 .withMarket()
                 .build());
-        System.out.println(shortInterestList);
     }
 
     @Test
@@ -492,7 +440,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final List<TimeSeries> timeSeriesList = iexTradingClient.executeRequest(new TimeSeriesRequestBuilder()
                 .withSymbol("aapl")
                 .build());
-        System.out.println(timeSeriesList);
     }
 
     @Test
@@ -501,21 +448,18 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .withSample()
                 .withMarket()
                 .build());
-        System.out.println(thresholdSecuritiesList);
     }
 
     @Test
     public void ohlcMarketAcceptanceTest() {
         final Map<String, Ohlc> ohlcMap = iexTradingClient.executeRequest(new OhlcMarketRequestBuilder()
                 .build());
-        System.out.println(ohlcMap);
     }
 
     @Test
     public void previousMarketAcceptanceTest() {
         final Map<String, BarData> barDataMap = iexTradingClient.executeRequest(new PreviousMarketRequestBuilder()
                 .build());
-        System.out.println(barDataMap);
     }
 
 }

@@ -41,7 +41,6 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .withSymbol("SNAP")
                 .build());
-        System.out.println(books);
     }
 
     @Test
@@ -49,7 +48,6 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
         final DEEP deep = iexTradingClient.executeRequest(new DeepRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(deep);
     }
 
     @Test
@@ -57,7 +55,12 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
         final List<HIST> histList = iexTradingClient.executeRequest(new HistRequestBuilder()
                 .withDate(LocalDate.of(2017, 5, 15))
                 .build());
-        System.out.println(histList);
+    }
+
+    @Test
+    public void histParameterizedAcceptanceTest() {
+        final Map<String, List<HIST>> histMap = iexTradingClient.executeRequest(new HistRequestBuilder()
+                .build());
     }
 
     @Test
@@ -65,7 +68,6 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
         final List<LastTrade> lastTradeList = iexTradingClient.executeRequest(new LastTradeRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(lastTradeList);
     }
 
     @Test
@@ -73,7 +75,6 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
         final Map<String, OpHaltStatus> opHaltStatuses = iexTradingClient.executeRequest(new OpHaltStatusRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(opHaltStatuses);
     }
 
     @Test
@@ -81,7 +82,6 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
         final Map<String, OfficialPrice> officialPriceMap = iexTradingClient.executeRequest(new OfficialPriceRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(officialPriceMap);
     }
 
     @Test
@@ -89,7 +89,6 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
         final Map<String, SecurityEvent> securityEvent = iexTradingClient.executeRequest(new SecurityEventRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(securityEvent);
     }
 
     @Test
@@ -97,7 +96,6 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
         final Map<String, SsrStatus> ssrStatus = iexTradingClient.executeRequest(new SsrStatusRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(ssrStatus);
     }
 
     @Test
@@ -105,7 +103,6 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
         final SystemEvent systemEvent = iexTradingClient.executeRequest(new SystemEventRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(systemEvent);
     }
 
     @Test
@@ -113,7 +110,6 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
         final List<TOPS> tops = iexTradingClient.executeRequest(new TopsRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(tops);
     }
 
     @Test
@@ -121,7 +117,6 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
         final Map<String, List<Trade>> tradeBreak = iexTradingClient.executeRequest(new TradeBreakRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(tradeBreak);
     }
 
     @Test
@@ -129,7 +124,6 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
         final Map<String, List<Trade>> trade = iexTradingClient.executeRequest(new TradeRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(trade);
     }
 
     @Test
@@ -137,7 +131,6 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
         final Map<String, TradingStatus> tradingStatus = iexTradingClient.executeRequest(new TradingStatusRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(tradingStatus);
     }
 
     @Test
@@ -145,7 +138,6 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
         final Map<String, Auction> auction = iexTradingClient.executeRequest(new AuctionRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
-        System.out.println(auction);
     }
 
 }

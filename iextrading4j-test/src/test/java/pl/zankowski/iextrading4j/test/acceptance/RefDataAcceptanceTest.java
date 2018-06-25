@@ -20,7 +20,6 @@ public class RefDataAcceptanceTest extends AcceptanceTestBase {
     public void symbolsAcceptanceTest() {
         final List<ExchangeSymbol> exchangeSymbolList = iexTradingClient.executeRequest(new SymbolsRequestBuilder()
                 .build());
-        System.out.println(exchangeSymbolList);
     }
 
     @Test
@@ -28,7 +27,6 @@ public class RefDataAcceptanceTest extends AcceptanceTestBase {
         final List<IEXNextDayExDate> nextDayExDateList = iexTradingClient.executeRequest(new IEXNextDayExDateRequestBuilder()
                 .withSample()
                 .build());
-        System.out.println(nextDayExDateList);
     }
 
     @Test
@@ -36,7 +34,6 @@ public class RefDataAcceptanceTest extends AcceptanceTestBase {
         final List<IEXCorporateActions> corporateActions = iexTradingClient.executeRequest(new IEXCorporateActionsRequestBuilder()
                 .withSample()
                 .build());
-        System.out.println(corporateActions);
     }
 
     @Test
@@ -44,7 +41,6 @@ public class RefDataAcceptanceTest extends AcceptanceTestBase {
         final List<IEXDividends> dividendsList = iexTradingClient.executeRequest(new IEXDividendsRequestBuilder()
                 .withSample()
                 .build());
-        System.out.println(dividendsList);
     }
 
     @Test
@@ -52,7 +48,6 @@ public class RefDataAcceptanceTest extends AcceptanceTestBase {
         final List<IEXSymbolDirectory> symbolDirectoryList = iexTradingClient.executeRequest(new IEXSymbolDirectoryRequestBuilder()
                 .withSample()
                 .build());
-        System.out.println(symbolDirectoryList);
     }
     
 }

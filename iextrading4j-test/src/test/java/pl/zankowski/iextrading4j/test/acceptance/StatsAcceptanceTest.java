@@ -22,7 +22,6 @@ public class StatsAcceptanceTest extends AcceptanceTestBase {
     public void intradayAcceptanceTest() {
         final IntradayStats intradayStats = iexTradingClient.executeRequest(new IntradayStatsRequestBuilder()
                 .build());
-        System.out.println(intradayStats);
     }
 
     @Ignore
@@ -30,14 +29,12 @@ public class StatsAcceptanceTest extends AcceptanceTestBase {
     public void recentAcceptanceTest() {
         final List<RecentStats> recentStats = iexTradingClient.executeRequest(new RecentStatsRequestBuilder()
                 .build());
-        System.out.println(recentStats);
     }
 
     @Test
     public void recordsAcceptanceTest() {
         final RecordsStats recordsStats = iexTradingClient.executeRequest(new RecordStatsRequestBuilder()
                 .build());
-        System.out.println(recordsStats);
     }
 
     @Test
@@ -45,7 +42,6 @@ public class StatsAcceptanceTest extends AcceptanceTestBase {
         final List<HistoricalStats> historicalStatsList = iexTradingClient.executeRequest(new HistoricalStatsRequestBuilder()
                 .withDate(YearMonth.of(2017, 5))
                 .build());
-        System.out.println(historicalStatsList);
     }
 
     @Test
@@ -53,7 +49,6 @@ public class StatsAcceptanceTest extends AcceptanceTestBase {
         final List<HistoricalDailyStats> historicalDailyStatsList = iexTradingClient.executeRequest(new HistoricalDailyStatsRequestBuilder()
                 .withLast(10)
                 .build());
-        System.out.println(historicalDailyStatsList);
     }
 
 }

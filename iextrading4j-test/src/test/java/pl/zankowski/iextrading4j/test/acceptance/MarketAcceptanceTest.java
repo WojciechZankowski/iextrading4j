@@ -12,7 +12,6 @@ public class MarketAcceptanceTest extends AcceptanceTestBase {
     public void marketVolumeAcceptanceTest() {
         final List<MarketVolume> marketVolumeList = iexTradingClient.executeRequest(new MarketRequestBuilder()
                 .build());
-        System.out.println(marketVolumeList);
     }
 
 }
