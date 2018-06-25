@@ -43,6 +43,7 @@ public class MarketDataSample {
         sampleSuite.bookRequestSample();
         sampleSuite.deepRequestSample();
         sampleSuite.histRequestSample();
+        sampleSuite.histParameterizedRequestSample();
         sampleSuite.lastTradeRequestSample();
         sampleSuite.opHaltStatusRequestSample();
         sampleSuite.officialPriceRequestSample();
@@ -72,6 +73,12 @@ public class MarketDataSample {
     }
 
     private void histRequestSample() {
+        final Map<String, List<HIST>> histMap = iexTradingClient.executeRequest(new HistRequestBuilder()
+                .build());
+        System.out.println(histMap);
+    }
+
+    private void histParameterizedRequestSample() {
         final List<HIST> histList = iexTradingClient.executeRequest(new HistRequestBuilder()
                 .withDate(LocalDate.of(2017, 5, 15))
                 .build());
