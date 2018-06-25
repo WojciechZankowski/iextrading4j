@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.2.1] - 2018-06-25
+
+### Changed
+
+- Fix HIST request without parameters [[#24](https://github.com/WojciechZankowski/iextrading4j/issues/24)]
+- Removed output from acceptance test due to Travis log limit
+
 ## [2.2.0] - 2018-06-22
 
 ### Added
@@ -136,3 +143,4 @@ All notable changes to this project will be documented in this file.
 [2.1.7]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_6...IT4J_RELEASE_2_1_7
 [2.1.8]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_7...IT4J_RELEASE_2_1_8
 [2.2.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_8...IT4J_RELEASE_2_2_0
+[2.2.1]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_0...IT4J_RELEASE_2_2_1
