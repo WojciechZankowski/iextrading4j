@@ -27,7 +27,7 @@ public class AuctionServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/marketdata/AuctionResponse.json")));
+                        .withBodyFile("rest/marketdata/AuctionResponse.json")));
 
         final Map<String, Auction> auctionMap = iexTradingClient.executeRequest(new AuctionRequestBuilder()
                 .withSymbol("ZIEXT")

@@ -24,7 +24,7 @@ public class IntradayServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stats/IntradayResponse.json")));
+                        .withBodyFile("rest/stats/IntradayResponse.json")));
 
         final IntradayStats intradayStats = iexTradingClient.executeRequest(new IntradayStatsRequestBuilder().build());
 

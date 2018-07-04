@@ -26,7 +26,7 @@ public class TradesServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/marketdata/TradesResponse.json")));
+                        .withBodyFile("rest/marketdata/TradesResponse.json")));
 
         final Map<String, List<Trade>> tradeMap = iexTradingClient.executeRequest(new TradeRequestBuilder()
                 .withSymbol("SNAP")

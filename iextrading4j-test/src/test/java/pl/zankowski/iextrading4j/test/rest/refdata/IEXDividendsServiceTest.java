@@ -31,7 +31,7 @@ public class IEXDividendsServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/refdata/IEXDividends.json")));
+                        .withBodyFile("rest/refdata/IEXDividends.json")));
 
         final List<IEXDividends> dividendsList = iexTradingClient.executeRequest(new IEXDividendsRequestBuilder()
                 .withSample()

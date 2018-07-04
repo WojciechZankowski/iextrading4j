@@ -33,7 +33,7 @@ public class IEXCorporateActionsServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/refdata/IEXCorporateActions.json")));
+                        .withBodyFile("rest/refdata/IEXCorporateActions.json")));
 
         final List<IEXCorporateActions> corporateActionsList = iexTradingClient.executeRequest(new IEXCorporateActionsRequestBuilder()
                 .withSample()

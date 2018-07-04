@@ -27,7 +27,7 @@ public class BatchStocksServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/BatchStocksResponse.json")));
+                        .withBodyFile("rest/stock/BatchStocksResponse.json")));
 
         final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
                 .addType(BatchStocksType.COMPANY)
@@ -54,7 +54,7 @@ public class BatchStocksServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/BatchMarketStocksResponse.json")));
+                        .withBodyFile("rest/stock/BatchMarketStocksResponse.json")));
 
         final Map<String, BatchStocks> batchStocksMap = iexTradingClient.executeRequest(new BatchMarketStocksRequestBuilder()
                 .addType(BatchStocksType.COMPANY)

@@ -32,7 +32,7 @@ public class IEXSymbolDirectoryServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/refdata/IEXSymbolDirectory.json")));
+                        .withBodyFile("rest/refdata/IEXSymbolDirectory.json")));
 
         final List<IEXSymbolDirectory> symbolDirectoryList = iexTradingClient.executeRequest(new IEXSymbolDirectoryRequestBuilder()
                 .withSample()

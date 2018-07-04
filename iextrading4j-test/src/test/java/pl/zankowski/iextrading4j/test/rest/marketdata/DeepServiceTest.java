@@ -38,7 +38,7 @@ public class DeepServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/marketdata/DeepResponse.json")));
+                        .withBodyFile("rest/marketdata/DeepResponse.json")));
 
         final DEEP deep = iexTradingClient.executeRequest(new DeepRequestBuilder()
                 .withSymbol("SNAP")

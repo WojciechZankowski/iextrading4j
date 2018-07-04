@@ -25,7 +25,7 @@ public class SecurityEventServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/marketdata/SecurityEventResponse.json")));
+                        .withBodyFile("rest/marketdata/SecurityEventResponse.json")));
 
         final Map<String, SecurityEvent> securityEventMap = iexTradingClient.executeRequest(new SecurityEventRequestBuilder()
                 .withSymbol("AAPL")

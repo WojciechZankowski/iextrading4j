@@ -23,7 +23,7 @@ public class SystemEventServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/marketdata/SystemEventResponse.json")));
+                        .withBodyFile("rest/marketdata/SystemEventResponse.json")));
 
         final SystemEvent systemEvent = iexTradingClient.executeRequest(new SystemEventRequestBuilder()
                 .withSymbol("SNAP")
