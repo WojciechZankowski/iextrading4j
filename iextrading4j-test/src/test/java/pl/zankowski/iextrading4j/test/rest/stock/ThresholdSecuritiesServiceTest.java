@@ -25,7 +25,7 @@ public class ThresholdSecuritiesServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/ThresholdSecuritiesResponse.json")));
+                        .withBodyFile("rest/stock/ThresholdSecuritiesResponse.json")));
 
         final List<ThresholdSecurities> thresholdSecuritiesList = iexTradingClient.executeRequest(new ThresholdSecuritiesRequestBuilder()
                 .withSymbol("aapl")

@@ -26,7 +26,7 @@ public class HistoricalServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stats/HistoricalResponse.json")));
+                        .withBodyFile("rest/stats/HistoricalResponse.json")));
 
         final List<HistoricalStats> historicalStatsList = iexTradingClient.executeRequest(new HistoricalStatsRequestBuilder()
                 .withDate(YearMonth.of(2016, 5))

@@ -25,7 +25,7 @@ public class LastServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/marketdata/LastResponse.json")));
+                        .withBodyFile("rest/marketdata/LastResponse.json")));
 
         final List<LastTrade> lastTradeList = iexTradingClient.executeRequest(new LastTradeRequestBuilder()
                 .withSymbol("AAPL")

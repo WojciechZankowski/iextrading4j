@@ -27,7 +27,7 @@ public class PreviousServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/PreviousResponse.json")));
+                        .withBodyFile("rest/stock/PreviousResponse.json")));
 
         final BarData barData = iexTradingClient.executeRequest(new PreviousRequestBuilder()
                 .withSymbol("aapl")
@@ -54,7 +54,7 @@ public class PreviousServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/PreviousMarketResponse.json")));
+                        .withBodyFile("rest/stock/PreviousMarketResponse.json")));
 
         final Map<String, BarData> barDataMap = iexTradingClient.executeRequest(new PreviousMarketRequestBuilder()
                 .build());

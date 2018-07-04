@@ -26,7 +26,7 @@ public class OfficialPriceServiceTest  extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/marketdata/OfficialPriceResponse.json")));
+                        .withBodyFile("rest/marketdata/OfficialPriceResponse.json")));
 
         final Map<String, OfficialPrice> opHaltStatusMap = iexTradingClient.executeRequest(new OfficialPriceRequestBuilder()
                 .withSymbol("SNAP")

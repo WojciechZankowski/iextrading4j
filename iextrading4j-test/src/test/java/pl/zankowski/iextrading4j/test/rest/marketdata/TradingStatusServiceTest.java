@@ -26,7 +26,7 @@ public class TradingStatusServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/marketdata/TradingStatusResponse.json")));
+                        .withBodyFile("rest/marketdata/TradingStatusResponse.json")));
 
         final Map<String, TradingStatus> tradingStatusMap = iexTradingClient.executeRequest(new TradingStatusRequestBuilder()
                 .withSymbol("AAPL")

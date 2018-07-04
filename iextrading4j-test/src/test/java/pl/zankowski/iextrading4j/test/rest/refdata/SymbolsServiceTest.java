@@ -26,7 +26,7 @@ public class SymbolsServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/refdata/SymbolsResponse.json")));
+                        .withBodyFile("rest/refdata/SymbolsResponse.json")));
 
         final List<ExchangeSymbol> exchangeSymbols = iexTradingClient.executeRequest(
                 new SymbolsRequestBuilder().build());

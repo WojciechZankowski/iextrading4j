@@ -24,7 +24,7 @@ public class SsrStatusServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/marketdata/SsrStatusResponse.json")));
+                        .withBodyFile("rest/marketdata/SsrStatusResponse.json")));
 
         final Map<String, SsrStatus> ssrStatusMap = iexTradingClient.executeRequest(new SsrStatusRequestBuilder()
                 .withSymbol("AAPL")

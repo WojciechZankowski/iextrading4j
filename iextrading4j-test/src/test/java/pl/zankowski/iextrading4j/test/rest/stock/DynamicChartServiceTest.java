@@ -26,7 +26,7 @@ public class DynamicChartServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/ChartDynamicResponse.json")));
+                        .withBodyFile("rest/stock/ChartDynamicResponse.json")));
 
         final DynamicChart dynamicChart = iexTradingClient.executeRequest(new DynamicChartRequestBuilder()
                 .withSymbol("aapl")

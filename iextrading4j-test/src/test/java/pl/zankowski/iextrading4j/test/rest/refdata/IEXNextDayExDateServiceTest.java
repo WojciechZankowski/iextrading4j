@@ -30,7 +30,7 @@ public class IEXNextDayExDateServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/refdata/IEXNextDayExDate.json")));
+                        .withBodyFile("rest/refdata/IEXNextDayExDate.json")));
 
         final List<IEXNextDayExDate> nextDayExDateList = iexTradingClient.executeRequest(new IEXNextDayExDateRequestBuilder()
                 .withSample()

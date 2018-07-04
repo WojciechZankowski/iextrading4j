@@ -26,7 +26,7 @@ public class RecordsServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stats/RecordsResponse.json")));
+                        .withBodyFile("rest/stats/RecordsResponse.json")));
 
         final RecordsStats recordsStats = iexTradingClient.executeRequest(new RecordStatsRequestBuilder().build());
 

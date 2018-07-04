@@ -26,7 +26,7 @@ public class RecentServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stats/RecentResponse.json")));
+                        .withBodyFile("rest/stats/RecentResponse.json")));
 
         final List<RecentStats> recentStatsList = iexTradingClient.executeRequest(new RecentStatsRequestBuilder().build());
 

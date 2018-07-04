@@ -27,7 +27,7 @@ public class BookServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/marketdata/BookResponse.json")));
+                        .withBodyFile("rest/marketdata/BookResponse.json")));
 
         final Map<String, Book> bookMap = iexTradingClient.executeRequest(new BookRequestBuilder()
                 .withSymbol("YELP")

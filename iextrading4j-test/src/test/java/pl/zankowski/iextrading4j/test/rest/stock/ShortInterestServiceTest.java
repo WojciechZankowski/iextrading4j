@@ -27,7 +27,7 @@ public class ShortInterestServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/ShortInterestResponse.json")));
+                        .withBodyFile("rest/stock/ShortInterestResponse.json")));
 
         final List<ShortInterest> shortInterestList = iexTradingClient.executeRequest(new ShortInterestRequestBuilder()
                 .withSymbol("aapl")

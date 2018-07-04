@@ -26,7 +26,7 @@ public class ListServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/ListResponse.json")));
+                        .withBodyFile("rest/stock/ListResponse.json")));
 
 
         final List<Quote> quoteList = iexTradingClient.executeRequest(new ListRequestBuilder()
@@ -44,7 +44,7 @@ public class ListServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/ListResponse.json")));
+                        .withBodyFile("rest/stock/ListResponse.json")));
 
 
         final List<Quote> quoteList = iexTradingClient.executeRequest(new ListRequestBuilder()
@@ -62,7 +62,7 @@ public class ListServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/ListResponse.json")));
+                        .withBodyFile("rest/stock/ListResponse.json")));
 
 
         final List<Quote> quoteList = iexTradingClient.executeRequest(new ListRequestBuilder()
@@ -80,7 +80,7 @@ public class ListServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/ListResponse.json")));
+                        .withBodyFile("rest/stock/ListResponse.json")));
 
 
         final List<Quote> quoteList = iexTradingClient.executeRequest(new ListRequestBuilder()
@@ -98,7 +98,7 @@ public class ListServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/ListResponse.json")));
+                        .withBodyFile("rest/stock/ListResponse.json")));
 
 
         final List<Quote> quoteList = iexTradingClient.executeRequest(new ListRequestBuilder()

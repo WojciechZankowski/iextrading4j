@@ -25,7 +25,7 @@ public class EffectiveSpreadServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/EffectiveSpreadResponse.json")));
+                        .withBodyFile("rest/stock/EffectiveSpreadResponse.json")));
 
         final List<EffectiveSpread> effectiveSpreadList = iexTradingClient.executeRequest(new EffectiveSpreadRequestBuilder()
                 .withSymbol("aapl")

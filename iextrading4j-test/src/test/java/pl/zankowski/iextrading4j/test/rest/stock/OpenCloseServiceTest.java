@@ -25,7 +25,7 @@ public class OpenCloseServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/OpenCloseResponse.json")));
+                        .withBodyFile("rest/stock/OpenCloseResponse.json")));
 
         final Ohlc ohlc = iexTradingClient.executeRequest(new OpenCloseRequestBuilder()
                 .withSymbol("aapl")

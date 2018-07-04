@@ -27,7 +27,7 @@ public class HistoricalDailyServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stats/HistoricalDailyResponse.json")));
+                        .withBodyFile("rest/stats/HistoricalDailyResponse.json")));
 
         final List<HistoricalDailyStats> historicalDailyStatsList = iexTradingClient.executeRequest(
                 new HistoricalDailyStatsRequestBuilder()

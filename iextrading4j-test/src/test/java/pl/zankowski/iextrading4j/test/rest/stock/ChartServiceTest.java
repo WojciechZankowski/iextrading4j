@@ -27,7 +27,7 @@ public class ChartServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/ChartOneDayResponse.json")));
+                        .withBodyFile("rest/stock/ChartOneDayResponse.json")));
 
         final List<Chart> chartList = iexTradingClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_DAY)
@@ -63,7 +63,7 @@ public class ChartServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/ChartOneMonthResponse.json")));
+                        .withBodyFile("rest/stock/ChartOneMonthResponse.json")));
 
         final List<Chart> chartList = iexTradingClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
@@ -93,7 +93,7 @@ public class ChartServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/ChartThreeMonthResponse.json")));
+                        .withBodyFile("rest/stock/ChartThreeMonthResponse.json")));
 
         final List<Chart> chartList = iexTradingClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.THREE_MONTHS)
@@ -123,7 +123,7 @@ public class ChartServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/ChartSixMonthResponse.json")));
+                        .withBodyFile("rest/stock/ChartSixMonthResponse.json")));
 
         final List<Chart> chartList = iexTradingClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.SIX_MONTHS)
@@ -153,7 +153,7 @@ public class ChartServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/ChartDateResponse.json")));
+                        .withBodyFile("rest/stock/ChartDateResponse.json")));
 
         final List<Chart> chartList = iexTradingClient.executeRequest(new ChartRequestBuilder()
                 .withDate(LocalDate.of(2018, 1, 29))

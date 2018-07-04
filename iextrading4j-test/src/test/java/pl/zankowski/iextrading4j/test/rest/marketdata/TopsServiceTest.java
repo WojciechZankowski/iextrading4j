@@ -25,7 +25,7 @@ public class TopsServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/marketdata/TopsResponse.json")));
+                        .withBodyFile("rest/marketdata/TopsResponse.json")));
 
         final List<TOPS> topsList = iexTradingClient.executeRequest(new TopsRequestBuilder()
                 .withSymbol("AAPL")

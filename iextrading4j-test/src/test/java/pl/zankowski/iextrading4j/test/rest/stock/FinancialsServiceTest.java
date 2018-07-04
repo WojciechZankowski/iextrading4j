@@ -27,7 +27,7 @@ public class FinancialsServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/FinancialsResponse.json")));
+                        .withBodyFile("rest/stock/FinancialsResponse.json")));
 
         final Financials financials = iexTradingClient.executeRequest(new FinancialsRequestBuilder()
                 .withSymbol("aapl")

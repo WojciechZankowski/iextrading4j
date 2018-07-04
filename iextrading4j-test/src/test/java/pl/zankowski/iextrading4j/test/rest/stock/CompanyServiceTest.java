@@ -22,7 +22,7 @@ public class CompanyServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/CompanyResponse.json")));
+                        .withBodyFile("rest/stock/CompanyResponse.json")));
 
         final Company company = iexTradingClient.executeRequest(new CompanyRequestBuilder()
                 .withSymbol("aapl")

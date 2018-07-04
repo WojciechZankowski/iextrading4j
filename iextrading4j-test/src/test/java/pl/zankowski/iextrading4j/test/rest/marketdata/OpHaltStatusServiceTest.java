@@ -24,7 +24,7 @@ public class OpHaltStatusServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/marketdata/OpHaltStatusResponse.json")));
+                        .withBodyFile("rest/marketdata/OpHaltStatusResponse.json")));
 
         final Map<String, OpHaltStatus> opHaltStatusMap = iexTradingClient.executeRequest(new OpHaltStatusRequestBuilder()
                 .withSymbol("SNAP")

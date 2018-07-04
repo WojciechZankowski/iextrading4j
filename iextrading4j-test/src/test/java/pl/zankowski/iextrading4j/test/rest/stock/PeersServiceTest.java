@@ -23,7 +23,7 @@ public class PeersServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/PeersResponse.json")));
+                        .withBodyFile("rest/stock/PeersResponse.json")));
 
         final List<String> peers = iexTradingClient.executeRequest(new PeersRequestBuilder()
                 .withSymbol("aapl")

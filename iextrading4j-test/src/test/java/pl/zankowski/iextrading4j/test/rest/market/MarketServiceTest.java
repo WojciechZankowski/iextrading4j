@@ -25,7 +25,7 @@ public class MarketServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/market/MarketResponse.json")));
+                        .withBodyFile("rest/market/MarketResponse.json")));
 
         final List<MarketVolume> result = iexTradingClient.executeRequest(new MarketRequestBuilder().build());
 
