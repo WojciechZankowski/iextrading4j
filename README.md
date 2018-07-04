@@ -32,7 +32,9 @@ Maven:
 Gradle:
 
 ```
-compile 'pl.zankowski:iextrading4j-all:2.2.2'
+dependencies {
+	compile 'pl.zankowski:iextrading4j-all:2.2.2'
+}
 ```
 
 Library is up to IEX Trading API version [1.0] - 04.07.2018
