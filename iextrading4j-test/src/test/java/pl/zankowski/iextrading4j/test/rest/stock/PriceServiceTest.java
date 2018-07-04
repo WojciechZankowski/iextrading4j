@@ -23,7 +23,7 @@ public class PriceServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/PriceResponse.json")));
+                        .withBodyFile("rest/stock/PriceResponse.json")));
 
         final BigDecimal price = iexTradingClient.executeRequest(new PriceRequestBuilder()
                 .withSymbol("aapl")

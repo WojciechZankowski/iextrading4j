@@ -26,7 +26,7 @@ public class OhlcServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/OhlcResponse.json")));
+                        .withBodyFile("rest/stock/OhlcResponse.json")));
 
         final Ohlc ohlc = iexTradingClient.executeRequest(new OhlcRequestBuilder()
                 .withSymbol("aapl")
@@ -48,7 +48,7 @@ public class OhlcServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/OhlcMarketResponse.json")));
+                        .withBodyFile("rest/stock/OhlcMarketResponse.json")));
 
         final Map<String, Ohlc> ohlcMap = iexTradingClient.executeRequest(new OhlcMarketRequestBuilder()
                 .build());

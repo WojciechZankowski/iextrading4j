@@ -29,7 +29,7 @@ public class DividendsServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/OneMonthDividendsResponse.json")));
+                        .withBodyFile("rest/stock/OneMonthDividendsResponse.json")));
 
         final List<Dividends> dividendsList = iexTradingClient.executeRequest(new DividendsRequestBuilder()
                 .withDividendRange(DividendRange.ONE_MONTH)

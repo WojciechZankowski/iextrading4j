@@ -22,7 +22,7 @@ public class LogoServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/LogoResponse.json")));
+                        .withBodyFile("rest/stock/LogoResponse.json")));
 
         final Logo logo = iexTradingClient.executeRequest(new LogoRequestBuilder()
                 .withSymbol("aapl")

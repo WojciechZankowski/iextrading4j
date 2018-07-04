@@ -27,7 +27,7 @@ public class NewsServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/NewsResponse.json")));
+                        .withBodyFile("rest/stock/NewsResponse.json")));
 
         final List<News> newsList = iexTradingClient.executeRequest(new NewsRequestBuilder()
                 .withSymbol("aapl")

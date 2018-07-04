@@ -26,7 +26,7 @@ public class KeyStatsServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/KeyStatsResponse.json")));
+                        .withBodyFile("rest/stock/KeyStatsResponse.json")));
 
         final KeyStats keyStats = iexTradingClient.executeRequest(new KeyStatsRequestBuilder()
                 .withSymbol("aapl")

@@ -27,7 +27,7 @@ public class EarningsServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/EarningsResponse.json")));
+                        .withBodyFile("rest/stock/EarningsResponse.json")));
 
         final Earnings earnings = iexTradingClient.executeRequest(new EarningsRequestBuilder()
                 .withSymbol("aapl")

@@ -29,7 +29,7 @@ public class BookServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/BookResponse.json")));
+                        .withBodyFile("rest/stock/BookResponse.json")));
 
         final Book book = iexTradingClient.executeRequest(new BookRequestBuilder()
                 .withSymbol("aapl")

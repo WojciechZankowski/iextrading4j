@@ -24,7 +24,7 @@ public class DelayedQuoteServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/DelayedQuoteResponse.json")));
+                        .withBodyFile("rest/stock/DelayedQuoteResponse.json")));
 
         final DelayedQuote delayedQuote = iexTradingClient.executeRequest(new DelayedQuoteRequestBuilder()
                 .withSymbol("aapl")

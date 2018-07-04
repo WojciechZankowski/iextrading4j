@@ -25,7 +25,7 @@ public class TimeSeriesServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/TimeSeriesResponse.json")));
+                        .withBodyFile("rest/stock/TimeSeriesResponse.json")));
 
         final List<TimeSeries> timeSeriesList = iexTradingClient.executeRequest(new TimeSeriesRequestBuilder()
                 .withSymbol("aapl")

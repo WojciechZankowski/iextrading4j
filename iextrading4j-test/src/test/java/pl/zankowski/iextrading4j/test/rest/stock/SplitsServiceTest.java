@@ -27,7 +27,7 @@ public class SplitsServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/FiveYearsSplitsResponse.json")));
+                        .withBodyFile("rest/stock/FiveYearsSplitsResponse.json")));
 
 
         final List<Split> splitList = iexTradingClient.executeRequest(new SplitsRequestBuilder()

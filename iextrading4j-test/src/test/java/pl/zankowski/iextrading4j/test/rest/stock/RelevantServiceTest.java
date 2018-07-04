@@ -24,7 +24,7 @@ public class RelevantServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/RelevantResponse.json")));
+                        .withBodyFile("rest/stock/RelevantResponse.json")));
 
         final Relevant relevant = iexTradingClient.executeRequest(new RelevantRequestBuilder()
                 .withSymbol("aapl")

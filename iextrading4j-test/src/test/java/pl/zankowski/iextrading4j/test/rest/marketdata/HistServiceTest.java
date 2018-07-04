@@ -26,7 +26,7 @@ public class HistServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/marketdata/HistParameterizedResponse.json")));
+                        .withBodyFile("rest/marketdata/HistParameterizedResponse.json")));
 
         final List<HIST> histList = iexTradingClient.executeRequest(new HistRequestBuilder()
                 .withDate(LocalDate.of(2017, 5, 15))

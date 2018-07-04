@@ -26,7 +26,7 @@ public class LargestTradeServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/LargestTradeResponse.json")));
+                        .withBodyFile("rest/stock/LargestTradeResponse.json")));
 
         final List<LargestTrade> largestTradeList = iexTradingClient.executeRequest(new LargestTradeRequestBuilder()
                 .withSymbol("aapl")

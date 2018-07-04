@@ -24,7 +24,7 @@ public class QuoteServiceTest extends BaseRestServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("/rest/stock/QuoteResponse.json")));
+                        .withBodyFile("rest/stock/QuoteResponse.json")));
 
         final Quote quote = iexTradingClient.executeRequest(new QuoteRequestBuilder()
                 .withSymbol("aapl")
