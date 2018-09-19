@@ -73,6 +73,7 @@ public class IEXCorporateActionsServiceTest extends BaseRestServiceTest {
         assertThat(corporateActions.getWhenIssuedFlag()).isEqualTo(Flag.NO);
         assertThat(corporateActions.getWhenDistributedFlag()).isEqualTo(Flag.NO);
         assertThat(corporateActions.getIpoFlag()).isEqualTo(Flag.NO);
+        assertThat(corporateActions.getHistoryHold()).isEqualTo(Flag.NO);
         assertThat(corporateActions.getNotesForEachEntry()).isEqualTo("New preferred ZIEXT security");
         assertThat(corporateActions.getRecordUpdateTime()).isEqualTo(LocalDateTime.of(2017, 11, 8, 16, 34, 43));
     }

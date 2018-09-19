@@ -48,6 +48,7 @@ public class IEXCorporateActionsTest {
         final Flag whenIssuedFlag = fixture.create(Flag.class);
         final Flag whenDistributedFlag = fixture.create(Flag.class);
         final Flag ipoFlag = fixture.create(Flag.class);
+        final Flag historyHold = fixture.create(Flag.class);
         final String notesForEachEntry = fixture.create(String.class);
         final LocalDateTime recordUpdateTime = fixture.create(LocalDateTime.class);
 
@@ -57,7 +58,7 @@ public class IEXCorporateActionsTest {
                 newSecurityName, currentCompanyName, newCompanyName, currentListingCenter, newListingCenter,
                 delistingReason, currentRoundLotSize, newRoundLotSize, currentLULDTierIndicator, newLULDTierIndicator,
                 expirationDate, separationDate, settlementDate, maturityDate, redemptionDate, currentFinancialStatus,
-                newFinancialStatus, whenIssuedFlag, whenDistributedFlag, ipoFlag, notesForEachEntry, recordUpdateTime);
+                newFinancialStatus, whenIssuedFlag, whenDistributedFlag, ipoFlag, historyHold, notesForEachEntry, recordUpdateTime);
 
         assertThat(IEXCorporateActions.getRecordId()).isEqualTo(recordId);
         assertThat(IEXCorporateActions.getDailyListTimestamp()).isEqualTo(dailyListTimestamp);
@@ -90,6 +91,7 @@ public class IEXCorporateActionsTest {
         assertThat(IEXCorporateActions.getWhenIssuedFlag()).isEqualTo(whenIssuedFlag);
         assertThat(IEXCorporateActions.getWhenDistributedFlag()).isEqualTo(whenDistributedFlag);
         assertThat(IEXCorporateActions.getIpoFlag()).isEqualTo(ipoFlag);
+        assertThat(IEXCorporateActions.getHistoryHold()).isEqualTo(historyHold);
         assertThat(IEXCorporateActions.getNotesForEachEntry()).isEqualTo(notesForEachEntry);
         assertThat(IEXCorporateActions.getRecordUpdateTime()).isEqualTo(recordUpdateTime);
     }

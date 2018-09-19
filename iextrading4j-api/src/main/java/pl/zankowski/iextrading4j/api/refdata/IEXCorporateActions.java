@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
         "DelistingReason", "CurrentRoundLotSize", "NewRoundLotSize", "CurrentLULDTierIndicator",
         "NewLULDTierIndicator", "ExpirationDate", "SeparationDate", "SettlementDate", "MaturityDate",
         "RedemptionDate", "CurrentFinancialStatus", "NewFinancialStatus", "WhenIssuedFlag", "WhenDistributedFlag",
-        "IPOFlag", "NotesforEachEntry", "RecordUpdateTime"})
+        "IPOFlag", "HistoryHold", "NotesforEachEntry", "RecordUpdateTime"})
 public class IEXCorporateActions extends DailyList {
 
     private final LocalDate effectiveDate;
@@ -49,6 +49,7 @@ public class IEXCorporateActions extends DailyList {
     private final Flag whenIssuedFlag;
     private final Flag whenDistributedFlag;
     private final Flag ipoFlag;
+    private final Flag historyHold;
     private final String notesForEachEntry;
     private final LocalDateTime recordUpdateTime;
 
@@ -85,6 +86,7 @@ public class IEXCorporateActions extends DailyList {
             @JsonProperty("WhenIssuedFlag") final Flag whenIssuedFlag,
             @JsonProperty("WhenDistributedFlag") final Flag whenDistributedFlag,
             @JsonProperty("IPOFlag") final Flag ipoFlag,
+            @JsonProperty("HistoryHold") final Flag historyHold,
             @JsonProperty("NotesforEachEntry") final String notesForEachEntry,
             @JsonProperty("RecordUpdateTime") final LocalDateTime recordUpdateTime) {
         super(recordId, dailyListTimestamp);
@@ -117,6 +119,7 @@ public class IEXCorporateActions extends DailyList {
         this.whenIssuedFlag = whenIssuedFlag;
         this.whenDistributedFlag = whenDistributedFlag;
         this.ipoFlag = ipoFlag;
+        this.historyHold = historyHold;
         this.notesForEachEntry = notesForEachEntry;
         this.recordUpdateTime = recordUpdateTime;
     }
@@ -237,6 +240,10 @@ public class IEXCorporateActions extends DailyList {
         return ipoFlag;
     }
 
+    public Flag getHistoryHold() {
+        return historyHold;
+    }
+
     public String getNotesForEachEntry() {
         return notesForEachEntry;
     }
@@ -280,6 +287,7 @@ public class IEXCorporateActions extends DailyList {
                 whenIssuedFlag == that.whenIssuedFlag &&
                 whenDistributedFlag == that.whenDistributedFlag &&
                 ipoFlag == that.ipoFlag &&
+                historyHold == that.historyHold &&
                 Objects.equal(notesForEachEntry, that.notesForEachEntry) &&
                 Objects.equal(recordUpdateTime, that.recordUpdateTime);
     }
@@ -293,7 +301,7 @@ public class IEXCorporateActions extends DailyList {
                 currentRoundLotSize, newRoundLotSize, currentLULDTierIndicator, newLULDTierIndicator,
                 expirationDate, separationDate, settlementDate, maturityDate, redemptionDate,
                 currentFinancialStatus, newFinancialStatus, whenIssuedFlag, whenDistributedFlag,
-                ipoFlag, notesForEachEntry, recordUpdateTime);
+                ipoFlag, historyHold, notesForEachEntry, recordUpdateTime);
     }
 
     @Override
@@ -328,6 +336,7 @@ public class IEXCorporateActions extends DailyList {
                 .add("whenIssuedFlag", whenIssuedFlag)
                 .add("whenDistributedFlag", whenDistributedFlag)
                 .add("ipoFlag", ipoFlag)
+                .add("historyHold", historyHold)
                 .add("notesForEachEntry", notesForEachEntry)
                 .add("recordUpdateTime", recordUpdateTime)
                 .toString();

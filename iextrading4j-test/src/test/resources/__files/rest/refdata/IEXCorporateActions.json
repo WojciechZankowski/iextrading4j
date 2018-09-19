@@ -31,6 +31,7 @@
     "WhenIssuedFlag": "N",
     "WhenDistributedFlag": "N",
     "IPOFlag": "N",
+    "HistoryHold": "N",
     "NotesforEachEntry": "New preferred ZIEXT security",
     "RecordUpdateTime": "2017-11-08T16:34:43"
   },
@@ -66,6 +67,7 @@
     "WhenIssuedFlag": "",
     "WhenDistributedFlag": "",
     "IPOFlag": "",
+    "HistoryHold": "",
     "NotesforEachEntry": "ZEXIT preferred stock will be introduced using an IPO Auction at 9:30 a.m. ET",
     "RecordUpdateTime": "2017-11-08T16:35:42"
   }
