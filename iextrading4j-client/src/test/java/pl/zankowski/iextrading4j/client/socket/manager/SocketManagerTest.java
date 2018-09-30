@@ -30,7 +30,7 @@ public class SocketManagerTest {
         this.socket = mock(Socket.class);
 
         this.socketWrapper = mock(SocketWrapper.class);
-        when(socketWrapper.socket(any())).thenReturn(socket);
+        when(socketWrapper.socket(any(), eq(true))).thenReturn(socket);
 
         this.socketManager = new SocketManager(socketWrapper);
     }
@@ -97,7 +97,7 @@ public class SocketManagerTest {
 
         socketManager.subscribe(request, consumer);
 
-        verify(socketWrapper).socket(eq("https://ws-api.iextrading.com/1.0/test"));
+        verify(socketWrapper).socket(eq("https://ws-api.iextrading.com/1.0/test"), eq(true));
     }
 
     @Test(expected = IllegalStateException.class)
@@ -106,7 +106,7 @@ public class SocketManagerTest {
                 Arrays.asList("Test", "Test2"));
         final Consumer<String> consumer = mock(Consumer.class);
 
-        when(socketWrapper.socket(any())).thenThrow(URISyntaxException.class);
+        when(socketWrapper.socket(any(), eq(true))).thenThrow(URISyntaxException.class);
 
         socketManager.subscribe(request, consumer);
     }
