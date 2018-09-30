@@ -1,6 +1,17 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.2.4] - 2018-09-30
+
+### Changed
+
+- Add autoreconnect after losing connection to websocket [[#30](https://github.com/WojciechZankowski/iextrading4j/issues/30]
+
+## [2.2.3] - 2018-09-19
+### Changed
+
+- Add history hold field to IEX Corporate Actions
+
 ## [2.2.2] - 2018-07-04
 
 ### Changed
@@ -152,3 +163,5 @@ All notable changes to this project will be documented in this file.
 [2.2.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_1_8...IT4J_RELEASE_2_2_0
 [2.2.1]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_0...IT4J_RELEASE_2_2_1
 [2.2.2]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_1...IT4J_RELEASE_2_2_2
+[2.2.3]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_2...IT4J_RELEASE_2_2_3
+[2.2.4]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_3...IT4J_RELEASE_2_2_4
