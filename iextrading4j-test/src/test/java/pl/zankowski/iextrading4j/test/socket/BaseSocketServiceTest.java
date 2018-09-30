@@ -41,7 +41,7 @@ public abstract class BaseSocketServiceTest {
         when(socket.emit(any(), any())).thenReturn(socket);
 
         final SocketWrapper socketWrapper = mock(SocketWrapper.class);
-        when(socketWrapper.socket(any())).thenReturn(socket);
+        when(socketWrapper.socket(any(), eq(true))).thenReturn(socket);
 
         whenNew(SocketWrapper.class).withAnyArguments().thenReturn(socketWrapper);
 
