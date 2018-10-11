@@ -38,7 +38,7 @@ public class SocketRequestTest {
 
     @Test
     public void toStringVerification() {
-        ToStringVerifier.forObject(fixture.create(SocketRequest.class))
+        ToStringVerifier.forObject(new SocketRequest<>(null, null, null))
                 .verify();
     }
 
