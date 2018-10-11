@@ -5,6 +5,7 @@ import com.flextrade.jfixture.JFixture;
 import com.google.common.collect.Lists;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
+import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
 import java.util.List;
 
@@ -16,7 +17,8 @@ public class SocketRequestTest {
 
     @Test
     public void constructor() {
-        final TypeReference<String> responseType = new TypeReference<String>() {};
+        final TypeReference<String> responseType = new TypeReference<String>() {
+        };
         final String path = fixture.create(String.class);
         final List<String> params = Lists.newArrayList();
 
@@ -31,6 +33,12 @@ public class SocketRequestTest {
     public void equalsContract() {
         EqualsVerifier.forClass(SocketRequest.class)
                 .usingGetClass()
+                .verify();
+    }
+
+    @Test
+    public void toStringVerification() {
+        ToStringVerifier.forObject(fixture.create(SocketRequest.class))
                 .verify();
     }
 
