@@ -10,6 +10,7 @@ import javax.ws.rs.core.GenericType;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import static pl.zankowski.iextrading4j.client.rest.request.util.RequestUtil.IEX_DATE_FORMATTER;
 
@@ -23,7 +24,8 @@ public class HistRequestBuilder extends AbstractRequestFilterBuilder<Map<String,
     public RestRequest<Map<String, List<HIST>>> build() {
         return RestRequestBuilder.<Map<String, List<HIST>>>builder()
                 .withPath("/hist").get()
-                .withResponse(new GenericType<Map<String, List<HIST>>>() {})
+                .withResponse(new GenericType<Map<String, List<HIST>>>() {
+                })
                 .addQueryParam(getFilterParams())
                 .build();
     }
@@ -33,16 +35,13 @@ public class HistRequestBuilder extends AbstractRequestFilterBuilder<Map<String,
         private LocalDate date;
 
         ParameterizedHistRequestBuilder(final LocalDate date) {
-            this.date = date;
+            this.date = Objects.requireNonNull(date);
         }
 
         private Map<String, String> getDateParams() {
-            if (date != null) {
-                return ImmutableMap.<String, String>builder()
-                        .put("date", IEX_DATE_FORMATTER.format(date))
-                        .build();
-            }
-            return ImmutableMap.of();
+            return ImmutableMap.<String, String>builder()
+                    .put("date", IEX_DATE_FORMATTER.format(date))
+                    .build();
         }
 
         @Override

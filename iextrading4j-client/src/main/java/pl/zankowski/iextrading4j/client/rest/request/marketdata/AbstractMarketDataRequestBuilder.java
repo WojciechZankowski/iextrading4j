@@ -11,7 +11,10 @@ import java.util.Set;
 
 import static java.util.stream.Collectors.joining;
 
-public abstract class AbstractMarketDataRequestBuilder<R, B extends IRestRequestBuilder> extends AbstractRequestFilterBuilder<R, B> {
+public abstract class AbstractMarketDataRequestBuilder<R, B extends IRestRequestBuilder>
+        extends AbstractRequestFilterBuilder<R, B> {
+
+    public static final String ALL_SYMBOLS = "firehose";
 
     private Set<String> symbols = new HashSet<>();
 
@@ -27,16 +30,14 @@ public abstract class AbstractMarketDataRequestBuilder<R, B extends IRestRequest
 
     public B withAllSymbols() {
         this.symbols.clear();
+        this.symbols.add(ALL_SYMBOLS);
         return (B) this;
     }
 
     protected Map<String, String> getSymbols() {
-        if (symbols != null) {
-            return ImmutableMap.<String, String>builder()
-                    .put("symbols", symbols.stream().collect(joining(",")))
-                    .build();
-        }
-        return ImmutableMap.of();
+        return ImmutableMap.<String, String>builder()
+                .put("symbols", symbols.stream().collect(joining(",")))
+                .build();
     }
 
 }

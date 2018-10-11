@@ -25,9 +25,19 @@ public class HistRequestBuilderTest {
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
         assertThat(request.getPath()).isEqualTo("/hist");
-        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<HIST>>() {});
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<HIST>>() {
+        });
         assertThat(request.getPathParams()).isEmpty();
         assertThat(request.getQueryParams()).contains(entry("date", "20170505"));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void shouldThrowNullPointerExceptionWhenDateIsNull() {
+        final LocalDate date = null;
+
+        new HistRequestBuilder()
+                .withDate(date)
+                .build();
     }
 
     @Test
@@ -37,7 +47,8 @@ public class HistRequestBuilderTest {
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
         assertThat(request.getPath()).isEqualTo("/hist");
-        assertThat(request.getResponseType()).isEqualTo(new GenericType<Map<String, List<HIST>>>() {});
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<Map<String, List<HIST>>>() {
+        });
         assertThat(request.getPathParams()).isEmpty();
         assertThat(request.getQueryParams()).isEmpty();
     }

@@ -15,18 +15,19 @@ public class BatchStocksRequestBuilderTest {
     @Test
     public void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
-        final BatchStocksType stocksType = BatchStocksType.BOOK;
+        final BatchStocksType stocksType = BatchStocksType.NEWS;
 
         final RestRequest<BatchStocks> request = new BatchStocksRequestBuilder()
                 .addType(stocksType)
                 .withSymbol(symbol)
+                .withLast(5)
                 .build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
         assertThat(request.getPath()).isEqualTo("/stock/{symbol}/batch");
         assertThat(request.getResponseType()).isEqualTo(new GenericType<BatchStocks>() {});
         assertThat(request.getPathParams()).containsExactly(entry("symbol", symbol));
-        assertThat(request.getQueryParams()).containsExactly(entry("types", "book"));
+        assertThat(request.getQueryParams()).contains(entry("types", "news"), entry("last", "5"));
     }
 
 }
