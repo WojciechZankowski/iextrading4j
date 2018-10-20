@@ -25,7 +25,7 @@ Maven:
 <dependency>
 	<groupId>pl.zankowski</groupId>
 	<artifactId>iextrading4j-all</artifactId>
-	<version>2.2.4</version>
+	<version>2.2.5</version>
 </dependency>
 ```
 
@@ -33,11 +33,11 @@ Gradle:
 
 ```
 dependencies {
-	compile 'pl.zankowski:iextrading4j-all:2.2.4'
+	compile 'pl.zankowski:iextrading4j-all:2.2.5'
 }
 ```
 
-Library is up to IEX Trading API version [1.0] - 19.09.2018
+Library is up to IEX Trading API version [1.0] - 20.10.2018
 
 ## Description
 
