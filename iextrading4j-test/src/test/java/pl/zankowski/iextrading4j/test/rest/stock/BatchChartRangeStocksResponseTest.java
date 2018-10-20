@@ -22,8 +22,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BatchChartRangeStocksResponseTest extends BaseRestServiceTest {
 
     @Test
-    public void batchStocksServiceTest() {
-        stubFor(get(urlEqualTo("/stock/aapl/batch?types=chart&range=1m"))
+    public void batchChartRangeStocksServiceTest() {
+        stubFor(get(urlEqualTo("/stock/aapl/batch?range=1m&types=chart"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
                         .withStatus(200)
