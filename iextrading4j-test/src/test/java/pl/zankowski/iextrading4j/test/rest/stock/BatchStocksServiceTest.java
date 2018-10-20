@@ -74,9 +74,4 @@ public class BatchStocksServiceTest extends BaseRestServiceTest {
         assertThat(company.getTags()).containsExactly("Technology", "Consumer Electronics", "Computer Hardware");
     }
 
-    @Test
-    public void batchChartServiceTest() {
-
-    }
-
 }
