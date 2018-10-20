@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.2.5] - 2018-10-20
+
+### Changed
+
+- Add chart range parameter to Batch request [[#31](https://github.com/WojciechZankowski/iextrading4j/issues/31]
+
 ## [2.2.4] - 2018-09-30
 
 ### Changed
@@ -165,3 +171,4 @@ All notable changes to this project will be documented in this file.
 [2.2.2]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_1...IT4J_RELEASE_2_2_2
 [2.2.3]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_2...IT4J_RELEASE_2_2_3
 [2.2.4]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_3...IT4J_RELEASE_2_2_4
+[2.2.5]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_4...IT4J_RELEASE_2_2_5

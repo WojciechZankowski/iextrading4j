@@ -1,0 +1,18 @@
+{
+  "chart": [
+    {
+      "date": "2018-09-20",
+      "open": 220.24,
+      "high": 222.28,
+      "low": 219.15,
+      "close": 220.03,
+      "volume": 26608794,
+      "unadjustedVolume": 26608794,
+      "change": 1.66,
+      "changePercent": 0.76,
+      "vwap": 220.7675,
+      "label": "Sep 20",
+      "changeOverTime": 0
+    }
+  ]
+}
