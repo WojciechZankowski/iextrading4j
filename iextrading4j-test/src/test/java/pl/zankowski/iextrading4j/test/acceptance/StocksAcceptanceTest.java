@@ -217,6 +217,12 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
+    public void cryptoRequestTest() {
+        final List<Quote> cryptoResponse = iexTradingClient.executeRequest(new CryptoRequestBuilder()
+                .build());
+    }
+
+    @Test
     public void oneDayChartRequestAcceptanceTest() {
         final List<Chart> chartList = iexTradingClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_DAY)

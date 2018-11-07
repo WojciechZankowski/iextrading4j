@@ -96,6 +96,12 @@ public class StocksSample {
         System.out.println(book);
     }
 
+    private void cryptoRequestSample() {
+        final List<Quote> cryptoResponse = iexTradingClient.executeRequest(new CryptoRequestBuilder()
+                .build());
+        System.out.println(cryptoResponse);
+    }
+
     private void chartRequestSample() {
         final List<Chart> chartList = iexTradingClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)

@@ -15,7 +15,7 @@ import java.math.BigDecimal;
         "delayedPrice", "delayedPriceTime", "extendedPrice", "extendedChange", "extendedChangePercent",
         "extendedPriceTime", "previousClose", "change", "changePercent", "iexMarketPercent", "iexVolume",
         "avgTotalVolume", "iexBidPrice", "iexBidSize", "iexAskPrice", "iexAskSize", "marketCap", "peRatio",
-        "week52High", "week52Low", "ytdChange"})
+        "week52High", "week52Low", "ytdChange", "bidPrice", "bidSize", "askPrice", "askSize"})
 public class Quote implements Serializable {
 
     private final String symbol;
@@ -58,6 +58,10 @@ public class Quote implements Serializable {
     private final BigDecimal week52High;
     private final BigDecimal week52Low;
     private final BigDecimal ytdChange;
+    private final BigDecimal bidPrice;
+    private final BigDecimal bidSize;
+    private final BigDecimal askPrice;
+    private final BigDecimal askSize;
 
     @JsonCreator
     public Quote(
@@ -100,7 +104,11 @@ public class Quote implements Serializable {
             @JsonProperty("peRatio") final BigDecimal peRatio,
             @JsonProperty("week52High") final BigDecimal week52High,
             @JsonProperty("week52Low") final BigDecimal week52Low,
-            @JsonProperty("ytdChange") final BigDecimal ytdChange) {
+            @JsonProperty("ytdChange") final BigDecimal ytdChange,
+            @JsonProperty("bidPrice") final BigDecimal bidPrice,
+            @JsonProperty("bidSize")  final BigDecimal bidSize,
+            @JsonProperty("askPrice")  final BigDecimal askPrice,
+            @JsonProperty("askSize")  final BigDecimal askSize) {
         this.symbol = symbol;
         this.companyName = companyName;
         this.primaryExchange = primaryExchange;
@@ -141,6 +149,10 @@ public class Quote implements Serializable {
         this.week52High = week52High;
         this.week52Low = week52Low;
         this.ytdChange = ytdChange;
+        this.bidPrice = bidPrice;
+        this.bidSize = bidSize;
+        this.askPrice = askPrice;
+        this.askSize = askSize;
     }
 
     public String getSymbol() {
@@ -303,6 +315,22 @@ public class Quote implements Serializable {
         return ytdChange;
     }
 
+    public BigDecimal getBidPrice() {
+        return bidPrice;
+    }
+
+    public BigDecimal getBidSize() {
+        return bidSize;
+    }
+
+    public BigDecimal getAskPrice() {
+        return askPrice;
+    }
+
+    public BigDecimal getAskSize() {
+        return askSize;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -347,7 +375,11 @@ public class Quote implements Serializable {
                 Objects.equal(peRatio, quote.peRatio) &&
                 Objects.equal(week52High, quote.week52High) &&
                 Objects.equal(week52Low, quote.week52Low) &&
-                Objects.equal(ytdChange, quote.ytdChange);
+                Objects.equal(ytdChange, quote.ytdChange) &&
+                Objects.equal(bidPrice, quote.bidPrice) &&
+                Objects.equal(bidSize, quote.bidSize) &&
+                Objects.equal(askPrice, quote.askPrice) &&
+                Objects.equal(askSize, quote.askSize);
     }
 
     @Override
@@ -357,7 +389,8 @@ public class Quote implements Serializable {
                 latestUpdate, latestVolume, iexRealtimePrice, iexRealtimeSize, iexLastUpdated, delayedPrice,
                 delayedPriceTime, extendedPrice, extendedChange, extendedChangePercent, extendedPriceTime,
                 previousClose, change, changePercent, iexMarketPercent, iexVolume, avgTotalVolume, iexBidPrice,
-                iexBidSize, iexAskPrice, iexAskSize, marketCap, peRatio, week52High, week52Low, ytdChange);
+                iexBidSize, iexAskPrice, iexAskSize, marketCap, peRatio, week52High, week52Low, ytdChange,
+                bidPrice, bidSize, askPrice, askSize);
     }
 
     @Override
@@ -403,6 +436,10 @@ public class Quote implements Serializable {
                 .add("week52High", week52High)
                 .add("week52Low", week52Low)
                 .add("ytdChange", ytdChange)
+                .add("bidPrice", bidPrice)
+                .add("bidSize", bidSize)
+                .add("askPrice", askPrice)
+                .add("askSize", askSize)
                 .toString();
     }
 }
