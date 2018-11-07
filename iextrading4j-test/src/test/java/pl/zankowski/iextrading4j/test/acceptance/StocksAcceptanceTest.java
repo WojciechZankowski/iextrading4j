@@ -2,30 +2,7 @@ package pl.zankowski.iextrading4j.test.acceptance;
 
 import com.google.common.collect.Lists;
 import org.junit.Test;
-import pl.zankowski.iextrading4j.api.stocks.BarData;
-import pl.zankowski.iextrading4j.api.stocks.BatchStocks;
-import pl.zankowski.iextrading4j.api.stocks.Book;
-import pl.zankowski.iextrading4j.api.stocks.Chart;
-import pl.zankowski.iextrading4j.api.stocks.ChartRange;
-import pl.zankowski.iextrading4j.api.stocks.Company;
-import pl.zankowski.iextrading4j.api.stocks.DelayedQuote;
-import pl.zankowski.iextrading4j.api.stocks.Dividends;
-import pl.zankowski.iextrading4j.api.stocks.DynamicChart;
-import pl.zankowski.iextrading4j.api.stocks.Earnings;
-import pl.zankowski.iextrading4j.api.stocks.EffectiveSpread;
-import pl.zankowski.iextrading4j.api.stocks.Financials;
-import pl.zankowski.iextrading4j.api.stocks.KeyStats;
-import pl.zankowski.iextrading4j.api.stocks.LargestTrade;
-import pl.zankowski.iextrading4j.api.stocks.Logo;
-import pl.zankowski.iextrading4j.api.stocks.News;
-import pl.zankowski.iextrading4j.api.stocks.Ohlc;
-import pl.zankowski.iextrading4j.api.stocks.Quote;
-import pl.zankowski.iextrading4j.api.stocks.Relevant;
-import pl.zankowski.iextrading4j.api.stocks.ShortInterest;
-import pl.zankowski.iextrading4j.api.stocks.Split;
-import pl.zankowski.iextrading4j.api.stocks.ThresholdSecurities;
-import pl.zankowski.iextrading4j.api.stocks.TimeSeries;
-import pl.zankowski.iextrading4j.api.stocks.VenueVolume;
+import pl.zankowski.iextrading4j.api.stocks.*;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.*;
 
 import java.math.BigDecimal;
@@ -319,6 +296,13 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
         final Earnings earnings = iexTradingClient.executeRequest(new EarningsRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
+    }
+
+    @Test
+    public void todayEarningsAcceptanceTest() {
+        final TodayEarnings todayEarnings = iexTradingClient.executeRequest(new TodayEarningsRequestBuilder()
+                .build());
+        System.out.println(todayEarnings);
     }
 
     @Test

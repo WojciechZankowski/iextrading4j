@@ -23,6 +23,7 @@ import pl.zankowski.iextrading4j.api.stocks.ShortInterest;
 import pl.zankowski.iextrading4j.api.stocks.Split;
 import pl.zankowski.iextrading4j.api.stocks.ThresholdSecurities;
 import pl.zankowski.iextrading4j.api.stocks.TimeSeries;
+import pl.zankowski.iextrading4j.api.stocks.TodayEarnings;
 import pl.zankowski.iextrading4j.api.stocks.VenueVolume;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.SymbolsRequestBuilder;
@@ -44,10 +45,12 @@ public class StocksSample {
         sampleSuite.bookRequestSample();
         sampleSuite.chartRequestSample();
         sampleSuite.companyRequestSample();
+        sampleSuite.cryptoRequestSample();
         sampleSuite.delayedQuoteRequestSample();
         sampleSuite.dividendsRequestSample();
         sampleSuite.dynamicChartRequestSample();
         sampleSuite.earningsRequestSample();
+        sampleSuite.todayEarningsRequestSample();
         sampleSuite.effectiveSpreadRequestSample();
         sampleSuite.financialsRequestSample();
         sampleSuite.keyStatsRequestSample();
@@ -144,6 +147,12 @@ public class StocksSample {
                 .withSymbol("AAPL")
                 .build());
         System.out.println(earnings);
+    }
+
+    private void todayEarningsRequestSample() {
+        final TodayEarnings todayEarnings = iexTradingClient.executeRequest(new TodayEarningsRequestBuilder()
+                .build());
+        System.out.println(todayEarnings);
     }
 
     private void effectiveSpreadRequestSample() {
