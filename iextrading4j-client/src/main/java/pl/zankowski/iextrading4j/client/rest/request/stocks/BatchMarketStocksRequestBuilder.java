@@ -6,6 +6,7 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -18,6 +19,11 @@ public class BatchMarketStocksRequestBuilder extends AbstractBatchStocksRequestB
 
     public BatchMarketStocksRequestBuilder withSymbol(final String symbol) {
         this.symbols.add(symbol);
+        return this;
+    }
+
+    public BatchMarketStocksRequestBuilder withSymbols(final List<String> symbols) {
+        this.symbols.addAll(symbols);
         return this;
     }
 

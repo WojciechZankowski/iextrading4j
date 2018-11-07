@@ -1,9 +1,9 @@
 # IEXTrading4j: Open source IEX Trading API library
 
 [![Build Status](https://travis-ci.org/WojciechZankowski/iextrading4j.svg?branch=master)](https://travis-ci.org/WojciechZankowski/iextrading4j)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/pl.zankowski/iextrading4j-all/badge.svg)](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22pl.zankowski%22%20AND%20a%3A%22iextrading4j-all%22)
 [![codecov](https://codecov.io/gh/WojciechZankowski/iextrading4j/branch/master/graph/badge.svg)](https://codecov.io/gh/WojciechZankowski/iextrading4j)
 [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=pl.zankowski%3Aiextrading4j&metric=alert_status)](https://sonarcloud.io/dashboard/index/pl.zankowski:iextrading4j)
+[![Maven Central](https://img.shields.io/maven-central/v/pl.zankowski/iextrading4j-all.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22pl.zankowski%22%20AND%20a:%22iextrading4j-all%22)
 
 ## Table of Contents
 
@@ -25,7 +25,7 @@ Maven:
 <dependency>
 	<groupId>pl.zankowski</groupId>
 	<artifactId>iextrading4j-all</artifactId>
-	<version>2.2.4</version>
+	<version>2.2.5</version>
 </dependency>
 ```
 
@@ -33,11 +33,11 @@ Gradle:
 
 ```
 dependencies {
-	compile 'pl.zankowski:iextrading4j-all:2.2.4'
+	compile 'pl.zankowski:iextrading4j-all:2.2.5'
 }
 ```
 
-Library is up to IEX Trading API version [1.0] - 19.09.2018
+Library is up to IEX Trading API version [1.0] - 20.10.2018
 
 ## Description
 

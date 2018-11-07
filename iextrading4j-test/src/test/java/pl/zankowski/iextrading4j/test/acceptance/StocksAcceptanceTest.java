@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.test.acceptance;
 
+import com.google.common.collect.Lists;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.stocks.BarData;
 import pl.zankowski.iextrading4j.api.stocks.BatchStocks;
@@ -51,9 +52,10 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
 
     @Test
     public void batchChartRequestAcceptanceTest() {
-        final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
-                .withSymbol("AAPL")
+        final Map<String, BatchStocks> batchStocks = iexTradingClient.executeRequest(new BatchMarketStocksRequestBuilder()
+                .withSymbols(Lists.newArrayList("AAPL", "MSFT"))
                 .addType(BatchStocksType.CHART)
+                .withChartRange(ChartRange.ONE_MONTH)
                 .build());
     }
 
