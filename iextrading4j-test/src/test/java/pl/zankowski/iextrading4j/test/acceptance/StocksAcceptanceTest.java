@@ -458,14 +458,18 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
     public void upcomingIposAcceptanceTest() {
         final Ipos ipos = iexTradingClient.executeRequest(new UpcomingIposRequestBuilder()
                 .build());
-        System.out.println(ipos);
     }
 
     @Test
     public void todayIposAcceptanceTest() {
         final TodayIpos todayIpos = iexTradingClient.executeRequest(new TodayIposRequestBuilder()
                 .build());
-        System.out.println(todayIpos);
+    }
+
+    @Test
+    public void sectorPerformanceAcceptanceTest() {
+        final List<SectorPerformance> sectorPerformances = iexTradingClient.executeRequest(
+                new SectorPerformanceRequestBuilder().build());
     }
 
 }
