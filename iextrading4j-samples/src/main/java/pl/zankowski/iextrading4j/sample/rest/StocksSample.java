@@ -1,30 +1,7 @@
 package pl.zankowski.iextrading4j.sample.rest;
 
 import pl.zankowski.iextrading4j.api.refdata.ExchangeSymbol;
-import pl.zankowski.iextrading4j.api.stocks.BarData;
-import pl.zankowski.iextrading4j.api.stocks.BatchStocks;
-import pl.zankowski.iextrading4j.api.stocks.Book;
-import pl.zankowski.iextrading4j.api.stocks.Chart;
-import pl.zankowski.iextrading4j.api.stocks.ChartRange;
-import pl.zankowski.iextrading4j.api.stocks.Company;
-import pl.zankowski.iextrading4j.api.stocks.DelayedQuote;
-import pl.zankowski.iextrading4j.api.stocks.Dividends;
-import pl.zankowski.iextrading4j.api.stocks.DynamicChart;
-import pl.zankowski.iextrading4j.api.stocks.Earnings;
-import pl.zankowski.iextrading4j.api.stocks.EffectiveSpread;
-import pl.zankowski.iextrading4j.api.stocks.Financials;
-import pl.zankowski.iextrading4j.api.stocks.KeyStats;
-import pl.zankowski.iextrading4j.api.stocks.Logo;
-import pl.zankowski.iextrading4j.api.stocks.News;
-import pl.zankowski.iextrading4j.api.stocks.Ohlc;
-import pl.zankowski.iextrading4j.api.stocks.Quote;
-import pl.zankowski.iextrading4j.api.stocks.Relevant;
-import pl.zankowski.iextrading4j.api.stocks.ShortInterest;
-import pl.zankowski.iextrading4j.api.stocks.Split;
-import pl.zankowski.iextrading4j.api.stocks.ThresholdSecurities;
-import pl.zankowski.iextrading4j.api.stocks.TimeSeries;
-import pl.zankowski.iextrading4j.api.stocks.TodayEarnings;
-import pl.zankowski.iextrading4j.api.stocks.VenueVolume;
+import pl.zankowski.iextrading4j.api.stocks.*;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.SymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.*;
@@ -71,6 +48,8 @@ public class StocksSample {
         sampleSuite.thresholdSecuritiesRequestSample();
         sampleSuite.ohlcMarketRequestSample();
         sampleSuite.previousMarketRequestSample();
+        sampleSuite.todayIposRequestSample();
+        sampleSuite.upcomingIposRequestSample();
     }
 
     private void batchRequestSample() {
@@ -298,6 +277,18 @@ public class StocksSample {
                 .withMarket()
                 .build());
         System.out.println(thresholdSecuritiesList);
+    }
+
+    private void todayIposRequestSample() {
+        final TodayIpos todayIpos = iexTradingClient.executeRequest(new TodayIposRequestBuilder()
+                .build());
+        System.out.println(todayIpos);
+    }
+
+    private void upcomingIposRequestSample() {
+        final Ipos ipos = iexTradingClient.executeRequest(new UpcomingIposRequestBuilder()
+                .build());
+        System.out.println(ipos);
     }
 
 }
