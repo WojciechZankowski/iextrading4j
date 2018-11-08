@@ -3,17 +3,18 @@ package pl.zankowski.iextrading4j.api.stocks;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.google.common.base.Objects;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Objects;
 
 @JsonPropertyOrder({"actualEPS", "consensusEPS", "estimatedEPS", "announceTime",
         "numberOfEstimates", "EPSSurpriseDollar", "EPSReportDate", "fiscalPeriod",
         "fiscalEndDate", "yearAgo", "yearAgoChangePercent", "estimatedChangePercent",
-        "symbolId", "quote", "headline"})
+        "symbolId", "symbol", "quote", "headline"})
 public class TodayEarning extends Earning {
 
+    private final String symbol;
     private final Quote quote;
     private final String headline;
 
@@ -32,12 +33,18 @@ public class TodayEarning extends Earning {
             @JsonProperty("yearAgoChangePercent") final BigDecimal yearAgoChangePercent,
             @JsonProperty("estimatedChangePercent") final BigDecimal estimatedChangePercent,
             @JsonProperty("symbolId") final BigDecimal symbolId,
+            @JsonProperty("symbol") final String symbol,
             @JsonProperty("quote") final Quote quote,
             @JsonProperty("headline") final String headline) {
         super(actualEPS, consensusEPS, estimatedEPS, announceTime, numberOfEstimates, EPSSurpriseDollar, EPSReportDate,
                 fiscalPeriod, fiscalEndDate, yearAgo, yearAgoChangePercent, estimatedChangePercent, symbolId);
+        this.symbol = symbol;
         this.quote = quote;
         this.headline = headline;
+    }
+
+    public String getSymbol() {
+        return symbol;
     }
 
     public Quote getQuote() {
@@ -54,19 +61,21 @@ public class TodayEarning extends Earning {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         final TodayEarning that = (TodayEarning) o;
-        return Objects.equals(quote, that.quote) &&
-                Objects.equals(headline, that.headline);
+        return Objects.equal(symbol, that.symbol) &&
+                Objects.equal(quote, that.quote) &&
+                Objects.equal(headline, that.headline);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), quote, headline);
+        return Objects.hashCode(super.hashCode(), symbol, quote, headline);
     }
 
     @Override
     public String toString() {
         return "TodayEarning{" +
-                "quote=" + quote +
+                "symbol='" + symbol + '\'' +
+                ", quote=" + quote +
                 ", headline='" + headline + '\'' +
                 "} " + super.toString();
     }

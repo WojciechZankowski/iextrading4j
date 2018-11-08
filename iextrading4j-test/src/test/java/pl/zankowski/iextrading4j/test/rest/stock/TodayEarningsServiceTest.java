@@ -1,11 +1,9 @@
 package pl.zankowski.iextrading4j.test.rest.stock;
 
 import org.junit.Test;
-import pl.zankowski.iextrading4j.api.stocks.Earning;
-import pl.zankowski.iextrading4j.api.stocks.Earnings;
+import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.api.stocks.TodayEarning;
 import pl.zankowski.iextrading4j.api.stocks.TodayEarnings;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.EarningsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayEarningsRequestBuilder;
 import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
 
@@ -23,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TodayEarningsServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void earningsServiceTest() {
+    public void todayEarningsServiceTest() {
         stubFor(get(urlEqualTo("/stock/market/today-earnings"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -40,32 +38,39 @@ public class TodayEarningsServiceTest extends BaseRestServiceTest {
         assertThat(btoEarning.getActualEPS()).isNull();
         assertThat(btoEarning.getConsensusEPS()).isEqualTo(BigDecimal.valueOf(0.53));
         assertThat(btoEarning.getEstimatedEPS()).isEqualTo(BigDecimal.valueOf(0.53));
-        assertThat(btoEarning.getAnnounceTime()).isEqualTo("AMC");
-        assertThat(btoEarning.getNumberOfEstimates()).isEqualTo(BigDecimal.valueOf(13));
-        assertThat(btoEarning.getEPSSurpriseDollar()).isEqualTo(BigDecimal.valueOf(0.1));
-        assertThat(btoEarning.getEPSReportDate()).isEqualTo(LocalDate.of(2017, 8, 1));
-        assertThat(btoEarning.getFiscalPeriod()).isEqualTo("Q3 2017");
-        assertThat(btoEarning.getFiscalEndDate()).isEqualTo(LocalDate.of(2017, 6, 30));
-        assertThat(btoEarning.getYearAgo()).isEqualByComparingTo(BigDecimal.valueOf(3.36));
-        assertThat(btoEarning.getYearAgoChangePercent()).isEqualByComparingTo(BigDecimal.valueOf(16));
-        assertThat(btoEarning.getEstimatedChangePercent()).isEqualByComparingTo(BigDecimal.valueOf(14));
-        assertThat(btoEarning.getSymbolId()).isEqualByComparingTo(BigDecimal.valueOf(11));
+        assertThat(btoEarning.getAnnounceTime()).isEqualTo("BTO");
+        assertThat(btoEarning.getNumberOfEstimates()).isEqualTo(BigDecimal.valueOf(5));
+        assertThat(btoEarning.getEPSSurpriseDollar()).isNull();
+        assertThat(btoEarning.getEPSReportDate()).isEqualTo(LocalDate.of(2018, 11, 7));
+        assertThat(btoEarning.getFiscalPeriod()).isEqualTo("Q1 2019");
+        assertThat(btoEarning.getFiscalEndDate()).isEqualTo(LocalDate.of(2018, 9, 30));
+        assertThat(btoEarning.getYearAgo()).isEqualByComparingTo(BigDecimal.valueOf(0.49));
+        assertThat(btoEarning.getYearAgoChangePercent()).isNull();
+        assertThat(btoEarning.getEstimatedChangePercent()).isEqualByComparingTo(BigDecimal.valueOf(0.08163265306122457));
+        assertThat(btoEarning.getSymbolId()).isEqualTo("2611");
+        assertThat(btoEarning.getSymbol()).isEqualTo("FOXA");
+        assertThat(btoEarning.getHeadline()).isEqualTo("Twenty-First Century Fox EPS in-line, misses on revenue");
+        final Quote btoQuote = btoEarning.getQuote();
+        assertThat(btoQuote.getSymbol()).isEqualTo("FOXA");
 
         final List<TodayEarning> amc = todayEarnings.getAmc();
         final TodayEarning amcEarning = amc.get(0);
-        assertThat(amcEarning.getActualEPS()).isEqualTo(BigDecimal.valueOf(1.67));
-        assertThat(amcEarning.getConsensusEPS()).isEqualTo(BigDecimal.valueOf(1.57));
-        assertThat(amcEarning.getEstimatedEPS()).isEqualTo(BigDecimal.valueOf(1.57));
+        assertThat(amcEarning.getActualEPS()).isNull();
+        assertThat(amcEarning.getConsensusEPS()).isEqualTo(BigDecimal.valueOf(0.7));
+        assertThat(amcEarning.getEstimatedEPS()).isEqualTo(BigDecimal.valueOf(0.7));
         assertThat(amcEarning.getAnnounceTime()).isEqualTo("AMC");
-        assertThat(amcEarning.getNumberOfEstimates()).isEqualTo(BigDecimal.valueOf(13));
-        assertThat(amcEarning.getEPSSurpriseDollar()).isEqualTo(BigDecimal.valueOf(0.1));
-        assertThat(amcEarning.getEPSReportDate()).isEqualTo(LocalDate.of(2017, 8, 1));
-        assertThat(amcEarning.getFiscalPeriod()).isEqualTo("Q3 2017");
-        assertThat(amcEarning.getFiscalEndDate()).isEqualTo(LocalDate.of(2017, 6, 30));
-        assertThat(amcEarning.getYearAgo()).isEqualByComparingTo(BigDecimal.valueOf(3.36));
-        assertThat(amcEarning.getYearAgoChangePercent()).isEqualByComparingTo(BigDecimal.valueOf(16));
-        assertThat(amcEarning.getEstimatedChangePercent()).isEqualByComparingTo(BigDecimal.valueOf(14));
-        assertThat(amcEarning.getSymbolId()).isEqualByComparingTo(BigDecimal.valueOf(11));
+        assertThat(amcEarning.getNumberOfEstimates()).isEqualTo(BigDecimal.valueOf(5));
+        assertThat(amcEarning.getEPSSurpriseDollar()).isNull();
+        assertThat(amcEarning.getEPSReportDate()).isEqualTo(LocalDate.of(2018, 11, 7));
+        assertThat(amcEarning.getFiscalPeriod()).isEqualTo("Q4 2018");
+        assertThat(amcEarning.getFiscalEndDate()).isEqualTo(LocalDate.of(2018, 9, 30));
+        assertThat(amcEarning.getYearAgo()).isEqualByComparingTo(BigDecimal.valueOf(0.82));
+        assertThat(amcEarning.getYearAgoChangePercent()).isNull();
+        assertThat(amcEarning.getEstimatedChangePercent()).isEqualByComparingTo(BigDecimal.valueOf(-0.14634146341463414));
+        assertThat(amcEarning.getSymbolId()).isEqualByComparingTo(BigDecimal.valueOf(5736));
+        assertThat(amcEarning.getSymbol()).isEqualTo("QCOM");
+        final Quote amcQuote = amcEarning.getQuote();
+        assertThat(amcQuote.getSymbol()).isEqualTo("QCOM");
     }
 
 }

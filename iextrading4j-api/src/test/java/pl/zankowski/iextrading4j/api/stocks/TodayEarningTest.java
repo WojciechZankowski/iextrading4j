@@ -29,12 +29,13 @@ public class TodayEarningTest {
         final BigDecimal yearAgoChangePercent = fixture.create(BigDecimal.class);
         final BigDecimal estimatedChangePercent = fixture.create(BigDecimal.class);
         final BigDecimal symbolId = fixture.create(BigDecimal.class);
+        final String symbol = fixture.create(String.class);
         final Quote quote = fixture.create(Quote.class);
         final String headline = fixture.create(String.class);
 
         final TodayEarning earning = new TodayEarning(actualEPS, consensusEPS, estimatedEPS, announceTime,
                 numberOfEstimates, EPSSurpriseDollar, EPSReportDate, fiscalPeriod, fiscalEndDate,
-                yearAgo, yearAgoChangePercent, estimatedChangePercent, symbolId, quote, headline);
+                yearAgo, yearAgoChangePercent, estimatedChangePercent, symbolId, symbol, quote, headline);
 
         assertThat(earning.getActualEPS()).isEqualTo(actualEPS);
         assertThat(earning.getConsensusEPS()).isEqualTo(consensusEPS);
@@ -49,6 +50,7 @@ public class TodayEarningTest {
         assertThat(earning.getYearAgoChangePercent()).isEqualByComparingTo(yearAgoChangePercent);
         assertThat(earning.getEstimatedChangePercent()).isEqualByComparingTo(estimatedChangePercent);
         assertThat(earning.getSymbolId()).isEqualByComparingTo(symbolId);
+        assertThat(earning.getSymbol()).isEqualTo(symbol);
         assertThat(earning.getQuote()).isEqualTo(quote);
         assertThat(earning.getHeadline()).isEqualTo(headline);
     }
