@@ -50,6 +50,7 @@ public class StocksSample {
         sampleSuite.previousMarketRequestSample();
         sampleSuite.todayIposRequestSample();
         sampleSuite.upcomingIposRequestSample();
+        sampleSuite.sectorPerformanceRequestSample();
     }
 
     private void batchRequestSample() {
@@ -289,6 +290,12 @@ public class StocksSample {
         final Ipos ipos = iexTradingClient.executeRequest(new UpcomingIposRequestBuilder()
                 .build());
         System.out.println(ipos);
+    }
+
+    private void sectorPerformanceRequestSample() {
+        final List<SectorPerformance> sectorPerformances = iexTradingClient.executeRequest(
+                new SectorPerformanceRequestBuilder().build());
+        System.out.println(sectorPerformances);
     }
 
 }
