@@ -472,4 +472,28 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 new SectorPerformanceRequestBuilder().build());
     }
 
+    @Test
+    public void sectorCollectionRequestSample() {
+        final List<Quote> quotes = iexTradingClient.executeRequest(new CollectionRequestBuilder()
+                .withCollectionType(CollectionType.SECTOR)
+                .withCollectionName("Financials")
+                .build());
+    }
+
+    @Test
+    public void listCollectionRequestSample() {
+        final List<Quote> quotes = iexTradingClient.executeRequest(new CollectionRequestBuilder()
+                .withCollectionType(CollectionType.LIST)
+                .withCollectionName("iexvolume")
+                .build());
+    }
+
+    @Test
+    public void tagCollectionRequestSample() {
+        final List<Quote> quotes = iexTradingClient.executeRequest(new CollectionRequestBuilder()
+                .withCollectionType(CollectionType.TAG)
+                .withCollectionName("Technology")
+                .build());
+    }
+
 }

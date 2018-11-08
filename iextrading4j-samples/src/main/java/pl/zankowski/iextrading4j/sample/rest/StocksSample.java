@@ -298,4 +298,28 @@ public class StocksSample {
         System.out.println(sectorPerformances);
     }
 
+    private void sectorCollectionRequestSample() {
+        final List<Quote> quotes = iexTradingClient.executeRequest(new CollectionRequestBuilder()
+                .withCollectionType(CollectionType.SECTOR)
+                .withCollectionName("Financials")
+                .build());
+        System.out.println(quotes);
+    }
+
+    private void listCollectionRequestSample() {
+        final List<Quote> quotes = iexTradingClient.executeRequest(new CollectionRequestBuilder()
+                .withCollectionType(CollectionType.LIST)
+                .withCollectionName("iexvolume")
+                .build());
+        System.out.println(quotes);
+    }
+
+    private void tagCollectionRequestSample() {
+        final List<Quote> quotes = iexTradingClient.executeRequest(new CollectionRequestBuilder()
+                .withCollectionType(CollectionType.TAG)
+                .withCollectionName("Technology")
+                .build());
+        System.out.println(quotes);
+    }
+
 }
