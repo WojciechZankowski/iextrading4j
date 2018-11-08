@@ -1,0 +1,68 @@
+{
+  "rawData": [
+    {
+      "symbol": "ALZH",
+      "companyName": "ALZHEON, INC.",
+      "expectedDate": "2018-11-09",
+      "leadUnderwriters": [
+        "H.C. Wainwright & Co., LLC",
+        "ThinkEquity, a division of Fordham Financial Management, Inc"
+      ],
+      "underwriters": [
+        "The Benchmark Company, LLC"
+      ],
+      "companyCounsel": [
+        "Latham & Watkins LLP"
+      ],
+      "underwriterCounsel": [
+        "Mintz, Levin, Cohn, Ferris, Glovsky and Popeo, P.C."
+      ],
+      "auditor": "American Stock Transfer & Trust Company, LLC",
+      "market": "NASDAQ Capital",
+      "cik": "0001582636",
+      "address": "111 SPEEN STREET",
+      "city": "FRAMINGHAM",
+      "state": "MA",
+      "zip": "01701",
+      "phone": "857-214-7242",
+      "ceo": "Martin Tolar",
+      "employees": 6,
+      "url": "www.alzheon.com",
+      "status": "Filed",
+      "sharesOffered": 6000000,
+      "priceLow": 4,
+      "priceHigh": 6,
+      "offerAmount": null,
+      "totalExpenses": 1500000,
+      "sharesOverAlloted": 900000,
+      "shareholderShares": null,
+      "sharesOutstanding": 16268967,
+      "lockupPeriodExpiration": "",
+      "quietPeriodExpiration": "",
+      "revenue": 0,
+      "netIncome": -5578000,
+      "totalAssets": 3252000,
+      "totalLiabilities": 1782000,
+      "stockholderEquity": 1470000,
+      "companyDescription": "company description",
+      "businessDescription": "business description",
+      "useOfProceeds": "use of proceeds",
+      "competition": "competition",
+      "amount": 30000000,
+      "percentOffered": "36.88"
+    }
+  ],
+  "viewData": [
+    {
+      "Company": "ALZHEON, INC.",
+      "Symbol": "ALZH",
+      "Price": "$4.00 - 6.00",
+      "Shares": "6,000,000",
+      "Amount": "30,000,000",
+      "Float": "16,268,967",
+      "Percent": "36.88%",
+      "Market": "NASDAQ Capital",
+      "Expected": "2018-11-09"
+    }
+  ]
+}
