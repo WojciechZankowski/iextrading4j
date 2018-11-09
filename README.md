@@ -17,7 +17,7 @@
 
 ## Quick Start
 
-Java SE 8 is required to use IEXTrading4j library.
+Java SE 8 is required to use IEXTrading4j library. 
 
 Maven:
 
@@ -25,7 +25,7 @@ Maven:
 <dependency>
 	<groupId>pl.zankowski</groupId>
 	<artifactId>iextrading4j-all</artifactId>
-	<version>2.2.5</version>
+	<version>2.3.0</version>
 </dependency>
 ```
 
@@ -33,11 +33,13 @@ Gradle:
 
 ```
 dependencies {
-	compile 'pl.zankowski:iextrading4j-all:2.2.5'
+	compile 'pl.zankowski:iextrading4j-all:2.3.0'
 }
 ```
 
-Library is up to IEX Trading API version [1.0] - 20.10.2018
+Library is up to IEX Trading API version [1.24] - 09.11.2018
+
+Supported versions: Java SE 8, Java SE 9, Java SE 10, Java SE 11
 
 ## Description
 

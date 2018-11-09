@@ -1,6 +1,16 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.3.0] - 2018-11-09
+
+### Added
+
+- Crypto endpoint support
+- Ipos endpoint support
+- Collection endpoint support
+- Today earnings endpoint support
+- Java SE 10, Java SE 11 support
+
 ## [2.2.5] - 2018-10-20
 
 ### Changed
@@ -172,3 +182,4 @@ All notable changes to this project will be documented in this file.
 [2.2.3]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_2...IT4J_RELEASE_2_2_3
 [2.2.4]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_3...IT4J_RELEASE_2_2_4
 [2.2.5]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_4...IT4J_RELEASE_2_2_5
+[2.3.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_5...IT4J_RELEASE_2_3_0
