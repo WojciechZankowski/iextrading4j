@@ -60,6 +60,8 @@
         <maven.clean.plugin>3.0.0</maven.clean.plugin>
         <maven.surefire.plugin>2.22.1</maven.surefire.plugin>
         <jacoco.maven.plugin>0.8.2</jacoco.maven.plugin>
+
+        <argLine>-Xmx1024m -XX:MaxPermSize=256m ${argLine}</argLine>
     </properties>
 
     <dependencyManagement>
@@ -265,9 +267,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven.surefire.plugin}</version>
-                    <configuration>
-                        <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
-                    </configuration>
                 </plugin>
 
                 <plugin>
@@ -333,6 +332,9 @@
                             <goals>
                                 <goal>prepare-agent</goal>
                             </goals>
+                            <configuration>
+                                <propertyName>surefireArgLine</propertyName>
+                            </configuration>
                         </execution>
                         <execution>
                             <id>report</id>
