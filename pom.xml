@@ -324,9 +324,6 @@
                             <goals>
                                 <goal>prepare-agent</goal>
                             </goals>
-                            <configuration>
-                                <propertyName>surefireArgLine</propertyName>
-                            </configuration>
                         </execution>
                         <execution>
                             <id>report</id>
@@ -336,6 +333,14 @@
                             </goals>
                         </execution>
                     </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <argLine>@{argLine} -Xmx1024m -XX:MaxPermSize=256m</argLine>
+                    </configuration>
                 </plugin>
 
                 <plugin>
