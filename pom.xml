@@ -60,6 +60,8 @@
         <maven.clean.plugin>3.0.0</maven.clean.plugin>
         <maven.surefire.plugin>2.22.1</maven.surefire.plugin>
         <jacoco.maven.plugin>0.8.2</jacoco.maven.plugin>
+
+        <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
     </properties>
 
     <dependencyManagement>
@@ -338,9 +340,6 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <configuration>
-                        <argLine>@{argLine} -Xmx1024m -XX:MaxPermSize=256m</argLine>
-                    </configuration>
                 </plugin>
 
                 <plugin>
