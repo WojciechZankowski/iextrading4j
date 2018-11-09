@@ -61,7 +61,7 @@
         <maven.surefire.plugin>2.22.1</maven.surefire.plugin>
         <jacoco.maven.plugin>0.8.2</jacoco.maven.plugin>
 
-        <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+        <argLine>@{argLine} -Xmx1024m -XX:MaxPermSize=256m</argLine>
     </properties>
 
     <dependencyManagement>
