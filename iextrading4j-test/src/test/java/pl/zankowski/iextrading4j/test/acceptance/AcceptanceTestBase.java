@@ -24,7 +24,7 @@ import static org.powermock.api.mockito.PowerMockito.whenNew;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({IEXTradingClient.class})
-@PowerMockIgnore({"javax.net.ssl.*"})
+@PowerMockIgnore({"javax.*.*", "com.sun.*", "org.xml.*"})
 public abstract class AcceptanceTestBase {
 
     protected IEXTradingClient iexTradingClient;

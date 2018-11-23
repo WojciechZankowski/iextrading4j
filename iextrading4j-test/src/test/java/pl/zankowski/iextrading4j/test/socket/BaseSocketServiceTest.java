@@ -13,7 +13,6 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketWrapper;
-import pl.zankowski.iextrading4j.test.IEXTrading4JPowerMockerRunner;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,9 +26,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.powermock.api.mockito.PowerMockito.whenNew;
 
-@RunWith(IEXTrading4JPowerMockerRunner.class)
+@RunWith(PowerMockRunner.class)
 @PrepareForTest({IEXTradingClient.class})
-@PowerMockIgnore({"javax.net.ssl.*"})
+@PowerMockIgnore({"javax.*.*", "com.sun.*", "org.xml.*"})
 public abstract class BaseSocketServiceTest {
 
     protected Socket socket;
@@ -51,6 +50,7 @@ public abstract class BaseSocketServiceTest {
 
     @After
     public void tearDown() {
+        socket = null;
         iexTradingClient = null;
     }
 
