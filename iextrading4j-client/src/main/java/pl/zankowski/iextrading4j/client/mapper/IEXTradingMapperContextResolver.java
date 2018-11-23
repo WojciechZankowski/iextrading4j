@@ -25,7 +25,6 @@ import pl.zankowski.iextrading4j.api.stocks.ChartRange;
 import pl.zankowski.iextrading4j.api.stocks.DividendQualification;
 import pl.zankowski.iextrading4j.api.stocks.DividendType;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepChannel;
-import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepMessageType;
 
 import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.Provider;

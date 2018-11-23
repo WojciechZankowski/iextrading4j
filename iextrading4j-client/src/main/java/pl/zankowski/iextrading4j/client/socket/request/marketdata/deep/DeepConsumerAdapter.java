@@ -53,30 +53,39 @@ public class DeepConsumerAdapter implements Consumer<DeepAsyncResponse<DeepResul
     }
 
     public void acceptTradingStatus(final DeepAsyncResponse<TradingStatus> tradingStatusResponse) {
+        // empty
     }
 
     public void acceptAuction(final DeepAsyncResponse<Auction> auctionResponse) {
+        // empty
     }
 
     public void acceptOpHaltStatus(final DeepAsyncResponse<OpHaltStatus> opHaltStatusResponse) {
+        // empty
     }
 
     public void acceptSsrStatus(final DeepAsyncResponse<SsrStatus> ssrStatusResponse) {
+        // empty
     }
 
     public void acceptSecurityEvent(final DeepAsyncResponse<SecurityEvent> securityEventResponse) {
+        // empty
     }
 
     public void acceptTradeBreak(final DeepAsyncResponse<Trade> tradeBreakResponse) {
+        // empty
     }
 
     public void acceptTrades(final DeepAsyncResponse<Trade> tradesResponse) {
+        // empty
     }
 
     public void acceptBook(final DeepAsyncResponse<Book> bookResponse) {
+        // empty
     }
 
     public void acceptSystemEvent(final DeepAsyncResponse<SystemEvent> systemEventResponse) {
+        // empty
     }
 
 }

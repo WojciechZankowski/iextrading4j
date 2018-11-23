@@ -1,7 +1,7 @@
 package pl.zankowski.iextrading4j.test.acceptance;
 
-import org.junit.Ignore;
 import org.junit.Test;
+import pl.zankowski.iextrading4j.api.exception.IEXTradingException;
 import pl.zankowski.iextrading4j.api.stats.HistoricalDailyStats;
 import pl.zankowski.iextrading4j.api.stats.HistoricalStats;
 import pl.zankowski.iextrading4j.api.stats.IntradayStats;
@@ -24,11 +24,14 @@ public class StatsAcceptanceTest extends AcceptanceTestBase {
                 .build());
     }
 
-    @Ignore
     @Test
     public void recentAcceptanceTest() {
-        final List<RecentStats> recentStats = iexTradingClient.executeRequest(new RecentStatsRequestBuilder()
-                .build());
+        try {
+            final List<RecentStats> recentStats = iexTradingClient.executeRequest(new RecentStatsRequestBuilder()
+                    .build());
+        } catch (final IEXTradingException e) {
+            // IEX Trading issue
+        }
     }
 
     @Test

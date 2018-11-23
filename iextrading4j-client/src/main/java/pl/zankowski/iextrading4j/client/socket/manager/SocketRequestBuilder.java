@@ -1,9 +1,6 @@
 package pl.zankowski.iextrading4j.client.socket.manager;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.google.common.collect.Lists;
-
-import java.util.List;
 
 public class SocketRequestBuilder<R> implements ISocketParamRequestBuilder<R>, ISocketPathRequestBuilder<R>,
         ISocketResponseTypeRequestBuilder<R> {
