@@ -11,12 +11,13 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.manager.RestClientMetadata;
 import pl.zankowski.iextrading4j.client.rest.manager.RestManager;
+import pl.zankowski.iextrading4j.test.IEXTrading4JPowerMockerRunner;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.powermock.api.mockito.PowerMockito.whenNew;
 
-@RunWith(PowerMockRunner.class)
+@RunWith(IEXTrading4JPowerMockerRunner.class)
 @PrepareForTest({IEXTradingClient.class})
 @PowerMockIgnore({"javax.net.ssl.*"})
 public abstract class BaseRestServiceTest {

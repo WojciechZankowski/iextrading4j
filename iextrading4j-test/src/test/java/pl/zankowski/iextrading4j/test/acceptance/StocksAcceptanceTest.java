@@ -302,7 +302,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
     public void todayEarningsAcceptanceTest() {
         final TodayEarnings todayEarnings = iexTradingClient.executeRequest(new TodayEarningsRequestBuilder()
                 .build());
-        System.out.println(todayEarnings);
     }
 
     @Test
