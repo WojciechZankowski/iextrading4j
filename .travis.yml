@@ -1,10 +1,6 @@
 language: java
 sudo: false
 
-# Undo _JAVA_OPTIONS environment variable
-before_script:
-  - _JAVA_OPTIONS=
-
 addons:
   sonarcloud:
     organization: "wojciechzankowski-github"
