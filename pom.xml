@@ -60,6 +60,8 @@
         <maven.clean.plugin>3.0.0</maven.clean.plugin>
         <maven.surefire.plugin>2.22.1</maven.surefire.plugin>
         <jacoco.maven.plugin>0.8.2</jacoco.maven.plugin>
+
+        <argLine>-Xmx4096m -XX:MaxPermSize=512m</argLine>
     </properties>
 
     <dependencyManagement>
@@ -170,6 +172,13 @@
             </dependency>
 
             <!-- Tests -->
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-nop</artifactId>
+                <version>1.7.25</version>
+                <scope>test</scope>
+            </dependency>
 
             <dependency>
                 <groupId>org.reflections</groupId>
@@ -324,9 +333,6 @@
                             <goals>
                                 <goal>prepare-agent</goal>
                             </goals>
-                            <configuration>
-                                <propertyName>surefireArgLine</propertyName>
-                            </configuration>
                         </execution>
                         <execution>
                             <id>report</id>

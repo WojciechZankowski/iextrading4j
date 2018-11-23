@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.client.socket.manager;
 
 import io.socket.client.IO;
 import io.socket.client.Socket;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +21,7 @@ import static org.powermock.api.mockito.PowerMockito.when;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({SocketWrapper.class, IO.class})
-@PowerMockIgnore({"javax.net.ssl.*"})
+@PowerMockIgnore({"javax.*.*", "com.sun.*", "org.xml.*"})
 public class SocketWrapperTest {
 
     private SocketWrapper socketWrapper;
@@ -31,6 +32,12 @@ public class SocketWrapperTest {
         socketWrapper = new SocketWrapper();
         PowerMockito.mockStatic(IO.class);
         socketMock = mock(Socket.class);
+    }
+
+    @After
+    public void tearDown() {
+        socketMock = null;
+        socketWrapper = null;
     }
 
     @Test

@@ -28,7 +28,7 @@ import static org.powermock.api.mockito.PowerMockito.whenNew;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({IEXTradingClient.class})
-@PowerMockIgnore({"javax.net.ssl.*"})
+@PowerMockIgnore({"com.sun.org.apache.xerces.*", "javax.xml.*", "javax.*.*", "com.sun.*", "org.xml.*"})
 public abstract class BaseSocketServiceTest {
 
     protected Socket socket;
@@ -50,6 +50,7 @@ public abstract class BaseSocketServiceTest {
 
     @After
     public void tearDown() {
+        socket = null;
         iexTradingClient = null;
     }
 
