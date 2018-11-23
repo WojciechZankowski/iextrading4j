@@ -3,7 +3,7 @@ package pl.zankowski.iextrading4j.test.acceptance;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.After;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
@@ -24,13 +24,13 @@ import static org.powermock.api.mockito.PowerMockito.whenNew;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({IEXTradingClient.class})
-@PowerMockIgnore({"javax.*.*", "com.sun.*", "org.xml.*"})
+@PowerMockIgnore({"com.sun.org.apache.xerces.*", "javax.xml.*", "javax.*.*", "com.sun.*", "org.xml.*"})
 public abstract class AcceptanceTestBase {
 
-    protected IEXTradingClient iexTradingClient;
+    protected static IEXTradingClient iexTradingClient;
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeClass
+    public static void setUp() throws Exception {
         final Client client = ClientBuilder.newClient();
         client.register(AcceptanceTestObjectMapperResolver.class);
         final RestClientMetadata restClientMetadata = new RestClientMetadata();

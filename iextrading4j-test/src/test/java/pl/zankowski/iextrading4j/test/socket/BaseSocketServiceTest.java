@@ -28,7 +28,7 @@ import static org.powermock.api.mockito.PowerMockito.whenNew;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({IEXTradingClient.class})
-@PowerMockIgnore({"javax.*.*", "com.sun.*", "org.xml.*"})
+@PowerMockIgnore({"com.sun.org.apache.xerces.*", "javax.xml.*", "javax.*.*", "com.sun.*", "org.xml.*"})
 public abstract class BaseSocketServiceTest {
 
     protected Socket socket;

@@ -6,7 +6,7 @@ before_script:
   - _JAVA_OPTIONS=
 
 addons:
-  sonarqube:
+  sonarcloud:
     organization: "wojciechzankowski-github"
 
 jdk:
