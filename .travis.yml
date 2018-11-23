@@ -3,7 +3,7 @@ sudo: false
 
 # Undo _JAVA_OPTIONS environment variable
 before_script:
-  - _JAVA_OPTIONS=
+  - _JAVA_OPTIONS= -Xmx4096m -Xms1024m
 
 addons:
   sonarqube:
