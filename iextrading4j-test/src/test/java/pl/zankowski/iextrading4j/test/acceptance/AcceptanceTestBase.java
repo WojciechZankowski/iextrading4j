@@ -2,7 +2,7 @@ package pl.zankowski.iextrading4j.test.acceptance;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
@@ -44,8 +44,8 @@ public abstract class AcceptanceTestBase {
         iexTradingClient = IEXTradingClient.create();
     }
 
-    @After
-    public void tearDown() {
+    @AfterClass
+    public static void tearDown() {
         iexTradingClient = null;
     }
 
