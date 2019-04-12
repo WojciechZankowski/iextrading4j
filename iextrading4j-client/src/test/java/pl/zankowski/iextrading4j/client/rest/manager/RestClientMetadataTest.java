@@ -10,9 +10,10 @@ public class RestClientMetadataTest {
 
     @Test
     public void testUrl() {
-        final RestClientMetadata restClientMetadata = new RestClientMetadata();
+        final String url = "https://api.iextrading.com/1.0";
+        final RestClientMetadata restClientMetadata = new RestClientMetadata(url);
 
-        assertThat(restClientMetadata.getUrl()).isEqualTo("https://api.iextrading.com/1.0");
+        assertThat(restClientMetadata.getUrl()).isEqualTo(url);
     }
 
     @Test
@@ -24,7 +25,7 @@ public class RestClientMetadataTest {
 
     @Test
     public void toStringVerification() {
-        ToStringVerifier.forObject(new RestClientMetadata())
+        ToStringVerifier.forObject(new RestClientMetadata("url"))
                 .verify();
     }
 

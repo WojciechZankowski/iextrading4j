@@ -33,7 +33,7 @@ public abstract class AcceptanceTestBase {
     public static void setUp() throws Exception {
         final Client client = ClientBuilder.newClient();
         client.register(AcceptanceTestObjectMapperResolver.class);
-        final RestClientMetadata restClientMetadata = new RestClientMetadata();
+        final RestClientMetadata restClientMetadata = new RestClientMetadata("");
 
         final RestClient restClient = mock(RestClient.class);
         when(restClient.getRestClientMetadata()).thenReturn(restClientMetadata);
