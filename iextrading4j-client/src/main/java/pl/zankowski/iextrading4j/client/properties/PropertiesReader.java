@@ -32,4 +32,8 @@ public class PropertiesReader {
         return properties.getProperty(propertyType.name());
     }
 
+    public Boolean getBoolean(final PropertyType propertyType) {
+        return Boolean.valueOf(getString(propertyType));
+    }
+
 }
