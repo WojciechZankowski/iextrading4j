@@ -62,7 +62,11 @@
       "Float": "16,268,967",
       "Percent": "36.88%",
       "Market": "NASDAQ Capital",
-      "Expected": "2018-11-09"
+      "Expected": "2018-11-09",
+      "quote": {
+        "latestPrice": 25.46,
+        "changePercent": 0.9584615384615385
+      }
     }
   ],
   "lastUpdate": "2018-11-08"

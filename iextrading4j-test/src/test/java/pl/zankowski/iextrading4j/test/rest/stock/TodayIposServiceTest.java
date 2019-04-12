@@ -3,6 +3,7 @@ package pl.zankowski.iextrading4j.test.rest.stock;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.stocks.Ipo;
 import pl.zankowski.iextrading4j.api.stocks.IpoSummary;
+import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.api.stocks.TodayIpos;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayIposRequestBuilder;
 import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;
@@ -85,6 +86,10 @@ public class TodayIposServiceTest extends BaseRestServiceTest {
         assertThat(ipoSummary.getPercent()).isEqualTo("36.88%");
         assertThat(ipoSummary.getMarket()).isEqualTo("NASDAQ Capital");
         assertThat(ipoSummary.getExpected()).isEqualTo("2018-11-09");
+
+        final Quote quote = ipoSummary.getQuote();
+        assertThat(quote.getChangePercent()).isEqualTo(BigDecimal.valueOf(0.9584615384615385));
+        assertThat(quote.getLatestPrice()).isEqualTo(BigDecimal.valueOf(25.46));
 
         assertThat(ipos.getLastUpdate()).isEqualTo(LocalDate.of(2018, 11, 8));
     }
