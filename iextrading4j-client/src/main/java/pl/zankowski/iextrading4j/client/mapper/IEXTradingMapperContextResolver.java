@@ -38,10 +38,8 @@ import java.time.LocalDateTime;
 public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMapper> {
 
     private final ObjectMapper objectMapper;
-    private final PropertiesReader propertiesReader;
 
     public IEXTradingMapperContextResolver() {
-        propertiesReader = new PropertiesReader();
         objectMapper = initializeObjectMapper();
     }
 
@@ -55,7 +53,7 @@ public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMa
 
         customMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         customMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
-                propertiesReader.getBoolean(PropertyType.FAIL_ON_UNKNOWN_PROPERTIES));
+                PropertiesReader.getInstance().getBoolean(PropertyType.FAIL_ON_UNKNOWN_PROPERTIES));
 
         customMapper.registerModule(new JavaTimeModule());
         customMapper.registerModule(iexTradingModule());

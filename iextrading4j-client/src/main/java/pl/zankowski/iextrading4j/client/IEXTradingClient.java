@@ -22,14 +22,13 @@ public class IEXTradingClient {
     private final GenericSocketEndpoint genericSocketEndpoint;
 
     private IEXTradingClient() {
-        final PropertiesReader propertiesReader = new PropertiesReader();
         final RestClient restClient = new RestClient(ClientBuilder.newClient(),
-                new RestClientMetadata(propertiesReader.getString(PropertyType.API_REST_V1)));
+                new RestClientMetadata(PropertiesReader.getInstance().getString(PropertyType.API_REST_V1)));
         restClient.getClient().register(IEXTradingMapperContextResolver.class);
 
         genericRestEndpoint = new GenericRestEndpoint(new RestManager(restClient));
         genericSocketEndpoint = new GenericSocketEndpoint(new SocketManager(new SocketWrapper(),
-                propertiesReader.getString(PropertyType.API_SOCKET_V1)));
+                PropertiesReader.getInstance().getString(PropertyType.API_SOCKET_V1)));
     }
 
     public static IEXTradingClient create() {

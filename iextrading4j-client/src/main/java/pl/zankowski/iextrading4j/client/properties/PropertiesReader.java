@@ -8,6 +8,8 @@ public class PropertiesReader {
 
     private static final String PROPERTIES_NAME = "iextrading.properties";
 
+    private static final PropertiesReader INSTANCE = new PropertiesReader();
+
     private final Properties properties = new Properties();
 
     public PropertiesReader() {
@@ -20,6 +22,10 @@ public class PropertiesReader {
         } catch (IOException e1) {
             // Whatever, we have defaults
         }
+    }
+
+    public static PropertiesReader getInstance() {
+        return INSTANCE;
     }
 
     private void setDefaults() {
