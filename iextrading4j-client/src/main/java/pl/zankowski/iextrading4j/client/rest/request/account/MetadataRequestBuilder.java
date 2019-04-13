@@ -4,12 +4,12 @@ import pl.zankowski.iextrading4j.api.account.Metadata;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.AbstractRequestFilterBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.IEXTradingApiV2RestRequest;
+import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
 import javax.ws.rs.core.GenericType;
 
 public class MetadataRequestBuilder extends AbstractRequestFilterBuilder<Metadata, MetadataRequestBuilder>
-        implements IEXTradingApiV2RestRequest<Metadata> {
+        implements IEXCloudV1RestRequest<Metadata> {
 
     @Override
     public RestRequest<Metadata> build() {

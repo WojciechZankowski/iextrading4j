@@ -1,4 +1,4 @@
-package pl.zankowski.iextrading4j.sample.rest;
+package pl.zankowski.iextrading4j.sample.iexapi.rest;
 
 import pl.zankowski.iextrading4j.api.marketdata.Auction;
 import pl.zankowski.iextrading4j.api.marketdata.Book;

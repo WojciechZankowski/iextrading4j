@@ -4,8 +4,6 @@ import pl.zankowski.iextrading4j.api.market.MarketVolume;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.AbstractRequestFilterBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.IEXTradingApiV1RestRequest;
-import pl.zankowski.iextrading4j.client.rest.request.IEXTradingApiV2RestRequest;
 
 import javax.ws.rs.core.GenericType;
 import java.util.List;

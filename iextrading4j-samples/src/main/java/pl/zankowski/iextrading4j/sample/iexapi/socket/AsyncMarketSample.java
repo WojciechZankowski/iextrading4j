@@ -1,4 +1,4 @@
-package pl.zankowski.iextrading4j.sample.socket;
+package pl.zankowski.iextrading4j.sample.iexapi.socket;
 
 import pl.zankowski.iextrading4j.api.market.MarketVolume;
 import pl.zankowski.iextrading4j.client.IEXApiClient;
