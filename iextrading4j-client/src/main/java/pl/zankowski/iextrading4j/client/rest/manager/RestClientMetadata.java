@@ -7,8 +7,8 @@ public class RestClientMetadata {
 
     private final String url;
 
-    public RestClientMetadata() {
-        this.url = "https://api.iextrading.com/1.0";
+    public RestClientMetadata(final String url) {
+        this.url = url;
     }
 
     public String getUrl() {

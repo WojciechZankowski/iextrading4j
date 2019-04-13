@@ -32,7 +32,7 @@ public class SocketManagerTest {
         this.socketWrapper = mock(SocketWrapper.class);
         when(socketWrapper.socket(any(), eq(true))).thenReturn(socket);
 
-        this.socketManager = new SocketManager(socketWrapper);
+        this.socketManager = new SocketManager(socketWrapper, "https://ws-api.iextrading.com/1.0");
     }
 
     @Test

@@ -16,10 +16,12 @@ public class SocketManager {
     private final Map<SocketRequest, Socket> socketStore = Maps.newHashMap();
 
     private final SocketWrapper socketWrapper;
+    private final String url;
     private final ObjectMapper objectMapper;
 
-    public SocketManager(final SocketWrapper socketWrapper) {
+    public SocketManager(final SocketWrapper socketWrapper, final String url) {
         this.socketWrapper = socketWrapper;
+        this.url = url;
         this.objectMapper = new IEXTradingMapperContextResolver().getContext(SocketManager.class);
     }
 
@@ -79,7 +81,7 @@ public class SocketManager {
     }
 
     private String getServicePath() {
-        return "https://ws-api.iextrading.com/1.0";
+        return url;
     }
 
 }

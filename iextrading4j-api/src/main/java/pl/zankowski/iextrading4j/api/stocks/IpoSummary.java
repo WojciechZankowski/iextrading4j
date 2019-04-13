@@ -4,11 +4,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.Objects;
+import com.sun.org.apache.xpath.internal.operations.Quo;
 
 import java.io.Serializable;
 
 @JsonPropertyOrder({"Company", "Symbol", "Price", "Shares", "Amount", "Float",
-        "Percent", "Market", "Expected"})
+        "Percent", "Market", "Expected", "quote"})
 public class IpoSummary implements Serializable {
 
     private final String company;
@@ -20,6 +21,7 @@ public class IpoSummary implements Serializable {
     private final String percent;
     private final String market;
     private final String expected;
+    private final Quote quote;
 
     @JsonCreator
     public IpoSummary(
@@ -31,7 +33,8 @@ public class IpoSummary implements Serializable {
             @JsonProperty("Float") final String floatValue,
             @JsonProperty("Percent") final String percent,
             @JsonProperty("Market") final String market,
-            @JsonProperty("Expected") final String expected) {
+            @JsonProperty("Expected") final String expected,
+            @JsonProperty("quote") final Quote quote) {
         this.company = company;
         this.symbol = symbol;
         this.price = price;
@@ -41,6 +44,7 @@ public class IpoSummary implements Serializable {
         this.percent = percent;
         this.market = market;
         this.expected = expected;
+        this.quote = quote;
     }
 
     public String getCompany() {
@@ -79,6 +83,10 @@ public class IpoSummary implements Serializable {
         return expected;
     }
 
+    public Quote getQuote() {
+        return quote;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
@@ -92,12 +100,14 @@ public class IpoSummary implements Serializable {
                 Objects.equal(floatValue, that.floatValue) &&
                 Objects.equal(percent, that.percent) &&
                 Objects.equal(market, that.market) &&
-                Objects.equal(expected, that.expected);
+                Objects.equal(expected, that.expected) &&
+                Objects.equal(quote, that.quote);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(company, symbol, price, shares, amount, floatValue, percent, market, expected);
+        return Objects.hashCode(company, symbol, price, shares, amount, floatValue, percent,
+                market, expected, quote);
     }
 
     @Override
@@ -112,6 +122,7 @@ public class IpoSummary implements Serializable {
                 ", percent='" + percent + '\'' +
                 ", market='" + market + '\'' +
                 ", expected='" + expected + '\'' +
+                ", quote='" + quote + '\'' +
                 '}';
     }
 

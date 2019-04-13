@@ -24,6 +24,8 @@ import pl.zankowski.iextrading4j.api.refdata.SymbolType;
 import pl.zankowski.iextrading4j.api.stocks.ChartRange;
 import pl.zankowski.iextrading4j.api.stocks.DividendQualification;
 import pl.zankowski.iextrading4j.api.stocks.DividendType;
+import pl.zankowski.iextrading4j.client.properties.PropertiesReader;
+import pl.zankowski.iextrading4j.client.properties.PropertyType;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepChannel;
 
 import javax.ws.rs.ext.ContextResolver;
@@ -50,7 +52,8 @@ public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMa
         final ObjectMapper customMapper = new ObjectMapper();
 
         customMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-        customMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        customMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
+                PropertiesReader.getInstance().getBoolean(PropertyType.FAIL_ON_UNKNOWN_PROPERTIES));
 
         customMapper.registerModule(new JavaTimeModule());
         customMapper.registerModule(iexTradingModule());

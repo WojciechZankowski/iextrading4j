@@ -22,9 +22,10 @@ public class IpoSummaryTest {
         final String percent = fixture.create(String.class);
         final String market = fixture.create(String.class);
         final String expected = fixture.create(String.class);
+        final Quote quote = fixture.create(Quote.class);
 
         final IpoSummary ipoSummary = new IpoSummary(company, symbol, price, shares, amount, floatValue,
-                percent, market, expected);
+                percent, market, expected, quote);
 
         assertThat(ipoSummary.getCompany()).isEqualTo(company);
         assertThat(ipoSummary.getSymbol()).isEqualTo(symbol);
@@ -35,6 +36,7 @@ public class IpoSummaryTest {
         assertThat(ipoSummary.getPercent()).isEqualTo(percent);
         assertThat(ipoSummary.getMarket()).isEqualTo(market);
         assertThat(ipoSummary.getExpected()).isEqualTo(expected);
+        assertThat(ipoSummary.getQuote()).isEqualTo(quote);
     }
 
     @Test

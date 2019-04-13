@@ -40,6 +40,7 @@
         <module>iextrading4j-samples</module>
         <module>iextrading4j-all</module>
         <module>iextrading4j-test</module>
+        <module>iextrading4j-acceptance</module>
     </modules>
 
     <properties>
