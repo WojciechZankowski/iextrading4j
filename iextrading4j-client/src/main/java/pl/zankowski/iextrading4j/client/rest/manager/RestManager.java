@@ -6,7 +6,6 @@ import pl.zankowski.iextrading4j.api.exception.IEXTradingException;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.HashMap;
 import java.util.Map;
 
 import static java.util.stream.Collectors.joining;
@@ -62,11 +61,13 @@ public class RestManager {
     }
 
     private <R> String createURL(final RestRequest<R> restRequest) {
+        final String token = restRequest.getUseSecretToken()
+                ? restClient.getRestClientMetadata().getToken().getSecretToken()
+                : restClient.getRestClientMetadata().getToken().getPublishableToken();
         return new StringBuilder()
                 .append(getServicePath())
                 .append(createPath(restRequest.getPath(), restRequest.getPathParams()))
-                .append(createQueryParameters(restRequest.getQueryParams(),
-                        restClient.getRestClientMetadata().getPublishableToken()))
+                .append(createQueryParameters(restRequest.getQueryParams(), token))
                 .toString();
     }
 

@@ -21,9 +21,10 @@ public class RestRequestTest {
         final Map<String, String> headerParams = ImmutableMap.of();
         final Map<String, String> queryParams = ImmutableMap.of();
         final Map<String, String> pathParams = ImmutableMap.of();
+        final Boolean useSecretToken = true;
 
         final RestRequest restRequest = new RestRequest<>(responseTypeMock, path, methodType,
-                headerParams, queryParams, pathParams);
+                headerParams, queryParams, pathParams, useSecretToken);
 
         assertThat(restRequest.getResponseType()).isEqualTo(responseTypeMock);
         assertThat(restRequest.getPath()).isEqualTo(path);
@@ -31,6 +32,7 @@ public class RestRequestTest {
         assertThat(restRequest.getHeaderParams()).isEqualTo(headerParams);
         assertThat(restRequest.getQueryParams()).isEqualTo(queryParams);
         assertThat(restRequest.getPathParams()).isEqualTo(pathParams);
+        assertThat(restRequest.getUseSecretToken()).isTrue();
     }
 
     @Test
@@ -43,7 +45,7 @@ public class RestRequestTest {
     @Test
     public void toStringVerification() {
         ToStringVerifier.forObject(new RestRequest<>(null, null, null,
-                null, null, null))
+                null, null, null, null))
                 .verify();
     }
 

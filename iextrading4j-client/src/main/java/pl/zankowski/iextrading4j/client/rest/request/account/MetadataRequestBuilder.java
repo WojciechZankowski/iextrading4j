@@ -17,6 +17,7 @@ public class MetadataRequestBuilder extends AbstractRequestFilterBuilder<Metadat
                 .withPath("/account/metadata").get()
                 .withResponse(new GenericType<Metadata>() {})
                 .addQueryParam(getFilterParams())
+                .withSecretToken()
                 .build();
     }
 

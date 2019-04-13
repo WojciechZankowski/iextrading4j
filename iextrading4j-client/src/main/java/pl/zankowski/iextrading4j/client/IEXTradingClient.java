@@ -34,7 +34,7 @@ public class IEXTradingClient implements IEXApiClient, IEXCloudClient {
         this(IEXTradingApiVersion.IEX_API_V1, null);
     }
 
-    private IEXTradingClient(final IEXTradingApiVersion version, final String publishableToken) {
+    private IEXTradingClient(final IEXTradingApiVersion version, final IEXCloudToken publishableToken) {
         final RestClient restClient = new RestClient(ClientBuilder.newClient(), new RestClientMetadata(
                 PropertiesReader.getInstance().getString(REST_PATHS.get(version)), publishableToken));
         restClient.getClient().register(IEXTradingMapperContextResolver.class);
@@ -48,11 +48,11 @@ public class IEXTradingClient implements IEXApiClient, IEXCloudClient {
         return new IEXTradingClient();
     }
 
-    public static IEXCloudClient create(final String publishableToken) {
+    public static IEXCloudClient create(final IEXCloudToken publishableToken) {
         return new IEXTradingClient(IEXTradingApiVersion.IEX_CLOUD_V1, publishableToken);
     }
 
-    public static IEXCloudClient create(final IEXTradingApiVersion version, final String publishableToken) {
+    public static IEXCloudClient create(final IEXTradingApiVersion version, final IEXCloudToken publishableToken) {
         return new IEXTradingClient(version, publishableToken);
     }
 

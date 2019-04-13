@@ -8,11 +8,11 @@ import com.google.common.base.Objects;
 
 import java.io.Serializable;
 
-@JsonPropertyOrder({"payAsYouGoEnabled", "effectiveDate", "endDateEffective", "subscriptionTermType",
+@JsonPropertyOrder({"overagesEnabled", "effectiveDate", "endDateEffective", "subscriptionTermType",
         "tierName", "messageLimit", "messagesUsed"})
 public class Metadata implements Serializable {
 
-    private final Boolean payAsGoEnabled;
+    private final Boolean overagesEnabled;
     private final Long effectiveDate;
     private final Long endDateEffective;
     private final String subscriptionTermType;
@@ -22,14 +22,14 @@ public class Metadata implements Serializable {
 
     @JsonCreator
     public Metadata(
-            @JsonProperty("payAsGoEnabled") final Boolean payAsGoEnabled,
+            @JsonProperty("overagesEnabled") final Boolean overagesEnabled,
             @JsonProperty("effectiveDate") final Long effectiveDate,
             @JsonProperty("endDateEffective") final Long endDateEffective,
             @JsonProperty("subscriptionTermType") final String subscriptionTermType,
             @JsonProperty("tierName") final String tierName,
             @JsonProperty("messageLimit") final Long messageLimit,
             @JsonProperty("messagesUsed") final Long messagesUsed) {
-        this.payAsGoEnabled = payAsGoEnabled;
+        this.overagesEnabled = overagesEnabled;
         this.effectiveDate = effectiveDate;
         this.endDateEffective = endDateEffective;
         this.subscriptionTermType = subscriptionTermType;
@@ -38,8 +38,8 @@ public class Metadata implements Serializable {
         this.messagesUsed = messagesUsed;
     }
 
-    public Boolean getPayAsGoEnabled() {
-        return payAsGoEnabled;
+    public Boolean getOveragesEnabled() {
+        return overagesEnabled;
     }
 
     public Long getEffectiveDate() {
@@ -71,7 +71,7 @@ public class Metadata implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Metadata metadata = (Metadata) o;
-        return Objects.equal(payAsGoEnabled, metadata.payAsGoEnabled) &&
+        return Objects.equal(overagesEnabled, metadata.overagesEnabled) &&
                 Objects.equal(effectiveDate, metadata.effectiveDate) &&
                 Objects.equal(endDateEffective, metadata.endDateEffective) &&
                 Objects.equal(subscriptionTermType, metadata.subscriptionTermType) &&
@@ -82,14 +82,14 @@ public class Metadata implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(payAsGoEnabled, effectiveDate, endDateEffective, subscriptionTermType,
+        return Objects.hashCode(overagesEnabled, effectiveDate, endDateEffective, subscriptionTermType,
                 tierName, messageLimit, messagesUsed);
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("payAsGoEnabled", payAsGoEnabled)
+                .add("overagesEnabled", overagesEnabled)
                 .add("effectiveDate", effectiveDate)
                 .add("endDateEffective", endDateEffective)
                 .add("subscriptionTermType", subscriptionTermType)

@@ -10,6 +10,8 @@ public interface IRestParamRequestBuilder<R> {
 
     IRestParamRequestBuilder<R> addQueryParam(Map<String, String> queryParams);
 
+    IRestParamRequestBuilder<R> withSecretToken();
+
     RestRequest<R> build();
 
 }

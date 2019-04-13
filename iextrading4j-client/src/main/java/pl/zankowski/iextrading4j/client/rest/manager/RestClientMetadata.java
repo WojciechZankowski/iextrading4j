@@ -2,23 +2,24 @@ package pl.zankowski.iextrading4j.client.rest.manager;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
+import pl.zankowski.iextrading4j.client.IEXCloudToken;
 
 public class RestClientMetadata {
 
     private final String url;
-    private final String publishableToken;
+    private final IEXCloudToken token;
 
-    public RestClientMetadata(final String url, final String publishableToken) {
+    public RestClientMetadata(final String url, final IEXCloudToken token) {
         this.url = url;
-        this.publishableToken = publishableToken;
+        this.token = token;
     }
 
     public String getUrl() {
         return url;
     }
 
-    public String getPublishableToken() {
-        return publishableToken;
+    public IEXCloudToken getToken() {
+        return token;
     }
 
     @Override
@@ -27,19 +28,19 @@ public class RestClientMetadata {
         if (o == null || getClass() != o.getClass()) return false;
         RestClientMetadata that = (RestClientMetadata) o;
         return Objects.equal(url, that.url) &&
-                Objects.equal(publishableToken, that.publishableToken);
+                Objects.equal(token, that.token);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(url, publishableToken);
+        return Objects.hashCode(url, token);
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("url", url)
-                .add("publishableToken", publishableToken)
+                .add("token", token)
                 .toString();
     }
 
