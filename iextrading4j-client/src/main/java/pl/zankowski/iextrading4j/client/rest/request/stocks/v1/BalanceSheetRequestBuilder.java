@@ -20,7 +20,7 @@ public class BalanceSheetRequestBuilder extends AbstractStocksRequestBuilder<Bal
         return this;
     }
 
-    public BalanceSheetRequestBuilder withPeriod(final BalanceSheetPeriod period) {
+    public BalanceSheetRequestBuilder withPeriod(final Period period) {
         this.queryParameters.put("period", period.name().toLowerCase());
         return this;
     }

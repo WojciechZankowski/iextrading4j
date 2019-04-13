@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.sample.iexcloud.rest;
 
+import pl.zankowski.iextrading4j.api.stocks.Book;
 import pl.zankowski.iextrading4j.api.stocks.v1.BalanceSheets;
 import pl.zankowski.iextrading4j.api.stocks.v1.KeyStats;
 import pl.zankowski.iextrading4j.api.stocks.v1.AdvancedStats;
@@ -7,7 +8,8 @@ import pl.zankowski.iextrading4j.client.IEXCloudClient;
 import pl.zankowski.iextrading4j.client.IEXCloudTokenBuilder;
 import pl.zankowski.iextrading4j.client.IEXTradingApiVersion;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.BalanceSheetPeriod;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.BookRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.Period;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.BalanceSheetRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.KeyStatsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.AdvancedStatsRequestBuilder;
@@ -27,6 +29,7 @@ public class StocksSample {
         // stocksSample.advancedStatsRequestSample();
         stocksSample.keyStatsRequestSample();
         stocksSample.balanceSheetRequestSample();
+        stocksSample.bookRequestSample();
     }
 
     private void advancedStatsRequestSample() {
@@ -47,9 +50,16 @@ public class StocksSample {
         final BalanceSheets balanceSheets = cloudClient.executeRequest(new BalanceSheetRequestBuilder()
                 .withSymbol("AAPL")
                 .withLast(2)
-                .withPeriod(BalanceSheetPeriod.ANNUAL)
+                .withPeriod(Period.ANNUAL)
                 .build());
         System.out.println(balanceSheets);
+    }
+
+    private void bookRequestSample() {
+        final Book book = cloudClient.executeRequest(new BookRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(book);
     }
 
 }
