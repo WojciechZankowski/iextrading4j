@@ -1,6 +1,7 @@
 package pl.zankowski.iextrading4j.sample.rest;
 
 import pl.zankowski.iextrading4j.api.market.MarketVolume;
+import pl.zankowski.iextrading4j.client.IEXApiClient;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.market.MarketRequestBuilder;
 
@@ -8,7 +9,7 @@ import java.util.List;
 
 public class MarketSample {
 
-    private final IEXTradingClient iexTradingClient = IEXTradingClient.create();
+    private final IEXApiClient iexTradingClient = IEXTradingClient.create();
 
     public static void main(String[] args) {
         final MarketSample sampleSuite = new MarketSample();

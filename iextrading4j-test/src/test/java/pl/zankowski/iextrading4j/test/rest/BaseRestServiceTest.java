@@ -4,6 +4,7 @@ import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
+import pl.zankowski.iextrading4j.client.IEXApiClient;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 
 public abstract class BaseRestServiceTest {
@@ -11,7 +12,7 @@ public abstract class BaseRestServiceTest {
     @Rule
     public WireMockRule wireMockRule = new WireMockRule(8089);
 
-    protected IEXTradingClient iexTradingClient;
+    protected IEXApiClient iexTradingClient;
 
     @Before
     public void setUp() throws Exception {

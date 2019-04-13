@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.sample.rest;
 
 import pl.zankowski.iextrading4j.api.refdata.ExchangeSymbol;
 import pl.zankowski.iextrading4j.api.stocks.*;
+import pl.zankowski.iextrading4j.client.IEXApiClient;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.SymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.*;
@@ -12,7 +13,7 @@ import java.util.Map;
 
 public class StocksSample {
 
-    private final IEXTradingClient iexTradingClient = IEXTradingClient.create();
+    private final IEXApiClient iexTradingClient = IEXTradingClient.create();
 
     public static void main(String[] args) {
         final StocksSample sampleSuite = new StocksSample();

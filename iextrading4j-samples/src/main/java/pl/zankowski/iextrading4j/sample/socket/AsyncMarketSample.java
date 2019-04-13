@@ -1,6 +1,7 @@
 package pl.zankowski.iextrading4j.sample.socket;
 
 import pl.zankowski.iextrading4j.api.market.MarketVolume;
+import pl.zankowski.iextrading4j.client.IEXApiClient;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.socket.request.market.MarketAsyncRequestBuilder;
 
@@ -10,7 +11,7 @@ import java.util.function.Consumer;
 
 public class AsyncMarketSample {
 
-    private final IEXTradingClient iexTradingClient = IEXTradingClient.create();
+    private final IEXApiClient iexTradingClient = IEXTradingClient.create();
 
     public static void main(String[] args) throws InterruptedException {
         final AsyncMarketSample sampleSuite = new AsyncMarketSample();

@@ -5,6 +5,7 @@ import pl.zankowski.iextrading4j.api.refdata.IEXCorporateActions;
 import pl.zankowski.iextrading4j.api.refdata.IEXDividends;
 import pl.zankowski.iextrading4j.api.refdata.IEXNextDayExDate;
 import pl.zankowski.iextrading4j.api.refdata.IEXSymbolDirectory;
+import pl.zankowski.iextrading4j.client.IEXApiClient;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.IEXCorporateActionsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.IEXDividendsRequestBuilder;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class RefDataSample {
 
-    private final IEXTradingClient iexTradingClient = IEXTradingClient.create();
+    private final IEXApiClient iexTradingClient = IEXTradingClient.create();
 
     public static void main(String[] args) {
         final RefDataSample sampleSuite = new RefDataSample();

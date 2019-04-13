@@ -1,10 +1,12 @@
 package pl.zankowski.iextrading4j.client.rest.manager;
 
+import com.google.common.collect.Maps;
 import pl.zankowski.iextrading4j.api.exception.IEXTradingException;
 
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.HashMap;
 import java.util.Map;
 
 import static java.util.stream.Collectors.joining;
@@ -13,6 +15,7 @@ public class RestManager {
 
     private static final int SUCCESS = 200;
     private static final int WRITE_SUCCESS = 201;
+    private static final String TOKEN_QUERY_PARAM = "token";
 
     private final RestClient restClient;
 
@@ -62,7 +65,8 @@ public class RestManager {
         return new StringBuilder()
                 .append(getServicePath())
                 .append(createPath(restRequest.getPath(), restRequest.getPathParams()))
-                .append(createQueryParameters(restRequest.getQueryParams()))
+                .append(createQueryParameters(restRequest.getQueryParams(),
+                        restClient.getRestClientMetadata().getPublishableToken()))
                 .toString();
     }
 
@@ -75,12 +79,15 @@ public class RestManager {
         return path;
     }
 
-    private String createQueryParameters(final Map<String, String> queryParams) {
-        if (queryParams.isEmpty()) {
+    private String createQueryParameters(final Map<String, String> queryParams, final String publishableToken) {
+        if (queryParams.isEmpty() && publishableToken == null) {
             return "";
         }
 
-        return queryParams.entrySet().stream()
+        final Map<String, String> paramsCopy = Maps.newHashMap(queryParams);
+        paramsCopy.put(TOKEN_QUERY_PARAM, publishableToken);
+
+        return paramsCopy.entrySet().stream()
                 .map(this::createQueryParam)
                 .collect(joining("&", "?", ""));
     }

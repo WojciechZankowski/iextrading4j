@@ -11,6 +11,7 @@ import pl.zankowski.iextrading4j.api.marketdata.SystemEvent;
 import pl.zankowski.iextrading4j.api.marketdata.TOPS;
 import pl.zankowski.iextrading4j.api.marketdata.Trade;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatus;
+import pl.zankowski.iextrading4j.client.IEXApiClient;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketRequest;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.AuctionAsyncRequestBuilder;
@@ -34,7 +35,7 @@ import java.util.function.Consumer;
 
 public class AsyncMarketDataSample {
 
-    private final IEXTradingClient iexTradingClient = IEXTradingClient.create();
+    private final IEXApiClient iexTradingClient = IEXTradingClient.create();
 
     public static void main(String[] args) throws InterruptedException {
         final AsyncMarketDataSample sampleSuite = new AsyncMarketDataSample();

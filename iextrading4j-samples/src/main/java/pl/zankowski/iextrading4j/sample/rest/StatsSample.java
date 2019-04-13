@@ -5,6 +5,7 @@ import pl.zankowski.iextrading4j.api.stats.HistoricalStats;
 import pl.zankowski.iextrading4j.api.stats.IntradayStats;
 import pl.zankowski.iextrading4j.api.stats.RecentStats;
 import pl.zankowski.iextrading4j.api.stats.RecordsStats;
+import pl.zankowski.iextrading4j.client.IEXApiClient;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.stats.HistoricalDailyStatsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stats.HistoricalStatsRequestBuilder;
@@ -17,7 +18,7 @@ import java.util.List;
 
 public class StatsSample {
 
-    private final IEXTradingClient iexTradingClient = IEXTradingClient.create();
+    private final IEXApiClient iexTradingClient = IEXTradingClient.create();
 
     public static void main(String[] args) {
         final StatsSample sampleSuite = new StatsSample();
