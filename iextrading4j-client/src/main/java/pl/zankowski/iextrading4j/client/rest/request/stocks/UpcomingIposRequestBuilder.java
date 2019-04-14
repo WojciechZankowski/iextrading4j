@@ -3,9 +3,11 @@ package pl.zankowski.iextrading4j.client.rest.request.stocks;
 import pl.zankowski.iextrading4j.api.stocks.Ipos;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
+import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.IRestRequestBuilder;
 
-public class UpcomingIposRequestBuilder implements IRestRequestBuilder<Ipos> {
+public class UpcomingIposRequestBuilder implements IEXApiRestRequest<Ipos>, IEXCloudV1RestRequest<Ipos> {
 
     @Override
     public RestRequest<Ipos> build() {

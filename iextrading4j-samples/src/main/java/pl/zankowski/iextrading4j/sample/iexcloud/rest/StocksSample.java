@@ -46,8 +46,13 @@ public class StocksSample {
 //        stocksSample.estimatesRequestSample();
 //        stocksSample.financialsRequestSample();
 //        stocksSample.chartRequestSample();
-        stocksSample.incomeStatementRequestSample();
-        stocksSample.intradayRequestSample();
+//        stocksSample.incomeStatementRequestSample();
+//        stocksSample.intradayRequestSample();
+//        stocksSample.todayIposRequestSample();
+//        stocksSample.upcomingIposRequestSample();
+//        stocksSample.largestTradesRequestSample();
+//        stocksSample.listRequestSample();
+//        stocksSample.logoRequestSample();
 
     }
 
@@ -211,6 +216,37 @@ public class StocksSample {
                 .withSymbol("AAPL")
                 .build());
         System.out.println(intradays);
+    }
+
+    private void todayIposRequestSample() {
+        final TodayIpos todayIpos = cloudClient.executeRequest(new TodayIposRequestBuilder().build());
+        System.out.println(todayIpos);
+    }
+
+    private void upcomingIposRequestSample() {
+        final Ipos ipos = cloudClient.executeRequest(new UpcomingIposRequestBuilder().build());
+        System.out.println(ipos);
+    }
+
+    private void largestTradesRequestSample() {
+        final List<LargestTrade> largestTrades = cloudClient.executeRequest(new LargestTradeRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(largestTrades);
+    }
+
+    private void listRequestSample() {
+        final List<Quote> quoteList = cloudClient.executeRequest(new ListRequestBuilder()
+                .withListType(ListType.IEXVOLUME)
+                .build());
+        System.out.println(quoteList);
+    }
+
+    private void logoRequestSample() {
+        final Logo logo = cloudClient.executeRequest(new LogoRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(logo);
     }
 
 }
