@@ -4,6 +4,7 @@ import pl.zankowski.iextrading4j.api.stocks.*;
 import pl.zankowski.iextrading4j.api.stocks.v1.*;
 import pl.zankowski.iextrading4j.api.stocks.v1.BarData;
 import pl.zankowski.iextrading4j.api.stocks.v1.KeyStats;
+import pl.zankowski.iextrading4j.api.stocks.v1.Split;
 import pl.zankowski.iextrading4j.client.IEXCloudClient;
 import pl.zankowski.iextrading4j.client.IEXCloudTokenBuilder;
 import pl.zankowski.iextrading4j.client.IEXTradingApiVersion;
@@ -13,6 +14,7 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.*;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.KeyStatsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.PreviousMarketRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.PreviousRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.SplitsRequestBuilder;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -37,36 +39,39 @@ public class StocksSample {
         // stocksSample.insiderTransactionRequestSample();
         // stocksSample.institutionalOwnershipRequestSample();
 
-//        stocksSample.keyStatsRequestSample();
-//        stocksSample.balanceSheetRequestSample();
-//        stocksSample.bookRequestSample();
-//        stocksSample.cashFlowRequestSample();
-//        stocksSample.delayedQuoteRequestSample();
-//        stocksSample.companyRequestSample();
-//        stocksSample.collectionRequestSample();
-//        stocksSample.dividendsRequestSample();
-//        stocksSample.earningsRequestSample();
-//        stocksSample.todayEarningsRequestSample();
-//        stocksSample.effectiveSpreadRequestSample();
-//        stocksSample.estimatesRequestSample();
-//        stocksSample.financialsRequestSample();
-//        stocksSample.chartRequestSample();
-//        stocksSample.incomeStatementRequestSample();
-//        stocksSample.intradayRequestSample();
-//        stocksSample.todayIposRequestSample();
-//        stocksSample.upcomingIposRequestSample();
-//        stocksSample.largestTradesRequestSample();
-//        stocksSample.listRequestSample();
-//        stocksSample.logoRequestSample();
-//        stocksSample.newsRequestSample();
-//        stocksSample.ohlcRequestSample();
-//        stocksSample.peersRequestSample();
-//        stocksSample.previousRequestSample();
-//        stocksSample.previousMarketRequestSample();
-//        stocksSample.priceRequestSample();
-//        stocksSample.priceTargetRequestSample();
-//        stocksSample.quoteRequestSample();
+        stocksSample.keyStatsRequestSample();
+        stocksSample.balanceSheetRequestSample();
+        stocksSample.bookRequestSample();
+        stocksSample.cashFlowRequestSample();
+        stocksSample.delayedQuoteRequestSample();
+        stocksSample.companyRequestSample();
+        stocksSample.collectionRequestSample();
+        stocksSample.dividendsRequestSample();
+        stocksSample.earningsRequestSample();
+        stocksSample.todayEarningsRequestSample();
+        stocksSample.effectiveSpreadRequestSample();
+        stocksSample.estimatesRequestSample();
+        stocksSample.financialsRequestSample();
+        stocksSample.chartRequestSample();
+        stocksSample.incomeStatementRequestSample();
+        stocksSample.intradayRequestSample();
+        stocksSample.todayIposRequestSample();
+        stocksSample.upcomingIposRequestSample();
+        stocksSample.largestTradesRequestSample();
+        stocksSample.listRequestSample();
+        stocksSample.logoRequestSample();
+        stocksSample.newsRequestSample();
+        stocksSample.ohlcRequestSample();
+        stocksSample.peersRequestSample();
+        stocksSample.previousRequestSample();
+        stocksSample.previousMarketRequestSample();
+        stocksSample.priceRequestSample();
+        stocksSample.priceTargetRequestSample();
+        stocksSample.quoteRequestSample();
         stocksSample.recommendationTrendsRequestSample();
+        stocksSample.sectorPerformanceRequestSample();
+        stocksSample.splitsRequestSample();
+        stocksSample.venueVolumeRequestSample();
 
     }
 
@@ -324,6 +329,27 @@ public class StocksSample {
                 .withSymbol("AAPL")
                 .build());
         System.out.println(trends);
+    }
+
+    private void sectorPerformanceRequestSample() {
+        final List<SectorPerformance> sectorPerformances = cloudClient.executeRequest(
+                new SectorPerformanceRequestBuilder().build());
+        System.out.println(sectorPerformances);
+    }
+
+    private void splitsRequestSample() {
+        final List<Split> splits = cloudClient.executeRequest(new SplitsRequestBuilder()
+                .withSymbol("AAPL")
+                .withSplitsRange(SplitsRange.FIVE_YEARS)
+                .build());
+        System.out.println(splits);
+    }
+
+    private void venueVolumeRequestSample() {
+        final List<VenueVolume> venueVolumes = cloudClient.executeRequest(new VenueVolumeRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(venueVolumes);
     }
 
 }
