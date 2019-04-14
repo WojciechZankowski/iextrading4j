@@ -28,6 +28,9 @@ public class StocksSample {
         // stocksSample.advancedStatsRequestSample();
         // stocksSample.fundOwnershipRequestSample();
         // stocksSample.insiderRosterRequestSample();
+        // stocksSample.insiderSummaryRequestSample();
+        // stocksSample.insiderTransactionRequestSample();
+        // stocksSample.institutionalOwnershipRequestSample();
 
 //        stocksSample.keyStatsRequestSample();
 //        stocksSample.balanceSheetRequestSample();
@@ -44,7 +47,7 @@ public class StocksSample {
 //        stocksSample.financialsRequestSample();
 //        stocksSample.chartRequestSample();
         stocksSample.incomeStatementRequestSample();
-
+        stocksSample.intradayRequestSample();
 
     }
 
@@ -180,6 +183,34 @@ public class StocksSample {
                 .withSymbol("AAPL")
                 .build());
         System.out.println(insiderRosters);
+    }
+
+    private void insiderSummaryRequestSample() {
+        final List<InsiderSummary> insiderSummaries = cloudClient.executeRequest(new InsiderSummaryRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(insiderSummaries);
+    }
+
+    private void insiderTransactionRequestSample() {
+        final List<InsiderTransaction> transactions = cloudClient.executeRequest(new InsiderTransactionRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(transactions);
+    }
+
+    private void institutionalOwnershipRequestSample() {
+        final List<Ownership> ownerships = cloudClient.executeRequest(new InstitutionalOwnershipRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(ownerships);
+    }
+
+    private void intradayRequestSample() {
+        final List<Intraday> intradays = cloudClient.executeRequest(new IntradayRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(intradays);
     }
 
 }
