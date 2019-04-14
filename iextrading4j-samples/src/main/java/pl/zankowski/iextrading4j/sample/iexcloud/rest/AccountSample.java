@@ -14,8 +14,8 @@ public class AccountSample {
 
     private final IEXCloudClient cloudClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_V1,
             new IEXCloudTokenBuilder()
-                    .withPublishableToken("pk_2951771b78434f6991e68507df11fb79")
-                    .withSecretToken("sk_f8368334f4214796aae2f66b7dbf92ed")
+                    .withPublishableToken("pk_")
+                    .withSecretToken("sk_")
                     .build());
 
     public static void main(String[] args) {
