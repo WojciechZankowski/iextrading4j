@@ -26,6 +26,8 @@ public class StocksSample {
 
         // The requested data is not available to free tier accounts
         // stocksSample.advancedStatsRequestSample();
+        // stocksSample.fundOwnershipRequestSample();
+        // stocksSample.insiderRosterRequestSample();
 
 //        stocksSample.keyStatsRequestSample();
 //        stocksSample.balanceSheetRequestSample();
@@ -34,11 +36,16 @@ public class StocksSample {
 //        stocksSample.delayedQuoteRequestSample();
 //        stocksSample.companyRequestSample();
 //        stocksSample.collectionRequestSample();
-        stocksSample.dividendsRequestSample();
-        stocksSample.earningsRequestSample();
-        stocksSample.todayEarningsRequestSample();
-        stocksSample.effectiveSpreadRequestSample();
-        stocksSample.estimatesRequestSample();
+//        stocksSample.dividendsRequestSample();
+//        stocksSample.earningsRequestSample();
+//        stocksSample.todayEarningsRequestSample();
+//        stocksSample.effectiveSpreadRequestSample();
+//        stocksSample.estimatesRequestSample();
+//        stocksSample.financialsRequestSample();
+//        stocksSample.chartRequestSample();
+        stocksSample.incomeStatementRequestSample();
+
+
     }
 
     private void advancedStatsRequestSample() {
@@ -136,6 +143,43 @@ public class StocksSample {
                 .withLast(2)
                 .build());
         System.out.println(estimates);
+    }
+
+    private void financialsRequestSample() {
+        final Financials financials = cloudClient.executeRequest(new FinancialsRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(financials);
+    }
+
+    private void fundOwnershipRequestSample() {
+        final List<FundOwnership> fundOwnerships = cloudClient.executeRequest(new FundOwnershipRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(fundOwnerships);
+    }
+
+    private void chartRequestSample() {
+        final List<Chart> charts = cloudClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.ONE_MONTH)
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(charts);
+    }
+
+    private void incomeStatementRequestSample() {
+        final IncomeStatements incomeStatements = cloudClient.executeRequest(new IncomeStatementRequestBuilder()
+                .withSymbol("AAPL")
+                .withLast(2)
+                .build());
+        System.out.println(incomeStatements);
+    }
+
+    private void insiderRosterRequestSample() {
+        final List<InsiderRoster> insiderRosters = cloudClient.executeRequest(new InsiderRosterRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(insiderRosters);
     }
 
 }

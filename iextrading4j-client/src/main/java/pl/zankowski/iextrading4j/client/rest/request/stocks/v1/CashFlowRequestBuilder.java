@@ -1,22 +1,12 @@
 package pl.zankowski.iextrading4j.client.rest.request.stocks.v1;
 
-import com.google.common.collect.Maps;
 import pl.zankowski.iextrading4j.api.stocks.v1.CashFlows;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
-import java.util.Map;
-
 public class CashFlowRequestBuilder extends AbstractLastStocksRequestBuilder<CashFlows, CashFlowRequestBuilder>
         implements IEXCloudV1RestRequest<CashFlows> {
-
-    private final Map<String, String> queryParameters = Maps.newHashMap();
-
-    public CashFlowRequestBuilder withPeriod(final Period period) {
-        this.queryParameters.put("period", period.name().toLowerCase());
-        return this;
-    }
 
     public RestRequest<CashFlows> request() {
         return RestRequestBuilder.<CashFlows>builder()

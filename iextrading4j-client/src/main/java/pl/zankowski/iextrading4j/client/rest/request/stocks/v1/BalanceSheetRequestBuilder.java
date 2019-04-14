@@ -11,13 +11,6 @@ import java.util.Map;
 public class BalanceSheetRequestBuilder extends AbstractLastStocksRequestBuilder<BalanceSheets, BalanceSheetRequestBuilder>
         implements IEXCloudV1RestRequest<BalanceSheets> {
 
-    private final Map<String, String> queryParameters = Maps.newHashMap();
-
-    public BalanceSheetRequestBuilder withPeriod(final Period period) {
-        this.queryParameters.put("period", period.name().toLowerCase());
-        return this;
-    }
-
     public RestRequest<BalanceSheets> request() {
         return RestRequestBuilder.<BalanceSheets>builder()
                 .withPath("/stock/{symbol}/balance-sheet")

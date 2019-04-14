@@ -14,6 +14,7 @@ public class EstimatesRequestBuilder extends AbstractLastStocksRequestBuilder<Es
                 .withPath("/stock/{symbol}/estimates")
                 .addPathParam(SYMBOL_PARAM_NAME, getSymbol()).get()
                 .withResponse(Estimates.class)
+                .addQueryParam(queryParameters)
                 .build();
     }
 
@@ -24,6 +25,7 @@ public class EstimatesRequestBuilder extends AbstractLastStocksRequestBuilder<Es
                 .addPathParam("last", String.valueOf(last))
                 .addPathParam(SYMBOL_PARAM_NAME, getSymbol()).get()
                 .withResponse(Estimates.class)
+                .addQueryParam(queryParameters)
                 .build();
     }
 
