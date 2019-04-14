@@ -3,11 +3,14 @@ package pl.zankowski.iextrading4j.client.rest.request.stocks;
 import pl.zankowski.iextrading4j.api.stocks.News;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
+import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
 import javax.ws.rs.core.GenericType;
 import java.util.List;
 
-public class NewsRequestBuilder extends AbstractStocksRequestBuilder<List<News>, NewsRequestBuilder> {
+public class NewsRequestBuilder extends AbstractStocksRequestBuilder<List<News>, NewsRequestBuilder>
+        implements IEXApiRestRequest<List<News>>, IEXCloudV1RestRequest<List<News>> {
 
     private int last = 10;
 

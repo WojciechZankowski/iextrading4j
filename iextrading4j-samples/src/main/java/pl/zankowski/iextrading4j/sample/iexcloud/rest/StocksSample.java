@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.sample.iexcloud.rest;
 
 import pl.zankowski.iextrading4j.api.stocks.*;
 import pl.zankowski.iextrading4j.api.stocks.v1.*;
+import pl.zankowski.iextrading4j.api.stocks.v1.BarData;
 import pl.zankowski.iextrading4j.api.stocks.v1.KeyStats;
 import pl.zankowski.iextrading4j.client.IEXCloudClient;
 import pl.zankowski.iextrading4j.client.IEXCloudTokenBuilder;
@@ -10,8 +11,12 @@ import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.*;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.*;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.KeyStatsRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.PreviousMarketRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.PreviousRequestBuilder;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 public class StocksSample {
 
@@ -53,6 +58,15 @@ public class StocksSample {
 //        stocksSample.largestTradesRequestSample();
 //        stocksSample.listRequestSample();
 //        stocksSample.logoRequestSample();
+//        stocksSample.newsRequestSample();
+//        stocksSample.ohlcRequestSample();
+//        stocksSample.peersRequestSample();
+//        stocksSample.previousRequestSample();
+//        stocksSample.previousMarketRequestSample();
+//        stocksSample.priceRequestSample();
+//        stocksSample.priceTargetRequestSample();
+//        stocksSample.quoteRequestSample();
+        stocksSample.recommendationTrendsRequestSample();
 
     }
 
@@ -247,6 +261,69 @@ public class StocksSample {
                 .withSymbol("AAPL")
                 .build());
         System.out.println(logo);
+    }
+
+    private void newsRequestSample() {
+        final List<News> news = cloudClient.executeRequest(new NewsRequestBuilder()
+                .withSymbol("AAPL")
+                .withLast(2)
+                .build());
+        System.out.println(news);
+    }
+
+    private void ohlcRequestSample() {
+        final Ohlc ohlc = cloudClient.executeRequest(new OhlcRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(ohlc);
+    }
+
+    private void peersRequestSample() {
+        final List<String> peers = cloudClient.executeRequest(new PeersRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(peers);
+    }
+
+    private void previousRequestSample() {
+        final BarData previous = cloudClient.executeRequest(new PreviousRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(previous);
+    }
+
+    private void previousMarketRequestSample() {
+        final Map<String, BarData> previous = cloudClient.executeRequest(new PreviousMarketRequestBuilder()
+                .build());
+        System.out.println(previous);
+    }
+
+    private void priceRequestSample() {
+        final BigDecimal price = cloudClient.executeRequest(new PriceRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(price);
+    }
+
+    private void priceTargetRequestSample() {
+        final PriceTarget priceTarget = cloudClient.executeRequest(new PriceTargetRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(priceTarget);
+    }
+
+    private void quoteRequestSample() {
+        final Quote quote = cloudClient.executeRequest(new QuoteRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(quote);
+    }
+
+    private void recommendationTrendsRequestSample() {
+        final List<RecommendationTrends> trends = cloudClient.executeRequest(new RecommendationTrendsRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(trends);
     }
 
 }

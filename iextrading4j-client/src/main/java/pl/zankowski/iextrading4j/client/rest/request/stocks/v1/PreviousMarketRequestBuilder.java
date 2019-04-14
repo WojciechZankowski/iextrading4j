@@ -1,15 +1,14 @@
-package pl.zankowski.iextrading4j.client.rest.request.stocks;
+package pl.zankowski.iextrading4j.client.rest.request.stocks.v1;
 
-import pl.zankowski.iextrading4j.api.stocks.BarData;
+import pl.zankowski.iextrading4j.api.stocks.v1.BarData;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
-import pl.zankowski.iextrading4j.client.rest.request.IRestRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
 import javax.ws.rs.core.GenericType;
 import java.util.Map;
 
-public class PreviousMarketRequestBuilder implements IEXApiRestRequest<Map<String, BarData>> {
+public class PreviousMarketRequestBuilder implements IEXCloudV1RestRequest<Map<String, BarData>> {
 
     @Override
     public RestRequest<Map<String, BarData>> build() {

@@ -3,12 +3,15 @@ package pl.zankowski.iextrading4j.client.rest.request.stocks;
 import pl.zankowski.iextrading4j.api.stocks.Ohlc;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
+import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.IRestRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
 import java.util.Map;
 
-public class OhlcMarketRequestBuilder implements IRestRequestBuilder<Map<String, Ohlc>> {
+public class OhlcMarketRequestBuilder implements IEXApiRestRequest<Map<String, Ohlc>>,
+        IEXCloudV1RestRequest<Map<String, Ohlc>> {
 
     @Override
     public RestRequest<Map<String, Ohlc>> build() {
