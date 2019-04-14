@@ -7,6 +7,7 @@ import pl.zankowski.iextrading4j.client.rest.request.market.MarketRequestBuilder
 
 import java.util.List;
 
+@Deprecated
 public class MarketSample {
 
     private final IEXApiClient iexTradingClient = IEXTradingClient.create();

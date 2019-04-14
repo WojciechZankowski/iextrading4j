@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
+@Deprecated
 public class StocksSample {
 
     private final IEXApiClient iexTradingClient = IEXTradingClient.create();

@@ -34,6 +34,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
+@Deprecated
 public class MarketDataSample {
 
     private final IEXApiClient iexTradingClient = IEXTradingClient.create();

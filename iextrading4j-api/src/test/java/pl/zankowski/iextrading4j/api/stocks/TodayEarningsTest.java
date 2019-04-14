@@ -18,11 +18,13 @@ public class TodayEarningsTest {
     public void constructor() {
         final List<TodayEarning> bto = Lists.newArrayList(fixture.collections().createCollection(TodayEarning.class));
         final List<TodayEarning> amc = Lists.newArrayList(fixture.collections().createCollection(TodayEarning.class));
+        final List<TodayEarning> other = Lists.newArrayList(fixture.collections().createCollection(TodayEarning.class));
 
-        final TodayEarnings earning = new TodayEarnings(bto, amc);
+        final TodayEarnings earning = new TodayEarnings(bto, amc, other);
 
         assertThat(earning.getBto()).isEqualTo(bto);
         assertThat(earning.getAmc()).isEqualTo(amc);
+        assertThat(earning.getOther()).isEqualTo(other);
     }
 
     @Test

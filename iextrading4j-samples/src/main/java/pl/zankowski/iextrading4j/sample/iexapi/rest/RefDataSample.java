@@ -15,6 +15,7 @@ import pl.zankowski.iextrading4j.client.rest.request.refdata.SymbolsRequestBuild
 
 import java.util.List;
 
+@Deprecated
 public class RefDataSample {
 
     private final IEXApiClient iexTradingClient = IEXTradingClient.create();

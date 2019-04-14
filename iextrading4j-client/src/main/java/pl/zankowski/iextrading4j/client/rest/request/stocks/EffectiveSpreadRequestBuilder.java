@@ -3,11 +3,15 @@ package pl.zankowski.iextrading4j.client.rest.request.stocks;
 import pl.zankowski.iextrading4j.api.stocks.EffectiveSpread;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
+import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
 import javax.ws.rs.core.GenericType;
 import java.util.List;
 
-public class EffectiveSpreadRequestBuilder extends AbstractStocksRequestBuilder<List<EffectiveSpread>, EffectiveSpreadRequestBuilder> {
+public class EffectiveSpreadRequestBuilder extends AbstractStocksRequestBuilder<List<EffectiveSpread>,
+        EffectiveSpreadRequestBuilder> implements IEXApiRestRequest<List<EffectiveSpread>>,
+        IEXCloudV1RestRequest<List<EffectiveSpread>>{
 
     @Override
     public RestRequest<List<EffectiveSpread>> build() {

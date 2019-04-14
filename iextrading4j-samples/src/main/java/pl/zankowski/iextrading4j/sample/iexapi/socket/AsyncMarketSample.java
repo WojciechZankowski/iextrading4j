@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.function.Consumer;
 
+@Deprecated
 public class AsyncMarketSample {
 
     private final IEXApiClient iexTradingClient = IEXTradingClient.create();

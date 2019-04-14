@@ -16,6 +16,7 @@ import pl.zankowski.iextrading4j.client.rest.request.stats.RecordStatsRequestBui
 import java.time.YearMonth;
 import java.util.List;
 
+@Deprecated
 public class StatsSample {
 
     private final IEXApiClient iexTradingClient = IEXTradingClient.create();
