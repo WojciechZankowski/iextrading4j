@@ -61,7 +61,9 @@ public class RestManager {
     }
 
     private <R> String createURL(final RestRequest<R> restRequest) {
-        final String token = restRequest.getUseSecretToken()
+        final String token = restClient.getRestClientMetadata().getToken() == null
+                ? null
+                : restRequest.getUseSecretToken()
                 ? restClient.getRestClientMetadata().getToken().getSecretToken()
                 : restClient.getRestClientMetadata().getToken().getPublishableToken();
         return new StringBuilder()
@@ -86,7 +88,9 @@ public class RestManager {
         }
 
         final Map<String, String> paramsCopy = Maps.newHashMap(queryParams);
-        paramsCopy.put(TOKEN_QUERY_PARAM, publishableToken);
+        if (publishableToken != null) {
+            paramsCopy.put(TOKEN_QUERY_PARAM, publishableToken);
+        }
 
         return paramsCopy.entrySet().stream()
                 .map(this::createQueryParam)

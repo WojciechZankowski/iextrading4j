@@ -80,7 +80,7 @@ Check out their beautiful site: [IEX Trading](https://iextrading.com/)
 
 ### IEX Cloud (iexcloud.io) requests
 
-To build request use classes that extend ``` IEXCloudV1RestRequest ``` interface. Example request:
+To build request use classes that extend ``` IEXCloudV1RestRequest ``` interface. Secret token is required only for Account calls, otherwise you can provide just publishable token. Example request:
 
 ```java
 final IEXCloud iexTradingClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_BETA_SANDBOX,

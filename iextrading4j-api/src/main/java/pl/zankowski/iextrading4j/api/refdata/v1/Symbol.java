@@ -5,9 +5,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Symbol {
+public class Symbol implements Serializable {
 
     private final String symbol;
     private final LocalDate date;
