@@ -4,6 +4,7 @@ import pl.zankowski.iextrading4j.client.socket.manager.SocketRequest;
 
 import java.util.function.Consumer;
 
+@Deprecated
 public interface ISocketEndpoint {
 
     <R> void subscribe(SocketRequest<R> socketRequest, Consumer<R> consumer);

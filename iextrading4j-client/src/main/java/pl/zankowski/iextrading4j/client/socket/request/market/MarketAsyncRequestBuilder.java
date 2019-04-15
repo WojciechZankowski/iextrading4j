@@ -8,6 +8,7 @@ import pl.zankowski.iextrading4j.client.socket.request.IAsyncRequestBuilder;
 
 import java.util.List;
 
+@Deprecated
 public class MarketAsyncRequestBuilder implements IAsyncRequestBuilder<List<MarketVolume>> {
 
     @Override

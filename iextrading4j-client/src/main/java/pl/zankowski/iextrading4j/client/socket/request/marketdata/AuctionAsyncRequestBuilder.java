@@ -7,6 +7,7 @@ import pl.zankowski.iextrading4j.client.socket.manager.SocketRequestBuilder;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepAsyncResponse;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepChannel;
 
+@Deprecated
 public class AuctionAsyncRequestBuilder extends AbstractDeepAsyncRequestBuilder<DeepAsyncResponse<Auction>,
         AuctionAsyncRequestBuilder> {
 

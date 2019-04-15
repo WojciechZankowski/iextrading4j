@@ -12,10 +12,10 @@ import pl.zankowski.iextrading4j.client.rest.request.account.UsageType;
 
 public class AccountSample {
 
-    private final IEXCloudClient cloudClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_V1,
+    private final IEXCloudClient cloudClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_BETA_SANDBOX,
             new IEXCloudTokenBuilder()
-                    .withPublishableToken("pk_")
-                    .withSecretToken("sk_")
+                    .withPublishableToken("Tpk_18dfe6cebb4f41ffb219b9680f9acaf2")
+                    .withSecretToken("Tsk_3eedff6f5c284e1a8b9bc16c54dd1af3")
                     .build());
 
     public static void main(String[] args) {

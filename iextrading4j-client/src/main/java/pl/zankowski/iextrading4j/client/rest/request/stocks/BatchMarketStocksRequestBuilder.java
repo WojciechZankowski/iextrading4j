@@ -3,6 +3,7 @@ package pl.zankowski.iextrading4j.client.rest.request.stocks;
 import pl.zankowski.iextrading4j.api.stocks.BatchStocks;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
 
 import javax.ws.rs.core.GenericType;
 import java.util.HashSet;
@@ -13,7 +14,7 @@ import java.util.Set;
 import static java.util.stream.Collectors.joining;
 
 public class BatchMarketStocksRequestBuilder extends AbstractBatchStocksRequestBuilder<Map<String, BatchStocks>,
-        BatchMarketStocksRequestBuilder> {
+        BatchMarketStocksRequestBuilder> implements IEXApiRestRequest<Map<String, BatchStocks>> {
 
     private Set<String> symbols = new HashSet<>();
 

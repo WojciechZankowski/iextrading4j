@@ -5,6 +5,7 @@ import pl.zankowski.iextrading4j.client.socket.manager.SocketRequest;
 
 import java.util.function.Consumer;
 
+@Deprecated
 public interface IEXApiClient {
 
     <R> R executeRequest(final RestRequest<R> restRequest);

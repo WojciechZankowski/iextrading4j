@@ -22,7 +22,7 @@ import java.util.Map;
 
 public class StocksSample {
 
-    private final IEXCloudClient cloudClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_V1_SANDBOX,
+    private final IEXCloudClient cloudClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_BETA_SANDBOX,
             new IEXCloudTokenBuilder()
                     .withPublishableToken("Tpk_18dfe6cebb4f41ffb219b9680f9acaf2")
                     .withSecretToken("Tsk_3eedff6f5c284e1a8b9bc16c54dd1af3")

@@ -23,6 +23,8 @@ public class IEXTradingClient implements IEXApiClient, IEXCloudClient {
     private static final Map<IEXTradingApiVersion, PropertyType> REST_PATHS =
             ImmutableMap.<IEXTradingApiVersion, PropertyType>builder()
                     .put(IEXTradingApiVersion.IEX_API_V1, PropertyType.API_REST_V1)
+                    .put(IEXTradingApiVersion.IEX_CLOUD_BETA, PropertyType.API_REST_V2_BETA)
+                    .put(IEXTradingApiVersion.IEX_CLOUD_BETA_SANDBOX, PropertyType.API_REST_V2_BETA_SANDBOX)
                     .put(IEXTradingApiVersion.IEX_CLOUD_V1, PropertyType.API_REST_V2)
                     .put(IEXTradingApiVersion.IEX_CLOUD_V1_SANDBOX, PropertyType.API_REST_V2_SANDBOX)
                     .build();
@@ -34,9 +36,9 @@ public class IEXTradingClient implements IEXApiClient, IEXCloudClient {
         this(IEXTradingApiVersion.IEX_API_V1, null);
     }
 
-    private IEXTradingClient(final IEXTradingApiVersion version, final IEXCloudToken publishableToken) {
+    private IEXTradingClient(final IEXTradingApiVersion version, final IEXCloudToken token) {
         final RestClient restClient = new RestClient(ClientBuilder.newClient(), new RestClientMetadata(
-                PropertiesReader.getInstance().getString(REST_PATHS.get(version)), publishableToken));
+                PropertiesReader.getInstance().getString(REST_PATHS.get(version)), token));
         restClient.getClient().register(IEXTradingMapperContextResolver.class);
 
         genericRestEndpoint = new GenericRestEndpoint(new RestManager(restClient));
@@ -48,12 +50,12 @@ public class IEXTradingClient implements IEXApiClient, IEXCloudClient {
         return new IEXTradingClient();
     }
 
-    public static IEXCloudClient create(final IEXCloudToken publishableToken) {
-        return new IEXTradingClient(IEXTradingApiVersion.IEX_CLOUD_V1, publishableToken);
+    public static IEXCloudClient create(final IEXCloudToken token) {
+        return new IEXTradingClient(IEXTradingApiVersion.IEX_CLOUD_BETA, token);
     }
 
-    public static IEXCloudClient create(final IEXTradingApiVersion version, final IEXCloudToken publishableToken) {
-        return new IEXTradingClient(version, publishableToken);
+    public static IEXCloudClient create(final IEXTradingApiVersion version, final IEXCloudToken token) {
+        return new IEXTradingClient(version, token);
     }
 
     public <R> R executeRequest(final RestRequest<R> restRequest) {
