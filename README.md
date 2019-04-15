@@ -5,6 +5,12 @@
 [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=pl.zankowski%3Aiextrading4j&metric=alert_status)](https://sonarcloud.io/dashboard/index/pl.zankowski:iextrading4j)
 [![Maven Central](https://img.shields.io/maven-central/v/pl.zankowski/iextrading4j-all.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22pl.zankowski%22%20AND%20a:%22iextrading4j-all%22)
 
+
+**IEX Cloud (iexcloud.io) support has been added to the library. All stuff related to old IEX Api has been marked as Deprecated. Old IEX Api will be supported until June 1, 2019. Please move to the IEX Cloud API (iexcloud.io).
+
+Not everything from IEX Cloud is supported yet, but it will be covered really soon. If you want to help then pull requests are always welcome.**
+
+
 ## Table of Contents
 
 * [Quick Start](#quick-start)
@@ -25,7 +31,7 @@ Maven:
 <dependency>
 	<groupId>pl.zankowski</groupId>
 	<artifactId>iextrading4j-all</artifactId>
-	<version>2.3.0</version>
+	<version>3.0.0</version>
 </dependency>
 ```
 
@@ -33,11 +39,14 @@ Gradle:
 
 ```
 dependencies {
-	compile 'pl.zankowski:iextrading4j-all:2.3.0'
+	compile 'pl.zankowski:iextrading4j-all:3.0.0'
 }
 ```
 
-Library is up to IEX Trading API version [1.24] - 09.11.2018
+Library is up to:
+
+* IEX Trading API version [1.24] - 09.11.2018
+* IEX Cloud API version [1.0] - 15.04.2019
 
 Supported versions: Java SE 8, Java SE 9, Java SE 10, Java SE 11
 
@@ -45,7 +54,8 @@ Supported versions: Java SE 8, Java SE 9, Java SE 10, Java SE 11
 
 IEXTrading4j library allows to receive all data available in API provided by IEXTrading company. They allow to use their market data completly for free, so go and try it out!
 
-Data & API description: https://iextrading.com/developer
+IEX Cloud Data & API description: https://iexcloud.io
+Old Data & API description: https://iextrading.com/developer
 
 Unofficial library listed on [IEXTrading](https://iextrading.com/developer/docs/#unofficial-libraries-and-integrations)
 
@@ -68,65 +78,38 @@ Check out their beautiful site: [IEX Trading](https://iextrading.com/)
 
 ## How to
 
-### Synchronous requests
+### IEX Cloud (iexcloud.io) requests
 
-To build request use classes that extend ``` IRestRequestBuilder ``` interface. Example request:
+To build request use classes that extend ``` IEXCloudV1RestRequest ``` interface. Example request:
 
 ```java
-final IEXTradingClient iexTradingClient = IEXTradingClient.create();
+final IEXCloud iexTradingClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_BETA_SANDBOX,
+              new IEXCloudTokenBuilder()
+                      .withPublishableToken("Tpk_18dfe6cebb4f41ffb219b9680f9acaf2")
+                      .withSecretToken("Tsk_3eedff6f5c284e1a8b9bc16c54dd1af3")
+                      .build());
 final Quote quote = iexTradingClient.executeRequest(new QuoteRequestBuilder()
         .withSymbol("AAPL")
         .build());
 System.out.println(quote);
 ```
 
-### Batch synchronous request
+Please see samples for more examples.
 
-Instead of creating multiple requests, some data can accessed in single Batch:
+### IEX Api (iextrading.com/developer) requests
+
+**This will be not longer usable after June 1, 2019.**
+
+To build request use classes that extend ``` IEXApiRestRequest ``` interface. Example request:
 
 ```java
-final IEXTradingClient iexTradingClient = IEXTradingClient.create();
-final BatchStocks batchStocks = iexTradingClient.executeRequest(new BatchStocksRequestBuilder()
+final IEXApiClient iexTradingClient = IEXTradingClient.create();
+final Quote quote = iexTradingClient.executeRequest(new QuoteRequestBuilder()
         .withSymbol("AAPL")
-        .addType(BatchStocksType.BOOK)
-        .addType(BatchStocksType.COMPANY)
-        .addType(BatchStocksType.EARNINGS)
         .build());
-System.out.println(batchStocks);
+System.out.println(quote);
 ```
 
-### Asynchronous requests
-
-To build request use classes that extend ``` IAsyncRequestBuilder ``` interface. Example request:
-
-```java
-final IEXTradingClient iexTradingClient = IEXTradingClient.create();
-
-final Consumer<TOPS> TOPS_CONSUMER = System.out::println;
-final SocketRequest<TOPS> request = new TopsAsyncRequestBuilder()
-          .withAllSymbols()
-          .build();
-	  
-iexTradingClient.subscribe(request, TOPS_CONSUMER);
-```
-
-### DEEP asynchronous request
-
-To get multiple data almost in real-time using socket technology you can use DEEP request with multiple channels:  
-
-```java
-final IEXTradingClient iexTradingClient = IEXTradingClient.create();
-
-final Consumer<DeepAsyncResponse<DeepResult>> DEEP_ASYNC_RESPONSE_CONSUMER = System.out::println;
-final SocketRequest<DeepAsyncResponse<DeepResult>> request = new DeepAsyncRequestBuilder()
-        .addChannel(DeepChannel.TRADING_STATUS)
-        .addChannel(DeepChannel.AUCTION)
-        .addChannel(DeepChannel.TRADES)
-        .withSymbol("AAPL")
-        .build();
-
-iexTradingClient.subscribe(request, DEEP_ASYNC_RESPONSE_CONSUMER);
-```
 
 ## Wiki
 
