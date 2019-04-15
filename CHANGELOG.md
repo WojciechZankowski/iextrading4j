@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.0.0] - 2109-04-15
+
+### Added
+
+- Support to IEXCloud.io
+
 ## [2.3.0] - 2018-11-09
 
 ### Added
@@ -183,3 +189,4 @@ All notable changes to this project will be documented in this file.
 [2.2.4]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_3...IT4J_RELEASE_2_2_4
 [2.2.5]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_4...IT4J_RELEASE_2_2_5
 [2.3.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_5...IT4J_RELEASE_2_3_0
+[2.3.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_3_0...IT4J_RELEASE_3_0_0
