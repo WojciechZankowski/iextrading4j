@@ -83,7 +83,7 @@ Check out their beautiful site: [IEX Trading](https://iextrading.com/)
 To build request use classes that extend ``` IEXCloudV1RestRequest ``` interface. Secret token is required only for Account calls, otherwise you can provide just publishable token. Example request:
 
 ```java
-final IEXCloud iexTradingClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_BETA_SANDBOX,
+final IEXCloudClient iexTradingClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_BETA_SANDBOX,
               new IEXCloudTokenBuilder()
                       .withPublishableToken("Tpk_18dfe6cebb4f41ffb219b9680f9acaf2")
                       .withSecretToken("Tsk_3eedff6f5c284e1a8b9bc16c54dd1af3")
