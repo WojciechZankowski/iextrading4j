@@ -5,6 +5,7 @@ import pl.zankowski.iextrading4j.api.marketdata.TOPS;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketRequest;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketRequestBuilder;
 
+@Deprecated
 public class TopsAsyncRequestBuilder extends AbstractSymbolAsyncRequestBuilder<TOPS, TopsAsyncRequestBuilder> {
 
     @Override

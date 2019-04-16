@@ -16,16 +16,18 @@ public class RestRequest<R> {
     private final Map<String, String> headerParams;
     private final Map<String, String> queryParams;
     private final Map<String, String> pathParams;
+    private final Boolean useSecretToken;
 
     public RestRequest(final GenericType<R> responseType, final String path, final MethodType methodType,
                 final Map<String, String> headerParams, final Map<String, String> queryParams,
-                final Map<String, String> pathParams) {
+                final Map<String, String> pathParams, final Boolean useSecretToken) {
         this.responseType = responseType;
         this.path = path;
         this.methodType = methodType;
         this.headerParams = immutableMap(headerParams);
         this.queryParams = immutableMap(queryParams);
         this.pathParams = immutableMap(pathParams);
+        this.useSecretToken = useSecretToken;
     }
 
     public GenericType<R> getResponseType() {
@@ -52,22 +54,27 @@ public class RestRequest<R> {
         return pathParams;
     }
 
+    public Boolean getUseSecretToken() {
+        return useSecretToken;
+    }
+
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        RestRequest<?> that = (RestRequest<?>) o;
+        final RestRequest<?> that = (RestRequest<?>) o;
         return Objects.equal(responseType, that.responseType) &&
                 Objects.equal(path, that.path) &&
                 methodType == that.methodType &&
                 Objects.equal(headerParams, that.headerParams) &&
                 Objects.equal(queryParams, that.queryParams) &&
-                Objects.equal(pathParams, that.pathParams);
+                Objects.equal(pathParams, that.pathParams) &&
+                Objects.equal(useSecretToken, that.useSecretToken);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(responseType, path, methodType, headerParams, queryParams, pathParams);
+        return Objects.hashCode(responseType, path, methodType, headerParams, queryParams, pathParams, useSecretToken);
     }
 
     @Override
@@ -79,6 +86,8 @@ public class RestRequest<R> {
                 .add("headerParams", headerParams)
                 .add("queryParams", queryParams)
                 .add("pathParams", pathParams)
+                .add("useSecretToken", useSecretToken)
                 .toString();
     }
+
 }

@@ -33,6 +33,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
+@Deprecated
 public class MarketDataAcceptanceTest extends AcceptanceTestBase {
 
     @Test

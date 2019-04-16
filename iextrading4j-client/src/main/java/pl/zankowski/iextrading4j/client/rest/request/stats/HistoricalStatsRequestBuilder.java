@@ -5,6 +5,8 @@ import pl.zankowski.iextrading4j.api.stats.HistoricalStats;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.AbstractRequestFilterBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
+import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
 import javax.ws.rs.core.GenericType;
 import java.time.YearMonth;
@@ -13,7 +15,8 @@ import java.util.Map;
 
 import static pl.zankowski.iextrading4j.client.rest.request.util.RequestUtil.IEX_YEAR_MONTH_FORMATTER;
 
-public class HistoricalStatsRequestBuilder extends AbstractRequestFilterBuilder<List<HistoricalStats>, HistoricalStatsRequestBuilder> {
+public class HistoricalStatsRequestBuilder extends AbstractRequestFilterBuilder<List<HistoricalStats>, HistoricalStatsRequestBuilder>
+        implements IEXApiRestRequest<List<HistoricalStats>>, IEXCloudV1RestRequest<List<HistoricalStats>> {
 
     private YearMonth date;
 
@@ -35,7 +38,8 @@ public class HistoricalStatsRequestBuilder extends AbstractRequestFilterBuilder<
     public RestRequest<List<HistoricalStats>> build() {
         return RestRequestBuilder.<List<HistoricalStats>>builder()
                 .withPath("/stats/historical").get()
-                .withResponse(new GenericType<List<HistoricalStats>>() {})
+                .withResponse(new GenericType<List<HistoricalStats>>() {
+                })
                 .addQueryParam(getDateParams())
                 .addQueryParam(getFilterParams())
                 .build();

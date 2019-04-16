@@ -5,6 +5,7 @@ import pl.zankowski.iextrading4j.api.marketdata.LastTrade;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketRequest;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketRequestBuilder;
 
+@Deprecated
 public class LastAsyncRequestBuilder extends AbstractSymbolAsyncRequestBuilder<LastTrade, LastAsyncRequestBuilder> {
 
     @Override

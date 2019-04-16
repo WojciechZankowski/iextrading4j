@@ -9,9 +9,12 @@ public enum SymbolType {
     LIMITED_PARTNERSHIP,
     COMMON_STOCK,
     ETF,
-    PS,
+    PREFERRED_STOCK,
     BO,
     SU,
+    WARRANT,
+    OPEN_ENDED_FUND,
+    CLOSED_ENDED_FUND,
     NOT_AVAILABLE,
     UNKNOWN;
 

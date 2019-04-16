@@ -4,17 +4,7 @@ import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
 import pl.zankowski.iextrading4j.api.refdata.SymbolType;
 
-import static pl.zankowski.iextrading4j.api.refdata.SymbolType.ADR;
-import static pl.zankowski.iextrading4j.api.refdata.SymbolType.BO;
-import static pl.zankowski.iextrading4j.api.refdata.SymbolType.CLOSED_END_FUND;
-import static pl.zankowski.iextrading4j.api.refdata.SymbolType.COMMON_STOCK;
-import static pl.zankowski.iextrading4j.api.refdata.SymbolType.ETF;
-import static pl.zankowski.iextrading4j.api.refdata.SymbolType.LIMITED_PARTNERSHIP;
-import static pl.zankowski.iextrading4j.api.refdata.SymbolType.NOT_AVAILABLE;
-import static pl.zankowski.iextrading4j.api.refdata.SymbolType.PS;
-import static pl.zankowski.iextrading4j.api.refdata.SymbolType.REIT;
-import static pl.zankowski.iextrading4j.api.refdata.SymbolType.SECONDARY_ISSUE;
-import static pl.zankowski.iextrading4j.api.refdata.SymbolType.SU;
+import static pl.zankowski.iextrading4j.api.refdata.SymbolType.*;
 
 class SymbolTypeDeserializer extends AbstractEnumDeserializer<SymbolType> {
 
@@ -26,9 +16,12 @@ class SymbolTypeDeserializer extends AbstractEnumDeserializer<SymbolType> {
             .put("lp", LIMITED_PARTNERSHIP)
             .put("cs", COMMON_STOCK)
             .put("et", ETF)
-            .put("ps", PS)
+            .put("ps", PREFERRED_STOCK)
             .put("bo", BO)
             .put("su", SU)
+            .put("wt", WARRANT)
+            .put("oef", OPEN_ENDED_FUND)
+            .put("cef", CLOSED_ENDED_FUND)
             .put("N/A", NOT_AVAILABLE)
             .build();
 

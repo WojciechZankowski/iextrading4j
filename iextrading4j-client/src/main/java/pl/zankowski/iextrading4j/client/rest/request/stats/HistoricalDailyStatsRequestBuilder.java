@@ -5,6 +5,8 @@ import pl.zankowski.iextrading4j.api.stats.HistoricalDailyStats;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.AbstractRequestFilterBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
+import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
 import javax.ws.rs.core.GenericType;
 import java.time.LocalDate;
@@ -15,7 +17,8 @@ import java.util.Map;
 import static pl.zankowski.iextrading4j.client.rest.request.util.RequestUtil.IEX_DATE_FORMATTER;
 import static pl.zankowski.iextrading4j.client.rest.request.util.RequestUtil.IEX_YEAR_MONTH_FORMATTER;
 
-public class HistoricalDailyStatsRequestBuilder extends AbstractRequestFilterBuilder<List<HistoricalDailyStats>, HistoricalDailyStatsRequestBuilder> {
+public class HistoricalDailyStatsRequestBuilder extends AbstractRequestFilterBuilder<List<HistoricalDailyStats>, HistoricalDailyStatsRequestBuilder>
+        implements IEXApiRestRequest<List<HistoricalDailyStats>>, IEXCloudV1RestRequest<List<HistoricalDailyStats>> {
 
     private Integer last;
     private YearMonth date;
@@ -57,7 +60,8 @@ public class HistoricalDailyStatsRequestBuilder extends AbstractRequestFilterBui
     public RestRequest<List<HistoricalDailyStats>> build() {
         return RestRequestBuilder.<List<HistoricalDailyStats>>builder()
                 .withPath("/stats/historical/daily").get()
-                .withResponse(new GenericType<List<HistoricalDailyStats>>() {})
+                .withResponse(new GenericType<List<HistoricalDailyStats>>() {
+                })
                 .addQueryParam(getDateParams())
                 .addQueryParam(getFilterParams())
                 .build();

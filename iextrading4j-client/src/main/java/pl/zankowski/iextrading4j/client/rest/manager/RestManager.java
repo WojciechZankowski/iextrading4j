@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.client.rest.manager;
 
+import com.google.common.collect.Maps;
 import pl.zankowski.iextrading4j.api.exception.IEXTradingException;
 
 import javax.ws.rs.client.Invocation;
@@ -13,6 +14,7 @@ public class RestManager {
 
     private static final int SUCCESS = 200;
     private static final int WRITE_SUCCESS = 201;
+    private static final String TOKEN_QUERY_PARAM = "token";
 
     private final RestClient restClient;
 
@@ -59,10 +61,15 @@ public class RestManager {
     }
 
     private <R> String createURL(final RestRequest<R> restRequest) {
+        final String token = restClient.getRestClientMetadata().getToken() == null
+                ? null
+                : restRequest.getUseSecretToken()
+                ? restClient.getRestClientMetadata().getToken().getSecretToken()
+                : restClient.getRestClientMetadata().getToken().getPublishableToken();
         return new StringBuilder()
                 .append(getServicePath())
                 .append(createPath(restRequest.getPath(), restRequest.getPathParams()))
-                .append(createQueryParameters(restRequest.getQueryParams()))
+                .append(createQueryParameters(restRequest.getQueryParams(), token))
                 .toString();
     }
 
@@ -75,12 +82,17 @@ public class RestManager {
         return path;
     }
 
-    private String createQueryParameters(final Map<String, String> queryParams) {
-        if (queryParams.isEmpty()) {
+    private String createQueryParameters(final Map<String, String> queryParams, final String publishableToken) {
+        if (queryParams.isEmpty() && publishableToken == null) {
             return "";
         }
 
-        return queryParams.entrySet().stream()
+        final Map<String, String> paramsCopy = Maps.newHashMap(queryParams);
+        if (publishableToken != null) {
+            paramsCopy.put(TOKEN_QUERY_PARAM, publishableToken);
+        }
+
+        return paramsCopy.entrySet().stream()
                 .map(this::createQueryParam)
                 .collect(joining("&", "?", ""));
     }

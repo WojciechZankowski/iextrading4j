@@ -1,4 +1,4 @@
-package pl.zankowski.iextrading4j.sample.rest;
+package pl.zankowski.iextrading4j.sample.iexapi.rest;
 
 import pl.zankowski.iextrading4j.api.marketdata.Auction;
 import pl.zankowski.iextrading4j.api.marketdata.Book;
@@ -13,6 +13,7 @@ import pl.zankowski.iextrading4j.api.marketdata.SystemEvent;
 import pl.zankowski.iextrading4j.api.marketdata.TOPS;
 import pl.zankowski.iextrading4j.api.marketdata.Trade;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatus;
+import pl.zankowski.iextrading4j.client.IEXApiClient;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.AuctionRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.BookRequestBuilder;
@@ -33,9 +34,10 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
+@Deprecated
 public class MarketDataSample {
 
-    private final IEXTradingClient iexTradingClient = IEXTradingClient.create();
+    private final IEXApiClient iexTradingClient = IEXTradingClient.create();
 
     public static void main(String[] args) {
         final MarketDataSample sampleSuite = new MarketDataSample();

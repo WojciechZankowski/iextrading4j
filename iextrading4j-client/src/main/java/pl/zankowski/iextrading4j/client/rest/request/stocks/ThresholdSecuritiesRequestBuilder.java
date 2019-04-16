@@ -3,6 +3,7 @@ package pl.zankowski.iextrading4j.client.rest.request.stocks;
 import pl.zankowski.iextrading4j.api.stocks.ThresholdSecurities;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
 
 import javax.ws.rs.core.GenericType;
 import java.time.LocalDate;
@@ -10,7 +11,8 @@ import java.util.List;
 
 import static pl.zankowski.iextrading4j.client.rest.request.util.RequestUtil.IEX_DATE_FORMATTER;
 
-public class ThresholdSecuritiesRequestBuilder extends AbstractStocksRequestBuilder<List<ThresholdSecurities>, ThresholdSecuritiesRequestBuilder> {
+public class ThresholdSecuritiesRequestBuilder extends AbstractStocksRequestBuilder<List<ThresholdSecurities>, ThresholdSecuritiesRequestBuilder>
+        implements IEXApiRestRequest<List<ThresholdSecurities>> {
 
     private String date;
 
@@ -38,7 +40,8 @@ public class ThresholdSecuritiesRequestBuilder extends AbstractStocksRequestBuil
                 .withPath("/stock/{symbol}/threshold-securities/{date}")
                 .addPathParam("symbol", getSymbol())
                 .addPathParam("date", getDate()).get()
-                .withResponse(new GenericType<List<ThresholdSecurities>>() {})
+                .withResponse(new GenericType<List<ThresholdSecurities>>() {
+                })
                 .build();
     }
 }

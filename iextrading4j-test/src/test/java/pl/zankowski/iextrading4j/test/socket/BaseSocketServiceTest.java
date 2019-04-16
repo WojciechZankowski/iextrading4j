@@ -11,6 +11,7 @@ import org.mockito.stubbing.Answer;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
+import pl.zankowski.iextrading4j.client.IEXApiClient;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketWrapper;
 
@@ -32,7 +33,7 @@ import static org.powermock.api.mockito.PowerMockito.whenNew;
 public abstract class BaseSocketServiceTest {
 
     protected Socket socket;
-    protected IEXTradingClient iexTradingClient;
+    protected IEXApiClient iexTradingClient;
 
     @Before
     public void setUp() throws Exception {

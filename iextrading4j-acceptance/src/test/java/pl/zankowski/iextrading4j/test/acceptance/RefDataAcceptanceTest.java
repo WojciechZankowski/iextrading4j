@@ -14,6 +14,7 @@ import pl.zankowski.iextrading4j.client.rest.request.refdata.SymbolsRequestBuild
 
 import java.util.List;
 
+@Deprecated
 public class RefDataAcceptanceTest extends AcceptanceTestBase {
 
     @Test

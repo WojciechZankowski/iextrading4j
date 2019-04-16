@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.client;
 
+import com.google.common.collect.ImmutableMap;
 import pl.zankowski.iextrading4j.client.mapper.IEXTradingMapperContextResolver;
 import pl.zankowski.iextrading4j.client.properties.PropertiesReader;
 import pl.zankowski.iextrading4j.client.properties.PropertyType;
@@ -14,16 +15,30 @@ import pl.zankowski.iextrading4j.client.socket.manager.SocketRequest;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketWrapper;
 
 import javax.ws.rs.client.ClientBuilder;
+import java.util.Map;
 import java.util.function.Consumer;
 
-public class IEXTradingClient {
+public class IEXTradingClient implements IEXApiClient, IEXCloudClient {
+
+    private static final Map<IEXTradingApiVersion, PropertyType> REST_PATHS =
+            ImmutableMap.<IEXTradingApiVersion, PropertyType>builder()
+                    .put(IEXTradingApiVersion.IEX_API_V1, PropertyType.API_REST_V1)
+                    .put(IEXTradingApiVersion.IEX_CLOUD_BETA, PropertyType.API_REST_V2_BETA)
+                    .put(IEXTradingApiVersion.IEX_CLOUD_BETA_SANDBOX, PropertyType.API_REST_V2_BETA_SANDBOX)
+                    .put(IEXTradingApiVersion.IEX_CLOUD_V1, PropertyType.API_REST_V2)
+                    .put(IEXTradingApiVersion.IEX_CLOUD_V1_SANDBOX, PropertyType.API_REST_V2_SANDBOX)
+                    .build();
 
     private final GenericRestEndpoint genericRestEndpoint;
     private final GenericSocketEndpoint genericSocketEndpoint;
 
     private IEXTradingClient() {
-        final RestClient restClient = new RestClient(ClientBuilder.newClient(),
-                new RestClientMetadata(PropertiesReader.getInstance().getString(PropertyType.API_REST_V1)));
+        this(IEXTradingApiVersion.IEX_API_V1, null);
+    }
+
+    private IEXTradingClient(final IEXTradingApiVersion version, final IEXCloudToken token) {
+        final RestClient restClient = new RestClient(ClientBuilder.newClient(), new RestClientMetadata(
+                PropertiesReader.getInstance().getString(REST_PATHS.get(version)), token));
         restClient.getClient().register(IEXTradingMapperContextResolver.class);
 
         genericRestEndpoint = new GenericRestEndpoint(new RestManager(restClient));
@@ -31,8 +46,16 @@ public class IEXTradingClient {
                 PropertiesReader.getInstance().getString(PropertyType.API_SOCKET_V1)));
     }
 
-    public static IEXTradingClient create() {
+    public static IEXApiClient create() {
         return new IEXTradingClient();
+    }
+
+    public static IEXCloudClient create(final IEXCloudToken token) {
+        return new IEXTradingClient(IEXTradingApiVersion.IEX_CLOUD_BETA, token);
+    }
+
+    public static IEXCloudClient create(final IEXTradingApiVersion version, final IEXCloudToken token) {
+        return new IEXTradingClient(version, token);
     }
 
     public <R> R executeRequest(final RestRequest<R> restRequest) {

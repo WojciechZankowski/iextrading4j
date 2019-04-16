@@ -2,10 +2,13 @@ package pl.zankowski.iextrading4j.client.rest.request.stocks;
 
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
+import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
 import java.math.BigDecimal;
 
-public class PriceRequestBuilder extends AbstractStocksRequestBuilder<BigDecimal, PriceRequestBuilder> {
+public class PriceRequestBuilder extends AbstractStocksRequestBuilder<BigDecimal, PriceRequestBuilder>
+        implements IEXApiRestRequest<BigDecimal>, IEXCloudV1RestRequest<BigDecimal> {
 
     @Override
     public RestRequest<BigDecimal> build() {

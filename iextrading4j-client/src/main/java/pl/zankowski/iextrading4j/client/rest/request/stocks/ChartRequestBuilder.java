@@ -4,6 +4,8 @@ import pl.zankowski.iextrading4j.api.stocks.Chart;
 import pl.zankowski.iextrading4j.api.stocks.ChartRange;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
+import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
 import javax.ws.rs.core.GenericType;
 import java.time.LocalDate;
@@ -11,7 +13,8 @@ import java.util.List;
 
 import static pl.zankowski.iextrading4j.client.rest.request.util.RequestUtil.IEX_DATE_FORMATTER;
 
-public class ChartRequestBuilder extends AbstractChartRequestBuilder<List<Chart>, ChartRequestBuilder> {
+public class ChartRequestBuilder extends AbstractChartRequestBuilder<List<Chart>, ChartRequestBuilder>
+        implements IEXApiRestRequest<List<Chart>>, IEXCloudV1RestRequest<List<Chart>> {
 
     private LocalDate date;
     private ChartRange chartRange;
@@ -49,7 +52,8 @@ public class ChartRequestBuilder extends AbstractChartRequestBuilder<List<Chart>
         return RestRequestBuilder.<List<Chart>>builder()
                 .withPath("/stock/{symbol}/chart")
                 .addPathParam(SYMBOL_PARAM_NAME, getSymbol()).get()
-                .withResponse(new GenericType<List<Chart>>() {})
+                .withResponse(new GenericType<List<Chart>>() {
+                })
                 .addQueryParam(getQueryParameters())
                 .build();
     }
@@ -59,7 +63,8 @@ public class ChartRequestBuilder extends AbstractChartRequestBuilder<List<Chart>
                 .withPath("/stock/{symbol}/chart/{range}")
                 .addPathParam(SYMBOL_PARAM_NAME, getSymbol())
                 .addPathParam("range", getChartRange().getCode()).get()
-                .withResponse(new GenericType<List<Chart>>() {})
+                .withResponse(new GenericType<List<Chart>>() {
+                })
                 .addQueryParam(getQueryParameters())
                 .build();
     }
@@ -69,7 +74,8 @@ public class ChartRequestBuilder extends AbstractChartRequestBuilder<List<Chart>
                 .withPath("/stock/{symbol}/chart/date/{date}")
                 .addPathParam(SYMBOL_PARAM_NAME, getSymbol())
                 .addPathParam("date", IEX_DATE_FORMATTER.format(date)).get()
-                .withResponse(new GenericType<List<Chart>>() {})
+                .withResponse(new GenericType<List<Chart>>() {
+                })
                 .addQueryParam(getQueryParameters())
                 .build();
     }
