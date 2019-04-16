@@ -6,9 +6,9 @@
 [![Maven Central](https://img.shields.io/maven-central/v/pl.zankowski/iextrading4j-all.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22pl.zankowski%22%20AND%20a:%22iextrading4j-all%22)
 
 
-**IEX Cloud (iexcloud.io) support has been added to the library. All stuff related to old IEX Api has been marked as Deprecated. Old IEX Api will be supported until June 1, 2019. Please move to the IEX Cloud API (iexcloud.io).
+**IEX Cloud (iexcloud.io) support has been added to the library. All stuff related to old IEX Api has been marked as Deprecated. Old IEX Api will be supported until June 1, 2019. Please move to the IEX Cloud API (iexcloud.io).**
 
-Not everything from IEX Cloud is supported yet, but it will be covered really soon. If you want to help then pull requests are always welcome.**
+**Not everything from IEX Cloud is supported yet, but it will be covered really soon. If you want to help then pull requests are always welcome.**
 
 
 ## Table of Contents
@@ -55,6 +55,7 @@ Supported versions: Java SE 8, Java SE 9, Java SE 10, Java SE 11
 IEXTrading4j library allows to receive all data available in API provided by IEXTrading company. They allow to use their market data completly for free, so go and try it out!
 
 IEX Cloud Data & API description: https://iexcloud.io
+
 Old Data & API description: https://iextrading.com/developer
 
 Unofficial library listed on [IEXTrading](https://iextrading.com/developer/docs/#unofficial-libraries-and-integrations)
