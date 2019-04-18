@@ -21,10 +21,11 @@ public class DelayedQuoteTest {
         final BigDecimal low = fixture.create(BigDecimal.class);
         final BigDecimal delayedSize = fixture.create(BigDecimal.class);
         final Long delayedPriceTime = fixture.create(Long.class);
+        final BigDecimal totalVolume = fixture.create(BigDecimal.class);
         final Long processedTime = fixture.create(Long.class);
 
         final DelayedQuote delayedQuote = new DelayedQuote(symbol, delayedPrice,
-                high, low, delayedSize, delayedPriceTime, processedTime);
+                high, low, delayedSize, delayedPriceTime, totalVolume, processedTime);
 
         assertThat(delayedQuote.getSymbol()).isEqualTo(symbol);
         assertThat(delayedQuote.getDelayedPrice()).isEqualTo(delayedPrice);
@@ -32,6 +33,7 @@ public class DelayedQuoteTest {
         assertThat(delayedQuote.getLow()).isEqualTo(low);
         assertThat(delayedQuote.getDelayedSize()).isEqualTo(delayedSize);
         assertThat(delayedQuote.getDelayedPriceTime()).isEqualTo(delayedPriceTime);
+        assertThat(delayedQuote.getTotalVolume()).isEqualTo(totalVolume);
         assertThat(delayedQuote.getProcessedTime()).isEqualTo(processedTime);
     }
 
