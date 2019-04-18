@@ -9,7 +9,6 @@ jdk:
 - oraclejdk8
 - openjdk9
 - openjdk10
-- openjdk11
 
 script:
 - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
