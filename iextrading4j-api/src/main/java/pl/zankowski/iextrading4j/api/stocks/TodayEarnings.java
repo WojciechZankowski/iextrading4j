@@ -43,7 +43,7 @@ public class TodayEarnings implements Serializable {
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
-        if (!(o instanceof TodayEarnings)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         final TodayEarnings that = (TodayEarnings) o;
         return Objects.equal(bto, that.bto) &&
                 Objects.equal(amc, that.amc) &&

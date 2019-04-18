@@ -108,7 +108,7 @@ public class Company implements Serializable {
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
-        if (!(o instanceof Company)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         final Company company = (Company) o;
         return Objects.equal(symbol, company.symbol) &&
                 Objects.equal(companyName, company.companyName) &&
@@ -126,8 +126,8 @@ public class Company implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(symbol, companyName, exchange, industry, website,
-                description, CEO, securityName, issueType, sector, employees, tags);
+        return Objects.hashCode(symbol, companyName, exchange, industry, website, description,
+                CEO, securityName, issueType, sector, employees, tags);
     }
 
     @Override
@@ -147,5 +147,4 @@ public class Company implements Serializable {
                 .add("tags", tags)
                 .toString();
     }
-
 }

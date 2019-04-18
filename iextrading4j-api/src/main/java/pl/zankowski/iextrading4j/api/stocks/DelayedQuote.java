@@ -77,7 +77,7 @@ public class DelayedQuote implements Serializable {
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
-        if (!(o instanceof DelayedQuote)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         final DelayedQuote that = (DelayedQuote) o;
         return Objects.equal(symbol, that.symbol) &&
                 Objects.equal(delayedPrice, that.delayedPrice) &&
@@ -91,8 +91,7 @@ public class DelayedQuote implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(symbol, delayedPrice, delayedSize, delayedPriceTime,
-                high, low, totalVolume, processedTime);
+        return Objects.hashCode(symbol, delayedPrice, delayedSize, delayedPriceTime, high, low, totalVolume, processedTime);
     }
 
     @Override
