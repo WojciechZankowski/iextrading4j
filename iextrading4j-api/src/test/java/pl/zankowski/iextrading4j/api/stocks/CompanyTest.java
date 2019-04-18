@@ -6,6 +6,7 @@ import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -23,12 +24,14 @@ public class CompanyTest {
         final String website = fixture.create(String.class);
         final String description = fixture.create(String.class);
         final String ceo = fixture.create(String.class);
+        final String securityName = fixture.create(String.class);
         final String issueType = fixture.create(String.class);
         final String sector = fixture.create(String.class);
+        final BigDecimal employees = fixture.create(BigDecimal.class);
         final List<String> tags = Lists.newArrayList(fixture.collections().createCollection(String.class));
 
         final Company company = new Company(symbol, companyName, exchange,
-                industry, website, description, ceo, issueType, sector, tags);
+                industry, website, description, ceo, securityName, issueType, sector, employees, tags);
 
         assertThat(company.getSymbol()).isEqualTo(symbol);
         assertThat(company.getCompanyName()).isEqualTo(companyName);
