@@ -23,9 +23,9 @@ public abstract class AbstractLastStocksRequestBuilder<R, B extends IRestRequest
         return (B) this;
     }
 
-    protected abstract RestRequest<R> request();
+    abstract RestRequest<R> request();
 
-    protected abstract RestRequest<R> requestWithLast();
+    abstract RestRequest<R> requestWithLast();
 
     @Override
     public RestRequest<R> build() {

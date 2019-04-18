@@ -11,7 +11,8 @@ import java.util.Map;
 public class BalanceSheetRequestBuilder extends AbstractLastStocksRequestBuilder<BalanceSheets, BalanceSheetRequestBuilder>
         implements IEXCloudV1RestRequest<BalanceSheets> {
 
-    public RestRequest<BalanceSheets> request() {
+    @Override
+    RestRequest<BalanceSheets> request() {
         return RestRequestBuilder.<BalanceSheets>builder()
                 .withPath("/stock/{symbol}/balance-sheet")
                 .addPathParam(SYMBOL_PARAM_NAME, getSymbol()).get()
@@ -20,7 +21,8 @@ public class BalanceSheetRequestBuilder extends AbstractLastStocksRequestBuilder
                 .build();
     }
 
-    public RestRequest<BalanceSheets> requestWithLast() {
+    @Override
+    RestRequest<BalanceSheets> requestWithLast() {
         return RestRequestBuilder.<BalanceSheets>builder()
                 .withPath("/stock/{symbol}/balance-sheet/{last}")
                 .addPathParam("last", String.valueOf(last))

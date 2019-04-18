@@ -8,7 +8,8 @@ import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 public class CashFlowRequestBuilder extends AbstractLastStocksRequestBuilder<CashFlows, CashFlowRequestBuilder>
         implements IEXCloudV1RestRequest<CashFlows> {
 
-    public RestRequest<CashFlows> request() {
+    @Override
+    RestRequest<CashFlows> request() {
         return RestRequestBuilder.<CashFlows>builder()
                 .withPath("/stock/{symbol}/cash-flow")
                 .addPathParam(SYMBOL_PARAM_NAME, getSymbol()).get()
@@ -17,7 +18,8 @@ public class CashFlowRequestBuilder extends AbstractLastStocksRequestBuilder<Cas
                 .build();
     }
 
-    public RestRequest<CashFlows> requestWithLast() {
+    @Override
+    RestRequest<CashFlows> requestWithLast() {
         return RestRequestBuilder.<CashFlows>builder()
                 .withPath("/stock/{symbol}/cash-flow/{last}")
                 .addPathParam("last", String.valueOf(last))

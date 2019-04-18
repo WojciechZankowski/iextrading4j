@@ -9,7 +9,7 @@ public class EstimatesRequestBuilder extends AbstractLastStocksRequestBuilder<Es
         implements IEXCloudV1RestRequest<Estimates> {
 
     @Override
-    public RestRequest<Estimates> request() {
+    RestRequest<Estimates> request() {
         return RestRequestBuilder.<Estimates>builder()
                 .withPath("/stock/{symbol}/estimates")
                 .addPathParam(SYMBOL_PARAM_NAME, getSymbol()).get()
@@ -19,7 +19,7 @@ public class EstimatesRequestBuilder extends AbstractLastStocksRequestBuilder<Es
     }
 
     @Override
-    public RestRequest<Estimates> requestWithLast() {
+    RestRequest<Estimates> requestWithLast() {
         return RestRequestBuilder.<Estimates>builder()
                 .withPath("/stock/{symbol}/estimates/{last}")
                 .addPathParam("last", String.valueOf(last))
