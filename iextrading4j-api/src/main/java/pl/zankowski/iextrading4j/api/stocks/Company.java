@@ -3,6 +3,7 @@ package pl.zankowski.iextrading4j.api.stocks;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
@@ -131,20 +132,20 @@ public class Company implements Serializable {
 
     @Override
     public String toString() {
-        return "Company{" +
-                "symbol='" + symbol + '\'' +
-                ", companyName='" + companyName + '\'' +
-                ", exchange='" + exchange + '\'' +
-                ", industry='" + industry + '\'' +
-                ", website='" + website + '\'' +
-                ", description='" + description + '\'' +
-                ", CEO='" + CEO + '\'' +
-                ", securityName='" + securityName + '\'' +
-                ", issueType='" + issueType + '\'' +
-                ", sector='" + sector + '\'' +
-                ", employees=" + employees +
-                ", tags=" + tags +
-                '}';
+        return MoreObjects.toStringHelper(this)
+                .add("symbol", symbol)
+                .add("companyName", companyName)
+                .add("exchange", exchange)
+                .add("industry", industry)
+                .add("website", website)
+                .add("description", description)
+                .add("CEO", CEO)
+                .add("securityName", securityName)
+                .add("issueType", issueType)
+                .add("sector", sector)
+                .add("employees", employees)
+                .add("tags", tags)
+                .toString();
     }
 
 }
