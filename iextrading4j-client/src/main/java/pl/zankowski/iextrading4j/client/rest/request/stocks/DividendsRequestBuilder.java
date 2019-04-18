@@ -14,7 +14,7 @@ public class DividendsRequestBuilder extends AbstractStocksRequestBuilder<List<D
 
     private DividendRange dividendRange = DividendRange.ONE_MONTH;
 
-    public DividendRange getDividendRange() {
+    DividendRange getDividendRange() {
         return dividendRange;
     }
 
