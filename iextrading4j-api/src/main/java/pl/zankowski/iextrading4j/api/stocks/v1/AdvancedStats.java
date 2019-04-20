@@ -26,7 +26,6 @@ public class AdvancedStats extends KeyStats {
     private final BigDecimal priceToBook;
     private final BigDecimal forwardPERatio;
     private final BigDecimal pegRatio;
-    private final BigDecimal beta;
 
     @JsonCreator
     public AdvancedStats(
@@ -60,6 +59,7 @@ public class AdvancedStats extends KeyStats {
             @JsonProperty("month1ChangePercent") final BigDecimal month1ChangePercent,
             @JsonProperty("day5ChangePercent") final BigDecimal day5ChangePercent,
             @JsonProperty("day30ChangePercent") final BigDecimal day30ChangePercent,
+            @JsonProperty("nextDividendRate") final BigDecimal nextDividendRate,
             @JsonProperty("totalCash") final BigDecimal totalCash,
             @JsonProperty("currentDebt") final BigDecimal currentDebt,
             @JsonProperty("revenue") final BigDecimal revenue,
@@ -77,7 +77,12 @@ public class AdvancedStats extends KeyStats {
             @JsonProperty("forwardPERatio") final BigDecimal forwardPERatio,
             @JsonProperty("pegRatio") final BigDecimal pegRatio,
             @JsonProperty("beta") final BigDecimal beta) {
-        super(companyName, marketcap, week52high, week52low, week52change, sharesOutstanding, aFloat, symbol, avg10Volume, avg30Volume, day200MovingAvg, day50MovingAvg, employees, ttmEPS, ttmDividendRate, dividendYield, nextDividendDate, exDividendDate, nextEarningsDate, peRatio, maxChangePercent, year5ChangePercent, year2ChangePercent, year1ChangePercent, ytdChangePercent, month6ChangePercent, month3ChangePercent, month1ChangePercent, day5ChangePercent, day30ChangePercent);
+        super(companyName, marketcap, week52high, week52low, week52change, sharesOutstanding, aFloat, symbol,
+                avg10Volume, avg30Volume, day200MovingAvg, day50MovingAvg, employees, ttmEPS, ttmDividendRate,
+                dividendYield, nextDividendDate, exDividendDate, nextEarningsDate, peRatio, maxChangePercent,
+                year5ChangePercent, year2ChangePercent, year1ChangePercent, ytdChangePercent, month6ChangePercent,
+                month3ChangePercent, month1ChangePercent, day5ChangePercent, day30ChangePercent, nextDividendRate,
+                beta);
         this.totalCash = totalCash;
         this.currentDebt = currentDebt;
         this.revenue = revenue;
@@ -94,7 +99,6 @@ public class AdvancedStats extends KeyStats {
         this.priceToBook = priceToBook;
         this.forwardPERatio = forwardPERatio;
         this.pegRatio = pegRatio;
-        this.beta = beta;
     }
 
     public BigDecimal getTotalCash() {
@@ -161,10 +165,6 @@ public class AdvancedStats extends KeyStats {
         return pegRatio;
     }
 
-    public BigDecimal getBeta() {
-        return beta;
-    }
-
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
@@ -186,8 +186,7 @@ public class AdvancedStats extends KeyStats {
                 Objects.equal(priceToSales, that.priceToSales) &&
                 Objects.equal(priceToBook, that.priceToBook) &&
                 Objects.equal(forwardPERatio, that.forwardPERatio) &&
-                Objects.equal(pegRatio, that.pegRatio) &&
-                Objects.equal(beta, that.beta);
+                Objects.equal(pegRatio, that.pegRatio);
     }
 
     @Override
@@ -195,7 +194,7 @@ public class AdvancedStats extends KeyStats {
         return Objects.hashCode(super.hashCode(), totalCash, currentDebt, revenue, grossProfit,
                 totalRevenue, ebitda, revenuePerShare, revenuePerEmployee, debtToEquity,
                 profitMargin, enterpriseValue, enterpriseValueToRevenue, priceToSales,
-                priceToBook, forwardPERatio, pegRatio, beta);
+                priceToBook, forwardPERatio, pegRatio);
     }
 
     @Override
@@ -217,7 +216,6 @@ public class AdvancedStats extends KeyStats {
                 .add("priceToBook", priceToBook)
                 .add("forwardPERatio", forwardPERatio)
                 .add("pegRatio", pegRatio)
-                .add("beta", beta)
                 .toString();
     }
 

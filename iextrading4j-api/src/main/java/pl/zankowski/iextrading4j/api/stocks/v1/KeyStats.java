@@ -41,6 +41,8 @@ public class KeyStats implements Serializable {
     private final BigDecimal month1ChangePercent;
     private final BigDecimal day5ChangePercent;
     private final BigDecimal day30ChangePercent;
+    private final BigDecimal nextDividendRate;
+    private final BigDecimal beta;
 
     @JsonCreator
     public KeyStats(
@@ -73,7 +75,9 @@ public class KeyStats implements Serializable {
             @JsonProperty("month3ChangePercent") final BigDecimal month3ChangePercent,
             @JsonProperty("month1ChangePercent") final BigDecimal month1ChangePercent,
             @JsonProperty("day5ChangePercent") final BigDecimal day5ChangePercent,
-            @JsonProperty("day30ChangePercent") final BigDecimal day30ChangePercent) {
+            @JsonProperty("day30ChangePercent") final BigDecimal day30ChangePercent,
+            @JsonProperty("nextDividendRate") final BigDecimal nextDividendRate,
+            @JsonProperty("beta") final BigDecimal beta) {
         this.companyName = companyName;
         this.marketcap = marketcap;
         this.week52high = week52high;
@@ -104,6 +108,8 @@ public class KeyStats implements Serializable {
         this.month1ChangePercent = month1ChangePercent;
         this.day5ChangePercent = day5ChangePercent;
         this.day30ChangePercent = day30ChangePercent;
+        this.nextDividendRate = nextDividendRate;
+        this.beta = beta;
     }
 
     public String getCompanyName() {
@@ -226,6 +232,14 @@ public class KeyStats implements Serializable {
         return day30ChangePercent;
     }
 
+    public BigDecimal getNextDividendRate() {
+        return nextDividendRate;
+    }
+
+    public BigDecimal getBeta() {
+        return beta;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
@@ -260,17 +274,21 @@ public class KeyStats implements Serializable {
                 Objects.equal(month3ChangePercent, keyStats.month3ChangePercent) &&
                 Objects.equal(month1ChangePercent, keyStats.month1ChangePercent) &&
                 Objects.equal(day5ChangePercent, keyStats.day5ChangePercent) &&
-                Objects.equal(day30ChangePercent, keyStats.day30ChangePercent);
+                Objects.equal(day30ChangePercent, keyStats.day30ChangePercent) &&
+                Objects.equal(nextDividendRate, keyStats.nextDividendRate) &&
+                Objects.equal(beta, keyStats.beta);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(companyName, marketcap, week52high, week52low, week52change,
-                sharesOutstanding, Float, symbol, avg10Volume, avg30Volume, day200MovingAvg,
-                day50MovingAvg, employees, ttmEPS, ttmDividendRate, dividendYield, nextDividendDate,
-                exDividendDate, nextEarningsDate, peRatio, maxChangePercent, year5ChangePercent,
-                year2ChangePercent, year1ChangePercent, ytdChangePercent, month6ChangePercent,
-                month3ChangePercent, month1ChangePercent, day5ChangePercent, day30ChangePercent);
+        return Objects.hashCode(companyName, marketcap, week52high, week52low,
+                week52change, sharesOutstanding, Float, symbol, avg10Volume,
+                avg30Volume, day200MovingAvg, day50MovingAvg, employees, ttmEPS,
+                ttmDividendRate, dividendYield, nextDividendDate, exDividendDate,
+                nextEarningsDate, peRatio, maxChangePercent, year5ChangePercent,
+                year2ChangePercent, year1ChangePercent, ytdChangePercent,
+                month6ChangePercent, month3ChangePercent, month1ChangePercent,
+                day5ChangePercent, day30ChangePercent, nextDividendRate, beta);
     }
 
     @Override
@@ -306,7 +324,8 @@ public class KeyStats implements Serializable {
                 .add("month1ChangePercent", month1ChangePercent)
                 .add("day5ChangePercent", day5ChangePercent)
                 .add("day30ChangePercent", day30ChangePercent)
+                .add("nextDividendRate", nextDividendRate)
+                .add("beta", beta)
                 .toString();
     }
-
 }
