@@ -48,8 +48,6 @@ public class EarningsServiceTest extends BaseRestServiceTest {
         assertThat(earning.getFiscalEndDate()).isEqualTo(LocalDate.of(2017, 6, 30));
         assertThat(earning.getYearAgo()).isEqualByComparingTo(BigDecimal.valueOf(3.36));
         assertThat(earning.getYearAgoChangePercent()).isEqualByComparingTo(BigDecimal.valueOf(16));
-        assertThat(earning.getEstimatedChangePercent()).isEqualByComparingTo(BigDecimal.valueOf(14));
-        assertThat(earning.getSymbolId()).isEqualByComparingTo(BigDecimal.valueOf(11));
     }
 
 }

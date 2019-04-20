@@ -7,10 +7,15 @@ import pl.zankowski.iextrading4j.api.stocks.Company;
 import pl.zankowski.iextrading4j.api.stocks.DelayedQuote;
 import pl.zankowski.iextrading4j.api.stocks.Dividends;
 import pl.zankowski.iextrading4j.api.stocks.Earnings;
+import pl.zankowski.iextrading4j.api.stocks.EffectiveSpread;
 import pl.zankowski.iextrading4j.api.stocks.Quote;
+import pl.zankowski.iextrading4j.api.stocks.TodayEarnings;
 import pl.zankowski.iextrading4j.api.stocks.v1.AdvancedStats;
 import pl.zankowski.iextrading4j.api.stocks.v1.BalanceSheets;
 import pl.zankowski.iextrading4j.api.stocks.v1.CashFlows;
+import pl.zankowski.iextrading4j.api.stocks.v1.Estimates;
+import pl.zankowski.iextrading4j.api.stocks.v1.Financials;
+import pl.zankowski.iextrading4j.api.stocks.v1.FundOwnership;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.BookRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CollectionRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CollectionType;
@@ -18,9 +23,14 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.CompanyRequestBuilde
 import pl.zankowski.iextrading4j.client.rest.request.stocks.DelayedQuoteRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.DividendsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.EarningsRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.EffectiveSpreadRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayEarningsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.AdvancedStatsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.BalanceSheetRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.CashFlowRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.EstimatesRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.FinancialsRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.FundOwnershipRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.Period;
 
 import java.util.List;
@@ -148,5 +158,67 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
                 .build());
         assertThat(result).isNotNull();
     }
+
+    @Test
+    public void todayEarningsTest() {
+        final TodayEarnings todayEarnings = cloudClient.executeRequest(new TodayEarningsRequestBuilder()
+                .build());
+        assertThat(todayEarnings).isNotNull();
+    }
+
+    @Test
+    public void effectiveSpreadTest() {
+        final List<EffectiveSpread> result = cloudClient.executeRequest(new EffectiveSpreadRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void estimatesTest() {
+        final Estimates estimates = cloudClient.executeRequest(new EstimatesRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        assertThat(estimates).isNotNull();
+    }
+
+    @Test
+    public void estimatesWithLastAndPeriodTest() {
+        final Estimates result = cloudClient.executeRequest(new EstimatesRequestBuilder()
+                .withSymbol("AAPL")
+                .withLast(2)
+                .withPeriod(Period.ANNUAL)
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void financialsTest() {
+        final Financials result = cloudClient.executeRequest(new FinancialsRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void financialsWithLastAndPeriodTest() {
+        final Financials result = cloudClient.executeRequest(new FinancialsRequestBuilder()
+                .withSymbol("AAPL")
+                .withLast(2)
+                .withPeriod(Period.ANNUAL)
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Ignore // Not free tier
+    @Test
+    public void fundOwnershipTest() {
+        final List<FundOwnership> result = cloudClient.executeRequest(new FundOwnershipRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    
 
 }

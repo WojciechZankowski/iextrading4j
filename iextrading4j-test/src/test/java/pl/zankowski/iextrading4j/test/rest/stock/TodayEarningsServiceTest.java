@@ -46,8 +46,6 @@ public class TodayEarningsServiceTest extends BaseRestServiceTest {
         assertThat(btoEarning.getFiscalEndDate()).isEqualTo(LocalDate.of(2018, 9, 30));
         assertThat(btoEarning.getYearAgo()).isEqualByComparingTo(BigDecimal.valueOf(0.49));
         assertThat(btoEarning.getYearAgoChangePercent()).isNull();
-        assertThat(btoEarning.getEstimatedChangePercent()).isEqualByComparingTo(BigDecimal.valueOf(0.08163265306122457));
-        assertThat(btoEarning.getSymbolId()).isEqualTo("2611");
         assertThat(btoEarning.getSymbol()).isEqualTo("FOXA");
         assertThat(btoEarning.getHeadline()).isEqualTo("Twenty-First Century Fox EPS in-line, misses on revenue");
         final Quote btoQuote = btoEarning.getQuote();
@@ -66,8 +64,6 @@ public class TodayEarningsServiceTest extends BaseRestServiceTest {
         assertThat(amcEarning.getFiscalEndDate()).isEqualTo(LocalDate.of(2018, 9, 30));
         assertThat(amcEarning.getYearAgo()).isEqualByComparingTo(BigDecimal.valueOf(0.82));
         assertThat(amcEarning.getYearAgoChangePercent()).isNull();
-        assertThat(amcEarning.getEstimatedChangePercent()).isEqualByComparingTo(BigDecimal.valueOf(-0.14634146341463414));
-        assertThat(amcEarning.getSymbolId()).isEqualByComparingTo(BigDecimal.valueOf(5736));
         assertThat(amcEarning.getSymbol()).isEqualTo("QCOM");
         final Quote amcQuote = amcEarning.getQuote();
         assertThat(amcQuote.getSymbol()).isEqualTo("QCOM");

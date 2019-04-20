@@ -27,12 +27,10 @@ public class EarningTest {
         final LocalDate fiscalEndDate = fixture.create(LocalDate.class);
         final BigDecimal yearAgo = fixture.create(BigDecimal.class);
         final BigDecimal yearAgoChangePercent = fixture.create(BigDecimal.class);
-        final BigDecimal estimatedChangePercent = fixture.create(BigDecimal.class);
-        final BigDecimal symbolId = fixture.create(BigDecimal.class);
 
         final Earning earning = new Earning(actualEPS, consensusEPS, estimatedEPS, announceTime,
                 numberOfEstimates, EPSSurpriseDollar, EPSReportDate, fiscalPeriod, fiscalEndDate,
-                yearAgo, yearAgoChangePercent, estimatedChangePercent, symbolId);
+                yearAgo, yearAgoChangePercent);
 
         assertThat(earning.getActualEPS()).isEqualTo(actualEPS);
         assertThat(earning.getConsensusEPS()).isEqualTo(consensusEPS);
@@ -45,8 +43,6 @@ public class EarningTest {
         assertThat(earning.getFiscalEndDate()).isEqualTo(fiscalEndDate);
         assertThat(earning.getYearAgo()).isEqualByComparingTo(yearAgo);
         assertThat(earning.getYearAgoChangePercent()).isEqualByComparingTo(yearAgoChangePercent);
-        assertThat(earning.getEstimatedChangePercent()).isEqualByComparingTo(estimatedChangePercent);
-        assertThat(earning.getSymbolId()).isEqualByComparingTo(symbolId);
     }
 
     @Test

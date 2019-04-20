@@ -27,15 +27,14 @@ public class TodayEarningTest {
         final LocalDate fiscalEndDate = fixture.create(LocalDate.class);
         final BigDecimal yearAgo = fixture.create(BigDecimal.class);
         final BigDecimal yearAgoChangePercent = fixture.create(BigDecimal.class);
-        final BigDecimal estimatedChangePercent = fixture.create(BigDecimal.class);
-        final BigDecimal symbolId = fixture.create(BigDecimal.class);
         final String symbol = fixture.create(String.class);
         final Quote quote = fixture.create(Quote.class);
         final String headline = fixture.create(String.class);
+        final LocalDate reportDate = fixture.create(LocalDate.class);
 
         final TodayEarning earning = new TodayEarning(actualEPS, consensusEPS, estimatedEPS, announceTime,
                 numberOfEstimates, EPSSurpriseDollar, EPSReportDate, fiscalPeriod, fiscalEndDate,
-                yearAgo, yearAgoChangePercent, estimatedChangePercent, symbolId, symbol, quote, headline);
+                yearAgo, yearAgoChangePercent, symbol, quote, headline, reportDate);
 
         assertThat(earning.getActualEPS()).isEqualTo(actualEPS);
         assertThat(earning.getConsensusEPS()).isEqualTo(consensusEPS);
@@ -48,11 +47,10 @@ public class TodayEarningTest {
         assertThat(earning.getFiscalEndDate()).isEqualTo(fiscalEndDate);
         assertThat(earning.getYearAgo()).isEqualByComparingTo(yearAgo);
         assertThat(earning.getYearAgoChangePercent()).isEqualByComparingTo(yearAgoChangePercent);
-        assertThat(earning.getEstimatedChangePercent()).isEqualByComparingTo(estimatedChangePercent);
-        assertThat(earning.getSymbolId()).isEqualByComparingTo(symbolId);
         assertThat(earning.getSymbol()).isEqualTo(symbol);
         assertThat(earning.getQuote()).isEqualTo(quote);
         assertThat(earning.getHeadline()).isEqualTo(headline);
+        assertThat(earning.getReportDate()).isEqualTo(reportDate);
     }
 
     @Test
