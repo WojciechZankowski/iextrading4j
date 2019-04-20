@@ -1,4 +1,4 @@
-# IEXTrading4j: Open source IEX Trading API library
+# IEXTrading4j: Open source IEX Cloud API library
 
 [![Build Status](https://travis-ci.org/WojciechZankowski/iextrading4j.svg?branch=master)](https://travis-ci.org/WojciechZankowski/iextrading4j)
 [![codecov](https://codecov.io/gh/WojciechZankowski/iextrading4j/branch/master/graph/badge.svg)](https://codecov.io/gh/WojciechZankowski/iextrading4j)
