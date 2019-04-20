@@ -8,8 +8,13 @@ import pl.zankowski.iextrading4j.api.stocks.DelayedQuote;
 import pl.zankowski.iextrading4j.api.stocks.Dividends;
 import pl.zankowski.iextrading4j.api.stocks.Earnings;
 import pl.zankowski.iextrading4j.api.stocks.EffectiveSpread;
+import pl.zankowski.iextrading4j.api.stocks.Ipos;
+import pl.zankowski.iextrading4j.api.stocks.LargestTrade;
+import pl.zankowski.iextrading4j.api.stocks.Logo;
+import pl.zankowski.iextrading4j.api.stocks.Ohlc;
 import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.api.stocks.TodayEarnings;
+import pl.zankowski.iextrading4j.api.stocks.TodayIpos;
 import pl.zankowski.iextrading4j.api.stocks.v1.AdvancedStats;
 import pl.zankowski.iextrading4j.api.stocks.v1.BalanceSheets;
 import pl.zankowski.iextrading4j.api.stocks.v1.CashFlows;
@@ -17,6 +22,13 @@ import pl.zankowski.iextrading4j.api.stocks.v1.Estimates;
 import pl.zankowski.iextrading4j.api.stocks.v1.Financials;
 import pl.zankowski.iextrading4j.api.stocks.v1.FundOwnership;
 import pl.zankowski.iextrading4j.api.stocks.v1.IncomeStatements;
+import pl.zankowski.iextrading4j.api.stocks.v1.InsiderRoster;
+import pl.zankowski.iextrading4j.api.stocks.v1.InsiderSummary;
+import pl.zankowski.iextrading4j.api.stocks.v1.InsiderTransaction;
+import pl.zankowski.iextrading4j.api.stocks.v1.Intraday;
+import pl.zankowski.iextrading4j.api.stocks.v1.KeyStats;
+import pl.zankowski.iextrading4j.api.stocks.v1.News;
+import pl.zankowski.iextrading4j.api.stocks.v1.Ownership;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.BookRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CollectionRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CollectionType;
@@ -25,7 +37,15 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.DelayedQuoteRequestB
 import pl.zankowski.iextrading4j.client.rest.request.stocks.DividendsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.EarningsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.EffectiveSpreadRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.LargestTradeRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.ListRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.ListType;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.LogoRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.OhlcMarketRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.OhlcRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayEarningsRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayIposRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.UpcomingIposRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.AdvancedStatsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.BalanceSheetRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.CashFlowRequestBuilder;
@@ -33,9 +53,17 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.EstimatesRequestB
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.FinancialsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.FundOwnershipRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.IncomeStatementRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.InsiderRosterRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.InsiderSummaryRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.InsiderTransactionRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.InstitutionalOwnershipRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.IntradayRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.KeyStatsRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.NewsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.Period;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -235,6 +263,113 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .withLast(2)
                 .withPeriod(Period.ANNUAL)
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Ignore // Not free tier
+    @Test
+    public void insiderRosterTest() {
+        final List<InsiderRoster> result = cloudClient.executeRequest(new InsiderRosterRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Ignore // Not free tier
+    @Test
+    public void insiderSummaryTest() {
+        final List<InsiderSummary> result = cloudClient.executeRequest(new InsiderSummaryRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Ignore // Not free tier
+    @Test
+    public void insiderTransactions() {
+        final List<InsiderTransaction> result = cloudClient.executeRequest(new InsiderTransactionRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Ignore // Not free tier
+    @Test
+    public void institutionalOwnershipTest() {
+        final List<Ownership> result = cloudClient.executeRequest(new InstitutionalOwnershipRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void intradayPricesTest() {
+        final List<Intraday> result = cloudClient.executeRequest(new IntradayRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void intradayPricesWithIexOnlyTest() {
+        final List<Intraday> result = cloudClient.executeRequest(new IntradayRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void upcomingIposTest() {
+        final Ipos result = cloudClient.executeRequest(new UpcomingIposRequestBuilder()
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void todayIposTest() {
+        final TodayIpos result = cloudClient.executeRequest(new TodayIposRequestBuilder()
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void keyStatsTest() {
+        final KeyStats result = cloudClient.executeRequest(new KeyStatsRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void largestTradesTest() {
+        final List<LargestTrade> result = cloudClient.executeRequest(new LargestTradeRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void listTest() {
+        final List<Quote> result = cloudClient.executeRequest(new ListRequestBuilder()
+                .withListType(ListType.IEXVOLUME)
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void logoTest() {
+        final Logo result = cloudClient.executeRequest(new LogoRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void newsTest() {
+        final List<News> result = cloudClient.executeRequest(new NewsRequestBuilder()
+                .withSymbol("AAPL")
+                .withLast(10)
                 .build());
         assertThat(result).isNotNull();
     }
