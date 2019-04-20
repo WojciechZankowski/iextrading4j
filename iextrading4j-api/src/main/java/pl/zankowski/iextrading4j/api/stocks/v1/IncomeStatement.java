@@ -17,7 +17,7 @@ public class IncomeStatement implements Serializable {
     private final BigDecimal grossProfit;
     private final BigDecimal researchAndDevelopment;
     private final BigDecimal sellingGeneralAndAdmin;
-    private final BigDecimal operatingExpenses;
+    private final BigDecimal operatingExpense;
     private final BigDecimal operatingIncome;
     private final BigDecimal otherIncomeExpenseNet;
     private final BigDecimal ebit;
@@ -36,7 +36,7 @@ public class IncomeStatement implements Serializable {
             @JsonProperty("grossProfit") final BigDecimal grossProfit,
             @JsonProperty("researchAndDevelopment") final BigDecimal researchAndDevelopment,
             @JsonProperty("sellingGeneralAndAdmin") final BigDecimal sellingGeneralAndAdmin,
-            @JsonProperty("operatingExpenses") final BigDecimal operatingExpenses,
+            @JsonProperty("operatingExpense") final BigDecimal operatingExpense,
             @JsonProperty("operatingIncome") final BigDecimal operatingIncome,
             @JsonProperty("otherIncomeExpenseNet") final BigDecimal otherIncomeExpenseNet,
             @JsonProperty("ebit") final BigDecimal ebit,
@@ -52,7 +52,7 @@ public class IncomeStatement implements Serializable {
         this.grossProfit = grossProfit;
         this.researchAndDevelopment = researchAndDevelopment;
         this.sellingGeneralAndAdmin = sellingGeneralAndAdmin;
-        this.operatingExpenses = operatingExpenses;
+        this.operatingExpense = operatingExpense;
         this.operatingIncome = operatingIncome;
         this.otherIncomeExpenseNet = otherIncomeExpenseNet;
         this.ebit = ebit;
@@ -88,8 +88,8 @@ public class IncomeStatement implements Serializable {
         return sellingGeneralAndAdmin;
     }
 
-    public BigDecimal getOperatingExpenses() {
-        return operatingExpenses;
+    public BigDecimal getOperatingExpense() {
+        return operatingExpense;
     }
 
     public BigDecimal getOperatingIncome() {
@@ -139,7 +139,7 @@ public class IncomeStatement implements Serializable {
                 Objects.equal(grossProfit, that.grossProfit) &&
                 Objects.equal(researchAndDevelopment, that.researchAndDevelopment) &&
                 Objects.equal(sellingGeneralAndAdmin, that.sellingGeneralAndAdmin) &&
-                Objects.equal(operatingExpenses, that.operatingExpenses) &&
+                Objects.equal(operatingExpense, that.operatingExpense) &&
                 Objects.equal(operatingIncome, that.operatingIncome) &&
                 Objects.equal(otherIncomeExpenseNet, that.otherIncomeExpenseNet) &&
                 Objects.equal(ebit, that.ebit) &&
@@ -154,7 +154,7 @@ public class IncomeStatement implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hashCode(reportDate, totalRevenue, costOfRevenue, grossProfit,
-                researchAndDevelopment, sellingGeneralAndAdmin, operatingExpenses,
+                researchAndDevelopment, sellingGeneralAndAdmin, operatingExpense,
                 operatingIncome, otherIncomeExpenseNet, ebit, interestIncome, pretaxIncome,
                 incomeTax, minorityInterest, netIncome, netIncomeBasic);
     }
@@ -168,7 +168,7 @@ public class IncomeStatement implements Serializable {
                 .add("grossProfit", grossProfit)
                 .add("researchAndDevelopment", researchAndDevelopment)
                 .add("sellingGeneralAndAdmin", sellingGeneralAndAdmin)
-                .add("operatingExpenses", operatingExpenses)
+                .add("operatingExpense", operatingExpense)
                 .add("operatingIncome", operatingIncome)
                 .add("otherIncomeExpenseNet", otherIncomeExpenseNet)
                 .add("ebit", ebit)

@@ -16,6 +16,7 @@ import pl.zankowski.iextrading4j.api.stocks.v1.CashFlows;
 import pl.zankowski.iextrading4j.api.stocks.v1.Estimates;
 import pl.zankowski.iextrading4j.api.stocks.v1.Financials;
 import pl.zankowski.iextrading4j.api.stocks.v1.FundOwnership;
+import pl.zankowski.iextrading4j.api.stocks.v1.IncomeStatements;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.BookRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CollectionRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CollectionType;
@@ -31,6 +32,7 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.CashFlowRequestBu
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.EstimatesRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.FinancialsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.FundOwnershipRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.IncomeStatementRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.Period;
 
 import java.util.List;
@@ -215,6 +217,24 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     public void fundOwnershipTest() {
         final List<FundOwnership> result = cloudClient.executeRequest(new FundOwnershipRequestBuilder()
                 .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void incomeStatementTest() {
+        final IncomeStatements result = cloudClient.executeRequest(new IncomeStatementRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void incomeStatementWithLastAndPeriodTest() {
+        final IncomeStatements result = cloudClient.executeRequest(new IncomeStatementRequestBuilder()
+                .withSymbol("AAPL")
+                .withLast(2)
+                .withPeriod(Period.ANNUAL)
                 .build());
         assertThat(result).isNotNull();
     }
