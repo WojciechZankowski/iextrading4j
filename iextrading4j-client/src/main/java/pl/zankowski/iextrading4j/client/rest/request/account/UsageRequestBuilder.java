@@ -1,6 +1,7 @@
 package pl.zankowski.iextrading4j.client.rest.request.account;
 
 import pl.zankowski.iextrading4j.api.account.Usage;
+import pl.zankowski.iextrading4j.client.rest.manager.IRestResponseTypeRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.AbstractRequestFilterBuilder;
@@ -20,9 +21,16 @@ public class UsageRequestBuilder extends AbstractRequestFilterBuilder<Usage, Usa
 
     @Override
     public RestRequest<Usage> build() {
-        return RestRequestBuilder.<Usage>builder()
-                .withPath("/account/usage/{type}")
-                .addPathParam("type", usageType.getType()).get()
+        IRestResponseTypeRequestBuilder<Usage> restResponseTypeRequestBuilder;
+        if(usageType != null) {
+            restResponseTypeRequestBuilder = RestRequestBuilder.<Usage>builder()
+                    .withPath("/account/usage/{type}")
+                    .addPathParam("type", usageType.getType()).get();
+        } else {
+            restResponseTypeRequestBuilder = RestRequestBuilder.<Usage>builder()
+                    .withPath("/account/usage").get();
+        }
+        return restResponseTypeRequestBuilder
                 .withResponse(new GenericType<Usage>() {})
                 .addQueryParam(getFilterParams())
                 .withSecretToken()
