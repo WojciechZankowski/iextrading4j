@@ -136,6 +136,7 @@ public class Dividends implements Serializable {
                 Objects.equal(currency, dividends.currency) &&
                 Objects.equal(description, dividends.description) &&
                 Objects.equal(frequency, dividends.frequency) &&
+                Objects.equal(date, dividends.date) &&
                 type == dividends.type &&
                 qualified == dividends.qualified &&
                 Objects.equal(indicated, dividends.indicated);
@@ -144,7 +145,7 @@ public class Dividends implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hashCode(symbol, exDate, paymentDate, recordDate, declaredDate, amount,
-                flag, type, qualified, indicated, description, frequency, currency);
+                flag, type, qualified, indicated, description, frequency, currency, date);
     }
 
     @Override
@@ -159,6 +160,7 @@ public class Dividends implements Serializable {
                 .add("flag", flag)
                 .add("description", description)
                 .add("frequency", frequency)
+                .add("date", date)
                 .add("type", type)
                 .add("qualified", qualified)
                 .add("indicated", indicated)
