@@ -126,12 +126,16 @@ public class Dividends implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dividends dividends = (Dividends) o;
-        return Objects.equal(exDate, dividends.exDate) &&
+        return Objects.equal(symbol, dividends.symbol) &&
+                Objects.equal(exDate, dividends.exDate) &&
                 Objects.equal(paymentDate, dividends.paymentDate) &&
                 Objects.equal(recordDate, dividends.recordDate) &&
                 Objects.equal(declaredDate, dividends.declaredDate) &&
                 Objects.equal(amount, dividends.amount) &&
                 Objects.equal(flag, dividends.flag) &&
+                Objects.equal(currency, dividends.currency) &&
+                Objects.equal(description, dividends.description) &&
+                Objects.equal(frequency, dividends.frequency) &&
                 type == dividends.type &&
                 qualified == dividends.qualified &&
                 Objects.equal(indicated, dividends.indicated);
@@ -139,19 +143,22 @@ public class Dividends implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(exDate, paymentDate, recordDate, declaredDate, amount,
-                flag, type, qualified, indicated);
+        return Objects.hashCode(symbol, exDate, paymentDate, recordDate, declaredDate, amount,
+                flag, type, qualified, indicated, description, frequency, currency);
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
+                .add("symbol", symbol)
                 .add("exDate", exDate)
                 .add("paymentDate", paymentDate)
                 .add("recordDate", recordDate)
                 .add("declaredDate", declaredDate)
                 .add("amount", amount)
                 .add("flag", flag)
+                .add("description", description)
+                .add("frequency", frequency)
                 .add("type", type)
                 .add("qualified", qualified)
                 .add("indicated", indicated)
