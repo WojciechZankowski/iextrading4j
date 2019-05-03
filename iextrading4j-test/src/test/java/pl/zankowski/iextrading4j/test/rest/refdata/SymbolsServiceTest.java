@@ -34,18 +34,22 @@ public class SymbolsServiceTest extends BaseRestServiceTest {
         final ExchangeSymbol aSymbol = exchangeSymbols.get(0);
         assertThat(aSymbol.getSymbol()).isEqualTo("A");
         assertThat(aSymbol.getName()).isEqualTo("Agilent Technologies Inc.");
-        assertThat(aSymbol.getDate()).isEqualTo(LocalDate.of(2017, 11, 10));
-        assertThat(aSymbol.getEnabled()).isTrue();
+        assertThat(aSymbol.getDate()).isEqualTo(LocalDate.of(2019, 3, 7));
+        assertThat(aSymbol.isEnabled()).isTrue();
         assertThat(aSymbol.getType()).isEqualTo(SymbolType.COMMON_STOCK);
-        assertThat(aSymbol.getIexId()).isEqualTo(12042);
+        assertThat(aSymbol.getIexId()).isEqualTo("IEX_46574843354B2D52");
+        assertThat(aSymbol.getRegion()).isEqualTo("US");
+        assertThat(aSymbol.getCurrency()).isEqualTo("USD");
 
         final ExchangeSymbol aaSymbol = exchangeSymbols.get(1);
         assertThat(aaSymbol.getSymbol()).isEqualTo("AA");
-        assertThat(aaSymbol.getName()).isEqualTo("Alcoa Corporation");
-        assertThat(aaSymbol.getDate()).isEqualTo(LocalDate.of(2017, 11, 10));
-        assertThat(aaSymbol.getEnabled()).isTrue();
+        assertThat(aaSymbol.getName()).isEqualTo("Alcoa Corp.");
+        assertThat(aaSymbol.getDate()).isEqualTo(LocalDate.of(2019, 3, 7));
+        assertThat(aaSymbol.isEnabled()).isTrue();
         assertThat(aaSymbol.getType()).isEqualTo(SymbolType.COMMON_STOCK);
-        assertThat(aaSymbol.getIexId()).isEqualTo(6667);
+        assertThat(aaSymbol.getIexId()).isEqualTo("IEX_4238333734532D52");
+        assertThat(aSymbol.getRegion()).isEqualTo("US");
+        assertThat(aSymbol.getCurrency()).isEqualTo("USD");
     }
 
 }

@@ -15,9 +15,11 @@ public class ExchangeSymbol implements Serializable {
     private final String symbol;
     private final String name;
     private final LocalDate date;
-    private final Boolean isEnabled;
+    private final Boolean enabled;
     private final SymbolType type;
-    private final Long iexId;
+    private final String iexId;
+    private final String region;
+    private final String currency;
 
     @JsonCreator
     public ExchangeSymbol(
@@ -26,13 +28,17 @@ public class ExchangeSymbol implements Serializable {
             @JsonProperty("date") final LocalDate date,
             @JsonProperty("isEnabled") final Boolean isEnabled,
             @JsonProperty("type") final SymbolType type,
-            @JsonProperty("iexId") final Long iexId) {
+            @JsonProperty("iexId") final String iexId,
+            @JsonProperty("region") final String region,
+            @JsonProperty("currency") final String currency) {
         this.symbol = symbol;
         this.name = name;
         this.date = date;
-        this.isEnabled = isEnabled;
+        this.enabled = isEnabled;
         this.type = type;
         this.iexId = iexId;
+        this.region = region;
+        this.currency = currency;
     }
 
     public String getSymbol() {
@@ -47,16 +53,24 @@ public class ExchangeSymbol implements Serializable {
         return date;
     }
 
-    public Boolean getEnabled() {
-        return isEnabled;
+    public Boolean isEnabled() {
+        return enabled;
     }
 
     public SymbolType getType() {
         return type;
     }
 
-    public Long getIexId() {
+    public String getIexId() {
         return iexId;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public String getCurrency() {
+        return currency;
     }
 
     @Override
@@ -67,14 +81,16 @@ public class ExchangeSymbol implements Serializable {
         return Objects.equal(symbol, that.symbol) &&
                 Objects.equal(name, that.name) &&
                 Objects.equal(date, that.date) &&
-                Objects.equal(isEnabled, that.isEnabled) &&
+                Objects.equal(enabled, that.enabled) &&
                 Objects.equal(type, that.type) &&
+                Objects.equal(region, that.region) &&
+                Objects.equal(currency, that.currency) &&
                 Objects.equal(iexId, that.iexId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(symbol, name, date, isEnabled, type, iexId);
+        return Objects.hashCode(symbol, name, date, enabled, type, iexId, region, currency);
     }
 
     @Override
@@ -83,9 +99,11 @@ public class ExchangeSymbol implements Serializable {
                 .add("symbol", symbol)
                 .add("name", name)
                 .add("date", date)
-                .add("isEnabled", isEnabled)
+                .add("enabled", enabled)
                 .add("type", type)
                 .add("iexId", iexId)
+                .add("region", region)
+                .add("currency", currency)
                 .toString();
     }
 }
