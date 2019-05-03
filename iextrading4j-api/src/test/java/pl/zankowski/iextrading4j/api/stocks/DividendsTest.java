@@ -16,24 +16,35 @@ public class DividendsTest {
 
     @Test
     public void constructor() {
+        final String symbol = fixture.create(String.class);
         final LocalDate exDate = fixture.create(LocalDate.class);
         final LocalDate paymentDate = fixture.create(LocalDate.class);
         final LocalDate recordDate = fixture.create(LocalDate.class);
         final LocalDate declaredDate = fixture.create(LocalDate.class);
+        final String currency = fixture.create(String.class);
         final BigDecimal amount = fixture.create(BigDecimal.class);
         final String flag = fixture.create(String.class);
+        final String description = fixture.create(String.class);
+        final String frequency = fixture.create(String.class);
+        final LocalDate date = fixture.create(LocalDate.class);
         final DividendType dividendType = fixture.create(DividendType.class);
         final DividendQualification qualification = fixture.create(DividendQualification.class);
         final String indicated = fixture.create(String.class);
 
-        final Dividends dividends = new Dividends(exDate, paymentDate, recordDate, declaredDate, amount,
-                flag, dividendType, qualification, indicated);
+        final Dividends dividends = new Dividends(symbol, exDate, paymentDate, recordDate, declaredDate, amount,
+                flag, currency, description, frequency, date, dividendType, qualification, indicated);
 
+        assertThat(dividends.getSymbol()).isEqualTo(symbol);
         assertThat(dividends.getExDate()).isEqualTo(exDate);
         assertThat(dividends.getPaymentDate()).isEqualTo(paymentDate);
         assertThat(dividends.getRecordDate()).isEqualTo(recordDate);
         assertThat(dividends.getDeclaredDate()).isEqualTo(declaredDate);
         assertThat(dividends.getAmount()).isEqualTo(amount);
+        assertThat(dividends.getCurrency()).isEqualTo(currency);
+        assertThat(dividends.getFlag()).isEqualTo(flag);
+        assertThat(dividends.getDescription()).isEqualTo(description);
+        assertThat(dividends.getFrequency()).isEqualTo(frequency);
+        assertThat(dividends.getDate()).isEqualTo(date);
         assertThat(dividends.getFlag()).isEqualTo(flag);
         assertThat(dividends.getType()).isEqualTo(dividendType);
         assertThat(dividends.getQualified()).isEqualTo(qualification);

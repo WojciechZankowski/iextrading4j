@@ -10,40 +10,60 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@JsonPropertyOrder({"exDate", "paymentDate", "recordDate", "declaredDate",
-        "amount", "flag", "type", "qualified", "indicated"})
+@JsonPropertyOrder({"symbol", "exDate", "paymentDate", "recordDate", "declaredDate",
+        "amount", "flag", "currency", "description", "frequency", "date", "type",
+        "qualified", "indicated"})
 public class Dividends implements Serializable {
 
+    private final String symbol;
     private final LocalDate exDate;
     private final LocalDate paymentDate;
     private final LocalDate recordDate;
     private final LocalDate declaredDate;
     private final BigDecimal amount;
     private final String flag;
+    private final String currency;
+    private final String description;
+    private final String frequency;
+    private final LocalDate date;
     private final DividendType type;
     private final DividendQualification qualified;
     private final String indicated;
 
     @JsonCreator
     public Dividends(
+            @JsonProperty("symbol") final String symbol,
             @JsonProperty("exDate") final LocalDate exDate,
             @JsonProperty("paymentDate") final LocalDate paymentDate,
             @JsonProperty("recordDate") final LocalDate recordDate,
             @JsonProperty("declaredDate") final LocalDate declaredDate,
             @JsonProperty("amount") final BigDecimal amount,
             @JsonProperty("flag") final String flag,
+            @JsonProperty("currency") final String currency,
+            @JsonProperty("description") final String description,
+            @JsonProperty("frequency") final String frequency,
+            @JsonProperty("date") LocalDate date,
             @JsonProperty("type") final DividendType type,
             @JsonProperty("qualified") final DividendQualification qualified,
             @JsonProperty("indicated") final String indicated) {
+        this.symbol = symbol;
         this.exDate = exDate;
         this.paymentDate = paymentDate;
         this.recordDate = recordDate;
         this.declaredDate = declaredDate;
         this.amount = amount;
         this.flag = flag;
+        this.currency = currency;
+        this.description = description;
+        this.frequency = frequency;
+        this.date = date;
         this.type = type;
         this.qualified = qualified;
         this.indicated = indicated;
+    }
+
+    public String getSymbol() {
+        return symbol;
     }
 
     public LocalDate getExDate() {
@@ -70,14 +90,33 @@ public class Dividends implements Serializable {
         return flag;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getFrequency() {
+        return frequency;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    @Deprecated
     public DividendType getType() {
         return type;
     }
 
+    @Deprecated
     public DividendQualification getQualified() {
         return qualified;
     }
 
+    @Deprecated
     public String getIndicated() {
         return indicated;
     }
@@ -118,4 +157,5 @@ public class Dividends implements Serializable {
                 .add("indicated", indicated)
                 .toString();
     }
+
 }
