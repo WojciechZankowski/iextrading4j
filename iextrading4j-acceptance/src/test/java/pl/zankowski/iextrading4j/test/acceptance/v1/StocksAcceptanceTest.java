@@ -5,19 +5,18 @@ import org.junit.Test;
 import pl.zankowski.iextrading4j.api.stocks.Book;
 import pl.zankowski.iextrading4j.api.stocks.Company;
 import pl.zankowski.iextrading4j.api.stocks.DelayedQuote;
-import pl.zankowski.iextrading4j.api.stocks.Dividends;
 import pl.zankowski.iextrading4j.api.stocks.Earnings;
 import pl.zankowski.iextrading4j.api.stocks.EffectiveSpread;
 import pl.zankowski.iextrading4j.api.stocks.Ipos;
 import pl.zankowski.iextrading4j.api.stocks.LargestTrade;
 import pl.zankowski.iextrading4j.api.stocks.Logo;
-import pl.zankowski.iextrading4j.api.stocks.Ohlc;
 import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.api.stocks.TodayEarnings;
 import pl.zankowski.iextrading4j.api.stocks.TodayIpos;
 import pl.zankowski.iextrading4j.api.stocks.v1.AdvancedStats;
 import pl.zankowski.iextrading4j.api.stocks.v1.BalanceSheets;
 import pl.zankowski.iextrading4j.api.stocks.v1.CashFlows;
+import pl.zankowski.iextrading4j.api.stocks.v1.Dividends;
 import pl.zankowski.iextrading4j.api.stocks.v1.Estimates;
 import pl.zankowski.iextrading4j.api.stocks.v1.Financials;
 import pl.zankowski.iextrading4j.api.stocks.v1.FundOwnership;
@@ -34,21 +33,19 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.CollectionRequestBui
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CollectionType;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CompanyRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.DelayedQuoteRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.DividendsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.EarningsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.EffectiveSpreadRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.LargestTradeRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ListRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ListType;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.LogoRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.OhlcMarketRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.OhlcRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayEarningsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayIposRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.UpcomingIposRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.AdvancedStatsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.BalanceSheetRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.CashFlowRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.DividendsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.EstimatesRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.FinancialsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.FundOwnershipRequestBuilder;
@@ -63,7 +60,6 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.NewsRequestBuilde
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.Period;
 
 import java.util.List;
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
