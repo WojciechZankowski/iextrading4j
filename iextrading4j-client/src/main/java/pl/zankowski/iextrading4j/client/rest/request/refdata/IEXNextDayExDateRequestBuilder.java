@@ -8,6 +8,7 @@ import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
 import javax.ws.rs.core.GenericType;
 import java.util.List;
 
+@Deprecated
 public class IEXNextDayExDateRequestBuilder extends AbstractDailyListRequestBuilder<List<IEXNextDayExDate>, IEXNextDayExDateRequestBuilder>
         implements IEXApiRestRequest<List<IEXNextDayExDate>> {
 

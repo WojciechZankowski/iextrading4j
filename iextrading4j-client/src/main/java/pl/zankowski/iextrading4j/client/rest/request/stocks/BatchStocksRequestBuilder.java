@@ -5,6 +5,7 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
 
+@Deprecated
 public class BatchStocksRequestBuilder extends AbstractBatchStocksRequestBuilder<BatchStocks, BatchStocksRequestBuilder>
         implements IEXApiRestRequest<BatchStocks> {
 

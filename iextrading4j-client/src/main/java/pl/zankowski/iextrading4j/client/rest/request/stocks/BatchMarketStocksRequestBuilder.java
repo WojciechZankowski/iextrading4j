@@ -13,6 +13,7 @@ import java.util.Set;
 
 import static java.util.stream.Collectors.joining;
 
+@Deprecated
 public class BatchMarketStocksRequestBuilder extends AbstractBatchStocksRequestBuilder<Map<String, BatchStocks>,
         BatchMarketStocksRequestBuilder> implements IEXApiRestRequest<Map<String, BatchStocks>> {
 

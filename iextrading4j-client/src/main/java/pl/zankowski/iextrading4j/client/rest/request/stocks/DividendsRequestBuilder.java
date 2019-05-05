@@ -9,8 +9,9 @@ import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 import javax.ws.rs.core.GenericType;
 import java.util.List;
 
+@Deprecated
 public class DividendsRequestBuilder extends AbstractStocksRequestBuilder<List<Dividends>, DividendsRequestBuilder>
-        implements IEXApiRestRequest<List<Dividends>>, IEXCloudV1RestRequest<List<Dividends>> {
+        implements IEXApiRestRequest<List<Dividends>> {
 
     private DividendRange dividendRange = DividendRange.ONE_MONTH;
 

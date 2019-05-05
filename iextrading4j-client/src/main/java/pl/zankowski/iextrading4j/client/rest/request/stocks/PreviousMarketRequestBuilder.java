@@ -9,6 +9,7 @@ import pl.zankowski.iextrading4j.client.rest.request.IRestRequestBuilder;
 import javax.ws.rs.core.GenericType;
 import java.util.Map;
 
+@Deprecated
 public class PreviousMarketRequestBuilder implements IEXApiRestRequest<Map<String, BarData>> {
 
     @Override

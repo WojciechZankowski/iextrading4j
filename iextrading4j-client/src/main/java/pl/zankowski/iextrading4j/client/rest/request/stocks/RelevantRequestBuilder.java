@@ -3,8 +3,11 @@ package pl.zankowski.iextrading4j.client.rest.request.stocks;
 import pl.zankowski.iextrading4j.api.stocks.Relevant;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
 
-public class RelevantRequestBuilder extends AbstractStocksRequestBuilder<Relevant, RelevantRequestBuilder> {
+@Deprecated
+public class RelevantRequestBuilder extends AbstractStocksRequestBuilder<Relevant, RelevantRequestBuilder>
+        implements IEXApiRestRequest<Relevant> {
 
     @Override
     public RestRequest<Relevant> build() {

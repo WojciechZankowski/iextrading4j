@@ -3,11 +3,14 @@ package pl.zankowski.iextrading4j.client.rest.request.stocks;
 import pl.zankowski.iextrading4j.api.stocks.Split;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
 
 import javax.ws.rs.core.GenericType;
 import java.util.List;
 
-public class SplitsRequestBuilder extends AbstractStocksRequestBuilder<List<Split>, SplitsRequestBuilder> {
+@Deprecated
+public class SplitsRequestBuilder extends AbstractStocksRequestBuilder<List<Split>, SplitsRequestBuilder>
+        implements IEXApiRestRequest<List<Split>> {
 
     private SplitsRange splitsRange = SplitsRange.ONE_MONTH;
 
@@ -26,7 +29,8 @@ public class SplitsRequestBuilder extends AbstractStocksRequestBuilder<List<Spli
                 .withPath("/stock/{symbol}/splits/{range}")
                 .addPathParam("symbol", getSymbol())
                 .addPathParam("range", getSplitsRange().getCode()).get()
-                .withResponse(new GenericType<List<Split>>() {})
+                .withResponse(new GenericType<List<Split>>() {
+                })
                 .build();
     }
 

@@ -9,6 +9,7 @@ import pl.zankowski.iextrading4j.client.rest.request.IRestRequestBuilder;
 import javax.ws.rs.core.GenericType;
 import java.util.List;
 
+@Deprecated
 public class CryptoRequestBuilder implements IEXApiRestRequest<List<Quote>> {
 
     @Override
