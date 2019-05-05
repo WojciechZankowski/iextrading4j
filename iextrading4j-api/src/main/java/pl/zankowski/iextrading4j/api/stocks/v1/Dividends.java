@@ -6,12 +6,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @JsonPropertyOrder({"exDate", "paymentDate", "recordDate", "declaredDate",
         "amount", "flag", "currency", "description", "frequency", "date"})
-public class Dividends {
+public class Dividends implements Serializable {
 
     private final LocalDate exDate;
     private final LocalDate paymentDate;
