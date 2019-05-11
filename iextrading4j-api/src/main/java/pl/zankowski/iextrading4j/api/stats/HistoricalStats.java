@@ -10,6 +10,8 @@ import java.math.BigDecimal;
 
 public class HistoricalStats implements Serializable {
 
+    private static final long serialVersionUID = -8829606918294416933L;
+
     private final BigDecimal averageDailyVolume;
     private final BigDecimal averageDailyRoutedVolume;
     private final BigDecimal averageMarketShare;

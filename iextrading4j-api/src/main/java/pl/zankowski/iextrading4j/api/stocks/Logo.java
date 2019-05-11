@@ -11,6 +11,8 @@ import java.io.Serializable;
 @JsonPropertyOrder({"url"})
 public class Logo implements Serializable {
 
+    private static final long serialVersionUID = 4289984754627044040L;
+
     private final String url;
 
     @JsonCreator

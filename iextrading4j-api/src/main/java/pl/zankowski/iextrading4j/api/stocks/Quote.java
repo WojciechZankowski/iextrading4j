@@ -18,6 +18,8 @@ import java.math.BigDecimal;
         "week52High", "week52Low", "ytdChange", "bidPrice", "bidSize", "askPrice", "askSize"})
 public class Quote implements Serializable {
 
+    private static final long serialVersionUID = 6474500411156050266L;
+
     private final String symbol;
     private final String companyName;
     private final String primaryExchange;

@@ -9,6 +9,8 @@ import java.io.Serializable;
 
 public class Exchange implements Serializable {
 
+    private static final long serialVersionUID = -7878559134922419823L;
+
     private final String exchange;
     private final String region;
     private final String description;

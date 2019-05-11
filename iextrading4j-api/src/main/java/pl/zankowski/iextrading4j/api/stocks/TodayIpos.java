@@ -11,6 +11,8 @@ import java.util.List;
 @JsonPropertyOrder({"rawData", "viewData", "lastUpdate"})
 public class TodayIpos extends Ipos {
 
+    private static final long serialVersionUID = 5867189719422943277L;
+
     private final LocalDate lastUpdate;
 
     @JsonCreator

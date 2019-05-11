@@ -12,6 +12,8 @@ import java.math.BigDecimal;
 @JsonPropertyOrder({"price", "time"})
 public class Point implements Serializable {
 
+    private static final long serialVersionUID = 8714265705173592739L;
+
     private final BigDecimal price;
     private final Long time;
 

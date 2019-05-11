@@ -13,6 +13,8 @@ import java.math.BigDecimal;
         "totalVolume", "processedTime"})
 public class DelayedQuote implements Serializable {
 
+    private static final long serialVersionUID = 7012279461409297611L;
+
     private final String symbol;
     private final BigDecimal delayedPrice;
     private final BigDecimal delayedSize;

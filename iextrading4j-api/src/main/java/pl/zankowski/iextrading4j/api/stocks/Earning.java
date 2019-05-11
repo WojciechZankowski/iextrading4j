@@ -15,6 +15,8 @@ import java.time.LocalDate;
         "fiscalEndDate", "yearAgo", "yearAgoChangePercent"})
 public class Earning implements Serializable {
 
+    private static final long serialVersionUID = -3254561425537119565L;
+
     private final BigDecimal actualEPS;
     private final BigDecimal consensusEPS;
     private final BigDecimal estimatedEPS;

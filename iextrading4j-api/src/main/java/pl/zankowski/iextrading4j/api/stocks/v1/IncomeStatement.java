@@ -11,6 +11,8 @@ import java.time.LocalDate;
 
 public class IncomeStatement implements Serializable {
 
+    private static final long serialVersionUID = -1413080264580022740L;
+
     private final LocalDate reportDate;
     private final BigDecimal totalRevenue;
     private final BigDecimal costOfRevenue;

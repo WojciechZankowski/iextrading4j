@@ -13,6 +13,8 @@ import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 @JsonPropertyOrder({"bids", "asks"})
 public class Book extends DeepResult {
 
+    private static final long serialVersionUID = -5500382403416100795L;
+
     private final List<BookEntry> bids;
     private final List<BookEntry> asks;
 

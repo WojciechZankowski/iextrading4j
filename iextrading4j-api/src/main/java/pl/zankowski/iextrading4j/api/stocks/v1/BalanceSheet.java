@@ -11,6 +11,8 @@ import java.time.LocalDate;
 
 public class BalanceSheet implements Serializable {
 
+    private static final long serialVersionUID = 903088600080035429L;
+
     private final LocalDate reportDate;
     private final BigDecimal currentCash;
     private final BigDecimal shortTermInvestments;

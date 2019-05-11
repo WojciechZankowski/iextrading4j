@@ -12,6 +12,8 @@ import java.time.LocalTime;
 
 public class Sentiment implements Serializable {
 
+    private static final long serialVersionUID = -4716020002316419582L;
+
     private final BigDecimal sentiment;
     private final BigDecimal totalScores;
     private final BigDecimal positive;

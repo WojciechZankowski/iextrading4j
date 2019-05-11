@@ -12,6 +12,8 @@ import java.io.Serializable;
         "tierName", "messageLimit", "messagesUsed"})
 public class Metadata implements Serializable {
 
+    private static final long serialVersionUID = -7626003595227020176L;
+
     private final Boolean overagesEnabled;
     private final Long effectiveDate;
     private final Long endDateEffective;

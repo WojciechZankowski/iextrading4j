@@ -17,6 +17,8 @@ import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 @JsonPropertyOrder({"quote", "bids", "asks", "trades", "systemEvent"})
 public class Book implements Serializable {
 
+    private static final long serialVersionUID = -251227870271833278L;
+
     private final Quote quote;
     private final List<BookEntry> bids;
     private final List<BookEntry> asks;

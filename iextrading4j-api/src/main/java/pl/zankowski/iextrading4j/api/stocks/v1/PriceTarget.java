@@ -11,6 +11,8 @@ import java.time.LocalDate;
 
 public class PriceTarget implements Serializable {
 
+    private static final long serialVersionUID = 2641199116590474197L;
+
     private final String symbol;
     private final LocalDate updatedDate;
     private final BigDecimal priceTargetAverage;

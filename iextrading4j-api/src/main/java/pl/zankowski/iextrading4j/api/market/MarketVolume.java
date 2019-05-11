@@ -13,6 +13,8 @@ import java.math.BigDecimal;
         "tapeC", "marketPercent", "lastUpdated"})
 public class MarketVolume implements Serializable {
 
+    private static final long serialVersionUID = 3656764769085801435L;
+
     private final String mic;
     private final String tapeId;
     private final String venueName;

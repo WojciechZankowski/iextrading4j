@@ -14,6 +14,8 @@ import java.math.BigDecimal;
         "securityType"})
 public class TOPS implements Serializable {
 
+    private static final long serialVersionUID = -4963060825242632556L;
+
     private final String symbol;
     private final BigDecimal marketPercent;
     private final BigDecimal bidSize;

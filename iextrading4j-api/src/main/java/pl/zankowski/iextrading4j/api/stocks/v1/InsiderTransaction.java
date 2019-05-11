@@ -10,6 +10,8 @@ import java.math.BigDecimal;
 
 public class InsiderTransaction implements Serializable {
 
+    private static final long serialVersionUID = -5403038990862585492L;
+
     private final Long effectiveDate;
     private final String fullName;
     private final String reportedTitle;

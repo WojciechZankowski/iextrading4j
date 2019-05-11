@@ -18,6 +18,8 @@ import java.time.LocalDateTime;
         "LeveragedETPFlag", "LeveragedETPRatio", "InverseETPFlag", "RecordUpdateTime"})
 public class IEXSymbolDirectory extends DailyList {
 
+    private static final long serialVersionUID = 4396764474875515269L;
+
     private final String symbolInINETSymbology;
     private final String symbolInCQSSymbology;
     private final String symbolInCMSSymbology;

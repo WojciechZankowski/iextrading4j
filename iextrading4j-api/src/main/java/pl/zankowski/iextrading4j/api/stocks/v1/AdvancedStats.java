@@ -10,6 +10,8 @@ import java.time.LocalDate;
 
 public class AdvancedStats extends KeyStats {
 
+    private static final long serialVersionUID = -5723273184868475823L;
+
     private final BigDecimal totalCash;
     private final BigDecimal currentDebt;
     private final BigDecimal revenue;

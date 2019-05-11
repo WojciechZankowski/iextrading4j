@@ -17,6 +17,8 @@ import java.time.LocalDate;
         "AverageDailyVolume", "DaystoCover", "StockAdjustmentFlag", "NewIssueFlag", "RevisionFlag"})
 public class ShortInterest implements Serializable {
 
+    private static final long serialVersionUID = 3667871969291332272L;
+
     private final LocalDate settlementDate;
     private final String symbolInINETSymbology;
     private final String symbolInCQSSymbology;

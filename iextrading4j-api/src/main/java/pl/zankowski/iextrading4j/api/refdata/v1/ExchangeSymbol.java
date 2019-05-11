@@ -11,6 +11,8 @@ import java.time.LocalDate;
 
 public class ExchangeSymbol implements Serializable {
 
+    private static final long serialVersionUID = -5740262153957115684L;
+
     private final String symbol;
     private final String name;
     private final LocalDate date;

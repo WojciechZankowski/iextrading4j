@@ -16,6 +16,8 @@ import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
         "description", "CEO", "securityName", "issueType", "sector", "employees", "tags"})
 public class Company implements Serializable {
 
+    private static final long serialVersionUID = 1665863689707337670L;
+
     private final String symbol;
     private final String companyName;
     private final String exchange;

@@ -9,6 +9,8 @@ import com.google.common.base.Objects;
 @JsonPropertyOrder({"systemEvent", "timestamp"})
 public class SystemEvent extends DeepResult {
 
+    private static final long serialVersionUID = -726343172725796350L;
+
     private final SystemEventType systemEvent;
     private final Long timestamp;
 

@@ -10,6 +10,8 @@ import java.math.BigDecimal;
 
 public class Intraday implements Serializable {
 
+    private static final long serialVersionUID = -3518267839991998431L;
+
     private final String date;
     private final String minute;
     private final String label;

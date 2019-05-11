@@ -13,6 +13,8 @@ import java.time.LocalTime;
 @JsonPropertyOrder({"price", "size", "time", "timeLabel", "venue", "venueName"})
 public class LargestTrade implements Serializable {
 
+    private static final long serialVersionUID = -1666393957594835977L;
+
     private final BigDecimal price;
     private final BigDecimal size;
     private final Long time;

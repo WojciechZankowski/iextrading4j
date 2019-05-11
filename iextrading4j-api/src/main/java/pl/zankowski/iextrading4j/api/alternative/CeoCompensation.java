@@ -14,6 +14,8 @@ import java.math.BigDecimal;
         "otherCamp", "total", "year"})
 public class CeoCompensation implements Serializable {
 
+    private static final long serialVersionUID = -2298704245550275980L;
+
     private final String symbol;
     private final String name;
     private final String companyName;

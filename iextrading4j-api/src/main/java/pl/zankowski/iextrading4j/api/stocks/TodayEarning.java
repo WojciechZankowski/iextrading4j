@@ -15,6 +15,8 @@ import java.time.LocalDate;
         "symbolId", "symbol", "quote", "headline", "reportDate"})
 public class TodayEarning extends Earning {
 
+    private static final long serialVersionUID = -4956454242048079697L;
+
     private final String symbol;
     private final Quote quote;
     private final String headline;

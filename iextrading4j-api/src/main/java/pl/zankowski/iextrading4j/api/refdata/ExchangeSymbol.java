@@ -12,6 +12,8 @@ import java.time.LocalDate;
 @JsonPropertyOrder({"symbol", "name", "date", "isEnabled", "type", "iexId"})
 public class ExchangeSymbol implements Serializable {
 
+    private static final long serialVersionUID = -1841302226853517777L;
+
     private final String symbol;
     private final String name;
     private final LocalDate date;

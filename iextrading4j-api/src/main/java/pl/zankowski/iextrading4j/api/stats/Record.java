@@ -13,6 +13,8 @@ import java.time.LocalDate;
 @JsonPropertyOrder({"recordValue", "recordDate", "previousDayValue", "avg30Value"})
 public class Record implements Serializable {
 
+    private static final long serialVersionUID = 5186790921999789534L;
+
     private final BigDecimal recordValue;
     private final LocalDate recordDate;
     private final BigDecimal previousDayValue;

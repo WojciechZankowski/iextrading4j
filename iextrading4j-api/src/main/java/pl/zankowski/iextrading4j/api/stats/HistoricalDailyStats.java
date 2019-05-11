@@ -13,6 +13,8 @@ import java.time.LocalDate;
 @JsonPropertyOrder({"date", "volume", "routedVolume", "marketShare", "isHalfday", "litVolume"})
 public class HistoricalDailyStats implements Serializable {
 
+    private static final long serialVersionUID = 3427395544385584634L;
+
     private final LocalDate date;
     private final BigDecimal volume;
     private final BigDecimal routedVolume;

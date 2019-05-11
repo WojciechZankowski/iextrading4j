@@ -12,6 +12,8 @@ import java.math.BigDecimal;
 @JsonPropertyOrder({"volume", "venue", "venueName", "effectiveSpread", "effectiveQuoted", "priceImprovement"})
 public class EffectiveSpread implements Serializable {
 
+    private static final long serialVersionUID = -7443733357554353249L;
+
     private final BigDecimal volume;
     private final String venue;
     private final String venueName;

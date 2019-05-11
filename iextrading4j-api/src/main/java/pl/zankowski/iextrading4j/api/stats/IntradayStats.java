@@ -11,6 +11,8 @@ import java.io.Serializable;
 @JsonPropertyOrder({"volume", "symbolsTraded", "routedVolume", "notional", "marketShare"})
 public class IntradayStats implements Serializable {
 
+    private static final long serialVersionUID = 7983857491091429022L;
+
     private final IntradayStat volume;
     private final IntradayStat symbolsTraded;
     private final IntradayStat routedVolume;

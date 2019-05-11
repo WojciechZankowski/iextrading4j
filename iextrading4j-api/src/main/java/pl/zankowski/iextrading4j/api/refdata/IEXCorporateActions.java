@@ -20,6 +20,8 @@ import java.time.LocalDateTime;
         "IPOFlag", "HistoryHold", "NotesforEachEntry", "RecordUpdateTime"})
 public class IEXCorporateActions extends DailyList {
 
+    private static final long serialVersionUID = 2878470171998226594L;
+
     private final LocalDate effectiveDate;
     private final IssueEvent issueEvent;
     private final String currentSymbolInINETSymbology;

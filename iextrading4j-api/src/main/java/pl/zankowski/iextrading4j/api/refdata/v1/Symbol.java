@@ -10,6 +10,8 @@ import java.time.LocalDate;
 
 public class Symbol implements Serializable {
 
+    private static final long serialVersionUID = -7224324582516753026L;
+
     private final String symbol;
     private final LocalDate date;
     private final Boolean isEnabled;

@@ -11,6 +11,8 @@ import java.time.LocalDate;
 
 public class Financial implements Serializable {
 
+    private static final long serialVersionUID = -732345058122234058L;
+
     private final LocalDate reportDate;
     private final BigDecimal grossProfit;
     private final BigDecimal costOfRevenue;

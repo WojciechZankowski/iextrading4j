@@ -9,6 +9,8 @@ import com.google.common.base.Objects;
 @JsonPropertyOrder({"isHalted", "timestamp"})
 public class OpHaltStatus extends DeepResult {
 
+    private static final long serialVersionUID = -2147671898499081694L;
+
     private final Boolean isHalted;
     private final Long timestamp;
 

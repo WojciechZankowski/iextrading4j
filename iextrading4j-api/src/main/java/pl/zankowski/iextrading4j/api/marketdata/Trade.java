@@ -12,6 +12,8 @@ import java.math.BigDecimal;
         "isSinglePriceCross", "isTradeThroughExempt", "timestamp"})
 public class Trade extends DeepResult {
 
+    private static final long serialVersionUID = -1447468079664257972L;
+
     private final BigDecimal price;
     private final BigDecimal size;
     private final Long tradeId;

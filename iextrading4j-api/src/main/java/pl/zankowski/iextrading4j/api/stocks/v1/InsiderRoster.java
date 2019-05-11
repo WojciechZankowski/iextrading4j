@@ -10,6 +10,8 @@ import java.math.BigDecimal;
 
 public class InsiderRoster implements Serializable {
 
+    private static final long serialVersionUID = 1274323028982169499L;
+
     private final String entityName;
     private final BigDecimal position;
     private final Long reportDate;

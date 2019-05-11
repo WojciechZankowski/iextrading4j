@@ -12,6 +12,8 @@ import java.time.OffsetDateTime;
 @JsonPropertyOrder({"datetime", "headline", "source", "url", "summary", "related", "image"})
 public class News implements Serializable {
 
+    private static final long serialVersionUID = -5968583762112742513L;
+
     private final OffsetDateTime datetime;
     private final String headline;
     private final String source;
