@@ -56,7 +56,7 @@ public class Sentiment implements Serializable {
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
-        if (!(o instanceof Sentiment)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         final Sentiment sentiment1 = (Sentiment) o;
         return Objects.equal(sentiment, sentiment1.sentiment) &&
                 Objects.equal(totalScores, sentiment1.totalScores) &&

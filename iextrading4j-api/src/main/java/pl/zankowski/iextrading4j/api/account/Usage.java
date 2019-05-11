@@ -69,8 +69,7 @@ public class Usage implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(monthlyUsage, monthlyPayAsYouGo, dailyUsage,
-                tokenUsage, keyUsage);
+        return Objects.hashCode(monthlyUsage, monthlyPayAsYouGo, dailyUsage, tokenUsage, keyUsage);
     }
 
     @Override
