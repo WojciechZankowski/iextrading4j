@@ -14,8 +14,8 @@ public class Sentiment implements Serializable {
 
     private final BigDecimal sentiment;
     private final BigDecimal totalScores;
-    private final String positive;
-    private final String negative;
+    private final BigDecimal positive;
+    private final BigDecimal negative;
     @JsonFormat(pattern = "HHmm")
     private final LocalTime minute;
 
@@ -23,8 +23,8 @@ public class Sentiment implements Serializable {
     public Sentiment(
             @JsonProperty("sentiment") final BigDecimal sentiment,
             @JsonProperty("totalScores") final BigDecimal totalScores,
-            @JsonProperty("positive") final String positive,
-            @JsonProperty("negative") final String negative,
+            @JsonProperty("positive") final BigDecimal positive,
+            @JsonProperty("negative") final BigDecimal negative,
             @JsonProperty("minute") final LocalTime minute) {
         this.sentiment = sentiment;
         this.totalScores = totalScores;
@@ -41,11 +41,11 @@ public class Sentiment implements Serializable {
         return totalScores;
     }
 
-    public String getPositive() {
+    public BigDecimal getPositive() {
         return positive;
     }
 
-    public String getNegative() {
+    public BigDecimal getNegative() {
         return negative;
     }
 

@@ -19,8 +19,8 @@ public class SentimentTest {
     public void constructor() {
         final BigDecimal sentiment = fixture.create(BigDecimal.class);
         final BigDecimal totalScores = fixture.create(BigDecimal.class);
-        final String positive = fixture.create(String.class);
-        final String negative = fixture.create(String.class);
+        final BigDecimal positive = fixture.create(BigDecimal.class);
+        final BigDecimal negative = fixture.create(BigDecimal.class);
         final LocalTime minute = fixture.create(LocalTime.class);
 
         final Sentiment sentimentObject = new Sentiment(sentiment, totalScores, positive,
