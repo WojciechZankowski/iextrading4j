@@ -43,6 +43,8 @@ public class CompanyTest {
         assertThat(company.getIssueType()).isEqualTo(issueType);
         assertThat(company.getSector()).isEqualTo(sector);
         assertThat(company.getTags()).isEqualTo(tags);
+        assertThat(company.getSecurityName()).isEqualTo(securityName);
+        assertThat(company.getEmployees()).isEqualByComparingTo(employees);
     }
 
     @Test

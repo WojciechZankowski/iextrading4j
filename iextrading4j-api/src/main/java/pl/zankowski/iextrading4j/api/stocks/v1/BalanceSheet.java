@@ -210,7 +210,7 @@ public class BalanceSheet implements Serializable {
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
-        if (!(o instanceof BalanceSheet)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         final BalanceSheet that = (BalanceSheet) o;
         return Objects.equal(reportDate, that.reportDate) &&
                 Objects.equal(currentCash, that.currentCash) &&
