@@ -54,7 +54,7 @@ public class UsExchange implements Serializable {
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
-        if (!(o instanceof UsExchange)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         final UsExchange that = (UsExchange) o;
         return Objects.equal(name, that.name) &&
                 Objects.equal(mic, that.mic) &&

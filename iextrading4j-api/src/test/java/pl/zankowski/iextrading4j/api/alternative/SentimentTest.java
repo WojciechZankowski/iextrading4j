@@ -1,6 +1,5 @@
 package pl.zankowski.iextrading4j.api.alternative;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;

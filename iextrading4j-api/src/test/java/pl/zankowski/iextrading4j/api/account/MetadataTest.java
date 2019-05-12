@@ -30,6 +30,7 @@ public class MetadataTest {
         assertThat(metadata.getSubscriptionTermType()).isEqualTo(subscriptionTermType);
         assertThat(metadata.getTierName()).isEqualTo(tierName);
         assertThat(metadata.getMessageLimit()).isEqualTo(messageLimit);
+        assertThat(metadata.getMessagesUsed()).isEqualTo(messagesUsed);
     }
 
 
