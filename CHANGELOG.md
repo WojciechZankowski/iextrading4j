@@ -1,7 +1,18 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [3.0.0] - 2109-04-15
+## [3.0.1] - 2019-05-12
+
+### Added
+
+- Support to Sentiment endpoint
+
+### Changed
+
+- Fixed issue with serialization roundtrip [[#38](https://github.com/WojciechZankowski/iextrading4j/issues/38)]
+- Fixed issue with null in account usage endpoint [[#44](https://github.com/WojciechZankowski/iextrading4j/issues/44)]
+
+## [3.0.0] - 2019-04-15
 
 ### Added
 
@@ -189,4 +200,5 @@ All notable changes to this project will be documented in this file.
 [2.2.4]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_3...IT4J_RELEASE_2_2_4
 [2.2.5]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_4...IT4J_RELEASE_2_2_5
 [2.3.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_2_5...IT4J_RELEASE_2_3_0
-[2.3.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_3_0...IT4J_RELEASE_3_0_0
+[3.0.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_3_0...IT4J_RELEASE_3_0_0
+[3.0.1]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_0_0...IT4J_RELEASE_3_0_1
