@@ -69,6 +69,7 @@ public class IpoSummary implements Serializable {
         return amount;
     }
 
+    @JsonProperty("Float")
     public String getFloat() {
         return floatValue;
     }

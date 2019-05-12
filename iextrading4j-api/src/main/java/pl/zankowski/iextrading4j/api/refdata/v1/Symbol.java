@@ -34,6 +34,7 @@ public class Symbol implements Serializable {
         return date;
     }
 
+    @JsonProperty("isEnabled")
     public Boolean getEnabled() {
         return isEnabled;
     }

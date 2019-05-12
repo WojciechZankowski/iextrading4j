@@ -75,10 +75,12 @@ public class Earning implements Serializable {
         return numberOfEstimates;
     }
 
+    @JsonProperty("EPSSurpriseDollar")
     public BigDecimal getEPSSurpriseDollar() {
         return EPSSurpriseDollar;
     }
 
+    @JsonProperty("EPSReportDate")
     public LocalDate getEPSReportDate() {
         return EPSReportDate;
     }

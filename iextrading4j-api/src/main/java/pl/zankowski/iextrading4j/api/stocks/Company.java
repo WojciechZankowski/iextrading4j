@@ -83,6 +83,7 @@ public class Company implements Serializable {
         return description;
     }
 
+    @JsonProperty("CEO")
     public String getCEO() {
         return CEO;
     }

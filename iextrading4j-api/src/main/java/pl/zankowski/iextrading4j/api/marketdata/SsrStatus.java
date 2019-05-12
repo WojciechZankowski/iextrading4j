@@ -25,6 +25,7 @@ public class SsrStatus extends DeepResult {
         this.timestamp = timestamp;
     }
 
+    @JsonProperty("isSSR")
     public Boolean isSSR() {
         return isSSR;
     }

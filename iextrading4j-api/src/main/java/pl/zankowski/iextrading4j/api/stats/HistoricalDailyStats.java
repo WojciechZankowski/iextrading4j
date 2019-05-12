@@ -54,6 +54,7 @@ public class HistoricalDailyStats implements Serializable {
         return marketShare;
     }
 
+    @JsonProperty("isHalfday")
     public Boolean isHalfday() {
         return isHalfday;
     }

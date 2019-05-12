@@ -22,6 +22,7 @@ public class OpHaltStatus extends DeepResult {
         this.timestamp = timestamp;
     }
 
+    @JsonProperty("isHalted")
     public Boolean isHalted() {
         return isHalted;
     }

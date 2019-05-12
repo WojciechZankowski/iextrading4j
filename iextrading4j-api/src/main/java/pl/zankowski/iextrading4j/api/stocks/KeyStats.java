@@ -243,10 +243,12 @@ public class KeyStats implements Serializable {
         return numberOfEstimates;
     }
 
+    @JsonProperty("EPSSurpriseDollar")
     public BigDecimal getEPSSurpriseDollar() {
         return EPSSurpriseDollar;
     }
 
+    @JsonProperty("EPSSurprisePercent")
     public BigDecimal getEPSSurprisePercent() {
         return EPSSurprisePercent;
     }
@@ -255,6 +257,7 @@ public class KeyStats implements Serializable {
         return symbol;
     }
 
+    @JsonProperty("EBITDA")
     public BigDecimal getEBITDA() {
         return EBITDA;
     }

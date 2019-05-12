@@ -58,22 +58,27 @@ public class Trade extends DeepResult {
         return tradeId;
     }
 
+    @JsonProperty("isISO")
     public Boolean isISO() {
         return isISO;
     }
 
+    @JsonProperty("isOddLot")
     public Boolean isOddLot() {
         return isOddLot;
     }
 
+    @JsonProperty("isOutsideRegularHours")
     public Boolean isOutsideRegularHours() {
         return isOutsideRegularHours;
     }
 
+    @JsonProperty("isSinglePriceCross")
     public Boolean isSinglePriceCross() {
         return isSinglePriceCross;
     }
 
+    @JsonProperty("isTradeThroughExempt")
     public Boolean isTradeThroughExempt() {
         return isTradeThroughExempt;
     }
