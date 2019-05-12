@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class VenueVolume implements Serializable {
 
     private static final long serialVersionUID = -7120288284593706983L;
-    
+
     private final BigDecimal volume;
     private final String venue;
     private final String venueName;

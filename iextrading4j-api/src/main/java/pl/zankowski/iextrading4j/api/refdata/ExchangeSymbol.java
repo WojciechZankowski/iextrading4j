@@ -49,6 +49,7 @@ public class ExchangeSymbol implements Serializable {
         return date;
     }
 
+    @JsonProperty("isEnabled")
     public Boolean getEnabled() {
         return isEnabled;
     }

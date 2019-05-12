@@ -70,6 +70,7 @@ public class ExchangeSymbol implements Serializable {
         return currency;
     }
 
+    @JsonProperty("isEnabled")
     public Boolean getEnabled() {
         return isEnabled;
     }
