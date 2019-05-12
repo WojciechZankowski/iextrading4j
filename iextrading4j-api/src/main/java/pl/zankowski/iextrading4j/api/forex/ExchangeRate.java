@@ -51,7 +51,7 @@ public class ExchangeRate implements Serializable {
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
-        if (!(o instanceof ExchangeRate)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         final ExchangeRate that = (ExchangeRate) o;
         return Objects.equal(date, that.date) &&
                 Objects.equal(fromCurrency, that.fromCurrency) &&
