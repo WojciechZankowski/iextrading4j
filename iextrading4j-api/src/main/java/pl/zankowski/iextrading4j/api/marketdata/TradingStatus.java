@@ -9,6 +9,8 @@ import com.google.common.base.Objects;
 @JsonPropertyOrder({"status", "reason", "timestamp"})
 public class TradingStatus extends DeepResult {
 
+    private static final long serialVersionUID = -1547441477537847720L;
+
     private final TradingStatusType status;
     private final TradingStatusReasonType reason;
     private final Long timestamp;

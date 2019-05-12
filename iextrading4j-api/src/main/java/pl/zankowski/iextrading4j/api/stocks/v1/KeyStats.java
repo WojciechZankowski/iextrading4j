@@ -11,6 +11,8 @@ import java.time.LocalDate;
 
 public class KeyStats implements Serializable {
 
+    private static final long serialVersionUID = 4497628239436382865L;
+
     private final String companyName;
     private final BigDecimal marketcap;
     private final BigDecimal week52high;

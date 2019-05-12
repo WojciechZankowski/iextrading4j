@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 @JsonPropertyOrder({"type", "name", "performance", "lastUpdated"})
 public class SectorPerformance implements Serializable {
 
+    private static final long serialVersionUID = 1840798428261698611L;
+
     private final String type;
     private final String name;
     private final BigDecimal performance;

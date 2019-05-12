@@ -14,6 +14,8 @@ import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 @JsonPropertyOrder({"bto", "amc", "other"})
 public class TodayEarnings implements Serializable {
 
+    private static final long serialVersionUID = -66409416779499106L;
+
     private final List<TodayEarning> bto;
     private final List<TodayEarning> amc;
     private final List<TodayEarning> other;

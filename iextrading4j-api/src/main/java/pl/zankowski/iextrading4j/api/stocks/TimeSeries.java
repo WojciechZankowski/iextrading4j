@@ -13,6 +13,8 @@ import java.math.BigDecimal;
         "changePercent", "vwap", "label", "changeOverTime"})
 public class TimeSeries implements Serializable {
 
+    private static final long serialVersionUID = -5513479374604990501L;
+
     private final String date;
     private final BigDecimal open;
     private final BigDecimal high;

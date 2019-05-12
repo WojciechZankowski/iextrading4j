@@ -18,6 +18,8 @@ public class ApiDesignRules implements IDesignRules {
         designRules.add(new HasOneConstructorDR());
         designRules.add(new HasOverriddenEqualsHashCodeAndToStringDR());
         designRules.add(new InheritsSerializableDR());
+        designRules.add(new HasSerializationUidDR());
+        designRules.add(new SerializationRoundTripDR());
     }
 
     @Override

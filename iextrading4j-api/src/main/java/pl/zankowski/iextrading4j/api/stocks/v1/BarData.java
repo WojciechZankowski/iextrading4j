@@ -11,6 +11,8 @@ import java.time.LocalDate;
 
 public class BarData implements Serializable {
 
+    private static final long serialVersionUID = 2796379501226269824L;
+
     private final LocalDate date;
     private final BigDecimal open;
     private final BigDecimal close;

@@ -14,6 +14,8 @@ import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 @JsonPropertyOrder({"peers", "symbols"})
 public class Relevant implements Serializable {
 
+    private static final long serialVersionUID = -6942948119327901276L;
+
     private final Boolean peers;
     private final List<String> symbols;
 

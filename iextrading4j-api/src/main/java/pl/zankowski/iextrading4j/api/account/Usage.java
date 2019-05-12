@@ -15,6 +15,8 @@ import static pl.zankowski.iextrading4j.api.util.MapUtil.immutableMap;
         "tokenUsage", "keyUsage"})
 public class Usage implements Serializable {
 
+    private static final long serialVersionUID = -4979856478459362719L;
+
     private final Long monthlyUsage;
     private final Long monthlyPayAsYouGo;
     private final Map<String, Long> dailyUsage;
@@ -69,8 +71,7 @@ public class Usage implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(monthlyUsage, monthlyPayAsYouGo, dailyUsage,
-                tokenUsage, keyUsage);
+        return Objects.hashCode(monthlyUsage, monthlyPayAsYouGo, dailyUsage, tokenUsage, keyUsage);
     }
 
     @Override

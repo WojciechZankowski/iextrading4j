@@ -10,6 +10,8 @@ import java.math.BigDecimal;
 
 public class Ownership implements Serializable {
 
+    private static final long serialVersionUID = -90284369606919937L;
+
     private final BigDecimal adjHolding;
     private final BigDecimal adjMv;
     private final String entityProperName;

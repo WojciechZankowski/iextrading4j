@@ -14,6 +14,8 @@ import java.time.LocalTime;
         "upperCollarPrice", "extensionNumber", "startTime", "lastUpdate"})
 public class Auction extends DeepResult {
 
+    private static final long serialVersionUID = 5635671777545800835L;
+
     private final AuctionType auctionType;
     private final BigDecimal pairedShares;
     private final BigDecimal imbalanceShares;

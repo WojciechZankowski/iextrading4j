@@ -13,6 +13,8 @@ import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 @JsonPropertyOrder({"rawData", "viewData"})
 public class Ipos implements Serializable {
 
+    private static final long serialVersionUID = 7298805942010846052L;
+
     private final List<Ipo> rawData;
     private final List<IpoSummary> viewData;
 

@@ -12,6 +12,8 @@ import java.math.BigDecimal;
 @JsonPropertyOrder({"symbol", "price", "size", "time"})
 public class LastTrade implements Serializable {
 
+    private static final long serialVersionUID = -2673418323510720203L;
+
     private final String symbol;
     private final BigDecimal price;
     private final BigDecimal size;

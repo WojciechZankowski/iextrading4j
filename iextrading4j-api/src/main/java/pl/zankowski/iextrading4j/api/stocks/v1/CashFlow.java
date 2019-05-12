@@ -10,6 +10,8 @@ import java.time.LocalDate;
 
 public class CashFlow implements Serializable {
 
+    private static final long serialVersionUID = 3659383763381838960L;
+
     private final LocalDate reportDate;
     private final Long netIncome;
     private final Long depreciation;

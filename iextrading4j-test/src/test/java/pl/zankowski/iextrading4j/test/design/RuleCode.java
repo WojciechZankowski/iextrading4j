@@ -8,6 +8,8 @@ public class RuleCode {
     public static RuleCode API_ONE_CONSTRUCTOR = new RuleCode("API_ONE_CONSTRUCTOR");
     public static RuleCode API_ANNOTATED = new RuleCode("API_ANNOTATED");
     public static RuleCode API_OVERRIDDEN = new RuleCode("API_OVERRIDDEN");
+    public static RuleCode API_SERIALIZATION_UID = new RuleCode("API_SERIALIZATION_UID");
+    public static RuleCode API_SERIALIZATION_ROUNDTRIP = new RuleCode("API_SERIALIZATION_ROUNDTRIP");
 
     private final String codeName;
 

@@ -9,6 +9,8 @@ import java.math.BigDecimal;
 
 public class FundOwnership extends Ownership {
 
+    private static final long serialVersionUID = 3647818589558036777L;
+
     private final BigDecimal reportedMv;
 
     @JsonCreator

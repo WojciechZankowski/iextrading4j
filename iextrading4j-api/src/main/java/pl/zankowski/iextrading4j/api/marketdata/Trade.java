@@ -12,6 +12,8 @@ import java.math.BigDecimal;
         "isSinglePriceCross", "isTradeThroughExempt", "timestamp"})
 public class Trade extends DeepResult {
 
+    private static final long serialVersionUID = -1447468079664257972L;
+
     private final BigDecimal price;
     private final BigDecimal size;
     private final Long tradeId;
@@ -56,22 +58,27 @@ public class Trade extends DeepResult {
         return tradeId;
     }
 
+    @JsonProperty("isISO")
     public Boolean isISO() {
         return isISO;
     }
 
+    @JsonProperty("isOddLot")
     public Boolean isOddLot() {
         return isOddLot;
     }
 
+    @JsonProperty("isOutsideRegularHours")
     public Boolean isOutsideRegularHours() {
         return isOutsideRegularHours;
     }
 
+    @JsonProperty("isSinglePriceCross")
     public Boolean isSinglePriceCross() {
         return isSinglePriceCross;
     }
 
+    @JsonProperty("isTradeThroughExempt")
     public Boolean isTradeThroughExempt() {
         return isTradeThroughExempt;
     }

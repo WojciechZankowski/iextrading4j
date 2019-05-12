@@ -17,6 +17,8 @@ import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
         "ssrStatus", "securityEvent", "trades", "tradeBreaks", "auction", "officialPrice"})
 public class DEEP implements Serializable {
 
+    private static final long serialVersionUID = -7792421618579735467L;
+
     private final String symbol;
     private final BigDecimal marketPercent;
     private final BigDecimal volume;

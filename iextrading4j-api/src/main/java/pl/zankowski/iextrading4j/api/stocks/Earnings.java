@@ -14,6 +14,8 @@ import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 @JsonPropertyOrder({"symbol", "earnings"})
 public class Earnings implements Serializable {
 
+    private static final long serialVersionUID = 1072601094280484975L;
+
     private final String symbol;
     private final List<Earning> earnings;
 

@@ -14,6 +14,8 @@ import java.time.LocalDate;
         "CUSIP", "SecurityName"})
 public class ThresholdSecurities implements Serializable {
 
+    private static final long serialVersionUID = -1919263280882297974L;
+
     private final LocalDate tradeDate;
     private final String symbolInINETSymbology;
     private final String symbolInCQSSymbology;

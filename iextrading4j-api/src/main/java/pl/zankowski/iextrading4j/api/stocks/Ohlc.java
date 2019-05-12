@@ -12,6 +12,8 @@ import java.math.BigDecimal;
 @JsonPropertyOrder({"open", "close", "high", "low"})
 public class Ohlc implements Serializable {
 
+    private static final long serialVersionUID = -7796960089826811278L;
+
     private final Point open;
     private final Point close;
     private final BigDecimal high;

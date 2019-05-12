@@ -9,6 +9,8 @@ import java.io.Serializable;
 
 public class UsExchange implements Serializable {
 
+    private static final long serialVersionUID = 1599060793574929356L;
+
     private final String name;
     private final String mic;
     private final String tapeId;

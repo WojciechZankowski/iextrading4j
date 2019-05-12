@@ -13,6 +13,8 @@ import java.time.OffsetDateTime;
         "image", "lang", "hasPaywall"})
 public class News implements Serializable {
 
+    private static final long serialVersionUID = 7687129591411398178L;
+
     private final OffsetDateTime datetime;
     private final String headline;
     private final String source;

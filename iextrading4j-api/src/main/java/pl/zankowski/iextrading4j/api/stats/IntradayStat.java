@@ -12,6 +12,8 @@ import java.math.BigDecimal;
 @JsonPropertyOrder({"value", "lastUpdated"})
 public class IntradayStat implements Serializable {
 
+    private static final long serialVersionUID = 2592939764468529774L;
+
     private final BigDecimal value;
     private final Long lastUpdated;
 

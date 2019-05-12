@@ -11,6 +11,8 @@ import java.util.Objects;
 @JsonPropertyOrder({"RecordId", "DailyListTimestamp"})
 public abstract class DailyList implements Serializable {
 
+    private static final long serialVersionUID = -6263988959782032624L;
+
     private final String recordId;
     private final LocalDateTime dailyListTimestamp;
 

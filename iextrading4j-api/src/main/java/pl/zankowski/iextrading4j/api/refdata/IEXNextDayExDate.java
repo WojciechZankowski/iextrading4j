@@ -18,6 +18,8 @@ import java.time.LocalDateTime;
         "BasisNotes", "NotesforEachEntry", "RecordUpdateTime"})
 public class IEXNextDayExDate extends DailyList {
 
+    private static final long serialVersionUID = 4610872884982057597L;
+
     private final LocalDate exDate;
     private final String symbolInINETSymbology;
     private final String symbolInCQSSymbology;

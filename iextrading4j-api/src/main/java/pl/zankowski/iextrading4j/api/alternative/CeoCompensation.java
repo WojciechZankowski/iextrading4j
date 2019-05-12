@@ -2,13 +2,19 @@ package pl.zankowski.iextrading4j.api.alternative;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+@JsonPropertyOrder({"symbol", "name", "companyName", "location", "salary", "bonus",
+        "stockAwards", "optionAwards", "nonEquityIncentives", "pensionAndDeferred",
+        "otherCamp", "total", "year"})
 public class CeoCompensation implements Serializable {
+
+    private static final long serialVersionUID = -2298704245550275980L;
 
     private final String symbol;
     private final String name;
@@ -109,7 +115,7 @@ public class CeoCompensation implements Serializable {
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
-        if (!(o instanceof CeoCompensation)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         final CeoCompensation that = (CeoCompensation) o;
         return Objects.equal(symbol, that.symbol) &&
                 Objects.equal(name, that.name) &&

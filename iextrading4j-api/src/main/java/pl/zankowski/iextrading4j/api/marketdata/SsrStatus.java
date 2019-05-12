@@ -9,6 +9,8 @@ import com.google.common.base.Objects;
 @JsonPropertyOrder({"isSSR", "detail", "timestamp"})
 public class SsrStatus extends DeepResult {
 
+    private static final long serialVersionUID = 8461740692463131275L;
+
     private final Boolean isSSR;
     private final String detail;
     private final Long timestamp;
@@ -23,6 +25,7 @@ public class SsrStatus extends DeepResult {
         this.timestamp = timestamp;
     }
 
+    @JsonProperty("isSSR")
     public Boolean isSSR() {
         return isSSR;
     }

@@ -12,6 +12,8 @@ import java.io.Serializable;
         "Percent", "Market", "Expected", "quote"})
 public class IpoSummary implements Serializable {
 
+    private static final long serialVersionUID = 3308193363167786847L;
+
     private final String company;
     private final String symbol;
     private final String price;
@@ -67,6 +69,7 @@ public class IpoSummary implements Serializable {
         return amount;
     }
 
+    @JsonProperty("Float")
     public String getFloat() {
         return floatValue;
     }

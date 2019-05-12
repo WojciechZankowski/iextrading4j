@@ -16,6 +16,8 @@ import java.util.List;
         "change", "changeInPercent", "vwap", "label", "changeOverTime", "simplifyFactor"})
 public class Chart extends TimeSeries {
 
+    private static final long serialVersionUID = -9161802845718659470L;
+
     private final String minute;
     private final BigDecimal marketAverage;
     private final BigDecimal marketNotional;

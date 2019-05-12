@@ -17,6 +17,8 @@ import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
         "peers", "previous", "price", "quote", "relevant", "splits", "volume-by-venue"})
 public class BatchStocks implements Serializable {
 
+    private static final long serialVersionUID = -1000412562192933682L;
+
     private final Book book;
     private final List<Chart> chart;
     private final Company company;

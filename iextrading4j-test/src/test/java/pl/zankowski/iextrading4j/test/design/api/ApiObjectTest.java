@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.test.design.api;
 
 import com.google.common.collect.Lists;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.reflections.Reflections;
 import pl.zankowski.iextrading4j.test.design.AbstractViolationTests;
@@ -22,6 +23,9 @@ public class ApiObjectTest extends AbstractViolationTests {
 
         final ViolationsScanner violationsScanner = new ViolationsScanner(DESIGN_RULES);
         REFLECTIONS = Lists.newArrayList(
+                new Reflections("pl.zankowski.iextrading4j.api.account", violationsScanner),
+                new Reflections("pl.zankowski.iextrading4j.api.alternative", violationsScanner),
+                new Reflections("pl.zankowski.iextrading4j.api.forex", violationsScanner),
                 new Reflections("pl.zankowski.iextrading4j.api.market", violationsScanner),
                 new Reflections("pl.zankowski.iextrading4j.api.marketdata", violationsScanner),
                 new Reflections("pl.zankowski.iextrading4j.api.refdata", violationsScanner),
@@ -47,6 +51,17 @@ public class ApiObjectTest extends AbstractViolationTests {
     @Test
     public void overriddenTest() {
         validate(RuleCode.API_OVERRIDDEN, REFLECTIONS, DESIGN_RULES);
+    }
+
+    @Test
+    public void serializationUidTest() {
+        validate(RuleCode.API_SERIALIZATION_UID, REFLECTIONS, DESIGN_RULES);
+    }
+
+    @Ignore
+    @Test
+    public void serializationRoundtripTest() {
+        validate(RuleCode.API_SERIALIZATION_ROUNDTRIP, REFLECTIONS, DESIGN_RULES);
     }
 
 }

@@ -14,6 +14,8 @@ import java.time.LocalDate;
         "unadjustedVolume", "change", "changePercent", "vwap"})
 public class BarData implements Serializable {
 
+    private static final long serialVersionUID = -1015562442205343716L;
+
     private final String symbol;
     private final LocalDate date;
     private final BigDecimal open;

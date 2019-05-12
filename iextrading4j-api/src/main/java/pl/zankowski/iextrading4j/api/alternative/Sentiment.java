@@ -12,10 +12,12 @@ import java.time.LocalTime;
 
 public class Sentiment implements Serializable {
 
+    private static final long serialVersionUID = -4716020002316419582L;
+
     private final BigDecimal sentiment;
     private final BigDecimal totalScores;
-    private final String positive;
-    private final String negative;
+    private final BigDecimal positive;
+    private final BigDecimal negative;
     @JsonFormat(pattern = "HHmm")
     private final LocalTime minute;
 
@@ -23,8 +25,8 @@ public class Sentiment implements Serializable {
     public Sentiment(
             @JsonProperty("sentiment") final BigDecimal sentiment,
             @JsonProperty("totalScores") final BigDecimal totalScores,
-            @JsonProperty("positive") final String positive,
-            @JsonProperty("negative") final String negative,
+            @JsonProperty("positive") final BigDecimal positive,
+            @JsonProperty("negative") final BigDecimal negative,
             @JsonProperty("minute") final LocalTime minute) {
         this.sentiment = sentiment;
         this.totalScores = totalScores;
@@ -41,11 +43,11 @@ public class Sentiment implements Serializable {
         return totalScores;
     }
 
-    public String getPositive() {
+    public BigDecimal getPositive() {
         return positive;
     }
 
-    public String getNegative() {
+    public BigDecimal getNegative() {
         return negative;
     }
 
@@ -56,7 +58,7 @@ public class Sentiment implements Serializable {
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
-        if (!(o instanceof Sentiment)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         final Sentiment sentiment1 = (Sentiment) o;
         return Objects.equal(sentiment, sentiment1.sentiment) &&
                 Objects.equal(totalScores, sentiment1.totalScores) &&

@@ -12,6 +12,8 @@ import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 
 public class IncomeStatements implements Serializable {
 
+    private static final long serialVersionUID = -4920654684070765966L;
+
     private final String symbol;
     private final List<IncomeStatement> income;
 

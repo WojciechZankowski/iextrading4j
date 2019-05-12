@@ -14,6 +14,8 @@ import java.time.LocalDate;
         "amount", "flag", "type", "qualified", "indicated"})
 public class Dividends implements Serializable {
 
+    private static final long serialVersionUID = 9130059067908266890L;
+
     private final LocalDate exDate;
     private final LocalDate paymentDate;
     private final LocalDate recordDate;

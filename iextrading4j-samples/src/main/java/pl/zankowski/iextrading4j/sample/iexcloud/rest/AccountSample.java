@@ -10,6 +10,9 @@ import pl.zankowski.iextrading4j.client.rest.request.account.MetadataRequestBuil
 import pl.zankowski.iextrading4j.client.rest.request.account.UsageRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.account.UsageType;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * This endpoints somehow does not work with Sandbox
  */
@@ -25,6 +28,7 @@ public class AccountSample {
         final AccountSample accountSample = new AccountSample();
 
         accountSample.metadataRequestSample();
+        accountSample.messageUsageRequestSample();
         accountSample.usageRequestSample();
     }
 
@@ -34,10 +38,15 @@ public class AccountSample {
         System.out.println(metadata);
     }
 
-    private void usageRequestSample() {
-        final Usage usage = cloudClient.executeRequest(new UsageRequestBuilder()
+    private void messageUsageRequestSample() {
+        final List<Usage> usage = cloudClient.executeRequest(new UsageRequestBuilder()
                 .withUsageType(UsageType.MESSAGES)
                 .build());
+        System.out.println(usage);
+    }
+
+    private void usageRequestSample() {
+        final Map<String, List<Usage>> usage = cloudClient.executeRequest(new UsageRequestBuilder().build());
         System.out.println(usage);
     }
 

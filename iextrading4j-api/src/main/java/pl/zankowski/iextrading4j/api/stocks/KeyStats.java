@@ -13,6 +13,8 @@ import java.time.LocalDateTime;
 
 public class KeyStats implements Serializable {
 
+    private static final long serialVersionUID = -725886860232280177L;
+
     private final String companyName;
     private final BigDecimal marketcap;
     private final BigDecimal beta;
@@ -241,10 +243,12 @@ public class KeyStats implements Serializable {
         return numberOfEstimates;
     }
 
+    @JsonProperty("EPSSurpriseDollar")
     public BigDecimal getEPSSurpriseDollar() {
         return EPSSurpriseDollar;
     }
 
+    @JsonProperty("EPSSurprisePercent")
     public BigDecimal getEPSSurprisePercent() {
         return EPSSurprisePercent;
     }
@@ -253,6 +257,7 @@ public class KeyStats implements Serializable {
         return symbol;
     }
 
+    @JsonProperty("EBITDA")
     public BigDecimal getEBITDA() {
         return EBITDA;
     }

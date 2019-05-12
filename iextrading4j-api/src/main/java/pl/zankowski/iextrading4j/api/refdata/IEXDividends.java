@@ -19,6 +19,8 @@ import java.time.LocalDateTime;
         "RecordUpdateTime"})
 public class IEXDividends extends DailyList {
 
+    private static final long serialVersionUID = -7804862750801760877L;
+
     private final EventType eventType;
     private final String symbolInINETSymbology;
     private final String symbolInCQSSymbology;

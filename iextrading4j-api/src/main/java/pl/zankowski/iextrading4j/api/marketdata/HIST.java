@@ -13,6 +13,8 @@ import java.time.LocalDate;
 @JsonPropertyOrder({"link", "date", "feed", "version", "protocol", "size"})
 public class HIST implements Serializable {
 
+    private static final long serialVersionUID = 3711566305339745066L;
+
     private final String link;
     @JsonFormat(pattern = "yyyyMMdd")
     private final LocalDate date;

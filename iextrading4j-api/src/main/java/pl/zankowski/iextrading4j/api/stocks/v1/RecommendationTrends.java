@@ -10,6 +10,8 @@ import java.math.BigDecimal;
 
 public class RecommendationTrends implements Serializable {
 
+    private static final long serialVersionUID = -116711859222329067L;
+
     private final Long consensusEndDate;
     private final Long consensusStartDate;
     private final Long corporateActionsAppliedDate;

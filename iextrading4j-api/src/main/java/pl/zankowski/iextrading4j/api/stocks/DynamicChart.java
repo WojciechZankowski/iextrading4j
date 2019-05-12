@@ -13,6 +13,8 @@ import java.util.List;
 @JsonPropertyOrder({"range", "data"})
 public class DynamicChart implements Serializable {
 
+    private static final long serialVersionUID = 4638111283103408598L;
+
     private final ChartRange range;
     private final List<Chart> data;
 

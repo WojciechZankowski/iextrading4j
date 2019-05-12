@@ -14,6 +14,8 @@ import java.time.LocalDate;
         "ratio", "toFactor", "forFactor"})
 public class Split implements Serializable {
 
+    private static final long serialVersionUID = 1723133824483798201L;
+
     private final LocalDate exDate;
     private final LocalDate declaredDate;
     private final LocalDate recordDate;

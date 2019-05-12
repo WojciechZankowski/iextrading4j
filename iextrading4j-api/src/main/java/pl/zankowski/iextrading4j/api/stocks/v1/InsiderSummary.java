@@ -13,6 +13,8 @@ import java.math.BigDecimal;
         "totalBought", "totalSold"})
 public class InsiderSummary implements Serializable {
 
+    private static final long serialVersionUID = 8669068160445448149L;
+
     private final String fullName;
     private final BigDecimal netTransacted;
     private final String reportedTitle;

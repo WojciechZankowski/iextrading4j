@@ -54,6 +54,7 @@ public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMa
         customMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
         customMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
                 PropertiesReader.getInstance().getBoolean(PropertyType.FAIL_ON_UNKNOWN_PROPERTIES));
+        customMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
 
         customMapper.registerModule(new JavaTimeModule());
         customMapper.registerModule(iexTradingModule());

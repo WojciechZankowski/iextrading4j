@@ -21,6 +21,8 @@ import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
         "useOfProceeds", "competition", "amount", "percentOffered"})
 public class Ipo implements Serializable {
 
+    private static final long serialVersionUID = 6433050561897952237L;
+
     private final String symbol;
     private final String companyName;
     private final LocalDate expectedDate;

@@ -12,6 +12,8 @@ import java.io.Serializable;
         "tierName", "messageLimit", "messagesUsed"})
 public class Metadata implements Serializable {
 
+    private static final long serialVersionUID = -7626003595227020176L;
+
     private final Boolean overagesEnabled;
     private final Long effectiveDate;
     private final Long endDateEffective;
@@ -67,10 +69,10 @@ public class Metadata implements Serializable {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Metadata metadata = (Metadata) o;
+        final Metadata metadata = (Metadata) o;
         return Objects.equal(overagesEnabled, metadata.overagesEnabled) &&
                 Objects.equal(effectiveDate, metadata.effectiveDate) &&
                 Objects.equal(endDateEffective, metadata.endDateEffective) &&
@@ -82,8 +84,8 @@ public class Metadata implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(overagesEnabled, effectiveDate, endDateEffective, subscriptionTermType,
-                tierName, messageLimit, messagesUsed);
+        return Objects.hashCode(overagesEnabled, effectiveDate, endDateEffective,
+                subscriptionTermType, tierName, messageLimit, messagesUsed);
     }
 
     @Override

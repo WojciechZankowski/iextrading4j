@@ -14,6 +14,8 @@ import java.time.LocalDate;
         "fiscalEndDate", "reportDate"})
 public class Estimate implements Serializable {
 
+    private static final long serialVersionUID = -5638112355484292012L;
+
     private final BigDecimal consensusEPS;
     private final String announceTime;
     private final BigDecimal numberOfEstimates;

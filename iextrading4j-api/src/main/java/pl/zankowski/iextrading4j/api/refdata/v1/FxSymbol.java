@@ -12,6 +12,8 @@ import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 
 public class FxSymbol implements Serializable {
 
+    private static final long serialVersionUID = -680240566675889011L;
+
     private final List<Currency> currencies;
     private final List<Pair> pairs;
 
