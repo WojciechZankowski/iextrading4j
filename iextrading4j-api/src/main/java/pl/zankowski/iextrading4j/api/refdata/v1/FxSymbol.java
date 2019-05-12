@@ -36,7 +36,7 @@ public class FxSymbol implements Serializable {
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
-        if (!(o instanceof FxSymbol)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         final FxSymbol fxSymbol = (FxSymbol) o;
         return Objects.equal(currencies, fxSymbol.currencies) &&
                 Objects.equal(pairs, fxSymbol.pairs);

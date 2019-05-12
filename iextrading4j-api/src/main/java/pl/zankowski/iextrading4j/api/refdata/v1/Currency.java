@@ -35,7 +35,7 @@ public class Currency implements Serializable {
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
-        if (!(o instanceof Currency)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         final Currency currency = (Currency) o;
         return Objects.equal(code, currency.code) &&
                 Objects.equal(name, currency.name);

@@ -33,7 +33,7 @@ public class Pair implements Serializable {
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
-        if (!(o instanceof Pair)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         final Pair pair = (Pair) o;
         return Objects.equal(from, pair.from) &&
                 Objects.equal(to, pair.to);
