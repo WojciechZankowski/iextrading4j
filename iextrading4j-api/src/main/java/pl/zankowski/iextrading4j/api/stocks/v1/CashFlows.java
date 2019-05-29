@@ -37,8 +37,12 @@ public class CashFlows implements Serializable {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (!(o instanceof CashFlows)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         final CashFlows cashFlows = (CashFlows) o;
         return Objects.equal(symbol, cashFlows.symbol) &&
                 Objects.equal(cashFlow, cashFlows.cashFlow);
