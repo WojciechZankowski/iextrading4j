@@ -125,8 +125,12 @@ public class BarData implements Serializable {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (!(o instanceof BarData)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         final BarData barData = (BarData) o;
         return Objects.equal(date, barData.date) &&
                 Objects.equal(open, barData.open) &&
@@ -147,8 +151,9 @@ public class BarData implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(date, open, close, high, low, volume, uOpen, uClose,
-                uHigh, uLow, uVolume, change, changePercent, changeOverTime, symbol);
+        return Objects.hashCode(date, open, close, high, low, volume, uOpen,
+                uClose, uHigh, uLow, uVolume, change, changePercent, changeOverTime,
+                symbol);
     }
 
     @Override
