@@ -31,9 +31,15 @@ public class FundOwnership extends Ownership {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (!(o instanceof FundOwnership)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof FundOwnership)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
         final FundOwnership that = (FundOwnership) o;
         return Objects.equal(reportedMv, that.reportedMv);
     }
