@@ -10,8 +10,7 @@ import javax.ws.rs.core.GenericType;
 import java.util.List;
 
 public class EffectiveSpreadRequestBuilder extends AbstractStocksRequestBuilder<List<EffectiveSpread>,
-        EffectiveSpreadRequestBuilder> implements IEXApiRestRequest<List<EffectiveSpread>>,
-        IEXCloudV1RestRequest<List<EffectiveSpread>>{
+        EffectiveSpreadRequestBuilder> implements IEXApiRestRequest<List<EffectiveSpread>> {
 
     @Override
     public RestRequest<List<EffectiveSpread>> build() {
