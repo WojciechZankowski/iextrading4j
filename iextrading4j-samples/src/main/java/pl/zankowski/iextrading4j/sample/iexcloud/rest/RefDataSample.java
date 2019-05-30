@@ -33,6 +33,7 @@ public class RefDataSample {
         refDataSample.otcFundsRequestSample();
         refDataSample.usHolidayAndTradingDateSample();
         refDataSample.sectorsSample();
+        refDataSample.tagsSample();
     }
 
     private void symbolsRequestSample() {
@@ -95,6 +96,11 @@ public class RefDataSample {
     private void sectorsSample() {
         final List<Sector> sectors = cloudClient.executeRequest(new SectorRequestBuilder().build());
         System.out.println(sectors);
+    }
+
+    private void tagsSample() {
+        final List<Tag> tags = cloudClient.executeRequest(new TagRequestBuilder().build());
+        System.out.println(tags);
     }
 
 }

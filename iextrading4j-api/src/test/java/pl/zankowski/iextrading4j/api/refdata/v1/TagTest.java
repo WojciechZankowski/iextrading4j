@@ -7,7 +7,7 @@ import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SectorTest {
+public class TagTest {
 
     private final JFixture fixture = new JFixture();
 
@@ -15,21 +15,21 @@ public class SectorTest {
     public void constructor() {
         final String name = fixture.create(String.class);
 
-        final Sector sector = new Sector(name);
+        final Tag tag = new Tag(name);
 
-        assertThat(sector.getName()).isEqualTo(name);
+        assertThat(tag.getName()).isEqualTo(name);
     }
 
     @Test
     public void equalsContract() {
-        EqualsVerifier.forClass(Sector.class)
+        EqualsVerifier.forClass(Tag.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
     public void toStringVerification() {
-        ToStringVerifier.forObject(fixture.create(Sector.class))
+        ToStringVerifier.forObject(fixture.create(Tag.class))
                 .verify();
     }
 

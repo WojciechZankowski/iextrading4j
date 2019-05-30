@@ -6,6 +6,7 @@ import pl.zankowski.iextrading4j.api.refdata.v1.ExchangeSymbol;
 import pl.zankowski.iextrading4j.api.refdata.v1.HolidayAndTradingDate;
 import pl.zankowski.iextrading4j.api.refdata.v1.Sector;
 import pl.zankowski.iextrading4j.api.refdata.v1.Symbol;
+import pl.zankowski.iextrading4j.api.refdata.v1.Tag;
 import pl.zankowski.iextrading4j.api.refdata.v1.UsExchange;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.DateDirection;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.DateType;
@@ -15,6 +16,7 @@ import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.IEXSymbolsReques
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.RegionSymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.SectorRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.SymbolsRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.TagRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.UsExchangeRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.UsHolidayAndTradingDateRequestBuilder;
 
@@ -80,6 +82,12 @@ public class RefDataAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     public void sectorTest() {
         final List<Sector> sectors = cloudClient.executeRequest(new SectorRequestBuilder().build());
         assertThat(sectors).isNotNull();
+    }
+
+    @Test
+    public void tagsTest() {
+        final List<Tag> tags = cloudClient.executeRequest(new TagRequestBuilder().build());
+        assertThat(tags).isNotNull();
     }
 
 }
