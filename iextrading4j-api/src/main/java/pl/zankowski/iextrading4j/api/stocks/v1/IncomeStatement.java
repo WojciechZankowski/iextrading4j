@@ -159,7 +159,9 @@ public class IncomeStatement implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(reportDate, totalRevenue, costOfRevenue, grossProfit, researchAndDevelopment, sellingGeneralAndAdmin, operatingExpense, operatingIncome, otherIncomeExpenseNet, ebit, interestIncome, pretaxIncome, incomeTax, minorityInterest, netIncome, netIncomeBasic);
+        return Objects.hashCode(reportDate, totalRevenue, costOfRevenue, grossProfit, researchAndDevelopment,
+                sellingGeneralAndAdmin, operatingExpense, operatingIncome, otherIncomeExpenseNet, ebit,
+                interestIncome, pretaxIncome, incomeTax, minorityInterest, netIncome, netIncomeBasic);
     }
 
     @Override

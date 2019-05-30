@@ -50,6 +50,7 @@ public class BarDataTest {
         assertThat(barData.getChange()).isEqualTo(change);
         assertThat(barData.getChangePercent()).isEqualTo(changePercent);
         assertThat(barData.getChangeOverTime()).isEqualTo(changeOverTime);
+        assertThat(barData.getSymbol()).isEqualTo(symbol);
     }
 
     @Test
