@@ -35,8 +35,12 @@ public class IncomeStatements implements Serializable {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (!(o instanceof IncomeStatements)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         final IncomeStatements that = (IncomeStatements) o;
         return Objects.equal(symbol, that.symbol) &&
                 Objects.equal(income, that.income);

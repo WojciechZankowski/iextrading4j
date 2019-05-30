@@ -62,8 +62,12 @@ public class PriceTarget implements Serializable {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (!(o instanceof PriceTarget)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         final PriceTarget that = (PriceTarget) o;
         return Objects.equal(symbol, that.symbol) &&
                 Objects.equal(updatedDate, that.updatedDate) &&
@@ -75,8 +79,7 @@ public class PriceTarget implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(symbol, updatedDate, priceTargetAverage, priceTargetHigh,
-                priceTargetLow, numberOfAnalysts);
+        return Objects.hashCode(symbol, updatedDate, priceTargetAverage, priceTargetHigh, priceTargetLow, numberOfAnalysts);
     }
 
     @Override

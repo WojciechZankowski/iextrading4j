@@ -85,8 +85,12 @@ public class News implements Serializable {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         final News news = (News) o;
         return Objects.equal(datetime, news.datetime) &&
                 Objects.equal(headline, news.headline) &&

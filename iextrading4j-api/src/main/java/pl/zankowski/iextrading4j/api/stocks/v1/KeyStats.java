@@ -244,8 +244,12 @@ public class KeyStats implements Serializable {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         final KeyStats keyStats = (KeyStats) o;
         return Objects.equal(companyName, keyStats.companyName) &&
                 Objects.equal(marketcap, keyStats.marketcap) &&
@@ -283,14 +287,7 @@ public class KeyStats implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(companyName, marketcap, week52high, week52low,
-                week52change, sharesOutstanding, Float, symbol, avg10Volume,
-                avg30Volume, day200MovingAvg, day50MovingAvg, employees, ttmEPS,
-                ttmDividendRate, dividendYield, nextDividendDate, exDividendDate,
-                nextEarningsDate, peRatio, maxChangePercent, year5ChangePercent,
-                year2ChangePercent, year1ChangePercent, ytdChangePercent,
-                month6ChangePercent, month3ChangePercent, month1ChangePercent,
-                day5ChangePercent, day30ChangePercent, nextDividendRate, beta);
+        return Objects.hashCode(companyName, marketcap, week52high, week52low, week52change, sharesOutstanding, Float, symbol, avg10Volume, avg30Volume, day200MovingAvg, day50MovingAvg, employees, ttmEPS, ttmDividendRate, dividendYield, nextDividendDate, exDividendDate, nextEarningsDate, peRatio, maxChangePercent, year5ChangePercent, year2ChangePercent, year1ChangePercent, ytdChangePercent, month6ChangePercent, month3ChangePercent, month1ChangePercent, day5ChangePercent, day30ChangePercent, nextDividendRate, beta);
     }
 
     @Override
