@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.test.acceptance.v1;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.refdata.v1.Exchange;
 import pl.zankowski.iextrading4j.api.refdata.v1.ExchangeSymbol;
@@ -15,6 +16,7 @@ import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.ExchangeRequestB
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.ExchangeSymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.IEXSymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.IsinMapperRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.OptionsSymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.RegionSymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.SectorRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.SymbolsRequestBuilder;
@@ -23,6 +25,7 @@ import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.UsExchangeReques
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.UsHolidayAndTradingDateRequestBuilder;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -98,6 +101,14 @@ public class RefDataAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
                 .addIsin("US0378331005")
                 .build());
         System.out.println(result);
+        assertThat(result).isNotNull();
+    }
+
+    @Ignore // Not free tier
+    @Test
+    public void optionsTest() {
+        final Map<String, List<String>> result = cloudClient.executeRequest(new OptionsSymbolsRequestBuilder()
+                .build());
         assertThat(result).isNotNull();
     }
 

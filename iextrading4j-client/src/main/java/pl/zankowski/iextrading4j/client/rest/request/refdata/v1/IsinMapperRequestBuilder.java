@@ -15,7 +15,7 @@ import java.util.List;
 
 import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 
-public class IsinMapperRequestBuilder extends AbstractRequestFilterBuilder<List<List<SymbolMapping>>, SymbolsRequestBuilder>
+public class IsinMapperRequestBuilder extends AbstractRequestFilterBuilder<List<List<SymbolMapping>>, IsinMapperRequestBuilder>
         implements IEXCloudV1RestRequest<List<List<SymbolMapping>>> {
 
     private final List<String> isinList = Lists.newArrayList();

@@ -10,7 +10,7 @@ import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 import javax.ws.rs.core.GenericType;
 import java.util.List;
 
-public class SectorRequestBuilder extends AbstractRequestFilterBuilder<List<Sector>, UsExchangeRequestBuilder>
+public class SectorRequestBuilder extends AbstractRequestFilterBuilder<List<Sector>, SectorRequestBuilder>
         implements IEXCloudV1RestRequest<List<Sector>> {
 
     @Override

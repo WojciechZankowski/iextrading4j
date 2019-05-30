@@ -8,6 +8,7 @@ import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.*;
 
 import java.util.List;
+import java.util.Map;
 
 public class RefDataSample {
 
@@ -22,6 +23,7 @@ public class RefDataSample {
 
         // The requested data is not available to free tier accounts
         // refDataSample.fxSymbolsRequestSample();
+        // refDataSample.optionsSymbolsSample();
 
         refDataSample.symbolsRequestSample();
         refDataSample.iexSymbolsRequestSample();
@@ -108,6 +110,11 @@ public class RefDataSample {
         final List<List<SymbolMapping>> result = cloudClient.executeRequest(new IsinMapperRequestBuilder()
                 .addIsin("US0378331005")
                 .build());
+        System.out.println(result);
+    }
+
+    private void optionsSymbolsSample() {
+        final Map<String, List<String>> result = cloudClient.executeRequest(new OptionsSymbolsRequestBuilder().build());
         System.out.println(result);
     }
 
