@@ -127,7 +127,7 @@ public class RestManagerTest {
         when(restClientMock.getClient()).thenReturn(clientMock);
         when(restClientMock.getRestClientMetadata()).thenReturn(metadataMock);
 
-        when(restRequestMock.getMethodType()).thenReturn(MethodType.POST);
+        when(restRequestMock.getMethodType()).thenReturn(MethodType.PUT);
         when(restRequestMock.getPath()).thenReturn("/test");
         when(metadataMock.getUrl()).thenReturn("http://localhost:8080");
 
