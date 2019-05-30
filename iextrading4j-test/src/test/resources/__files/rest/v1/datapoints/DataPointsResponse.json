@@ -1,0 +1,14 @@
+[
+  {
+    "key": "QUOTE-LATESTPRICE",
+    "weight": 1,
+    "description": "Quote: latestPrice",
+    "lastUpdated": "2019-04-15T13:56:39+00:00"
+  },
+  {
+    "key": "LATEST-FINANCIAL-REPORT-DATE",
+    "weight": 0,
+    "description": "Latest financials report date available",
+    "lastUpdated": "2019-04-15T08:08:10+00:00"
+  }
+]
