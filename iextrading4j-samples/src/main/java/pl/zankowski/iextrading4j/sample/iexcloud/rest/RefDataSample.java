@@ -34,6 +34,7 @@ public class RefDataSample {
         refDataSample.usHolidayAndTradingDateSample();
         refDataSample.sectorsSample();
         refDataSample.tagsSample();
+        refDataSample.isinSample();
     }
 
     private void symbolsRequestSample() {
@@ -101,6 +102,13 @@ public class RefDataSample {
     private void tagsSample() {
         final List<Tag> tags = cloudClient.executeRequest(new TagRequestBuilder().build());
         System.out.println(tags);
+    }
+
+    private void isinSample() {
+        final List<List<SymbolMapping>> result = cloudClient.executeRequest(new IsinMapperRequestBuilder()
+                .addIsin("US0378331005")
+                .build());
+        System.out.println(result);
     }
 
 }

@@ -6,4 +6,6 @@ public interface IRestRequestTypeBuilder<R> {
 
     IRestResponseTypeRequestBuilder<R> get();
 
+    IRestRequestBodyBuilder<R> post();
+
 }

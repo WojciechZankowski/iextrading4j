@@ -6,6 +6,7 @@ import pl.zankowski.iextrading4j.api.refdata.v1.ExchangeSymbol;
 import pl.zankowski.iextrading4j.api.refdata.v1.HolidayAndTradingDate;
 import pl.zankowski.iextrading4j.api.refdata.v1.Sector;
 import pl.zankowski.iextrading4j.api.refdata.v1.Symbol;
+import pl.zankowski.iextrading4j.api.refdata.v1.SymbolMapping;
 import pl.zankowski.iextrading4j.api.refdata.v1.Tag;
 import pl.zankowski.iextrading4j.api.refdata.v1.UsExchange;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.DateDirection;
@@ -13,6 +14,7 @@ import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.DateType;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.ExchangeRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.ExchangeSymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.IEXSymbolsRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.IsinMapperRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.RegionSymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.SectorRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.SymbolsRequestBuilder;
@@ -80,14 +82,23 @@ public class RefDataAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Test
     public void sectorTest() {
-        final List<Sector> sectors = cloudClient.executeRequest(new SectorRequestBuilder().build());
-        assertThat(sectors).isNotNull();
+        final List<Sector> result = cloudClient.executeRequest(new SectorRequestBuilder().build());
+        assertThat(result).isNotNull();
     }
 
     @Test
     public void tagsTest() {
-        final List<Tag> tags = cloudClient.executeRequest(new TagRequestBuilder().build());
-        assertThat(tags).isNotNull();
+        final List<Tag> result = cloudClient.executeRequest(new TagRequestBuilder().build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void isinTest() {
+        final List<List<SymbolMapping>> result = cloudClient.executeRequest(new IsinMapperRequestBuilder()
+                .addIsin("US0378331005")
+                .build());
+        System.out.println(result);
+        assertThat(result).isNotNull();
     }
 
 }
