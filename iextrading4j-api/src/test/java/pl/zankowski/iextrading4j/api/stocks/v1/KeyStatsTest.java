@@ -46,7 +46,6 @@ public class KeyStatsTest {
         final BigDecimal month1ChangePercent = fixture.create(BigDecimal.class);
         final BigDecimal day5ChangePercent = fixture.create(BigDecimal.class);
         final BigDecimal day30ChangePercent = fixture.create(BigDecimal.class);
-        final BigDecimal nextDividendRate = fixture.create(BigDecimal.class);
         final BigDecimal beta = fixture.create(BigDecimal.class);
 
         final KeyStats keyStats = new KeyStats(companyName, marketcap, week52high, week52low,
@@ -54,7 +53,7 @@ public class KeyStatsTest {
                 day50MovingAvg, employees, ttmEPS, ttmDividendRate, dividendYield, nextDividendDate,
                 exDividendDate, nextEarningsDate, peRatio, maxChangePercent, year5ChangePercent, year2ChangePercent,
                 year1ChangePercent, ytdChangePercent, month6ChangePercent, month3ChangePercent, month1ChangePercent,
-                day5ChangePercent, day30ChangePercent, nextDividendRate, beta);
+                day5ChangePercent, day30ChangePercent, beta);
 
         assertThat(keyStats.getCompanyName()).isEqualTo(companyName);
         assertThat(keyStats.getMarketcap()).isEqualTo(marketcap);
@@ -86,7 +85,6 @@ public class KeyStatsTest {
         assertThat(keyStats.getMonth1ChangePercent()).isEqualTo(month1ChangePercent);
         assertThat(keyStats.getDay5ChangePercent()).isEqualTo(day5ChangePercent);
         assertThat(keyStats.getDay30ChangePercent()).isEqualTo(day30ChangePercent);
-        assertThat(keyStats.getNextDividendRate()).isEqualTo(nextDividendRate);
         assertThat(keyStats.getBeta()).isEqualTo(beta);
     }
 

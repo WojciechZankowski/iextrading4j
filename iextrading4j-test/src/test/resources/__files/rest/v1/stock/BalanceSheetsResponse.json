@@ -1,0 +1,34 @@
+{
+  "symbol": "AAPL",
+  "balancesheet": [
+    {
+      "reportDate": "2019-03-31",
+      "currentCash": 38329000000,
+      "shortTermInvestments": 42104000000,
+      "receivables": 15085000000,
+      "inventory": 4884000000,
+      "otherCurrentAssets": 11751000000,
+      "currentAssets": 123346000000,
+      "longTermInvestments": 146807000000,
+      "propertyPlantEquipment": 38746000000,
+      "goodwill": 0,
+      "intangibleAssets": 38746000000,
+      "otherAssets": 33099000000,
+      "totalAssets": 341998000000,
+      "accountsPayable": 30443000000,
+      "currentLongTermDebt": 10505000000,
+      "otherCurrentLiabilities": 40900000000,
+      "totalCurrentLiabilities": 93772000000,
+      "longTermDebt": 90201000000,
+      "otherLiabilities": 6279000000,
+      "minorityInterest": 0,
+      "totalLiabilities": 236138000000,
+      "commonStock": 42801000000,
+      "retainedEarnings": 64558000000,
+      "treasuryStock": null,
+      "capitalSurplus": null,
+      "shareholderEquity": 105860000000,
+      "netTangibleAssets": 105860000000
+    }
+  ]
+}

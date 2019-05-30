@@ -46,7 +46,6 @@ public class AdvancedStatsTest {
         final BigDecimal month1ChangePercent = fixture.create(BigDecimal.class);
         final BigDecimal day5ChangePercent = fixture.create(BigDecimal.class);
         final BigDecimal day30ChangePercent = fixture.create(BigDecimal.class);
-        final BigDecimal nextDividendRate = fixture.create(BigDecimal.class);
         final BigDecimal beta = fixture.create(BigDecimal.class);
         final BigDecimal totalCash = fixture.create(BigDecimal.class);
         final BigDecimal currentDebt = fixture.create(BigDecimal.class);
@@ -70,7 +69,7 @@ public class AdvancedStatsTest {
                 day50MovingAvg, employees, ttmEPS, ttmDividendRate, dividendYield, nextDividendDate,
                 exDividendDate, nextEarningsDate, peRatio, maxChangePercent, year5ChangePercent, year2ChangePercent,
                 year1ChangePercent, ytdChangePercent, month6ChangePercent, month3ChangePercent, month1ChangePercent,
-                day5ChangePercent, day30ChangePercent, nextDividendRate, totalCash, currentDebt, revenue, grossProfit,
+                day5ChangePercent, day30ChangePercent, totalCash, currentDebt, revenue, grossProfit,
                 totalRevenue, ebitda, revenuePerShare, revenuePerEmployee, debtToEquity, profitMargin, enterpriseValue,
                 enterpriseValueToRevenue, priceToSales, priceToBook, forwardPERatio, pegRatio, beta);
 
@@ -104,7 +103,6 @@ public class AdvancedStatsTest {
         assertThat(advancedStats.getMonth1ChangePercent()).isEqualTo(month1ChangePercent);
         assertThat(advancedStats.getDay5ChangePercent()).isEqualTo(day5ChangePercent);
         assertThat(advancedStats.getDay30ChangePercent()).isEqualTo(day30ChangePercent);
-        assertThat(advancedStats.getNextDividendRate()).isEqualTo(nextDividendRate);
         assertThat(advancedStats.getTotalCash()).isEqualTo(totalCash);
         assertThat(advancedStats.getCurrentDebt()).isEqualTo(currentDebt);
         assertThat(advancedStats.getRevenue()).isEqualTo(revenue);

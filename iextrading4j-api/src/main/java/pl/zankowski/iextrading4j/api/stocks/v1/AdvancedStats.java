@@ -61,7 +61,6 @@ public class AdvancedStats extends KeyStats {
             @JsonProperty("month1ChangePercent") final BigDecimal month1ChangePercent,
             @JsonProperty("day5ChangePercent") final BigDecimal day5ChangePercent,
             @JsonProperty("day30ChangePercent") final BigDecimal day30ChangePercent,
-            @JsonProperty("nextDividendRate") final BigDecimal nextDividendRate,
             @JsonProperty("totalCash") final BigDecimal totalCash,
             @JsonProperty("currentDebt") final BigDecimal currentDebt,
             @JsonProperty("revenue") final BigDecimal revenue,
@@ -83,8 +82,7 @@ public class AdvancedStats extends KeyStats {
                 avg10Volume, avg30Volume, day200MovingAvg, day50MovingAvg, employees, ttmEPS, ttmDividendRate,
                 dividendYield, nextDividendDate, exDividendDate, nextEarningsDate, peRatio, maxChangePercent,
                 year5ChangePercent, year2ChangePercent, year1ChangePercent, ytdChangePercent, month6ChangePercent,
-                month3ChangePercent, month1ChangePercent, day5ChangePercent, day30ChangePercent, nextDividendRate,
-                beta);
+                month3ChangePercent, month1ChangePercent, day5ChangePercent, day30ChangePercent, beta);
         this.totalCash = totalCash;
         this.currentDebt = currentDebt;
         this.revenue = revenue;

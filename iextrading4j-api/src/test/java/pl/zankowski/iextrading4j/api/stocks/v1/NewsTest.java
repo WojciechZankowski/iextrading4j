@@ -15,7 +15,7 @@ public class NewsTest {
 
     @Test
     public void constructor() {
-        final OffsetDateTime datetime = fixture.create(OffsetDateTime.class);
+        final Long datetime = fixture.create(Long.class);
         final String headline = fixture.create(String.class);
         final String source = fixture.create(String.class);
         final String url = fixture.create(String.class);

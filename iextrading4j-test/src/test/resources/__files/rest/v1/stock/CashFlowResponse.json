@@ -1,0 +1,23 @@
+{
+  "symbol": "AAPL",
+  "cashflow": [
+    {
+      "reportDate": "2019-03-31",
+      "netIncome": 11561000000,
+      "depreciation": 3040000000,
+      "changesInReceivables": 2992000000,
+      "changesInInventories": 70000000,
+      "cashChange": -4954000000,
+      "cashFlow": 11155000000,
+      "capitalExpenditures": -2363000000,
+      "investments": 15749000000,
+      "investingActivityOther": 56000000,
+      "totalInvestingCashFlows": 13348000000,
+      "dividendsPaid": -3443000000,
+      "netBorrowings": -2506000000,
+      "otherFinancingCashFlows": -196000000,
+      "cashFlowFinancing": -29457000000,
+      "exchangeRateEffect": null
+    }
+  ]
+}
