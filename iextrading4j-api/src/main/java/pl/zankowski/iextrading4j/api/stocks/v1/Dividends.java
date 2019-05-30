@@ -93,8 +93,12 @@ public class Dividends implements Serializable {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Dividends)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         final Dividends dividends = (Dividends) o;
         return Objects.equal(exDate, dividends.exDate) &&
                 Objects.equal(paymentDate, dividends.paymentDate) &&
@@ -110,8 +114,7 @@ public class Dividends implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(exDate, paymentDate, recordDate, declaredDate, amount,
-                flag, currency, description, frequency, date);
+        return Objects.hashCode(exDate, paymentDate, recordDate, declaredDate, amount, flag, currency, description, frequency, date);
     }
 
     @Override

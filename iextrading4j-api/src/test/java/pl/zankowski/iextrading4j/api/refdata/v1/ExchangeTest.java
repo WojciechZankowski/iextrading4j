@@ -16,12 +16,16 @@ public class ExchangeTest {
         final String exchange = fixture.create(String.class);
         final String region = fixture.create(String.class);
         final String description = fixture.create(String.class);
+        final String mic = fixture.create(String.class);
+        final String exchangeSuffix = fixture.create(String.class);
 
-        final Exchange exchangeObject = new Exchange(exchange, region, description);
+        final Exchange exchangeObject = new Exchange(exchange, region, description, mic, exchangeSuffix);
 
         assertThat(exchangeObject.getExchange()).isEqualTo(exchange);
         assertThat(exchangeObject.getRegion()).isEqualTo(region);
         assertThat(exchangeObject.getDescription()).isEqualTo(description);
+        assertThat(exchangeObject.getMic()).isEqualTo(mic);
+        assertThat(exchangeObject.getExchangeSuffix()).isEqualTo(exchangeSuffix);
     }
 
     @Test

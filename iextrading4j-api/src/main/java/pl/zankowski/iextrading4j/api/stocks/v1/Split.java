@@ -65,8 +65,12 @@ public class Split implements Serializable {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Split)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         final Split split = (Split) o;
         return Objects.equal(exDate, split.exDate) &&
                 Objects.equal(declaredDate, split.declaredDate) &&
@@ -78,8 +82,7 @@ public class Split implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(exDate, declaredDate, ratio, toFactor,
-                fromFactor, description);
+        return Objects.hashCode(exDate, declaredDate, ratio, toFactor, fromFactor, description);
     }
 
     @Override

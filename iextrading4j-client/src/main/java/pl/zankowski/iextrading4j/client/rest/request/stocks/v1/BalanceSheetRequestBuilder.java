@@ -12,7 +12,7 @@ public class BalanceSheetRequestBuilder extends AbstractLastStocksRequestBuilder
         implements IEXCloudV1RestRequest<BalanceSheets> {
 
     @Override
-    RestRequest<BalanceSheets> request() {
+    protected RestRequest<BalanceSheets> request() {
         return RestRequestBuilder.<BalanceSheets>builder()
                 .withPath("/stock/{symbol}/balance-sheet")
                 .addPathParam(SYMBOL_PARAM_NAME, getSymbol()).get()

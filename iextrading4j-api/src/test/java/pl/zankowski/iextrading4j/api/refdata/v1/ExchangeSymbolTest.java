@@ -17,6 +17,7 @@ public class ExchangeSymbolTest {
     @Test
     public void constructor() {
         final String symbol = fixture.create(String.class);
+        final String exchange = fixture.create(String.class);
         final String name = fixture.create(String.class);
         final LocalDate date = fixture.create(LocalDate.class);
         final SymbolType type = fixture.create(SymbolType.class);
@@ -25,10 +26,11 @@ public class ExchangeSymbolTest {
         final String currency = fixture.create(String.class);
         final Boolean isEnabled = fixture.create(Boolean.class);
 
-        final ExchangeSymbol exchangeSymbol = new ExchangeSymbol(symbol, name, date, type,
+        final ExchangeSymbol exchangeSymbol = new ExchangeSymbol(symbol, exchange, name, date, type,
                 iexId, region, currency, isEnabled);
 
         assertThat(exchangeSymbol.getSymbol()).isEqualTo(symbol);
+        assertThat(exchangeSymbol.getExchange()).isEqualTo(exchange);
         assertThat(exchangeSymbol.getName()).isEqualTo(name);
         assertThat(exchangeSymbol.getDate()).isEqualTo(date);
         assertThat(exchangeSymbol.getType()).isEqualTo(type);

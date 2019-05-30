@@ -15,6 +15,7 @@ public class FinancialsRequestBuilder extends AbstractLastStocksRequestBuilder<F
                 .withPath("/stock/{symbol}/financials")
                 .addPathParam("symbol", getSymbol()).get()
                 .withResponse(Financials.class)
+                .addQueryParam(queryParameters)
                 .build();
     }
 
@@ -25,6 +26,7 @@ public class FinancialsRequestBuilder extends AbstractLastStocksRequestBuilder<F
                 .addPathParam("symbol", getSymbol())
                 .addPathParam("last", String.valueOf(last)).get()
                 .withResponse(Financials.class)
+                .addQueryParam(queryParameters)
                 .build();
     }
 

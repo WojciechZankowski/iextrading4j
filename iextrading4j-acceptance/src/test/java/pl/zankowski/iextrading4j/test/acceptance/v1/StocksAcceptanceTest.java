@@ -193,14 +193,6 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void effectiveSpreadTest() {
-        final List<EffectiveSpread> result = cloudClient.executeRequest(new EffectiveSpreadRequestBuilder()
-                .withSymbol("AAPL")
-                .build());
-        assertThat(result).isNotNull();
-    }
-
-    @Test
     public void estimatesTest() {
         final Estimates estimates = cloudClient.executeRequest(new EstimatesRequestBuilder()
                 .withSymbol("AAPL")

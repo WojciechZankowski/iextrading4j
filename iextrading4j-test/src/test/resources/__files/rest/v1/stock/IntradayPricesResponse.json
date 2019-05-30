@@ -1,0 +1,25 @@
+[
+  {
+    "date": "2019-05-30",
+    "minute": "09:30",
+    "label": "09:30 AM",
+    "high": 178.42,
+    "low": 177.75,
+    "average": 178.169,
+    "volume": 16428,
+    "notional": 2926969.635,
+    "numberOfTrades": 108,
+    "marketHigh": 178.446,
+    "marketLow": 177.64,
+    "marketAverage": 178.018,
+    "marketVolume": 524149,
+    "marketNotional": 93307962.1503,
+    "marketNumberOfTrades": 1384,
+    "open": 177.9,
+    "close": 178.36,
+    "marketOpen": 177.95,
+    "marketClose": 178.446,
+    "changeOverTime": 0,
+    "marketChangeOverTime": 0
+  }
+]

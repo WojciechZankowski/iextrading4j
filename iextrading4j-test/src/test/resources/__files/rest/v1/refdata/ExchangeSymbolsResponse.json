@@ -1,0 +1,13 @@
+[
+  {
+    "symbol": "TDE-LN",
+    "exchange": "LON",
+    "name": "Telefonica SA",
+    "date": "2019-05-30",
+    "type": "cs",
+    "iexId": "IEX_4A435150514C2D52",
+    "region": "GB",
+    "currency": "EUR",
+    "isEnabled": true
+  }
+]

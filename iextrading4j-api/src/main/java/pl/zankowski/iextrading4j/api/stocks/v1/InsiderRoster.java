@@ -40,8 +40,12 @@ public class InsiderRoster implements Serializable {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (!(o instanceof InsiderRoster)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         final InsiderRoster that = (InsiderRoster) o;
         return Objects.equal(entityName, that.entityName) &&
                 Objects.equal(position, that.position) &&

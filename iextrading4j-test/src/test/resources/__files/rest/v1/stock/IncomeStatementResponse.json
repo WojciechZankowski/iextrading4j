@@ -1,0 +1,23 @@
+{
+  "symbol": "AAPL",
+  "income": [
+    {
+      "reportDate": "2019-03-31",
+      "totalRevenue": 57918000000,
+      "costOfRevenue": 36270000000,
+      "grossProfit": 21648000000,
+      "researchAndDevelopment": 3948000000,
+      "sellingGeneralAndAdmin": 4458000000,
+      "operatingExpense": 44676000000,
+      "operatingIncome": 13242000000,
+      "otherIncomeExpenseNet": 551000000,
+      "ebit": 13242000000,
+      "interestIncome": 1010000000,
+      "pretaxIncome": 13793000000,
+      "incomeTax": 2232000000,
+      "minorityInterest": 0,
+      "netIncome": 11561000000,
+      "netIncomeBasic": 11561000000
+    }
+  ]
+}

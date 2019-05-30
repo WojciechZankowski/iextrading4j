@@ -15,7 +15,7 @@ public class News implements Serializable {
 
     private static final long serialVersionUID = 7687129591411398178L;
 
-    private final OffsetDateTime datetime;
+    private final Long datetime;
     private final String headline;
     private final String source;
     private final String url;
@@ -27,7 +27,7 @@ public class News implements Serializable {
 
     @JsonCreator
     public News(
-            @JsonProperty("datetime") final OffsetDateTime datetime,
+            @JsonProperty("datetime") final Long datetime,
             @JsonProperty("headline") final String headline,
             @JsonProperty("source") final String source,
             @JsonProperty("url") final String url,
@@ -47,7 +47,7 @@ public class News implements Serializable {
         this.hasPaywall = hasPaywall;
     }
 
-    public OffsetDateTime getDatetime() {
+    public Long getDatetime() {
         return datetime;
     }
 
@@ -85,8 +85,12 @@ public class News implements Serializable {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         final News news = (News) o;
         return Objects.equal(datetime, news.datetime) &&
                 Objects.equal(headline, news.headline) &&

@@ -89,8 +89,12 @@ public class RecommendationTrends implements Serializable {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (!(o instanceof RecommendationTrends)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         final RecommendationTrends that = (RecommendationTrends) o;
         return Objects.equal(consensusEndDate, that.consensusEndDate) &&
                 Objects.equal(consensusStartDate, that.consensusStartDate) &&
@@ -106,9 +110,7 @@ public class RecommendationTrends implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(consensusEndDate, consensusStartDate, corporateActionsAppliedDate,
-                ratingBuy, ratingHold, ratingNone, ratingOverweight, ratingScaleMark, ratingSell,
-                ratingUnderweight);
+        return Objects.hashCode(consensusEndDate, consensusStartDate, corporateActionsAppliedDate, ratingBuy, ratingHold, ratingNone, ratingOverweight, ratingScaleMark, ratingSell, ratingUnderweight);
     }
 
     @Override

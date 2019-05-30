@@ -6,47 +6,48 @@ import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class CashFlow implements Serializable {
 
-    private static final long serialVersionUID = 3659383763381838960L;
+    private static final Long serialVersionUID = 3659383763381838960L;
 
     private final LocalDate reportDate;
-    private final Long netIncome;
-    private final Long depreciation;
-    private final Long changesInReceivables;
-    private final Long changesInInventories;
-    private final Long cashChange;
-    private final Long cashFlow;
-    private final Long capitalExpenditures;
-    private final Long investments;
-    private final Long investingActivityOther;
-    private final Long totalInvestingCashFlows;
-    private final Long dividendsPaid;
-    private final Long netBorrowings;
-    private final Long otherFinancingCashFlows;
-    private final Long cashFlowFinancing;
-    private final Long exchangeRateEffect;
+    private final BigDecimal netIncome;
+    private final BigDecimal depreciation;
+    private final BigDecimal changesInReceivables;
+    private final BigDecimal changesInInventories;
+    private final BigDecimal cashChange;
+    private final BigDecimal cashFlow;
+    private final BigDecimal capitalExpenditures;
+    private final BigDecimal investments;
+    private final BigDecimal investingActivityOther;
+    private final BigDecimal totalInvestingCashFlows;
+    private final BigDecimal dividendsPaid;
+    private final BigDecimal netBorrowings;
+    private final BigDecimal otherFinancingCashFlows;
+    private final BigDecimal cashFlowFinancing;
+    private final BigDecimal exchangeRateEffect;
 
     @JsonCreator
     public CashFlow(
             @JsonProperty("reportDate") final LocalDate reportDate,
-            @JsonProperty("netIncome") final Long netIncome,
-            @JsonProperty("depreciation") final Long depreciation,
-            @JsonProperty("changesInReceivables") final Long changesInReceivables,
-            @JsonProperty("changesInInventories") final Long changesInInventories,
-            @JsonProperty("cashChange") final Long cashChange,
-            @JsonProperty("cashFlow") final Long cashFlow,
-            @JsonProperty("capitalExpenditures") final Long capitalExpenditures,
-            @JsonProperty("investments") final Long investments,
-            @JsonProperty("investingActivityOther") final Long investingActivityOther,
-            @JsonProperty("totalInvestingCashFlows") final Long totalInvestingCashFlows,
-            @JsonProperty("dividendsPaid") final Long dividendsPaid,
-            @JsonProperty("netBorrowings") final Long netBorrowings,
-            @JsonProperty("otherFinancingCashFlows") final Long otherFinancingCashFlows,
-            @JsonProperty("cashFlowFinancing") final Long cashFlowFinancing,
-            @JsonProperty("exchangeRateEffect") final Long exchangeRateEffect) {
+            @JsonProperty("netIncome") final BigDecimal netIncome,
+            @JsonProperty("depreciation") final BigDecimal depreciation,
+            @JsonProperty("changesInReceivables") final BigDecimal changesInReceivables,
+            @JsonProperty("changesInInventories") final BigDecimal changesInInventories,
+            @JsonProperty("cashChange") final BigDecimal cashChange,
+            @JsonProperty("cashFlow") final BigDecimal cashFlow,
+            @JsonProperty("capitalExpenditures") final BigDecimal capitalExpenditures,
+            @JsonProperty("investments") final BigDecimal investments,
+            @JsonProperty("investingActivityOther") final BigDecimal investingActivityOther,
+            @JsonProperty("totalInvestingCashFlows") final BigDecimal totalInvestingCashFlows,
+            @JsonProperty("dividendsPaid") final BigDecimal dividendsPaid,
+            @JsonProperty("netBorrowings") final BigDecimal netBorrowings,
+            @JsonProperty("otherFinancingCashFlows") final BigDecimal otherFinancingCashFlows,
+            @JsonProperty("cashFlowFinancing") final BigDecimal cashFlowFinancing,
+            @JsonProperty("exchangeRateEffect") final BigDecimal exchangeRateEffect) {
         this.reportDate = reportDate;
         this.netIncome = netIncome;
         this.depreciation = depreciation;
@@ -69,70 +70,74 @@ public class CashFlow implements Serializable {
         return reportDate;
     }
 
-    public Long getNetIncome() {
+    public BigDecimal getNetIncome() {
         return netIncome;
     }
 
-    public Long getDepreciation() {
+    public BigDecimal getDepreciation() {
         return depreciation;
     }
 
-    public Long getChangesInReceivables() {
+    public BigDecimal getChangesInReceivables() {
         return changesInReceivables;
     }
 
-    public Long getChangesInInventories() {
+    public BigDecimal getChangesInInventories() {
         return changesInInventories;
     }
 
-    public Long getCashChange() {
+    public BigDecimal getCashChange() {
         return cashChange;
     }
 
-    public Long getCashFlow() {
+    public BigDecimal getCashFlow() {
         return cashFlow;
     }
 
-    public Long getCapitalExpenditures() {
+    public BigDecimal getCapitalExpenditures() {
         return capitalExpenditures;
     }
 
-    public Long getInvestments() {
+    public BigDecimal getInvestments() {
         return investments;
     }
 
-    public Long getInvestingActivityOther() {
+    public BigDecimal getInvestingActivityOther() {
         return investingActivityOther;
     }
 
-    public Long getTotalInvestingCashFlows() {
+    public BigDecimal getTotalInvestingCashFlows() {
         return totalInvestingCashFlows;
     }
 
-    public Long getDividendsPaid() {
+    public BigDecimal getDividendsPaid() {
         return dividendsPaid;
     }
 
-    public Long getNetBorrowings() {
+    public BigDecimal getNetBorrowings() {
         return netBorrowings;
     }
 
-    public Long getOtherFinancingCashFlows() {
+    public BigDecimal getOtherFinancingCashFlows() {
         return otherFinancingCashFlows;
     }
 
-    public Long getCashFlowFinancing() {
+    public BigDecimal getCashFlowFinancing() {
         return cashFlowFinancing;
     }
 
-    public Long getExchangeRateEffect() {
+    public BigDecimal getExchangeRateEffect() {
         return exchangeRateEffect;
     }
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (!(o instanceof CashFlow)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         final CashFlow cashFlow1 = (CashFlow) o;
         return Objects.equal(reportDate, cashFlow1.reportDate) &&
                 Objects.equal(netIncome, cashFlow1.netIncome) &&
@@ -154,10 +159,7 @@ public class CashFlow implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(reportDate, netIncome, depreciation, changesInReceivables,
-                changesInInventories, cashChange, cashFlow, capitalExpenditures, investments,
-                investingActivityOther, totalInvestingCashFlows, dividendsPaid, netBorrowings,
-                otherFinancingCashFlows, cashFlowFinancing, exchangeRateEffect);
+        return Objects.hashCode(reportDate, netIncome, depreciation, changesInReceivables, changesInInventories, cashChange, cashFlow, capitalExpenditures, investments, investingActivityOther, totalInvestingCashFlows, dividendsPaid, netBorrowings, otherFinancingCashFlows, cashFlowFinancing, exchangeRateEffect);
     }
 
     @Override

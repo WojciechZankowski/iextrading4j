@@ -132,8 +132,12 @@ public class IncomeStatement implements Serializable {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (!(o instanceof IncomeStatement)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         final IncomeStatement that = (IncomeStatement) o;
         return Objects.equal(reportDate, that.reportDate) &&
                 Objects.equal(totalRevenue, that.totalRevenue) &&
@@ -155,10 +159,9 @@ public class IncomeStatement implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(reportDate, totalRevenue, costOfRevenue, grossProfit,
-                researchAndDevelopment, sellingGeneralAndAdmin, operatingExpense,
-                operatingIncome, otherIncomeExpenseNet, ebit, interestIncome, pretaxIncome,
-                incomeTax, minorityInterest, netIncome, netIncomeBasic);
+        return Objects.hashCode(reportDate, totalRevenue, costOfRevenue, grossProfit, researchAndDevelopment,
+                sellingGeneralAndAdmin, operatingExpense, operatingIncome, otherIncomeExpenseNet, ebit,
+                interestIncome, pretaxIncome, incomeTax, minorityInterest, netIncome, netIncomeBasic);
     }
 
     @Override

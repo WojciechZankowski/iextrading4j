@@ -1,0 +1,13 @@
+{
+  "symbol": "AAPL",
+  "estimates": [
+    {
+      "consensusEPS": 2.11,
+      "announceTime": "AMC",
+      "numberOfEstimates": 37,
+      "reportDate": "2019-07-22",
+      "fiscalPeriod": "Q2 2019",
+      "fiscalEndDate": "2019-06-30"
+    }
+  ]
+}
