@@ -6,11 +6,14 @@ import javax.ws.rs.core.GenericType;
 import java.util.Map;
 
 import static pl.zankowski.iextrading4j.client.rest.manager.MethodType.GET;
+import static pl.zankowski.iextrading4j.client.rest.manager.MethodType.POST;
 
 public class RestRequestBuilder<R> implements IRestPathRequestBuilder<R>,
-        IRestRequestTypeBuilder<R>, IRestResponseTypeRequestBuilder<R>, IRestParamRequestBuilder<R> {
+        IRestRequestTypeBuilder<R>, IRestResponseTypeRequestBuilder<R>, IRestParamRequestBuilder<R>,
+        IRestRequestBodyBuilder<R> {
 
     private GenericType<R> responseType;
+    private PostEntity requestEntity;
     private String path;
     private MethodType methodType;
     private Map<String, String> headerParams;
@@ -65,6 +68,18 @@ public class RestRequestBuilder<R> implements IRestPathRequestBuilder<R>,
     }
 
     @Override
+    public IRestRequestBodyBuilder<R> post() {
+        this.methodType = POST;
+        return this;
+    }
+
+    @Override
+    public IRestResponseTypeRequestBuilder<R> withRequest(final PostEntity requestEntity) {
+        this.requestEntity = requestEntity;
+        return this;
+    }
+
+    @Override
     public IRestParamRequestBuilder<R> withResponse(final Class<R> responseType) {
         this.responseType = new GenericType<>(responseType);
         return this;
@@ -84,7 +99,7 @@ public class RestRequestBuilder<R> implements IRestPathRequestBuilder<R>,
 
     @Override
     public RestRequest<R> build() {
-        return new RestRequest<>(this.responseType, this.path, this.methodType, this.headerParams,
+        return new RestRequest<R>(this.responseType, this.requestEntity, this.path, this.methodType, this.headerParams,
                 this.queryParams, this.pathParams, this.useSecretToken);
     }
 

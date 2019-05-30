@@ -8,6 +8,7 @@ import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.*;
 
 import java.util.List;
+import java.util.Map;
 
 public class RefDataSample {
 
@@ -22,6 +23,7 @@ public class RefDataSample {
 
         // The requested data is not available to free tier accounts
         // refDataSample.fxSymbolsRequestSample();
+        // refDataSample.optionsSymbolsSample();
 
         refDataSample.symbolsRequestSample();
         refDataSample.iexSymbolsRequestSample();
@@ -31,6 +33,10 @@ public class RefDataSample {
         refDataSample.usExchangeRequestSample();
         refDataSample.mutualFundsRequestSample();
         refDataSample.otcFundsRequestSample();
+        refDataSample.usHolidayAndTradingDateSample();
+        refDataSample.sectorsSample();
+        refDataSample.tagsSample();
+        refDataSample.isinSample();
     }
 
     private void symbolsRequestSample() {
@@ -80,6 +86,36 @@ public class RefDataSample {
     private void fxSymbolsRequestSample() {
         final FxSymbol symbol = cloudClient.executeRequest(new FxSymbolRequestBuilder().build());
         System.out.println(symbol);
+    }
+
+    private void usHolidayAndTradingDateSample() {
+        final List<HolidayAndTradingDate> result = cloudClient.executeRequest(new UsHolidayAndTradingDateRequestBuilder()
+                .withType(DateType.TRADE)
+                .withDirection(DateDirection.NEXT)
+                .build());
+        System.out.println(result);
+    }
+
+    private void sectorsSample() {
+        final List<Sector> sectors = cloudClient.executeRequest(new SectorRequestBuilder().build());
+        System.out.println(sectors);
+    }
+
+    private void tagsSample() {
+        final List<Tag> tags = cloudClient.executeRequest(new TagRequestBuilder().build());
+        System.out.println(tags);
+    }
+
+    private void isinSample() {
+        final List<List<SymbolMapping>> result = cloudClient.executeRequest(new IsinMapperRequestBuilder()
+                .addIsin("US0378331005")
+                .build());
+        System.out.println(result);
+    }
+
+    private void optionsSymbolsSample() {
+        final Map<String, List<String>> result = cloudClient.executeRequest(new OptionsSymbolsRequestBuilder().build());
+        System.out.println(result);
     }
 
 }

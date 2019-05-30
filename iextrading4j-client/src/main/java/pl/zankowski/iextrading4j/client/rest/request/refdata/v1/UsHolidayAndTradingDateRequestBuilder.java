@@ -12,7 +12,7 @@ import java.util.List;
 
 import static pl.zankowski.iextrading4j.client.rest.request.util.RequestUtil.IEX_DATE_FORMATTER;
 
-public class UsHolidayAndTradingDateRequestBuilder extends AbstractRequestFilterBuilder<List<HolidayAndTradingDate>, RegionSymbolsRequestBuilder>
+public class UsHolidayAndTradingDateRequestBuilder extends AbstractRequestFilterBuilder<List<HolidayAndTradingDate>, UsHolidayAndTradingDateRequestBuilder>
         implements IEXCloudV1RestRequest<List<HolidayAndTradingDate>> {
 
     private DateType type;

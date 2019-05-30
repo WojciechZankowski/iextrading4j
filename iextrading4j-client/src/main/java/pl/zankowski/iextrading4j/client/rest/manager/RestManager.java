@@ -3,6 +3,7 @@ package pl.zankowski.iextrading4j.client.rest.manager;
 import com.google.common.collect.Maps;
 import pl.zankowski.iextrading4j.api.exception.IEXTradingException;
 
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -36,6 +37,11 @@ public class RestManager {
                 case GET:
                     response = invocationBuilder.get();
                     break;
+                case POST:
+                    final PostEntity requestEntity = restRequest.getRequestEntity();
+                    requestEntity.setToken(resolveToken(restRequest));
+                    response = invocationBuilder.post(Entity.entity(requestEntity, MediaType.APPLICATION_JSON_TYPE));
+                    break;
                 default:
                     throw new IllegalStateException("Method Type not supported.");
             }
@@ -61,16 +67,23 @@ public class RestManager {
     }
 
     private <R> String createURL(final RestRequest<R> restRequest) {
-        final String token = restClient.getRestClientMetadata().getToken() == null
+        return new StringBuilder()
+                .append(getServicePath())
+                .append(createPath(restRequest.getPath(), restRequest.getPathParams()))
+                .append(createQueryParameters(restRequest.getQueryParams(), resolveUrlToken(restRequest)))
+                .toString();
+    }
+
+    private <R> String resolveUrlToken(final RestRequest<R> restRequest) {
+        return restRequest.getMethodType() != MethodType.GET ? null : resolveToken(restRequest);
+    }
+
+    private <R> String resolveToken(final RestRequest<R> restRequest) {
+        return restClient.getRestClientMetadata().getToken() == null
                 ? null
                 : restRequest.getUseSecretToken()
                 ? restClient.getRestClientMetadata().getToken().getSecretToken()
                 : restClient.getRestClientMetadata().getToken().getPublishableToken();
-        return new StringBuilder()
-                .append(getServicePath())
-                .append(createPath(restRequest.getPath(), restRequest.getPathParams()))
-                .append(createQueryParameters(restRequest.getQueryParams(), token))
-                .toString();
     }
 
     private String createPath(final String originalPath, final Map<String, String> pathParams) {

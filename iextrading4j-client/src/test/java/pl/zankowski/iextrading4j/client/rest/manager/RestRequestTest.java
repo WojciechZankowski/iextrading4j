@@ -16,6 +16,7 @@ public class RestRequestTest {
     @Test
     public void constructor() {
         final GenericType<Object> responseTypeMock = mock(GenericType.class);
+        final PostEntity postEntity = mock(PostEntity.class);
         final String path = "path";
         final MethodType methodType = MethodType.GET;
         final Map<String, String> headerParams = ImmutableMap.of();
@@ -23,10 +24,11 @@ public class RestRequestTest {
         final Map<String, String> pathParams = ImmutableMap.of();
         final Boolean useSecretToken = true;
 
-        final RestRequest restRequest = new RestRequest<>(responseTypeMock, path, methodType,
+        final RestRequest restRequest = new RestRequest<>(responseTypeMock, postEntity, path, methodType,
                 headerParams, queryParams, pathParams, useSecretToken);
 
         assertThat(restRequest.getResponseType()).isEqualTo(responseTypeMock);
+        assertThat(restRequest.getRequestEntity()).isEqualTo(postEntity);
         assertThat(restRequest.getPath()).isEqualTo(path);
         assertThat(restRequest.getMethodType()).isEqualTo(methodType);
         assertThat(restRequest.getHeaderParams()).isEqualTo(headerParams);
@@ -44,7 +46,7 @@ public class RestRequestTest {
 
     @Test
     public void toStringVerification() {
-        ToStringVerifier.forObject(new RestRequest<>(null, null, null,
+        ToStringVerifier.forObject(new RestRequest<>(null, null, null, null,
                 null, null, null, null))
                 .verify();
     }
