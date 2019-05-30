@@ -1,0 +1,13 @@
+[
+  {
+    "symbol": "AAAG",
+    "exchange": "OTC",
+    "name": "AAA Century Group USA Inc.",
+    "date": "2019-05-30",
+    "type": "cs",
+    "iexId": "IEX_4A534652444A2D52",
+    "region": "US",
+    "currency": "USD",
+    "isEnabled": true
+  }
+]

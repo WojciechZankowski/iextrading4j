@@ -1,0 +1,9 @@
+[
+  {
+    "exchange": "LON",
+    "region": "GB",
+    "description": "London Stock Exchange",
+    "mic": "XLON",
+    "exchangeSuffix": "-LN"
+  }
+]

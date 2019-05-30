@@ -1,0 +1,14 @@
+{
+  "currencies": [
+    {
+      "code": "USD",
+      "name": "U.S. Dollar"
+    }
+  ],
+  "pairs": [
+    {
+      "from": "EUR",
+      "to": "USD"
+    }
+  ]
+}

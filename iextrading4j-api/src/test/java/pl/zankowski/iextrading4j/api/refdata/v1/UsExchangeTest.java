@@ -14,14 +14,16 @@ public class UsExchangeTest {
     @Test
     public void constructor() {
         final String name = fixture.create(String.class);
+        final String longName = fixture.create(String.class);
         final String mic = fixture.create(String.class);
         final String tapeId = fixture.create(String.class);
         final String oatsId = fixture.create(String.class);
         final String type = fixture.create(String.class);
 
-        final UsExchange usExchange = new UsExchange(name, mic, tapeId, oatsId, type);
+        final UsExchange usExchange = new UsExchange(name, longName, mic, tapeId, oatsId, type);
 
         assertThat(usExchange.getName()).isEqualTo(name);
+        assertThat(usExchange.getLongName()).isEqualTo(longName);
         assertThat(usExchange.getMic()).isEqualTo(mic);
         assertThat(usExchange.getTapeId()).isEqualTo(tapeId);
         assertThat(usExchange.getOatsId()).isEqualTo(oatsId);

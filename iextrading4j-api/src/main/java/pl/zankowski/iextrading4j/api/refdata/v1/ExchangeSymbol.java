@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.api.refdata.v1;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import pl.zankowski.iextrading4j.api.refdata.SymbolType;
@@ -9,11 +10,14 @@ import pl.zankowski.iextrading4j.api.refdata.SymbolType;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+@JsonPropertyOrder({"symbol", "exchange", "name", "date", "type",
+        "iexId", "region", "currency", "isEnabled"})
 public class ExchangeSymbol implements Serializable {
 
     private static final long serialVersionUID = -5740262153957115684L;
 
     private final String symbol;
+    private final String exchange;
     private final String name;
     private final LocalDate date;
     private final SymbolType type;
@@ -25,6 +29,7 @@ public class ExchangeSymbol implements Serializable {
     @JsonCreator
     public ExchangeSymbol(
             @JsonProperty("symbol") final String symbol,
+            @JsonProperty("exchange") final String exchange,
             @JsonProperty("name") final String name,
             @JsonProperty("date") final LocalDate date,
             @JsonProperty("type") final SymbolType type,
@@ -33,6 +38,7 @@ public class ExchangeSymbol implements Serializable {
             @JsonProperty("currency") final String currency,
             @JsonProperty("isEnabled") final Boolean isEnabled) {
         this.symbol = symbol;
+        this.exchange = exchange;
         this.name = name;
         this.date = date;
         this.type = type;
@@ -44,6 +50,10 @@ public class ExchangeSymbol implements Serializable {
 
     public String getSymbol() {
         return symbol;
+    }
+
+    public String getExchange() {
+        return exchange;
     }
 
     public String getName() {
@@ -77,10 +87,15 @@ public class ExchangeSymbol implements Serializable {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         final ExchangeSymbol that = (ExchangeSymbol) o;
         return Objects.equal(symbol, that.symbol) &&
+                Objects.equal(exchange, that.exchange) &&
                 Objects.equal(name, that.name) &&
                 Objects.equal(date, that.date) &&
                 type == that.type &&
@@ -92,13 +107,15 @@ public class ExchangeSymbol implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(symbol, name, date, type, iexId, region, currency, isEnabled);
+        return Objects.hashCode(symbol, exchange, name, date, type, iexId,
+                region, currency, isEnabled);
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("symbol", symbol)
+                .add("exchange", exchange)
                 .add("name", name)
                 .add("date", date)
                 .add("type", type)

@@ -1,0 +1,10 @@
+[
+  {
+    "mic": "ARCX",
+    "name": "NYSE Arca",
+    "longName": "NYSE ARCA",
+    "tapeId": "P",
+    "oatsId": "XP",
+    "type": "equities"
+  }
+]
