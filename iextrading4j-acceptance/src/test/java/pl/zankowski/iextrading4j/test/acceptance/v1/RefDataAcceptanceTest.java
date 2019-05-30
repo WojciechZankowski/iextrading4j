@@ -4,6 +4,7 @@ import org.junit.Test;
 import pl.zankowski.iextrading4j.api.refdata.v1.Exchange;
 import pl.zankowski.iextrading4j.api.refdata.v1.ExchangeSymbol;
 import pl.zankowski.iextrading4j.api.refdata.v1.HolidayAndTradingDate;
+import pl.zankowski.iextrading4j.api.refdata.v1.Sector;
 import pl.zankowski.iextrading4j.api.refdata.v1.Symbol;
 import pl.zankowski.iextrading4j.api.refdata.v1.UsExchange;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.DateDirection;
@@ -12,6 +13,7 @@ import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.ExchangeRequestB
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.ExchangeSymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.IEXSymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.RegionSymbolsRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.SectorRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.SymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.UsExchangeRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.UsHolidayAndTradingDateRequestBuilder;
@@ -72,6 +74,12 @@ public class RefDataAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
                 .withDirection(DateDirection.NEXT)
                 .build());
         assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void sectorTest() {
+        final List<Sector> sectors = cloudClient.executeRequest(new SectorRequestBuilder().build());
+        assertThat(sectors).isNotNull();
     }
 
 }

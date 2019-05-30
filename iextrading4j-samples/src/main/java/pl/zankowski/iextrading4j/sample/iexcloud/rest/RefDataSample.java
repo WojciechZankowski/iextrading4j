@@ -31,6 +31,8 @@ public class RefDataSample {
         refDataSample.usExchangeRequestSample();
         refDataSample.mutualFundsRequestSample();
         refDataSample.otcFundsRequestSample();
+        refDataSample.usHolidayAndTradingDateSample();
+        refDataSample.sectorsSample();
     }
 
     private void symbolsRequestSample() {
@@ -80,6 +82,19 @@ public class RefDataSample {
     private void fxSymbolsRequestSample() {
         final FxSymbol symbol = cloudClient.executeRequest(new FxSymbolRequestBuilder().build());
         System.out.println(symbol);
+    }
+
+    private void usHolidayAndTradingDateSample() {
+        final List<HolidayAndTradingDate> result = cloudClient.executeRequest(new UsHolidayAndTradingDateRequestBuilder()
+                .withType(DateType.TRADE)
+                .withDirection(DateDirection.NEXT)
+                .build());
+        System.out.println(result);
+    }
+
+    private void sectorsSample() {
+        final List<Sector> sectors = cloudClient.executeRequest(new SectorRequestBuilder().build());
+        System.out.println(sectors);
     }
 
 }
