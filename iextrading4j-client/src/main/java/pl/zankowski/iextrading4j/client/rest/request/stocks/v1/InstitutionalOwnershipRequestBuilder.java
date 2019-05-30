@@ -15,7 +15,7 @@ public class InstitutionalOwnershipRequestBuilder extends AbstractStocksRequestB
     @Override
     public RestRequest<List<Ownership>> build() {
         return RestRequestBuilder.<List<Ownership>>builder()
-                .withPath("/stock/{symbol}/fund-ownership")
+                .withPath("/stock/{symbol}/institutional-ownership")
                 .addPathParam("symbol", getSymbol()).get()
                 .withResponse(new GenericType<List<Ownership>>() {
                 })
