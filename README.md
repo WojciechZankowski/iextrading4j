@@ -8,8 +8,6 @@
 
 **IEX Cloud (iexcloud.io) support has been added to the library. All stuff related to old IEX Api has been marked as Deprecated. Old IEX Api will be supported until June 1, 2019. Please move to the IEX Cloud API (iexcloud.io).**
 
-**Not everything from IEX Cloud is supported yet, but it will be covered really soon. If you want to help then pull requests are always welcome.**
-
 
 ## Table of Contents
 
@@ -31,7 +29,7 @@ Maven:
 <dependency>
 	<groupId>pl.zankowski</groupId>
 	<artifactId>iextrading4j-all</artifactId>
-	<version>3.0.1</version>
+	<version>3.1.0</version>
 </dependency>
 ```
 
@@ -39,7 +37,7 @@ Gradle:
 
 ```
 dependencies {
-	compile 'pl.zankowski:iextrading4j-all:3.0.1'
+	compile 'pl.zankowski:iextrading4j-all:3.1.0'
 }
 ```
 

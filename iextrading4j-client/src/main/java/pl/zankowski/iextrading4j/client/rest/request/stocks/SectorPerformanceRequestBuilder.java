@@ -10,8 +10,7 @@ import pl.zankowski.iextrading4j.client.rest.request.IRestRequestBuilder;
 import javax.ws.rs.core.GenericType;
 import java.util.List;
 
-public class SectorPerformanceRequestBuilder implements IEXApiRestRequest<List<SectorPerformance>>,
-        IEXCloudV1RestRequest<List<SectorPerformance>> {
+public class SectorPerformanceRequestBuilder implements IEXCloudV1RestRequest<List<SectorPerformance>> {
 
     @Override
     public RestRequest<List<SectorPerformance>> build() {

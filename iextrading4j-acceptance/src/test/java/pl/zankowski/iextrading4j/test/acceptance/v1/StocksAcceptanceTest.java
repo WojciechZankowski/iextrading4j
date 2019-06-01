@@ -6,11 +6,11 @@ import pl.zankowski.iextrading4j.api.stocks.Book;
 import pl.zankowski.iextrading4j.api.stocks.Company;
 import pl.zankowski.iextrading4j.api.stocks.DelayedQuote;
 import pl.zankowski.iextrading4j.api.stocks.Earnings;
-import pl.zankowski.iextrading4j.api.stocks.EffectiveSpread;
 import pl.zankowski.iextrading4j.api.stocks.Ipos;
 import pl.zankowski.iextrading4j.api.stocks.LargestTrade;
 import pl.zankowski.iextrading4j.api.stocks.Logo;
 import pl.zankowski.iextrading4j.api.stocks.Quote;
+import pl.zankowski.iextrading4j.api.stocks.SectorPerformance;
 import pl.zankowski.iextrading4j.api.stocks.TodayEarnings;
 import pl.zankowski.iextrading4j.api.stocks.TodayIpos;
 import pl.zankowski.iextrading4j.api.stocks.v1.AdvancedStats;
@@ -34,11 +34,13 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.CollectionType;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CompanyRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.DelayedQuoteRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.EarningsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.EffectiveSpreadRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.LargestTradeRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ListRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ListType;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.LogoRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.PeersRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.PriceRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.SectorPerformanceRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayEarningsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayIposRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.UpcomingIposRequestBuilder;
@@ -59,6 +61,7 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.KeyStatsRequestBu
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.NewsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.Period;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -358,6 +361,29 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         final List<News> result = cloudClient.executeRequest(new NewsRequestBuilder()
                 .withSymbol("AAPL")
                 .withLast(10)
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void peersTest() {
+        final List<String> result = cloudClient.executeRequest(new PeersRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void priceTest() {
+        final BigDecimal result = cloudClient.executeRequest(new PriceRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void sectorPerformanceTest() {
+        final List<SectorPerformance> result = cloudClient.executeRequest(new SectorPerformanceRequestBuilder()
                 .build());
         assertThat(result).isNotNull();
     }

@@ -1,6 +1,21 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.1.0] - 2019-05-30
+
+### Added
+
+- Support to U.S. Holidays and Trading Dates endpoint
+- Support to Sectors endpoint
+- Support to Tags endpoint
+- Support to ISIN Mapping endpoint
+- Support to Options Symbols endpoint
+- Support to Data Points endpoint
+
+### Deleted
+
+- IEX Api endpoints: Collections, Crypto, Delayed Quote, Dividends, Financials, IPO Calendar, Largest Trades, Logo, News, Peers, Price, Relevant, Sector Performance, Splits
+
 ## [3.0.1] - 2019-05-12
 
 ### Added

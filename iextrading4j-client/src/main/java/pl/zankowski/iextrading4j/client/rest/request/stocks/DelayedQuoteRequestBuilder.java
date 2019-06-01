@@ -7,7 +7,7 @@ import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
 public class DelayedQuoteRequestBuilder extends AbstractStocksRequestBuilder<DelayedQuote, DelayedQuoteRequestBuilder>
-        implements IEXApiRestRequest<DelayedQuote>, IEXCloudV1RestRequest<DelayedQuote> {
+        implements IEXCloudV1RestRequest<DelayedQuote> {
 
     @Override
     public RestRequest<DelayedQuote> build() {

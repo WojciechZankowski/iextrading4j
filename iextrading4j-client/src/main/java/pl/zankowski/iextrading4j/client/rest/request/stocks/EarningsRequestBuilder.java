@@ -7,7 +7,7 @@ import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
 public class EarningsRequestBuilder extends AbstractStocksRequestBuilder<Earnings, EarningsRequestBuilder>
-        implements IEXApiRestRequest<Earnings>, IEXCloudV1RestRequest<Earnings> {
+        implements IEXCloudV1RestRequest<Earnings> {
 
     private Integer last;
 

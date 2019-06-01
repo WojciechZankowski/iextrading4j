@@ -37,6 +37,7 @@ public class IsinServiceTest extends BaseIEXCloudV1ServiceTest {
         assertThat(symbolMapping.getSymbol()).isEqualTo("foo");
         assertThat(symbolMapping.getExchange()).isEqualTo("NAS");
         assertThat(symbolMapping.getRegion()).isEqualTo("US");
+        assertThat(symbolMapping.getIexId()).isEqualTo("IEX_4D48333344362D52");
     }
 
 }

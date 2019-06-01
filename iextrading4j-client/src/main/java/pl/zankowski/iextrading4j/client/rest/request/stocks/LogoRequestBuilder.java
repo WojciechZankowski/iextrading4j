@@ -3,11 +3,10 @@ package pl.zankowski.iextrading4j.client.rest.request.stocks;
 import pl.zankowski.iextrading4j.api.stocks.Logo;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
 public class LogoRequestBuilder extends AbstractStocksRequestBuilder<Logo, LogoRequestBuilder>
-        implements IEXApiRestRequest<Logo>, IEXCloudV1RestRequest<Logo> {
+        implements IEXCloudV1RestRequest<Logo> {
 
     @Override
     public RestRequest<Logo> build() {

@@ -7,8 +7,7 @@ import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.IRestRequestBuilder;
 
-public class TodayEarningsRequestBuilder implements IEXApiRestRequest<TodayEarnings>,
-        IEXCloudV1RestRequest<TodayEarnings> {
+public class TodayEarningsRequestBuilder implements IEXCloudV1RestRequest<TodayEarnings> {
 
     @Override
     public RestRequest<TodayEarnings> build() {

@@ -2,10 +2,43 @@ package pl.zankowski.iextrading4j.test.acceptance;
 
 import com.google.common.collect.Lists;
 import org.junit.Test;
-import pl.zankowski.iextrading4j.api.stocks.*;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.*;
+import pl.zankowski.iextrading4j.api.stocks.BarData;
+import pl.zankowski.iextrading4j.api.stocks.BatchStocks;
+import pl.zankowski.iextrading4j.api.stocks.Book;
+import pl.zankowski.iextrading4j.api.stocks.Chart;
+import pl.zankowski.iextrading4j.api.stocks.ChartRange;
+import pl.zankowski.iextrading4j.api.stocks.Company;
+import pl.zankowski.iextrading4j.api.stocks.DynamicChart;
+import pl.zankowski.iextrading4j.api.stocks.EffectiveSpread;
+import pl.zankowski.iextrading4j.api.stocks.KeyStats;
+import pl.zankowski.iextrading4j.api.stocks.Ohlc;
+import pl.zankowski.iextrading4j.api.stocks.Quote;
+import pl.zankowski.iextrading4j.api.stocks.ShortInterest;
+import pl.zankowski.iextrading4j.api.stocks.ThresholdSecurities;
+import pl.zankowski.iextrading4j.api.stocks.TimeSeries;
+import pl.zankowski.iextrading4j.api.stocks.VenueVolume;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.BatchMarketStocksRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.BatchStocksRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.BatchStocksType;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.BookRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.ChartRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.CompanyRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.DynamicChartRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.EffectiveSpreadRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.KeyStatsRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.ListRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.ListType;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.OhlcMarketRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.OhlcRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.OpenCloseRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.PreviousMarketRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.PreviousRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.QuoteRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.ShortInterestRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.ThresholdSecuritiesRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.TimeSeriesRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.VenueVolumeRequestBuilder;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -197,12 +230,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void cryptoRequestTest() {
-        final List<Quote> cryptoResponse = iexTradingClient.executeRequest(new CryptoRequestBuilder()
-                .build());
-    }
-
-    @Test
     public void oneDayChartRequestAcceptanceTest() {
         final List<Chart> chartList = iexTradingClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_DAY)
@@ -278,43 +305,8 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void delayedQuoteAcceptanceTest() {
-        final DelayedQuote delayedQuote = iexTradingClient.executeRequest(new DelayedQuoteRequestBuilder()
-                .withSymbol("AAPL")
-                .build());
-    }
-
-    @Test
-    public void dividendsAcceptanceTest() {
-        final List<Dividends> dividends = iexTradingClient.executeRequest(new DividendsRequestBuilder()
-                .withSymbol("AAPL")
-                .withDividendRange(DividendRange.SIX_MONTHS)
-                .build());
-    }
-
-    @Test
-    public void earningsAcceptanceTest() {
-        final Earnings earnings = iexTradingClient.executeRequest(new EarningsRequestBuilder()
-                .withSymbol("AAPL")
-                .build());
-    }
-
-    @Test
-    public void todayEarningsAcceptanceTest() {
-        final TodayEarnings todayEarnings = iexTradingClient.executeRequest(new TodayEarningsRequestBuilder()
-                .build());
-    }
-
-    @Test
     public void effectiveSpreadAcceptanceTest() {
         final List<EffectiveSpread> effectiveSpreads = iexTradingClient.executeRequest(new EffectiveSpreadRequestBuilder()
-                .withSymbol("AAPL")
-                .build());
-    }
-
-    @Test
-    public void financialsAcceptanceTest() {
-        final Financials financials = iexTradingClient.executeRequest(new FinancialsRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
     }
@@ -326,14 +318,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
                 .build());
     }
 
-
-    @Test
-    public void largestTradeAcceptanceTest() {
-        final List<LargestTrade> largestTradeList = iexTradingClient.executeRequest(new LargestTradeRequestBuilder()
-                .withSymbol("aapl")
-                .build());
-    }
-
     @Test
     public void listAcceptanceTest() {
         final List<Quote> quoteList = iexTradingClient.executeRequest(new ListRequestBuilder()
@@ -342,29 +326,8 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void logoAcceptanceTest() {
-        final Logo logo = iexTradingClient.executeRequest(new LogoRequestBuilder()
-                .withSymbol("AAPL")
-                .build());
-    }
-
-    @Test
-    public void newsAcceptanceTest() {
-        final List<News> newsList = iexTradingClient.executeRequest(new NewsRequestBuilder()
-                .withWorldNews()
-                .build());
-    }
-
-    @Test
     public void openCloseAcceptanceTest() {
         final Ohlc ohlc = iexTradingClient.executeRequest(new OpenCloseRequestBuilder()
-                .withSymbol("AAPL")
-                .build());
-    }
-
-    @Test
-    public void peersAcceptanceTest() {
-        final List<String> peers = iexTradingClient.executeRequest(new PeersRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
     }
@@ -377,31 +340,9 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void priceAcceptanceTest() {
-        final BigDecimal price = iexTradingClient.executeRequest(new PriceRequestBuilder()
-                .withSymbol("AAPL")
-                .build());
-    }
-
-    @Test
     public void quoteAcceptanceTest() {
         final Quote quote = iexTradingClient.executeRequest(new QuoteRequestBuilder()
                 .withSymbol("AAPL")
-                .build());
-    }
-
-    @Test
-    public void relevantAcceptanceTest() {
-        final Relevant relevant = iexTradingClient.executeRequest(new RelevantRequestBuilder()
-                .withSymbol("AAPL")
-                .build());
-    }
-
-    @Test
-    public void splitsAcceptanceTest() {
-        final List<Split> splitList = iexTradingClient.executeRequest(new SplitsRequestBuilder()
-                .withSymbol("AAPL")
-                .withSplitsRange(SplitsRange.FIVE_YEARS)
                 .build());
     }
 
@@ -451,48 +392,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
     @Test
     public void previousMarketAcceptanceTest() {
         final Map<String, BarData> barDataMap = iexTradingClient.executeRequest(new PreviousMarketRequestBuilder()
-                .build());
-    }
-
-    @Test
-    public void upcomingIposAcceptanceTest() {
-        final Ipos ipos = iexTradingClient.executeRequest(new UpcomingIposRequestBuilder()
-                .build());
-    }
-
-    @Test
-    public void todayIposAcceptanceTest() {
-        final TodayIpos todayIpos = iexTradingClient.executeRequest(new TodayIposRequestBuilder()
-                .build());
-    }
-
-    @Test
-    public void sectorPerformanceAcceptanceTest() {
-        final List<SectorPerformance> sectorPerformances = iexTradingClient.executeRequest(
-                new SectorPerformanceRequestBuilder().build());
-    }
-
-    @Test
-    public void sectorCollectionRequestSample() {
-        final List<Quote> quotes = iexTradingClient.executeRequest(new CollectionRequestBuilder()
-                .withCollectionType(CollectionType.SECTOR)
-                .withCollectionName("Financials")
-                .build());
-    }
-
-    @Test
-    public void listCollectionRequestSample() {
-        final List<Quote> quotes = iexTradingClient.executeRequest(new CollectionRequestBuilder()
-                .withCollectionType(CollectionType.LIST)
-                .withCollectionName("iexvolume")
-                .build());
-    }
-
-    @Test
-    public void tagCollectionRequestSample() {
-        final List<Quote> quotes = iexTradingClient.executeRequest(new CollectionRequestBuilder()
-                .withCollectionType(CollectionType.TAG)
-                .withCollectionName("Technology")
                 .build());
     }
 
