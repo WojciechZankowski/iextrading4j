@@ -1,13 +1,50 @@
 package pl.zankowski.iextrading4j.sample.iexapi.rest;
 
 import pl.zankowski.iextrading4j.api.refdata.ExchangeSymbol;
-import pl.zankowski.iextrading4j.api.stocks.*;
+import pl.zankowski.iextrading4j.api.stocks.BarData;
+import pl.zankowski.iextrading4j.api.stocks.BatchStocks;
+import pl.zankowski.iextrading4j.api.stocks.Book;
+import pl.zankowski.iextrading4j.api.stocks.Chart;
+import pl.zankowski.iextrading4j.api.stocks.ChartRange;
+import pl.zankowski.iextrading4j.api.stocks.Company;
+import pl.zankowski.iextrading4j.api.stocks.DynamicChart;
+import pl.zankowski.iextrading4j.api.stocks.Earnings;
+import pl.zankowski.iextrading4j.api.stocks.EffectiveSpread;
+import pl.zankowski.iextrading4j.api.stocks.KeyStats;
+import pl.zankowski.iextrading4j.api.stocks.Ohlc;
+import pl.zankowski.iextrading4j.api.stocks.Quote;
+import pl.zankowski.iextrading4j.api.stocks.ShortInterest;
+import pl.zankowski.iextrading4j.api.stocks.ThresholdSecurities;
+import pl.zankowski.iextrading4j.api.stocks.TimeSeries;
+import pl.zankowski.iextrading4j.api.stocks.TodayEarnings;
+import pl.zankowski.iextrading4j.api.stocks.VenueVolume;
 import pl.zankowski.iextrading4j.client.IEXApiClient;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.SymbolsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.*;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.BatchMarketStocksRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.BatchStocksRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.BatchStocksType;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.BookRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.ChartRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.CompanyRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.DynamicChartRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.EarningsRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.EffectiveSpreadRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.KeyStatsRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.ListRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.ListType;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.OhlcMarketRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.OhlcRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.OpenCloseRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.PreviousMarketRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.PreviousRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.QuoteRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.ShortInterestRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.ThresholdSecuritiesRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.TimeSeriesRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayEarningsRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.VenueVolumeRequestBuilder;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -24,25 +61,15 @@ public class StocksSample {
         sampleSuite.bookRequestSample();
         sampleSuite.chartRequestSample();
         sampleSuite.companyRequestSample();
-        sampleSuite.cryptoRequestSample();
-        sampleSuite.delayedQuoteRequestSample();
-        sampleSuite.dividendsRequestSample();
         sampleSuite.dynamicChartRequestSample();
         sampleSuite.earningsRequestSample();
         sampleSuite.todayEarningsRequestSample();
         sampleSuite.effectiveSpreadRequestSample();
-        sampleSuite.financialsRequestSample();
         sampleSuite.keyStatsRequestSample();
         sampleSuite.listRequestSample();
-        sampleSuite.logoRequestSample();
-        sampleSuite.newsRequestSample();
         sampleSuite.openCloseRequestSample();
-        sampleSuite.peersRequestSample();
         sampleSuite.previousRequestSample();
-        sampleSuite.priceRequestSample();
         sampleSuite.quoteRequestSample();
-        sampleSuite.relevantRequestSample();
-        sampleSuite.splitsRequestSample();
         sampleSuite.venueVolumeRequestSample();
         sampleSuite.ohlcRequestSample();
         sampleSuite.shortInterestRequestSample();
@@ -50,9 +77,6 @@ public class StocksSample {
         sampleSuite.thresholdSecuritiesRequestSample();
         sampleSuite.ohlcMarketRequestSample();
         sampleSuite.previousMarketRequestSample();
-        sampleSuite.todayIposRequestSample();
-        sampleSuite.upcomingIposRequestSample();
-        sampleSuite.sectorPerformanceRequestSample();
     }
 
     private void batchRequestSample() {
@@ -81,12 +105,6 @@ public class StocksSample {
         System.out.println(book);
     }
 
-    private void cryptoRequestSample() {
-        final List<Quote> cryptoResponse = iexTradingClient.executeRequest(new CryptoRequestBuilder()
-                .build());
-        System.out.println(cryptoResponse);
-    }
-
     private void chartRequestSample() {
         final List<Chart> chartList = iexTradingClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
@@ -109,21 +127,6 @@ public class StocksSample {
         System.out.println(company);
     }
 
-    private void delayedQuoteRequestSample() {
-        final DelayedQuote delayedQuote = iexTradingClient.executeRequest(new DelayedQuoteRequestBuilder()
-                .withSymbol("AAPL")
-                .build());
-        System.out.println(delayedQuote);
-    }
-
-    private void dividendsRequestSample() {
-        final List<Dividends> dividends = iexTradingClient.executeRequest(new DividendsRequestBuilder()
-                .withSymbol("AAPL")
-                .withDividendRange(DividendRange.SIX_MONTHS)
-                .build());
-        System.out.println(dividends);
-    }
-
     private void earningsRequestSample() {
         final Earnings earnings = iexTradingClient.executeRequest(new EarningsRequestBuilder()
                 .withSymbol("AAPL")
@@ -144,13 +147,6 @@ public class StocksSample {
         System.out.println(effectiveSpreads);
     }
 
-    private void financialsRequestSample() {
-        final Financials financials = iexTradingClient.executeRequest(new FinancialsRequestBuilder()
-                .withSymbol("AAPL")
-                .build());
-        System.out.println(financials);
-    }
-
     private void keyStatsRequestSample() {
         final KeyStats keyStats = iexTradingClient.executeRequest(new KeyStatsRequestBuilder()
                 .withSymbol("AAPL")
@@ -165,32 +161,11 @@ public class StocksSample {
         System.out.println(quoteList);
     }
 
-    private void logoRequestSample() {
-        final Logo logo = iexTradingClient.executeRequest(new LogoRequestBuilder()
-                .withSymbol("AAPL")
-                .build());
-        System.out.println(logo);
-    }
-
-    private void newsRequestSample() {
-        final List<News> newsList = iexTradingClient.executeRequest(new NewsRequestBuilder()
-                .withWorldNews()
-                .build());
-        System.out.println(newsList);
-    }
-
     private void openCloseRequestSample() {
         final Ohlc ohlc = iexTradingClient.executeRequest(new OpenCloseRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
         System.out.println(ohlc);
-    }
-
-    private void peersRequestSample() {
-        final List<String> peers = iexTradingClient.executeRequest(new PeersRequestBuilder()
-                .withSymbol("AAPL")
-                .build());
-        System.out.println(peers);
     }
 
     private void previousRequestSample() {
@@ -206,13 +181,6 @@ public class StocksSample {
         System.out.println(barDataMap);
     }
 
-    private void priceRequestSample() {
-        final BigDecimal price = iexTradingClient.executeRequest(new PriceRequestBuilder()
-                .withSymbol("AAPL")
-                .build());
-        System.out.println(price);
-    }
-
     private void quoteRequestSample() {
         final List<ExchangeSymbol> exchangeSymbols = iexTradingClient.executeRequest(new SymbolsRequestBuilder().build());
         for (final ExchangeSymbol exchangeSymbol : exchangeSymbols) {
@@ -222,21 +190,6 @@ public class StocksSample {
 
             System.out.println(quote);
         }
-    }
-
-    private void relevantRequestSample() {
-        final Relevant relevant = iexTradingClient.executeRequest(new RelevantRequestBuilder()
-                .withSymbol("AAPL")
-                .build());
-        System.out.println(relevant);
-    }
-
-    private void splitsRequestSample() {
-        final List<Split> splitList = iexTradingClient.executeRequest(new SplitsRequestBuilder()
-                .withSymbol("AAPL")
-                .withSplitsRange(SplitsRange.FIVE_YEARS)
-                .build());
-        System.out.println(splitList);
     }
 
     private void venueVolumeRequestSample() {
@@ -280,48 +233,6 @@ public class StocksSample {
                 .withMarket()
                 .build());
         System.out.println(thresholdSecuritiesList);
-    }
-
-    private void todayIposRequestSample() {
-        final TodayIpos todayIpos = iexTradingClient.executeRequest(new TodayIposRequestBuilder()
-                .build());
-        System.out.println(todayIpos);
-    }
-
-    private void upcomingIposRequestSample() {
-        final Ipos ipos = iexTradingClient.executeRequest(new UpcomingIposRequestBuilder()
-                .build());
-        System.out.println(ipos);
-    }
-
-    private void sectorPerformanceRequestSample() {
-        final List<SectorPerformance> sectorPerformances = iexTradingClient.executeRequest(
-                new SectorPerformanceRequestBuilder().build());
-        System.out.println(sectorPerformances);
-    }
-
-    private void sectorCollectionRequestSample() {
-        final List<Quote> quotes = iexTradingClient.executeRequest(new CollectionRequestBuilder()
-                .withCollectionType(CollectionType.SECTOR)
-                .withCollectionName("Financials")
-                .build());
-        System.out.println(quotes);
-    }
-
-    private void listCollectionRequestSample() {
-        final List<Quote> quotes = iexTradingClient.executeRequest(new CollectionRequestBuilder()
-                .withCollectionType(CollectionType.LIST)
-                .withCollectionName("iexvolume")
-                .build());
-        System.out.println(quotes);
-    }
-
-    private void tagCollectionRequestSample() {
-        final List<Quote> quotes = iexTradingClient.executeRequest(new CollectionRequestBuilder()
-                .withCollectionType(CollectionType.TAG)
-                .withCollectionName("Technology")
-                .build());
-        System.out.println(quotes);
     }
 
 }

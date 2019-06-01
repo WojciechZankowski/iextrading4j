@@ -12,7 +12,7 @@ import java.util.List;
 
 import static java.util.Objects.requireNonNull;
 
-public class CollectionRequestBuilder implements IEXApiRestRequest<List<Quote>>, IEXCloudV1RestRequest<List<Quote>> {
+public class CollectionRequestBuilder implements IEXCloudV1RestRequest<List<Quote>> {
 
     private CollectionType collectionType;
     private String collectionName;
