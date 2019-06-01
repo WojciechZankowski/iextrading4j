@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.test.rest.v1.refdata;
 
+import com.github.tomakehurst.wiremock.matching.ContentPattern;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.refdata.v1.SymbolMapping;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.IsinMapperRequestBuilder;
@@ -9,6 +10,7 @@ import java.util.List;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.equalToJson;
 import static com.github.tomakehurst.wiremock.client.WireMock.post;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
@@ -20,6 +22,7 @@ public class IsinServiceTest extends BaseIEXCloudV1ServiceTest {
     public void isinServiceTest() {
         stubFor(post(urlEqualTo("/ref-data/isin"))
                 .withHeader("Accept", equalTo("application/json"))
+                .withRequestBody(bodyContent(CLOUD_TOKEN.getPublishableToken(), "\"isin\": [\"US0378331005\"]"))
                 .willReturn(aResponse()
                         .withStatus(200)
                         .withHeader("Accept", "application/json")

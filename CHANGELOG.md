@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.1.1] - TBD
+
+### Added
+
+- Support to Pay as you go endpoint
+- Support to Message Cutoff endpoint
+
 ## [3.1.0] - 2019-05-30
 
 ### Added

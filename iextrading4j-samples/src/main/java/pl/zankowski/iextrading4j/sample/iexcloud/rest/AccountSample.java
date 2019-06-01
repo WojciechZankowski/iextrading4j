@@ -7,6 +7,7 @@ import pl.zankowski.iextrading4j.client.IEXCloudTokenBuilder;
 import pl.zankowski.iextrading4j.client.IEXTradingApiVersion;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.account.MetadataRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.account.PayAsYouGoRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.account.UsageRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.account.UsageType;
 
@@ -20,8 +21,8 @@ public class AccountSample {
 
     private final IEXCloudClient cloudClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_BETA,
             new IEXCloudTokenBuilder()
-                    .withPublishableToken("pk_")
-                    .withSecretToken("sk_")
+                    .withPublishableToken("pk_2951771b78434f6991e68507df11fb79")
+                    .withSecretToken("sk_f8368334f4214796aae2f66b7dbf92ed")
                     .build());
 
     public static void main(String[] args) {
@@ -30,6 +31,7 @@ public class AccountSample {
         accountSample.metadataRequestSample();
         accountSample.messageUsageRequestSample();
         accountSample.usageRequestSample();
+        accountSample.payAsYouGoSample();
     }
 
     private void metadataRequestSample() {
@@ -48,6 +50,13 @@ public class AccountSample {
     private void usageRequestSample() {
         final Map<String, List<Usage>> usage = cloudClient.executeRequest(new UsageRequestBuilder().build());
         System.out.println(usage);
+    }
+
+    private void payAsYouGoSample() {
+        final String test = cloudClient.executeRequest(new PayAsYouGoRequestBuilder()
+                .withDisallowed()
+                .build());
+        System.out.println(test);
     }
 
 }
