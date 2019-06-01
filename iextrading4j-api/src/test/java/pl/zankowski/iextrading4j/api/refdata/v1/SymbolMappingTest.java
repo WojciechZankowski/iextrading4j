@@ -16,12 +16,14 @@ public class SymbolMappingTest {
         final String symbol = fixture.create(String.class);
         final String exchange = fixture.create(String.class);
         final String region = fixture.create(String.class);
+        final String iexId = fixture.create(String.class);
 
-        final SymbolMapping symbolMapping = new SymbolMapping(symbol, exchange, region);
+        final SymbolMapping symbolMapping = new SymbolMapping(symbol, exchange, region, iexId);
 
         assertThat(symbolMapping.getSymbol()).isEqualTo(symbol);
         assertThat(symbolMapping.getExchange()).isEqualTo(exchange);
         assertThat(symbolMapping.getRegion()).isEqualTo(region);
+        assertThat(symbolMapping.getIexId()).isEqualTo(iexId);
     }
 
     @Test

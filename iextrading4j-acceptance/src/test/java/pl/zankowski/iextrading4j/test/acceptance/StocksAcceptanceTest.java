@@ -9,7 +9,6 @@ import pl.zankowski.iextrading4j.api.stocks.Chart;
 import pl.zankowski.iextrading4j.api.stocks.ChartRange;
 import pl.zankowski.iextrading4j.api.stocks.Company;
 import pl.zankowski.iextrading4j.api.stocks.DynamicChart;
-import pl.zankowski.iextrading4j.api.stocks.Earnings;
 import pl.zankowski.iextrading4j.api.stocks.EffectiveSpread;
 import pl.zankowski.iextrading4j.api.stocks.KeyStats;
 import pl.zankowski.iextrading4j.api.stocks.Ohlc;
@@ -17,7 +16,6 @@ import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.api.stocks.ShortInterest;
 import pl.zankowski.iextrading4j.api.stocks.ThresholdSecurities;
 import pl.zankowski.iextrading4j.api.stocks.TimeSeries;
-import pl.zankowski.iextrading4j.api.stocks.TodayEarnings;
 import pl.zankowski.iextrading4j.api.stocks.VenueVolume;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.BatchMarketStocksRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.BatchStocksRequestBuilder;
@@ -26,7 +24,6 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.BookRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ChartRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CompanyRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.DynamicChartRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.EarningsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.EffectiveSpreadRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.KeyStatsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ListRequestBuilder;
@@ -40,7 +37,6 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.QuoteRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ShortInterestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ThresholdSecuritiesRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.TimeSeriesRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayEarningsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.VenueVolumeRequestBuilder;
 
 import java.util.List;
@@ -305,19 +301,6 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
     public void companyAcceptanceTest() {
         final Company company = iexTradingClient.executeRequest(new CompanyRequestBuilder()
                 .withSymbol("AAPL")
-                .build());
-    }
-
-    @Test
-    public void earningsAcceptanceTest() {
-        final Earnings earnings = iexTradingClient.executeRequest(new EarningsRequestBuilder()
-                .withSymbol("AAPL")
-                .build());
-    }
-
-    @Test
-    public void todayEarningsAcceptanceTest() {
-        final TodayEarnings todayEarnings = iexTradingClient.executeRequest(new TodayEarningsRequestBuilder()
                 .build());
     }
 

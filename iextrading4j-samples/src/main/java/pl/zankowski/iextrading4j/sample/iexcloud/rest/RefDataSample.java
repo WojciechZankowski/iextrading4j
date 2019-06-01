@@ -10,7 +10,8 @@ import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.*;
 import java.util.List;
 import java.util.Map;
 
-public class RefDataSample {
+public class
+RefDataSample {
 
     final IEXCloudClient cloudClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_BETA_SANDBOX,
             new IEXCloudTokenBuilder()
