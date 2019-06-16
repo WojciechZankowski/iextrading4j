@@ -3,12 +3,16 @@ package pl.zankowski.iextrading4j.test.acceptance.v1;
 import org.junit.Ignore;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.stocks.Book;
+import pl.zankowski.iextrading4j.api.stocks.Chart;
+import pl.zankowski.iextrading4j.api.stocks.ChartRange;
 import pl.zankowski.iextrading4j.api.stocks.Company;
 import pl.zankowski.iextrading4j.api.stocks.DelayedQuote;
+import pl.zankowski.iextrading4j.api.stocks.DynamicChart;
 import pl.zankowski.iextrading4j.api.stocks.Earnings;
 import pl.zankowski.iextrading4j.api.stocks.Ipos;
 import pl.zankowski.iextrading4j.api.stocks.LargestTrade;
 import pl.zankowski.iextrading4j.api.stocks.Logo;
+import pl.zankowski.iextrading4j.api.stocks.Ohlc;
 import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.api.stocks.SectorPerformance;
 import pl.zankowski.iextrading4j.api.stocks.TodayEarnings;
@@ -29,15 +33,18 @@ import pl.zankowski.iextrading4j.api.stocks.v1.KeyStats;
 import pl.zankowski.iextrading4j.api.stocks.v1.News;
 import pl.zankowski.iextrading4j.api.stocks.v1.Ownership;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.BookRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.ChartRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CollectionRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CollectionType;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CompanyRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.DelayedQuoteRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.DynamicChartRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.EarningsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.LargestTradeRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ListRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ListType;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.LogoRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.OpenCloseRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.PeersRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.PriceRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.SectorPerformanceRequestBuilder;
@@ -386,6 +393,81 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         final List<SectorPerformance> result = cloudClient.executeRequest(new SectorPerformanceRequestBuilder()
                 .build());
         assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void oneDayChartRequestAcceptanceTest() {
+        final List<Chart> chartList = cloudClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.ONE_DAY)
+                .withSymbol("AAPL")
+                .build());
+    }
+
+    @Test
+    public void oneMonthChartRequestAcceptanceTest() {
+        final List<Chart> chartList = cloudClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.ONE_MONTH)
+                .withSymbol("AAPL")
+                .build());
+    }
+
+    @Test
+    public void chartWithResetAcceptanceTest() {
+        final List<Chart> chartList = cloudClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.ONE_MONTH)
+                .withSymbol("AAPL")
+                .withChartReset()
+                .build());
+    }
+
+    @Test
+    public void chartWithSimplifyAcceptanceTest() {
+        final List<Chart> chartList = cloudClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.ONE_MONTH)
+                .withSymbol("AAPL")
+                .withChartSimplify()
+                .build());
+    }
+
+    @Test
+    public void chartWithIntervalAcceptanceTest() {
+        final List<Chart> chartList = cloudClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.ONE_MONTH)
+                .withSymbol("AAPL")
+                .withChartInterval(4)
+                .build());
+    }
+
+    @Test
+    public void chartWithChangeFromCloseAcceptanceTest() {
+        final List<Chart> chartList = cloudClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.ONE_MONTH)
+                .withSymbol("AAPL")
+                .withChangeFromClose()
+                .build());
+    }
+
+    @Test
+    public void chartWithLastAcceptanceTest() {
+        final List<Chart> chartList = cloudClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.ONE_MONTH)
+                .withSymbol("AAPL")
+                .withChartLast(4)
+                .build());
+    }
+
+    @Test
+    public void dynamicChartAcceptanceTest() {
+        final DynamicChart dynamicChart = cloudClient.executeRequest(new DynamicChartRequestBuilder()
+                .withSymbol("aapl")
+                .build());
+    }
+
+    @Test
+    public void openCloseAcceptanceTest() {
+        final Ohlc ohlc = cloudClient.executeRequest(new OpenCloseRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
     }
 
 }

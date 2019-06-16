@@ -32,6 +32,7 @@ public class OhlcServiceTest extends BaseRestServiceTest {
                 .withSymbol("aapl")
                 .build());
 
+        assertThat(ohlc.getSymbol()).isEqualTo("AAPL");
         assertThat(ohlc.getOpen().getPrice()).isEqualByComparingTo(BigDecimal.valueOf(154));
         assertThat(ohlc.getOpen().getTime()).isEqualTo(1506605400394L);
         assertThat(ohlc.getClose().getPrice()).isEqualByComparingTo(BigDecimal.valueOf(153.28));

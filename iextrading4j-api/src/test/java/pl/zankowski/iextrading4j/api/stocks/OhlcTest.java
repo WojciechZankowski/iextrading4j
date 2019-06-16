@@ -15,13 +15,15 @@ public class OhlcTest {
 
     @Test
     public void constructor() {
+        final String symbol = fixture.create(String.class);
         final Point open = fixture.create(Point.class);
         final Point close = fixture.create(Point.class);
         final BigDecimal high = fixture.create(BigDecimal.class);
         final BigDecimal low = fixture.create(BigDecimal.class);
 
-        final Ohlc ohlc = new Ohlc(open, close, high, low);
+        final Ohlc ohlc = new Ohlc(symbol, open, close, high, low);
 
+        assertThat(ohlc.getSymbol()).isEqualTo(symbol);
         assertThat(ohlc.getOpen()).isEqualTo(open);
         assertThat(ohlc.getClose()).isEqualTo(close);
         assertThat(ohlc.getHigh()).isEqualTo(high);

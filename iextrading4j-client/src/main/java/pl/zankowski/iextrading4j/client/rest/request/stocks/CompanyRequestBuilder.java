@@ -7,7 +7,7 @@ import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
 public class CompanyRequestBuilder extends AbstractStocksRequestBuilder<Company, CompanyRequestBuilder>
-        implements IEXApiRestRequest<Company>, IEXCloudV1RestRequest<Company> {
+        implements IEXCloudV1RestRequest<Company> {
 
     @Override
     public RestRequest<Company> build() {

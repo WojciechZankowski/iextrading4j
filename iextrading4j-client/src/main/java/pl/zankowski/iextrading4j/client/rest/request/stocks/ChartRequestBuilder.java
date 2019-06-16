@@ -4,7 +4,6 @@ import pl.zankowski.iextrading4j.api.stocks.Chart;
 import pl.zankowski.iextrading4j.api.stocks.ChartRange;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
 import javax.ws.rs.core.GenericType;
@@ -14,7 +13,7 @@ import java.util.List;
 import static pl.zankowski.iextrading4j.client.rest.request.util.RequestUtil.IEX_DATE_FORMATTER;
 
 public class ChartRequestBuilder extends AbstractChartRequestBuilder<List<Chart>, ChartRequestBuilder>
-        implements IEXApiRestRequest<List<Chart>>, IEXCloudV1RestRequest<List<Chart>> {
+        implements IEXCloudV1RestRequest<List<Chart>> {
 
     private LocalDate date;
     private ChartRange chartRange;

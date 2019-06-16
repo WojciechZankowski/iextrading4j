@@ -7,7 +7,7 @@ import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
 public class QuoteRequestBuilder extends AbstractStocksRequestBuilder<Quote, QuoteRequestBuilder>
-        implements IEXApiRestRequest<Quote>, IEXCloudV1RestRequest<Quote> {
+        implements IEXCloudV1RestRequest<Quote> {
 
     private boolean displayPercent;
 
