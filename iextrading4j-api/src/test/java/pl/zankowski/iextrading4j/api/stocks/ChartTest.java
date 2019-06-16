@@ -27,6 +27,11 @@ public class ChartTest {
         final BigDecimal marketChangeOverTime = fixture.create(BigDecimal.class);
         final BigDecimal marketOpen = fixture.create(BigDecimal.class);
         final BigDecimal marketClose = fixture.create(BigDecimal.class);
+        final BigDecimal uOpen = fixture.create(BigDecimal.class);
+        final BigDecimal uHigh = fixture.create(BigDecimal.class);
+        final BigDecimal uLow = fixture.create(BigDecimal.class);
+        final BigDecimal uClose = fixture.create(BigDecimal.class);
+        final BigDecimal uVolume = fixture.create(BigDecimal.class);
         final BigDecimal average = fixture.create(BigDecimal.class);
         final BigDecimal notional = fixture.create(BigDecimal.class);
         final BigDecimal numberOfTrades = fixture.create(BigDecimal.class);
@@ -48,7 +53,7 @@ public class ChartTest {
         final Chart chart = new Chart(minute, marketAverage, marketNotional, marketNumberOfTrades, marketHigh,
                 marketLow, marketVolume, marketChangeOverTime, marketOpen, marketClose, average, notional,
                 numberOfTrades, simplifyFactor, high, low, volume, label, changeOverTime, date, open, close,
-                unadjustedVolume, change, changePercent, vwap);
+                uOpen, uHigh, uLow, uClose, uVolume, unadjustedVolume, change, changePercent, vwap);
 
         assertThat(chart.getMinute()).isEqualTo(minute);
         assertThat(chart.getMarketAverage()).isEqualByComparingTo(marketAverage);
@@ -74,6 +79,11 @@ public class ChartTest {
         assertThat(chart.getChangePercent()).isEqualTo(changePercent);
         assertThat(chart.getVwap()).isEqualTo(vwap);
         assertThat(chart.getLabel()).isEqualTo(label);
+        assertThat(chart.getuOpen()).isEqualTo(uOpen);
+        assertThat(chart.getuClose()).isEqualTo(uClose);
+        assertThat(chart.getuHigh()).isEqualTo(uHigh);
+        assertThat(chart.getuLow()).isEqualTo(uLow);
+        assertThat(chart.getuVolume()).isEqualTo(uVolume);
         assertThat(chart.getChangeOverTime()).isEqualTo(changeOverTime);
         assertThat(chart.getSimplifyFactor()).isEqualTo(simplifyFactor);
     }

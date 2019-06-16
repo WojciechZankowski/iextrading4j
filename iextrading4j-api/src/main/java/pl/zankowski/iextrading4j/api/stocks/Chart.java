@@ -57,11 +57,17 @@ public class Chart extends TimeSeries {
             @JsonProperty("date") final String date,
             @JsonProperty("open") final BigDecimal open,
             @JsonProperty("close") final BigDecimal close,
+            @JsonProperty("uOpen") final BigDecimal uOpen,
+            @JsonProperty("uHigh") final BigDecimal uHigh,
+            @JsonProperty("uLow") final BigDecimal uLow,
+            @JsonProperty("uClose") final BigDecimal uClose,
+            @JsonProperty("uVolume") final BigDecimal uVolume,
             @JsonProperty("unadjustedVolume") final BigDecimal unadjustedVolume,
             @JsonProperty("change") final BigDecimal change,
             @JsonProperty("changePercent") final BigDecimal changePercent,
             @JsonProperty("vwap") final BigDecimal vwap) {
-        super(date, open, high, low, close, volume, unadjustedVolume, change, changePercent, vwap, label, changeOverTime);
+        super(date, open, high, low, close, volume, uOpen, uHigh, uLow, uClose, uVolume, unadjustedVolume, change,
+                changePercent, vwap, label, changeOverTime);
         this.minute = minute;
         this.marketAverage = marketAverage;
         this.marketNotional = marketNotional;
@@ -172,6 +178,11 @@ public class Chart extends TimeSeries {
                 .add("low", getLow())
                 .add("close", getClose())
                 .add("volume", getVolume())
+                .add("uOpen", getuOpen())
+                .add("uHigh", getuHigh())
+                .add("uLow", getuLow())
+                .add("uClose", getuClose())
+                .add("uVolume", getuVolume())
                 .add("unadjustedVolume", getUnadjustedVolume())
                 .add("change", getChange())
                 .add("changePercent", getChangePercent())

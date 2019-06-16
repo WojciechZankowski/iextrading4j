@@ -7,7 +7,6 @@ import pl.zankowski.iextrading4j.api.stocks.Chart;
 import pl.zankowski.iextrading4j.api.stocks.ChartRange;
 import pl.zankowski.iextrading4j.api.stocks.Company;
 import pl.zankowski.iextrading4j.api.stocks.DelayedQuote;
-import pl.zankowski.iextrading4j.api.stocks.DynamicChart;
 import pl.zankowski.iextrading4j.api.stocks.Earnings;
 import pl.zankowski.iextrading4j.api.stocks.Ipos;
 import pl.zankowski.iextrading4j.api.stocks.LargestTrade;
@@ -38,7 +37,6 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.CollectionRequestBui
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CollectionType;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CompanyRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.DelayedQuoteRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.DynamicChartRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.EarningsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.LargestTradeRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ListRequestBuilder;
@@ -397,77 +395,78 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Test
     public void oneDayChartRequestAcceptanceTest() {
-        final List<Chart> chartList = cloudClient.executeRequest(new ChartRequestBuilder()
+        final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_DAY)
                 .withSymbol("AAPL")
                 .build());
+        assertThat(result).isNotNull();
     }
 
     @Test
     public void oneMonthChartRequestAcceptanceTest() {
-        final List<Chart> chartList = cloudClient.executeRequest(new ChartRequestBuilder()
+        final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
                 .build());
+        assertThat(result).isNotNull();
     }
 
     @Test
     public void chartWithResetAcceptanceTest() {
-        final List<Chart> chartList = cloudClient.executeRequest(new ChartRequestBuilder()
+        final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
                 .withChartReset()
                 .build());
+        assertThat(result).isNotNull();
     }
 
     @Test
     public void chartWithSimplifyAcceptanceTest() {
-        final List<Chart> chartList = cloudClient.executeRequest(new ChartRequestBuilder()
+        final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
                 .withChartSimplify()
                 .build());
+        assertThat(result).isNotNull();
     }
 
     @Test
     public void chartWithIntervalAcceptanceTest() {
-        final List<Chart> chartList = cloudClient.executeRequest(new ChartRequestBuilder()
+        final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
                 .withChartInterval(4)
                 .build());
+        assertThat(result).isNotNull();
     }
 
     @Test
     public void chartWithChangeFromCloseAcceptanceTest() {
-        final List<Chart> chartList = cloudClient.executeRequest(new ChartRequestBuilder()
+        final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
                 .withChangeFromClose()
                 .build());
+        assertThat(result).isNotNull();
     }
 
     @Test
     public void chartWithLastAcceptanceTest() {
-        final List<Chart> chartList = cloudClient.executeRequest(new ChartRequestBuilder()
+        final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
                 .withChartLast(4)
                 .build());
-    }
-
-    @Test
-    public void dynamicChartAcceptanceTest() {
-        final DynamicChart dynamicChart = cloudClient.executeRequest(new DynamicChartRequestBuilder()
-                .withSymbol("aapl")
-                .build());
+        assertThat(result).isNotNull();
     }
 
     @Test
     public void openCloseAcceptanceTest() {
-        final Ohlc ohlc = cloudClient.executeRequest(new OpenCloseRequestBuilder()
+        final Ohlc result = cloudClient.executeRequest(new OpenCloseRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
+        assertThat(result).isNotNull();
     }
 
 }
