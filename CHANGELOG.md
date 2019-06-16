@@ -1,12 +1,16 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [3.1.1] - TBD
+## [3.1.1] - 2019-06-16
 
 ### Added
 
 - Support to Pay as you go endpoint
 - Support to Message Cutoff endpoint
+
+### Deleted
+
+- IEX Api endpoints: Batch, Chart, Company, KeyStats, Previous Quote, Open-Close, Quote
 
 ## [3.1.0] - 2019-05-30
 
