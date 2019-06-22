@@ -20,19 +20,13 @@ public abstract class AbstractSymbolAsyncRequestBuilder<R, B extends IAsyncReque
         return symbols.stream().collect(joining(","));
     }
 
-    public B withSymbol(String symbol) {
+    public B withSymbol(final String symbol) {
         this.symbols.add(symbol);
         return (B) this;
     }
 
-    public B withSymbols(String... symbols) {
+    public B withSymbols(final String... symbols) {
         this.symbols.addAll(Arrays.asList(symbols));
-        return (B) this;
-    }
-
-    public B withAllSymbols() {
-        this.symbols.clear();
-        this.symbols.add("firehose");
         return (B) this;
     }
 

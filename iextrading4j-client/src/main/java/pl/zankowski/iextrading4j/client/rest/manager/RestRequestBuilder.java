@@ -21,7 +21,7 @@ public class RestRequestBuilder<R> implements IRestPathRequestBuilder<R>,
     private Map<String, String> pathParams;
     private Boolean useSecretToken = Boolean.FALSE;
 
-    private RestRequestBuilder() {
+    protected RestRequestBuilder() {
         this.headerParams = Maps.newHashMap();
         this.queryParams = Maps.newHashMap();
         this.pathParams = Maps.newHashMap();
@@ -56,7 +56,7 @@ public class RestRequestBuilder<R> implements IRestPathRequestBuilder<R>,
     }
 
     @Override
-    public IRestParamRequestBuilder<R> addQueryParam(Map<String, String> queryParams) {
+    public IRestParamRequestBuilder<R> addQueryParam(final Map<String, String> queryParams) {
         this.queryParams.putAll(queryParams);
         return this;
     }
