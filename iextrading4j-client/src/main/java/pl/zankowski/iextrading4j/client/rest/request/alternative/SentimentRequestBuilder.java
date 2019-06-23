@@ -1,8 +1,6 @@
 package pl.zankowski.iextrading4j.client.rest.request.alternative;
 
-import pl.zankowski.iextrading4j.api.alternative.CeoCompensation;
 import pl.zankowski.iextrading4j.api.alternative.Sentiment;
-import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.AbstractStocksRequestBuilder;

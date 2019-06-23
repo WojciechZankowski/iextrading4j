@@ -39,6 +39,7 @@ public class OhlcServiceTest extends BaseRestServiceTest {
         assertThat(ohlc.getClose().getTime()).isEqualTo(1506605400394L);
         assertThat(ohlc.getHigh()).isEqualByComparingTo(BigDecimal.valueOf(154.80));
         assertThat(ohlc.getLow()).isEqualByComparingTo(BigDecimal.valueOf(153.25));
+        assertThat(ohlc.getVolume()).isEqualTo(BigDecimal.valueOf(26324873));
     }
 
     @Test

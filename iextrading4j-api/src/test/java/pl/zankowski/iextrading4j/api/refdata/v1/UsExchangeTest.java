@@ -18,15 +18,17 @@ public class UsExchangeTest {
         final String mic = fixture.create(String.class);
         final String tapeId = fixture.create(String.class);
         final String oatsId = fixture.create(String.class);
+        final String refId = fixture.create(String.class);
         final String type = fixture.create(String.class);
 
-        final UsExchange usExchange = new UsExchange(name, longName, mic, tapeId, oatsId, type);
+        final UsExchange usExchange = new UsExchange(name, longName, mic, tapeId, oatsId, refId, type);
 
         assertThat(usExchange.getName()).isEqualTo(name);
         assertThat(usExchange.getLongName()).isEqualTo(longName);
         assertThat(usExchange.getMic()).isEqualTo(mic);
         assertThat(usExchange.getTapeId()).isEqualTo(tapeId);
         assertThat(usExchange.getOatsId()).isEqualTo(oatsId);
+        assertThat(usExchange.getRefId()).containsSequence(refId);
         assertThat(usExchange.getType()).isEqualTo(type);
     }
 

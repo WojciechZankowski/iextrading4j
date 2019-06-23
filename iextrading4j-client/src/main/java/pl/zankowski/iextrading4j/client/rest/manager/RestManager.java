@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.client.rest.manager;
 
 import com.google.common.collect.Maps;
 import pl.zankowski.iextrading4j.api.exception.IEXTradingException;
+import pl.zankowski.iextrading4j.client.IEXCloudToken;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
@@ -13,9 +14,9 @@ import static java.util.stream.Collectors.joining;
 
 public class RestManager {
 
+    private static final String TOKEN_QUERY_PARAM = "token";
     private static final int SUCCESS = 200;
     private static final int WRITE_SUCCESS = 201;
-    private static final String TOKEN_QUERY_PARAM = "token";
 
     private final RestClient restClient;
 
@@ -24,7 +25,8 @@ public class RestManager {
     }
 
     public <R> RestResponse<R> executeRequest(final RestRequest<R> restRequest) {
-        final String url = createURL(restRequest);
+        final String url = createURL(restRequest, restClient.getRestClientMetadata().getToken(),
+                restClient.getRestClientMetadata().getUrl());
 
         final Invocation.Builder invocationBuilder = restClient.getClient().target(url)
                 .request(MediaType.APPLICATION_JSON);
@@ -39,7 +41,8 @@ public class RestManager {
                     break;
                 case POST:
                     final PostEntity requestEntity = restRequest.getRequestEntity();
-                    requestEntity.setToken(resolveToken(restRequest));
+                    requestEntity.setToken(resolveToken(restRequest,
+                            restClient.getRestClientMetadata().getToken()));
                     response = invocationBuilder.post(Entity.entity(requestEntity, MediaType.APPLICATION_JSON_TYPE));
                     break;
                 default:
@@ -66,25 +69,26 @@ public class RestManager {
         return response.getStatus() == SUCCESS || response.getStatus() == WRITE_SUCCESS;
     }
 
-    private <R> String createURL(final RestRequest<R> restRequest) {
+    private <R> String createURL(final RestRequest<R> restRequest, final IEXCloudToken token, final String url) {
         return new StringBuilder()
-                .append(getServicePath())
+                .append(url)
                 .append(createPath(restRequest.getPath(), restRequest.getPathParams()))
-                .append(createQueryParameters(restRequest.getQueryParams(), resolveUrlToken(restRequest)))
+                .append(createQueryParameters(restRequest.getQueryParams(), resolveUrlToken(restRequest, token)))
                 .toString();
     }
 
-    private <R> String resolveUrlToken(final RestRequest<R> restRequest) {
-        return restRequest.getMethodType() != MethodType.GET ? null : resolveToken(restRequest);
+    private <R> String resolveUrlToken(final RestRequest<R> restRequest, final IEXCloudToken token) {
+        return restRequest.getMethodType() != MethodType.GET ? null : resolveToken(restRequest, token);
     }
 
-    private <R> String resolveToken(final RestRequest<R> restRequest) {
-        return restClient.getRestClientMetadata().getToken() == null
+    private <R> String resolveToken(final RestRequest<R> restRequest, final IEXCloudToken token) {
+        return token == null
                 ? null
                 : restRequest.getUseSecretToken()
-                ? restClient.getRestClientMetadata().getToken().getSecretToken()
-                : restClient.getRestClientMetadata().getToken().getPublishableToken();
+                ? token.getSecretToken()
+                : token.getPublishableToken();
     }
+
 
     private String createPath(final String originalPath, final Map<String, String> pathParams) {
         String path = originalPath;
@@ -112,10 +116,6 @@ public class RestManager {
 
     private String createQueryParam(final Map.Entry<String, String> queryParam) {
         return queryParam.getKey() + "=" + queryParam.getValue();
-    }
-
-    private String getServicePath() {
-        return restClient.getRestClientMetadata().getUrl();
     }
 
 }

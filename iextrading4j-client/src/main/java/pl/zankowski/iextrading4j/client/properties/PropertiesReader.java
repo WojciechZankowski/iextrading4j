@@ -35,6 +35,9 @@ public class PropertiesReader {
     }
 
     public String getString(final PropertyType propertyType) {
+        if (propertyType == null) {
+            return null;
+        }
         return properties.getProperty(propertyType.name());
     }
 

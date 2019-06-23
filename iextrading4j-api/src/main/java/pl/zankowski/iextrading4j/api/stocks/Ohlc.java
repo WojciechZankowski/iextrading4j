@@ -9,7 +9,7 @@ import com.google.common.base.Objects;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-@JsonPropertyOrder({"symbol", "open", "close", "high", "low"})
+@JsonPropertyOrder({"symbol", "open", "close", "high", "low", "volume"})
 public class Ohlc implements Serializable {
 
     private static final long serialVersionUID = -7796960089826811278L;
@@ -19,6 +19,7 @@ public class Ohlc implements Serializable {
     private final Point close;
     private final BigDecimal high;
     private final BigDecimal low;
+    private final BigDecimal volume;
 
     @JsonCreator
     public Ohlc(
@@ -26,12 +27,14 @@ public class Ohlc implements Serializable {
             @JsonProperty("open") final Point open,
             @JsonProperty("close") final Point close,
             @JsonProperty("high") final BigDecimal high,
-            @JsonProperty("low") final BigDecimal low) {
+            @JsonProperty("low") final BigDecimal low,
+            @JsonProperty("volume") final BigDecimal volume) {
         this.symbol = symbol;
         this.open = open;
         this.close = close;
         this.high = high;
         this.low = low;
+        this.volume = volume;
     }
 
     public String getSymbol() {
@@ -54,6 +57,10 @@ public class Ohlc implements Serializable {
         return low;
     }
 
+    public BigDecimal getVolume() {
+        return volume;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) {
@@ -67,12 +74,13 @@ public class Ohlc implements Serializable {
                 Objects.equal(open, ohlc.open) &&
                 Objects.equal(close, ohlc.close) &&
                 Objects.equal(high, ohlc.high) &&
-                Objects.equal(low, ohlc.low);
+                Objects.equal(low, ohlc.low) &&
+                Objects.equal(volume, ohlc.volume);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(symbol, open, close, high, low);
+        return Objects.hashCode(symbol, open, close, high, low, volume);
     }
 
     @Override
@@ -83,6 +91,8 @@ public class Ohlc implements Serializable {
                 .add("close", close)
                 .add("high", high)
                 .add("low", low)
+                .add("volume", volume)
                 .toString();
     }
+
 }
