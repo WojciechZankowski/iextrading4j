@@ -3,8 +3,9 @@ package pl.zankowski.iextrading4j.client.sse.request.tops;
 import pl.zankowski.iextrading4j.api.marketdata.LastTrade;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequestBuilder;
+import pl.zankowski.iextrading4j.client.sse.request.AbstractSymbolSseRequestBuilder;
 
-public class LastAsyncRequestBuilder extends AbstractSymbolAsyncRequestBuilder<LastTrade, LastAsyncRequestBuilder> {
+public class LastSseRequestBuilder extends AbstractSymbolSseRequestBuilder<LastTrade, LastSseRequestBuilder> {
 
     @Override
     public SseRequest<LastTrade> build() {
@@ -12,6 +13,7 @@ public class LastAsyncRequestBuilder extends AbstractSymbolAsyncRequestBuilder<L
                 .withPath("/last")
                 .withResponse(LastTrade.class)
                 .addQueryParam("symbols", getSymbol())
+                .addQueryParam("nosnaphot", isNoSnapshot())
                 .build();
     }
 }

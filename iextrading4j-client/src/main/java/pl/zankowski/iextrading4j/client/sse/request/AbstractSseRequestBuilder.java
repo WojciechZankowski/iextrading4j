@@ -7,6 +7,10 @@ public abstract class AbstractSseRequestBuilder<R extends Serializable, B extend
 
     private boolean noSnapshot;
 
+    protected String isNoSnapshot() {
+        return String.valueOf(noSnapshot);
+    }
+
     B withNoSnapshot() {
         this.noSnapshot = true;
         return (B) this;

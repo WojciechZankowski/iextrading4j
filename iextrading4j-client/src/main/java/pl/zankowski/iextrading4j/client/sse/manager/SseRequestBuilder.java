@@ -12,11 +12,13 @@ public class SseRequestBuilder<R extends Serializable> implements ISseParamReque
     private GenericType<R> responseType;
     private String path;
     private Map<String, String> headerParams;
+    private Map<String, String> pathParams;
     private Map<String, String> queryParams;
     private Boolean useSecretToken = Boolean.FALSE;
 
     protected SseRequestBuilder() {
         this.headerParams = Maps.newHashMap();
+        this.pathParams = Maps.newHashMap();
         this.queryParams = Maps.newHashMap();
     }
 
@@ -27,6 +29,12 @@ public class SseRequestBuilder<R extends Serializable> implements ISseParamReque
     @Override
     public ISseParamRequestBuilder<R> withResponse(final Class<R> responseType) {
         this.responseType = new GenericType<>(responseType);
+        return this;
+    }
+
+    @Override
+    public ISseResponseTypeRequestBuilder<R> addPathParam(final String key, final String value) {
+        this.pathParams.put(key, value);
         return this;
     }
 

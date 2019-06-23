@@ -12,6 +12,7 @@ public class SseRequest<R extends Serializable> {
     private final GenericType<R> responseType;
     private final String path;
     private final Map<String, String> headerParams;
+    private final Map<String, String> pathParams;
     private final Map<String, String> queryParams;
     private final Boolean useSecretToken;
 
@@ -19,11 +20,13 @@ public class SseRequest<R extends Serializable> {
             final GenericType<R> responseType,
             final String path,
             final Map<String, String> headerParams,
+            final Map<String, String> pathParams,
             final Map<String, String> queryParams,
             final Boolean useSecretToken) {
         this.responseType = responseType;
         this.path = path;
         this.headerParams = headerParams;
+        this.pathParams = pathParams;
         this.queryParams = queryParams;
         this.useSecretToken = useSecretToken;
     }
@@ -38,6 +41,10 @@ public class SseRequest<R extends Serializable> {
 
     public Map<String, String> getHeaderParams() {
         return headerParams;
+    }
+
+    public Map<String, String> getPathParams() {
+        return pathParams;
     }
 
     public Map<String, String> getQueryParams() {
@@ -60,13 +67,14 @@ public class SseRequest<R extends Serializable> {
         return Objects.equal(responseType, that.responseType) &&
                 Objects.equal(path, that.path) &&
                 Objects.equal(headerParams, that.headerParams) &&
+                Objects.equal(pathParams, that.pathParams) &&
                 Objects.equal(queryParams, that.queryParams) &&
                 Objects.equal(useSecretToken, that.useSecretToken);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(responseType, path, headerParams, queryParams, useSecretToken);
+        return Objects.hashCode(responseType, path, headerParams, pathParams, queryParams, useSecretToken);
     }
 
     @Override
@@ -75,9 +83,9 @@ public class SseRequest<R extends Serializable> {
                 .add("responseType", responseType)
                 .add("path", path)
                 .add("headerParams", headerParams)
+                .add("pathParams", pathParams)
                 .add("queryParams", queryParams)
                 .add("useSecretToken", useSecretToken)
                 .toString();
     }
-
 }

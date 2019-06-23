@@ -60,6 +60,7 @@ public class SseManager {
             final String url) {
         return new StringBuilder()
                 .append(url)
+                .append(createPath(sseRequest.getPath(), sseRequest.getPathParams()))
                 .append(createQueryParameters(sseRequest.getQueryParams(), resolveUrlToken(sseRequest, token)))
                 .toString();
     }
@@ -74,6 +75,15 @@ public class SseManager {
                 : sseRequest.getUseSecretToken()
                 ? token.getSecretToken()
                 : token.getPublishableToken();
+    }
+
+    private String createPath(final String originalPath, final Map<String, String> pathParams) {
+        String path = originalPath;
+        for (final Map.Entry<String, String> entry : pathParams.entrySet()) {
+            path = path.replaceFirst("\\{" + entry.getKey() + "\\}", entry.getValue());
+        }
+
+        return path;
     }
 
     private String createQueryParameters(final Map<String, String> queryParams, final String publishableToken) {
