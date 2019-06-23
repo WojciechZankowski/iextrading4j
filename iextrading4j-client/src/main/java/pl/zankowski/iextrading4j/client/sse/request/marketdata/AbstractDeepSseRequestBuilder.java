@@ -21,7 +21,7 @@ public abstract class AbstractDeepSseRequestBuilder<R extends Serializable, B ex
         return channels.stream().map(DeepChannel::getName).collect(joining(","));
     }
 
-    B addChannel(final DeepChannel channel) {
+    protected B addChannel(final DeepChannel channel) {
         this.channels.add(channel);
         return (B) this;
     }
