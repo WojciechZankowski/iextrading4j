@@ -1,4 +1,4 @@
-package pl.zankowski.iextrading4j.client.sse.request.tops;
+package pl.zankowski.iextrading4j.client.sse.request.marketdata;
 
 import pl.zankowski.iextrading4j.api.marketdata.TOPS;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
@@ -12,8 +12,8 @@ public class TopsSseRequestBuilder extends AbstractSymbolSseRequestBuilder<TOPS,
         return SseRequestBuilder.<TOPS>builder()
                 .withPath("/tops")
                 .withResponse(TOPS.class)
-                .addQueryParam("symbols", getSymbol())
-                .addQueryParam("nosnaphot", isNoSnapshot())
+                .addQueryParam(SYMBOL_PARAM, getSymbol())
+                .addQueryParam(NO_SNAPSHOT_PARAM, isNoSnapshot())
                 .build();
     }
 

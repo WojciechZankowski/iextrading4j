@@ -1,4 +1,4 @@
-package pl.zankowski.iextrading4j.client.sse.request.tops;
+package pl.zankowski.iextrading4j.client.sse.request.marketdata;
 
 import com.google.common.collect.Sets;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepChannel;
@@ -12,6 +12,8 @@ import static java.util.stream.Collectors.joining;
 
 public abstract class AbstractDeepSseRequestBuilder<R extends Serializable, B extends ISseRequestBuilder<R>>
         extends AbstractSymbolSseRequestBuilder<R, B> {
+
+    protected static final String CHANNEL_PARAM = "channels";
 
     private Set<DeepChannel> channels = Sets.newHashSet();
 

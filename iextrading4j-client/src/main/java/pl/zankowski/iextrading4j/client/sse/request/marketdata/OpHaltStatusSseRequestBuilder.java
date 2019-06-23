@@ -1,4 +1,4 @@
-package pl.zankowski.iextrading4j.client.sse.request.tops;
+package pl.zankowski.iextrading4j.client.sse.request.marketdata;
 
 import pl.zankowski.iextrading4j.api.marketdata.OpHaltStatus;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepAsyncResponse;
@@ -20,9 +20,9 @@ public class OpHaltStatusSseRequestBuilder extends AbstractDeepSseRequestBuilder
         return SseRequestBuilder.<DeepAsyncResponse<OpHaltStatus>>builder()
                 .withPath("/deep")
                 .withResponse(new GenericType<DeepAsyncResponse<OpHaltStatus>>() {})
-                .addQueryParam("symbols", getSymbol())
-                .addQueryParam("channels", getChannels())
-                .addQueryParam("nosnaphot", isNoSnapshot())
+                .addQueryParam(CHANNEL_PARAM, getChannels())
+                .addQueryParam(SYMBOL_PARAM, getSymbol())
+                .addQueryParam(NO_SNAPSHOT_PARAM, isNoSnapshot())
                 .build();
     }
 

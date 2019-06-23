@@ -1,4 +1,4 @@
-package pl.zankowski.iextrading4j.client.sse.request.tops;
+package pl.zankowski.iextrading4j.client.sse.request.marketdata;
 
 import pl.zankowski.iextrading4j.api.marketdata.Trade;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepAsyncResponse;
@@ -8,11 +8,11 @@ import pl.zankowski.iextrading4j.client.sse.manager.SseRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
 
-public class TradeBreaksSseRequestBuilder extends AbstractDeepSseRequestBuilder<DeepAsyncResponse<Trade>,
-        TradeBreaksSseRequestBuilder> {
+public class TradesSseRequestBuilder extends AbstractDeepSseRequestBuilder<DeepAsyncResponse<Trade>,
+        TradesSseRequestBuilder> {
 
-    public TradeBreaksSseRequestBuilder() {
-        this.addChannel(DeepChannel.TRADE_BREAK);
+    public TradesSseRequestBuilder() {
+        this.addChannel(DeepChannel.TRADES);
     }
 
     @Override
@@ -21,9 +21,9 @@ public class TradeBreaksSseRequestBuilder extends AbstractDeepSseRequestBuilder<
                 .withPath("/deep")
                 .withResponse(new GenericType<DeepAsyncResponse<Trade>>() {
                 })
-                .addQueryParam("symbols", getSymbol())
-                .addQueryParam("channels", getChannels())
-                .addQueryParam("nosnaphot", isNoSnapshot())
+                .addQueryParam(CHANNEL_PARAM, getChannels())
+                .addQueryParam(SYMBOL_PARAM, getSymbol())
+                .addQueryParam(NO_SNAPSHOT_PARAM, isNoSnapshot())
                 .build();
     }
 

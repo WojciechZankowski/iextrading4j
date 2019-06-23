@@ -1,4 +1,4 @@
-package pl.zankowski.iextrading4j.client.sse.request.tops;
+package pl.zankowski.iextrading4j.client.sse.request.marketdata;
 
 import pl.zankowski.iextrading4j.api.marketdata.Book;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepAsyncResponse;
@@ -21,9 +21,9 @@ public class BookSseRequestBuilder extends AbstractDeepSseRequestBuilder<DeepAsy
                 .withPath("/deep")
                 .withResponse(new GenericType<DeepAsyncResponse<Book>>() {
                 })
-                .addQueryParam("symbols", getSymbol())
-                .addQueryParam("channels", getChannels())
-                .addQueryParam("nosnaphot", isNoSnapshot())
+                .addQueryParam(CHANNEL_PARAM, getChannels())
+                .addQueryParam(SYMBOL_PARAM, getSymbol())
+                .addQueryParam(NO_SNAPSHOT_PARAM, isNoSnapshot())
                 .build();
     }
 

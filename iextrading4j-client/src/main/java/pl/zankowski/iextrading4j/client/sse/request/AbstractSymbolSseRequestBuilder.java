@@ -10,6 +10,8 @@ import static java.util.stream.Collectors.joining;
 public abstract class AbstractSymbolSseRequestBuilder<R extends Serializable, B extends ISseRequestBuilder<R>>
         extends AbstractSseRequestBuilder<R, B> {
 
+    protected static final String SYMBOL_PARAM = "symbols";
+
     private Set<String> symbols = new HashSet<>();
 
     protected Set<String> getSymbols() {

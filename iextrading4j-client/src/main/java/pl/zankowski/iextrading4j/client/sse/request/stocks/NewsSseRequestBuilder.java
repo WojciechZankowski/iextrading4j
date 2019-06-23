@@ -12,8 +12,8 @@ public class NewsSseRequestBuilder extends AbstractSymbolSseRequestBuilder<News,
         return SseRequestBuilder.<News>builder()
                 .withPath("/news-stream")
                 .withResponse(News.class)
-                .addQueryParam("symbols", getSymbol())
-                .addQueryParam("nosnaphot", isNoSnapshot())
+                .addQueryParam(SYMBOL_PARAM, getSymbol())
+                .addQueryParam(NO_SNAPSHOT_PARAM, isNoSnapshot())
                 .build();
     }
 

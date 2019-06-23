@@ -20,8 +20,8 @@ public class QuoteSseRequestBuilder extends AbstractSymbolSseRequestBuilder<Quot
                 .withPath("/stocksUS{interval}")
                 .addPathParam("interval", quoteInterval.getName())
                 .withResponse(Quote.class)
-                .addQueryParam("symbols", getSymbol())
-                .addQueryParam("nosnaphot", isNoSnapshot())
+                .addQueryParam(SYMBOL_PARAM, getSymbol())
+                .addQueryParam(NO_SNAPSHOT_PARAM, isNoSnapshot())
                 .build();
     }
 

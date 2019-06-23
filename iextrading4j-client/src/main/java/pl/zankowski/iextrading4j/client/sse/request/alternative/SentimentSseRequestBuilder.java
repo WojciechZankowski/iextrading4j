@@ -12,8 +12,8 @@ public class SentimentSseRequestBuilder extends AbstractSymbolSseRequestBuilder<
         return SseRequestBuilder.<Sentiment>builder()
                 .withPath("/sentiment")
                 .withResponse(Sentiment.class)
-                .addQueryParam("symbols", getSymbol())
-                .addQueryParam("nosnaphot", isNoSnapshot())
+                .addQueryParam(SYMBOL_PARAM, getSymbol())
+                .addQueryParam(NO_SNAPSHOT_PARAM, isNoSnapshot())
                 .build();
     }
 

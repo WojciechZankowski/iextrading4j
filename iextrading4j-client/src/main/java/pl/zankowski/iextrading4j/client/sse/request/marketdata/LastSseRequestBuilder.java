@@ -1,4 +1,4 @@
-package pl.zankowski.iextrading4j.client.sse.request.tops;
+package pl.zankowski.iextrading4j.client.sse.request.marketdata;
 
 import pl.zankowski.iextrading4j.api.marketdata.LastTrade;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
@@ -12,8 +12,8 @@ public class LastSseRequestBuilder extends AbstractSymbolSseRequestBuilder<LastT
         return SseRequestBuilder.<LastTrade>builder()
                 .withPath("/last")
                 .withResponse(LastTrade.class)
-                .addQueryParam("symbols", getSymbol())
-                .addQueryParam("nosnaphot", isNoSnapshot())
+                .addQueryParam(SYMBOL_PARAM, getSymbol())
+                .addQueryParam(NO_SNAPSHOT_PARAM, isNoSnapshot())
                 .build();
     }
 }
