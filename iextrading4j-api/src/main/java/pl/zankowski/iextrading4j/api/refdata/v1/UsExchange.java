@@ -8,7 +8,7 @@ import com.google.common.base.Objects;
 
 import java.io.Serializable;
 
-@JsonPropertyOrder({"name", "longName", "mic", "tapeId", "oatsId", "type"})
+@JsonPropertyOrder({"name", "longName", "mic", "tapeId", "oatsId", "refId", "type"})
 public class UsExchange implements Serializable {
 
     private static final long serialVersionUID = 1599060793574929356L;
@@ -18,6 +18,7 @@ public class UsExchange implements Serializable {
     private final String mic;
     private final String tapeId;
     private final String oatsId;
+    private final String refId;
     private final String type;
 
     @JsonCreator
@@ -27,12 +28,14 @@ public class UsExchange implements Serializable {
             @JsonProperty("mic") final String mic,
             @JsonProperty("tapeId") final String tapeId,
             @JsonProperty("oatsId") final String oatsId,
+            @JsonProperty("refId") final String refId,
             @JsonProperty("type") final String type) {
         this.name = name;
         this.longName = longName;
         this.mic = mic;
         this.tapeId = tapeId;
         this.oatsId = oatsId;
+        this.refId = refId;
         this.type = type;
     }
 
@@ -56,6 +59,10 @@ public class UsExchange implements Serializable {
         return oatsId;
     }
 
+    public String getRefId() {
+        return refId;
+    }
+
     public String getType() {
         return type;
     }
@@ -74,12 +81,13 @@ public class UsExchange implements Serializable {
                 Objects.equal(mic, that.mic) &&
                 Objects.equal(tapeId, that.tapeId) &&
                 Objects.equal(oatsId, that.oatsId) &&
+                Objects.equal(refId, that.refId) &&
                 Objects.equal(type, that.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(name, longName, mic, tapeId, oatsId, type);
+        return Objects.hashCode(name, longName, mic, tapeId, oatsId, refId, type);
     }
 
     @Override
@@ -90,6 +98,7 @@ public class UsExchange implements Serializable {
                 .add("mic", mic)
                 .add("tapeId", tapeId)
                 .add("oatsId", oatsId)
+                .add("refId", refId)
                 .add("type", type)
                 .toString();
     }

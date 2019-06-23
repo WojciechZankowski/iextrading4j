@@ -39,6 +39,7 @@ public class UsExchangesServiceTest extends BaseIEXCloudV1ServiceTest {
         assertThat(exchange.getLongName()).isEqualTo("NYSE ARCA");
         assertThat(exchange.getTapeId()).isEqualTo("P");
         assertThat(exchange.getOatsId()).isEqualTo("XP");
+        assertThat(exchange.getRefId()).isEqualTo("IEXG");
         assertThat(exchange.getType()).isEqualTo("equities");
     }
 

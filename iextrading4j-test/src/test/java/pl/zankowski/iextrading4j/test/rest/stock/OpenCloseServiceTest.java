@@ -41,6 +41,8 @@ public class OpenCloseServiceTest extends BaseRestServiceTest {
 
         assertThat(ohlc.getHigh()).isEqualTo(BigDecimal.valueOf(172.2));
         assertThat(ohlc.getLow()).isEqualTo(BigDecimal.valueOf(170.44));
+        assertThat(ohlc.getSymbol()).isEqualTo("AAPL");
+        assertThat(ohlc.getVolume()).isEqualTo(BigDecimal.valueOf(26324873));
     }
 
 }

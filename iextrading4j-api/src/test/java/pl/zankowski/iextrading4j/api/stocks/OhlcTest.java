@@ -20,14 +20,16 @@ public class OhlcTest {
         final Point close = fixture.create(Point.class);
         final BigDecimal high = fixture.create(BigDecimal.class);
         final BigDecimal low = fixture.create(BigDecimal.class);
+        final BigDecimal volume = fixture.create(BigDecimal.class);
 
-        final Ohlc ohlc = new Ohlc(symbol, open, close, high, low);
+        final Ohlc ohlc = new Ohlc(symbol, open, close, high, low, volume);
 
         assertThat(ohlc.getSymbol()).isEqualTo(symbol);
         assertThat(ohlc.getOpen()).isEqualTo(open);
         assertThat(ohlc.getClose()).isEqualTo(close);
         assertThat(ohlc.getHigh()).isEqualTo(high);
         assertThat(ohlc.getLow()).isEqualTo(low);
+        assertThat(ohlc.getVolume()).isEqualTo(volume);
     }
 
     @Test
