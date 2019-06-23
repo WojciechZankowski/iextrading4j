@@ -8,8 +8,8 @@ import java.util.function.Consumer;
 
 public interface ISseEndpoint extends IEndpoint {
 
-    <R extends Serializable> void subscribe(SseRequest<R> asyncRequest, Consumer<R> consumer);
+    <R extends Serializable> void subscribe(SseRequest<R> sseRequest, Consumer<R> consumer);
 
-    <R extends Serializable> void unsubscribe(SseRequest<R> asyncRequest);
+    <R extends Serializable> void unsubscribe(SseRequest<R> sseRequest);
 
 }

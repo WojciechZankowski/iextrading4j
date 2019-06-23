@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.client.sse.manager;
 
 import com.google.common.collect.Maps;
 import pl.zankowski.iextrading4j.client.IEXCloudToken;
-import pl.zankowski.iextrading4j.client.socket.manager.SocketRequest;
 
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.sse.SseEventSource;
@@ -47,7 +46,7 @@ public class SseManager {
         }
     }
 
-    public <T extends Serializable> void unsubscribe(final SocketRequest<T> request) {
+    public <T extends Serializable> void unsubscribe(final SseRequest<T> request) {
         final SseEventSource socket = sseStore.remove(request);
         if (socket == null) {
             return;
