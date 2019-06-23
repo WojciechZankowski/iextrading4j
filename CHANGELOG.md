@@ -1,6 +1,18 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.2.0] - 2019-06-23
+
+### Added
+
+- Support to SSE
+- Field 'refId' to UsExchange endpoint
+- Field 'volume' to OHLC endpoint
+
+### Deleted
+
+- IEX Api endpoints: TOPS firehose from the request
+
 ## [3.1.1] - 2019-06-16
 
 ### Added
