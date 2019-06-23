@@ -13,7 +13,7 @@ import pl.zankowski.iextrading4j.client.IEXTradingClient;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.equalToJson;
 
-public class BaseIEXCloudV1ServiceTest {
+public abstract class BaseIEXCloudV1ServiceTest {
 
     protected static final IEXCloudToken CLOUD_TOKEN = new IEXCloudTokenBuilder()
             .withPublishableToken("Tpk_18dfe6cebb4f41ffb219b9680f9acaf2")

@@ -16,6 +16,8 @@ import pl.zankowski.iextrading4j.client.rest.request.stats.RecordStatsRequestBui
 import java.time.YearMonth;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @Deprecated
 public class StatsAcceptanceTest extends AcceptanceTestBase {
 
@@ -23,6 +25,7 @@ public class StatsAcceptanceTest extends AcceptanceTestBase {
     public void intradayAcceptanceTest() {
         final IntradayStats intradayStats = iexTradingClient.executeRequest(new IntradayStatsRequestBuilder()
                 .build());
+        assertThat(intradayStats).isNotNull();
     }
 
     @Test
@@ -31,7 +34,7 @@ public class StatsAcceptanceTest extends AcceptanceTestBase {
             final List<RecentStats> recentStats = iexTradingClient.executeRequest(new RecentStatsRequestBuilder()
                     .build());
         } catch (final IEXTradingException e) {
-            // IEX Trading issue
+            // Not reliable endpoint - IEX Trading issue
         }
     }
 
@@ -39,6 +42,7 @@ public class StatsAcceptanceTest extends AcceptanceTestBase {
     public void recordsAcceptanceTest() {
         final RecordsStats recordsStats = iexTradingClient.executeRequest(new RecordStatsRequestBuilder()
                 .build());
+        assertThat(recordsStats).isNotNull();
     }
 
     @Test
@@ -46,6 +50,7 @@ public class StatsAcceptanceTest extends AcceptanceTestBase {
         final List<HistoricalStats> historicalStatsList = iexTradingClient.executeRequest(new HistoricalStatsRequestBuilder()
                 .withDate(YearMonth.of(2017, 5))
                 .build());
+        assertThat(historicalStatsList).isNotNull();
     }
 
     @Test
@@ -53,6 +58,7 @@ public class StatsAcceptanceTest extends AcceptanceTestBase {
         final List<HistoricalDailyStats> historicalDailyStatsList = iexTradingClient.executeRequest(new HistoricalDailyStatsRequestBuilder()
                 .withLast(10)
                 .build());
+        assertThat(historicalDailyStatsList).isNotNull();
     }
 
 }

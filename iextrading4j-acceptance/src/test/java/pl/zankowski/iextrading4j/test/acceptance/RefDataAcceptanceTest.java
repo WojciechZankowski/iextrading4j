@@ -14,6 +14,8 @@ import pl.zankowski.iextrading4j.client.rest.request.refdata.SymbolsRequestBuild
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @Deprecated
 public class RefDataAcceptanceTest extends AcceptanceTestBase {
 
@@ -21,6 +23,7 @@ public class RefDataAcceptanceTest extends AcceptanceTestBase {
     public void symbolsAcceptanceTest() {
         final List<ExchangeSymbol> exchangeSymbolList = iexTradingClient.executeRequest(new SymbolsRequestBuilder()
                 .build());
+        assertThat(exchangeSymbolList).isNotNull();
     }
 
     @Test
@@ -28,6 +31,7 @@ public class RefDataAcceptanceTest extends AcceptanceTestBase {
         final List<IEXNextDayExDate> nextDayExDateList = iexTradingClient.executeRequest(new IEXNextDayExDateRequestBuilder()
                 .withSample()
                 .build());
+        assertThat(nextDayExDateList).isNotNull();
     }
 
     @Test
@@ -35,6 +39,7 @@ public class RefDataAcceptanceTest extends AcceptanceTestBase {
         final List<IEXCorporateActions> corporateActions = iexTradingClient.executeRequest(new IEXCorporateActionsRequestBuilder()
                 .withSample()
                 .build());
+        assertThat(corporateActions).isNotNull();
     }
 
     @Test
@@ -42,6 +47,7 @@ public class RefDataAcceptanceTest extends AcceptanceTestBase {
         final List<IEXDividends> dividendsList = iexTradingClient.executeRequest(new IEXDividendsRequestBuilder()
                 .withSample()
                 .build());
+        assertThat(dividendsList).isNotNull();
     }
 
     @Test
@@ -49,6 +55,7 @@ public class RefDataAcceptanceTest extends AcceptanceTestBase {
         final List<IEXSymbolDirectory> symbolDirectoryList = iexTradingClient.executeRequest(new IEXSymbolDirectoryRequestBuilder()
                 .withSample()
                 .build());
+        assertThat(symbolDirectoryList).isNotNull();
     }
-    
+
 }

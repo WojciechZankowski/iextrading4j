@@ -6,6 +6,8 @@ import pl.zankowski.iextrading4j.client.rest.request.market.MarketRequestBuilder
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @Deprecated
 public class MarketAcceptanceTest extends AcceptanceTestBase {
 
@@ -13,6 +15,7 @@ public class MarketAcceptanceTest extends AcceptanceTestBase {
     public void marketVolumeAcceptanceTest() {
         final List<MarketVolume> marketVolumeList = iexTradingClient.executeRequest(new MarketRequestBuilder()
                 .build());
+        assertThat(marketVolumeList).isNotNull();
     }
 
 }
