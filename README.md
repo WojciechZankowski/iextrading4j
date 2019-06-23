@@ -6,7 +6,7 @@
 [![Maven Central](https://img.shields.io/maven-central/v/pl.zankowski/iextrading4j-all.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22pl.zankowski%22%20AND%20a:%22iextrading4j-all%22)
 
 
-**IEX Cloud (iexcloud.io) support has been added to the library. All stuff related to old IEX Api has been marked as Deprecated. Old IEX Api will be supported until June 1, 2019. Please move to the IEX Cloud API (iexcloud.io).**
+**IEX Cloud (iexcloud.io) support has been added to the library. All stuff related to old IEX Api has been marked as Deprecated. Some of old IEX Api will be still supported. For full support please move to the IEX Cloud API (iexcloud.io).**
 
 
 ## Table of Contents
@@ -79,18 +79,41 @@ Check out their beautiful site: [IEX Trading](https://iextrading.com/)
 
 ### IEX Cloud (iexcloud.io) requests
 
+#### Synchronous call
+
 To build request use classes that extend ``` IEXCloudV1RestRequest ``` interface. Secret token is required only for Account calls, otherwise you can provide just publishable token. Example request:
 
 ```java
-final IEXCloudClient iexTradingClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_BETA_SANDBOX,
+final IEXCloudClient cloudClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_BETA_SANDBOX,
               new IEXCloudTokenBuilder()
                       .withPublishableToken("Tpk_18dfe6cebb4f41ffb219b9680f9acaf2")
                       .withSecretToken("Tsk_3eedff6f5c284e1a8b9bc16c54dd1af3")
                       .build());
-final Quote quote = iexTradingClient.executeRequest(new QuoteRequestBuilder()
+final Quote quote = cloudClient.executeRequest(new QuoteRequestBuilder()
         .withSymbol("AAPL")
         .build());
 System.out.println(quote);
+```
+
+#### Streaming SSE
+
+** This implementation is in beta, hasn't been tested yet. **
+
+To build request use classes that extend ``` ISseRequestBuilder ``` interface. Example request:
+
+```java
+final IEXCloudClient cloudClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_BETA_SANDBOX,
+              new IEXCloudTokenBuilder()
+                      .withPublishableToken("Tpk_18dfe6cebb4f41ffb219b9680f9acaf2")
+                      .withSecretToken("Tsk_3eedff6f5c284e1a8b9bc16c54dd1af3")
+                      .build());
+
+final Consumer<TOPS> TOPS_CONSUMER = System.out::println;
+final SseRequest<TOPS> request = new TopsSseRequestBuilder()
+        .withSymbol("AAPL")
+        .build();
+
+cloudClient.subscribe(request, TOPS_CONSUMER);
 ```
 
 Please see samples for more examples.
