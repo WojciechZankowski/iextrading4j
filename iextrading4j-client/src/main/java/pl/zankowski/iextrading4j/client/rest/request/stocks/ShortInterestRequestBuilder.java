@@ -11,6 +11,9 @@ import java.util.List;
 
 import static pl.zankowski.iextrading4j.client.rest.request.util.RequestUtil.IEX_DATE_FORMATTER;
 
+/**
+ * @deprecated Old IEX API service https://iextrading.com/developer/
+ */
 @Deprecated
 public class ShortInterestRequestBuilder extends AbstractStocksRequestBuilder<List<ShortInterest>, ShortInterestRequestBuilder>
         implements IEXApiRestRequest<List<ShortInterest>> {

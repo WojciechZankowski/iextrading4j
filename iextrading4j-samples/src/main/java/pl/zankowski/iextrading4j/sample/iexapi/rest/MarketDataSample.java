@@ -34,6 +34,9 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @deprecated Old IEX API service https://iextrading.com/developer/
+ */
 @Deprecated
 public class MarketDataSample {
 

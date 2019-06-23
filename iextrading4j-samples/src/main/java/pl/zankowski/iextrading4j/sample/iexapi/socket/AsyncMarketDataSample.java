@@ -33,6 +33,9 @@ import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepConsu
 import java.util.concurrent.Semaphore;
 import java.util.function.Consumer;
 
+/**
+ * @deprecated Old IEX API service https://iextrading.com/developer/
+ */
 @Deprecated
 public class AsyncMarketDataSample {
 

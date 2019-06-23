@@ -5,6 +5,9 @@ import org.junit.BeforeClass;
 import pl.zankowski.iextrading4j.client.IEXApiClient;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 
+/**
+ * @deprecated Old IEX API service https://iextrading.com/developer/
+ */
 @Deprecated
 public abstract class AcceptanceTestBase {
 

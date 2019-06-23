@@ -5,6 +5,9 @@ import pl.zankowski.iextrading4j.api.marketdata.TOPS;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketRequest;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketRequestBuilder;
 
+/**
+ * @deprecated Old IEX API service https://iextrading.com/developer/
+ */
 @Deprecated
 public class TopsAsyncRequestBuilder extends AbstractSymbolAsyncRequestBuilder<TOPS, TopsAsyncRequestBuilder> {
 

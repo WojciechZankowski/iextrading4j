@@ -15,6 +15,9 @@ import pl.zankowski.iextrading4j.client.rest.request.refdata.SymbolsRequestBuild
 
 import java.util.List;
 
+/**
+ * @deprecated Old IEX API service https://iextrading.com/developer/
+ */
 @Deprecated
 public class RefDataSample {
 

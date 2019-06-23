@@ -8,6 +8,9 @@ import pl.zankowski.iextrading4j.client.socket.request.IAsyncRequestBuilder;
 
 import java.util.List;
 
+/**
+ * @deprecated Old IEX API service https://iextrading.com/developer/
+ */
 @Deprecated
 public class MarketAsyncRequestBuilder implements IAsyncRequestBuilder<List<MarketVolume>> {
 

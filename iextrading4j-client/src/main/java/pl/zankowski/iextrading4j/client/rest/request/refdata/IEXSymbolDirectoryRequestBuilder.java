@@ -8,6 +8,9 @@ import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
 import javax.ws.rs.core.GenericType;
 import java.util.List;
 
+/**
+ * @deprecated Old IEX API service https://iextrading.com/developer/
+ */
 @Deprecated
 public class IEXSymbolDirectoryRequestBuilder extends AbstractDailyListRequestBuilder<List<IEXSymbolDirectory>, IEXSymbolDirectoryRequestBuilder>
         implements IEXApiRestRequest<List<IEXSymbolDirectory>> {

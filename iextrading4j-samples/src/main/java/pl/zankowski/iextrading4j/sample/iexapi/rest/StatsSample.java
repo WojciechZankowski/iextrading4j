@@ -16,6 +16,9 @@ import pl.zankowski.iextrading4j.client.rest.request.stats.RecordStatsRequestBui
 import java.time.YearMonth;
 import java.util.List;
 
+/**
+ * @deprecated Old IEX API service https://iextrading.com/developer/
+ */
 @Deprecated
 public class StatsSample {
 

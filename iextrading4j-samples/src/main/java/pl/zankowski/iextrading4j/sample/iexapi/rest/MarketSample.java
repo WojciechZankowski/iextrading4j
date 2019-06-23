@@ -7,6 +7,9 @@ import pl.zankowski.iextrading4j.client.rest.request.market.MarketRequestBuilder
 
 import java.util.List;
 
+/**
+ * @deprecated Old IEX API service https://iextrading.com/developer/
+ */
 @Deprecated
 public class MarketSample {
 

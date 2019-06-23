@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.function.Consumer;
 
+/**
+ * @deprecated Old IEX API service https://iextrading.com/developer/
+ */
 @Deprecated
 public class AsyncMarketSample {
 

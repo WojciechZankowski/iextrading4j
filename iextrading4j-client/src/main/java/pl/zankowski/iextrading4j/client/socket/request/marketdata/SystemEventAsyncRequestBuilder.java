@@ -7,6 +7,9 @@ import pl.zankowski.iextrading4j.client.socket.manager.SocketRequestBuilder;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepAsyncResponse;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepChannel;
 
+/**
+ * @deprecated Old IEX API service https://iextrading.com/developer/
+ */
 @Deprecated
 public class SystemEventAsyncRequestBuilder extends AbstractDeepAsyncRequestBuilder<DeepAsyncResponse<SystemEvent>,
         SystemEventAsyncRequestBuilder> {

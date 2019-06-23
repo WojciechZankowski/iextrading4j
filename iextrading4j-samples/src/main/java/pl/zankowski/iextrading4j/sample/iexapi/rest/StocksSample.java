@@ -22,6 +22,9 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.VenueVolumeRequestBu
 
 import java.util.List;
 
+/**
+ * @deprecated Old IEX API service https://iextrading.com/developer/
+ */
 @Deprecated
 public class StocksSample {
 
