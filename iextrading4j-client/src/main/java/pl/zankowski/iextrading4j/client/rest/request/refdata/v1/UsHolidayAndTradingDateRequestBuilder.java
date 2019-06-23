@@ -15,6 +15,9 @@ import static pl.zankowski.iextrading4j.client.rest.request.util.RequestUtil.IEX
 public class UsHolidayAndTradingDateRequestBuilder extends AbstractRequestFilterBuilder<List<HolidayAndTradingDate>, UsHolidayAndTradingDateRequestBuilder>
         implements IEXCloudV1RestRequest<List<HolidayAndTradingDate>> {
 
+    private static final String DIRECTION_PARAM = "direction";
+    private static final String TYPE_PARAM = "type";
+
     private DateType type;
     private DateDirection direction;
     private Integer last;
@@ -43,8 +46,8 @@ public class UsHolidayAndTradingDateRequestBuilder extends AbstractRequestFilter
     private RestRequest<List<HolidayAndTradingDate>> request() {
         return RestRequestBuilder.<List<HolidayAndTradingDate>>builder()
                 .withPath("/ref-data/us/dates/{type}/{direction}")
-                .addPathParam("type", type.name().toLowerCase())
-                .addPathParam("direction", direction.name().toLowerCase()).get()
+                .addPathParam(TYPE_PARAM, type.name().toLowerCase())
+                .addPathParam(DIRECTION_PARAM, direction.name().toLowerCase()).get()
                 .withResponse(new GenericType<List<HolidayAndTradingDate>>() {
                 })
                 .addQueryParam(getFilterParams())
@@ -54,8 +57,8 @@ public class UsHolidayAndTradingDateRequestBuilder extends AbstractRequestFilter
     private RestRequest<List<HolidayAndTradingDate>> requestWithLast() {
         return RestRequestBuilder.<List<HolidayAndTradingDate>>builder()
                 .withPath("/ref-data/us/dates/{type}/{direction}/{last}")
-                .addPathParam("type", type.name().toLowerCase())
-                .addPathParam("direction", direction.name().toLowerCase())
+                .addPathParam(TYPE_PARAM, type.name().toLowerCase())
+                .addPathParam(DIRECTION_PARAM, direction.name().toLowerCase())
                 .addPathParam("last", String.valueOf(last)).get()
                 .withResponse(new GenericType<List<HolidayAndTradingDate>>() {
                 })
@@ -66,8 +69,8 @@ public class UsHolidayAndTradingDateRequestBuilder extends AbstractRequestFilter
     private RestRequest<List<HolidayAndTradingDate>> requestWithLastAndDirection() {
         return RestRequestBuilder.<List<HolidayAndTradingDate>>builder()
                 .withPath("/ref-data/us/dates/{type}/{direction}/{last}/{startDate}")
-                .addPathParam("type", type.name().toLowerCase())
-                .addPathParam("direction", direction.name().toLowerCase())
+                .addPathParam(TYPE_PARAM, type.name().toLowerCase())
+                .addPathParam(DIRECTION_PARAM, direction.name().toLowerCase())
                 .addPathParam("last", String.valueOf(last))
                 .addPathParam("startDate", IEX_DATE_FORMATTER.format(startDate)).get()
                 .withResponse(new GenericType<List<HolidayAndTradingDate>>() {
