@@ -7,6 +7,7 @@ import pl.zankowski.iextrading4j.api.refdata.v1.ExchangeSymbol;
 import pl.zankowski.iextrading4j.api.refdata.v1.HolidayAndTradingDate;
 import pl.zankowski.iextrading4j.api.refdata.v1.Sector;
 import pl.zankowski.iextrading4j.api.refdata.v1.Symbol;
+import pl.zankowski.iextrading4j.api.refdata.v1.SymbolDescription;
 import pl.zankowski.iextrading4j.api.refdata.v1.SymbolMapping;
 import pl.zankowski.iextrading4j.api.refdata.v1.Tag;
 import pl.zankowski.iextrading4j.api.refdata.v1.UsExchange;
@@ -18,6 +19,7 @@ import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.IEXSymbolsReques
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.IsinMapperRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.OptionsSymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.RegionSymbolsRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.SearchSymbolRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.SectorRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.SymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.TagRequestBuilder;
@@ -108,6 +110,14 @@ public class RefDataAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     @Test
     public void optionsTest() {
         final Map<String, List<String>> result = cloudClient.executeRequest(new OptionsSymbolsRequestBuilder()
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void searchSymbolTest() {
+        final List<SymbolDescription> result = cloudClient.executeRequest(new SearchSymbolRequestBuilder()
+                .withFragment("apple")
                 .build());
         assertThat(result).isNotNull();
     }
