@@ -1,0 +1,16 @@
+[
+  {
+    "symbol": "AAPL",
+    "securityName": "Apple Inc.",
+    "securityType": "cs",
+    "region": "US",
+    "exchange": "NAS"
+  },
+  {
+    "symbol": "APLE",
+    "securityName": "Apple Hospitality REIT Inc.",
+    "securityType": "cs",
+    "region": "US",
+    "exchange": "NYS"
+  }
+]

@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.2.1] - 2019-07-07
+
+### Added
+
+- Support to Status endpoint
+- Support to Search Symbol endpoint
+
 ## [3.2.0] - 2019-06-23
 
 ### Added
@@ -241,3 +248,6 @@ All notable changes to this project will be documented in this file.
 [3.0.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_2_3_0...IT4J_RELEASE_3_0_0
 [3.0.1]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_0_0...IT4J_RELEASE_3_0_1
 [3.1.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_0_1...IT4J_RELEASE_3_1_0
+[3.1.1]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_1_0...IT4J_RELEASE_3_1_1
+[3.2.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_1_1...IT4J_RELEASE_3_2_0
+[3.2.1]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_0...IT4J_RELEASE_3_2_1
