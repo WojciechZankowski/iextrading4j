@@ -15,7 +15,7 @@ import java.math.BigDecimal;
         "delayedPrice", "delayedPriceTime", "extendedPrice", "extendedChange", "extendedChangePercent",
         "extendedPriceTime", "previousClose", "change", "changePercent", "iexMarketPercent", "iexVolume",
         "avgTotalVolume", "iexBidPrice", "iexBidSize", "iexAskPrice", "iexAskSize", "marketCap", "peRatio",
-        "week52High", "week52Low", "ytdChange", "bidPrice", "bidSize", "askPrice", "askSize"})
+        "week52High", "week52Low", "ytdChange", "bidPrice", "bidSize", "askPrice", "askSize", "lastTradeTime"})
 public class Quote implements Serializable {
 
     private static final long serialVersionUID = 6474500411156050266L;
@@ -64,6 +64,7 @@ public class Quote implements Serializable {
     private final BigDecimal bidSize;
     private final BigDecimal askPrice;
     private final BigDecimal askSize;
+    private final Long lastTradeTime;
 
     @JsonCreator
     public Quote(
@@ -110,7 +111,8 @@ public class Quote implements Serializable {
             @JsonProperty("bidPrice") final BigDecimal bidPrice,
             @JsonProperty("bidSize")  final BigDecimal bidSize,
             @JsonProperty("askPrice")  final BigDecimal askPrice,
-            @JsonProperty("askSize")  final BigDecimal askSize) {
+            @JsonProperty("askSize")  final BigDecimal askSize,
+            @JsonProperty("lastTradeTime") final Long lastTradeTime) {
         this.symbol = symbol;
         this.companyName = companyName;
         this.primaryExchange = primaryExchange;
@@ -155,6 +157,7 @@ public class Quote implements Serializable {
         this.bidSize = bidSize;
         this.askPrice = askPrice;
         this.askSize = askSize;
+        this.lastTradeTime = lastTradeTime;
     }
 
     public String getSymbol() {
@@ -333,6 +336,10 @@ public class Quote implements Serializable {
         return askSize;
     }
 
+    public Long getLastTradeTime() {
+        return lastTradeTime;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -381,7 +388,8 @@ public class Quote implements Serializable {
                 Objects.equal(bidPrice, quote.bidPrice) &&
                 Objects.equal(bidSize, quote.bidSize) &&
                 Objects.equal(askPrice, quote.askPrice) &&
-                Objects.equal(askSize, quote.askSize);
+                Objects.equal(askSize, quote.askSize) &&
+                Objects.equal(lastTradeTime, quote.lastTradeTime);
     }
 
     @Override
@@ -392,7 +400,7 @@ public class Quote implements Serializable {
                 delayedPriceTime, extendedPrice, extendedChange, extendedChangePercent, extendedPriceTime,
                 previousClose, change, changePercent, iexMarketPercent, iexVolume, avgTotalVolume, iexBidPrice,
                 iexBidSize, iexAskPrice, iexAskSize, marketCap, peRatio, week52High, week52Low, ytdChange,
-                bidPrice, bidSize, askPrice, askSize);
+                bidPrice, bidSize, askPrice, askSize, lastTradeTime);
     }
 
     @Override
@@ -442,6 +450,7 @@ public class Quote implements Serializable {
                 .add("bidSize", bidSize)
                 .add("askPrice", askPrice)
                 .add("askSize", askSize)
+                .add("lastTradeTime", lastTradeTime)
                 .toString();
     }
 }

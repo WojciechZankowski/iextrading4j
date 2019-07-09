@@ -45,6 +45,7 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.LogoRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.OpenCloseRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.PeersRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.PriceRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.QuoteRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.SectorPerformanceRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayEarningsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayIposRequestBuilder;
@@ -155,6 +156,14 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     @Test
     public void companyTest() {
         final Company result = cloudClient.executeRequest(new CompanyRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void quoteTest() {
+        final Quote result = cloudClient.executeRequest(new QuoteRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
         assertThat(result).isNotNull();
@@ -394,6 +403,24 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
+    public void maxChartRequestAcceptanceTest() {
+        final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.MAX)
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void todayChartRequestAcceptanceTest() {
+        final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.INTRADAY)
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
     public void oneDayChartRequestAcceptanceTest() {
         final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_DAY)
@@ -403,9 +430,36 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
+    public void fiveDaysChartRequestAcceptanceTest() {
+        final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.FIVE_DAYS)
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void fiveDays10MinIntervalChartRequestAcceptanceTest() {
+        final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.FIVE_DAYS_10_MIN_INTERVAL)
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
     public void oneMonthChartRequestAcceptanceTest() {
         final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
+                .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void oneMonth30MinIntervalAcceptanceTest() {
+        final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
+                .withChartRange(ChartRange.ONE_MONTH_30_MIN_INTERVAL)
                 .withSymbol("AAPL")
                 .build());
         assertThat(result).isNotNull();
