@@ -21,8 +21,8 @@
   "delayedPrice": 170.59,
   "delayedPriceTime": 1510941879189,
   "extendedPrice": 187.64,
-  "extendedChange":-0.08,
-  "extendedChangePercent":-0.00042,
+  "extendedChange": -0.08,
+  "extendedChangePercent": -0.00042,
   "extendedPriceTime": 1526936340405,
   "previousClose": 171.1,
   "change": -0.71,
@@ -38,5 +38,6 @@
   "peRatio": 19.36,
   "week52High": 176.24,
   "week52Low": 108.25,
-  "ytdChange": 0.47309513560051647
+  "ytdChange": 0.47309513560051647,
+  "lastTradeTime": 1567857882944
 }
