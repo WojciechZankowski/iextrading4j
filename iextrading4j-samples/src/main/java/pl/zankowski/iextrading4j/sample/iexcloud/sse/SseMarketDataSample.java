@@ -31,6 +31,7 @@ import pl.zankowski.iextrading4j.client.sse.request.marketdata.TradeBreaksSseReq
 import pl.zankowski.iextrading4j.client.sse.request.marketdata.TradesSseRequestBuilder;
 import pl.zankowski.iextrading4j.client.sse.request.marketdata.TradingStatusSseRequestBuilder;
 
+import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.function.Consumer;
 
@@ -64,10 +65,10 @@ public class SseMarketDataSample {
         new Semaphore(0).acquire();
     }
 
-    private static final Consumer<TOPS> TOPS_CONSUMER = System.out::println;
+    private static final Consumer<List<TOPS>> TOPS_CONSUMER = System.out::println;
 
     private void topsSseRequestSample() {
-        final SseRequest<TOPS> request = new TopsSseRequestBuilder()
+        final SseRequest<List<TOPS>> request = new TopsSseRequestBuilder()
                 .withSymbol("AAPL")
                 .build();
 

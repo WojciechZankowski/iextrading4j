@@ -4,7 +4,6 @@ import pl.zankowski.iextrading4j.client.sse.ISseEndpoint;
 import pl.zankowski.iextrading4j.client.sse.manager.SseManager;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 
-import java.io.Serializable;
 import java.util.function.Consumer;
 
 public class GenericSseEndpoint implements ISseEndpoint {
@@ -16,12 +15,12 @@ public class GenericSseEndpoint implements ISseEndpoint {
     }
 
     @Override
-    public <R extends Serializable> void subscribe(final SseRequest<R> sseRequest, final Consumer<R> consumer) {
+    public <R> void subscribe(final SseRequest<R> sseRequest, final Consumer<R> consumer) {
         sseManager.subscribe(sseRequest, consumer);
     }
 
     @Override
-    public <R extends Serializable> void unsubscribe(final SseRequest<R> sseRequest) {
+    public <R> void unsubscribe(final SseRequest<R> sseRequest) {
         sseManager.unsubscribe(sseRequest);
     }
 

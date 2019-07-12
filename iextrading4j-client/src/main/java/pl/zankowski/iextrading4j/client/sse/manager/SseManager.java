@@ -23,7 +23,7 @@ public class SseManager {
         this.sseClient = sseClient;
     }
 
-    public <T extends Serializable> void subscribe(final SseRequest<T> request, final Consumer<T> consumer) {
+    public <T> void subscribe(final SseRequest<T> request, final Consumer<T> consumer) {
         final String url = createURL(request, sseClient.getSseClientMetadata().getToken(),
                 sseClient.getSseClientMetadata().getUrl());
 
@@ -46,7 +46,7 @@ public class SseManager {
         }
     }
 
-    public <T extends Serializable> void unsubscribe(final SseRequest<T> request) {
+    public <T> void unsubscribe(final SseRequest<T> request) {
         final SseEventSource socket = sseStore.remove(request);
         if (socket == null) {
             return;
@@ -55,7 +55,7 @@ public class SseManager {
         socket.close();
     }
 
-    private <R extends Serializable> String createURL(final SseRequest<R> sseRequest, final IEXCloudToken token,
+    private <R> String createURL(final SseRequest<R> sseRequest, final IEXCloudToken token,
             final String url) {
         return new StringBuilder()
                 .append(url)
@@ -64,11 +64,11 @@ public class SseManager {
                 .toString();
     }
 
-    private <R extends Serializable> String resolveUrlToken(final SseRequest<R> sseRequest, final IEXCloudToken token) {
+    private <R> String resolveUrlToken(final SseRequest<R> sseRequest, final IEXCloudToken token) {
         return resolveToken(sseRequest, token);
     }
 
-    private <R extends Serializable> String resolveToken(final SseRequest<R> sseRequest, final IEXCloudToken token) {
+    private <R> String resolveToken(final SseRequest<R> sseRequest, final IEXCloudToken token) {
         return token == null
                 ? null
                 : sseRequest.getUseSecretToken()

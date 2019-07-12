@@ -4,10 +4,9 @@ import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import javax.ws.rs.core.GenericType;
-import java.io.Serializable;
 import java.util.Map;
 
-public class SseRequest<R extends Serializable> {
+public class SseRequest<R> {
 
     private final GenericType<R> responseType;
     private final String path;

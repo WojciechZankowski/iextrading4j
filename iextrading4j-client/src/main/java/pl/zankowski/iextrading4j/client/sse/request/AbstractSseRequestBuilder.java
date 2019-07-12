@@ -1,8 +1,6 @@
 package pl.zankowski.iextrading4j.client.sse.request;
 
-import java.io.Serializable;
-
-public abstract class AbstractSseRequestBuilder<R extends Serializable, B extends ISseRequestBuilder<R>>
+public abstract class AbstractSseRequestBuilder<R, B extends ISseRequestBuilder<R>>
         implements ISseRequestBuilder<R> {
 
     protected static final String NO_SNAPSHOT_PARAM = "nosnapshot";
