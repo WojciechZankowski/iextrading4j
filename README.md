@@ -97,7 +97,7 @@ System.out.println(quote);
 
 #### Streaming SSE
 
-** This implementation is in beta, hasn't been tested yet. **
+**This implementation is in beta, hasn't been tested yet.**
 
 To build request use classes that extend ``` ISseRequestBuilder ``` interface. Example request:
 
@@ -108,8 +108,8 @@ final IEXCloudClient cloudClient = IEXTradingClient.create(IEXTradingApiVersion.
                       .withSecretToken("Tsk_3eedff6f5c284e1a8b9bc16c54dd1af3")
                       .build());
 
-final Consumer<TOPS> TOPS_CONSUMER = System.out::println;
-final SseRequest<TOPS> request = new TopsSseRequestBuilder()
+final Consumer<List<TOPS>> TOPS_CONSUMER = System.out::println;
+final SseRequest<List<TOPS>> request = new TopsSseRequestBuilder()
         .withSymbol("AAPL")
         .build();
 
