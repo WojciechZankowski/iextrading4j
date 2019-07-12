@@ -5,13 +5,16 @@ import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequestBuilder;
 import pl.zankowski.iextrading4j.client.sse.request.AbstractSymbolSseRequestBuilder;
 
-public class TopsSseRequestBuilder extends AbstractSymbolSseRequestBuilder<TOPS, TopsSseRequestBuilder> {
+import javax.ws.rs.core.GenericType;
+import java.util.List;
+
+public class TopsSseRequestBuilder extends AbstractSymbolSseRequestBuilder<List<TOPS>, TopsSseRequestBuilder> {
 
     @Override
-    public SseRequest<TOPS> build() {
-        return SseRequestBuilder.<TOPS>builder()
+    public SseRequest<List<TOPS>> build() {
+        return SseRequestBuilder.<List<TOPS>>builder()
                 .withPath("/tops")
-                .withResponse(TOPS.class)
+                .withResponse(new GenericType<List<TOPS>>() {})
                 .addQueryParam(SYMBOL_PARAM, getSymbol())
                 .addQueryParam(NO_SNAPSHOT_PARAM, isNoSnapshot())
                 .build();

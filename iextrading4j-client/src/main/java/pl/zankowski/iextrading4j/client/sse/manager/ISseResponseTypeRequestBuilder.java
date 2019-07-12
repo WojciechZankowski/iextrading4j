@@ -1,9 +1,8 @@
 package pl.zankowski.iextrading4j.client.sse.manager;
 
 import javax.ws.rs.core.GenericType;
-import java.io.Serializable;
 
-public interface ISseResponseTypeRequestBuilder<R extends Serializable> {
+public interface ISseResponseTypeRequestBuilder<R> {
 
     ISseResponseTypeRequestBuilder<R> addPathParam(String key, String value);
 

@@ -21,7 +21,6 @@ import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
-import java.io.Serializable;
 import java.util.Map;
 import java.util.function.Consumer;
 
@@ -92,12 +91,12 @@ public class IEXTradingClient implements IEXApiClient, IEXCloudClient {
     }
 
     @Override
-    public <R extends Serializable> void subscribe(final SseRequest<R> sseRequest, final Consumer<R> consumer) {
+    public <R> void subscribe(final SseRequest<R> sseRequest, final Consumer<R> consumer) {
         genericSseEndpoint.subscribe(sseRequest, consumer);
     }
 
     @Override
-    public <R extends Serializable> void unsubscribe(final SseRequest<R> sseRequest) {
+    public <R> void unsubscribe(final SseRequest<R> sseRequest) {
         genericSseEndpoint.unsubscribe(sseRequest);
     }
 

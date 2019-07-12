@@ -1,6 +1,16 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.2.3] - 2019-07-12
+
+### Added
+
+- Added Options endpoint support
+
+### Changed
+
+- Fixed SSE TOPS response format
+
 ## [3.2.2] - 2019-07-09
 
 ### Changed
@@ -259,3 +269,4 @@ All notable changes to this project will be documented in this file.
 [3.2.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_1_1...IT4J_RELEASE_3_2_0
 [3.2.1]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_0...IT4J_RELEASE_3_2_1
 [3.2.2]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_1...IT4J_RELEASE_3_2_2
+[3.2.3]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_2...IT4J_RELEASE_3_2_3

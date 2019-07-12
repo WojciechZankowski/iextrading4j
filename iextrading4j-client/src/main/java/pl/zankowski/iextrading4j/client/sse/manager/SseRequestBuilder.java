@@ -3,10 +3,9 @@ package pl.zankowski.iextrading4j.client.sse.manager;
 import com.google.common.collect.Maps;
 
 import javax.ws.rs.core.GenericType;
-import java.io.Serializable;
 import java.util.Map;
 
-public class SseRequestBuilder<R extends Serializable> implements ISseParamRequestBuilder<R>,
+public class SseRequestBuilder<R> implements ISseParamRequestBuilder<R>,
         ISsePathRequestBuilder<R>, ISseResponseTypeRequestBuilder<R> {
 
     private GenericType<R> responseType;
@@ -22,7 +21,7 @@ public class SseRequestBuilder<R extends Serializable> implements ISseParamReque
         this.queryParams = Maps.newHashMap();
     }
 
-    public static <R extends Serializable> ISsePathRequestBuilder<R> builder() {
+    public static <R> ISsePathRequestBuilder<R> builder() {
         return new SseRequestBuilder<>();
     }
 

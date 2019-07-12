@@ -7,6 +7,7 @@ import pl.zankowski.iextrading4j.client.sse.manager.SseManager;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 import pl.zankowski.iextrading4j.client.sse.request.marketdata.TopsSseRequestBuilder;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 import static org.mockito.ArgumentMatchers.eq;
@@ -26,8 +27,8 @@ public class GenericSseEndpointTest {
 
     @Test
     public void shouldSuccessfullySubscribe() {
-        final SseRequest<TOPS> request = new TopsSseRequestBuilder().build();
-        final Consumer<TOPS> topsConsumer = mock(Consumer.class);
+        final SseRequest<List<TOPS>> request = new TopsSseRequestBuilder().build();
+        final Consumer<List<TOPS>> topsConsumer = mock(Consumer.class);
 
         genericSseEndpoint.subscribe(request, topsConsumer);
 
@@ -36,7 +37,7 @@ public class GenericSseEndpointTest {
 
     @Test
     public void shouldSuccessfullyUnsubscribe() {
-        final SseRequest<TOPS> request = new TopsSseRequestBuilder().build();
+        final SseRequest<List<TOPS>> request = new TopsSseRequestBuilder().build();
 
         genericSseEndpoint.unsubscribe(request);
 

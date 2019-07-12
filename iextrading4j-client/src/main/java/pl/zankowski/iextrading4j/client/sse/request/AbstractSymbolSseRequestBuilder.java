@@ -1,13 +1,12 @@
 package pl.zankowski.iextrading4j.client.sse.request;
 
-import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 import static java.util.stream.Collectors.joining;
 
-public abstract class AbstractSymbolSseRequestBuilder<R extends Serializable, B extends ISseRequestBuilder<R>>
+public abstract class AbstractSymbolSseRequestBuilder<R, B extends ISseRequestBuilder<R>>
         extends AbstractSseRequestBuilder<R, B> {
 
     protected static final String SYMBOL_PARAM = "symbols";
