@@ -1,0 +1,17 @@
+[
+  {
+    "symbol": "AAPL",
+    "id": "0600180A92120LP2A520P",
+    "expirationDate": "20190705",
+    "contractSize": 105,
+    "strikePrice": 216,
+    "closingPrice": 12.59,
+    "side": "put",
+    "type": "equity",
+    "volume": 0,
+    "openInterest": 0,
+    "bid": 13.02,
+    "ask": 16.92,
+    "lastUpdated": "2019-07-11"
+  }
+]
