@@ -7,8 +7,9 @@ import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
+import java.util.List;
 
-public class SsrStatusSseRequestBuilder extends AbstractDeepSseRequestBuilder<DeepAsyncResponse<SsrStatus>,
+public class SsrStatusSseRequestBuilder extends AbstractDeepSseRequestBuilder<List<DeepAsyncResponse<SsrStatus>>,
         SsrStatusSseRequestBuilder> {
 
     public SsrStatusSseRequestBuilder() {
@@ -16,10 +17,10 @@ public class SsrStatusSseRequestBuilder extends AbstractDeepSseRequestBuilder<De
     }
 
     @Override
-    public SseRequest<DeepAsyncResponse<SsrStatus>> build() {
-        return SseRequestBuilder.<DeepAsyncResponse<SsrStatus>>builder()
+    public SseRequest<List<DeepAsyncResponse<SsrStatus>>> build() {
+        return SseRequestBuilder.<List<DeepAsyncResponse<SsrStatus>>>builder()
                 .withPath("/deep")
-                .withResponse(new GenericType<DeepAsyncResponse<SsrStatus>>() {
+                .withResponse(new GenericType<List<DeepAsyncResponse<SsrStatus>>>() {
                 })
                 .addQueryParam(CHANNEL_PARAM, getChannels())
                 .addQueryParam(SYMBOL_PARAM, getSymbol())

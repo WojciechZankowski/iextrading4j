@@ -7,8 +7,9 @@ import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
+import java.util.List;
 
-public class OpHaltStatusSseRequestBuilder extends AbstractDeepSseRequestBuilder<DeepAsyncResponse<OpHaltStatus>,
+public class OpHaltStatusSseRequestBuilder extends AbstractDeepSseRequestBuilder<List<DeepAsyncResponse<OpHaltStatus>>,
         OpHaltStatusSseRequestBuilder> {
 
     public OpHaltStatusSseRequestBuilder() {
@@ -16,10 +17,10 @@ public class OpHaltStatusSseRequestBuilder extends AbstractDeepSseRequestBuilder
     }
 
     @Override
-    public SseRequest<DeepAsyncResponse<OpHaltStatus>> build() {
-        return SseRequestBuilder.<DeepAsyncResponse<OpHaltStatus>>builder()
+    public SseRequest<List<DeepAsyncResponse<OpHaltStatus>>> build() {
+        return SseRequestBuilder.<List<DeepAsyncResponse<OpHaltStatus>>>builder()
                 .withPath("/deep")
-                .withResponse(new GenericType<DeepAsyncResponse<OpHaltStatus>>() {})
+                .withResponse(new GenericType<List<DeepAsyncResponse<OpHaltStatus>>>() {})
                 .addQueryParam(CHANNEL_PARAM, getChannels())
                 .addQueryParam(SYMBOL_PARAM, getSymbol())
                 .addQueryParam(NO_SNAPSHOT_PARAM, isNoSnapshot())

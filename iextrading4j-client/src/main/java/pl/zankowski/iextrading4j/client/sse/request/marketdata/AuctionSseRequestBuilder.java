@@ -7,8 +7,9 @@ import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
+import java.util.List;
 
-public class AuctionSseRequestBuilder extends AbstractDeepSseRequestBuilder<DeepAsyncResponse<Auction>,
+public class AuctionSseRequestBuilder extends AbstractDeepSseRequestBuilder<List<DeepAsyncResponse<Auction>>,
         AuctionSseRequestBuilder> {
 
     public AuctionSseRequestBuilder() {
@@ -16,10 +17,10 @@ public class AuctionSseRequestBuilder extends AbstractDeepSseRequestBuilder<Deep
     }
 
     @Override
-    public SseRequest<DeepAsyncResponse<Auction>> build() {
-        return SseRequestBuilder.<DeepAsyncResponse<Auction>>builder()
+    public SseRequest<List<DeepAsyncResponse<Auction>>> build() {
+        return SseRequestBuilder.<List<DeepAsyncResponse<Auction>>>builder()
                 .withPath("/deep")
-                .withResponse(new GenericType<DeepAsyncResponse<Auction>>() {})
+                .withResponse(new GenericType<List<DeepAsyncResponse<Auction>>>() {})
                 .addQueryParam(CHANNEL_PARAM, getChannels())
                 .addQueryParam(SYMBOL_PARAM, getSymbol())
                 .addQueryParam(NO_SNAPSHOT_PARAM, isNoSnapshot())

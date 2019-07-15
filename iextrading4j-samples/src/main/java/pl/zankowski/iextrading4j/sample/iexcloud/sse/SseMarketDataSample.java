@@ -49,17 +49,17 @@ public class SseMarketDataSample {
         marketDataSample.topsSseRequestSample();
         marketDataSample.lastSseRequestSample();
 
-        marketDataSample.tradingStatusSseRequestSample();
-        marketDataSample.auctionSseRequestSample();
-        marketDataSample.opHaltStatusSseRequestSample();
-        marketDataSample.ssrStatusSseRequestBuilder();
-        marketDataSample.securityEventSseRequestBuilder();
-        marketDataSample.tradeBreakSseRequestSample();
-        marketDataSample.tradesSseRequestSample();
+        // marketDataSample.tradingStatusSseRequestSample();
+        // marketDataSample.auctionSseRequestSample();
+        // marketDataSample.opHaltStatusSseRequestSample();
+        // marketDataSample.ssrStatusSseRequestBuilder();
+        // marketDataSample.securityEventSseRequestBuilder();
+        // marketDataSample.tradeBreakSseRequestSample();
+        // marketDataSample.tradesSseRequestSample();
         marketDataSample.bookSseRequestSample();
-        marketDataSample.systemEventSseRequestSample();
+        // marketDataSample.systemEventSseRequestSample();
         marketDataSample.deepSseRequestSample();
-        marketDataSample.deepSseRequestWithAdapterSample();
+        // marketDataSample.deepSseRequestWithAdapterSample();
 
         new Semaphore(0).acquire();
     }
@@ -68,7 +68,7 @@ public class SseMarketDataSample {
 
     private void topsSseRequestSample() {
         final SseRequest<List<TOPS>> request = new TopsSseRequestBuilder()
-                .withSymbol("AAPL")
+                .withSymbol("IBM")
                 .build();
 
         cloudClient.subscribe(request, TOPS_CONSUMER);
@@ -78,119 +78,124 @@ public class SseMarketDataSample {
 
     private void lastSseRequestSample() {
         final SseRequest<List<LastTrade>> request = new LastSseRequestBuilder()
-                .withSymbol("AAPL")
+                .withSymbol("IBM")
                 .build();
 
         cloudClient.subscribe(request, LAST_CONSUMER);
     }
 
-    private static final Consumer<DeepAsyncResponse<TradingStatus>> TRADING_STATUS_CONSUMER = System.out::println;
+    private static final Consumer<List<DeepAsyncResponse<TradingStatus>>> TRADING_STATUS_CONSUMER = System.out::println;
 
     private void tradingStatusSseRequestSample() {
-        final SseRequest<DeepAsyncResponse<TradingStatus>> request = new TradingStatusSseRequestBuilder()
-                .withSymbol("AAPL")
+        final SseRequest<List<DeepAsyncResponse<TradingStatus>>> request = new TradingStatusSseRequestBuilder()
+                .withSymbol("IBM")
                 .build();
 
         cloudClient.subscribe(request, TRADING_STATUS_CONSUMER);
     }
 
-    private static final Consumer<DeepAsyncResponse<Auction>> AUCTION_CONSUMER = System.out::println;
+    private static final Consumer<List<DeepAsyncResponse<Auction>>> AUCTION_CONSUMER = System.out::println;
 
     private void auctionSseRequestSample() {
-        final SseRequest<DeepAsyncResponse<Auction>> request = new AuctionSseRequestBuilder()
-                .withSymbol("AAPL")
+        final SseRequest<List<DeepAsyncResponse<Auction>>> request = new AuctionSseRequestBuilder()
+                .withSymbol("IBM")
                 .build();
 
         cloudClient.subscribe(request, AUCTION_CONSUMER);
     }
 
-    private static final Consumer<DeepAsyncResponse<OpHaltStatus>> OP_HALT_STATUS_CONSUMER = System.out::println;
+    private static final Consumer<List<DeepAsyncResponse<OpHaltStatus>>> OP_HALT_STATUS_CONSUMER = System.out::println;
 
     private void opHaltStatusSseRequestSample() {
-        final SseRequest<DeepAsyncResponse<OpHaltStatus>> request = new OpHaltStatusSseRequestBuilder()
-                .withSymbol("AAPL")
+        final SseRequest<List<DeepAsyncResponse<OpHaltStatus>>> request = new OpHaltStatusSseRequestBuilder()
+                .withSymbol("IBM")
                 .build();
 
         cloudClient.subscribe(request, OP_HALT_STATUS_CONSUMER);
     }
 
-    private static final Consumer<DeepAsyncResponse<SsrStatus>> SSR_STATUS_CONSUMER = System.out::println;
+    private static final Consumer<List<DeepAsyncResponse<SsrStatus>>> SSR_STATUS_CONSUMER = System.out::println;
 
     private void ssrStatusSseRequestBuilder() {
-        final SseRequest<DeepAsyncResponse<SsrStatus>> request = new SsrStatusSseRequestBuilder()
-                .withSymbol("AAPL")
+        final SseRequest<List<DeepAsyncResponse<SsrStatus>>> request = new SsrStatusSseRequestBuilder()
+                .withSymbol("IBM")
                 .build();
 
         cloudClient.subscribe(request, SSR_STATUS_CONSUMER);
     }
 
-    private static final Consumer<DeepAsyncResponse<SecurityEvent>> SECURITY_EVENT_CONSUMER = System.out::println;
+    private static final Consumer<List<DeepAsyncResponse<SecurityEvent>>> SECURITY_EVENT_CONSUMER = System.out::println;
 
     private void securityEventSseRequestBuilder() {
-        final SseRequest<DeepAsyncResponse<SecurityEvent>> request = new SecurityEventSseRequestBuilder()
-                .withSymbol("AAPL")
+        final SseRequest<List<DeepAsyncResponse<SecurityEvent>>> request = new SecurityEventSseRequestBuilder()
+                .withSymbol("IBM")
                 .build();
 
         cloudClient.subscribe(request, SECURITY_EVENT_CONSUMER);
     }
 
-    private static final Consumer<DeepAsyncResponse<Trade>> TRADE_BREAK_CONSUMER = System.out::println;
+    private static final Consumer<List<DeepAsyncResponse<Trade>>> TRADE_BREAK_CONSUMER = System.out::println;
 
     private void tradeBreakSseRequestSample() {
-        final SseRequest<DeepAsyncResponse<Trade>> request = new TradeBreaksSseRequestBuilder()
-                .withSymbol("AAPL")
+        final SseRequest<List<DeepAsyncResponse<Trade>>> request = new TradeBreaksSseRequestBuilder()
+                .withSymbol("IBM")
                 .build();
 
         cloudClient.subscribe(request, TRADE_BREAK_CONSUMER);
     }
 
-    private static final Consumer<DeepAsyncResponse<Trade>> TRADES_CONSUMER = System.out::println;
+    private static final Consumer<List<DeepAsyncResponse<Trade>>> TRADES_CONSUMER = System.out::println;
 
     private void tradesSseRequestSample() {
-        final SseRequest<DeepAsyncResponse<Trade>> request = new TradesSseRequestBuilder()
-                .withSymbol("AAPL")
+        final SseRequest<List<DeepAsyncResponse<Trade>>> request = new TradesSseRequestBuilder()
+                .withSymbol("IBM")
                 .build();
 
         cloudClient.subscribe(request, TRADES_CONSUMER);
     }
 
-    private static final Consumer<DeepAsyncResponse<Book>> BOOK_CONSUMER = System.out::println;
+    private static final Consumer<List<DeepAsyncResponse<Book>>> BOOK_CONSUMER = System.out::println;
 
     private void bookSseRequestSample() {
-        final SseRequest<DeepAsyncResponse<Book>> request = new BookSseRequestBuilder()
-                .withSymbol("AAPL")
+        final SseRequest<List<DeepAsyncResponse<Book>>> request = new BookSseRequestBuilder()
+                .withSymbol("IBM")
                 .build();
 
         cloudClient.subscribe(request, BOOK_CONSUMER);
     }
 
-    private static final Consumer<DeepAsyncResponse<SystemEvent>> SYSTEM_EVENT_CONSUMER = System.out::println;
+    private static final Consumer<List<DeepAsyncResponse<SystemEvent>>> SYSTEM_EVENT_CONSUMER = System.out::println;
 
     private void systemEventSseRequestSample() {
-        final SseRequest<DeepAsyncResponse<SystemEvent>> request = new SystemEventSseRequestBuilder()
-                .withSymbol("AAPL")
+        final SseRequest<List<DeepAsyncResponse<SystemEvent>>> request = new SystemEventSseRequestBuilder()
+                .withSymbol("IBM")
                 .build();
 
         cloudClient.subscribe(request, SYSTEM_EVENT_CONSUMER);
     }
 
-    private static final Consumer<DeepAsyncResponse<DeepResult>> DEEP_ASYNC_RESPONSE_CONSUMER = System.out::println;
+    private static final Consumer<List<DeepAsyncResponse<DeepResult>>> DEEP_ASYNC_RESPONSE_CONSUMER = System.out::println;
 
     private void deepSseRequestSample() {
-        final SseRequest<DeepAsyncResponse<DeepResult>> request = new DeepSseRequestBuilder()
-                .withSymbol("AAPL")
+        final SseRequest<List<DeepAsyncResponse<DeepResult>>> request = new DeepSseRequestBuilder()
+                .withSymbol("IBM")
                 .build();
 
         cloudClient.subscribe(request, DEEP_ASYNC_RESPONSE_CONSUMER);
     }
 
     private void deepSseRequestWithAdapterSample() {
-        final SseRequest<DeepAsyncResponse<DeepResult>> request = new DeepSseRequestBuilder()
-                .withSymbol("AAPL")
+        final SseRequest<List<DeepAsyncResponse<DeepResult>>> request = new DeepSseRequestBuilder()
+                .withSymbol("IBM")
                 .build();
 
-        cloudClient.subscribe(request, new SseMarketDataSample.SampleDeepConsumerAdapter());
+        cloudClient.subscribe(request, DEEP_ASYNC_RESPONSE_PROXY_CONSUMER);
     }
+
+    private static final SampleDeepConsumerAdapter ADAPTER = new SampleDeepConsumerAdapter();
+
+    private static final Consumer<List<DeepAsyncResponse<DeepResult>>> DEEP_ASYNC_RESPONSE_PROXY_CONSUMER =
+            (response) -> response.forEach(ADAPTER::accept);
 
     private static class SampleDeepConsumerAdapter extends DeepConsumerAdapter {
 

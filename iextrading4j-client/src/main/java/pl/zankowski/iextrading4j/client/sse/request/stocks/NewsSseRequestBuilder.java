@@ -5,13 +5,16 @@ import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequestBuilder;
 import pl.zankowski.iextrading4j.client.sse.request.AbstractSymbolSseRequestBuilder;
 
-public class NewsSseRequestBuilder extends AbstractSymbolSseRequestBuilder<News, NewsSseRequestBuilder> {
+import javax.ws.rs.core.GenericType;
+import java.util.List;
+
+public class NewsSseRequestBuilder extends AbstractSymbolSseRequestBuilder<List<News>, NewsSseRequestBuilder> {
 
     @Override
-    public SseRequest<News> build() {
-        return SseRequestBuilder.<News>builder()
+    public SseRequest<List<News>> build() {
+        return SseRequestBuilder.<List<News>>builder()
                 .withPath("/news-stream")
-                .withResponse(News.class)
+                .withResponse(new GenericType<List<News>>() {})
                 .addQueryParam(SYMBOL_PARAM, getSymbol())
                 .addQueryParam(NO_SNAPSHOT_PARAM, isNoSnapshot())
                 .build();

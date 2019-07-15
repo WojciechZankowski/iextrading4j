@@ -5,13 +5,16 @@ import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequestBuilder;
 import pl.zankowski.iextrading4j.client.sse.request.AbstractSymbolSseRequestBuilder;
 
-public class SentimentSseRequestBuilder extends AbstractSymbolSseRequestBuilder<Sentiment, SentimentSseRequestBuilder> {
+import javax.ws.rs.core.GenericType;
+import java.util.List;
+
+public class SentimentSseRequestBuilder extends AbstractSymbolSseRequestBuilder<List<Sentiment>, SentimentSseRequestBuilder> {
 
     @Override
-    public SseRequest<Sentiment> build() {
-        return SseRequestBuilder.<Sentiment>builder()
+    public SseRequest<List<Sentiment>> build() {
+        return SseRequestBuilder.<List<Sentiment>>builder()
                 .withPath("/sentiment")
-                .withResponse(Sentiment.class)
+                .withResponse(new GenericType<List<Sentiment>>() {})
                 .addQueryParam(SYMBOL_PARAM, getSymbol())
                 .addQueryParam(NO_SNAPSHOT_PARAM, isNoSnapshot())
                 .build();

@@ -7,8 +7,9 @@ import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
+import java.util.List;
 
-public class TradingStatusSseRequestBuilder extends AbstractDeepSseRequestBuilder<DeepAsyncResponse<TradingStatus>,
+public class TradingStatusSseRequestBuilder extends AbstractDeepSseRequestBuilder<List<DeepAsyncResponse<TradingStatus>>,
         TradingStatusSseRequestBuilder> {
 
     public TradingStatusSseRequestBuilder() {
@@ -16,10 +17,10 @@ public class TradingStatusSseRequestBuilder extends AbstractDeepSseRequestBuilde
     }
 
     @Override
-    public SseRequest<DeepAsyncResponse<TradingStatus>> build() {
-        return SseRequestBuilder.<DeepAsyncResponse<TradingStatus>>builder()
+    public SseRequest<List<DeepAsyncResponse<TradingStatus>>> build() {
+        return SseRequestBuilder.<List<DeepAsyncResponse<TradingStatus>>>builder()
                 .withPath("/deep")
-                .withResponse(new GenericType<DeepAsyncResponse<TradingStatus>>() {
+                .withResponse(new GenericType<List<DeepAsyncResponse<TradingStatus>>>() {
                 })
                 .addQueryParam(CHANNEL_PARAM, getChannels())
                 .addQueryParam(SYMBOL_PARAM, getSymbol())

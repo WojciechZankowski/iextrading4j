@@ -27,10 +27,10 @@ public class SseStocksSample {
         final SseStocksSample stocksSample = new SseStocksSample();
 
         // The requested data is not available to free tier accounts
-        stocksSample.quoteRealtimeSample();
-        stocksSample.quote1SecondSample();
-        stocksSample.quote5SecondsSample();
-        stocksSample.quoteOneMinuteSample();
+//        stocksSample.quoteRealtimeSample();
+//        stocksSample.quote1SecondSample();
+//        stocksSample.quote5SecondsSample();
+//        stocksSample.quoteOneMinuteSample();
 
         stocksSample.newsSample();
 
@@ -75,10 +75,10 @@ public class SseStocksSample {
         cloudClient.subscribe(request, SENTIMENT_CONSUMER);
     }
 
-    private static final Consumer<News> NEWS_CONSUMER = System.out::println;
+    private static final Consumer<List<News>> NEWS_CONSUMER = System.out::println;
 
     private void newsSample() {
-        final SseRequest<News> request = new NewsSseRequestBuilder()
+        final SseRequest<List<News>> request = new NewsSseRequestBuilder()
                 .withSymbol("spy")
                 .build();
 

@@ -10,7 +10,7 @@ import java.util.Set;
 
 import static java.util.stream.Collectors.joining;
 
-public abstract class AbstractDeepSseRequestBuilder<R extends Serializable, B extends ISseRequestBuilder<R>>
+public abstract class AbstractDeepSseRequestBuilder<R, B extends ISseRequestBuilder<R>>
         extends AbstractSymbolSseRequestBuilder<R, B> {
 
     protected static final String CHANNEL_PARAM = "channels";
