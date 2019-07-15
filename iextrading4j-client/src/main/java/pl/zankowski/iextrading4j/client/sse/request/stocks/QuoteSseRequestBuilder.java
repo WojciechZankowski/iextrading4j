@@ -5,7 +5,10 @@ import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequestBuilder;
 import pl.zankowski.iextrading4j.client.sse.request.AbstractSymbolSseRequestBuilder;
 
-public class QuoteSseRequestBuilder extends AbstractSymbolSseRequestBuilder<Quote, QuoteSseRequestBuilder> {
+import javax.ws.rs.core.GenericType;
+import java.util.List;
+
+public class QuoteSseRequestBuilder extends AbstractSymbolSseRequestBuilder<List<Quote>, QuoteSseRequestBuilder> {
 
     private QuoteInterval quoteInterval;
 
@@ -15,11 +18,11 @@ public class QuoteSseRequestBuilder extends AbstractSymbolSseRequestBuilder<Quot
     }
 
     @Override
-    public SseRequest<Quote> build() {
-        return SseRequestBuilder.<Quote>builder()
+    public SseRequest<List<Quote>> build() {
+        return SseRequestBuilder.<List<Quote>>builder()
                 .withPath("/stocksUS{interval}")
                 .addPathParam("interval", quoteInterval.getName())
-                .withResponse(Quote.class)
+                .withResponse(new GenericType<List<Quote>>() {})
                 .addQueryParam(SYMBOL_PARAM, getSymbol())
                 .addQueryParam(NO_SNAPSHOT_PARAM, isNoSnapshot())
                 .build();

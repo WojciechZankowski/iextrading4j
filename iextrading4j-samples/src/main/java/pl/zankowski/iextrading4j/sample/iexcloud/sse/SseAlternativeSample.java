@@ -8,6 +8,7 @@ import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 import pl.zankowski.iextrading4j.client.sse.request.alternative.SentimentSseRequestBuilder;
 
+import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.function.Consumer;
 
@@ -22,17 +23,16 @@ public class SseAlternativeSample {
     public static void main(String[] args) throws InterruptedException {
         final SseAlternativeSample alternativeSample = new SseAlternativeSample();
 
-        // The requested data is not available to free tier accounts
-        // alternativeSample.sentimentSample();
+        alternativeSample.sentimentSample();
 
         new Semaphore(0).acquire();
     }
 
-    private static final Consumer<Sentiment> SENTIMENT_CONSUMER = System.out::println;
+    private static final Consumer<List<Sentiment>> SENTIMENT_CONSUMER = System.out::println;
 
     private void sentimentSample() {
-        final SseRequest<Sentiment> request = new SentimentSseRequestBuilder()
-                .withSymbol("AAPL")
+        final SseRequest<List<Sentiment>> request = new SentimentSseRequestBuilder()
+                .withSymbol("spy")
                 .build();
 
         cloudClient.subscribe(request, SENTIMENT_CONSUMER);

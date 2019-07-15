@@ -7,8 +7,9 @@ import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
+import java.util.List;
 
-public class SystemEventSseRequestBuilder extends AbstractDeepSseRequestBuilder<DeepAsyncResponse<SystemEvent>,
+public class SystemEventSseRequestBuilder extends AbstractDeepSseRequestBuilder<List<DeepAsyncResponse<SystemEvent>>,
         SystemEventSseRequestBuilder> {
 
     public SystemEventSseRequestBuilder() {
@@ -16,10 +17,10 @@ public class SystemEventSseRequestBuilder extends AbstractDeepSseRequestBuilder<
     }
 
     @Override
-    public SseRequest<DeepAsyncResponse<SystemEvent>> build() {
-        return SseRequestBuilder.<DeepAsyncResponse<SystemEvent>>builder()
+    public SseRequest<List<DeepAsyncResponse<SystemEvent>>> build() {
+        return SseRequestBuilder.<List<DeepAsyncResponse<SystemEvent>>>builder()
                 .withPath("/deep")
-                .withResponse(new GenericType<DeepAsyncResponse<SystemEvent>>() {
+                .withResponse(new GenericType<List<DeepAsyncResponse<SystemEvent>>>() {
                 })
                 .addQueryParam(CHANNEL_PARAM, getChannels())
                 .addQueryParam(SYMBOL_PARAM, getSymbol())

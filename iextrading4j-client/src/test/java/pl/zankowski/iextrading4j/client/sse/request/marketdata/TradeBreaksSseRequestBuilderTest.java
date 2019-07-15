@@ -7,6 +7,8 @@ import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 
 import javax.ws.rs.core.GenericType;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.entry;
 
@@ -16,12 +18,12 @@ public class TradeBreaksSseRequestBuilderTest {
     public void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
-        final SseRequest<DeepAsyncResponse<Trade>> request = new TradeBreaksSseRequestBuilder()
+        final SseRequest<List<DeepAsyncResponse<Trade>>> request = new TradeBreaksSseRequestBuilder()
                 .withSymbol(symbol)
                 .build();
 
         assertThat(request.getPath()).isEqualTo("/deep");
-        assertThat(request.getResponseType()).isEqualTo(new GenericType<DeepAsyncResponse<Trade>>() {
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<DeepAsyncResponse<Trade>>>() {
         });
         assertThat(request.getPathParams()).isEmpty();
         assertThat(request.getQueryParams()).contains(entry("nosnapshot", "false"), entry("symbols", symbol),
