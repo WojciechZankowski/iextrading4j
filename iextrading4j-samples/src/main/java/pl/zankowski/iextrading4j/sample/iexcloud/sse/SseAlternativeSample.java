@@ -22,8 +22,7 @@ public class SseAlternativeSample {
     public static void main(String[] args) throws InterruptedException {
         final SseAlternativeSample alternativeSample = new SseAlternativeSample();
 
-        // The requested data is not available to free tier accounts
-        // alternativeSample.sentimentSample();
+        alternativeSample.sentimentSample();
 
         new Semaphore(0).acquire();
     }

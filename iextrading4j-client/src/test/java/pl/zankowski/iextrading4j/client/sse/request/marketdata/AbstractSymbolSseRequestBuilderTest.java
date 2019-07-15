@@ -6,6 +6,8 @@ import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 
 import javax.ws.rs.core.GenericType;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.entry;
 
@@ -16,12 +18,12 @@ public class AbstractSymbolSseRequestBuilderTest {
         final String ibmSymbol = "ibm";
         final String aaplSymbol = "aapl";
 
-        final SseRequest<LastTrade> request = new LastSseRequestBuilder()
+        final SseRequest<List<LastTrade>> request = new LastSseRequestBuilder()
                 .withSymbols(ibmSymbol, aaplSymbol)
                 .build();
 
         assertThat(request.getPath()).isEqualTo("/last");
-        assertThat(request.getResponseType()).isEqualTo(new GenericType<LastTrade>() {});
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<LastTrade>>() {});
         assertThat(request.getPathParams()).isEmpty();
         assertThat(request.getQueryParams()).contains(entry("nosnapshot", "false"));
 

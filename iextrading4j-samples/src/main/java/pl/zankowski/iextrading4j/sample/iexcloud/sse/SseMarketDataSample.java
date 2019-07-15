@@ -46,21 +46,20 @@ public class SseMarketDataSample {
     public static void main(String[] args) throws InterruptedException {
         final SseMarketDataSample marketDataSample = new SseMarketDataSample();
 
-        // The requested data is not available to free tier accounts
-        // marketDataSample.topsSseRequestSample();
-        // marketDataSample.lastSseRequestSample();
+        marketDataSample.topsSseRequestSample();
+        marketDataSample.lastSseRequestSample();
 
-        // marketDataSample.tradingStatusSseRequestSample();
-        // marketDataSample.auctionSseRequestSample();
-        // marketDataSample.opHaltStatusSseRequestSample();
-        // marketDataSample.ssrStatusSseRequestBuilder();
-        // marketDataSample.securityEventSseRequestBuilder();
-        // marketDataSample.tradeBreakSseRequestSample();
-        // marketDataSample.tradesSseRequestSample();
-        // marketDataSample.bookSseRequestSample();
-        // marketDataSample.systemEventSseRequestSample();
-        // marketDataSample.deepSseRequestSample();
-        // marketDataSample.deepSseRequestWithAdapterSample();
+        marketDataSample.tradingStatusSseRequestSample();
+        marketDataSample.auctionSseRequestSample();
+        marketDataSample.opHaltStatusSseRequestSample();
+        marketDataSample.ssrStatusSseRequestBuilder();
+        marketDataSample.securityEventSseRequestBuilder();
+        marketDataSample.tradeBreakSseRequestSample();
+        marketDataSample.tradesSseRequestSample();
+        marketDataSample.bookSseRequestSample();
+        marketDataSample.systemEventSseRequestSample();
+        marketDataSample.deepSseRequestSample();
+        marketDataSample.deepSseRequestWithAdapterSample();
 
         new Semaphore(0).acquire();
     }
@@ -75,10 +74,10 @@ public class SseMarketDataSample {
         cloudClient.subscribe(request, TOPS_CONSUMER);
     }
 
-    private static final Consumer<LastTrade> LAST_CONSUMER = System.out::println;
+    private static final Consumer<List<LastTrade>> LAST_CONSUMER = System.out::println;
 
     private void lastSseRequestSample() {
-        final SseRequest<LastTrade> request = new LastSseRequestBuilder()
+        final SseRequest<List<LastTrade>> request = new LastSseRequestBuilder()
                 .withSymbol("AAPL")
                 .build();
 
