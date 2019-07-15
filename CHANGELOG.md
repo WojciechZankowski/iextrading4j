@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.2.4] - 2019-07-15
+
+### Changed
+
+- Fixed SSE Last/DEEP/Quotes response format
+
 ## [3.2.3] - 2019-07-12
 
 ### Added
@@ -270,3 +276,4 @@ All notable changes to this project will be documented in this file.
 [3.2.1]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_0...IT4J_RELEASE_3_2_1
 [3.2.2]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_1...IT4J_RELEASE_3_2_2
 [3.2.3]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_2...IT4J_RELEASE_3_2_3
+[3.2.4]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_3...IT4J_RELEASE_3_2_4
