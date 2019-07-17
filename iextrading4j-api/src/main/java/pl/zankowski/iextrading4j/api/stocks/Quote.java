@@ -31,6 +31,7 @@ public class Quote implements Serializable {
     private final Long closeTime;
     private final BigDecimal high;
     private final BigDecimal low;
+    private final BigDecimal volume;
     private final BigDecimal latestPrice;
     private final String latestSource;
     private final String latestTime;
@@ -46,6 +47,7 @@ public class Quote implements Serializable {
     private final BigDecimal extendedChangePercent;
     private final Long extendedPriceTime;
     private final BigDecimal previousClose;
+    private final BigDecimal previousVolume;
     private final BigDecimal change;
     private final BigDecimal changePercent;
     private final BigDecimal iexMarketPercent;
@@ -79,6 +81,7 @@ public class Quote implements Serializable {
             @JsonProperty("closeTime") final Long closeTime,
             @JsonProperty("high") final BigDecimal high,
             @JsonProperty("low") final BigDecimal low,
+            @JsonProperty("volume") final BigDecimal volume,
             @JsonProperty("latestPrice") final BigDecimal latestPrice,
             @JsonProperty("latestSource") final String latestSource,
             @JsonProperty("latestTime") final String latestTime,
@@ -94,6 +97,7 @@ public class Quote implements Serializable {
             @JsonProperty("extendedChangePercent") final BigDecimal extendedChangePercent,
             @JsonProperty("extendedPriceTime") final Long extendedPriceTime,
             @JsonProperty("previousClose") final BigDecimal previousClose,
+            @JsonProperty("previousVolume") final BigDecimal previousVolume,
             @JsonProperty("change") final BigDecimal change,
             @JsonProperty("changePercent") final BigDecimal changePercent,
             @JsonProperty("iexMarketPercent") final BigDecimal iexMarketPercent,
@@ -109,9 +113,9 @@ public class Quote implements Serializable {
             @JsonProperty("week52Low") final BigDecimal week52Low,
             @JsonProperty("ytdChange") final BigDecimal ytdChange,
             @JsonProperty("bidPrice") final BigDecimal bidPrice,
-            @JsonProperty("bidSize")  final BigDecimal bidSize,
-            @JsonProperty("askPrice")  final BigDecimal askPrice,
-            @JsonProperty("askSize")  final BigDecimal askSize,
+            @JsonProperty("bidSize") final BigDecimal bidSize,
+            @JsonProperty("askPrice") final BigDecimal askPrice,
+            @JsonProperty("askSize") final BigDecimal askSize,
             @JsonProperty("lastTradeTime") final Long lastTradeTime) {
         this.symbol = symbol;
         this.companyName = companyName;
@@ -124,6 +128,7 @@ public class Quote implements Serializable {
         this.closeTime = closeTime;
         this.high = high;
         this.low = low;
+        this.volume = volume;
         this.latestPrice = latestPrice;
         this.latestSource = latestSource;
         this.latestTime = latestTime;
@@ -139,6 +144,7 @@ public class Quote implements Serializable {
         this.extendedChangePercent = extendedChangePercent;
         this.extendedPriceTime = extendedPriceTime;
         this.previousClose = previousClose;
+        this.previousVolume = previousVolume;
         this.change = change;
         this.changePercent = changePercent;
         this.iexMarketPercent = iexMarketPercent;
@@ -204,6 +210,10 @@ public class Quote implements Serializable {
         return low;
     }
 
+    public BigDecimal getVolume() {
+        return volume;
+    }
+
     public BigDecimal getLatestPrice() {
         return latestPrice;
     }
@@ -262,6 +272,10 @@ public class Quote implements Serializable {
 
     public BigDecimal getPreviousClose() {
         return previousClose;
+    }
+
+    public BigDecimal getPreviousVolume() {
+        return previousVolume;
     }
 
     public BigDecimal getChange() {
@@ -342,8 +356,12 @@ public class Quote implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Quote quote = (Quote) o;
         return Objects.equal(symbol, quote.symbol) &&
                 Objects.equal(companyName, quote.companyName) &&
@@ -356,6 +374,7 @@ public class Quote implements Serializable {
                 Objects.equal(closeTime, quote.closeTime) &&
                 Objects.equal(high, quote.high) &&
                 Objects.equal(low, quote.low) &&
+                Objects.equal(volume, quote.volume) &&
                 Objects.equal(latestPrice, quote.latestPrice) &&
                 Objects.equal(latestSource, quote.latestSource) &&
                 Objects.equal(latestTime, quote.latestTime) &&
@@ -371,6 +390,7 @@ public class Quote implements Serializable {
                 Objects.equal(extendedChangePercent, quote.extendedChangePercent) &&
                 Objects.equal(extendedPriceTime, quote.extendedPriceTime) &&
                 Objects.equal(previousClose, quote.previousClose) &&
+                Objects.equal(previousVolume, quote.previousVolume) &&
                 Objects.equal(change, quote.change) &&
                 Objects.equal(changePercent, quote.changePercent) &&
                 Objects.equal(iexMarketPercent, quote.iexMarketPercent) &&
@@ -395,12 +415,12 @@ public class Quote implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hashCode(symbol, companyName, primaryExchange, sector, calculationPrice,
-                open, openTime, close, closeTime, high, low, latestPrice, latestSource, latestTime,
+                open, openTime, close, closeTime, high, low, volume, latestPrice, latestSource, latestTime,
                 latestUpdate, latestVolume, iexRealtimePrice, iexRealtimeSize, iexLastUpdated, delayedPrice,
                 delayedPriceTime, extendedPrice, extendedChange, extendedChangePercent, extendedPriceTime,
-                previousClose, change, changePercent, iexMarketPercent, iexVolume, avgTotalVolume, iexBidPrice,
-                iexBidSize, iexAskPrice, iexAskSize, marketCap, peRatio, week52High, week52Low, ytdChange,
-                bidPrice, bidSize, askPrice, askSize, lastTradeTime);
+                previousClose, previousVolume, change, changePercent, iexMarketPercent, iexVolume, avgTotalVolume,
+                iexBidPrice, iexBidSize, iexAskPrice, iexAskSize, marketCap, peRatio, week52High, week52Low,
+                ytdChange, bidPrice, bidSize, askPrice, askSize, lastTradeTime);
     }
 
     @Override
@@ -417,6 +437,7 @@ public class Quote implements Serializable {
                 .add("closeTime", closeTime)
                 .add("high", high)
                 .add("low", low)
+                .add("volume", volume)
                 .add("latestPrice", latestPrice)
                 .add("latestSource", latestSource)
                 .add("latestTime", latestTime)
@@ -432,6 +453,7 @@ public class Quote implements Serializable {
                 .add("extendedChangePercent", extendedChangePercent)
                 .add("extendedPriceTime", extendedPriceTime)
                 .add("previousClose", previousClose)
+                .add("previousVolume", previousVolume)
                 .add("change", change)
                 .add("changePercent", changePercent)
                 .add("iexMarketPercent", iexMarketPercent)
@@ -453,4 +475,5 @@ public class Quote implements Serializable {
                 .add("lastTradeTime", lastTradeTime)
                 .toString();
     }
+
 }

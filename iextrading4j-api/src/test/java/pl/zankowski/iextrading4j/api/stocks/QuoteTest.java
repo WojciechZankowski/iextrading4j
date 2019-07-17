@@ -26,6 +26,7 @@ public class QuoteTest {
         final Long closeTime = fixture.create(Long.class);
         final BigDecimal high = fixture.create(BigDecimal.class);
         final BigDecimal low = fixture.create(BigDecimal.class);
+        final BigDecimal volume = fixture.create(BigDecimal.class);
         final BigDecimal latestPrice = fixture.create(BigDecimal.class);
         final String latestSource = fixture.create(String.class);
         final String latestTime = fixture.create(String.class);
@@ -41,6 +42,7 @@ public class QuoteTest {
         final BigDecimal extendedChangePercent = fixture.create(BigDecimal.class);
         final Long extendedPriceTime = fixture.create(Long.class);
         final BigDecimal previousClose = fixture.create(BigDecimal.class);
+        final BigDecimal previousVolume = fixture.create(BigDecimal.class);
         final BigDecimal change = fixture.create(BigDecimal.class);
         final BigDecimal changePercent = fixture.create(BigDecimal.class);
         final BigDecimal iexMarketPercent = fixture.create(BigDecimal.class);
@@ -62,10 +64,10 @@ public class QuoteTest {
         final Long lastTradeTime = fixture.create(Long.class);
 
         final Quote quote = new Quote(symbol, companyName, primaryExchange, sector, calculationPrice, open,
-                openTime, close, closeTime, high, low, latestPrice, latestSource, latestTime, latestUpdate,
+                openTime, close, closeTime, high, low, volume, latestPrice, latestSource, latestTime, latestUpdate,
                 latestVolume, iexRealtimePrice, iexRealtimeSize, iexLastUpdated, delayedPrice, delayedPriceTime,
-                extendedPrice, extendedChange, extendedChangePercent, extendedPriceTime, previousClose, change,
-                changePercent, iexMarketPercent, iexVolume, avgTotalVolume, iexBidPrice, iexBidSize, iexAskPrice,
+                extendedPrice, extendedChange, extendedChangePercent, extendedPriceTime, previousClose, previousVolume,
+                change, changePercent, iexMarketPercent, iexVolume, avgTotalVolume, iexBidPrice, iexBidSize, iexAskPrice,
                 iexAskSize, marketCap, peRatio, week52High, week52Low, ytdChange, bidPrice, bidSize, askPrice, askSize,
                 lastTradeTime);
 
@@ -80,6 +82,7 @@ public class QuoteTest {
         assertThat(quote.getCloseTime()).isEqualTo(closeTime);
         assertThat(quote.getHigh()).isEqualTo(high);
         assertThat(quote.getLow()).isEqualTo(low);
+        assertThat(quote.getVolume()).isEqualTo(volume);
         assertThat(quote.getLatestPrice()).isEqualTo(latestPrice);
         assertThat(quote.getLatestSource()).isEqualTo(latestSource);
         assertThat(quote.getLatestTime()).isEqualTo(latestTime);
@@ -95,6 +98,7 @@ public class QuoteTest {
         assertThat(quote.getExtendedChangePercent()).isEqualTo(extendedChangePercent);
         assertThat(quote.getExtendedPriceTime()).isEqualTo(extendedPriceTime);
         assertThat(quote.getPreviousClose()).isEqualTo(previousClose);
+        assertThat(quote.getPreviousVolume()).isEqualTo(previousVolume);
         assertThat(quote.getChange()).isEqualTo(change);
         assertThat(quote.getChangePercent()).isEqualTo(changePercent);
         assertThat(quote.getIexMarketPercent()).isEqualTo(iexMarketPercent);
