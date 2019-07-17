@@ -7,10 +7,9 @@ import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
-import java.time.OffsetDateTime;
 
 @JsonPropertyOrder({"datetime", "headline", "source", "url", "summary", "related",
-        "image", "lang", "hasPaywall"})
+        "image", "lang", "hasPaywall", "symbol"})
 public class News implements Serializable {
 
     private static final long serialVersionUID = 7687129591411398178L;
@@ -24,6 +23,7 @@ public class News implements Serializable {
     private final String image;
     private final String lang;
     private final Boolean hasPaywall;
+    private final String symbol;
 
     @JsonCreator
     public News(
@@ -35,7 +35,8 @@ public class News implements Serializable {
             @JsonProperty("related") final String related,
             @JsonProperty("image") final String image,
             @JsonProperty("lang") final String lang,
-            @JsonProperty("hasPaywall") final Boolean hasPaywall) {
+            @JsonProperty("hasPaywall") final Boolean hasPaywall,
+            @JsonProperty("symbol") final String symbol) {
         this.datetime = datetime;
         this.headline = headline;
         this.source = source;
@@ -45,6 +46,7 @@ public class News implements Serializable {
         this.image = image;
         this.lang = lang;
         this.hasPaywall = hasPaywall;
+        this.symbol = symbol;
     }
 
     public Long getDatetime() {
@@ -83,6 +85,10 @@ public class News implements Serializable {
         return hasPaywall;
     }
 
+    public String getSymbol() {
+        return symbol;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) {
@@ -100,12 +106,14 @@ public class News implements Serializable {
                 Objects.equal(related, news.related) &&
                 Objects.equal(image, news.image) &&
                 Objects.equal(lang, news.lang) &&
-                Objects.equal(hasPaywall, news.hasPaywall);
+                Objects.equal(hasPaywall, news.hasPaywall) &&
+                Objects.equal(symbol, news.symbol);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(datetime, headline, source, url, summary, related, image, lang, hasPaywall);
+        return Objects.hashCode(datetime, headline, source, url, summary, related,
+                image, lang, hasPaywall, symbol);
     }
 
     @Override
@@ -120,6 +128,7 @@ public class News implements Serializable {
                 .add("image", image)
                 .add("lang", lang)
                 .add("hasPaywall", hasPaywall)
+                .add("symbol", symbol)
                 .toString();
     }
 

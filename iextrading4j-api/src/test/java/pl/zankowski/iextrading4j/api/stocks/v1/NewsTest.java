@@ -5,8 +5,6 @@ import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
-import java.time.OffsetDateTime;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class NewsTest {
@@ -24,8 +22,9 @@ public class NewsTest {
         final String image = fixture.create(String.class);
         final String lang = fixture.create(String.class);
         final Boolean hasPaywall = fixture.create(Boolean.class);
+        final String symbol = fixture.create(String.class);
 
-        final News news = new News(datetime, headline, source, url, summary, related, image, lang, hasPaywall);
+        final News news = new News(datetime, headline, source, url, summary, related, image, lang, hasPaywall, symbol);
 
         assertThat(news.getDatetime()).isEqualTo(datetime);
         assertThat(news.getHeadline()).isEqualTo(headline);
@@ -36,6 +35,7 @@ public class NewsTest {
         assertThat(news.getImage()).isEqualTo(image);
         assertThat(news.getLang()).isEqualTo(lang);
         assertThat(news.getHasPaywall()).isEqualTo(hasPaywall);
+        assertThat(news.getSymbol()).isEqualTo(symbol);
     }
 
     @Test

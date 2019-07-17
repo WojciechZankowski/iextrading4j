@@ -4,6 +4,8 @@ public class IEXTradingException extends RuntimeException {
 
     public static final String DEFAULT_PREFIX = "Message received from IEX Trading: ";
 
+    private static final long serialVersionUID = -9007556226626660146L;
+
     private int status;
 
     public IEXTradingException(final String message) {
