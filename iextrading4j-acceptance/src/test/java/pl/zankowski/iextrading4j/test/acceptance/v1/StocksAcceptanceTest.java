@@ -169,6 +169,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
+    @Ignore // The requested data requires a Scale account and granted permission to access.
     @Test
     public void delayedQuoteTest() {
         final DelayedQuote result = cloudClient.executeRequest(new DelayedQuoteRequestBuilder()

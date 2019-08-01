@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.test.acceptance.v1;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.datapoint.DataPoint;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
@@ -22,6 +23,7 @@ public class DataPointsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(dataPoints).isNotNull();
     }
 
+    @Ignore // The requested data requires a Scale account and granted permission to access.
     @Test
     public void keyDataPointTest() {
         final RestRequest<String> request = new DataPointsRequestBuilder()
