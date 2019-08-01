@@ -163,3 +163,7 @@ IEXTrading4j Book library allows to build incremental Order Book based on PriceL
 # [IEXTrading4j FIX](https://github.com/WojciechZankowski/iextrading4j-fix)
 
 IEXTrading4j FIX project provides open source FIX dictionary that follows IEX FIX specification. It allows to easily integrate your systems with IEX FIX connectivity using libraries like QuickFIX or QuickFIX/J.
+
+## Donations
+
+To support this repository: bc1qv6cz6t302qvamxlhyr3m7mdwrnc7anqc35wp3t
