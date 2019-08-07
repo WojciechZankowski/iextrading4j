@@ -15,7 +15,8 @@ import java.math.BigDecimal;
         "delayedPrice", "delayedPriceTime", "extendedPrice", "extendedChange", "extendedChangePercent",
         "extendedPriceTime", "previousClose", "change", "changePercent", "iexMarketPercent", "iexVolume",
         "avgTotalVolume", "iexBidPrice", "iexBidSize", "iexAskPrice", "iexAskSize", "marketCap", "peRatio",
-        "week52High", "week52Low", "ytdChange", "bidPrice", "bidSize", "askPrice", "askSize", "lastTradeTime"})
+        "week52High", "week52Low", "ytdChange", "bidPrice", "bidSize", "askPrice", "askSize", "lastTradeTime",
+        "isUSMarketOpen"})
 public class Quote implements Serializable {
 
     private static final long serialVersionUID = 6474500411156050266L;
@@ -67,6 +68,7 @@ public class Quote implements Serializable {
     private final BigDecimal askPrice;
     private final BigDecimal askSize;
     private final Long lastTradeTime;
+    private final Boolean isUSMarketOpen;
 
     @JsonCreator
     public Quote(
@@ -116,7 +118,8 @@ public class Quote implements Serializable {
             @JsonProperty("bidSize") final BigDecimal bidSize,
             @JsonProperty("askPrice") final BigDecimal askPrice,
             @JsonProperty("askSize") final BigDecimal askSize,
-            @JsonProperty("lastTradeTime") final Long lastTradeTime) {
+            @JsonProperty("lastTradeTime") final Long lastTradeTime,
+            @JsonProperty("isUSMarketOpen") final Boolean isUSMarketOpen) {
         this.symbol = symbol;
         this.companyName = companyName;
         this.primaryExchange = primaryExchange;
@@ -164,6 +167,7 @@ public class Quote implements Serializable {
         this.askPrice = askPrice;
         this.askSize = askSize;
         this.lastTradeTime = lastTradeTime;
+        this.isUSMarketOpen = isUSMarketOpen;
     }
 
     public String getSymbol() {
@@ -354,6 +358,11 @@ public class Quote implements Serializable {
         return lastTradeTime;
     }
 
+    @JsonProperty("isUSMarketOpen")
+    public Boolean isUSMarketOpen() {
+        return isUSMarketOpen;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -409,7 +418,8 @@ public class Quote implements Serializable {
                 Objects.equal(bidSize, quote.bidSize) &&
                 Objects.equal(askPrice, quote.askPrice) &&
                 Objects.equal(askSize, quote.askSize) &&
-                Objects.equal(lastTradeTime, quote.lastTradeTime);
+                Objects.equal(lastTradeTime, quote.lastTradeTime) &&
+                Objects.equal(isUSMarketOpen, quote.isUSMarketOpen);
     }
 
     @Override
@@ -420,7 +430,7 @@ public class Quote implements Serializable {
                 delayedPriceTime, extendedPrice, extendedChange, extendedChangePercent, extendedPriceTime,
                 previousClose, previousVolume, change, changePercent, iexMarketPercent, iexVolume, avgTotalVolume,
                 iexBidPrice, iexBidSize, iexAskPrice, iexAskSize, marketCap, peRatio, week52High, week52Low,
-                ytdChange, bidPrice, bidSize, askPrice, askSize, lastTradeTime);
+                ytdChange, bidPrice, bidSize, askPrice, askSize, lastTradeTime, isUSMarketOpen);
     }
 
     @Override
@@ -473,6 +483,7 @@ public class Quote implements Serializable {
                 .add("askPrice", askPrice)
                 .add("askSize", askSize)
                 .add("lastTradeTime", lastTradeTime)
+                .add("isUSMarketOpen", isUSMarketOpen)
                 .toString();
     }
 

@@ -62,6 +62,7 @@ public class QuoteTest {
         final BigDecimal askPrice = fixture.create(BigDecimal.class);
         final BigDecimal askSize = fixture.create(BigDecimal.class);
         final Long lastTradeTime = fixture.create(Long.class);
+        final Boolean isUSMarketOpen = fixture.create(Boolean.class);
 
         final Quote quote = new Quote(symbol, companyName, primaryExchange, sector, calculationPrice, open,
                 openTime, close, closeTime, high, low, volume, latestPrice, latestSource, latestTime, latestUpdate,
@@ -69,7 +70,7 @@ public class QuoteTest {
                 extendedPrice, extendedChange, extendedChangePercent, extendedPriceTime, previousClose, previousVolume,
                 change, changePercent, iexMarketPercent, iexVolume, avgTotalVolume, iexBidPrice, iexBidSize, iexAskPrice,
                 iexAskSize, marketCap, peRatio, week52High, week52Low, ytdChange, bidPrice, bidSize, askPrice, askSize,
-                lastTradeTime);
+                lastTradeTime, isUSMarketOpen);
 
         assertThat(quote.getSymbol()).isEqualTo(symbol);
         assertThat(quote.getCompanyName()).isEqualTo(companyName);
@@ -118,6 +119,7 @@ public class QuoteTest {
         assertThat(quote.getAskSize()).isEqualTo(askSize);
         assertThat(quote.getAskPrice()).isEqualTo(askPrice);
         assertThat(quote.getLastTradeTime()).isEqualTo(lastTradeTime);
+        assertThat(quote.isUSMarketOpen()).isEqualTo(isUSMarketOpen);
     }
 
     @Test
