@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.2.5] - TBD
+
+### Changed
+
+- Add isUSMarketOpen field to Quote model
+
 ## [3.2.4] - 2019-07-15
 
 ### Changed
