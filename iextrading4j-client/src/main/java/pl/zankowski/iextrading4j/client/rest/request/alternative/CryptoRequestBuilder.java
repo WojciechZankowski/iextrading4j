@@ -3,12 +3,10 @@ package pl.zankowski.iextrading4j.client.rest.request.alternative;
 import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.AbstractStocksRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
-import java.util.List;
 
 public class CryptoRequestBuilder extends AbstractStocksRequestBuilder<Quote, CryptoRequestBuilder>
         implements IEXCloudV1RestRequest<Quote> {

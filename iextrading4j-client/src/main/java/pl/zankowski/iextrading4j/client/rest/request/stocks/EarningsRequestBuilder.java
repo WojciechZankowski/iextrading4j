@@ -3,7 +3,6 @@ package pl.zankowski.iextrading4j.client.rest.request.stocks;
 import pl.zankowski.iextrading4j.api.stocks.Earnings;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
 public class EarningsRequestBuilder extends AbstractStocksRequestBuilder<Earnings, EarningsRequestBuilder>

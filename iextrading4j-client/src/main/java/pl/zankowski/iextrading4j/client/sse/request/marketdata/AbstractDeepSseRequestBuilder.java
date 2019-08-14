@@ -5,7 +5,6 @@ import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepChann
 import pl.zankowski.iextrading4j.client.sse.request.AbstractSymbolSseRequestBuilder;
 import pl.zankowski.iextrading4j.client.sse.request.ISseRequestBuilder;
 
-import java.io.Serializable;
 import java.util.Set;
 
 import static java.util.stream.Collectors.joining;

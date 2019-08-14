@@ -9,8 +9,6 @@ import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.alternative.CeoCompensationRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.alternative.CryptoRequestBuilder;
 
-import java.util.List;
-
 public class AlternativeSample {
 
     final IEXCloudClient cloudClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_BETA_SANDBOX,

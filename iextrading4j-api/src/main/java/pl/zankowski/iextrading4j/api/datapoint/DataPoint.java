@@ -8,7 +8,6 @@ import com.google.common.base.Objects;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 
 @JsonPropertyOrder({"key", "weight", "description", "lastUpdated"})

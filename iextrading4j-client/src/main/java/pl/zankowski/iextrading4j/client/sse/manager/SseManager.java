@@ -5,7 +5,6 @@ import pl.zankowski.iextrading4j.client.IEXCloudToken;
 
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.sse.SseEventSource;
-import java.io.Serializable;
 import java.util.Map;
 import java.util.function.Consumer;
 

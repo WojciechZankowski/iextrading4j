@@ -1,6 +1,5 @@
 package pl.zankowski.iextrading4j.client.rest.request.stocks.v1;
 
-import pl.zankowski.iextrading4j.api.stocks.v1.FundOwnership;
 import pl.zankowski.iextrading4j.api.stocks.v1.InsiderRoster;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;

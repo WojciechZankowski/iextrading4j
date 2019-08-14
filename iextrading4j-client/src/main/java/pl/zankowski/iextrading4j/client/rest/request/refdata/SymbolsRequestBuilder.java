@@ -1,7 +1,6 @@
 package pl.zankowski.iextrading4j.client.rest.request.refdata;
 
 import pl.zankowski.iextrading4j.api.refdata.ExchangeSymbol;
-import pl.zankowski.iextrading4j.api.refdata.IEXSymbolDirectory;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.AbstractRequestFilterBuilder;

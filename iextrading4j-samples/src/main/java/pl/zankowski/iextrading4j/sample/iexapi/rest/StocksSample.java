@@ -2,8 +2,6 @@ package pl.zankowski.iextrading4j.sample.iexapi.rest;
 
 import pl.zankowski.iextrading4j.api.stocks.Book;
 import pl.zankowski.iextrading4j.api.stocks.EffectiveSpread;
-import pl.zankowski.iextrading4j.api.stocks.Ohlc;
-import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.api.stocks.ShortInterest;
 import pl.zankowski.iextrading4j.api.stocks.ThresholdSecurities;
 import pl.zankowski.iextrading4j.api.stocks.TimeSeries;
@@ -12,9 +10,6 @@ import pl.zankowski.iextrading4j.client.IEXApiClient;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.BookRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.EffectiveSpreadRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.ListRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.ListType;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.OpenCloseRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ShortInterestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ThresholdSecuritiesRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.TimeSeriesRequestBuilder;
