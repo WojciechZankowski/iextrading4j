@@ -1,11 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [3.2.5] - TBD
+## [3.2.5] - 2019-08-22
 
 ### Changed
 
 - Add isUSMarketOpen field to Quote model
+- Add address field to Company model
 
 ## [3.2.4] - 2019-07-15
 
@@ -283,3 +284,4 @@ All notable changes to this project will be documented in this file.
 [3.2.2]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_1...IT4J_RELEASE_3_2_2
 [3.2.3]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_2...IT4J_RELEASE_3_2_3
 [3.2.4]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_3...IT4J_RELEASE_3_2_4
+[3.2.4]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_4...IT4J_RELEASE_3_2_5

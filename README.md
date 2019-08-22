@@ -29,7 +29,7 @@ Maven:
 <dependency>
 	<groupId>pl.zankowski</groupId>
 	<artifactId>iextrading4j-all</artifactId>
-	<version>3.2.4</version>
+	<version>3.2.5</version>
 </dependency>
 ```
 
@@ -37,7 +37,7 @@ Gradle:
 
 ```
 dependencies {
-	compile 'pl.zankowski:iextrading4j-all:3.2.4'
+	compile 'pl.zankowski:iextrading4j-all:3.2.5'
 }
 ```
 
