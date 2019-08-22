@@ -38,6 +38,13 @@ public class CompanyServiceTest extends BaseRestServiceTest {
         assertThat(company.getIssueType()).isEqualTo("cs");
         assertThat(company.getSector()).isEqualTo("Technology");
         assertThat(company.getTags()).containsExactly("Technology", "Consumer Electronics", "Computer Hardware");
+        assertThat(company.getAddress()).isEqualTo("One Apple Park Way");
+        assertThat(company.getAddress2()).isNull();
+        assertThat(company.getState()).isEqualTo("CA");
+        assertThat(company.getCity()).isEqualTo("Cupertino");
+        assertThat(company.getZip()).isEqualTo("95014-2083");
+        assertThat(company.getCountry()).isEqualTo("US");
+        assertThat(company.getPhone()).isEqualTo("1.408.974.3123");
     }
 
 }

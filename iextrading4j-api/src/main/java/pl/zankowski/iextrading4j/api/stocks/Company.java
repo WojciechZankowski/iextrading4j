@@ -30,6 +30,13 @@ public class Company implements Serializable {
     private final String sector;
     private final BigDecimal employees;
     private final List<String> tags;
+    private final String address;
+    private final String address2;
+    private final String state;
+    private final String city;
+    private final String zip;
+    private final String country;
+    private final String phone;
 
     @JsonCreator
     public Company(
@@ -44,7 +51,14 @@ public class Company implements Serializable {
             @JsonProperty("issueType") final String issueType,
             @JsonProperty("sector") final String sector,
             @JsonProperty("employees") final BigDecimal employees,
-            @JsonProperty("tags") final List<String> tags) {
+            @JsonProperty("tags") final List<String> tags,
+            @JsonProperty("address") final String address,
+            @JsonProperty("address2") final String address2,
+            @JsonProperty("state") final String state,
+            @JsonProperty("city") final String city,
+            @JsonProperty("zip") final String zip,
+            @JsonProperty("country") final String country,
+            @JsonProperty("phone") final String phone) {
         this.symbol = symbol;
         this.companyName = companyName;
         this.exchange = exchange;
@@ -57,6 +71,13 @@ public class Company implements Serializable {
         this.sector = sector;
         this.employees = employees;
         this.tags = immutableList(tags);
+        this.address = address;
+        this.address2 = address2;
+        this.state = state;
+        this.city = city;
+        this.zip = zip;
+        this.country = country;
+        this.phone = phone;
     }
 
     public String getSymbol() {
@@ -108,10 +129,42 @@ public class Company implements Serializable {
         return tags;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public String getAddress2() {
+        return address2;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         final Company company = (Company) o;
         return Objects.equal(symbol, company.symbol) &&
                 Objects.equal(companyName, company.companyName) &&
@@ -124,13 +177,21 @@ public class Company implements Serializable {
                 Objects.equal(issueType, company.issueType) &&
                 Objects.equal(sector, company.sector) &&
                 Objects.equal(employees, company.employees) &&
-                Objects.equal(tags, company.tags);
+                Objects.equal(tags, company.tags) &&
+                Objects.equal(address, company.address) &&
+                Objects.equal(address2, company.address2) &&
+                Objects.equal(state, company.state) &&
+                Objects.equal(city, company.city) &&
+                Objects.equal(zip, company.zip) &&
+                Objects.equal(country, company.country) &&
+                Objects.equal(phone, company.phone);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(symbol, companyName, exchange, industry, website, description,
-                CEO, securityName, issueType, sector, employees, tags);
+        return Objects.hashCode(symbol, companyName, exchange, industry, website, description, CEO,
+                securityName, issueType, sector, employees, tags, address, address2, state, city, zip,
+                country, phone);
     }
 
     @Override
@@ -148,6 +209,14 @@ public class Company implements Serializable {
                 .add("sector", sector)
                 .add("employees", employees)
                 .add("tags", tags)
+                .add("address", address)
+                .add("address2", address2)
+                .add("state", state)
+                .add("city", city)
+                .add("zip", zip)
+                .add("country", country)
+                .add("phone", phone)
                 .toString();
     }
+
 }

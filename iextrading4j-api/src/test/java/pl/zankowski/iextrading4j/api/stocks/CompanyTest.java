@@ -29,9 +29,17 @@ public class CompanyTest {
         final String sector = fixture.create(String.class);
         final BigDecimal employees = fixture.create(BigDecimal.class);
         final List<String> tags = Lists.newArrayList(fixture.collections().createCollection(String.class));
+        final String address = fixture.create(String.class);
+        final String address2 = fixture.create(String.class);
+        final String state = fixture.create(String.class);
+        final String city = fixture.create(String.class);
+        final String zip = fixture.create(String.class);
+        final String country = fixture.create(String.class);
+        final String phone = fixture.create(String.class);
 
         final Company company = new Company(symbol, companyName, exchange,
-                industry, website, description, ceo, securityName, issueType, sector, employees, tags);
+                industry, website, description, ceo, securityName, issueType, sector, employees, tags, address,
+                address2, state, city, zip, country, phone);
 
         assertThat(company.getSymbol()).isEqualTo(symbol);
         assertThat(company.getCompanyName()).isEqualTo(companyName);
@@ -45,6 +53,13 @@ public class CompanyTest {
         assertThat(company.getTags()).isEqualTo(tags);
         assertThat(company.getSecurityName()).isEqualTo(securityName);
         assertThat(company.getEmployees()).isEqualByComparingTo(employees);
+        assertThat(company.getAddress()).isEqualTo(address);
+        assertThat(company.getAddress2()).isEqualTo(address2);
+        assertThat(company.getState()).isEqualTo(state);
+        assertThat(company.getCity()).isEqualTo(city);
+        assertThat(company.getZip()).isEqualTo(zip);
+        assertThat(company.getCountry()).isEqualTo(country);
+        assertThat(company.getPhone()).isEqualTo(phone);
     }
 
     @Test

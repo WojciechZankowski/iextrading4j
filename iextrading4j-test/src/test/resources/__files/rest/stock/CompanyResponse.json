@@ -12,5 +12,12 @@
     "Technology",
     "Consumer Electronics",
     "Computer Hardware"
-  ]
+  ],
+  "address": "One Apple Park Way",
+  "address2": null,
+  "state": "CA",
+  "city": "Cupertino",
+  "zip": "95014-2083",
+  "country": "US",
+  "phone": "1.408.974.3123"
 }
