@@ -1,9 +1,10 @@
 {
-  "overagesEnabled": false,
-  "effectiveDate": 1551620046000,
-  "endDateEffective": null,
-  "subscriptionTermType": "annual",
-  "tierName": "start",
-  "messageLimit": 500000,
-  "messagesUsed": 161
+  "payAsYouGoEnabled": true,
+  "effectiveDate": 1547590582000,
+  "endDateEffective": 1547830921000,
+  "subscriptionTermType": "monthly",
+  "tierName": "launch",
+  "messageLimit": 1000000000,
+  "messagesUsed": 215141655,
+  "circuitBreaker": 3000000000
 }

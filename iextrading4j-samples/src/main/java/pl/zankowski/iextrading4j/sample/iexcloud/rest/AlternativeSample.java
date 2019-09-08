@@ -20,8 +20,8 @@ public class AlternativeSample {
     public static void main(String[] args) {
         final AlternativeSample alternativeSample = new AlternativeSample();
 
-        // The requested data is not available to free tier accounts
-        // alternativeSample.ceoCompensationRequestSample();
+        // This data is not available to free tier accounts
+        alternativeSample.ceoCompensationRequestSample();
 
         alternativeSample.cryptoRequestSample();
     }

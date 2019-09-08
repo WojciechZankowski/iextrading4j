@@ -99,13 +99,13 @@ public class StocksSample {
     public static void main(String[] args) {
         final StocksSample stocksSample = new StocksSample();
 
-        // The requested data is not available to free tier accounts
-        // stocksSample.advancedStatsRequestSample();
-        // stocksSample.fundOwnershipRequestSample();
-        // stocksSample.insiderRosterRequestSample();
-        // stocksSample.insiderSummaryRequestSample();
-        // stocksSample.insiderTransactionRequestSample();
-        // stocksSample.institutionalOwnershipRequestSample();
+        // This data is not available to free tier accounts
+        stocksSample.advancedStatsRequestSample();
+        stocksSample.fundOwnershipRequestSample();
+        stocksSample.insiderRosterRequestSample();
+        stocksSample.insiderSummaryRequestSample();
+        stocksSample.insiderTransactionRequestSample();
+        stocksSample.institutionalOwnershipRequestSample();
 
         stocksSample.keyStatsRequestSample();
         stocksSample.balanceSheetRequestSample();

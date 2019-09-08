@@ -19,13 +19,13 @@ public class ForexSample {
     public static void main(String[] args) {
         final ForexSample forexSample = new ForexSample();
 
-        // The requested data is not available to free tier accounts
-        // forexSample.exchangeRateRequestSample();
+        // This data is not available to free tier accounts
+        forexSample.exchangeRateRequestSample();
     }
 
     private void exchangeRateRequestSample() {
         final ExchangeRate exchangeRate = cloudClient.executeRequest(new ExchangeRateRequestBuilder()
-                .withPair(new Pair("CHF", "PLN"))
+                .withPair(new Pair("EUR", "CHF"))
                 .build());
         System.out.println(exchangeRate);
     }

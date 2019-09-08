@@ -106,7 +106,6 @@ public class RefDataAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
-    @Ignore // Not free tier
     @Test
     public void optionsTest() {
         final Map<String, List<String>> result = cloudClient.executeRequest(new OptionsSymbolsRequestBuilder()

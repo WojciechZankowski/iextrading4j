@@ -28,6 +28,8 @@ public class AdvancedStats extends KeyStats {
     private final BigDecimal priceToBook;
     private final BigDecimal forwardPERatio;
     private final BigDecimal pegRatio;
+    private final BigDecimal peHigh;
+    private final BigDecimal peLow;
 
     @JsonCreator
     public AdvancedStats(
@@ -77,7 +79,9 @@ public class AdvancedStats extends KeyStats {
             @JsonProperty("priceToBook") final BigDecimal priceToBook,
             @JsonProperty("forwardPERatio") final BigDecimal forwardPERatio,
             @JsonProperty("pegRatio") final BigDecimal pegRatio,
-            @JsonProperty("beta") final BigDecimal beta) {
+            @JsonProperty("beta") final BigDecimal beta,
+            @JsonProperty("peHigh") final BigDecimal peHigh,
+            @JsonProperty("peLow") final BigDecimal peLow) {
         super(companyName, marketcap, week52high, week52low, week52change, sharesOutstanding, aFloat, symbol,
                 avg10Volume, avg30Volume, day200MovingAvg, day50MovingAvg, employees, ttmEPS, ttmDividendRate,
                 dividendYield, nextDividendDate, exDividendDate, nextEarningsDate, peRatio, maxChangePercent,
@@ -99,6 +103,8 @@ public class AdvancedStats extends KeyStats {
         this.priceToBook = priceToBook;
         this.forwardPERatio = forwardPERatio;
         this.pegRatio = pegRatio;
+        this.peHigh = peHigh;
+        this.peLow = peLow;
     }
 
     public BigDecimal getTotalCash() {
@@ -165,11 +171,25 @@ public class AdvancedStats extends KeyStats {
         return pegRatio;
     }
 
+    public BigDecimal getPeHigh() {
+        return peHigh;
+    }
+
+    public BigDecimal getPeLow() {
+        return peLow;
+    }
+
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (!(o instanceof AdvancedStats)) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
         final AdvancedStats that = (AdvancedStats) o;
         return Objects.equal(totalCash, that.totalCash) &&
                 Objects.equal(currentDebt, that.currentDebt) &&
@@ -186,15 +206,17 @@ public class AdvancedStats extends KeyStats {
                 Objects.equal(priceToSales, that.priceToSales) &&
                 Objects.equal(priceToBook, that.priceToBook) &&
                 Objects.equal(forwardPERatio, that.forwardPERatio) &&
-                Objects.equal(pegRatio, that.pegRatio);
+                Objects.equal(pegRatio, that.pegRatio) &&
+                Objects.equal(peHigh, that.peHigh) &&
+                Objects.equal(peLow, that.peLow);
     }
 
     @Override
     public int hashCode() {
         return Objects.hashCode(super.hashCode(), totalCash, currentDebt, revenue, grossProfit,
-                totalRevenue, ebitda, revenuePerShare, revenuePerEmployee, debtToEquity,
-                profitMargin, enterpriseValue, enterpriseValueToRevenue, priceToSales,
-                priceToBook, forwardPERatio, pegRatio);
+                totalRevenue, ebitda, revenuePerShare, revenuePerEmployee, debtToEquity, profitMargin,
+                enterpriseValue, enterpriseValueToRevenue, priceToSales, priceToBook, forwardPERatio,
+                pegRatio, peHigh, peLow);
     }
 
     @Override
@@ -216,7 +238,8 @@ public class AdvancedStats extends KeyStats {
                 .add("priceToBook", priceToBook)
                 .add("forwardPERatio", forwardPERatio)
                 .add("pegRatio", pegRatio)
+                .add("peHigh", peHigh)
+                .add("peLow", peLow)
                 .toString();
     }
-
 }

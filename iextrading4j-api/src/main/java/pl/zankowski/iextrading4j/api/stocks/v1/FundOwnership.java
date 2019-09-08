@@ -18,11 +18,18 @@ public class FundOwnership extends Ownership {
             @JsonProperty("adjHolding") final BigDecimal adjHolding,
             @JsonProperty("adjMv") final BigDecimal adjMv,
             @JsonProperty("entityProperName") final String entityProperName,
-            @JsonProperty("reportDate") final Long reportDate,
+            @JsonProperty("report_date") final Long reportDate,
             @JsonProperty("reportedHolding") final BigDecimal reportedHolding,
             @JsonProperty("reportedMv") final BigDecimal reportedMv) {
         super(adjHolding, adjMv, entityProperName, reportDate, reportedHolding);
         this.reportedMv = reportedMv;
+    }
+
+    // TODO workaround, reported to IEX
+    @JsonProperty("report_date")
+    @Override
+    public Long getReportDate() {
+        return reportDate;
     }
 
     public BigDecimal getReportedMv() {

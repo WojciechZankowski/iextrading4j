@@ -15,7 +15,7 @@ public class Ownership implements Serializable {
     private final BigDecimal adjHolding;
     private final BigDecimal adjMv;
     private final String entityProperName;
-    private final Long reportDate;
+    protected final Long reportDate;
     private final BigDecimal reportedHolding;
 
     @JsonCreator

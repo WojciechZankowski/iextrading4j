@@ -1,7 +1,8 @@
-package pl.zankowski.iextrading4j.client.rest.request.stocks;
+package pl.zankowski.iextrading4j.client.rest.request.stocks.v1;
 
 import pl.zankowski.iextrading4j.api.stocks.ChartRange;
 import pl.zankowski.iextrading4j.client.rest.request.IRestRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.AbstractChartRequestBuilder;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -15,6 +16,11 @@ public abstract class AbstractBatchStocksRequestBuilder<R, B extends IRestReques
 
     public B withLast(final int last) {
         this.queryParameters.put("last", String.valueOf(last));
+        return (B) this;
+    }
+
+    public B withPeriod(final Period period) {
+        this.queryParameters.put("period", period.name().toLowerCase());
         return (B) this;
     }
 

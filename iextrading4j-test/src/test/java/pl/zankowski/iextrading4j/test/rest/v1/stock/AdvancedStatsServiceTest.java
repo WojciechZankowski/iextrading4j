@@ -78,6 +78,8 @@ public class AdvancedStatsServiceTest extends BaseIEXCloudV1ServiceTest {
         assertThat(advancedStats.getForwardPERatio()).isEqualTo(BigDecimal.valueOf(18.14));
         assertThat(advancedStats.getPegRatio()).isEqualTo(BigDecimal.valueOf(2.19));
         assertThat(advancedStats.getBeta()).isEqualTo(BigDecimal.valueOf(1.4661365583766115));
+        assertThat(advancedStats.getPeHigh()).isEqualTo(BigDecimal.valueOf(20.32690672651231));
+        assertThat(advancedStats.getPeLow()).isEqualTo(BigDecimal.valueOf(12.591979637697179));
     }
 
 }

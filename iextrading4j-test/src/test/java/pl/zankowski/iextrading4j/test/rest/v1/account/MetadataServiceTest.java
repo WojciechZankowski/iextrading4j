@@ -27,13 +27,14 @@ public class MetadataServiceTest extends BaseIEXCloudV1ServiceTest {
         final Metadata metadata = cloudClient.executeRequest(new MetadataRequestBuilder()
                 .build());
 
-        assertThat(metadata.getOveragesEnabled()).isFalse();
-        assertThat(metadata.getEffectiveDate()).isEqualTo(1551620046000L);
-        assertThat(metadata.getEndDateEffective()).isNull();
-        assertThat(metadata.getSubscriptionTermType()).isEqualTo("annual");
-        assertThat(metadata.getTierName()).isEqualTo("start");
-        assertThat(metadata.getMessageLimit()).isEqualTo(500000L);
-        assertThat(metadata.getMessagesUsed()).isEqualTo(161L);
+        assertThat(metadata.getPayAsYouGoEnabled()).isTrue();
+        assertThat(metadata.getEffectiveDate()).isEqualTo(1547590582000L);
+        assertThat(metadata.getEndDateEffective()).isEqualTo(1547830921000L);
+        assertThat(metadata.getSubscriptionTermType()).isEqualTo("monthly");
+        assertThat(metadata.getTierName()).isEqualTo("launch");
+        assertThat(metadata.getMessageLimit()).isEqualTo(1000000000L);
+        assertThat(metadata.getMessagesUsed()).isEqualTo(215141655L);
+        assertThat(metadata.getCircuitBreaker()).isEqualTo(3000000000L);
     }
 
 }
