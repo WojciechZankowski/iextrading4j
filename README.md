@@ -29,7 +29,7 @@ Maven:
 <dependency>
 	<groupId>pl.zankowski</groupId>
 	<artifactId>iextrading4j-all</artifactId>
-	<version>3.2.5</version>
+	<version>3.2.6</version>
 </dependency>
 ```
 
@@ -37,7 +37,7 @@ Gradle:
 
 ```
 dependencies {
-	compile 'pl.zankowski:iextrading4j-all:3.2.5'
+	compile 'pl.zankowski:iextrading4j-all:3.2.6'
 }
 ```
 
@@ -93,6 +93,23 @@ final Quote quote = cloudClient.executeRequest(new QuoteRequestBuilder()
         .withSymbol("AAPL")
         .build());
 System.out.println(quote);
+```
+
+#### Batch call
+
+```java
+final IEXCloudClient cloudClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_BETA_SANDBOX,
+              new IEXCloudTokenBuilder()
+                      .withPublishableToken("Tpk_18dfe6cebb4f41ffb219b9680f9acaf2")
+                      .withSecretToken("Tsk_3eedff6f5c284e1a8b9bc16c54dd1af3")
+                      .build());
+final BatchStocks result = cloudClient.executeRequest(new BatchStocksRequestBuilder()
+        .withSymbol("AAPL")
+        .addType(BatchStocksType.LARGEST_TRADES)
+        .addType(BatchStocksType.PRICE_TARGET)
+        .addType(BatchStocksType.QUOTE)
+        .build());
+System.out.println(result);
 ```
 
 #### Streaming SSE
