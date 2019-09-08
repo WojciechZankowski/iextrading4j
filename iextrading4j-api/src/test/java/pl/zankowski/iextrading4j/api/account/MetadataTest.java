@@ -20,17 +20,19 @@ public class MetadataTest {
         final String tierName = fixture.create(String.class);
         final Long messageLimit = fixture.create(Long.class);
         final Long messagesUsed = fixture.create(Long.class);
+        final Long circuitBreaker = fixture.create(Long.class);
 
         final Metadata metadata = new Metadata(overagesEnabled, effectiveDate, endDateEffective,
-                subscriptionTermType, tierName, messageLimit, messagesUsed);
+                subscriptionTermType, tierName, messageLimit, messagesUsed, circuitBreaker);
 
-        assertThat(metadata.getOveragesEnabled()).isEqualTo(overagesEnabled);
+        assertThat(metadata.getPayAsYouGoEnabled()).isEqualTo(overagesEnabled);
         assertThat(metadata.getEffectiveDate()).isEqualTo(effectiveDate);
         assertThat(metadata.getEndDateEffective()).isEqualTo(endDateEffective);
         assertThat(metadata.getSubscriptionTermType()).isEqualTo(subscriptionTermType);
         assertThat(metadata.getTierName()).isEqualTo(tierName);
         assertThat(metadata.getMessageLimit()).isEqualTo(messageLimit);
         assertThat(metadata.getMessagesUsed()).isEqualTo(messagesUsed);
+        assertThat(metadata.getCircuitBreaker()).isEqualTo(circuitBreaker);
     }
 
 

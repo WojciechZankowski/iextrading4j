@@ -36,7 +36,7 @@ public class AccountAcceptanceTest {
         cloudClient = null;
     }
 
-    @Ignore // No metadata endpoint in sandbox
+//    @Ignore // No metadata endpoint in sandbox
     @Test
     public void metadataTest() {
         final Metadata metadata = cloudClient.executeRequest(new MetadataRequestBuilder()
