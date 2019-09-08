@@ -170,7 +170,6 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
-    @Ignore // The requested data requires a Scale account and granted permission to access.
     @Test
     public void delayedQuoteTest() {
         final DelayedQuote result = cloudClient.executeRequest(new DelayedQuoteRequestBuilder()
@@ -247,7 +246,6 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
-    @Ignore // Not free tier
     @Test
     public void fundOwnershipTest() {
         final List<FundOwnership> result = cloudClient.executeRequest(new FundOwnershipRequestBuilder()
@@ -274,7 +272,6 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
-    @Ignore // Not free tier
     @Test
     public void insiderRosterTest() {
         final List<InsiderRoster> result = cloudClient.executeRequest(new InsiderRosterRequestBuilder()
@@ -301,7 +298,6 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
-    @Ignore // Not free tier
     @Test
     public void institutionalOwnershipTest() {
         final List<Ownership> result = cloudClient.executeRequest(new InstitutionalOwnershipRequestBuilder()
