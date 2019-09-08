@@ -45,7 +45,7 @@ public class BatchStocks implements Serializable {
     private final TodayEarnings earningsToday;
     private final Estimates estimates;
     private final Financials financials;
-    private final FundOwnership fundOwnership;
+    private final List<FundOwnership> fundOwnership;
     private final IncomeStatements incomeStatements;
     private final List<InsiderRoster> insiderRoster;
     private final List<InsiderSummary> insiderSummary;
@@ -65,7 +65,7 @@ public class BatchStocks implements Serializable {
     private final Quote quote;
     private final List<RecommendationTrends> recommendationTrends;
     private final List<Split> splits;
-    private final VenueVolume volumeByVenue;
+    private final List<VenueVolume> volumeByVenue;
 
     @JsonCreator
     public BatchStocks(
@@ -81,7 +81,7 @@ public class BatchStocks implements Serializable {
             @JsonProperty("today-earnings") final TodayEarnings earningsToday,
             @JsonProperty("estimates") final Estimates estimates,
             @JsonProperty("financials") final Financials financials,
-            @JsonProperty("fund-ownership") final FundOwnership fundOwnership,
+            @JsonProperty("fund-ownership") final List<FundOwnership> fundOwnership,
             @JsonProperty("income") final IncomeStatements incomeStatements,
             @JsonProperty("insider-roster") final List<InsiderRoster> insiderRoster,
             @JsonProperty("insider-summary") final List<InsiderSummary> insiderSummary,
@@ -101,7 +101,7 @@ public class BatchStocks implements Serializable {
             @JsonProperty("quote") final Quote quote,
             @JsonProperty("recommendation-trends") final List<RecommendationTrends> recommendationTrends,
             @JsonProperty("splits") final List<Split> splits,
-            @JsonProperty("volume-by-venue") final VenueVolume volumeByVenue) {
+            @JsonProperty("volume-by-venue") final List<VenueVolume> volumeByVenue) {
         this.advancedStats = advancedStats;
         this.balanceSheets = balanceSheets;
         this.book = book;
@@ -114,7 +114,7 @@ public class BatchStocks implements Serializable {
         this.earningsToday = earningsToday;
         this.estimates = estimates;
         this.financials = financials;
-        this.fundOwnership = fundOwnership;
+        this.fundOwnership = immutableList(fundOwnership);
         this.incomeStatements = incomeStatements;
         this.insiderRoster = immutableList(insiderRoster);
         this.insiderSummary = immutableList(insiderSummary);
@@ -134,13 +134,15 @@ public class BatchStocks implements Serializable {
         this.quote = quote;
         this.recommendationTrends = immutableList(recommendationTrends);
         this.splits = immutableList(splits);
-        this.volumeByVenue = volumeByVenue;
+        this.volumeByVenue = immutableList(volumeByVenue);
     }
 
+    @JsonProperty("advanced-stats")
     public AdvancedStats getAdvancedStats() {
         return advancedStats;
     }
 
+    @JsonProperty("balance-sheet")
     public BalanceSheets getBalanceSheets() {
         return balanceSheets;
     }
@@ -149,6 +151,7 @@ public class BatchStocks implements Serializable {
         return book;
     }
 
+    @JsonProperty("cash-flow")
     public CashFlows getCashFlows() {
         return cashFlows;
     }
@@ -161,6 +164,7 @@ public class BatchStocks implements Serializable {
         return company;
     }
 
+    @JsonProperty("delayed-quote")
     public DelayedQuote getDelayedQuote() {
         return delayedQuote;
     }
@@ -173,6 +177,7 @@ public class BatchStocks implements Serializable {
         return earnings;
     }
 
+    @JsonProperty("today-earnings")
     public TodayEarnings getEarningsToday() {
         return earningsToday;
     }
@@ -185,38 +190,47 @@ public class BatchStocks implements Serializable {
         return financials;
     }
 
-    public FundOwnership getFundOwnership() {
+    @JsonProperty("fund-ownership")
+    public List<FundOwnership> getFundOwnership() {
         return fundOwnership;
     }
 
+    @JsonProperty("income")
     public IncomeStatements getIncomeStatements() {
         return incomeStatements;
     }
 
+    @JsonProperty("insider-roster")
     public List<InsiderRoster> getInsiderRoster() {
         return insiderRoster;
     }
 
+    @JsonProperty("insider-summary")
     public List<InsiderSummary> getInsiderSummary() {
         return insiderSummary;
     }
 
+    @JsonProperty("insider-transactions")
     public List<InsiderTransaction> getInsiderTransaction() {
         return insiderTransaction;
     }
 
+    @JsonProperty("institutional-ownership")
     public List<Ownership> getInstitutionalOwnership() {
         return institutionalOwnership;
     }
 
+    @JsonProperty("intraday-prices")
     public List<Intraday> getIntradayPrices() {
         return intradayPrices;
     }
 
+    @JsonProperty("stats")
     public KeyStats getKeyStats() {
         return keyStats;
     }
 
+    @JsonProperty("largest-trades")
     public List<LargestTrade> getLargestTrades() {
         return largestTrades;
     }
@@ -257,6 +271,7 @@ public class BatchStocks implements Serializable {
         return quote;
     }
 
+    @JsonProperty("recommendation-trends")
     public List<RecommendationTrends> getRecommendationTrends() {
         return recommendationTrends;
     }
@@ -265,7 +280,8 @@ public class BatchStocks implements Serializable {
         return splits;
     }
 
-    public VenueVolume getVolumeByVenue() {
+    @JsonProperty("volume-by-venue")
+    public List<VenueVolume> getVolumeByVenue() {
         return volumeByVenue;
     }
 

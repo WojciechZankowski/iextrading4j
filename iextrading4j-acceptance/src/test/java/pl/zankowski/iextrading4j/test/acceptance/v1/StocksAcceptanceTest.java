@@ -1,6 +1,5 @@
 package pl.zankowski.iextrading4j.test.acceptance.v1;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.stocks.Book;
 import pl.zankowski.iextrading4j.api.stocks.Chart;
@@ -18,6 +17,7 @@ import pl.zankowski.iextrading4j.api.stocks.TodayEarnings;
 import pl.zankowski.iextrading4j.api.stocks.TodayIpos;
 import pl.zankowski.iextrading4j.api.stocks.v1.AdvancedStats;
 import pl.zankowski.iextrading4j.api.stocks.v1.BalanceSheets;
+import pl.zankowski.iextrading4j.api.stocks.v1.BatchStocks;
 import pl.zankowski.iextrading4j.api.stocks.v1.CashFlows;
 import pl.zankowski.iextrading4j.api.stocks.v1.Dividends;
 import pl.zankowski.iextrading4j.api.stocks.v1.Estimates;
@@ -52,6 +52,7 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayIposRequestBuil
 import pl.zankowski.iextrading4j.client.rest.request.stocks.UpcomingIposRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.AdvancedStatsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.BalanceSheetRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.BatchMarketStocksRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.BatchStocksRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.BatchStocksType;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.CashFlowRequestBuilder;
@@ -71,6 +72,7 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.Period;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -280,7 +282,6 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
-    @Ignore // Not free tier
     @Test
     public void insiderSummaryTest() {
         final List<InsiderSummary> result = cloudClient.executeRequest(new InsiderSummaryRequestBuilder()
@@ -289,7 +290,6 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
-    @Ignore // Not free tier
     @Test
     public void insiderTransactions() {
         final List<InsiderTransaction> result = cloudClient.executeRequest(new InsiderTransactionRequestBuilder()
@@ -521,16 +521,9 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
-    @Ignore // Not free tier
     @Test
-    public void notFreeBatchAcceptanceTest() {
-
-    }
-
-    @Ignore // Not ready
-    @Test
-    public void batchAcceptanceTest() {
-        cloudClient.executeRequest(new BatchStocksRequestBuilder()
+    public void batchFirstPartAcceptanceTest() {
+        final BatchStocks result = cloudClient.executeRequest(new BatchStocksRequestBuilder()
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.ADVANCED_STATS)
                 .addType(BatchStocksType.BALANCE_SHEET)
@@ -543,6 +536,75 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
                 .addType(BatchStocksType.EARNINGS)
                 .addType(BatchStocksType.TODAY_EARNINGS)
                 .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void batchSecondPartAcceptanceTest() {
+        final BatchStocks result = cloudClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.ESTIMATES)
+                .addType(BatchStocksType.FINANCIALS)
+                .addType(BatchStocksType.FUND_OWNERSHIP)
+                .addType(BatchStocksType.INCOME)
+                .addType(BatchStocksType.INSIDER_ROSTER)
+                .addType(BatchStocksType.INSIDER_SUMMARY)
+                .addType(BatchStocksType.INSIDER_TRANSACTIONS)
+                .addType(BatchStocksType.INSTITUTIONAL_OWNERSHIP)
+                .addType(BatchStocksType.INTRADAY_PRICES)
+                .addType(BatchStocksType.KEY_STATS)
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void batchThirdPartAcceptanceTest() {
+        final BatchStocks result = cloudClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.LARGEST_TRADES)
+                .addType(BatchStocksType.LOGO)
+                .addType(BatchStocksType.NEWS)
+                .addType(BatchStocksType.OHLC)
+                .addType(BatchStocksType.OPTIONS)
+                .addType(BatchStocksType.PEERS)
+                .addType(BatchStocksType.PREVIOUS)
+                .addType(BatchStocksType.PRICE)
+                .addType(BatchStocksType.PRICE_TARGET)
+                .addType(BatchStocksType.QUOTE)
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void batchFourthPartAcceptanceTest() {
+        final BatchStocks result = cloudClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.RECOMMENDATION_TRENDS)
+                .addType(BatchStocksType.SPLITS)
+                .addType(BatchStocksType.VOLUME_BY_VENUE)
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void marketBatchAcceptanceTest() {
+        final Map<String, BatchStocks> result = cloudClient.executeRequest(new BatchMarketStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.LARGEST_TRADES)
+                .addType(BatchStocksType.LOGO)
+                .addType(BatchStocksType.NEWS)
+                .addType(BatchStocksType.OHLC)
+                .addType(BatchStocksType.OPTIONS)
+                .addType(BatchStocksType.PEERS)
+                .addType(BatchStocksType.PREVIOUS)
+                .addType(BatchStocksType.PRICE)
+                .addType(BatchStocksType.PRICE_TARGET)
+                .addType(BatchStocksType.QUOTE)
+                .build());
+        assertThat(result).isNotNull();
+
+        final BatchStocks aapl = result.get("AAPL");
+        assertThat(aapl).isNotNull();
     }
 
 }

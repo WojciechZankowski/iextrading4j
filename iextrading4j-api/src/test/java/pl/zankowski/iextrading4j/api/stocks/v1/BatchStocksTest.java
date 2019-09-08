@@ -40,7 +40,7 @@ public class BatchStocksTest {
         final TodayEarnings earningsToday = fixture.create(TodayEarnings.class);
         final Estimates estimates = fixture.create(Estimates.class);
         final Financials financials = fixture.create(Financials.class);
-        final FundOwnership fundOwnership = fixture.create(FundOwnership.class);
+        final List<FundOwnership> fundOwnership = Lists.newArrayList(fixture.create(FundOwnership.class));
         final IncomeStatements incomeStatements = fixture.create(IncomeStatements.class);
         final List<InsiderRoster> insiderRoster = Lists.newArrayList(fixture.collections().createCollection(InsiderRoster.class));
         final List<InsiderSummary> insiderSummary = Lists.newArrayList(fixture.collections().createCollection(InsiderSummary.class));
@@ -60,7 +60,7 @@ public class BatchStocksTest {
         final Quote quote = fixture.create(Quote.class);
         final List<RecommendationTrends> recommendationTrends = Lists.newArrayList(fixture.collections().createCollection(RecommendationTrends.class));
         final List<Split> splits = Lists.newArrayList(fixture.collections().createCollection(Split.class));
-        final VenueVolume volumeByVenue = fixture.create(VenueVolume.class);
+        final List<VenueVolume> volumeByVenue = Lists.newArrayList(fixture.collections().createCollection(VenueVolume.class));
 
         final BatchStocks batchStocks = new BatchStocks(advancedStats, balanceSheets, book, cashFlows, chart,
                 company, delayedQuote, dividends, earnings, earningsToday, estimates, financials, fundOwnership,
