@@ -46,9 +46,9 @@ public class RefDataSample {
     public static void main(String[] args) {
         final RefDataSample refDataSample = new RefDataSample();
 
-        // The requested data is not available to free tier accounts
-        // refDataSample.fxSymbolsRequestSample();
-        // refDataSample.optionsSymbolsSample();
+        // This data is not available to free tier accounts
+        refDataSample.fxSymbolsRequestSample();
+        refDataSample.optionsSymbolsSample();
 
         refDataSample.symbolsRequestSample();
         refDataSample.iexSymbolsRequestSample();
