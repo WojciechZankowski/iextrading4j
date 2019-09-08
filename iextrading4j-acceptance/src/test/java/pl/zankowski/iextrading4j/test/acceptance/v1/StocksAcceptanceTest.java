@@ -76,7 +76,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
-//    @Ignore // Not free tier
     @Test
     public void advancedStatsTest() {
         final AdvancedStats result = cloudClient.executeRequest(new AdvancedStatsRequestBuilder()
