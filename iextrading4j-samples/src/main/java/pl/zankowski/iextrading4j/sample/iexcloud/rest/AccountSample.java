@@ -14,9 +14,6 @@ import pl.zankowski.iextrading4j.client.rest.request.account.UsageType;
 import java.util.List;
 import java.util.Map;
 
-/**
- * This endpoints somehow does not work with Sandbox
- */
 public class AccountSample {
 
     private final IEXCloudClient cloudClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_BETA,
