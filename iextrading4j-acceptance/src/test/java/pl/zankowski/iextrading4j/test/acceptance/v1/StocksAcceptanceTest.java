@@ -52,6 +52,8 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayIposRequestBuil
 import pl.zankowski.iextrading4j.client.rest.request.stocks.UpcomingIposRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.AdvancedStatsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.BalanceSheetRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.BatchStocksRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.BatchStocksType;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.CashFlowRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.DividendsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.EstimatesRequestBuilder;
@@ -74,7 +76,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
-    @Ignore // Not free tier
+//    @Ignore // Not free tier
     @Test
     public void advancedStatsTest() {
         final AdvancedStats result = cloudClient.executeRequest(new AdvancedStatsRequestBuilder()
@@ -522,6 +524,30 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
                 .withSymbol("AAPL")
                 .build());
         assertThat(result).isNotNull();
+    }
+
+    @Ignore // Not free tier
+    @Test
+    public void notFreeBatchAcceptanceTest() {
+
+    }
+
+    @Ignore // Not ready
+    @Test
+    public void batchAcceptanceTest() {
+        cloudClient.executeRequest(new BatchStocksRequestBuilder()
+                .withSymbol("AAPL")
+                .addType(BatchStocksType.ADVANCED_STATS)
+                .addType(BatchStocksType.BALANCE_SHEET)
+                .addType(BatchStocksType.BOOK)
+                .addType(BatchStocksType.CASH_FLOW)
+                .addType(BatchStocksType.CHART)
+                .addType(BatchStocksType.COMPANY)
+                .addType(BatchStocksType.DELAYED_QUOTE)
+                .addType(BatchStocksType.DIVIDENDS)
+                .addType(BatchStocksType.EARNINGS)
+                .addType(BatchStocksType.TODAY_EARNINGS)
+                .build());
     }
 
 }

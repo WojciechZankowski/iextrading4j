@@ -35,7 +35,7 @@ public abstract class AbstractChartRequestBuilder<R, B extends IRestRequestBuild
         return (B) this;
     }
 
-    Map<String, String> getQueryParameters() {
+    protected Map<String, String> getQueryParameters() {
         return queryParameters;
     }
 }
