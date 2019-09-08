@@ -114,8 +114,6 @@ System.out.println(result);
 
 #### Streaming SSE
 
-**This implementation is in beta, hasn't been tested yet.**
-
 To build request use classes that extend ``` ISseRequestBuilder ``` interface. Example request:
 
 ```java
@@ -137,7 +135,7 @@ Please see samples for more examples.
 
 ### IEX Api (iextrading.com/developer) requests
 
-**This will be not longer usable after June 1, 2019.**
+**Support for IEX Api has been reduced after June 1, 2019.**
 
 To build request use classes that extend ``` IEXApiRestRequest ``` interface. Example request:
 
