@@ -1,11 +1,17 @@
 package pl.zankowski.iextrading4j.sample.iexcloud.sse;
 
+import pl.zankowski.iextrading4j.api.alternative.CryptoBookEvent;
+import pl.zankowski.iextrading4j.api.alternative.CryptoEvent;
 import pl.zankowski.iextrading4j.api.alternative.Sentiment;
+import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.client.IEXCloudClient;
 import pl.zankowski.iextrading4j.client.IEXCloudTokenBuilder;
 import pl.zankowski.iextrading4j.client.IEXTradingApiVersion;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
+import pl.zankowski.iextrading4j.client.sse.request.alternative.CryptoBookSseRequestBuilder;
+import pl.zankowski.iextrading4j.client.sse.request.alternative.CryptoEventSseRequestBuilder;
+import pl.zankowski.iextrading4j.client.sse.request.alternative.CryptoQuoteSseRequestBuilder;
 import pl.zankowski.iextrading4j.client.sse.request.alternative.SentimentSseRequestBuilder;
 
 import java.util.List;
@@ -24,6 +30,9 @@ public class SseAlternativeSample {
         final SseAlternativeSample alternativeSample = new SseAlternativeSample();
 
         alternativeSample.sentimentSample();
+        alternativeSample.cryptoBookSample();
+        alternativeSample.cryptoEventsSample();
+        alternativeSample.cryptoQuoteSample();
 
         new Semaphore(0).acquire();
     }
@@ -36,6 +45,39 @@ public class SseAlternativeSample {
                 .build();
 
         cloudClient.subscribe(request, SENTIMENT_CONSUMER);
+    }
+
+    private static final Consumer<List<CryptoBookEvent>> CRYPTO_BOOK_CONSUMER = System.out::println;
+
+    private void cryptoBookSample() {
+        final SseRequest<List<CryptoBookEvent>> request = new CryptoBookSseRequestBuilder()
+                .withSymbol("btcusd")
+                .withSymbol("ethusd")
+                .build();
+
+        cloudClient.subscribe(request, CRYPTO_BOOK_CONSUMER);
+    }
+
+    private static final Consumer<List<CryptoEvent>> CRYPTO_EVENT_CONSUMER = System.out::println;
+
+    private void cryptoEventsSample() {
+        final SseRequest<List<CryptoEvent>> request = new CryptoEventSseRequestBuilder()
+                .withSymbol("btcusd")
+                .withSymbol("ethusd")
+                .build();
+
+        cloudClient.subscribe(request, CRYPTO_EVENT_CONSUMER);
+    }
+
+    private static final Consumer<List<Quote>> CRYPTO_QUOTE_CONSUMER = System.out::println;
+
+    private void cryptoQuoteSample() {
+        final SseRequest<List<Quote>> request = new CryptoQuoteSseRequestBuilder()
+                .withSymbol("btcusd")
+                .withSymbol("ethusd")
+                .build();
+
+        cloudClient.subscribe(request, CRYPTO_QUOTE_CONSUMER);
     }
 
 }

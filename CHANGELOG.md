@@ -1,6 +1,16 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.2.7] - 2019-10-01
+
+### Added
+
+- Crypto Quote SSE endpoint
+- Crypto Price endpoint
+- Crypto Book endpoint
+- Crypto Book SSE endpoint
+- Crypto Event SSE endpoint
+
 ## [3.2.6] - 2019-09-08
 
 ### Added
@@ -298,3 +308,4 @@ All notable changes to this project will be documented in this file.
 [3.2.4]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_3...IT4J_RELEASE_3_2_4
 [3.2.5]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_4...IT4J_RELEASE_3_2_5
 [3.2.6]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_5...IT4J_RELEASE_3_2_6
+[3.2.6]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_6...IT4J_RELEASE_3_2_7
