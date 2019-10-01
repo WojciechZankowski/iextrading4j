@@ -22,7 +22,7 @@ public class CryptoBookEventTest {
                 .createCollection(CryptoBookEntry.class));
         final String symbol = fixture.create(String.class);
 
-        final CryptoBookEvent book = new CryptoBookEvent(asks, bids, symbol);
+        final CryptoBookEvent book = new CryptoBookEvent(bids, asks, symbol);
 
         assertThat(book.getAsk()).isEqualTo(asks);
         assertThat(book.getBid()).isEqualTo(bids);

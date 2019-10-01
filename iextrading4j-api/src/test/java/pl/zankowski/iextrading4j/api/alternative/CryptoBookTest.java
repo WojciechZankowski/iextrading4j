@@ -21,7 +21,7 @@ public class CryptoBookTest {
         final List<CryptoBookEntry> bids = Lists.newArrayList(fixture.collections()
                 .createCollection(CryptoBookEntry.class));
 
-        final CryptoBook book = new CryptoBook(asks, bids);
+        final CryptoBook book = new CryptoBook(bids, asks);
 
         assertThat(book.getAsks()).isEqualTo(asks);
         assertThat(book.getBids()).isEqualTo(bids);
