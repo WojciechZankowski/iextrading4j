@@ -1,12 +1,14 @@
 package pl.zankowski.iextrading4j.sample.iexcloud.rest;
 
 import pl.zankowski.iextrading4j.api.alternative.CeoCompensation;
+import pl.zankowski.iextrading4j.api.alternative.CryptoPrice;
 import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.client.IEXCloudClient;
 import pl.zankowski.iextrading4j.client.IEXCloudTokenBuilder;
 import pl.zankowski.iextrading4j.client.IEXTradingApiVersion;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.alternative.CeoCompensationRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.alternative.CryptoPriceRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.alternative.CryptoRequestBuilder;
 
 public class AlternativeSample {
@@ -24,6 +26,7 @@ public class AlternativeSample {
         alternativeSample.ceoCompensationRequestSample();
 
         alternativeSample.cryptoRequestSample();
+        alternativeSample.cryptoPriceRequestSample();
     }
 
     private void cryptoRequestSample() {
@@ -38,6 +41,13 @@ public class AlternativeSample {
                 .withSymbol("AAPL")
                 .build());
         System.out.println(ceoCompensation);
+    }
+
+    private void cryptoPriceRequestSample() {
+        final CryptoPrice price = cloudClient.executeRequest(new CryptoPriceRequestBuilder()
+                .withSymbol("BTCUSD")
+                .build());
+        System.out.println(price);
     }
 
 }
