@@ -15,7 +15,7 @@ public class CryptoEventReasonDeserializer extends AbstractEnumDeserializer<Cryp
             .put("place", PLACE)
             .put("trade", TRADE)
             .put("cancel", CANCEL)
-            .put("auction", INITIAL)
+            .put("initial", INITIAL)
             .build();
 
     CryptoEventReasonDeserializer() {

@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import pl.zankowski.iextrading4j.api.alternative.CryptoEventReason;
 import pl.zankowski.iextrading4j.api.alternative.CryptoEventType;
 
 import java.io.IOException;
@@ -49,7 +48,7 @@ public class CryptoEventTypeDeserializerTest {
 
         final CryptoEventType result = deserializer.deserialize(parserMock, contextMock);
 
-        assertThat(result).isEqualTo(CryptoEventReason.CANCEL);
+        assertThat(result).isEqualTo(CryptoEventType.BLOCK_TRADE);
     }
 
 }
