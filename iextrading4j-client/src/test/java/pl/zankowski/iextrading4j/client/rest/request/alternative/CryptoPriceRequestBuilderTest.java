@@ -21,7 +21,7 @@ public class CryptoPriceRequestBuilderTest {
                 .build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
-        assertThat(request.getPath()).isEqualTo("/crypto/{symbol}/quote");
+        assertThat(request.getPath()).isEqualTo("/crypto/{symbol}/price");
         assertThat(request.getResponseType()).isEqualTo(new GenericType<CryptoPrice>() {});
         assertThat(request.getPathParams()).containsExactly(entry("symbol", symbol));
         assertThat(request.getQueryParams()).isEmpty();
