@@ -14,22 +14,22 @@ public class CryptoBook implements Serializable {
 
     private static final long serialVersionUID = 44462362459562860L;
 
-    private final List<CryptoBookEvent> bids;
-    private final List<CryptoBookEvent> asks;
+    private final List<CryptoBookEntry> bids;
+    private final List<CryptoBookEntry> asks;
 
     @JsonCreator
     public CryptoBook(
-            @JsonProperty("bids") final List<CryptoBookEvent> bids,
-            @JsonProperty("asks") final List<CryptoBookEvent> asks) {
+            @JsonProperty("bids") final List<CryptoBookEntry> bids,
+            @JsonProperty("asks") final List<CryptoBookEntry> asks) {
         this.bids = immutableList(bids);
         this.asks = immutableList(asks);
     }
 
-    public List<CryptoBookEvent> getBids() {
+    public List<CryptoBookEntry> getBids() {
         return bids;
     }
 
-    public List<CryptoBookEvent> getAsks() {
+    public List<CryptoBookEntry> getAsks() {
         return asks;
     }
 

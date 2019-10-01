@@ -2,10 +2,11 @@ package pl.zankowski.iextrading4j.api.alternative;
 
 import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
+import org.assertj.core.util.Lists;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
-import java.math.BigDecimal;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -15,15 +16,17 @@ public class CryptoBookEventTest {
 
     @Test
     public void constructor() {
-        final BigDecimal price = fixture.create(BigDecimal.class);
-        final BigDecimal size = fixture.create(BigDecimal.class);
-        final Long timestamp = fixture.create(Long.class);
+        final List<CryptoBookEntry> asks = Lists.newArrayList(fixture.collections()
+                .createCollection(CryptoBookEntry.class));
+        final List<CryptoBookEntry> bids = Lists.newArrayList(fixture.collections()
+                .createCollection(CryptoBookEntry.class));
+        final String symbol = fixture.create(String.class);
 
-        final CryptoBookEvent bookEvent = new CryptoBookEvent(price, size, timestamp);
+        final CryptoBookEvent book = new CryptoBookEvent(asks, bids, symbol);
 
-        assertThat(bookEvent.getPrice()).isEqualTo(price);
-        assertThat(bookEvent.getSize()).isEqualTo(size);
-        assertThat(bookEvent.getTimestamp()).isEqualTo(timestamp);
+        assertThat(book.getAsk()).isEqualTo(asks);
+        assertThat(book.getBid()).isEqualTo(bids);
+        assertThat(book.getSymbol()).isEqualTo(symbol);
     }
 
 

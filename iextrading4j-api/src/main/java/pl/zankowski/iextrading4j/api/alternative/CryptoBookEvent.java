@@ -7,37 +7,39 @@ import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
+import java.util.List;
 
-@JsonPropertyOrder({"price", "size", "timestamp"})
+import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
+
+@JsonPropertyOrder({"symbol", "ask", "bid"})
 public class CryptoBookEvent implements Serializable {
 
-    private static final long serialVersionUID = 6995586430607181195L;
+    private static final long serialVersionUID = -2249655496972607126L;
 
-    private final BigDecimal price;
-    private final BigDecimal size;
-    private final Long timestamp;
+    private final String symbol;
+    private final List<CryptoBookEntry> bid;
+    private final List<CryptoBookEntry> ask;
 
     @JsonCreator
     public CryptoBookEvent(
-            @JsonProperty("price") final BigDecimal price,
-            @JsonProperty("size") final BigDecimal size,
-            @JsonProperty("timestamp") final Long timestamp) {
-        this.price = price;
-        this.size = size;
-        this.timestamp = timestamp;
+            @JsonProperty("bids") final List<CryptoBookEntry> bid,
+            @JsonProperty("asks") final List<CryptoBookEntry> ask,
+            @JsonProperty("symbol") final String symbol) {
+        this.symbol = symbol;
+        this.bid = immutableList(bid);
+        this.ask = immutableList(ask);
     }
 
-    public BigDecimal getPrice() {
-        return price;
+    public String getSymbol() {
+        return symbol;
     }
 
-    public BigDecimal getSize() {
-        return size;
+    public List<CryptoBookEntry> getBid() {
+        return bid;
     }
 
-    public Long getTimestamp() {
-        return timestamp;
+    public List<CryptoBookEntry> getAsk() {
+        return ask;
     }
 
     @Override
@@ -49,22 +51,22 @@ public class CryptoBookEvent implements Serializable {
             return false;
         }
         final CryptoBookEvent that = (CryptoBookEvent) o;
-        return Objects.equal(price, that.price) &&
-                Objects.equal(size, that.size) &&
-                Objects.equal(timestamp, that.timestamp);
+        return Objects.equal(symbol, that.symbol) &&
+                Objects.equal(bid, that.bid) &&
+                Objects.equal(ask, that.ask);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(price, size, timestamp);
+        return Objects.hashCode(symbol, bid, ask);
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("price", price)
-                .add("size", size)
-                .add("timestamp", timestamp)
+                .add("symbol", symbol)
+                .add("bid", bid)
+                .add("ask", ask)
                 .toString();
     }
 

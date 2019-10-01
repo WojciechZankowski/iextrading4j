@@ -16,10 +16,10 @@ public class CryptoBookTest {
 
     @Test
     public void constructor() {
-        final List<CryptoBookEvent> asks = Lists.newArrayList(fixture.collections()
-                .createCollection(CryptoBookEvent.class));
-        final List<CryptoBookEvent> bids = Lists.newArrayList(fixture.collections()
-                .createCollection(CryptoBookEvent.class));
+        final List<CryptoBookEntry> asks = Lists.newArrayList(fixture.collections()
+                .createCollection(CryptoBookEntry.class));
+        final List<CryptoBookEntry> bids = Lists.newArrayList(fixture.collections()
+                .createCollection(CryptoBookEntry.class));
 
         final CryptoBook book = new CryptoBook(asks, bids);
 
