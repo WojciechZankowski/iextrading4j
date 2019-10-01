@@ -2,9 +2,11 @@ package pl.zankowski.iextrading4j.test.acceptance.v1;
 
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.alternative.CeoCompensation;
+import pl.zankowski.iextrading4j.api.alternative.CryptoBook;
 import pl.zankowski.iextrading4j.api.alternative.CryptoPrice;
 import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.client.rest.request.alternative.CeoCompensationRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.alternative.CryptoBookRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.alternative.CryptoPriceRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.alternative.CryptoRequestBuilder;
 
@@ -34,6 +36,14 @@ public class AlternativeAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
                 .withSymbol("BTCUSD")
                 .build());
         assertThat(price).isNotNull();
+    }
+
+    @Test
+    public void cryptoBookTest() {
+        final CryptoBook book = cloudClient.executeRequest(new CryptoBookRequestBuilder()
+                .withSymbol("BTCUSD")
+                .build());
+        assertThat(book).isNotNull();
     }
 
 }

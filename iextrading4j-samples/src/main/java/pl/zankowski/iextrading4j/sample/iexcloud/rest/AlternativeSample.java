@@ -1,6 +1,7 @@
 package pl.zankowski.iextrading4j.sample.iexcloud.rest;
 
 import pl.zankowski.iextrading4j.api.alternative.CeoCompensation;
+import pl.zankowski.iextrading4j.api.alternative.CryptoBook;
 import pl.zankowski.iextrading4j.api.alternative.CryptoPrice;
 import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.client.IEXCloudClient;
@@ -8,6 +9,7 @@ import pl.zankowski.iextrading4j.client.IEXCloudTokenBuilder;
 import pl.zankowski.iextrading4j.client.IEXTradingApiVersion;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.alternative.CeoCompensationRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.alternative.CryptoBookRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.alternative.CryptoPriceRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.alternative.CryptoRequestBuilder;
 
@@ -27,6 +29,7 @@ public class AlternativeSample {
 
         alternativeSample.cryptoRequestSample();
         alternativeSample.cryptoPriceRequestSample();
+        alternativeSample.cryptoBookRequestSample();
     }
 
     private void cryptoRequestSample() {
@@ -48,6 +51,13 @@ public class AlternativeSample {
                 .withSymbol("BTCUSD")
                 .build());
         System.out.println(price);
+    }
+
+    private void cryptoBookRequestSample() {
+        final CryptoBook book = cloudClient.executeRequest(new CryptoBookRequestBuilder()
+                .withSymbol("BTCUSD")
+                .build());
+        System.out.println(book);
     }
 
 }
