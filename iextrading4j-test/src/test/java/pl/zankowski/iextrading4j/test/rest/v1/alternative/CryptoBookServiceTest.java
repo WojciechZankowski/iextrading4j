@@ -25,7 +25,7 @@ public class CryptoBookServiceTest extends BaseIEXCloudV1ServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("rest/v1/alternative/CryptoPriceResponse.json")));
+                        .withBodyFile("rest/v1/alternative/CryptoBookResponse.json")));
 
         final CryptoBook book = cloudClient.executeRequest(new CryptoBookRequestBuilder()
                 .withSymbol("BTCUSD")
