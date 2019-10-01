@@ -6,11 +6,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @JsonPropertyOrder({"symbol", "eventType", "timestamp", "reason",
         "price", "size", "side"})
-public class CryptoEvent {
+public class CryptoEvent implements Serializable {
+
+    private static final long serialVersionUID = 9151409423809814546L;
 
     private final String symbol;
     private final CryptoEventType eventType;
