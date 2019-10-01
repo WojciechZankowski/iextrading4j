@@ -6,6 +6,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import pl.zankowski.iextrading4j.api.alternative.CryptoEventReason;
+import pl.zankowski.iextrading4j.api.alternative.CryptoEventType;
+import pl.zankowski.iextrading4j.api.alternative.CryptoSide;
 import pl.zankowski.iextrading4j.api.marketdata.SystemEventType;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatusReasonType;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatusType;
@@ -68,6 +71,15 @@ public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMa
         module.addDeserializer(BigDecimal.class, new HackyBigDecimalDeserializer());
         module.addDeserializer(LocalDate.class, new HackyLocalDateDeserializer());
         module.addDeserializer(LocalDateTime.class, new HackyLocalDateTimeDeserializer());
+
+        module.addSerializer(CryptoEventType.class, new CryptoEventTypeSerializer());
+        module.addDeserializer(CryptoEventType.class, new CryptoEventTypeDeserializer());
+
+        module.addSerializer(CryptoEventReason.class, new CryptoEventReasonSerializer());
+        module.addDeserializer(CryptoEventReason.class, new CryptoEventReasonDeserializer());
+
+        module.addSerializer(CryptoSide.class, new CryptoSideSerializer());
+        module.addDeserializer(CryptoSide.class, new CryptoSideDeserializer());
 
         module.addSerializer(DeepChannel.class, new DeepChannelSerializer());
         module.addDeserializer(DeepChannel.class, new DeepChannelDeserializer());

@@ -1,6 +1,7 @@
 package pl.zankowski.iextrading4j.sample.iexcloud.sse;
 
 import pl.zankowski.iextrading4j.api.alternative.CryptoBookEvent;
+import pl.zankowski.iextrading4j.api.alternative.CryptoEvent;
 import pl.zankowski.iextrading4j.api.alternative.Sentiment;
 import pl.zankowski.iextrading4j.client.IEXCloudClient;
 import pl.zankowski.iextrading4j.client.IEXCloudTokenBuilder;
@@ -8,6 +9,7 @@ import pl.zankowski.iextrading4j.client.IEXTradingApiVersion;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 import pl.zankowski.iextrading4j.client.sse.request.alternative.CryptoBookSseRequestBuilder;
+import pl.zankowski.iextrading4j.client.sse.request.alternative.CryptoEventSseRequestBuilder;
 import pl.zankowski.iextrading4j.client.sse.request.alternative.SentimentSseRequestBuilder;
 
 import java.util.List;
@@ -25,8 +27,9 @@ public class SseAlternativeSample {
     public static void main(String[] args) throws InterruptedException {
         final SseAlternativeSample alternativeSample = new SseAlternativeSample();
 
-//        alternativeSample.sentimentSample();
+        alternativeSample.sentimentSample();
         alternativeSample.cryptoBookSample();
+        alternativeSample.cryptoEventsSample();
 
         new Semaphore(0).acquire();
     }
@@ -50,6 +53,17 @@ public class SseAlternativeSample {
                 .build();
 
         cloudClient.subscribe(request, CRYPTO_BOOK_CONSUMER);
+    }
+
+    private static final Consumer<List<CryptoEvent>> CRYPTO_EVENT_CONSUMER = System.out::println;
+
+    private void cryptoEventsSample() {
+        final SseRequest<List<CryptoEvent>> request = new CryptoEventSseRequestBuilder()
+                .withSymbol("btcusd")
+                .withSymbol("ethusd")
+                .build();
+
+        cloudClient.subscribe(request, CRYPTO_EVENT_CONSUMER);
     }
 
 }
