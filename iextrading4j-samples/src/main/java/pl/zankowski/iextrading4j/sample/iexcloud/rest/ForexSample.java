@@ -3,6 +3,7 @@ package pl.zankowski.iextrading4j.sample.iexcloud.rest;
 import pl.zankowski.iextrading4j.api.forex.CurrencyConversion;
 import pl.zankowski.iextrading4j.api.forex.CurrencyRate;
 import pl.zankowski.iextrading4j.api.forex.ExchangeRate;
+import pl.zankowski.iextrading4j.api.forex.HistoricalCurrencyRate;
 import pl.zankowski.iextrading4j.api.refdata.v1.Pair;
 import pl.zankowski.iextrading4j.client.IEXCloudClient;
 import pl.zankowski.iextrading4j.client.IEXCloudTokenBuilder;
@@ -10,9 +11,11 @@ import pl.zankowski.iextrading4j.client.IEXTradingApiVersion;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.forex.CurrencyConversionRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.forex.ExchangeRateRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.forex.HistoricalRatesRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.forex.LatestCurrencyRatesRequestBuilder;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 public class ForexSample {
@@ -30,6 +33,7 @@ public class ForexSample {
         forexSample.exchangeRateRequestSample();
         forexSample.currencyConversionSample();
         forexSample.latestCurrencyRatesSample();
+        forexSample.historicalCurrencyRatesSample();
     }
 
     private void exchangeRateRequestSample() {
@@ -50,6 +54,15 @@ public class ForexSample {
     private void latestCurrencyRatesSample() {
         final List<CurrencyRate> result = cloudClient.executeRequest(new LatestCurrencyRatesRequestBuilder()
                 .withSymbol("USDGBP")
+                .build());
+        System.out.println(result);
+    }
+
+    private void historicalCurrencyRatesSample() {
+        final List<List<HistoricalCurrencyRate>> result = cloudClient.executeRequest(new HistoricalRatesRequestBuilder()
+                .withSymbol("USDGBP")
+                .withFrom(LocalDate.of(2019, 6, 6))
+                .withTo(LocalDate.of(2019, 10, 12))
                 .build());
         System.out.println(result);
     }

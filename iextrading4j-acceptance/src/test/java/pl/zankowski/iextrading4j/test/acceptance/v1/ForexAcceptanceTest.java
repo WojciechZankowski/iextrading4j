@@ -5,12 +5,15 @@ import org.junit.Test;
 import pl.zankowski.iextrading4j.api.forex.CurrencyConversion;
 import pl.zankowski.iextrading4j.api.forex.CurrencyRate;
 import pl.zankowski.iextrading4j.api.forex.ExchangeRate;
+import pl.zankowski.iextrading4j.api.forex.HistoricalCurrencyRate;
 import pl.zankowski.iextrading4j.api.refdata.v1.Pair;
 import pl.zankowski.iextrading4j.client.rest.request.forex.CurrencyConversionRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.forex.ExchangeRateRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.forex.HistoricalRatesRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.forex.LatestCurrencyRatesRequestBuilder;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -46,5 +49,19 @@ public class ForexAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
         assertThat(result).isNotNull();
     }
+
+    @Ignore // Not available in sandbox
+    @Test
+    public void historicalCurrencyRatesTest() {
+        final List<List<HistoricalCurrencyRate>> result = cloudClient.executeRequest(new HistoricalRatesRequestBuilder()
+                .withSymbol("USDGBP")
+                .withFrom(LocalDate.of(2019, 6, 6))
+                .withTo(LocalDate.of(2019, 10, 12))
+                .build());
+
+        assertThat(result).isNotNull();
+    }
+
+
 
 }
