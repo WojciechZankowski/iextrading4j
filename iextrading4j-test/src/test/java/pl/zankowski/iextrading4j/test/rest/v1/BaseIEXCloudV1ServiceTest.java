@@ -35,16 +35,20 @@ public abstract class BaseIEXCloudV1ServiceTest {
         cloudClient = null;
     }
 
+    protected String extendedPath(final String path) {
+        return path(path, CLOUD_TOKEN.getPublishableToken(), "&");
+    }
+
     protected String path(final String path) {
-        return path(path, CLOUD_TOKEN.getPublishableToken());
+        return path(path, CLOUD_TOKEN.getPublishableToken(), "?");
     }
 
     protected String secretPath(final String path) {
-        return path(path, CLOUD_TOKEN.getSecretToken());
+        return path(path, CLOUD_TOKEN.getSecretToken(), "?");
     }
 
-    private String path(final String path, final String token) {
-        return path + "?token=" + token;
+    private String path(final String path, final String token, final String join) {
+        return path + join + "token=" + token;
     }
 
     protected StringValuePattern bodyContent(final String token, final String body) {

@@ -31,6 +31,8 @@ import pl.zankowski.iextrading4j.api.stocks.v1.Intraday;
 import pl.zankowski.iextrading4j.api.stocks.v1.KeyStats;
 import pl.zankowski.iextrading4j.api.stocks.v1.News;
 import pl.zankowski.iextrading4j.api.stocks.v1.Ownership;
+import pl.zankowski.iextrading4j.api.stocks.v1.TechnicalIndicator;
+import pl.zankowski.iextrading4j.api.stocks.v1.TechnicalIndicatorType;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.BookRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ChartRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CollectionRequestBuilder;
@@ -69,6 +71,7 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.IntradayRequestBu
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.KeyStatsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.NewsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.Period;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.TechnicalIndicatorRequestBuilder;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -605,6 +608,16 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
         final BatchStocks aapl = result.get("AAPL");
         assertThat(aapl).isNotNull();
+    }
+
+    @Test
+    public void technicalIndicatorTest() {
+        final TechnicalIndicator result = cloudClient.executeRequest(new TechnicalIndicatorRequestBuilder()
+                .withSymbol("TWTR")
+                .withTechnicalIndicatorType(TechnicalIndicatorType.BBANDS)
+                .withRange(ChartRange.SIX_MONTHS)
+                .build());
+        assertThat(result).isNotNull();
     }
 
 }

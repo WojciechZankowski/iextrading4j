@@ -35,6 +35,8 @@ import pl.zankowski.iextrading4j.api.stocks.v1.Ownership;
 import pl.zankowski.iextrading4j.api.stocks.v1.PriceTarget;
 import pl.zankowski.iextrading4j.api.stocks.v1.RecommendationTrends;
 import pl.zankowski.iextrading4j.api.stocks.v1.Split;
+import pl.zankowski.iextrading4j.api.stocks.v1.TechnicalIndicator;
+import pl.zankowski.iextrading4j.api.stocks.v1.TechnicalIndicatorType;
 import pl.zankowski.iextrading4j.client.IEXCloudClient;
 import pl.zankowski.iextrading4j.client.IEXCloudTokenBuilder;
 import pl.zankowski.iextrading4j.client.IEXTradingApiVersion;
@@ -83,6 +85,7 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.PreviousRequestBu
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.PriceTargetRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.RecommendationTrendsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.SplitsRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.TechnicalIndicatorRequestBuilder;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -140,6 +143,7 @@ public class StocksSample {
         stocksSample.sectorPerformanceRequestSample();
         stocksSample.splitsRequestSample();
         stocksSample.venueVolumeRequestSample();
+        stocksSample.technicalIndicatorSample();
 
     }
 
@@ -418,6 +422,15 @@ public class StocksSample {
                 .withSymbol("AAPL")
                 .build());
         System.out.println(venueVolumes);
+    }
+
+    private void technicalIndicatorSample() {
+        final TechnicalIndicator indicator = cloudClient.executeRequest(new TechnicalIndicatorRequestBuilder()
+                .withSymbol("TWTR")
+                .withTechnicalIndicatorType(TechnicalIndicatorType.BBANDS)
+                .withRange(ChartRange.SIX_MONTHS)
+                .build());
+        System.out.println(indicator);
     }
 
 }

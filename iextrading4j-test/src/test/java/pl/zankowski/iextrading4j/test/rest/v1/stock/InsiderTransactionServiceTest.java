@@ -1,6 +1,7 @@
 package pl.zankowski.iextrading4j.test.rest.v1.stock;
 
 import org.junit.Test;
+import pl.zankowski.iextrading4j.api.stocks.v1.DirectIndirect;
 import pl.zankowski.iextrading4j.api.stocks.v1.InsiderTransaction;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.InsiderTransactionRequestBuilder;
 import pl.zankowski.iextrading4j.test.rest.v1.BaseIEXCloudV1ServiceTest;
@@ -40,6 +41,8 @@ public class InsiderTransactionServiceTest extends BaseIEXCloudV1ServiceTest {
         assertThat(insiderTransaction.getTranPrice()).isEqualTo(BigDecimal.ZERO);
         assertThat(insiderTransaction.getTranShares()).isEqualTo(BigDecimal.valueOf(10000));
         assertThat(insiderTransaction.getTranValue()).isEqualTo(BigDecimal.ZERO);
+        assertThat(insiderTransaction.getDirectIndirect()).isEqualTo(DirectIndirect.DIRECT);
+        assertThat(insiderTransaction.getTranCode()).isEqualTo('L');
     }
 
 }

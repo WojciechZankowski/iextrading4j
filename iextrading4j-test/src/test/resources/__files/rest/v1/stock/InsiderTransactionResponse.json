@@ -5,6 +5,8 @@
     "reportedTitle": "Vice President",
     "tranPrice": 0,
     "tranShares": 10000,
-    "tranValue": 0
+    "tranValue": 0,
+    "directIndirect": "D",
+    "tranCode": "L"
   }
 ]

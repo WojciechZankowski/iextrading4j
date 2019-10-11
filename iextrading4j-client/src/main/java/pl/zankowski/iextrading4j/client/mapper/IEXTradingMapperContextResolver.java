@@ -27,6 +27,7 @@ import pl.zankowski.iextrading4j.api.refdata.SymbolType;
 import pl.zankowski.iextrading4j.api.stocks.ChartRange;
 import pl.zankowski.iextrading4j.api.stocks.DividendQualification;
 import pl.zankowski.iextrading4j.api.stocks.DividendType;
+import pl.zankowski.iextrading4j.api.stocks.v1.DirectIndirect;
 import pl.zankowski.iextrading4j.client.properties.PropertiesReader;
 import pl.zankowski.iextrading4j.client.properties.PropertyType;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepChannel;
@@ -104,6 +105,9 @@ public class IEXTradingMapperContextResolver implements ContextResolver<ObjectMa
 
         module.addSerializer(Flag.class, new FlagSerializer());
         module.addDeserializer(Flag.class, new FlagDeserializer());
+
+        module.addSerializer(DirectIndirect.class, new DirectIndirectSerializer());
+        module.addDeserializer(DirectIndirect.class, new DirectIndirectDeserializer());
 
         module.addSerializer(IssueEvent.class, new IssueEventSerializer());
         module.addDeserializer(IssueEvent.class, new IssueEventDeserializer());
