@@ -2,7 +2,7 @@ package pl.zankowski.iextrading4j.sample.iexcloud.sse;
 
 import pl.zankowski.iextrading4j.api.alternative.CryptoBookEvent;
 import pl.zankowski.iextrading4j.api.alternative.CryptoEvent;
-import pl.zankowski.iextrading4j.api.alternative.Sentiment;
+import pl.zankowski.iextrading4j.api.alternative.SentimentEvent;
 import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.client.IEXCloudClient;
 import pl.zankowski.iextrading4j.client.IEXCloudTokenBuilder;
@@ -37,10 +37,10 @@ public class SseAlternativeSample {
         new Semaphore(0).acquire();
     }
 
-    private static final Consumer<List<Sentiment>> SENTIMENT_CONSUMER = System.out::println;
+    private static final Consumer<List<SentimentEvent>> SENTIMENT_CONSUMER = System.out::println;
 
     private void sentimentSample() {
-        final SseRequest<List<Sentiment>> request = new SentimentSseRequestBuilder()
+        final SseRequest<List<SentimentEvent>> request = new SentimentSseRequestBuilder()
                 .withSymbol("spy")
                 .build();
 
