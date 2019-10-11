@@ -1,0 +1,27 @@
+{
+  "indicator": [
+    [
+      32.89100833109358,
+      34.12321658001891
+    ]
+  ],
+  "chart": [
+    {
+      "date": "2019-04-11",
+      "open": 34.83,
+      "close": 35.42,
+      "high": 36.41,
+      "low": 34.61,
+      "volume": 11104786,
+      "uOpen": 34.76,
+      "uClose": 36.16,
+      "uHigh": 36.36,
+      "uLow": 35.99,
+      "uVolume": 11477825,
+      "change": 0,
+      "changePercent": 0,
+      "label": "Apr 11, 19",
+      "changeOverTime": 0
+    }
+  ]
+}
