@@ -1,12 +1,17 @@
 package pl.zankowski.iextrading4j.sample.iexcloud.rest;
 
+import pl.zankowski.iextrading4j.api.forex.CurrencyConversion;
 import pl.zankowski.iextrading4j.api.forex.ExchangeRate;
 import pl.zankowski.iextrading4j.api.refdata.v1.Pair;
 import pl.zankowski.iextrading4j.client.IEXCloudClient;
 import pl.zankowski.iextrading4j.client.IEXCloudTokenBuilder;
 import pl.zankowski.iextrading4j.client.IEXTradingApiVersion;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
+import pl.zankowski.iextrading4j.client.rest.request.forex.CurrencyConversionRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.forex.ExchangeRateRequestBuilder;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 public class ForexSample {
 
@@ -21,6 +26,7 @@ public class ForexSample {
 
         // This data is not available to free tier accounts
         forexSample.exchangeRateRequestSample();
+        forexSample.currencyConversionSample();
     }
 
     private void exchangeRateRequestSample() {
@@ -28,6 +34,14 @@ public class ForexSample {
                 .withPair(new Pair("EUR", "CHF"))
                 .build());
         System.out.println(exchangeRate);
+    }
+
+    private void currencyConversionSample() {
+        final List<CurrencyConversion> result = cloudClient.executeRequest(new CurrencyConversionRequestBuilder()
+                .withSymbol("USDGBP")
+                .withAmount(BigDecimal.TEN)
+                .build());
+        System.out.println(result);
     }
 
 }
