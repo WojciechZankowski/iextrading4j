@@ -22,7 +22,7 @@ public class LatestCurrencyRatesRequestBuilderTest {
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
         assertThat(request.getPath()).isEqualTo("/fx/latest");
-        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<CurrencyConversion>>() {
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<CurrencyRate>>() {
         });
         assertThat(request.getPathParams()).isEmpty();
         assertThat(request.getQueryParams()).contains(
