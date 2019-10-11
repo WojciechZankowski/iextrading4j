@@ -21,9 +21,11 @@ public class InsiderTransactionTest {
         final BigDecimal tranPrice = fixture.create(BigDecimal.class);
         final BigDecimal tranShares = fixture.create(BigDecimal.class);
         final BigDecimal tranValue = fixture.create(BigDecimal.class);
+        final DirectIndirect directIndirect = fixture.create(DirectIndirect.class);
+        final Character tranCode = fixture.create(char.class);
 
         final InsiderTransaction insiderTransaction = new InsiderTransaction(effectiveDate, fullName,
-                reportedTitle, tranPrice, tranShares, tranValue);
+                reportedTitle, tranPrice, tranShares, tranValue, directIndirect, tranCode);
 
         assertThat(insiderTransaction.getEffectiveDate()).isEqualTo(effectiveDate);
         assertThat(insiderTransaction.getFullName()).isEqualTo(fullName);
@@ -31,6 +33,8 @@ public class InsiderTransactionTest {
         assertThat(insiderTransaction.getTranPrice()).isEqualTo(tranPrice);
         assertThat(insiderTransaction.getTranShares()).isEqualTo(tranShares);
         assertThat(insiderTransaction.getTranValue()).isEqualTo(tranValue);
+        assertThat(insiderTransaction.getDirectIndirect()).isEqualTo(directIndirect);
+        assertThat(insiderTransaction.getTranCode()).isEqualTo(tranCode);
     }
 
     @Test
