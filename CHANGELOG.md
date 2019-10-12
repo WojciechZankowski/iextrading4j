@@ -1,6 +1,22 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.2.8] - 2019-10-12
+
+### Added
+
+- Technical Indicator endpoint (TechnicalIndicatorRequestBuilder.class)
+- Real-time SSE forex endpoint (CurrencyRatesSseRequestBuilder.class)
+- Latest currency rates endpoint (LatestCurrencyRatesRequestBuilder.class)
+- Historical currency rates endpoint (HistoricalRatesRequestBuilder.class)
+- Currency conversion endpoint (CurrencyConversionRequestBuilder.class)
+
+### Changed
+
+- Fixed sentiment SSE event model [[#68](https://github.com/WojciechZankowski/iextrading4j/issues/68)]
+- Added primarySicCode field to Company model
+- Added tranCode and directIndirect fields to InsiderTransactions
+
 ## [3.2.7] - 2019-10-01
 
 ### Added
@@ -308,4 +324,5 @@ All notable changes to this project will be documented in this file.
 [3.2.4]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_3...IT4J_RELEASE_3_2_4
 [3.2.5]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_4...IT4J_RELEASE_3_2_5
 [3.2.6]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_5...IT4J_RELEASE_3_2_6
-[3.2.6]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_6...IT4J_RELEASE_3_2_7
+[3.2.7]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_6...IT4J_RELEASE_3_2_7
+[3.2.8]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_7...IT4J_RELEASE_3_2_8
