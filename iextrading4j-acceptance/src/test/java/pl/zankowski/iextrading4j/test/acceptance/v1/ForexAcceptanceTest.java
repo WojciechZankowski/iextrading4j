@@ -1,6 +1,5 @@
 package pl.zankowski.iextrading4j.test.acceptance.v1;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.forex.CurrencyConversion;
 import pl.zankowski.iextrading4j.api.forex.CurrencyRate;
@@ -29,7 +28,6 @@ public class ForexAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
-    @Ignore // Not available in sandbox
     @Test
     public void currencyConversionTest() {
         final List<CurrencyConversion> result = cloudClient.executeRequest(new CurrencyConversionRequestBuilder()
@@ -40,7 +38,6 @@ public class ForexAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
-    @Ignore // Not available in sandbox
     @Test
     public void latestCurrencyRatesTest() {
         final List<CurrencyRate> result = cloudClient.executeRequest(new LatestCurrencyRatesRequestBuilder()
@@ -50,7 +47,6 @@ public class ForexAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
-    @Ignore // Not available in sandbox
     @Test
     public void historicalCurrencyRatesTest() {
         final List<List<HistoricalCurrencyRate>> result = cloudClient.executeRequest(new HistoricalRatesRequestBuilder()
@@ -61,7 +57,5 @@ public class ForexAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
         assertThat(result).isNotNull();
     }
-
-
 
 }
