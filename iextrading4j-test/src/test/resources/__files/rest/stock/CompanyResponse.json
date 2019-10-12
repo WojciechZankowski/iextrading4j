@@ -19,5 +19,6 @@
   "city": "Cupertino",
   "zip": "95014-2083",
   "country": "US",
-  "phone": "1.408.974.3123"
+  "phone": "1.408.974.3123",
+  "primarySicCode": 3663
 }

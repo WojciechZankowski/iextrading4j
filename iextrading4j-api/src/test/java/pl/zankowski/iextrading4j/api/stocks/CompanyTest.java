@@ -36,10 +36,11 @@ public class CompanyTest {
         final String zip = fixture.create(String.class);
         final String country = fixture.create(String.class);
         final String phone = fixture.create(String.class);
+        final String primarySicCode = fixture.create(String.class);
 
         final Company company = new Company(symbol, companyName, exchange,
                 industry, website, description, ceo, securityName, issueType, sector, employees, tags, address,
-                address2, state, city, zip, country, phone);
+                address2, state, city, zip, country, phone, primarySicCode);
 
         assertThat(company.getSymbol()).isEqualTo(symbol);
         assertThat(company.getCompanyName()).isEqualTo(companyName);
@@ -60,6 +61,7 @@ public class CompanyTest {
         assertThat(company.getZip()).isEqualTo(zip);
         assertThat(company.getCountry()).isEqualTo(country);
         assertThat(company.getPhone()).isEqualTo(phone);
+        assertThat(company.getPrimarySicCode()).isEqualTo(primarySicCode);
     }
 
     @Test

@@ -13,7 +13,8 @@ import java.util.List;
 import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 
 @JsonPropertyOrder({"symbol, companyName", "exchange", "industry", "website",
-        "description", "CEO", "securityName", "issueType", "sector", "employees", "tags"})
+        "description", "CEO", "securityName", "issueType", "sector", "employees", "tags",
+        "address", "address2", "state", "city", "zip", "country", "phone", "primarySicCode"})
 public class Company implements Serializable {
 
     private static final long serialVersionUID = 1665863689707337670L;
@@ -37,6 +38,7 @@ public class Company implements Serializable {
     private final String zip;
     private final String country;
     private final String phone;
+    private final String primarySicCode;
 
     @JsonCreator
     public Company(
@@ -58,7 +60,8 @@ public class Company implements Serializable {
             @JsonProperty("city") final String city,
             @JsonProperty("zip") final String zip,
             @JsonProperty("country") final String country,
-            @JsonProperty("phone") final String phone) {
+            @JsonProperty("phone") final String phone,
+            @JsonProperty("primarySicCode") final String primarySicCode) {
         this.symbol = symbol;
         this.companyName = companyName;
         this.exchange = exchange;
@@ -78,6 +81,7 @@ public class Company implements Serializable {
         this.zip = zip;
         this.country = country;
         this.phone = phone;
+        this.primarySicCode = primarySicCode;
     }
 
     public String getSymbol() {
@@ -157,6 +161,10 @@ public class Company implements Serializable {
         return phone;
     }
 
+    public String getPrimarySicCode() {
+        return primarySicCode;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) {
@@ -184,14 +192,15 @@ public class Company implements Serializable {
                 Objects.equal(city, company.city) &&
                 Objects.equal(zip, company.zip) &&
                 Objects.equal(country, company.country) &&
-                Objects.equal(phone, company.phone);
+                Objects.equal(phone, company.phone) &&
+                Objects.equal(primarySicCode, company.primarySicCode);
     }
 
     @Override
     public int hashCode() {
         return Objects.hashCode(symbol, companyName, exchange, industry, website, description, CEO,
                 securityName, issueType, sector, employees, tags, address, address2, state, city, zip,
-                country, phone);
+                country, phone, primarySicCode);
     }
 
     @Override
@@ -216,6 +225,7 @@ public class Company implements Serializable {
                 .add("zip", zip)
                 .add("country", country)
                 .add("phone", phone)
+                .add("primarySicCode", primarySicCode)
                 .toString();
     }
 

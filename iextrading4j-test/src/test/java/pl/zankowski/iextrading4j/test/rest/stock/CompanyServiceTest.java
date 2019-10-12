@@ -45,6 +45,7 @@ public class CompanyServiceTest extends BaseRestServiceTest {
         assertThat(company.getZip()).isEqualTo("95014-2083");
         assertThat(company.getCountry()).isEqualTo("US");
         assertThat(company.getPhone()).isEqualTo("1.408.974.3123");
+        assertThat(company.getPrimarySicCode()).isEqualTo("3663");
     }
 
 }
