@@ -3,6 +3,7 @@ package pl.zankowski.iextrading4j.api.alternative;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
@@ -10,6 +11,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalTime;
 
+@JsonPropertyOrder({"sentiment", "totalScores", "positive", "negative", "minute"})
 public class Sentiment implements Serializable {
 
     private static final long serialVersionUID = -4716020002316419582L;
