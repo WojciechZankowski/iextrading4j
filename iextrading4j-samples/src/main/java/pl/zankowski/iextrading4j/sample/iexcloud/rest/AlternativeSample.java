@@ -3,6 +3,7 @@ package pl.zankowski.iextrading4j.sample.iexcloud.rest;
 import pl.zankowski.iextrading4j.api.alternative.CeoCompensation;
 import pl.zankowski.iextrading4j.api.alternative.CryptoBook;
 import pl.zankowski.iextrading4j.api.alternative.CryptoPrice;
+import pl.zankowski.iextrading4j.api.alternative.Sentiment;
 import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.client.IEXCloudClient;
 import pl.zankowski.iextrading4j.client.IEXCloudTokenBuilder;
@@ -12,6 +13,12 @@ import pl.zankowski.iextrading4j.client.rest.request.alternative.CeoCompensation
 import pl.zankowski.iextrading4j.client.rest.request.alternative.CryptoBookRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.alternative.CryptoPriceRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.alternative.CryptoRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.alternative.DailySentimentRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.alternative.SentimentRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.alternative.SentimentType;
+
+import java.time.LocalDate;
+import java.util.List;
 
 public class AlternativeSample {
 
@@ -30,6 +37,8 @@ public class AlternativeSample {
         alternativeSample.cryptoRequestSample();
         alternativeSample.cryptoPriceRequestSample();
         alternativeSample.cryptoBookRequestSample();
+        alternativeSample.minuteSentimentRequestSample();
+        alternativeSample.dailySentimentRequestSample();
     }
 
     private void cryptoRequestSample() {
@@ -58,6 +67,23 @@ public class AlternativeSample {
                 .withSymbol("BTCUSD")
                 .build());
         System.out.println(book);
+    }
+
+    private void minuteSentimentRequestSample() {
+        final List<Sentiment> sentiments = cloudClient.executeRequest(new SentimentRequestBuilder()
+                .withSymbol("AAPL")
+                .withSentimentType(SentimentType.MINUTE)
+                .withDate(LocalDate.of(2019, 10, 12))
+                .build());
+        System.out.println(sentiments);
+    }
+
+    private void dailySentimentRequestSample() {
+        final Sentiment sentiment = cloudClient.executeRequest(new DailySentimentRequestBuilder()
+                .withSymbol("AAPL")
+                .withDate(LocalDate.of(2019, 10, 12))
+                .build());
+        System.out.println(sentiment);
     }
 
 }
