@@ -65,6 +65,8 @@ public class AdvancedStatsTest {
         final BigDecimal pegRatio = fixture.create(BigDecimal.class);
         final BigDecimal peHigh = fixture.create(BigDecimal.class);
         final BigDecimal peLow = fixture.create(BigDecimal.class);
+        final LocalDate week52highDate = fixture.create(LocalDate.class);
+        final LocalDate week52lowDate = fixture.create(LocalDate.class);
 
         final AdvancedStats advancedStats = new AdvancedStats(companyName, marketcap, week52high, week52low,
                 week52change, sharesOutstanding, Float, symbol, avg10Volume, avg30Volume, day200MovingAvg,
@@ -73,7 +75,8 @@ public class AdvancedStatsTest {
                 year1ChangePercent, ytdChangePercent, month6ChangePercent, month3ChangePercent, month1ChangePercent,
                 day5ChangePercent, day30ChangePercent, totalCash, currentDebt, revenue, grossProfit,
                 totalRevenue, ebitda, revenuePerShare, revenuePerEmployee, debtToEquity, profitMargin, enterpriseValue,
-                enterpriseValueToRevenue, priceToSales, priceToBook, forwardPERatio, pegRatio, beta, peHigh, peLow);
+                enterpriseValueToRevenue, priceToSales, priceToBook, forwardPERatio, pegRatio, beta, peHigh, peLow,
+                week52highDate, week52lowDate);
 
         assertThat(advancedStats.getCompanyName()).isEqualTo(companyName);
         assertThat(advancedStats.getMarketcap()).isEqualTo(marketcap);
@@ -124,6 +127,8 @@ public class AdvancedStatsTest {
         assertThat(advancedStats.getBeta()).isEqualTo(beta);
         assertThat(advancedStats.getPeHigh()).isEqualTo(peHigh);
         assertThat(advancedStats.getPeLow()).isEqualTo(peLow);
+        assertThat(advancedStats.getWeek52highDate()).isEqualTo(week52highDate);
+        assertThat(advancedStats.getWeek52lowDate()).isEqualTo(week52lowDate);
     }
 
     @Test
