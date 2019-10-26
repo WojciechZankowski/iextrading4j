@@ -1,6 +1,17 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.3.0] - 2019-10-26
+
+### Added
+
+- Daily Sentiment request builder 
+
+### Changed
+
+- Added week52highDate and week52lowDate to AdvancedStats model
+- Replaced CryptoBook and CryptoBookEntry with Book and BookEntry
+
 ## [3.2.8] - 2019-10-12
 
 ### Added
