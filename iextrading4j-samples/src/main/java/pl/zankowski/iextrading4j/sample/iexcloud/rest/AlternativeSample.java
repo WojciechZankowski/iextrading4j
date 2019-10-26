@@ -1,9 +1,9 @@
 package pl.zankowski.iextrading4j.sample.iexcloud.rest;
 
 import pl.zankowski.iextrading4j.api.alternative.CeoCompensation;
-import pl.zankowski.iextrading4j.api.alternative.CryptoBook;
 import pl.zankowski.iextrading4j.api.alternative.CryptoPrice;
 import pl.zankowski.iextrading4j.api.alternative.Sentiment;
+import pl.zankowski.iextrading4j.api.marketdata.Book;
 import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.client.IEXCloudClient;
 import pl.zankowski.iextrading4j.client.IEXCloudTokenBuilder;
@@ -63,7 +63,7 @@ public class AlternativeSample {
     }
 
     private void cryptoBookRequestSample() {
-        final CryptoBook book = cloudClient.executeRequest(new CryptoBookRequestBuilder()
+        final Book book = cloudClient.executeRequest(new CryptoBookRequestBuilder()
                 .withSymbol("BTCUSD")
                 .build());
         System.out.println(book);

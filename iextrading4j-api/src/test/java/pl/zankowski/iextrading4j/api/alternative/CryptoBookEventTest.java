@@ -4,6 +4,7 @@ import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
+import pl.zankowski.iextrading4j.api.marketdata.BookEntry;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
 import java.util.List;
@@ -16,10 +17,10 @@ public class CryptoBookEventTest {
 
     @Test
     public void constructor() {
-        final List<CryptoBookEntry> asks = Lists.newArrayList(fixture.collections()
-                .createCollection(CryptoBookEntry.class));
-        final List<CryptoBookEntry> bids = Lists.newArrayList(fixture.collections()
-                .createCollection(CryptoBookEntry.class));
+        final List<BookEntry> asks = Lists.newArrayList(fixture.collections()
+                .createCollection(BookEntry.class));
+        final List<BookEntry> bids = Lists.newArrayList(fixture.collections()
+                .createCollection(BookEntry.class));
         final String symbol = fixture.create(String.class);
 
         final CryptoBookEvent book = new CryptoBookEvent(bids, asks, symbol);

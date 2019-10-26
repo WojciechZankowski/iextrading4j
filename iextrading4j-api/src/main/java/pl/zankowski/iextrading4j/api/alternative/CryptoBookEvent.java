@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
+import pl.zankowski.iextrading4j.api.marketdata.BookEntry;
 
 import java.io.Serializable;
 import java.util.List;
@@ -17,13 +18,13 @@ public class CryptoBookEvent implements Serializable {
     private static final long serialVersionUID = -2249655496972607126L;
 
     private final String symbol;
-    private final List<CryptoBookEntry> bid;
-    private final List<CryptoBookEntry> ask;
+    private final List<BookEntry> bid;
+    private final List<BookEntry> ask;
 
     @JsonCreator
     public CryptoBookEvent(
-            @JsonProperty("bids") final List<CryptoBookEntry> bid,
-            @JsonProperty("asks") final List<CryptoBookEntry> ask,
+            @JsonProperty("bids") final List<BookEntry> bid,
+            @JsonProperty("asks") final List<BookEntry> ask,
             @JsonProperty("symbol") final String symbol) {
         this.symbol = symbol;
         this.bid = immutableList(bid);
@@ -34,11 +35,11 @@ public class CryptoBookEvent implements Serializable {
         return symbol;
     }
 
-    public List<CryptoBookEntry> getBid() {
+    public List<BookEntry> getBid() {
         return bid;
     }
 
-    public List<CryptoBookEntry> getAsk() {
+    public List<BookEntry> getAsk() {
         return ask;
     }
 
