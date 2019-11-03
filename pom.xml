@@ -7,7 +7,7 @@
     <groupId>pl.zankowski</groupId>
     <artifactId>iextrading4j</artifactId>
     <packaging>pom</packaging>
-    <version>3.3.0</version>
+    <version>3.3.1</version>
 
     <name>IEXTrading4j</name>
     <description>Open source IEX Trading REST and WebSocket API library</description>
@@ -74,7 +74,7 @@
             <dependency>
                 <groupId>pl.zankowski</groupId>
                 <artifactId>iextrading4j-api</artifactId>
-                <version>3.3.0</version>
+                <version>3.3.1</version>
             </dependency>
 
             <dependency>
@@ -82,19 +82,19 @@
                 <artifactId>iextrading4j-api</artifactId>
                 <type>test-jar</type>
                 <scope>test</scope>
-                <version>3.3.0</version>
+                <version>3.3.1</version>
             </dependency>
 
             <dependency>
                 <groupId>pl.zankowski</groupId>
                 <artifactId>iextrading4j-client</artifactId>
-                <version>3.3.0</version>
+                <version>3.3.1</version>
             </dependency>
 
             <dependency>
                 <groupId>pl.zankowski</groupId>
                 <artifactId>iextrading4j-samples</artifactId>
-                <version>3.3.0</version>
+                <version>3.3.1</version>
             </dependency>
 
             <!-- Libraries -->

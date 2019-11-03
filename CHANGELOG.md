@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.3.1] - 2019-11-03
+
+### Added
+
+- Time Series endpoint (TimeSeriesRequestBuilder.class)
+
 ## [3.3.0] - 2019-10-26
 
 ### Added
@@ -337,3 +343,5 @@ All notable changes to this project will be documented in this file.
 [3.2.6]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_5...IT4J_RELEASE_3_2_6
 [3.2.7]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_6...IT4J_RELEASE_3_2_7
 [3.2.8]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_7...IT4J_RELEASE_3_2_8
+[3.3.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_8...IT4J_RELEASE_3_3_0
+[3.3.1]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_3_0...IT4J_RELEASE_3_3_1
