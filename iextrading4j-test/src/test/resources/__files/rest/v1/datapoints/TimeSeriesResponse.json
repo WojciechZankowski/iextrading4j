@@ -1,0 +1,20 @@
+[
+  {
+    "id": "PREMIUM_WALLSTREETHORIZON_OPTION_EXPIRATION_DATE",
+    "description": "Company Events (Option Expiration Date)",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "eventId": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "additionalProperties": true
+    },
+    "weightKey": "PREMIUM_WALLSTREETHORIZON_OPTION_EXPIRATION_DATE",
+    "weight": 1125000,
+    "created": "2019-10-14 18:04:16",
+    "lastUpdated": "2019-10-14 18:04:16"
+  }
+]

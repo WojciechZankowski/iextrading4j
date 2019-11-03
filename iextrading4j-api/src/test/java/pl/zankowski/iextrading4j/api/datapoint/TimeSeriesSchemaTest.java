@@ -1,0 +1,47 @@
+package pl.zankowski.iextrading4j.api.datapoint;
+
+import com.flextrade.jfixture.JFixture;
+import nl.jqno.equalsverifier.EqualsVerifier;
+import org.assertj.core.util.Lists;
+import org.junit.Test;
+import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
+
+import java.util.List;
+import java.util.Map;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class TimeSeriesSchemaTest {
+
+    private final JFixture fixture = new JFixture();
+
+    @Test
+    public void constructor() {
+        final String type = fixture.create(String.class);
+        final Map<String, FieldMetadata> properties = fixture.collections().createMap(String.class, FieldMetadata.class);
+        final List<String> required = Lists.newArrayList(fixture.collections().createCollection(String.class));
+        final boolean additionalProperties = fixture.create(boolean.class);
+
+        final TimeSeriesSchema schema = new TimeSeriesSchema(type, properties, required, additionalProperties);
+
+        assertThat(schema.getType()).isEqualTo(type);
+        assertThat(schema.getProperties()).isEqualTo(properties);
+        assertThat(schema.getRequired()).isEqualTo(required);
+        assertThat(schema.isAdditionalProperties()).isEqualTo(additionalProperties);
+    }
+
+
+    @Test
+    public void equalsContract() {
+        EqualsVerifier.forClass(TimeSeriesSchema.class)
+                .usingGetClass()
+                .verify();
+    }
+
+    @Test
+    public void toStringVerification() {
+        ToStringVerifier.forObject(fixture.create(TimeSeriesSchema.class))
+                .verify();
+    }
+
+}

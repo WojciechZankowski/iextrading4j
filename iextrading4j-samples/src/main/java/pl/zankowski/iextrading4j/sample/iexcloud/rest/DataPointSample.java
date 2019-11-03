@@ -1,13 +1,16 @@
 package pl.zankowski.iextrading4j.sample.iexcloud.rest;
 
 import pl.zankowski.iextrading4j.api.datapoint.DataPoint;
+import pl.zankowski.iextrading4j.api.datapoint.TimeSeriesMetadata;
 import pl.zankowski.iextrading4j.client.IEXCloudClient;
 import pl.zankowski.iextrading4j.client.IEXCloudTokenBuilder;
 import pl.zankowski.iextrading4j.client.IEXTradingApiVersion;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.rest.request.datapoint.DataPointsRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.datapoint.TimeSeriesRequestBuilder;
 
 import java.util.List;
+import java.util.Map;
 
 public class DataPointSample {
 
@@ -21,7 +24,11 @@ public class DataPointSample {
         final DataPointSample sampleSuite = new DataPointSample();
 
         sampleSuite.dataPointsSample();
-        sampleSuite.ketDataPointSample();
+        sampleSuite.keyDataPointSample();
+        sampleSuite.keyTimeSeriesSample();
+
+        // Broken dates in sandbox
+        // sampleSuite.timeSeriesSample();
     }
 
     private void dataPointsSample() {
@@ -31,13 +38,27 @@ public class DataPointSample {
         System.out.println(result);
     }
 
-    private void ketDataPointSample() {
+    private void keyDataPointSample() {
         final String result = cloudClient.executeRequest(new DataPointsRequestBuilder()
                 .withSymbol("AAPL")
-                .withKey("QUOTE-CLOSE")
+                .withKey("EMPLOYEES")
                 .build());
         System.out.println(result);
     }
 
+    private void timeSeriesSample() {
+        final List<TimeSeriesMetadata> result = cloudClient.executeRequest(new TimeSeriesRequestBuilder()
+                .build());
+        System.out.println(result);
+    }
+
+    private void keyTimeSeriesSample() {
+        final List<Map<String, String>> result = cloudClient.executeRequest(new TimeSeriesRequestBuilder()
+                .withId("REPORTED_FINANCIALS")
+                .withKey("AAPL")
+                .withSubKey("10-Q")
+                .build());
+        System.out.println(result);
+    }
 
 }
