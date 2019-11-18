@@ -22,7 +22,7 @@ public class CurrencyRatesSseRequestBuilderTest {
 
         assertThat(request.getPath()).isEqualTo("/forex");
         assertThat(request.getResponseType()).isEqualTo(new GenericType<List<CurrencyRate>>() {});
-        assertThat(request.getPathParams()).isEmpty();
+        assertThat(request.getPathParams()).contains(entry("interval", ""));
         assertThat(request.getQueryParams()).contains(entry("nosnapshot", "false"), entry("symbols", symbol));
     }
 
