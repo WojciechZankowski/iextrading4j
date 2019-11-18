@@ -20,9 +20,9 @@ public class CurrencyRatesSseRequestBuilderTest {
                 .withSymbol(symbol)
                 .build();
 
-        assertThat(request.getPath()).isEqualTo("/forex");
+        assertThat(request.getPath()).isEqualTo("/forex{interval}");
         assertThat(request.getResponseType()).isEqualTo(new GenericType<List<CurrencyRate>>() {});
-        assertThat(request.getPathParams()).contains(entry("interval", ""));
+        assertThat(request.getPathParams()).contains(entry("interval", "1Minute"));
         assertThat(request.getQueryParams()).contains(entry("nosnapshot", "false"), entry("symbols", symbol));
     }
 
