@@ -42,6 +42,7 @@ public class TimeSeriesRequestBuilderTest {
                 .withLast(4)
                 .withFirst(3)
                 .withUpdated(true)
+                .withSubattribute("test")
                 .build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
@@ -51,7 +52,7 @@ public class TimeSeriesRequestBuilderTest {
                 entry("subKey", "10-Q"));
         assertThat(request.getQueryParams()).contains(entry("range", "last-quarter"), entry("calendar", "true"),
                 entry("limit", "3"), entry("from", "2019-11-02"), entry("to", "2019-11-03"), entry("on", "2019-11-04"),
-                entry("last", "4"), entry("first", "3"), entry("updated", "true"));
+                entry("last", "4"), entry("first", "3"), entry("updated", "true"), entry("subattribute", "test"));
     }
 
     @Test
@@ -61,6 +62,7 @@ public class TimeSeriesRequestBuilderTest {
                 .withKey("AAPL")
                 .withSubKey("10-Q")
                 .withRange(4, TimeSeriesRangeUnit.QUARTER)
+                .withSubattribute("key", "value")
                 .build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
@@ -68,7 +70,7 @@ public class TimeSeriesRequestBuilderTest {
         assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Map<String, String>>>() {});
         assertThat(request.getPathParams()).contains(entry("id", "REPORTED_FINANCIALS"), entry("key", "AAPL"),
                 entry("subKey", "10-Q"));
-        assertThat(request.getQueryParams()).contains(entry("range", "4q"));
+        assertThat(request.getQueryParams()).contains(entry("range", "4q"), entry("subattribute", "key|value"));
     }
 
 }
