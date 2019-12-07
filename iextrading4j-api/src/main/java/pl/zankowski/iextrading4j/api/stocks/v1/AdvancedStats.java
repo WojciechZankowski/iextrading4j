@@ -32,6 +32,7 @@ public class AdvancedStats extends KeyStats {
     private final BigDecimal peLow;
     private final LocalDate week52highDate;
     private final LocalDate week52lowDate;
+    private final BigDecimal putCallRatio;
 
     @JsonCreator
     public AdvancedStats(
@@ -85,7 +86,8 @@ public class AdvancedStats extends KeyStats {
             @JsonProperty("peHigh") final BigDecimal peHigh,
             @JsonProperty("peLow") final BigDecimal peLow,
             @JsonProperty("week52highDate") final LocalDate week52highDate,
-            @JsonProperty("week52lowDate") final LocalDate week52lowDate) {
+            @JsonProperty("week52lowDate") final LocalDate week52lowDate,
+            @JsonProperty("putCallRatio") final BigDecimal putCallRatio) {
         super(companyName, marketcap, week52high, week52low, week52change, sharesOutstanding, aFloat, symbol,
                 avg10Volume, avg30Volume, day200MovingAvg, day50MovingAvg, employees, ttmEPS, ttmDividendRate,
                 dividendYield, nextDividendDate, exDividendDate, nextEarningsDate, peRatio, maxChangePercent,
@@ -111,6 +113,7 @@ public class AdvancedStats extends KeyStats {
         this.peLow = peLow;
         this.week52highDate = week52highDate;
         this.week52lowDate = week52lowDate;
+        this.putCallRatio = putCallRatio;
     }
 
     public BigDecimal getTotalCash() {
@@ -193,6 +196,10 @@ public class AdvancedStats extends KeyStats {
         return week52lowDate;
     }
 
+    public BigDecimal getPutCallRatio() {
+        return putCallRatio;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) {
@@ -224,7 +231,8 @@ public class AdvancedStats extends KeyStats {
                 Objects.equal(peHigh, that.peHigh) &&
                 Objects.equal(peLow, that.peLow) &&
                 Objects.equal(week52highDate, that.week52highDate) &&
-                Objects.equal(week52lowDate, that.week52lowDate);
+                Objects.equal(week52lowDate, that.week52lowDate) &&
+                Objects.equal(putCallRatio, that.putCallRatio);
     }
 
     @Override
@@ -232,7 +240,7 @@ public class AdvancedStats extends KeyStats {
         return Objects.hashCode(super.hashCode(), totalCash, currentDebt, revenue, grossProfit,
                 totalRevenue, ebitda, revenuePerShare, revenuePerEmployee, debtToEquity, profitMargin,
                 enterpriseValue, enterpriseValueToRevenue, priceToSales, priceToBook, forwardPERatio,
-                pegRatio, peHigh, peLow, week52highDate, week52lowDate);
+                pegRatio, peHigh, peLow, week52highDate, week52lowDate, putCallRatio);
     }
 
     @Override
@@ -258,6 +266,7 @@ public class AdvancedStats extends KeyStats {
                 .add("peLow", peLow)
                 .add("week52highDate", week52highDate)
                 .add("week52lowDate", week52lowDate)
+                .add("putCallRatio", putCallRatio)
                 .toString();
     }
 }

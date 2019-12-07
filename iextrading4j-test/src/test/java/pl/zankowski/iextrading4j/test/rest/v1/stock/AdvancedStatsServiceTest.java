@@ -82,6 +82,7 @@ public class AdvancedStatsServiceTest extends BaseIEXCloudV1ServiceTest {
         assertThat(advancedStats.getPeLow()).isEqualTo(BigDecimal.valueOf(12.591979637697179));
         assertThat(advancedStats.getWeek52lowDate()).isEqualTo(LocalDate.of(2019, 1, 14));
         assertThat(advancedStats.getWeek52highDate()).isEqualTo(LocalDate.of(2019, 11, 7));
+        assertThat(advancedStats.getPutCallRatio()).isEqualTo(BigDecimal.valueOf(0.7611902044412406));
     }
 
 }
