@@ -39,6 +39,8 @@ public class TimeSeriesRequestBuilder implements IEXCloudV1RestRequest<List<Time
         private static final String LAST_PARAM_NAME = "last";
         private static final String FIRST_PARAM_NAME = "first";
         private static final String UPDATED_PARAM_NAME = "updated";
+        private static final String SUBATTRIBUTE_PARAM_NAME = "subattribute";
+        private static final String DATE_FIELD_PARAM_NAME = "dateField";
 
         private final Map<String, String> queryParameters = Maps.newHashMap();
 
@@ -93,6 +95,21 @@ public class TimeSeriesRequestBuilder implements IEXCloudV1RestRequest<List<Time
 
         public KeyTimeSeriesRequestBuilder withUpdated(final boolean state) {
             queryParameters.put(UPDATED_PARAM_NAME, String.valueOf(state));
+            return this;
+        }
+
+        public KeyTimeSeriesRequestBuilder withSubattribute(final String subattribute) {
+            queryParameters.put(SUBATTRIBUTE_PARAM_NAME, subattribute);
+            return this;
+        }
+
+        public KeyTimeSeriesRequestBuilder withSubattribute(final String keyName, final String value) {
+            queryParameters.put(SUBATTRIBUTE_PARAM_NAME, keyName + "|" + value);
+            return this;
+        }
+
+        public KeyTimeSeriesRequestBuilder withDateField(final String dateField) {
+            queryParameters.put(DATE_FIELD_PARAM_NAME, dateField);
             return this;
         }
 

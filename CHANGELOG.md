@@ -1,6 +1,14 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.3.2] - TBD
+
+### Changed
+
+- Added subattribute and dateField parameters to Time Series
+- Added 1 second, 5 second, and 1 minute conflation rates for forex real time streaming
+- Added annual earnings and estimates where previously only quarterly was available.
+
 ## [3.3.1] - 2019-11-03
 
 ### Added

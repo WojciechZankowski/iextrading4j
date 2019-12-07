@@ -9,7 +9,7 @@ public class CashFlowRequestBuilder extends AbstractLastStocksRequestBuilder<Cas
         implements IEXCloudV1RestRequest<CashFlows> {
 
     @Override
-    RestRequest<CashFlows> request() {
+    protected RestRequest<CashFlows> request() {
         return RestRequestBuilder.<CashFlows>builder()
                 .withPath("/stock/{symbol}/cash-flow")
                 .addPathParam(SYMBOL_PARAM_NAME, getSymbol()).get()
@@ -19,7 +19,7 @@ public class CashFlowRequestBuilder extends AbstractLastStocksRequestBuilder<Cas
     }
 
     @Override
-    RestRequest<CashFlows> requestWithLast() {
+    protected RestRequest<CashFlows> requestWithLast() {
         return RestRequestBuilder.<CashFlows>builder()
                 .withPath("/stock/{symbol}/cash-flow/{last}")
                 .addPathParam("last", String.valueOf(last))

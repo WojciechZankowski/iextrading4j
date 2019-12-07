@@ -3,6 +3,7 @@ package pl.zankowski.iextrading4j.client.sse.request.forex;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.forex.CurrencyRate;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
+import pl.zankowski.iextrading4j.client.sse.request.stocks.QuoteInterval;
 
 import javax.ws.rs.core.GenericType;
 import java.util.List;
@@ -20,9 +21,25 @@ public class CurrencyRatesSseRequestBuilderTest {
                 .withSymbol(symbol)
                 .build();
 
-        assertThat(request.getPath()).isEqualTo("/forex");
+        assertThat(request.getPath()).isEqualTo("/forex{interval}");
         assertThat(request.getResponseType()).isEqualTo(new GenericType<List<CurrencyRate>>() {});
-        assertThat(request.getPathParams()).isEmpty();
+        assertThat(request.getPathParams()).contains(entry("interval", "1Minute"));
+        assertThat(request.getQueryParams()).contains(entry("nosnapshot", "false"), entry("symbols", symbol));
+    }
+
+    @Test
+    public void shouldSuccessfullyCreateRequestWithInterval() {
+        final String symbol = "USDJPY";
+        final QuoteInterval interval = QuoteInterval.FIVE_SECONDS;
+
+        final SseRequest<List<CurrencyRate>> request = new CurrencyRatesSseRequestBuilder()
+                .withSymbol(symbol)
+                .withQuoteInterval(interval)
+                .build();
+
+        assertThat(request.getPath()).isEqualTo("/forex{interval}");
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<CurrencyRate>>() {});
+        assertThat(request.getPathParams()).contains(entry("interval", interval.getName()));
         assertThat(request.getQueryParams()).contains(entry("nosnapshot", "false"), entry("symbols", symbol));
     }
 

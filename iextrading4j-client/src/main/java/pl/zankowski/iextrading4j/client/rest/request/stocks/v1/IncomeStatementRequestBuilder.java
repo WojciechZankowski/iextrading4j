@@ -9,7 +9,7 @@ public class IncomeStatementRequestBuilder extends AbstractLastStocksRequestBuil
         IncomeStatementRequestBuilder> implements IEXCloudV1RestRequest<IncomeStatements> {
 
     @Override
-    RestRequest<IncomeStatements> request() {
+    protected RestRequest<IncomeStatements> request() {
         return RestRequestBuilder.<IncomeStatements>builder()
                 .withPath("/stock/{symbol}/income")
                 .addPathParam(SYMBOL_PARAM_NAME, getSymbol()).get()
@@ -19,7 +19,7 @@ public class IncomeStatementRequestBuilder extends AbstractLastStocksRequestBuil
     }
 
     @Override
-    RestRequest<IncomeStatements> requestWithLast() {
+    protected RestRequest<IncomeStatements> requestWithLast() {
         return RestRequestBuilder.<IncomeStatements>builder()
                 .withPath("/stock/{symbol}/income/{last}")
                 .addPathParam("last", String.valueOf(last))

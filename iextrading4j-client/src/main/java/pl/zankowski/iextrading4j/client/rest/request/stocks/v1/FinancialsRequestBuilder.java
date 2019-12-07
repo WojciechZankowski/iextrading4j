@@ -8,9 +8,8 @@ import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 public class FinancialsRequestBuilder extends AbstractLastStocksRequestBuilder<Financials, FinancialsRequestBuilder>
         implements IEXCloudV1RestRequest<Financials> {
 
-
     @Override
-    RestRequest<Financials> request() {
+    protected RestRequest<Financials> request() {
         return RestRequestBuilder.<Financials>builder()
                 .withPath("/stock/{symbol}/financials")
                 .addPathParam("symbol", getSymbol()).get()
@@ -20,7 +19,7 @@ public class FinancialsRequestBuilder extends AbstractLastStocksRequestBuilder<F
     }
 
     @Override
-    RestRequest<Financials> requestWithLast() {
+    protected RestRequest<Financials> requestWithLast() {
         return RestRequestBuilder.<Financials>builder()
                 .withPath("/stock/{symbol}/financials/{last}")
                 .addPathParam("symbol", getSymbol())

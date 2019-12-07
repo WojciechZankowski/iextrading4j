@@ -6,3 +6,4 @@
 /.project
 /.settings
 */*.iml
+target/

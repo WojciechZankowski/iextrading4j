@@ -7,6 +7,7 @@ import pl.zankowski.iextrading4j.client.IEXTradingApiVersion;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 import pl.zankowski.iextrading4j.client.sse.request.forex.CurrencyRatesSseRequestBuilder;
+import pl.zankowski.iextrading4j.client.sse.request.stocks.QuoteInterval;
 
 import java.util.List;
 import java.util.concurrent.Semaphore;
@@ -33,6 +34,7 @@ public class SseForexSample {
     private void currencyRatesSample() {
         final SseRequest<List<CurrencyRate>> request = new CurrencyRatesSseRequestBuilder()
                 .withSymbol("EURUSD")
+                .withQuoteInterval(QuoteInterval.REALTIME)
                 .build();
 
         cloudClient.subscribe(request, CURRENCY_RATE_CONSUMER);

@@ -19,7 +19,7 @@ public class BalanceSheetRequestBuilder extends AbstractLastStocksRequestBuilder
     }
 
     @Override
-    RestRequest<BalanceSheets> requestWithLast() {
+    protected RestRequest<BalanceSheets> requestWithLast() {
         return RestRequestBuilder.<BalanceSheets>builder()
                 .withPath("/stock/{symbol}/balance-sheet/{last}")
                 .addPathParam("last", String.valueOf(last))
