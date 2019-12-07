@@ -83,7 +83,7 @@ public class TimeSeriesRequestBuilderTest {
                 .build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
-        assertThat(request.getPath()).isEqualTo("/time-series/{id}/{key}/{subKey}");
+        assertThat(request.getPath()).isEqualTo("/time-series/{id}/{key}");
         assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Map<String, String>>>() {});
         assertThat(request.getPathParams()).contains(entry("id", "REPORTED_FINANCIALS"), entry("key", "AAPL"));
         assertThat(request.getQueryParams()).contains(entry("range", "4q"), entry("subattribute", "key|value"));
