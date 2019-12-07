@@ -73,4 +73,20 @@ public class TimeSeriesRequestBuilderTest {
         assertThat(request.getQueryParams()).contains(entry("range", "4q"), entry("subattribute", "key|value"));
     }
 
+    @Test
+    public void shouldSuccessfullyCreateRequestWithoutSubkey() {
+        final RestRequest<List<Map<String, String>>> request = new TimeSeriesRequestBuilder()
+                .withId("REPORTED_FINANCIALS")
+                .withKey("AAPL")
+                .withRange(4, TimeSeriesRangeUnit.QUARTER)
+                .withSubattribute("key", "value")
+                .build();
+
+        assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
+        assertThat(request.getPath()).isEqualTo("/time-series/{id}/{key}/{subKey}");
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Map<String, String>>>() {});
+        assertThat(request.getPathParams()).contains(entry("id", "REPORTED_FINANCIALS"), entry("key", "AAPL"));
+        assertThat(request.getQueryParams()).contains(entry("range", "4q"), entry("subattribute", "key|value"));
+    }
+
 }
