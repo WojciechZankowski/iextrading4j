@@ -48,7 +48,7 @@ public class RestManager {
                     invocationBuilder = restClient.getClient().target(url)
                             .register(JacksonJsonProvider.class)
                             .request(MediaType.APPLICATION_JSON);
-                    response = invocationBuilder.post(Entity.entity(requestEntity, MediaType.APPLICATION_JSON));
+                    response = invocationBuilder.post(Entity.entity(requestEntity, MediaType.APPLICATION_JSON_TYPE));
                     break;
                 default:
                     throw new IllegalStateException("Method Type not supported.");
