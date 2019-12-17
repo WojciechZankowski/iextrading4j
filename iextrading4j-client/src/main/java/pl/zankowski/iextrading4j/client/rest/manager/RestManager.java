@@ -5,7 +5,7 @@ import pl.zankowski.iextrading4j.api.exception.IEXTradingException;
 import pl.zankowski.iextrading4j.client.IEXCloudToken;
 
 import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Map;
@@ -30,24 +30,20 @@ public class RestManager {
         final String url = createURL(restRequest, restClient.getRestClientMetadata().getToken(),
                 restClient.getRestClientMetadata().getUrl());
 
-        Invocation.Builder invocationBuilder = null;
+        final WebTarget target = restClient.getClient().target(url);
         Response response = null;
 
         try {
 
             switch (restRequest.getMethodType()) {
                 case GET:
-                    invocationBuilder = restClient.getClient().target(url)
-                            .request(MediaType.APPLICATION_JSON);
-                    response = invocationBuilder.get();
+                    response = target.request(MediaType.APPLICATION_JSON).get();
                     break;
                 case POST:
                     final PostEntity requestEntity = restRequest.getRequestEntity();
                     requestEntity.setToken(resolveToken(restRequest, restClient.getRestClientMetadata().getToken()));
-                    invocationBuilder = restClient.getClient().target(url)
-                            .register(JacksonJsonProvider.class)
-                            .request(MediaType.APPLICATION_JSON);
-                    response = invocationBuilder.post(Entity.entity(requestEntity, MediaType.APPLICATION_JSON));
+                    response = target.register(JacksonJsonProvider.class).request(MediaType.APPLICATION_JSON)
+                              .post(Entity.entity(requestEntity, MediaType.APPLICATION_JSON));
                     break;
                 default:
                     throw new IllegalStateException("Method Type not supported.");
