@@ -10,6 +10,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Map;
 
+import org.glassfish.jersey.jackson.internal.jackson.jaxrs.json.JacksonJsonProvider;
+
 import static java.util.stream.Collectors.joining;
 
 public class RestManager {
@@ -28,22 +30,24 @@ public class RestManager {
         final String url = createURL(restRequest, restClient.getRestClientMetadata().getToken(),
                 restClient.getRestClientMetadata().getUrl());
 
-        final Invocation.Builder invocationBuilder = restClient.getClient().target(url)
-                .request(MediaType.APPLICATION_JSON);
-
+        Invocation.Builder invocationBuilder = null;
         Response response = null;
 
         try {
 
             switch (restRequest.getMethodType()) {
                 case GET:
+                    invocationBuilder = restClient.getClient().target(url)
+                            .request(MediaType.APPLICATION_JSON);
                     response = invocationBuilder.get();
                     break;
                 case POST:
                     final PostEntity requestEntity = restRequest.getRequestEntity();
-                    requestEntity.setToken(resolveToken(restRequest,
-                            restClient.getRestClientMetadata().getToken()));
-                    response = invocationBuilder.post(Entity.entity(requestEntity, MediaType.APPLICATION_JSON_TYPE));
+                    requestEntity.setToken(resolveToken(restRequest, restClient.getRestClientMetadata().getToken()));
+                    invocationBuilder = restClient.getClient().target(url)
+                            .register(JacksonJsonProvider.class)
+                            .request(MediaType.APPLICATION_JSON);
+                    response = invocationBuilder.post(Entity.entity(requestEntity, MediaType.APPLICATION_JSON));
                     break;
                 default:
                     throw new IllegalStateException("Method Type not supported.");
