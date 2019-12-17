@@ -30,23 +30,25 @@ public class RestManager {
         final String url = createURL(restRequest, restClient.getRestClientMetadata().getToken(),
                 restClient.getRestClientMetadata().getUrl());
 
-        final Invocation.Builder invocationBuilder = restClient.getClient().target(url)
-                .request(MediaType.APPLICATION_JSON);
-
+        Invocation.Builder invocationBuilder = null;
         Response response = null;
 
         try {
 
             switch (restRequest.getMethodType()) {
                 case GET:
+                    invocationBuilder = restClient.getClient().target(url)
+                            .request(MediaType.APPLICATION_JSON);
                     response = invocationBuilder.get();
                     break;
                 case POST:
                     final PostEntity requestEntity = restRequest.getRequestEntity();
                     requestEntity.setToken(resolveToken(restRequest,
                             restClient.getRestClientMetadata().getToken()));
-                    response = invocationBuilder.register(JacksonJsonProvider.class)
-                           .post(Entity.entity(requestEntity, MediaType.APPLICATION_JSON_TYPE));
+                    invocationBuilder = restClient.getClient().target(url)
+                            .register(JacksonJsonProvider.class)
+                            .request(MediaType.APPLICATION_JSON);
+                    response = invocationBuilder.post(Entity.entity(requestEntity, MediaType.APPLICATION_JSON));
                     break;
                 default:
                     throw new IllegalStateException("Method Type not supported.");
