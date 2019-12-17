@@ -46,7 +46,7 @@ public class RestManager {
                     final PostEntity requestEntity = restRequest.getRequestEntity();
                     requestEntity.setToken(resolveToken(restRequest,
                             restClient.getRestClientMetadata().getToken()));
-                    response = invocationBuilder.post(Entity.entity(requestEntity, MediaType.APPLICATION_JSON_TYPE));
+                    response = invocationBuilder.post(Entity.entity(requestEntity, MediaType.APPLICATION_JSON));
                     break;
                 default:
                     throw new IllegalStateException("Method Type not supported.");
