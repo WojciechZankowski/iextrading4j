@@ -20,7 +20,7 @@ public class EarningsRequestBuilder extends AbstractLastStocksRequestBuilder<Ear
 
     protected RestRequest<Earnings> requestWithLast() {
         return RestRequestBuilder.<Earnings>builder()
-                .withPath("/stock/{symbol}/earnings")
+                .withPath("/stock/{symbol}/earnings/{last}")
                 .addPathParam("last", String.valueOf(last))
                 .addPathParam("symbol", getSymbol()).get()
                 .withResponse(Earnings.class)
