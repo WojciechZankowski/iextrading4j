@@ -1,10 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [3.3.2] - TBD
+## [3.3.2] - 2019-12-23
 
 ### Changed
 
+- Fixed Earnings request with Last parameter [[#83](https://github.com/WojciechZankowski/iextrading4j/issues/83)]
+- Fixed issue with different mapping providers [[#82](https://github.com/WojciechZankowski/iextrading4j/pull/82)]
+- Added isDerived field to Currency Rate objects
 - Added subattribute and dateField parameters to Time Series
 - Added 1 second, 5 second, and 1 minute conflation rates for forex real time streaming
 - Added annual earnings and estimates where previously only quarterly was available.
