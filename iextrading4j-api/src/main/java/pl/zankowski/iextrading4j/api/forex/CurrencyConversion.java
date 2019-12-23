@@ -8,7 +8,7 @@ import com.google.common.base.Objects;
 
 import java.math.BigDecimal;
 
-@JsonPropertyOrder({"symbol", "rate", "timestamp", "amount"})
+@JsonPropertyOrder({"symbol", "rate", "timestamp", "amount", "isDerived"})
 public class CurrencyConversion extends CurrencyRate {
 
     private static final long serialVersionUID = 7375544334448807375L;
@@ -20,8 +20,9 @@ public class CurrencyConversion extends CurrencyRate {
             @JsonProperty("symbol") final String symbol,
             @JsonProperty("rate") final BigDecimal rate,
             @JsonProperty("timestamp") final Long timestamp,
-            @JsonProperty("amount") final BigDecimal amount) {
-        super(symbol, rate, timestamp);
+            @JsonProperty("amount") final BigDecimal amount,
+            @JsonProperty("isDerived") final Boolean isDerived) {
+        super(symbol, rate, timestamp, isDerived);
         this.amount = amount;
     }
 

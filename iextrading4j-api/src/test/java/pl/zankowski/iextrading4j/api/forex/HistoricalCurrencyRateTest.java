@@ -20,14 +20,16 @@ public class HistoricalCurrencyRateTest {
         final BigDecimal rate = fixture.create(BigDecimal.class);
         final Long timestamp = fixture.create(Long.class);
         final LocalDate date = fixture.create(LocalDate.class);
+        final Boolean isDerived = fixture.create(Boolean.class);
 
         final HistoricalCurrencyRate historicalCurrencyRate = new HistoricalCurrencyRate(symbol, rate,
-                timestamp, date);
+                timestamp, date, isDerived);
 
         assertThat(historicalCurrencyRate.getSymbol()).isEqualTo(symbol);
         assertThat(historicalCurrencyRate.getRate()).isEqualTo(rate);
         assertThat(historicalCurrencyRate.getTimestamp()).isEqualTo(timestamp);
         assertThat(historicalCurrencyRate.getDate()).isEqualTo(date);
+        assertThat(historicalCurrencyRate.isDerived()).isEqualTo(isDerived);
     }
 
     @Test

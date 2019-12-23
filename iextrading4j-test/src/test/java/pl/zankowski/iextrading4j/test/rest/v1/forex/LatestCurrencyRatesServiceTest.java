@@ -1,9 +1,7 @@
 package pl.zankowski.iextrading4j.test.rest.v1.forex;
 
 import org.junit.Test;
-import pl.zankowski.iextrading4j.api.forex.CurrencyConversion;
 import pl.zankowski.iextrading4j.api.forex.CurrencyRate;
-import pl.zankowski.iextrading4j.client.rest.request.forex.CurrencyConversionRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.forex.LatestCurrencyRatesRequestBuilder;
 import pl.zankowski.iextrading4j.test.rest.v1.BaseIEXCloudV1ServiceTest;
 
@@ -27,7 +25,7 @@ public class LatestCurrencyRatesServiceTest extends BaseIEXCloudV1ServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("rest/v1/forex/CurrencyConversionResponse.json")));
+                        .withBodyFile("rest/v1/forex/LatestCurrencyRatesResponse.json")));
 
         final List<CurrencyRate> result = cloudClient.executeRequest(new LatestCurrencyRatesRequestBuilder()
                 .withSymbol("USDGBP")
@@ -39,5 +37,6 @@ public class LatestCurrencyRatesServiceTest extends BaseIEXCloudV1ServiceTest {
         assertThat(currencyRate.getSymbol()).isEqualTo("USDGBP");
         assertThat(currencyRate.getRate()).isEqualTo(BigDecimal.valueOf(0.755));
         assertThat(currencyRate.getTimestamp()).isEqualTo(1288282222000L);
+        assertThat(currencyRate.isDerived()).isTrue();
     }
 }

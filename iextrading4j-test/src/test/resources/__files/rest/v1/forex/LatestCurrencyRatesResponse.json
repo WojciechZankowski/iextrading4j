@@ -2,6 +2,7 @@
   {
     "symbol": "USDGBP",
     "rate": 0.755,
-    "timestamp": 1288282222000
+    "timestamp": 1288282222000,
+    "isDerived": true
   }
 ]

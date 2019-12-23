@@ -19,14 +19,16 @@ public class CurrencyConversionTest {
         final BigDecimal rate = fixture.create(BigDecimal.class);
         final Long timestamp = fixture.create(Long.class);
         final BigDecimal amount = fixture.create(BigDecimal.class);
+        final Boolean isDerived = fixture.create(Boolean.class);
 
         final CurrencyConversion currencyConversion = new CurrencyConversion(symbol, rate,
-                timestamp, amount);
+                timestamp, amount, isDerived);
 
         assertThat(currencyConversion.getSymbol()).isEqualTo(symbol);
         assertThat(currencyConversion.getRate()).isEqualTo(rate);
         assertThat(currencyConversion.getTimestamp()).isEqualTo(timestamp);
         assertThat(currencyConversion.getAmount()).isEqualTo(amount);
+        assertThat(currencyConversion.isDerived()).isEqualTo(isDerived);
     }
 
     @Test
