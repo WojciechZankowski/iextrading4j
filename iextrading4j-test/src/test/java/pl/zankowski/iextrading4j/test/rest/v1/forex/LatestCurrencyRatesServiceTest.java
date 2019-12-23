@@ -25,7 +25,7 @@ public class LatestCurrencyRatesServiceTest extends BaseIEXCloudV1ServiceTest {
                         .withStatus(200)
                         .withHeader("Accept", "application/json")
                         .withHeader("Content-Type", "application/json")
-                        .withBodyFile("rest/v1/forex/CurrencyConversionResponse.json")));
+                        .withBodyFile("rest/v1/forex/LatestCurrencyRatesResponse.json")));
 
         final List<CurrencyRate> result = cloudClient.executeRequest(new LatestCurrencyRatesRequestBuilder()
                 .withSymbol("USDGBP")
