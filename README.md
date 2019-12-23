@@ -6,6 +6,8 @@
 [![Maven Central](https://img.shields.io/maven-central/v/pl.zankowski/iextrading4j-all.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22pl.zankowski%22%20AND%20a:%22iextrading4j-all%22)
 
 
+**Open IEX Cloud account using referal link: [IEX Cloud](https://iexcloud.io/s/632c5323)** 
+
 **IEX Cloud (iexcloud.io) support has been added to the library. All stuff related to old IEX Api has been marked as Deprecated. Some of old IEX Api will be still supported. For full support please move to the IEX Cloud API (iexcloud.io).**
 
 
