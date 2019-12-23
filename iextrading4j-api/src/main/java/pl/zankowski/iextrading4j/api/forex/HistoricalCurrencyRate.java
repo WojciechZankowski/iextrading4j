@@ -9,7 +9,7 @@ import com.google.common.base.Objects;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@JsonPropertyOrder({"date", "symbol", "rate", "timestamp"})
+@JsonPropertyOrder({"date", "symbol", "rate", "timestamp", "isDerived"})
 public class HistoricalCurrencyRate extends CurrencyRate {
 
     private static final long serialVersionUID = 6127152263842018048L;
@@ -21,8 +21,9 @@ public class HistoricalCurrencyRate extends CurrencyRate {
             @JsonProperty("symbol") final String symbol,
             @JsonProperty("rate") final BigDecimal rate,
             @JsonProperty("timestamp") final Long timestamp,
-            @JsonProperty("date") final LocalDate date) {
-        super(symbol, rate, timestamp);
+            @JsonProperty("date") final LocalDate date,
+            @JsonProperty("isDerived") final Boolean isDerived) {
+        super(symbol, rate, timestamp, isDerived);
         this.date = date;
     }
 
