@@ -41,7 +41,7 @@ public class EarningsRequestBuilderTest {
                 .build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
-        assertThat(request.getPath()).isEqualTo("/stock/{symbol}/earnings");
+        assertThat(request.getPath()).isEqualTo("/stock/{symbol}/earnings/{last}");
         assertThat(request.getResponseType()).isEqualTo(new GenericType<Earnings>() {});
         assertThat(request.getPathParams()).contains(entry("symbol", symbol), entry("last", String.valueOf(last)));
         assertThat(request.getQueryParams()).contains(entry("period", period.name().toLowerCase()));
