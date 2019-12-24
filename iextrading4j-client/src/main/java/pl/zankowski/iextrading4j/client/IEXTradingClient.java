@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.client;
 
 import com.google.common.collect.ImmutableMap;
 
-import pl.zankowski.iextrading4j.client.mapper.IEXJacksonJsonProvider;
 import pl.zankowski.iextrading4j.client.mapper.IEXTradingMapperContextResolver;
 import pl.zankowski.iextrading4j.client.properties.PropertiesReader;
 import pl.zankowski.iextrading4j.client.properties.PropertyType;
