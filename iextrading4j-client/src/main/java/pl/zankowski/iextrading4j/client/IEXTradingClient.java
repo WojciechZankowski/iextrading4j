@@ -64,7 +64,7 @@ public class IEXTradingClient implements IEXApiClient, IEXCloudClient {
     }
 
     private IEXTradingClient(final IEXTradingApiVersion version, final IEXCloudToken token) {
-        // JacksonFeature must be assigned by JerseyClientBuilder instead of ClientBuilder
+        // JacksonFeature must be registered by JerseyClientBuilder instead of ClientBuilder
         final Client client = new JerseyClientBuilder().build().register(JacksonFeature.class);
         final RestClient restClient = new RestClient(client, new RestClientMetadata(
                 PropertiesReader.getInstance().getString(REST_PATHS.get(version)), token));
