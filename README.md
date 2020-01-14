@@ -3,8 +3,8 @@
 [![Build Status](https://travis-ci.org/WojciechZankowski/iextrading4j.svg?branch=master)](https://travis-ci.org/WojciechZankowski/iextrading4j)
 [![codecov](https://codecov.io/gh/WojciechZankowski/iextrading4j/branch/master/graph/badge.svg)](https://codecov.io/gh/WojciechZankowski/iextrading4j)
 [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=pl.zankowski%3Aiextrading4j&metric=alert_status)](https://sonarcloud.io/dashboard/index/pl.zankowski:iextrading4j)
+[![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/WojciechZankowski/iextrading4j.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/WojciechZankowski/iextrading4j/context:java)
 [![Maven Central](https://img.shields.io/maven-central/v/pl.zankowski/iextrading4j-all.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22pl.zankowski%22%20AND%20a:%22iextrading4j-all%22)
-
 
 **Open IEX Cloud account using referal link: [IEX Cloud](https://iexcloud.io/s/632c5323)** 
 
