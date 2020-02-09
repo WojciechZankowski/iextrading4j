@@ -22,7 +22,7 @@ public class HackyLocalDateTimeDeserializer extends LocalDateTimeDeserializer {
     }
 
     @Override
-    protected JsonDeserializer<LocalDateTime> withDateFormat(DateTimeFormatter dtf) {
+    protected LocalDateTimeDeserializer withDateFormat(DateTimeFormatter dtf) {
         return new HackyLocalDateTimeDeserializer(dtf);
     }
 
