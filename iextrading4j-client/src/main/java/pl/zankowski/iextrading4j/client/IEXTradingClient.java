@@ -1,6 +1,7 @@
 package pl.zankowski.iextrading4j.client;
 
 import com.google.common.collect.ImmutableMap;
+
 import pl.zankowski.iextrading4j.client.mapper.IEXTradingMapperContextResolver;
 import pl.zankowski.iextrading4j.client.properties.PropertiesReader;
 import pl.zankowski.iextrading4j.client.properties.PropertyType;
@@ -20,7 +21,9 @@ import pl.zankowski.iextrading4j.client.sse.manager.SseManager;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 
 import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
+import org.glassfish.jersey.client.JerseyClientBuilder;
+import org.glassfish.jersey.jackson.JacksonFeature;
+
 import java.util.Map;
 import java.util.function.Consumer;
 
@@ -61,7 +64,8 @@ public class IEXTradingClient implements IEXApiClient, IEXCloudClient {
     }
 
     private IEXTradingClient(final IEXTradingApiVersion version, final IEXCloudToken token) {
-        final Client client = ClientBuilder.newClient();
+        // JacksonFeature must be registered by JerseyClientBuilder instead of ClientBuilder
+        final Client client = new JerseyClientBuilder().build().register(JacksonFeature.class);
         final RestClient restClient = new RestClient(client, new RestClientMetadata(
                 PropertiesReader.getInstance().getString(REST_PATHS.get(version)), token));
         final SseClient sseClient = new SseClient(client, new SseClientMetadata(
