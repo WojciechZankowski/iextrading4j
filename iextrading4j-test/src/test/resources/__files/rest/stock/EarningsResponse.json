@@ -14,7 +14,8 @@
       "yearAgo": 3.36,
       "yearAgoChangePercent": 16,
       "estimatedChangePercent": 14,
-      "symbolId": 11
+      "symbolId": 11,
+      "currency": "USD"
     }
   ]
 }

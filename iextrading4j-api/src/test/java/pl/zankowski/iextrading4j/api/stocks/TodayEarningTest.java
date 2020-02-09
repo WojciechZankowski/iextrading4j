@@ -31,10 +31,11 @@ public class TodayEarningTest {
         final Quote quote = fixture.create(Quote.class);
         final String headline = fixture.create(String.class);
         final LocalDate reportDate = fixture.create(LocalDate.class);
+        final String currency = fixture.create(String.class);
 
         final TodayEarning earning = new TodayEarning(actualEPS, consensusEPS, estimatedEPS, announceTime,
                 numberOfEstimates, EPSSurpriseDollar, EPSReportDate, fiscalPeriod, fiscalEndDate,
-                yearAgo, yearAgoChangePercent, symbol, quote, headline, reportDate);
+                yearAgo, yearAgoChangePercent, symbol, quote, headline, reportDate, currency);
 
         assertThat(earning.getActualEPS()).isEqualTo(actualEPS);
         assertThat(earning.getConsensusEPS()).isEqualTo(consensusEPS);
@@ -51,6 +52,7 @@ public class TodayEarningTest {
         assertThat(earning.getQuote()).isEqualTo(quote);
         assertThat(earning.getHeadline()).isEqualTo(headline);
         assertThat(earning.getReportDate()).isEqualTo(reportDate);
+        assertThat(earning.getCurrency()).isEqualTo(currency);
     }
 
     @Test

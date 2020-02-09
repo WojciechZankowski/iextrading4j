@@ -31,6 +31,7 @@ public class CryptoBookServiceTest extends BaseIEXCloudV1ServiceTest {
                 .withSymbol("BTCUSD")
                 .build());
 
+        assertThat(book.getSymbol()).isEqualTo("BTCUSD");
         assertThat(book.getAsks()).hasSize(1);
 
         final BookEntry ask = book.getAsks().get(0);
