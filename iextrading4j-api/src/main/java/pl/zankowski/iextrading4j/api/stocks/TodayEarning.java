@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @JsonPropertyOrder({"actualEPS", "consensusEPS", "estimatedEPS", "announceTime",
         "numberOfEstimates", "EPSSurpriseDollar", "EPSReportDate", "fiscalPeriod",
         "fiscalEndDate", "yearAgo", "yearAgoChangePercent", "estimatedChangePercent",
-        "symbolId", "symbol", "quote", "headline", "reportDate"})
+        "symbolId", "symbol", "quote", "headline", "reportDate", "currency"})
 public class TodayEarning extends Earning {
 
     private static final long serialVersionUID = -4956454242048079697L;
@@ -38,9 +38,10 @@ public class TodayEarning extends Earning {
             @JsonProperty("symbol") final String symbol,
             @JsonProperty("quote") final Quote quote,
             @JsonProperty("headline") final String headline,
-            @JsonProperty("reportDate") final LocalDate reportDate) {
+            @JsonProperty("reportDate") final LocalDate reportDate,
+            @JsonProperty("currency") final String currency) {
         super(actualEPS, consensusEPS, estimatedEPS, announceTime, numberOfEstimates, EPSSurpriseDollar, EPSReportDate,
-                fiscalPeriod, fiscalEndDate, yearAgo, yearAgoChangePercent);
+                fiscalPeriod, fiscalEndDate, yearAgo, yearAgoChangePercent, currency);
         this.symbol = symbol;
         this.quote = quote;
         this.headline = headline;

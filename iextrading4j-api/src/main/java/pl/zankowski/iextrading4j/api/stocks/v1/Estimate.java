@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @JsonPropertyOrder({"consensusEPS", "announceTime", "numberOfEstimates", "fiscalPeriod",
-        "fiscalEndDate", "reportDate"})
+        "fiscalEndDate", "reportDate", "currency"})
 public class Estimate implements Serializable {
 
     private static final long serialVersionUID = -5638112355484292012L;
@@ -22,6 +22,7 @@ public class Estimate implements Serializable {
     private final String fiscalPeriod;
     private final LocalDate fiscalEndDate;
     private final LocalDate reportDate;
+    private final String currency;
 
     @JsonCreator
     public Estimate(
@@ -30,13 +31,15 @@ public class Estimate implements Serializable {
             @JsonProperty("numberOfEstimates") final BigDecimal numberOfEstimates,
             @JsonProperty("fiscalPeriod") final String fiscalPeriod,
             @JsonProperty("fiscalEndDate") final LocalDate fiscalEndDate,
-            @JsonProperty("reportDate") final LocalDate reportDate) {
+            @JsonProperty("reportDate") final LocalDate reportDate,
+            @JsonProperty("currency") final String currency) {
         this.consensusEPS = consensusEPS;
         this.announceTime = announceTime;
         this.numberOfEstimates = numberOfEstimates;
         this.fiscalPeriod = fiscalPeriod;
         this.fiscalEndDate = fiscalEndDate;
         this.reportDate = reportDate;
+        this.currency = currency;
     }
 
     public BigDecimal getConsensusEPS() {
@@ -63,6 +66,10 @@ public class Estimate implements Serializable {
         return reportDate;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
@@ -73,13 +80,14 @@ public class Estimate implements Serializable {
                 Objects.equal(numberOfEstimates, estimate.numberOfEstimates) &&
                 Objects.equal(fiscalPeriod, estimate.fiscalPeriod) &&
                 Objects.equal(fiscalEndDate, estimate.fiscalEndDate) &&
+                Objects.equal(currency, estimate.currency) &&
                 Objects.equal(reportDate, estimate.reportDate);
     }
 
     @Override
     public int hashCode() {
         return Objects.hashCode(consensusEPS, announceTime, numberOfEstimates,
-                fiscalPeriod, fiscalEndDate, reportDate);
+                fiscalPeriod, fiscalEndDate, reportDate, currency);
     }
 
     @Override
@@ -91,6 +99,7 @@ public class Estimate implements Serializable {
                 .add("fiscalPeriod", fiscalPeriod)
                 .add("fiscalEndDate", fiscalEndDate)
                 .add("reportDate", reportDate)
+                .add("currency", currency)
                 .toString();
     }
 

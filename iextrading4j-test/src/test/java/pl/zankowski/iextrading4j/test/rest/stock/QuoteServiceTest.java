@@ -72,6 +72,8 @@ public class QuoteServiceTest extends BaseRestServiceTest {
         assertThat(quote.getYtdChange()).isEqualTo(BigDecimal.valueOf(0.47309513560051647));
         assertThat(quote.getLastTradeTime()).isEqualTo(1567857882944L);
         assertThat(quote.isUSMarketOpen()).isTrue();
+        assertThat(quote.getOddLotDelayedPriceTime()).isEqualTo(1588865141461L);
+        assertThat(quote.getOddLotDelayedPrice()).isEqualTo(BigDecimal.valueOf(326.37));
     }
 
 }

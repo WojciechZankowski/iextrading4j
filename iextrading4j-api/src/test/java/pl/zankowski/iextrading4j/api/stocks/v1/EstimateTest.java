@@ -22,9 +22,10 @@ public class EstimateTest {
         final String fiscalPeriod = fixture.create(String.class);
         final LocalDate fiscalEndDate = fixture.create(LocalDate.class);
         final LocalDate reportDate = fixture.create(LocalDate.class);
+        final String currency = fixture.create(String.class);
 
         final Estimate estimate = new Estimate(consensusEPS, announceTime, numberOfEstimates,
-                fiscalPeriod, fiscalEndDate, reportDate);
+                fiscalPeriod, fiscalEndDate, reportDate, currency);
 
         assertThat(estimate.getConsensusEPS()).isEqualTo(consensusEPS);
         assertThat(estimate.getAnnounceTime()).isEqualTo(announceTime);
@@ -32,6 +33,7 @@ public class EstimateTest {
         assertThat(estimate.getFiscalPeriod()).isEqualTo(fiscalPeriod);
         assertThat(estimate.getFiscalEndDate()).isEqualTo(fiscalEndDate);
         assertThat(estimate.getReportDate()).isEqualTo(reportDate);
+        assertThat(estimate.getCurrency()).isEqualTo(currency);
     }
 
     @Test

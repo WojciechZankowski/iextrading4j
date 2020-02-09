@@ -45,6 +45,7 @@ public class EstimatesServiceTest extends BaseIEXCloudV1ServiceTest {
         assertThat(result.getReportDate()).isEqualTo(LocalDate.of(2019, 7, 22));
         assertThat(result.getFiscalPeriod()).isEqualTo("Q2 2019");
         assertThat(result.getFiscalEndDate()).isEqualTo(LocalDate.of(2019, 6, 30));
+        assertThat(result.getCurrency()).isEqualTo("USD");
     }
 
 }

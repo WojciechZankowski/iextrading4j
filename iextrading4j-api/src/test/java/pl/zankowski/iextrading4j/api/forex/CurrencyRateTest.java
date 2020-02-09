@@ -1,7 +1,6 @@
 package pl.zankowski.iextrading4j.api.forex;
 
 import com.flextrade.jfixture.JFixture;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;

@@ -12,7 +12,7 @@ import java.time.LocalDate;
 
 @JsonPropertyOrder({"actualEPS", "consensusEPS", "estimatedEPS", "announceTime",
         "numberOfEstimates", "EPSSurpriseDollar", "EPSReportDate", "fiscalPeriod",
-        "fiscalEndDate", "yearAgo", "yearAgoChangePercent"})
+        "fiscalEndDate", "yearAgo", "yearAgoChangePercent", "currency"})
 public class Earning implements Serializable {
 
     private static final long serialVersionUID = -3254561425537119565L;
@@ -28,6 +28,7 @@ public class Earning implements Serializable {
     private final LocalDate fiscalEndDate;
     private final BigDecimal yearAgo;
     private final BigDecimal yearAgoChangePercent;
+    private final String currency;
 
     @JsonCreator
     public Earning(
@@ -41,7 +42,8 @@ public class Earning implements Serializable {
             @JsonProperty("fiscalPeriod") final String fiscalPeriod,
             @JsonProperty("fiscalEndDate") final LocalDate fiscalEndDate,
             @JsonProperty("yearAgo") final BigDecimal yearAgo,
-            @JsonProperty("yearAgoChangePercent") final BigDecimal yearAgoChangePercent) {
+            @JsonProperty("yearAgoChangePercent") final BigDecimal yearAgoChangePercent,
+            @JsonProperty("currency") final String currency) {
         this.actualEPS = actualEPS;
         this.consensusEPS = consensusEPS;
         this.estimatedEPS = estimatedEPS;
@@ -53,6 +55,7 @@ public class Earning implements Serializable {
         this.fiscalEndDate = fiscalEndDate;
         this.yearAgo = yearAgo;
         this.yearAgoChangePercent = yearAgoChangePercent;
+        this.currency = currency;
     }
 
     public BigDecimal getActualEPS() {
@@ -101,6 +104,10 @@ public class Earning implements Serializable {
         return yearAgoChangePercent;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
@@ -116,13 +123,14 @@ public class Earning implements Serializable {
                 Objects.equal(fiscalPeriod, earning.fiscalPeriod) &&
                 Objects.equal(fiscalEndDate, earning.fiscalEndDate) &&
                 Objects.equal(yearAgo, earning.yearAgo) &&
-                Objects.equal(yearAgoChangePercent, earning.yearAgoChangePercent);
+                Objects.equal(yearAgoChangePercent, earning.yearAgoChangePercent) &&
+                Objects.equal(currency, earning.currency);
     }
 
     @Override
     public int hashCode() {
         return Objects.hashCode(actualEPS, consensusEPS, estimatedEPS, announceTime, numberOfEstimates,
-                EPSSurpriseDollar, EPSReportDate, fiscalPeriod, fiscalEndDate, yearAgo, yearAgoChangePercent);
+                EPSSurpriseDollar, EPSReportDate, fiscalPeriod, fiscalEndDate, yearAgo, yearAgoChangePercent, currency);
     }
 
     @Override
@@ -139,6 +147,7 @@ public class Earning implements Serializable {
                 .add("fiscalEndDate", fiscalEndDate)
                 .add("yearAgo", yearAgo)
                 .add("yearAgoChangePercent", yearAgoChangePercent)
+                .add("currency", currency)
                 .toString();
     }
 

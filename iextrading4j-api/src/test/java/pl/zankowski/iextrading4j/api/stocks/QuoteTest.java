@@ -63,6 +63,8 @@ public class QuoteTest {
         final BigDecimal askSize = fixture.create(BigDecimal.class);
         final Long lastTradeTime = fixture.create(Long.class);
         final Boolean isUSMarketOpen = fixture.create(Boolean.class);
+        final BigDecimal oddLotDelayedPrice = fixture.create(BigDecimal.class);
+        final Long oddLotDelayedPriceTime = fixture.create(Long.class);
 
         final Quote quote = new Quote(symbol, companyName, primaryExchange, sector, calculationPrice, open,
                 openTime, close, closeTime, high, low, volume, latestPrice, latestSource, latestTime, latestUpdate,
@@ -70,7 +72,7 @@ public class QuoteTest {
                 extendedPrice, extendedChange, extendedChangePercent, extendedPriceTime, previousClose, previousVolume,
                 change, changePercent, iexMarketPercent, iexVolume, avgTotalVolume, iexBidPrice, iexBidSize, iexAskPrice,
                 iexAskSize, marketCap, peRatio, week52High, week52Low, ytdChange, bidPrice, bidSize, askPrice, askSize,
-                lastTradeTime, isUSMarketOpen);
+                lastTradeTime, isUSMarketOpen, oddLotDelayedPrice, oddLotDelayedPriceTime);
 
         assertThat(quote.getSymbol()).isEqualTo(symbol);
         assertThat(quote.getCompanyName()).isEqualTo(companyName);
@@ -120,6 +122,8 @@ public class QuoteTest {
         assertThat(quote.getAskPrice()).isEqualTo(askPrice);
         assertThat(quote.getLastTradeTime()).isEqualTo(lastTradeTime);
         assertThat(quote.isUSMarketOpen()).isEqualTo(isUSMarketOpen);
+        assertThat(quote.getOddLotDelayedPrice()).isEqualTo(oddLotDelayedPrice);
+        assertThat(quote.getOddLotDelayedPriceTime()).isEqualTo(oddLotDelayedPriceTime);
     }
 
     @Test
