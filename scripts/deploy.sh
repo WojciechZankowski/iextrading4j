@@ -2,12 +2,7 @@
 
 set -e # exit with nonzero exit code if anything fails
 
-echo $TRAVIS_BRANCH
-echo https://${GH_TOKEN}@
-echo https://$GH_TOKEN@
-echo $GH_TOKEN
-
-if [[ $TRAVIS_BRANCH == "javadoc-deploy" ]]; then
+if [[ $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]]; then
 
 echo "Starting to update gh-pages\n"
 

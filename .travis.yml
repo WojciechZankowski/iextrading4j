@@ -5,7 +5,6 @@ addons:
     organization: wojciechzankowski-github
 jdk:
 - openjdk11
-
 script:
 - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
 after_success:
