@@ -2,7 +2,7 @@
 
 set -e # exit with nonzero exit code if anything fails
 
-if [[ $TRAVIS_BRANCH == "javadoc_deploy" ]]; then
+if [[ $TRAVIS_BRANCH == "javadoc-deploy" ]]; then
 
 echo "Starting to update gh-pages\n"
 

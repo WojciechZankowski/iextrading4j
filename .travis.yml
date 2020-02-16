@@ -4,9 +4,8 @@ addons:
   sonarcloud:
     organization: wojciechzankowski-github
 jdk:
-- openjdk8
 - openjdk11
-- openjdk12
+
 script:
 - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
 after_success:
