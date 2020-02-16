@@ -41,6 +41,7 @@
         <module>iextrading4j-all</module>
         <module>iextrading4j-test</module>
         <module>iextrading4j-acceptance</module>
+        <module>iextrading4j-mutation</module>
     </modules>
 
     <properties>
@@ -354,7 +355,7 @@
                 <plugin>
                     <groupId>org.pitest</groupId>
                     <artifactId>pitest-maven</artifactId>
-                    <version>1.3.2</version>
+                    <version>1.4.11</version>
                 </plugin>
 
                 <plugin>
@@ -370,7 +371,7 @@
         <profile>
             <id>javadoc</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <build>
                 <plugins>

@@ -8,6 +8,7 @@ echo "Starting to update gh-pages\n"
 
 #copy data we're interested in to other place
 cp -R target/site $HOME/site
+cp -R iextrading4j-mutation/target/pit-reports $HOME/site/pit-reports
 
 #go to home and setup git
 cd $HOME
