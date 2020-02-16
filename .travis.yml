@@ -7,8 +7,7 @@ jdk:
 - openjdk11
 
 script:
-- bash ./scripts/deploy.sh
-#- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
 after_success:
 - bash ./scripts/deploy.sh
 - bash <(curl -s https://codecov.io/bash)
