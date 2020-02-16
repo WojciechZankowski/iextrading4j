@@ -12,6 +12,10 @@
     <artifactId>iextrading4j-api</artifactId>
     <packaging>jar</packaging>
 
+    <properties>
+        <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/../${aggregate.report.dir}</sonar.coverage.jacoco.xmlReportPaths>
+    </properties>
+
     <dependencies>
 
         <!-- Libraries -->

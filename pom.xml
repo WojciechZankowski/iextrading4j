@@ -63,7 +63,7 @@
         <maven.surefire.plugin>2.22.2</maven.surefire.plugin>
         <jacoco.maven.plugin>0.8.5</jacoco.maven.plugin>
 
-        <argLine>-Xmx4096m -XX:MaxPermSize=512m</argLine>
+        <aggregate.report.dir>tests/target/site/jacoco-aggregate/jacoco.xml</aggregate.report.dir>
     </properties>
 
     <dependencyManagement>
