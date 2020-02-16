@@ -128,7 +128,7 @@
         </profile>
 
         <profile>
-            <id>mutational-test</id>
+            <id>mutation</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
