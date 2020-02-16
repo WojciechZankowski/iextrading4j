@@ -3,6 +3,9 @@
 set -e # exit with nonzero exit code if anything fails
 
 echo $TRAVIS_BRANCH
+echo https://${GH_TOKEN}@
+echo https://$GH_TOKEN@
+echo $GH_TOKEN
 
 if [[ $TRAVIS_BRANCH == "javadoc-deploy" ]]; then
 
