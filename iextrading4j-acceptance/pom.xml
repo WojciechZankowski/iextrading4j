@@ -11,10 +11,6 @@
 
     <artifactId>iextrading4j-acceptance</artifactId>
 
-    <properties>
-        <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/../${aggregate.report.dir}</sonar.coverage.jacoco.xmlReportPaths>
-    </properties>
-
     <dependencies>
 
         <!-- Internal -->
@@ -94,12 +90,6 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco.maven.plugin}</version>
                 <executions>
-                    <execution>
-                        <id>prepare-agent</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
                     <execution>
                         <id>report</id>
                         <phase>test</phase>
