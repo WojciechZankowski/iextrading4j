@@ -3,17 +3,15 @@ package pl.zankowski.iextrading4j.api.stocks.v1;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Objects;
 
-public class Financial implements Serializable {
+public class Financial extends Report {
 
     private static final long serialVersionUID = -2466964917607304006L;
 
-    private final LocalDate reportDate;
     private final BigDecimal grossProfit;
     private final BigDecimal costOfRevenue;
     private final BigDecimal operatingRevenue;
@@ -38,6 +36,8 @@ public class Financial implements Serializable {
     @JsonCreator
     public Financial(
             @JsonProperty("reportDate") final LocalDate reportDate,
+            @JsonProperty("fiscalDate") final LocalDate fiscalDate,
+            @JsonProperty("currency") final String currency,
             @JsonProperty("grossProfit") final BigDecimal grossProfit,
             @JsonProperty("costOfRevenue") final BigDecimal costOfRevenue,
             @JsonProperty("operatingRevenue") final BigDecimal operatingRevenue,
@@ -58,7 +58,7 @@ public class Financial implements Serializable {
             @JsonProperty("shareholderEquity") final BigDecimal shareholderEquity,
             @JsonProperty("cashChange") final BigDecimal cashChange,
             @JsonProperty("cashFlow") final BigDecimal cashFlow) {
-        this.reportDate = reportDate;
+        super(reportDate, fiscalDate, currency);
         this.grossProfit = grossProfit;
         this.costOfRevenue = costOfRevenue;
         this.operatingRevenue = operatingRevenue;
@@ -79,10 +79,6 @@ public class Financial implements Serializable {
         this.shareholderEquity = shareholderEquity;
         this.cashChange = cashChange;
         this.cashFlow = cashFlow;
-    }
-
-    public LocalDate getReportDate() {
-        return reportDate;
     }
 
     public BigDecimal getGrossProfit() {
@@ -167,44 +163,49 @@ public class Financial implements Serializable {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
         final Financial financial = (Financial) o;
-        return Objects.equal(reportDate, financial.reportDate) &&
-                Objects.equal(grossProfit, financial.grossProfit) &&
-                Objects.equal(costOfRevenue, financial.costOfRevenue) &&
-                Objects.equal(operatingRevenue, financial.operatingRevenue) &&
-                Objects.equal(totalRevenue, financial.totalRevenue) &&
-                Objects.equal(operatingIncome, financial.operatingIncome) &&
-                Objects.equal(netIncome, financial.netIncome) &&
-                Objects.equal(researchAndDevelopment, financial.researchAndDevelopment) &&
-                Objects.equal(operatingExpense, financial.operatingExpense) &&
-                Objects.equal(currentAssets, financial.currentAssets) &&
-                Objects.equal(totalAssets, financial.totalAssets) &&
-                Objects.equal(totalLiabilities, financial.totalLiabilities) &&
-                Objects.equal(currentCash, financial.currentCash) &&
-                Objects.equal(currentDebt, financial.currentDebt) &&
-                Objects.equal(shortTermDebt, financial.shortTermDebt) &&
-                Objects.equal(longTermDebt, financial.longTermDebt) &&
-                Objects.equal(totalCash, financial.totalCash) &&
-                Objects.equal(totalDebt, financial.totalDebt) &&
-                Objects.equal(shareholderEquity, financial.shareholderEquity) &&
-                Objects.equal(cashChange, financial.cashChange) &&
-                Objects.equal(cashFlow, financial.cashFlow);
+        return Objects.equals(grossProfit, financial.grossProfit) &&
+                Objects.equals(costOfRevenue, financial.costOfRevenue) &&
+                Objects.equals(operatingRevenue, financial.operatingRevenue) &&
+                Objects.equals(totalRevenue, financial.totalRevenue) &&
+                Objects.equals(operatingIncome, financial.operatingIncome) &&
+                Objects.equals(netIncome, financial.netIncome) &&
+                Objects.equals(researchAndDevelopment, financial.researchAndDevelopment) &&
+                Objects.equals(operatingExpense, financial.operatingExpense) &&
+                Objects.equals(currentAssets, financial.currentAssets) &&
+                Objects.equals(totalAssets, financial.totalAssets) &&
+                Objects.equals(totalLiabilities, financial.totalLiabilities) &&
+                Objects.equals(currentCash, financial.currentCash) &&
+                Objects.equals(currentDebt, financial.currentDebt) &&
+                Objects.equals(shortTermDebt, financial.shortTermDebt) &&
+                Objects.equals(longTermDebt, financial.longTermDebt) &&
+                Objects.equals(totalCash, financial.totalCash) &&
+                Objects.equals(totalDebt, financial.totalDebt) &&
+                Objects.equals(shareholderEquity, financial.shareholderEquity) &&
+                Objects.equals(cashChange, financial.cashChange) &&
+                Objects.equals(cashFlow, financial.cashFlow);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(reportDate, grossProfit, costOfRevenue, operatingRevenue,
-                totalRevenue, operatingIncome, netIncome, researchAndDevelopment, operatingExpense,
-                currentAssets, totalAssets, totalLiabilities, currentCash, currentDebt, shortTermDebt,
-                longTermDebt, totalCash, totalDebt, shareholderEquity, cashChange, cashFlow);
+        return Objects.hash(super.hashCode(), grossProfit, costOfRevenue, operatingRevenue, totalRevenue,
+                operatingIncome, netIncome, researchAndDevelopment, operatingExpense, currentAssets,
+                totalAssets, totalLiabilities, currentCash, currentDebt, shortTermDebt, longTermDebt,
+                totalCash, totalDebt, shareholderEquity, cashChange, cashFlow);
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("reportDate", reportDate)
                 .add("grossProfit", grossProfit)
                 .add("costOfRevenue", costOfRevenue)
                 .add("operatingRevenue", operatingRevenue)

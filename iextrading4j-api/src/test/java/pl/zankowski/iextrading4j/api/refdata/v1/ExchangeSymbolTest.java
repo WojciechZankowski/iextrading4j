@@ -25,9 +25,11 @@ public class ExchangeSymbolTest {
         final String region = fixture.create(String.class);
         final String currency = fixture.create(String.class);
         final Boolean isEnabled = fixture.create(Boolean.class);
+        final String figi = fixture.create(String.class);
+        final String cik = fixture.create(String.class);
 
         final ExchangeSymbol exchangeSymbol = new ExchangeSymbol(symbol, exchange, name, date, type,
-                iexId, region, currency, isEnabled);
+                iexId, region, currency, isEnabled, figi, cik);
 
         assertThat(exchangeSymbol.getSymbol()).isEqualTo(symbol);
         assertThat(exchangeSymbol.getExchange()).isEqualTo(exchange);
@@ -38,6 +40,8 @@ public class ExchangeSymbolTest {
         assertThat(exchangeSymbol.getRegion()).isEqualTo(region);
         assertThat(exchangeSymbol.getCurrency()).isEqualTo(currency);
         assertThat(exchangeSymbol.getEnabled()).isEqualTo(isEnabled);
+        assertThat(exchangeSymbol.getFigi()).isEqualTo(figi);
+        assertThat(exchangeSymbol.getCik()).isEqualTo(cik);
     }
 
     @Test

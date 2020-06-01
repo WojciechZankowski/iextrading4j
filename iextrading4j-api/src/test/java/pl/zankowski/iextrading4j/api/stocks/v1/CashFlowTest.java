@@ -17,6 +17,8 @@ public class CashFlowTest {
     @Test
     public void constructor() {
         final LocalDate reportDate = fixture.create(LocalDate.class);
+        final LocalDate fiscalDate = fixture.create(LocalDate.class);
+        final String currency = fixture.create(String.class);
         final BigDecimal netIncome = fixture.create(BigDecimal.class);
         final BigDecimal depreciation = fixture.create(BigDecimal.class);
         final BigDecimal changesInReceivables = fixture.create(BigDecimal.class);
@@ -33,12 +35,14 @@ public class CashFlowTest {
         final BigDecimal cashFlowFinancing = fixture.create(BigDecimal.class);
         final BigDecimal exchangeRateEffect = fixture.create(BigDecimal.class);
 
-        final CashFlow result = new CashFlow(reportDate, netIncome, depreciation,
+        final CashFlow result = new CashFlow(reportDate, fiscalDate, currency, netIncome, depreciation,
                 changesInReceivables, changesInInventories, cashChange, cashFlow,
                 capitalExpenditures, investments, investingActivityOther, totalInvestingCashFlows,
                 dividendsPaid, netBorrowings, otherFinancingCashFlows, cashFlowFinancing, exchangeRateEffect);
 
         assertThat(result.getReportDate()).isEqualTo(reportDate);
+        assertThat(result.getFiscalDate()).isEqualTo(fiscalDate);
+        assertThat(result.getCurrency()).isEqualTo(currency);
         assertThat(result.getNetIncome()).isEqualTo(netIncome);
         assertThat(result.getDepreciation()).isEqualTo(depreciation);
         assertThat(result.getChangesInReceivables()).isEqualTo(changesInReceivables);

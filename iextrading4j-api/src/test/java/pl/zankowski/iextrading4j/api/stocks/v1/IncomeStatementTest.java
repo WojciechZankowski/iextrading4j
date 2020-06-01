@@ -17,6 +17,8 @@ public class IncomeStatementTest {
     @Test
     public void constructor() {
         final LocalDate reportDate = fixture.create(LocalDate.class);
+        final LocalDate fiscalDate = fixture.create(LocalDate.class);
+        final String currency = fixture.create(String.class);
         final BigDecimal totalRevenue = fixture.create(BigDecimal.class);
         final BigDecimal costOfRevenue = fixture.create(BigDecimal.class);
         final BigDecimal grossProfit = fixture.create(BigDecimal.class);
@@ -33,12 +35,14 @@ public class IncomeStatementTest {
         final BigDecimal netIncome = fixture.create(BigDecimal.class);
         final BigDecimal netIncomeBasic = fixture.create(BigDecimal.class);
 
-        final IncomeStatement incomeStatement = new IncomeStatement(reportDate, totalRevenue,
+        final IncomeStatement incomeStatement = new IncomeStatement(reportDate, fiscalDate, currency, totalRevenue,
                 costOfRevenue, grossProfit, researchAndDevelopment, sellingGeneralAndAdmin,
                 operatingExpense, operatingIncome, otherIncomeExpenseNet, ebit, interestIncome,
                 pretaxIncome, incomeTax, minorityInterest, netIncome, netIncomeBasic);
 
         assertThat(incomeStatement.getReportDate()).isEqualTo(reportDate);
+        assertThat(incomeStatement.getFiscalDate()).isEqualTo(fiscalDate);
+        assertThat(incomeStatement.getCurrency()).isEqualTo(currency);
         assertThat(incomeStatement.getTotalRevenue()).isEqualTo(totalRevenue);
         assertThat(incomeStatement.getCostOfRevenue()).isEqualTo(costOfRevenue);
         assertThat(incomeStatement.getGrossProfit()).isEqualTo(grossProfit);

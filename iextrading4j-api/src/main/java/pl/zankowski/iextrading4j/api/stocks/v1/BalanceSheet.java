@@ -3,17 +3,15 @@ package pl.zankowski.iextrading4j.api.stocks.v1;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Objects;
 
-public class BalanceSheet implements Serializable {
+public class BalanceSheet extends Report {
 
     private static final long serialVersionUID = 903088600080035429L;
 
-    private final LocalDate reportDate;
     private final BigDecimal currentCash;
     private final BigDecimal shortTermInvestments;
     private final BigDecimal receivables;
@@ -44,6 +42,8 @@ public class BalanceSheet implements Serializable {
     @JsonCreator
     public BalanceSheet(
             @JsonProperty("reportDate") final LocalDate reportDate,
+            @JsonProperty("fiscalDate") final LocalDate fiscalDate,
+            @JsonProperty("currency") final String currency,
             @JsonProperty("currentCash") final BigDecimal currentCash,
             @JsonProperty("shortTermInvestments") final BigDecimal shortTermInvestments,
             @JsonProperty("receivables") final BigDecimal receivables,
@@ -70,7 +70,7 @@ public class BalanceSheet implements Serializable {
             @JsonProperty("capitalSurplus") final BigDecimal capitalSurplus,
             @JsonProperty("shareholderEquity") final BigDecimal shareholderEquity,
             @JsonProperty("netTangibleAssets") final BigDecimal netTangibleAssets) {
-        this.reportDate = reportDate;
+        super(reportDate, fiscalDate, currency);
         this.currentCash = currentCash;
         this.shortTermInvestments = shortTermInvestments;
         this.receivables = receivables;
@@ -97,10 +97,6 @@ public class BalanceSheet implements Serializable {
         this.capitalSurplus = capitalSurplus;
         this.shareholderEquity = shareholderEquity;
         this.netTangibleAssets = netTangibleAssets;
-    }
-
-    public LocalDate getReportDate() {
-        return reportDate;
     }
 
     public BigDecimal getCurrentCash() {
@@ -209,53 +205,57 @@ public class BalanceSheet implements Serializable {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
         final BalanceSheet that = (BalanceSheet) o;
-        return Objects.equal(reportDate, that.reportDate) &&
-                Objects.equal(currentCash, that.currentCash) &&
-                Objects.equal(shortTermInvestments, that.shortTermInvestments) &&
-                Objects.equal(receivables, that.receivables) &&
-                Objects.equal(inventory, that.inventory) &&
-                Objects.equal(otherCurrentAssets, that.otherCurrentAssets) &&
-                Objects.equal(currentAssets, that.currentAssets) &&
-                Objects.equal(longTermInvestments, that.longTermInvestments) &&
-                Objects.equal(propertyPlantEquipment, that.propertyPlantEquipment) &&
-                Objects.equal(goodwill, that.goodwill) &&
-                Objects.equal(intangibleAssets, that.intangibleAssets) &&
-                Objects.equal(otherAssets, that.otherAssets) &&
-                Objects.equal(totalAssets, that.totalAssets) &&
-                Objects.equal(accountsPayable, that.accountsPayable) &&
-                Objects.equal(currentLongTermDebt, that.currentLongTermDebt) &&
-                Objects.equal(otherCurrentLiabilities, that.otherCurrentLiabilities) &&
-                Objects.equal(totalCurrentLiabilities, that.totalCurrentLiabilities) &&
-                Objects.equal(longTermDebt, that.longTermDebt) &&
-                Objects.equal(otherLiabilities, that.otherLiabilities) &&
-                Objects.equal(minorityInterest, that.minorityInterest) &&
-                Objects.equal(totalLiabilities, that.totalLiabilities) &&
-                Objects.equal(commonStock, that.commonStock) &&
-                Objects.equal(retainedEarnings, that.retainedEarnings) &&
-                Objects.equal(treasuryStock, that.treasuryStock) &&
-                Objects.equal(capitalSurplus, that.capitalSurplus) &&
-                Objects.equal(shareholderEquity, that.shareholderEquity) &&
-                Objects.equal(netTangibleAssets, that.netTangibleAssets);
+        return Objects.equals(currentCash, that.currentCash) &&
+                Objects.equals(shortTermInvestments, that.shortTermInvestments) &&
+                Objects.equals(receivables, that.receivables) &&
+                Objects.equals(inventory, that.inventory) &&
+                Objects.equals(otherCurrentAssets, that.otherCurrentAssets) &&
+                Objects.equals(currentAssets, that.currentAssets) &&
+                Objects.equals(longTermInvestments, that.longTermInvestments) &&
+                Objects.equals(propertyPlantEquipment, that.propertyPlantEquipment) &&
+                Objects.equals(goodwill, that.goodwill) &&
+                Objects.equals(intangibleAssets, that.intangibleAssets) &&
+                Objects.equals(otherAssets, that.otherAssets) &&
+                Objects.equals(totalAssets, that.totalAssets) &&
+                Objects.equals(accountsPayable, that.accountsPayable) &&
+                Objects.equals(currentLongTermDebt, that.currentLongTermDebt) &&
+                Objects.equals(otherCurrentLiabilities, that.otherCurrentLiabilities) &&
+                Objects.equals(totalCurrentLiabilities, that.totalCurrentLiabilities) &&
+                Objects.equals(longTermDebt, that.longTermDebt) &&
+                Objects.equals(otherLiabilities, that.otherLiabilities) &&
+                Objects.equals(minorityInterest, that.minorityInterest) &&
+                Objects.equals(totalLiabilities, that.totalLiabilities) &&
+                Objects.equals(commonStock, that.commonStock) &&
+                Objects.equals(retainedEarnings, that.retainedEarnings) &&
+                Objects.equals(treasuryStock, that.treasuryStock) &&
+                Objects.equals(capitalSurplus, that.capitalSurplus) &&
+                Objects.equals(shareholderEquity, that.shareholderEquity) &&
+                Objects.equals(netTangibleAssets, that.netTangibleAssets);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(reportDate, currentCash, shortTermInvestments, receivables,
-                inventory, otherCurrentAssets, currentAssets, longTermInvestments,
-                propertyPlantEquipment, goodwill, intangibleAssets, otherAssets,
-                totalAssets, accountsPayable, currentLongTermDebt, otherCurrentLiabilities,
-                totalCurrentLiabilities, longTermDebt, otherLiabilities, minorityInterest,
-                totalLiabilities, commonStock, retainedEarnings, treasuryStock, capitalSurplus,
-                shareholderEquity, netTangibleAssets);
+        return Objects.hash(super.hashCode(), currentCash, shortTermInvestments, receivables, inventory,
+                otherCurrentAssets, currentAssets, longTermInvestments, propertyPlantEquipment, goodwill,
+                intangibleAssets, otherAssets, totalAssets, accountsPayable, currentLongTermDebt,
+                otherCurrentLiabilities, totalCurrentLiabilities, longTermDebt, otherLiabilities, minorityInterest,
+                totalLiabilities, commonStock, retainedEarnings, treasuryStock, capitalSurplus, shareholderEquity,
+                netTangibleAssets);
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("reportDate", reportDate)
                 .add("currentCash", currentCash)
                 .add("shortTermInvestments", shortTermInvestments)
                 .add("receivables", receivables)

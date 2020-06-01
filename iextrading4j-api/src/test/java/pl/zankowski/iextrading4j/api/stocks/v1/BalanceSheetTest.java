@@ -17,6 +17,8 @@ public class BalanceSheetTest {
     @Test
     public void constructor() {
         final LocalDate reportDate = fixture.create(LocalDate.class);
+        final LocalDate fiscalDate = fixture.create(LocalDate.class);
+        final String currency = fixture.create(String.class);
         final BigDecimal currentCash = fixture.create(BigDecimal.class);
         final BigDecimal shortTermInvestments = fixture.create(BigDecimal.class);
         final BigDecimal receivables = fixture.create(BigDecimal.class);
@@ -44,14 +46,16 @@ public class BalanceSheetTest {
         final BigDecimal shareholderEquity = fixture.create(BigDecimal.class);
         final BigDecimal netTangibleAssets = fixture.create(BigDecimal.class);
 
-        final BalanceSheet balanceSheet = new BalanceSheet(reportDate, currentCash, shortTermInvestments,
-                receivables, inventory, otherCurrentAssets, currentAssets, longTermInvestments,
+        final BalanceSheet balanceSheet = new BalanceSheet(reportDate, fiscalDate, currency, currentCash,
+                shortTermInvestments, receivables, inventory, otherCurrentAssets, currentAssets, longTermInvestments,
                 propertyPlantEquipment, goodwill, intangibleAssets, otherAssets, totalAssets,
                 accountsPayable, currentLongTermDebt, otherCurrentLiabilities, totalCurrentLiabilities,
                 longTermDebt, otherLiabilities, minorityInterest, totalLiabilities, commonStock,
                 retainedEarnings, treasuryStock, capitalSurplus, shareholderEquity, netTangibleAssets);
 
         assertThat(balanceSheet.getReportDate()).isEqualTo(reportDate);
+        assertThat(balanceSheet.getFiscalDate()).isEqualTo(fiscalDate);
+        assertThat(balanceSheet.getCurrency()).isEqualTo(currency);
         assertThat(balanceSheet.getCurrentCash()).isEqualTo(currentCash);
         assertThat(balanceSheet.getShortTermInvestments()).isEqualTo(shortTermInvestments);
         assertThat(balanceSheet.getReceivables()).isEqualTo(receivables);

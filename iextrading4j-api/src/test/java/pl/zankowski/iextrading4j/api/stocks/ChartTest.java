@@ -49,11 +49,12 @@ public class ChartTest {
         final BigDecimal changeOverTime = fixture.create(BigDecimal.class);
         final List<BigDecimal> simplifyFactor = Lists.newArrayList(
                 fixture.collections().createCollection(BigDecimal.class));
+        final String currency = fixture.create(String.class);
 
         final Chart chart = new Chart(minute, marketAverage, marketNotional, marketNumberOfTrades, marketHigh,
                 marketLow, marketVolume, marketChangeOverTime, marketOpen, marketClose, average, notional,
                 numberOfTrades, simplifyFactor, high, low, volume, label, changeOverTime, date, open, close,
-                uOpen, uHigh, uLow, uClose, uVolume, unadjustedVolume, change, changePercent, vwap);
+                uOpen, uHigh, uLow, uClose, uVolume, unadjustedVolume, change, changePercent, vwap, currency);
 
         assertThat(chart.getMinute()).isEqualTo(minute);
         assertThat(chart.getMarketAverage()).isEqualByComparingTo(marketAverage);
@@ -86,6 +87,7 @@ public class ChartTest {
         assertThat(chart.getuVolume()).isEqualTo(uVolume);
         assertThat(chart.getChangeOverTime()).isEqualTo(changeOverTime);
         assertThat(chart.getSimplifyFactor()).isEqualTo(simplifyFactor);
+        assertThat(chart.getCurrency()).isEqualTo(currency);
     }
 
     @Test

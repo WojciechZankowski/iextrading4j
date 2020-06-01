@@ -4,14 +4,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
 import pl.zankowski.iextrading4j.api.refdata.SymbolType;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Objects;
+import java.util.StringJoiner;
 
 @JsonPropertyOrder({"symbol", "exchange", "name", "date", "type",
-        "iexId", "region", "currency", "isEnabled"})
+        "iexId", "region", "currency", "isEnabled", "figi", "cik"})
 public class ExchangeSymbol implements Serializable {
 
     private static final long serialVersionUID = -5740262153957115684L;
@@ -25,6 +26,8 @@ public class ExchangeSymbol implements Serializable {
     private final String region;
     private final String currency;
     private final Boolean isEnabled;
+    private final String figi;
+    private final String cik;
 
     @JsonCreator
     public ExchangeSymbol(
@@ -36,7 +39,9 @@ public class ExchangeSymbol implements Serializable {
             @JsonProperty("iexId") final String iexId,
             @JsonProperty("region") final String region,
             @JsonProperty("currency") final String currency,
-            @JsonProperty("isEnabled") final Boolean isEnabled) {
+            @JsonProperty("isEnabled") final Boolean isEnabled,
+            @JsonProperty("figi") final String figi,
+            @JsonProperty("cik")  final String cik) {
         this.symbol = symbol;
         this.exchange = exchange;
         this.name = name;
@@ -46,6 +51,8 @@ public class ExchangeSymbol implements Serializable {
         this.region = region;
         this.currency = currency;
         this.isEnabled = isEnabled;
+        this.figi = figi;
+        this.cik = cik;
     }
 
     public String getSymbol() {
@@ -85,6 +92,14 @@ public class ExchangeSymbol implements Serializable {
         return isEnabled;
     }
 
+    public String getFigi() {
+        return figi;
+    }
+
+    public String getCik() {
+        return cik;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) {
@@ -94,36 +109,39 @@ public class ExchangeSymbol implements Serializable {
             return false;
         }
         final ExchangeSymbol that = (ExchangeSymbol) o;
-        return Objects.equal(symbol, that.symbol) &&
-                Objects.equal(exchange, that.exchange) &&
-                Objects.equal(name, that.name) &&
-                Objects.equal(date, that.date) &&
+        return Objects.equals(symbol, that.symbol) &&
+                Objects.equals(exchange, that.exchange) &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(date, that.date) &&
                 type == that.type &&
-                Objects.equal(iexId, that.iexId) &&
-                Objects.equal(region, that.region) &&
-                Objects.equal(currency, that.currency) &&
-                Objects.equal(isEnabled, that.isEnabled);
+                Objects.equals(iexId, that.iexId) &&
+                Objects.equals(region, that.region) &&
+                Objects.equals(currency, that.currency) &&
+                Objects.equals(isEnabled, that.isEnabled) &&
+                Objects.equals(figi, that.figi) &&
+                Objects.equals(cik, that.cik);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(symbol, exchange, name, date, type, iexId,
-                region, currency, isEnabled);
+        return Objects.hash(symbol, exchange, name, date, type, iexId, region, currency,
+                isEnabled, figi, cik);
     }
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("symbol", symbol)
-                .add("exchange", exchange)
-                .add("name", name)
-                .add("date", date)
-                .add("type", type)
-                .add("iexId", iexId)
-                .add("region", region)
-                .add("currency", currency)
-                .add("isEnabled", isEnabled)
+        return new StringJoiner(", ", ExchangeSymbol.class.getSimpleName() + "[", "]")
+                .add("symbol='" + symbol + "'")
+                .add("exchange='" + exchange + "'")
+                .add("name='" + name + "'")
+                .add("date=" + date)
+                .add("type=" + type)
+                .add("iexId='" + iexId + "'")
+                .add("region='" + region + "'")
+                .add("currency='" + currency + "'")
+                .add("isEnabled=" + isEnabled)
+                .add("figi='" + figi + "'")
+                .add("cik='" + cik + "'")
                 .toString();
     }
-
 }

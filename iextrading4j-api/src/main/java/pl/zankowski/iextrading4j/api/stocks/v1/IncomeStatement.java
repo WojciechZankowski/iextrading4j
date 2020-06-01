@@ -3,17 +3,15 @@ package pl.zankowski.iextrading4j.api.stocks.v1;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Objects;
 
-public class IncomeStatement implements Serializable {
+public class IncomeStatement extends Report {
 
     private static final long serialVersionUID = -1413080264580022740L;
 
-    private final LocalDate reportDate;
     private final BigDecimal totalRevenue;
     private final BigDecimal costOfRevenue;
     private final BigDecimal grossProfit;
@@ -33,6 +31,8 @@ public class IncomeStatement implements Serializable {
     @JsonCreator
     public IncomeStatement(
             @JsonProperty("reportDate") final LocalDate reportDate,
+            @JsonProperty("fiscalDate") final LocalDate fiscalDate,
+            @JsonProperty("currency") final String currency,
             @JsonProperty("totalRevenue") final BigDecimal totalRevenue,
             @JsonProperty("costOfRevenue") final BigDecimal costOfRevenue,
             @JsonProperty("grossProfit") final BigDecimal grossProfit,
@@ -48,7 +48,7 @@ public class IncomeStatement implements Serializable {
             @JsonProperty("minorityInterest") final BigDecimal minorityInterest,
             @JsonProperty("netIncome") final BigDecimal netIncome,
             @JsonProperty("netIncomeBasic") final BigDecimal netIncomeBasic) {
-        this.reportDate = reportDate;
+        super(reportDate, fiscalDate, currency);
         this.totalRevenue = totalRevenue;
         this.costOfRevenue = costOfRevenue;
         this.grossProfit = grossProfit;
@@ -64,10 +64,6 @@ public class IncomeStatement implements Serializable {
         this.minorityInterest = minorityInterest;
         this.netIncome = netIncome;
         this.netIncomeBasic = netIncomeBasic;
-    }
-
-    public LocalDate getReportDate() {
-        return reportDate;
     }
 
     public BigDecimal getTotalRevenue() {
@@ -138,28 +134,30 @@ public class IncomeStatement implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
+        if (!super.equals(o)) {
+            return false;
+        }
         final IncomeStatement that = (IncomeStatement) o;
-        return Objects.equal(reportDate, that.reportDate) &&
-                Objects.equal(totalRevenue, that.totalRevenue) &&
-                Objects.equal(costOfRevenue, that.costOfRevenue) &&
-                Objects.equal(grossProfit, that.grossProfit) &&
-                Objects.equal(researchAndDevelopment, that.researchAndDevelopment) &&
-                Objects.equal(sellingGeneralAndAdmin, that.sellingGeneralAndAdmin) &&
-                Objects.equal(operatingExpense, that.operatingExpense) &&
-                Objects.equal(operatingIncome, that.operatingIncome) &&
-                Objects.equal(otherIncomeExpenseNet, that.otherIncomeExpenseNet) &&
-                Objects.equal(ebit, that.ebit) &&
-                Objects.equal(interestIncome, that.interestIncome) &&
-                Objects.equal(pretaxIncome, that.pretaxIncome) &&
-                Objects.equal(incomeTax, that.incomeTax) &&
-                Objects.equal(minorityInterest, that.minorityInterest) &&
-                Objects.equal(netIncome, that.netIncome) &&
-                Objects.equal(netIncomeBasic, that.netIncomeBasic);
+        return Objects.equals(totalRevenue, that.totalRevenue) &&
+                Objects.equals(costOfRevenue, that.costOfRevenue) &&
+                Objects.equals(grossProfit, that.grossProfit) &&
+                Objects.equals(researchAndDevelopment, that.researchAndDevelopment) &&
+                Objects.equals(sellingGeneralAndAdmin, that.sellingGeneralAndAdmin) &&
+                Objects.equals(operatingExpense, that.operatingExpense) &&
+                Objects.equals(operatingIncome, that.operatingIncome) &&
+                Objects.equals(otherIncomeExpenseNet, that.otherIncomeExpenseNet) &&
+                Objects.equals(ebit, that.ebit) &&
+                Objects.equals(interestIncome, that.interestIncome) &&
+                Objects.equals(pretaxIncome, that.pretaxIncome) &&
+                Objects.equals(incomeTax, that.incomeTax) &&
+                Objects.equals(minorityInterest, that.minorityInterest) &&
+                Objects.equals(netIncome, that.netIncome) &&
+                Objects.equals(netIncomeBasic, that.netIncomeBasic);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(reportDate, totalRevenue, costOfRevenue, grossProfit, researchAndDevelopment,
+        return Objects.hash(super.hashCode(), totalRevenue, costOfRevenue, grossProfit, researchAndDevelopment,
                 sellingGeneralAndAdmin, operatingExpense, operatingIncome, otherIncomeExpenseNet, ebit,
                 interestIncome, pretaxIncome, incomeTax, minorityInterest, netIncome, netIncomeBasic);
     }
@@ -167,7 +165,6 @@ public class IncomeStatement implements Serializable {
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("reportDate", reportDate)
                 .add("totalRevenue", totalRevenue)
                 .add("costOfRevenue", costOfRevenue)
                 .add("grossProfit", grossProfit)

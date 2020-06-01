@@ -3,17 +3,15 @@ package pl.zankowski.iextrading4j.api.stocks.v1;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Objects;
 
-public class CashFlow implements Serializable {
+public class CashFlow extends Report {
 
     private static final Long serialVersionUID = 3659383763381838960L;
 
-    private final LocalDate reportDate;
     private final BigDecimal netIncome;
     private final BigDecimal depreciation;
     private final BigDecimal changesInReceivables;
@@ -33,6 +31,8 @@ public class CashFlow implements Serializable {
     @JsonCreator
     public CashFlow(
             @JsonProperty("reportDate") final LocalDate reportDate,
+            @JsonProperty("fiscalDate") final LocalDate fiscalDate,
+            @JsonProperty("currency") final String currency,
             @JsonProperty("netIncome") final BigDecimal netIncome,
             @JsonProperty("depreciation") final BigDecimal depreciation,
             @JsonProperty("changesInReceivables") final BigDecimal changesInReceivables,
@@ -48,7 +48,7 @@ public class CashFlow implements Serializable {
             @JsonProperty("otherFinancingCashFlows") final BigDecimal otherFinancingCashFlows,
             @JsonProperty("cashFlowFinancing") final BigDecimal cashFlowFinancing,
             @JsonProperty("exchangeRateEffect") final BigDecimal exchangeRateEffect) {
-        this.reportDate = reportDate;
+        super(reportDate, fiscalDate, currency);
         this.netIncome = netIncome;
         this.depreciation = depreciation;
         this.changesInReceivables = changesInReceivables;
@@ -64,10 +64,6 @@ public class CashFlow implements Serializable {
         this.otherFinancingCashFlows = otherFinancingCashFlows;
         this.cashFlowFinancing = cashFlowFinancing;
         this.exchangeRateEffect = exchangeRateEffect;
-    }
-
-    public LocalDate getReportDate() {
-        return reportDate;
     }
 
     public BigDecimal getNetIncome() {
@@ -138,34 +134,37 @@ public class CashFlow implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
+        if (!super.equals(o)) {
+            return false;
+        }
         final CashFlow cashFlow1 = (CashFlow) o;
-        return Objects.equal(reportDate, cashFlow1.reportDate) &&
-                Objects.equal(netIncome, cashFlow1.netIncome) &&
-                Objects.equal(depreciation, cashFlow1.depreciation) &&
-                Objects.equal(changesInReceivables, cashFlow1.changesInReceivables) &&
-                Objects.equal(changesInInventories, cashFlow1.changesInInventories) &&
-                Objects.equal(cashChange, cashFlow1.cashChange) &&
-                Objects.equal(cashFlow, cashFlow1.cashFlow) &&
-                Objects.equal(capitalExpenditures, cashFlow1.capitalExpenditures) &&
-                Objects.equal(investments, cashFlow1.investments) &&
-                Objects.equal(investingActivityOther, cashFlow1.investingActivityOther) &&
-                Objects.equal(totalInvestingCashFlows, cashFlow1.totalInvestingCashFlows) &&
-                Objects.equal(dividendsPaid, cashFlow1.dividendsPaid) &&
-                Objects.equal(netBorrowings, cashFlow1.netBorrowings) &&
-                Objects.equal(otherFinancingCashFlows, cashFlow1.otherFinancingCashFlows) &&
-                Objects.equal(cashFlowFinancing, cashFlow1.cashFlowFinancing) &&
-                Objects.equal(exchangeRateEffect, cashFlow1.exchangeRateEffect);
+        return Objects.equals(netIncome, cashFlow1.netIncome) &&
+                Objects.equals(depreciation, cashFlow1.depreciation) &&
+                Objects.equals(changesInReceivables, cashFlow1.changesInReceivables) &&
+                Objects.equals(changesInInventories, cashFlow1.changesInInventories) &&
+                Objects.equals(cashChange, cashFlow1.cashChange) &&
+                Objects.equals(cashFlow, cashFlow1.cashFlow) &&
+                Objects.equals(capitalExpenditures, cashFlow1.capitalExpenditures) &&
+                Objects.equals(investments, cashFlow1.investments) &&
+                Objects.equals(investingActivityOther, cashFlow1.investingActivityOther) &&
+                Objects.equals(totalInvestingCashFlows, cashFlow1.totalInvestingCashFlows) &&
+                Objects.equals(dividendsPaid, cashFlow1.dividendsPaid) &&
+                Objects.equals(netBorrowings, cashFlow1.netBorrowings) &&
+                Objects.equals(otherFinancingCashFlows, cashFlow1.otherFinancingCashFlows) &&
+                Objects.equals(cashFlowFinancing, cashFlow1.cashFlowFinancing) &&
+                Objects.equals(exchangeRateEffect, cashFlow1.exchangeRateEffect);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(reportDate, netIncome, depreciation, changesInReceivables, changesInInventories, cashChange, cashFlow, capitalExpenditures, investments, investingActivityOther, totalInvestingCashFlows, dividendsPaid, netBorrowings, otherFinancingCashFlows, cashFlowFinancing, exchangeRateEffect);
+        return Objects.hash(super.hashCode(), netIncome, depreciation, changesInReceivables, changesInInventories,
+                cashChange, cashFlow, capitalExpenditures, investments, investingActivityOther, totalInvestingCashFlows,
+                dividendsPaid, netBorrowings, otherFinancingCashFlows, cashFlowFinancing, exchangeRateEffect);
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("reportDate", reportDate)
                 .add("netIncome", netIncome)
                 .add("depreciation", depreciation)
                 .add("changesInReceivables", changesInReceivables)

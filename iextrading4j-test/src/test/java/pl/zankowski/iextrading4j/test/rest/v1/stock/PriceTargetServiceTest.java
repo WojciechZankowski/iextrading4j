@@ -8,11 +8,7 @@ import pl.zankowski.iextrading4j.test.rest.v1.BaseIEXCloudV1ServiceTest;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
-import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
-import static com.github.tomakehurst.wiremock.client.WireMock.get;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
-import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PriceTargetServiceTest extends BaseIEXCloudV1ServiceTest {
@@ -37,6 +33,7 @@ public class PriceTargetServiceTest extends BaseIEXCloudV1ServiceTest {
         assertThat(result.getPriceTargetHigh()).isEqualTo(BigDecimal.valueOf(245));
         assertThat(result.getPriceTargetLow()).isEqualTo(BigDecimal.valueOf(150));
         assertThat(result.getNumberOfAnalysts()).isEqualTo(BigDecimal.valueOf(34));
+        assertThat(result.getCurrency()).isEqualTo("USD");
     }
 
 }

@@ -4,5 +4,6 @@
   "priceTargetAverage": 212.77,
   "priceTargetHigh": 245,
   "priceTargetLow": 150,
-  "numberOfAnalysts": 34
+  "numberOfAnalysts": 34,
+  "currency": "USD"
 }
