@@ -8,7 +8,8 @@ public enum DividendRange {
     YEAR_TO_DATE("ytd"),
     ONE_YEAR("1y"),
     TWO_YEARS("2y"),
-    FIVE_YEARS("5y");
+    FIVE_YEARS("5y"),
+    NEXT("next");
 
     private final String code;
 
