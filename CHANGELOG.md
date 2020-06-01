@@ -1,6 +1,19 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.3.3] - 2020-06-01
+
+### Changed
+
+- Added ```next``` to Dividends Range [[#94](https://github.com/WojciechZankowski/iextrading4j/pull/94)]
+- Added ```figi``` and ```cik``` to ref data
+- Added ```fiscalDate``` and ```currency``` to Balance Sheet
+- Added ```fiscalDate``` and ```currency``` to Cash Flow
+- Added ```fiscalDate``` and ```currency``` to Financials
+- Added ```fiscalDate``` and ```currency``` to Income Statement
+- Added ```currency``` to Price Targets
+- Added ```highTime```, ```highSource```, ```lowTime```, ```lowSource```, ```iexOpen```, ```iexOpenTime```, ```iexClose```, ```iexCloseTime``` attributes to Stock Quote
+
 ## [3.3.2] - 2019-12-23
 
 ### Changed
@@ -356,3 +369,5 @@ All notable changes to this project will be documented in this file.
 [3.2.8]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_7...IT4J_RELEASE_3_2_8
 [3.3.0]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_2_8...IT4J_RELEASE_3_3_0
 [3.3.1]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_3_0...IT4J_RELEASE_3_3_1
+[3.3.2]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_3_1...IT4J_RELEASE_3_3_2
+[3.3.3]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_3_2...IT4J_RELEASE_3_3_3

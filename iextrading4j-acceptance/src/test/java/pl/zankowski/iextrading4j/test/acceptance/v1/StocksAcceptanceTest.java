@@ -15,30 +15,14 @@ import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.api.stocks.SectorPerformance;
 import pl.zankowski.iextrading4j.api.stocks.TodayEarnings;
 import pl.zankowski.iextrading4j.api.stocks.TodayIpos;
-import pl.zankowski.iextrading4j.api.stocks.v1.AdvancedStats;
-import pl.zankowski.iextrading4j.api.stocks.v1.BalanceSheets;
-import pl.zankowski.iextrading4j.api.stocks.v1.BatchStocks;
-import pl.zankowski.iextrading4j.api.stocks.v1.CashFlows;
-import pl.zankowski.iextrading4j.api.stocks.v1.Dividends;
-import pl.zankowski.iextrading4j.api.stocks.v1.Estimates;
-import pl.zankowski.iextrading4j.api.stocks.v1.Financials;
-import pl.zankowski.iextrading4j.api.stocks.v1.FundOwnership;
-import pl.zankowski.iextrading4j.api.stocks.v1.IncomeStatements;
-import pl.zankowski.iextrading4j.api.stocks.v1.InsiderRoster;
-import pl.zankowski.iextrading4j.api.stocks.v1.InsiderSummary;
-import pl.zankowski.iextrading4j.api.stocks.v1.InsiderTransaction;
-import pl.zankowski.iextrading4j.api.stocks.v1.Intraday;
-import pl.zankowski.iextrading4j.api.stocks.v1.KeyStats;
-import pl.zankowski.iextrading4j.api.stocks.v1.News;
-import pl.zankowski.iextrading4j.api.stocks.v1.Ownership;
-import pl.zankowski.iextrading4j.api.stocks.v1.TechnicalIndicator;
-import pl.zankowski.iextrading4j.api.stocks.v1.TechnicalIndicatorType;
+import pl.zankowski.iextrading4j.api.stocks.v1.*;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.BookRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ChartRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CollectionRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CollectionType;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.CompanyRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.DelayedQuoteRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.DividendRange;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.EarningsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.LargestTradeRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.ListRequestBuilder;
@@ -52,26 +36,7 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.SectorPerformanceReq
 import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayEarningsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayIposRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.UpcomingIposRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.AdvancedStatsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.BalanceSheetRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.BatchMarketStocksRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.BatchStocksRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.BatchStocksType;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.CashFlowRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.DividendsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.EstimatesRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.FinancialsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.FundOwnershipRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.IncomeStatementRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.InsiderRosterRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.InsiderSummaryRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.InsiderTransactionRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.InstitutionalOwnershipRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.IntradayRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.KeyStatsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.NewsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.Period;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.TechnicalIndicatorRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.*;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -172,6 +137,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         final Quote result = cloudClient.executeRequest(new QuoteRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
+        System.out.println(result);
         assertThat(result).isNotNull();
     }
 
@@ -187,6 +153,15 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     public void dividendsTest() {
         final List<Dividends> result = cloudClient.executeRequest(new DividendsRequestBuilder()
                 .withSymbol("AAPL")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void nextDividendsTest() {
+        final List<Dividends> result = cloudClient.executeRequest(new DividendsRequestBuilder()
+                .withSymbol("AAPL")
+                .withDividendRange(DividendRange.NEXT)
                 .build());
         assertThat(result).isNotNull();
     }
@@ -264,6 +239,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         final IncomeStatements result = cloudClient.executeRequest(new IncomeStatementRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
+        System.out.println(result);
         assertThat(result).isNotNull();
     }
 
@@ -618,6 +594,15 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
                 .withRange(ChartRange.SIX_MONTHS)
                 .build());
         assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void priceTargetTest() {
+        final PriceTarget priceTarget = cloudClient.executeRequest(new PriceTargetRequestBuilder()
+                .withSymbol("AAPL")
+                .build());
+        System.out.println(priceTarget);
+        assertThat(priceTarget).isNotNull();
     }
 
 }

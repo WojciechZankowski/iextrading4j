@@ -17,6 +17,8 @@ public class FinancialTest {
     @Test
     public void constructor() {
         final LocalDate reportDate = fixture.create(LocalDate.class);
+        final LocalDate fiscalDate = fixture.create(LocalDate.class);
+        final String currency = fixture.create(String.class);
         final BigDecimal grossProfit = fixture.create(BigDecimal.class);
         final BigDecimal costOfRevenue = fixture.create(BigDecimal.class);
         final BigDecimal operatingRevenue = fixture.create(BigDecimal.class);
@@ -38,12 +40,14 @@ public class FinancialTest {
         final BigDecimal cashChange = fixture.create(BigDecimal.class);
         final BigDecimal cashFlow = fixture.create(BigDecimal.class);
 
-        final Financial financial = new Financial(reportDate, grossProfit, costOfRevenue, operatingRevenue,
-                totalRevenue, operatingIncome, netIncome, researchAndDevelopment, operatingExpense,
+        final Financial financial = new Financial(reportDate, fiscalDate, currency, grossProfit, costOfRevenue,
+                operatingRevenue, totalRevenue, operatingIncome, netIncome, researchAndDevelopment, operatingExpense,
                 currentAssets, totalAssets, totalLiabilities, currentCash, currentDebt, shortTermDebt, longTermDebt,
                 totalCash, totalDebt, shareholderEquity, cashChange, cashFlow);
 
         assertThat(financial.getReportDate()).isEqualTo(reportDate);
+        assertThat(financial.getFiscalDate()).isEqualTo(fiscalDate);
+        assertThat(financial.getCurrency()).isEqualTo(currency);
         assertThat(financial.getGrossProfit()).isEqualTo(grossProfit);
         assertThat(financial.getCostOfRevenue()).isEqualTo(costOfRevenue);
         assertThat(financial.getOperatingRevenue()).isEqualTo(operatingRevenue);

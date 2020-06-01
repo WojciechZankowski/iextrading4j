@@ -2,13 +2,16 @@ package pl.zankowski.iextrading4j.api.stocks.v1;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Objects;
+import java.util.StringJoiner;
 
+@JsonPropertyOrder({"symbol", "updatedDate", "priceTargetAverage", "priceTargetHigh",
+        "priceTargetLow", "numberOfAnalysis", "currency"})
 public class PriceTarget implements Serializable {
 
     private static final long serialVersionUID = 2641199116590474197L;
@@ -19,6 +22,7 @@ public class PriceTarget implements Serializable {
     private final BigDecimal priceTargetHigh;
     private final BigDecimal priceTargetLow;
     private final BigDecimal numberOfAnalysts;
+    private final String currency;
 
     @JsonCreator
     public PriceTarget(
@@ -27,13 +31,15 @@ public class PriceTarget implements Serializable {
             @JsonProperty("priceTargetAverage") final BigDecimal priceTargetAverage,
             @JsonProperty("priceTargetHigh") final BigDecimal priceTargetHigh,
             @JsonProperty("priceTargetLow") final BigDecimal priceTargetLow,
-            @JsonProperty("numberOfAnalysts") final BigDecimal numberOfAnalysts) {
+            @JsonProperty("numberOfAnalysts") final BigDecimal numberOfAnalysts,
+            @JsonProperty("currency") final String currency) {
         this.symbol = symbol;
         this.updatedDate = updatedDate;
         this.priceTargetAverage = priceTargetAverage;
         this.priceTargetHigh = priceTargetHigh;
         this.priceTargetLow = priceTargetLow;
         this.numberOfAnalysts = numberOfAnalysts;
+        this.currency = currency;
     }
 
     public String getSymbol() {
@@ -60,38 +66,40 @@ public class PriceTarget implements Serializable {
         return numberOfAnalysts;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
     @Override
-    public boolean equals(final Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        final PriceTarget that = (PriceTarget) o;
-        return Objects.equal(symbol, that.symbol) &&
-                Objects.equal(updatedDate, that.updatedDate) &&
-                Objects.equal(priceTargetAverage, that.priceTargetAverage) &&
-                Objects.equal(priceTargetHigh, that.priceTargetHigh) &&
-                Objects.equal(priceTargetLow, that.priceTargetLow) &&
-                Objects.equal(numberOfAnalysts, that.numberOfAnalysts);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PriceTarget that = (PriceTarget) o;
+        return Objects.equals(symbol, that.symbol) &&
+                Objects.equals(updatedDate, that.updatedDate) &&
+                Objects.equals(priceTargetAverage, that.priceTargetAverage) &&
+                Objects.equals(priceTargetHigh, that.priceTargetHigh) &&
+                Objects.equals(priceTargetLow, that.priceTargetLow) &&
+                Objects.equals(numberOfAnalysts, that.numberOfAnalysts) &&
+                Objects.equals(currency, that.currency);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(symbol, updatedDate, priceTargetAverage, priceTargetHigh, priceTargetLow, numberOfAnalysts);
+        return Objects.hash(symbol, updatedDate, priceTargetAverage, priceTargetHigh, priceTargetLow,
+                numberOfAnalysts, currency);
     }
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("symbol", symbol)
-                .add("updatedDate", updatedDate)
-                .add("priceTargetAverage", priceTargetAverage)
-                .add("priceTargetHigh", priceTargetHigh)
-                .add("priceTargetLow", priceTargetLow)
-                .add("numberOfAnalysts", numberOfAnalysts)
+        return new StringJoiner(", ", PriceTarget.class.getSimpleName() + "[", "]")
+                .add("symbol='" + symbol + "'")
+                .add("updatedDate=" + updatedDate)
+                .add("priceTargetAverage=" + priceTargetAverage)
+                .add("priceTargetHigh=" + priceTargetHigh)
+                .add("priceTargetLow=" + priceTargetLow)
+                .add("numberOfAnalysts=" + numberOfAnalysts)
+                .add("currency='" + currency + "'")
                 .toString();
     }
-
 }

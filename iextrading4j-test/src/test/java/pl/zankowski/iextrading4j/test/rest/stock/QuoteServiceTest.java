@@ -37,10 +37,16 @@ public class QuoteServiceTest extends BaseRestServiceTest {
         assertThat(quote.getCalculationPrice()).isEqualTo("tops");
         assertThat(quote.getOpen()).isEqualTo(BigDecimal.valueOf(170.89));
         assertThat(quote.getOpenTime()).isEqualTo(1510929000472L);
+        assertThat(quote.getOpenSource()).isEqualTo("open source");
         assertThat(quote.getClose()).isEqualTo(BigDecimal.valueOf(171.1));
         assertThat(quote.getCloseTime()).isEqualTo(1510866000375L);
+        assertThat(quote.getCloseSource()).isEqualTo("close source");
         assertThat(quote.getHigh()).isEqualTo(BigDecimal.valueOf(170.78));
+        assertThat(quote.getHighTime()).isEqualTo(1510929000472L);
+        assertThat(quote.getHighSource()).isEqualTo("high source");
         assertThat(quote.getLow()).isEqualTo(BigDecimal.valueOf(169.71));
+        assertThat(quote.getLowTime()).isEqualTo(1510929000472L);
+        assertThat(quote.getLowSource()).isEqualTo("low source");
         assertThat(quote.getLatestPrice()).isEqualTo(BigDecimal.valueOf(170.39));
         assertThat(quote.getLatestSource()).isEqualTo("IEX real time price");
         assertThat(quote.getLatestTime()).isEqualTo("1:18:58 PM");
@@ -65,6 +71,10 @@ public class QuoteServiceTest extends BaseRestServiceTest {
         assertThat(quote.getIexBidSize()).isEqualTo(BigDecimal.valueOf(100));
         assertThat(quote.getIexAskPrice()).isEqualTo(BigDecimal.valueOf(172));
         assertThat(quote.getIexAskSize()).isEqualTo(BigDecimal.valueOf(315));
+        assertThat(quote.getIexOpen()).isEqualTo(BigDecimal.valueOf(155.05));
+        assertThat(quote.getIexOpenTime()).isEqualTo(1510929000472L);
+        assertThat(quote.getIexClose()).isEqualTo(BigDecimal.valueOf(156.55));
+        assertThat(quote.getIexCloseTime()).isEqualTo(1510866000375L);
         assertThat(quote.getMarketCap()).isEqualTo(BigDecimal.valueOf(874835421680L));
         assertThat(quote.getPeRatio()).isEqualTo(BigDecimal.valueOf(19.36));
         assertThat(quote.getWeek52High()).isEqualTo(BigDecimal.valueOf(176.24));

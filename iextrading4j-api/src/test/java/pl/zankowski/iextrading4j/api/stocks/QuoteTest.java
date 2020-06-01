@@ -22,10 +22,16 @@ public class QuoteTest {
         final String calculationPrice = fixture.create(String.class);
         final BigDecimal open = fixture.create(BigDecimal.class);
         final Long openTime = fixture.create(Long.class);
+        final String openSource = fixture.create(String.class);
         final BigDecimal close = fixture.create(BigDecimal.class);
         final Long closeTime = fixture.create(Long.class);
+        final String closeSource = fixture.create(String.class);
         final BigDecimal high = fixture.create(BigDecimal.class);
+        final Long highTime = fixture.create(Long.class);
+        final String highSource = fixture.create(String.class);
         final BigDecimal low = fixture.create(BigDecimal.class);
+        final Long lowTime = fixture.create(Long.class);
+        final String lowSource = fixture.create(String.class);
         final BigDecimal volume = fixture.create(BigDecimal.class);
         final BigDecimal latestPrice = fixture.create(BigDecimal.class);
         final String latestSource = fixture.create(String.class);
@@ -61,18 +67,24 @@ public class QuoteTest {
         final BigDecimal bidSize = fixture.create(BigDecimal.class);
         final BigDecimal askPrice = fixture.create(BigDecimal.class);
         final BigDecimal askSize = fixture.create(BigDecimal.class);
+        final BigDecimal iexOpen = fixture.create(BigDecimal.class);
+        final Long iexOpenTime = fixture.create(Long.class);
+        final BigDecimal iexClose = fixture.create(BigDecimal.class);
+        final Long iexCloseTime = fixture.create(Long.class);
         final Long lastTradeTime = fixture.create(Long.class);
         final Boolean isUSMarketOpen = fixture.create(Boolean.class);
         final BigDecimal oddLotDelayedPrice = fixture.create(BigDecimal.class);
         final Long oddLotDelayedPriceTime = fixture.create(Long.class);
 
         final Quote quote = new Quote(symbol, companyName, primaryExchange, sector, calculationPrice, open,
-                openTime, close, closeTime, high, low, volume, latestPrice, latestSource, latestTime, latestUpdate,
+                openTime, openSource, close, closeTime, closeSource, high, highTime, highSource, low, lowTime, lowSource,
+                volume, latestPrice, latestSource, latestTime, latestUpdate,
                 latestVolume, iexRealtimePrice, iexRealtimeSize, iexLastUpdated, delayedPrice, delayedPriceTime,
                 extendedPrice, extendedChange, extendedChangePercent, extendedPriceTime, previousClose, previousVolume,
                 change, changePercent, iexMarketPercent, iexVolume, avgTotalVolume, iexBidPrice, iexBidSize, iexAskPrice,
-                iexAskSize, marketCap, peRatio, week52High, week52Low, ytdChange, bidPrice, bidSize, askPrice, askSize,
-                lastTradeTime, isUSMarketOpen, oddLotDelayedPrice, oddLotDelayedPriceTime);
+                iexAskSize, iexOpen, iexOpenTime, iexClose, iexCloseTime, marketCap, peRatio, week52High, week52Low,
+                ytdChange, bidPrice, bidSize, askPrice, askSize, lastTradeTime, isUSMarketOpen, oddLotDelayedPrice,
+                oddLotDelayedPriceTime);
 
         assertThat(quote.getSymbol()).isEqualTo(symbol);
         assertThat(quote.getCompanyName()).isEqualTo(companyName);
@@ -81,8 +93,10 @@ public class QuoteTest {
         assertThat(quote.getCalculationPrice()).isEqualTo(calculationPrice);
         assertThat(quote.getOpen()).isEqualTo(open);
         assertThat(quote.getOpenTime()).isEqualTo(openTime);
+        assertThat(quote.getOpenSource()).isEqualTo(openSource);
         assertThat(quote.getClose()).isEqualTo(close);
         assertThat(quote.getCloseTime()).isEqualTo(closeTime);
+        assertThat(quote.getCloseSource()).isEqualTo(closeSource);
         assertThat(quote.getHigh()).isEqualTo(high);
         assertThat(quote.getLow()).isEqualTo(low);
         assertThat(quote.getVolume()).isEqualTo(volume);
@@ -111,6 +125,10 @@ public class QuoteTest {
         assertThat(quote.getIexBidSize()).isEqualTo(iexBidSize);
         assertThat(quote.getIexAskPrice()).isEqualTo(iexAskPrice);
         assertThat(quote.getIexAskSize()).isEqualTo(iexAskSize);
+        assertThat(quote.getIexOpen()).isEqualTo(iexOpen);
+        assertThat(quote.getIexOpenTime()).isEqualTo(iexOpenTime);
+        assertThat(quote.getIexClose()).isEqualTo(iexClose);
+        assertThat(quote.getIexCloseTime()).isEqualTo(iexCloseTime);
         assertThat(quote.getMarketCap()).isEqualTo(marketCap);
         assertThat(quote.getPeRatio()).isEqualTo(peRatio);
         assertThat(quote.getWeek52High()).isEqualTo(week52High);

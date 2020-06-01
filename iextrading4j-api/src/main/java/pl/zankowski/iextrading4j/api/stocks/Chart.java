@@ -4,16 +4,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
 import pl.zankowski.iextrading4j.api.util.ListUtil;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
+import java.util.StringJoiner;
 
 @JsonPropertyOrder({"minute", "marketAverage", "marketNotional", "marketNumberOfTrades", "marketHigh",
         "marketLow", "marketVolume", "marketChangeOverTime", "marketOpen", "marketClose", "average", "notional",
         "numberOfTrades", "high", "low", "volume", "date", "open", "close", "unadjustedVolume",
-        "change", "changeInPercent", "vwap", "label", "changeOverTime", "simplifyFactor"})
+        "change", "changeInPercent", "vwap", "label", "changeOverTime", "simplifyFactor", "currency"})
 public class Chart extends TimeSeries {
 
     private static final long serialVersionUID = -9161802845718659470L;
@@ -32,6 +33,7 @@ public class Chart extends TimeSeries {
     private final BigDecimal notional;
     private final BigDecimal numberOfTrades;
     private final List<BigDecimal> simplifyFactor;
+    private final String currency;
 
     @JsonCreator
     public Chart(
@@ -65,7 +67,8 @@ public class Chart extends TimeSeries {
             @JsonProperty("unadjustedVolume") final BigDecimal unadjustedVolume,
             @JsonProperty("change") final BigDecimal change,
             @JsonProperty("changePercent") final BigDecimal changePercent,
-            @JsonProperty("vwap") final BigDecimal vwap) {
+            @JsonProperty("vwap") final BigDecimal vwap,
+            @JsonProperty("currency") final String currency) {
         super(date, open, high, low, close, volume, uOpen, uHigh, uLow, uClose, uVolume, unadjustedVolume, change,
                 changePercent, vwap, label, changeOverTime);
         this.minute = minute;
@@ -82,6 +85,7 @@ public class Chart extends TimeSeries {
         this.notional = notional;
         this.numberOfTrades = numberOfTrades;
         this.simplifyFactor = ListUtil.immutableList(simplifyFactor);
+        this.currency = currency;
     }
 
     public String getMinute() {
@@ -140,69 +144,64 @@ public class Chart extends TimeSeries {
         return simplifyFactor;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
         final Chart chart = (Chart) o;
-        return Objects.equal(minute, chart.minute) &&
-                Objects.equal(marketAverage, chart.marketAverage) &&
-                Objects.equal(marketNotional, chart.marketNotional) &&
-                Objects.equal(marketNumberOfTrades, chart.marketNumberOfTrades) &&
-                Objects.equal(marketHigh, chart.marketHigh) &&
-                Objects.equal(marketLow, chart.marketLow) &&
-                Objects.equal(marketVolume, chart.marketVolume) &&
-                Objects.equal(marketChangeOverTime, chart.marketChangeOverTime) &&
-                Objects.equal(marketOpen, chart.marketOpen) &&
-                Objects.equal(marketClose, chart.marketClose) &&
-                Objects.equal(average, chart.average) &&
-                Objects.equal(notional, chart.notional) &&
-                Objects.equal(numberOfTrades, chart.numberOfTrades) &&
-                Objects.equal(simplifyFactor, chart.simplifyFactor);
+        return Objects.equals(minute, chart.minute) &&
+                Objects.equals(marketAverage, chart.marketAverage) &&
+                Objects.equals(marketNotional, chart.marketNotional) &&
+                Objects.equals(marketNumberOfTrades, chart.marketNumberOfTrades) &&
+                Objects.equals(marketHigh, chart.marketHigh) &&
+                Objects.equals(marketLow, chart.marketLow) &&
+                Objects.equals(marketVolume, chart.marketVolume) &&
+                Objects.equals(marketChangeOverTime, chart.marketChangeOverTime) &&
+                Objects.equals(marketOpen, chart.marketOpen) &&
+                Objects.equals(marketClose, chart.marketClose) &&
+                Objects.equals(average, chart.average) &&
+                Objects.equals(notional, chart.notional) &&
+                Objects.equals(numberOfTrades, chart.numberOfTrades) &&
+                Objects.equals(simplifyFactor, chart.simplifyFactor) &&
+                Objects.equals(currency, chart.currency);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(super.hashCode(), minute, marketAverage, marketNotional, marketNumberOfTrades,
+        return Objects.hash(super.hashCode(), minute, marketAverage, marketNotional, marketNumberOfTrades,
                 marketHigh, marketLow, marketVolume, marketChangeOverTime, marketOpen, marketClose, average,
-                notional, numberOfTrades, simplifyFactor);
+                notional, numberOfTrades, simplifyFactor, currency);
     }
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("date", getDate())
-                .add("open", getOpen())
-                .add("high", getHigh())
-                .add("low", getLow())
-                .add("close", getClose())
-                .add("volume", getVolume())
-                .add("uOpen", getuOpen())
-                .add("uHigh", getuHigh())
-                .add("uLow", getuLow())
-                .add("uClose", getuClose())
-                .add("uVolume", getuVolume())
-                .add("unadjustedVolume", getUnadjustedVolume())
-                .add("change", getChange())
-                .add("changePercent", getChangePercent())
-                .add("vwap", getVwap())
-                .add("label", getLabel())
-                .add("changeOverTime", getChangeOverTime())
-                .add("minute", minute)
-                .add("marketAverage", marketAverage)
-                .add("marketNotional", marketNotional)
-                .add("marketNumberOfTrades", marketNumberOfTrades)
-                .add("marketHigh", marketHigh)
-                .add("marketLow", marketLow)
-                .add("marketVolume", marketVolume)
-                .add("marketChangeOverTime", marketChangeOverTime)
-                .add("marketOpen", marketOpen)
-                .add("marketClose", marketClose)
-                .add("average", average)
-                .add("notional", notional)
-                .add("numberOfTrades", numberOfTrades)
-                .add("simplifyFactor", simplifyFactor)
+        return new StringJoiner(", ", Chart.class.getSimpleName() + "[", "]")
+                .add("minute='" + minute + "'")
+                .add("marketAverage=" + marketAverage)
+                .add("marketNotional=" + marketNotional)
+                .add("marketNumberOfTrades=" + marketNumberOfTrades)
+                .add("marketHigh=" + marketHigh)
+                .add("marketLow=" + marketLow)
+                .add("marketVolume=" + marketVolume)
+                .add("marketChangeOverTime=" + marketChangeOverTime)
+                .add("marketOpen=" + marketOpen)
+                .add("marketClose=" + marketClose)
+                .add("average=" + average)
+                .add("notional=" + notional)
+                .add("numberOfTrades=" + numberOfTrades)
+                .add("simplifyFactor=" + simplifyFactor)
+                .add("currency='" + currency + "'")
                 .toString();
     }
 }

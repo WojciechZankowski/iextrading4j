@@ -22,9 +22,10 @@ public class PriceTargetTest {
         final BigDecimal priceTargetHigh = fixture.create(BigDecimal.class);
         final BigDecimal priceTargetLow = fixture.create(BigDecimal.class);
         final BigDecimal numberOfAnalysts = fixture.create(BigDecimal.class);
+        final String currency = fixture.create(String.class);
 
         final PriceTarget priceTarget = new PriceTarget(symbol, updatedDate, priceTargetAverage,
-                priceTargetHigh, priceTargetLow, numberOfAnalysts);
+                priceTargetHigh, priceTargetLow, numberOfAnalysts, currency);
 
         assertThat(priceTarget.getSymbol()).isEqualTo(symbol);
         assertThat(priceTarget.getUpdatedDate()).isEqualTo(updatedDate);

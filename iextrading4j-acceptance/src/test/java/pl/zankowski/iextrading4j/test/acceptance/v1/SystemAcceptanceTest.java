@@ -12,6 +12,7 @@ public class SystemAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     public void systemStatusTest() {
         final SystemStatus systemStatus = cloudClient.executeRequest(new SystemStatusRequestBuilder()
                 .build());
+        System.out.println(systemStatus);
         assertThat(systemStatus).isNotNull();
     }
 
