@@ -35,6 +35,7 @@ public class DividendsServiceTest extends BaseIEXCloudV1ServiceTest {
                 .build());
 
         final Dividends dividends = dividendsList.get(0);
+        assertThat(dividends.getSymbol()).isEqualTo("AAPL");
         assertThat(dividends.getExDate()).isEqualTo(LocalDate.of(2019, 5, 10));
         assertThat(dividends.getPaymentDate()).isEqualTo(LocalDate.of(2019, 5, 16));
         assertThat(dividends.getRecordDate()).isEqualTo(LocalDate.of(2019, 5, 13));

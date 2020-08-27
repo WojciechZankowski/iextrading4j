@@ -16,6 +16,7 @@ public class DividendsTest {
 
     @Test
     public void constructor() {
+        final String symbol = fixture.create(String.class);
         final LocalDate exDate = fixture.create(LocalDate.class);
         final LocalDate paymentDate = fixture.create(LocalDate.class);
         final LocalDate recordDate = fixture.create(LocalDate.class);
@@ -27,9 +28,10 @@ public class DividendsTest {
         final String frequency = fixture.create(String.class);
         final LocalDate date = fixture.create(LocalDate.class);
 
-        final Dividends dividends = new Dividends(exDate, paymentDate, recordDate, declaredDate, amount,
+        final Dividends dividends = new Dividends(symbol, exDate, paymentDate, recordDate, declaredDate, amount,
                 flag, currency, description, frequency, date);
 
+        assertThat(dividends.getSymbol()).isEqualTo(symbol);
         assertThat(dividends.getExDate()).isEqualTo(exDate);
         assertThat(dividends.getPaymentDate()).isEqualTo(paymentDate);
         assertThat(dividends.getRecordDate()).isEqualTo(recordDate);
