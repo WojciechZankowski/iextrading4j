@@ -29,4 +29,21 @@ public class QuoteSseRequestBuilderTest {
         assertThat(request.getQueryParams()).contains(entry("nosnapshot", "false"), entry("symbols", symbol));
     }
 
+    @Test
+    public void shouldSuccessfullyCreateRequestNoUTP() {
+        final String symbol = "IBM";
+
+        final SseRequest<List<Quote>> request = new QuoteSseRequestBuilder()
+                .withQuoteInterval(QuoteInterval.REALTIME)
+                .withSymbol(symbol)
+                .withNoUTP()
+                .build();
+
+        assertThat(request.getPath()).isEqualTo("/stocksUSNoUTP{interval}");
+        assertThat(request.getResponseType()).isEqualTo(new GenericType<List<Quote>>() {
+        });
+        assertThat(request.getPathParams()).contains(entry("interval", ""));
+        assertThat(request.getQueryParams()).contains(entry("nosnapshot", "false"), entry("symbols", symbol));
+    }
+
 }
