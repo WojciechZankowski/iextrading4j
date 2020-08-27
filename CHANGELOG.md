@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.3.4] - 2020-08-27
+
+### Added
+
+- Added support to no UTP SSE quotes [[#97](https://github.com/WojciechZankowski/iextrading4j/pull/97)] [@lucasbaizer2](https://github.com/lucasbaizer2)
+- Added ```symbol``` to Dividens
+
 ## [3.3.3] - 2020-06-01
 
 ### Changed
@@ -371,3 +378,4 @@ All notable changes to this project will be documented in this file.
 [3.3.1]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_3_0...IT4J_RELEASE_3_3_1
 [3.3.2]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_3_1...IT4J_RELEASE_3_3_2
 [3.3.3]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_3_2...IT4J_RELEASE_3_3_3
+[3.3.3]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_3_3...IT4J_RELEASE_3_3_4
