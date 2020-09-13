@@ -3,15 +3,15 @@ package pl.zankowski.iextrading4j.api.stocks.v1;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Objects;
+import java.util.StringJoiner;
 
 @JsonPropertyOrder({"exDate", "declaredDate", "ratio", "toFactor",
-        "fromFactor", "description"})
+        "fromFactor", "description", "date"})
 public class Split implements Serializable {
 
     private static final long serialVersionUID = -6189411289398426730L;
@@ -22,6 +22,7 @@ public class Split implements Serializable {
     private final BigDecimal toFactor;
     private final BigDecimal fromFactor;
     private final String description;
+    private final LocalDate date;
 
     @JsonCreator
     public Split(
@@ -30,13 +31,15 @@ public class Split implements Serializable {
             @JsonProperty("ratio") final BigDecimal ratio,
             @JsonProperty("toFactor") final BigDecimal toFactor,
             @JsonProperty("fromFactor") final BigDecimal fromFactor,
-            @JsonProperty("description") final String description) {
+            @JsonProperty("description") final String description,
+            @JsonProperty("date") final LocalDate date) {
         this.exDate = exDate;
         this.declaredDate = declaredDate;
         this.ratio = ratio;
         this.toFactor = toFactor;
         this.fromFactor = fromFactor;
         this.description = description;
+        this.date = date;
     }
 
     public LocalDate getExDate() {
@@ -63,6 +66,10 @@ public class Split implements Serializable {
         return description;
     }
 
+    public LocalDate getDate() {
+        return date;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) {
@@ -72,30 +79,32 @@ public class Split implements Serializable {
             return false;
         }
         final Split split = (Split) o;
-        return Objects.equal(exDate, split.exDate) &&
-                Objects.equal(declaredDate, split.declaredDate) &&
-                Objects.equal(ratio, split.ratio) &&
-                Objects.equal(toFactor, split.toFactor) &&
-                Objects.equal(fromFactor, split.fromFactor) &&
-                Objects.equal(description, split.description);
+        return Objects.equals(exDate, split.exDate) &&
+                Objects.equals(declaredDate, split.declaredDate) &&
+                Objects.equals(ratio, split.ratio) &&
+                Objects.equals(toFactor, split.toFactor) &&
+                Objects.equals(fromFactor, split.fromFactor) &&
+                Objects.equals(description, split.description) &&
+                Objects.equals(date, split.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(exDate, declaredDate, ratio, toFactor, fromFactor, description);
+        return Objects.hash(exDate, declaredDate, ratio, toFactor, fromFactor,
+                description, date);
     }
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("exDate", exDate)
-                .add("declaredDate", declaredDate)
-                .add("ratio", ratio)
-                .add("toFactor", toFactor)
-                .add("fromFactor", fromFactor)
-                .add("description", description)
+        return new StringJoiner(", ", Split.class.getSimpleName() + "[", "]")
+                .add("exDate=" + exDate)
+                .add("declaredDate=" + declaredDate)
+                .add("ratio=" + ratio)
+                .add("toFactor=" + toFactor)
+                .add("fromFactor=" + fromFactor)
+                .add("description='" + description + "'")
+                .add("date=" + date)
                 .toString();
     }
-
 }
 
