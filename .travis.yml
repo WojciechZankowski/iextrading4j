@@ -8,8 +8,7 @@ jdk:
 script:
   - if [ $TRAVIS_BRANCH == 'master' ];
     then
-      mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar -P javadoc;
-      mvn install -DskipTests=true -P mutation;
+      mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar -P javadoc -P mutation;
     else
       mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar;
     fi

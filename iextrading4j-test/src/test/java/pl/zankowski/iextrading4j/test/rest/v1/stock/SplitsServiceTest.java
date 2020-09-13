@@ -42,6 +42,7 @@ public class SplitsServiceTest extends BaseIEXCloudV1ServiceTest {
         assertThat(split.getToFactor()).isEqualTo(BigDecimal.valueOf(7));
         assertThat(split.getFromFactor()).isEqualTo(BigDecimal.valueOf(1));
         assertThat(split.getDescription()).isEqualTo("7-for-1 split");
+        assertThat(split.getDate()).isEqualTo(LocalDate.of(2019, 8, 10));
     }
 
 }

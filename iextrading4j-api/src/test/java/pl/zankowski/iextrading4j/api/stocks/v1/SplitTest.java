@@ -22,8 +22,9 @@ public class SplitTest {
         final BigDecimal toFactor = fixture.create(BigDecimal.class);
         final BigDecimal fromFactory = fixture.create(BigDecimal.class);
         final String description = fixture.create(String.class);
+        final LocalDate date = fixture.create(LocalDate.class);
 
-        final Split split = new Split(exDate, declaredDate, ratio, toFactor, fromFactory, description);
+        final Split split = new Split(exDate, declaredDate, ratio, toFactor, fromFactory, description, date);
 
         assertThat(split.getExDate()).isEqualTo(exDate);
         assertThat(split.getDeclaredDate()).isEqualTo(declaredDate);
@@ -31,6 +32,7 @@ public class SplitTest {
         assertThat(split.getToFactor()).isEqualTo(toFactor);
         assertThat(split.getFromFactor()).isEqualTo(fromFactory);
         assertThat(split.getDescription()).isEqualTo(description);
+        assertThat(split.getDate()).isEqualTo(date);
     }
 
     @Test

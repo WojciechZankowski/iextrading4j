@@ -10,6 +10,10 @@ import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 import javax.ws.rs.core.GenericType;
 import java.util.List;
 
+/**
+ * Possibly service was turned off
+ */
+@Deprecated
 public class MarketRequestBuilder extends AbstractRequestFilterBuilder<List<MarketVolume>, MarketRequestBuilder>
         implements IEXApiRestRequest<List<MarketVolume>>, IEXCloudV1RestRequest<List<MarketVolume>> {
 
