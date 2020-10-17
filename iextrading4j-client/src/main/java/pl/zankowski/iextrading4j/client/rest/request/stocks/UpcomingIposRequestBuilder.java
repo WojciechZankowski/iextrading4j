@@ -5,6 +5,11 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
+/**
+ * This endpoint is temporarily unavailable while we identify a new source.
+ * https://iexcloud.io/docs/api/#ipos
+ */
+@Deprecated
 public class UpcomingIposRequestBuilder implements IEXCloudV1RestRequest<Ipos> {
 
     @Override

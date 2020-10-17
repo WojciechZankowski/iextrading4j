@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.test.acceptance.v1;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import pl.zankowski.iextrading4j.api.stocks.Book;
 import pl.zankowski.iextrading4j.api.stocks.Chart;
@@ -341,6 +342,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
+    @Ignore("This endpoint is temporarily unavailable while we identify a new source.")
     @Test
     public void upcomingIposTest() {
         final Ipos result = cloudClient.executeRequest(new UpcomingIposRequestBuilder()
@@ -348,6 +350,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
+    @Ignore("This endpoint is temporarily unavailable while we identify a new source.")
     @Test
     public void todayIposTest() {
         final TodayIpos result = cloudClient.executeRequest(new TodayIposRequestBuilder()
