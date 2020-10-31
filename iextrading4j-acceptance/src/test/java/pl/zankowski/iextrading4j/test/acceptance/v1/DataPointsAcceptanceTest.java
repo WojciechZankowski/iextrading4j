@@ -22,7 +22,7 @@ public class DataPointsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
                 .build();
 
         final List<DataPoint> dataPoints = cloudClient.executeRequest(request);
-
+        System.out.println(dataPoints);
         assertThat(dataPoints).isNotNull();
     }
 
@@ -30,7 +30,7 @@ public class DataPointsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     public void keyDataPointTest() {
         final RestRequest<String> request = new DataPointsRequestBuilder()
                 .withSymbol("AAPL")
-                .withKey("EMPLOYEES")
+                .withKey("ACCOUNTSPAYABLE")
                 .build();
 
         final String response = cloudClient.executeRequest(request);

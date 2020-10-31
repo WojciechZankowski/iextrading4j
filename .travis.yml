@@ -9,14 +9,14 @@ script:
   - set -e
   - if [ $TRAVIS_BRANCH == 'master' ];
     then
-      mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar -P javadoc;
+      mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar -P mutation;
     else
       mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar;
     fi
   # Workaround for pit aggregated reports https://github.com/hcoles/pitest/issues/621
   - if [ $TRAVIS_BRANCH == 'master' ];
     then
-      mvn package -DskipTests=true -P mutation;
+      mvn package -DskipTests=true -P javadoc;
     fi
 after_success:
   - bash ./scripts/deploy.sh
