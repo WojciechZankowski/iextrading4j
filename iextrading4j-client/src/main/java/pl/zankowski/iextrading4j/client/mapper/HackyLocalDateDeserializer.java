@@ -6,7 +6,10 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 class HackyLocalDateDeserializer extends LocalDateDeserializer {
@@ -31,8 +34,14 @@ class HackyLocalDateDeserializer extends LocalDateDeserializer {
         final String val = parser.getValueAsString();
 
         // #HACK In Daily List they return "0" if data is not available
-        if (val == null || val.equals("0")) {
+        if (val == null || val.equals("0") || val.equals("0000-00-00")) {
             return null;
+        }
+
+        if (val.length() > 10) {
+            LocalDateTime dateTime =
+                    LocalDateTime.ofInstant(Instant.ofEpochMilli(Long.parseLong(val)), ZoneId.systemDefault());
+            return dateTime.toLocalDate();
         }
 
         return super.deserialize(parser, context);

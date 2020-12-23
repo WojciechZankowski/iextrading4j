@@ -41,6 +41,18 @@ public class HackyLocalDateDeserializerTest {
     }
 
     @Test
+    public void shouldReturnNullIfValueIsFullOfZeroes() throws IOException {
+        final JsonParser parserMock = mock(JsonParser.class);
+        final DeserializationContext contextMock = mock(DeserializationContext.class);
+
+        when(parserMock.getValueAsString()).thenReturn("0000-00-00");
+
+        final LocalDate result = deserializer.deserialize(parserMock, contextMock);
+
+        assertThat(result).isNull();
+    }
+
+    @Test
     public void shouldReturnNullIfValueIsNull() throws IOException {
         final JsonParser parserMock = mock(JsonParser.class);
         final DeserializationContext contextMock = mock(DeserializationContext.class);
