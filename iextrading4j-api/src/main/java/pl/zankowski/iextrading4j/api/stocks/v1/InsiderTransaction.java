@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.api.stocks.v1;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;
@@ -28,6 +29,7 @@ public class InsiderTransaction extends BaseData {
     private final BigDecimal tranShares;
     private final BigDecimal tranValue;
 
+    @JsonCreator
     public InsiderTransaction(
             @JsonProperty("symbol") final String symbol,
             @JsonProperty("id") final String id,

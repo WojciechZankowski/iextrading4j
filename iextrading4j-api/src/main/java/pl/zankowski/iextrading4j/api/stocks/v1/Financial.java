@@ -72,6 +72,7 @@ public class Financial extends Report {
     private final BigDecimal totalRevenue;
     private final BigDecimal treasuryStock;
 
+    @JsonCreator
     public Financial(
             @JsonProperty("symbol") final String symbol,
             @JsonProperty("id") final String id,
