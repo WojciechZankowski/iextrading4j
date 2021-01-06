@@ -9,9 +9,7 @@ import com.google.common.base.Objects;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-@JsonPropertyOrder({"fullName", "netTransacted", "reportedTitle",
-        "totalBought", "totalSold"})
-public class InsiderSummary implements Serializable {
+public class InsiderSummary extends BaseData {
 
     private static final long serialVersionUID = 8669068160445448149L;
 
@@ -23,11 +21,17 @@ public class InsiderSummary implements Serializable {
 
     @JsonCreator
     public InsiderSummary(
+            @JsonProperty("symbol") final String symbol,
+            @JsonProperty("id") final String id,
+            @JsonProperty("key") final String key,
+            @JsonProperty("subkey") final String subkey,
+            @JsonProperty("updated") final Long updated,
             @JsonProperty("fullName") final String fullName,
             @JsonProperty("netTransacted") final BigDecimal netTransacted,
             @JsonProperty("reportedTitle") final String reportedTitle,
             @JsonProperty("totalBought") final BigDecimal totalBought,
             @JsonProperty("totalSold") final BigDecimal totalSold) {
+        super(symbol, id, key, subkey, updated);
         this.fullName = fullName;
         this.netTransacted = netTransacted;
         this.reportedTitle = reportedTitle;

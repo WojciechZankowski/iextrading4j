@@ -41,6 +41,11 @@ public class BalanceSheet extends Report {
 
     @JsonCreator
     public BalanceSheet(
+            @JsonProperty("symbol") final String symbol,
+            @JsonProperty("id") final String id,
+            @JsonProperty("key") final String key,
+            @JsonProperty("subkey") final String subkey,
+            @JsonProperty("updated") final Long updated,
             @JsonProperty("reportDate") final LocalDate reportDate,
             @JsonProperty("fiscalDate") final LocalDate fiscalDate,
             @JsonProperty("currency") final String currency,
@@ -69,8 +74,11 @@ public class BalanceSheet extends Report {
             @JsonProperty("treasuryStock") final BigDecimal treasuryStock,
             @JsonProperty("capitalSurplus") final BigDecimal capitalSurplus,
             @JsonProperty("shareholderEquity") final BigDecimal shareholderEquity,
-            @JsonProperty("netTangibleAssets") final BigDecimal netTangibleAssets) {
-        super(reportDate, fiscalDate, currency);
+            @JsonProperty("netTangibleAssets") final BigDecimal netTangibleAssets,
+            @JsonProperty("filingType") final String filingType,
+            @JsonProperty("fiscalQuarter") final BigDecimal fiscalQuarter,
+            @JsonProperty("fiscalYear") final BigDecimal fiscalYear) {
+        super(symbol, id, key, subkey, updated, reportDate, filingType, fiscalDate, fiscalQuarter, fiscalYear, currency);
         this.currentCash = currentCash;
         this.shortTermInvestments = shortTermInvestments;
         this.receivables = receivables;

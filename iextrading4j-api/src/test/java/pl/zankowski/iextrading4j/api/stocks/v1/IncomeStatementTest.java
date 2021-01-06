@@ -16,6 +16,11 @@ public class IncomeStatementTest {
 
     @Test
     public void constructor() {
+        final String symbol = fixture.create(String.class);
+        final String id = fixture.create(String.class);
+        final String key = fixture.create(String.class);
+        final String subkey = fixture.create(String.class);
+        final Long updated = fixture.create(Long.class);
         final LocalDate reportDate = fixture.create(LocalDate.class);
         final LocalDate fiscalDate = fixture.create(LocalDate.class);
         final String currency = fixture.create(String.class);
@@ -34,11 +39,15 @@ public class IncomeStatementTest {
         final BigDecimal minorityInterest = fixture.create(BigDecimal.class);
         final BigDecimal netIncome = fixture.create(BigDecimal.class);
         final BigDecimal netIncomeBasic = fixture.create(BigDecimal.class);
+        final String filingType = fixture.create(String.class);
+        final BigDecimal fiscalQuarter = fixture.create(BigDecimal.class);
+        final BigDecimal fiscalYear = fixture.create(BigDecimal.class);
 
-        final IncomeStatement incomeStatement = new IncomeStatement(reportDate, fiscalDate, currency, totalRevenue,
-                costOfRevenue, grossProfit, researchAndDevelopment, sellingGeneralAndAdmin,
-                operatingExpense, operatingIncome, otherIncomeExpenseNet, ebit, interestIncome,
-                pretaxIncome, incomeTax, minorityInterest, netIncome, netIncomeBasic);
+        final IncomeStatement incomeStatement = new IncomeStatement(symbol, id, key, subkey, updated, reportDate,
+                fiscalDate, currency, totalRevenue, costOfRevenue, grossProfit, researchAndDevelopment,
+                sellingGeneralAndAdmin, operatingExpense, operatingIncome, otherIncomeExpenseNet, ebit, interestIncome,
+                pretaxIncome, incomeTax, minorityInterest, netIncome, netIncomeBasic, filingType, fiscalQuarter,
+                fiscalYear);
 
         assertThat(incomeStatement.getReportDate()).isEqualTo(reportDate);
         assertThat(incomeStatement.getFiscalDate()).isEqualTo(fiscalDate);

@@ -17,6 +17,11 @@ public class ChartTest {
 
     @Test
     public void constructor() {
+        final String symbol = fixture.create(String.class);
+        final String id = fixture.create(String.class);
+        final String key = fixture.create(String.class);
+        final String subkey = fixture.create(String.class);
+        final Long updated = fixture.create(Long.class);
         final String minute = fixture.create(String.class);
         final BigDecimal marketAverage = fixture.create(BigDecimal.class);
         final BigDecimal marketNotional = fixture.create(BigDecimal.class);
@@ -50,12 +55,23 @@ public class ChartTest {
         final List<BigDecimal> simplifyFactor = Lists.newArrayList(
                 fixture.collections().createCollection(BigDecimal.class));
         final String currency = fixture.create(String.class);
+        final BigDecimal fOpen = fixture.create(BigDecimal.class);
+        final BigDecimal fHigh = fixture.create(BigDecimal.class);
+        final BigDecimal fLow = fixture.create(BigDecimal.class);
+        final BigDecimal fClose = fixture.create(BigDecimal.class);
+        final BigDecimal fVolume = fixture.create(BigDecimal.class);
 
-        final Chart chart = new Chart(minute, marketAverage, marketNotional, marketNumberOfTrades, marketHigh,
-                marketLow, marketVolume, marketChangeOverTime, marketOpen, marketClose, average, notional,
-                numberOfTrades, simplifyFactor, high, low, volume, label, changeOverTime, date, open, close,
-                uOpen, uHigh, uLow, uClose, uVolume, unadjustedVolume, change, changePercent, vwap, currency);
+        final Chart chart = new Chart(symbol, id, key, subkey, updated, minute, marketAverage, marketNotional,
+                marketNumberOfTrades, marketHigh, marketLow, marketVolume, marketChangeOverTime, marketOpen,
+                marketClose, average, notional, numberOfTrades, simplifyFactor, high, low, volume, label,
+                changeOverTime, date, open, close, uOpen, uHigh, uLow, uClose, uVolume, fOpen, fHigh, fLow, fClose,
+                fVolume, unadjustedVolume, change, changePercent, vwap, currency);
 
+        assertThat(chart.getSymbol()).isEqualTo(symbol);
+        assertThat(chart.getKey()).isEqualTo(key);
+        assertThat(chart.getSubkey()).isEqualTo(subkey);
+        assertThat(chart.getId()).isEqualTo(id);
+        assertThat(chart.getUpdated()).isEqualTo(updated);
         assertThat(chart.getMinute()).isEqualTo(minute);
         assertThat(chart.getMarketAverage()).isEqualByComparingTo(marketAverage);
         assertThat(chart.getMarketNotional()).isEqualByComparingTo(marketNotional);

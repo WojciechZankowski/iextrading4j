@@ -2,8 +2,6 @@ package pl.zankowski.iextrading4j.api.refdata.v1;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.google.common.base.MoreObjects;
 import pl.zankowski.iextrading4j.api.refdata.SymbolType;
 
 import java.io.Serializable;
@@ -11,14 +9,14 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.StringJoiner;
 
-@JsonPropertyOrder({"symbol", "exchange", "name", "date", "type",
-        "iexId", "region", "currency", "isEnabled", "figi", "cik"})
 public class ExchangeSymbol implements Serializable {
 
     private static final long serialVersionUID = -5740262153957115684L;
 
     private final String symbol;
     private final String exchange;
+    private final String exchangeSuffix;
+    private final String exchangeName;
     private final String name;
     private final LocalDate date;
     private final SymbolType type;
@@ -28,11 +26,14 @@ public class ExchangeSymbol implements Serializable {
     private final Boolean isEnabled;
     private final String figi;
     private final String cik;
+    private final String lei;
 
     @JsonCreator
     public ExchangeSymbol(
             @JsonProperty("symbol") final String symbol,
             @JsonProperty("exchange") final String exchange,
+            @JsonProperty("exchangeSuffix") final String exchangeSuffix,
+            @JsonProperty("exchangeName") final String exchangeName,
             @JsonProperty("name") final String name,
             @JsonProperty("date") final LocalDate date,
             @JsonProperty("type") final SymbolType type,
@@ -41,9 +42,12 @@ public class ExchangeSymbol implements Serializable {
             @JsonProperty("currency") final String currency,
             @JsonProperty("isEnabled") final Boolean isEnabled,
             @JsonProperty("figi") final String figi,
-            @JsonProperty("cik")  final String cik) {
+            @JsonProperty("cik") final String cik,
+            @JsonProperty("lei") final String lei) {
         this.symbol = symbol;
         this.exchange = exchange;
+        this.exchangeSuffix = exchangeSuffix;
+        this.exchangeName = exchangeName;
         this.name = name;
         this.date = date;
         this.type = type;
@@ -53,6 +57,7 @@ public class ExchangeSymbol implements Serializable {
         this.isEnabled = isEnabled;
         this.figi = figi;
         this.cik = cik;
+        this.lei = lei;
     }
 
     public String getSymbol() {
@@ -61,6 +66,14 @@ public class ExchangeSymbol implements Serializable {
 
     public String getExchange() {
         return exchange;
+    }
+
+    public String getExchangeSuffix() {
+        return exchangeSuffix;
+    }
+
+    public String getExchangeName() {
+        return exchangeName;
     }
 
     public String getName() {
@@ -100,6 +113,10 @@ public class ExchangeSymbol implements Serializable {
         return cik;
     }
 
+    public String getLei() {
+        return lei;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) {
@@ -111,6 +128,8 @@ public class ExchangeSymbol implements Serializable {
         final ExchangeSymbol that = (ExchangeSymbol) o;
         return Objects.equals(symbol, that.symbol) &&
                 Objects.equals(exchange, that.exchange) &&
+                Objects.equals(exchangeSuffix, that.exchangeSuffix) &&
+                Objects.equals(exchangeName, that.exchangeName) &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(date, that.date) &&
                 type == that.type &&
@@ -119,13 +138,14 @@ public class ExchangeSymbol implements Serializable {
                 Objects.equals(currency, that.currency) &&
                 Objects.equals(isEnabled, that.isEnabled) &&
                 Objects.equals(figi, that.figi) &&
-                Objects.equals(cik, that.cik);
+                Objects.equals(cik, that.cik) &&
+                Objects.equals(lei, that.lei);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(symbol, exchange, name, date, type, iexId, region, currency,
-                isEnabled, figi, cik);
+        return Objects.hash(symbol, exchange, exchangeSuffix, exchangeName, name, date, type, iexId, region, currency,
+                isEnabled, figi, cik, lei);
     }
 
     @Override
@@ -133,6 +153,8 @@ public class ExchangeSymbol implements Serializable {
         return new StringJoiner(", ", ExchangeSymbol.class.getSimpleName() + "[", "]")
                 .add("symbol='" + symbol + "'")
                 .add("exchange='" + exchange + "'")
+                .add("exchangeSuffix='" + exchangeSuffix + "'")
+                .add("exchangeName='" + exchangeName + "'")
                 .add("name='" + name + "'")
                 .add("date=" + date)
                 .add("type=" + type)
@@ -142,6 +164,7 @@ public class ExchangeSymbol implements Serializable {
                 .add("isEnabled=" + isEnabled)
                 .add("figi='" + figi + "'")
                 .add("cik='" + cik + "'")
+                .add("lei='" + lei + "'")
                 .toString();
     }
 }
