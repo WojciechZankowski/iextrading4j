@@ -1,12 +1,25 @@
 [
   {
-    "effectiveDate": 1522540800000,
+    "conversionOrExercisePrice": null,
+    "directIndirect": "D",
+    "effectiveDate": 1590189080797,
+    "filingDate": "2019-12-30",
     "fullName": "Joe Smith",
     "reportedTitle": "Vice President",
-    "tranPrice": 0,
-    "tranShares": 10000,
-    "tranValue": 0,
-    "directIndirect": "D",
-    "tranCode": "L"
+    "is10b51": false,
+    "postShares": 589673,
+    "symbol": "TWTR",
+    "id": "_OSTNITICRINASNDSERA",
+    "key": "RTTW",
+    "subkey": "0000400202101190-08-",
+    "updated": 1616754482478,
+    "transactionCode": "S",
+    "transactionDate": "2019-12-29",
+    "transactionPrice": 32.3,
+    "transactionShares": -1787,
+    "transactionValue": 56684,
+    "tranPrice": 31.5,
+    "tranShares": -1753,
+    "tranValue": 56402
   }
 ]

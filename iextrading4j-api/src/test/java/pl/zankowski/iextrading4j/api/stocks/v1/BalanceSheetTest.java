@@ -16,6 +16,11 @@ public class BalanceSheetTest {
 
     @Test
     public void constructor() {
+        final String symbol = fixture.create(String.class);
+        final String id = fixture.create(String.class);
+        final String key = fixture.create(String.class);
+        final String subkey = fixture.create(String.class);
+        final Long updated = fixture.create(Long.class);
         final LocalDate reportDate = fixture.create(LocalDate.class);
         final LocalDate fiscalDate = fixture.create(LocalDate.class);
         final String currency = fixture.create(String.class);
@@ -45,13 +50,17 @@ public class BalanceSheetTest {
         final BigDecimal capitalSurplus = fixture.create(BigDecimal.class);
         final BigDecimal shareholderEquity = fixture.create(BigDecimal.class);
         final BigDecimal netTangibleAssets = fixture.create(BigDecimal.class);
+        final String filingType = fixture.create(String.class);
+        final BigDecimal fiscalQuarter = fixture.create(BigDecimal.class);
+        final BigDecimal fiscalYear = fixture.create(BigDecimal.class);
 
-        final BalanceSheet balanceSheet = new BalanceSheet(reportDate, fiscalDate, currency, currentCash,
+        final BalanceSheet balanceSheet = new BalanceSheet(symbol, id, key, subkey, updated, reportDate, fiscalDate, currency, currentCash,
                 shortTermInvestments, receivables, inventory, otherCurrentAssets, currentAssets, longTermInvestments,
                 propertyPlantEquipment, goodwill, intangibleAssets, otherAssets, totalAssets,
                 accountsPayable, currentLongTermDebt, otherCurrentLiabilities, totalCurrentLiabilities,
                 longTermDebt, otherLiabilities, minorityInterest, totalLiabilities, commonStock,
-                retainedEarnings, treasuryStock, capitalSurplus, shareholderEquity, netTangibleAssets);
+                retainedEarnings, treasuryStock, capitalSurplus, shareholderEquity, netTangibleAssets, filingType, fiscalQuarter,
+                fiscalYear);
 
         assertThat(balanceSheet.getReportDate()).isEqualTo(reportDate);
         assertThat(balanceSheet.getFiscalDate()).isEqualTo(fiscalDate);

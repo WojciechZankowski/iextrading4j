@@ -15,6 +15,11 @@ public class TimeSeriesTest {
 
     @Test
     public void constructor() {
+        final String symbol = fixture.create(String.class);
+        final String id = fixture.create(String.class);
+        final String key = fixture.create(String.class);
+        final String subkey = fixture.create(String.class);
+        final Long updated = fixture.create(Long.class);
         final BigDecimal high = fixture.create(BigDecimal.class);
         final BigDecimal low = fixture.create(BigDecimal.class);
         final BigDecimal volume = fixture.create(BigDecimal.class);
@@ -32,10 +37,21 @@ public class TimeSeriesTest {
         final BigDecimal uLow = fixture.create(BigDecimal.class);
         final BigDecimal uClose = fixture.create(BigDecimal.class);
         final BigDecimal uVolume = fixture.create(BigDecimal.class);
+        final BigDecimal fOpen = fixture.create(BigDecimal.class);
+        final BigDecimal fHigh = fixture.create(BigDecimal.class);
+        final BigDecimal fLow = fixture.create(BigDecimal.class);
+        final BigDecimal fClose = fixture.create(BigDecimal.class);
+        final BigDecimal fVolume = fixture.create(BigDecimal.class);
 
-        final TimeSeries timeSeries = new TimeSeries(date, open, high, low, close, volume, uOpen, uHigh, uLow,
-                uClose, uVolume, unadjustedVolume, change, changePercent, vwap, label, changeOverTime);
+        final TimeSeries timeSeries = new TimeSeries(symbol, id, key, subkey, updated, date, open, high, low, close,
+                volume, uOpen, uHigh, uLow, uClose, uVolume, fOpen, fHigh, fLow, fClose, fVolume, unadjustedVolume,
+                change, changePercent, vwap, label, changeOverTime);
 
+        assertThat(timeSeries.getSymbol()).isEqualTo(symbol);
+        assertThat(timeSeries.getKey()).isEqualTo(key);
+        assertThat(timeSeries.getSubkey()).isEqualTo(subkey);
+        assertThat(timeSeries.getId()).isEqualTo(id);
+        assertThat(timeSeries.getUpdated()).isEqualTo(updated);
         assertThat(timeSeries.getHigh()).isEqualTo(high);
         assertThat(timeSeries.getLow()).isEqualTo(low);
         assertThat(timeSeries.getVolume()).isEqualTo(volume);

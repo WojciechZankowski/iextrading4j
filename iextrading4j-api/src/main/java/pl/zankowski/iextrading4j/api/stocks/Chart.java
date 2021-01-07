@@ -37,6 +37,11 @@ public class Chart extends TimeSeries {
 
     @JsonCreator
     public Chart(
+            @JsonProperty("symbol") final String symbol,
+            @JsonProperty("id") final String id,
+            @JsonProperty("key") final String key,
+            @JsonProperty("subkey") final String subkey,
+            @JsonProperty("updated") final Long updated,
             @JsonProperty("minute") final String minute,
             @JsonProperty("marketAverage") final BigDecimal marketAverage,
             @JsonProperty("marketNotional") final BigDecimal marketNotional,
@@ -64,13 +69,19 @@ public class Chart extends TimeSeries {
             @JsonProperty("uLow") final BigDecimal uLow,
             @JsonProperty("uClose") final BigDecimal uClose,
             @JsonProperty("uVolume") final BigDecimal uVolume,
+            @JsonProperty("fOpen") final BigDecimal fOpen,
+            @JsonProperty("fHigh") final BigDecimal fHigh,
+            @JsonProperty("fLow") final BigDecimal fLow,
+            @JsonProperty("fClose") final BigDecimal fClose,
+            @JsonProperty("fVolume") final BigDecimal fVolume,
             @JsonProperty("unadjustedVolume") final BigDecimal unadjustedVolume,
             @JsonProperty("change") final BigDecimal change,
             @JsonProperty("changePercent") final BigDecimal changePercent,
             @JsonProperty("vwap") final BigDecimal vwap,
             @JsonProperty("currency") final String currency) {
-        super(date, open, high, low, close, volume, uOpen, uHigh, uLow, uClose, uVolume, unadjustedVolume, change,
-                changePercent, vwap, label, changeOverTime);
+        super(symbol, id, key, subkey, updated, date, open, high, low, close, volume, uOpen, uHigh, uLow, uClose,
+                uVolume, fOpen, fHigh, fLow, fClose, fVolume, unadjustedVolume, change, changePercent, vwap, label,
+                changeOverTime);
         this.minute = minute;
         this.marketAverage = marketAverage;
         this.marketNotional = marketNotional;

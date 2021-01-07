@@ -16,6 +16,11 @@ public class CashFlowTest {
 
     @Test
     public void constructor() {
+        final String symbol = fixture.create(String.class);
+        final String id = fixture.create(String.class);
+        final String key = fixture.create(String.class);
+        final String subkey = fixture.create(String.class);
+        final Long updated = fixture.create(Long.class);
         final LocalDate reportDate = fixture.create(LocalDate.class);
         final LocalDate fiscalDate = fixture.create(LocalDate.class);
         final String currency = fixture.create(String.class);
@@ -34,11 +39,15 @@ public class CashFlowTest {
         final BigDecimal otherFinancingCashFlows = fixture.create(BigDecimal.class);
         final BigDecimal cashFlowFinancing = fixture.create(BigDecimal.class);
         final BigDecimal exchangeRateEffect = fixture.create(BigDecimal.class);
+        final String filingType = fixture.create(String.class);
+        final BigDecimal fiscalQuarter = fixture.create(BigDecimal.class);
+        final BigDecimal fiscalYear = fixture.create(BigDecimal.class);
 
-        final CashFlow result = new CashFlow(reportDate, fiscalDate, currency, netIncome, depreciation,
-                changesInReceivables, changesInInventories, cashChange, cashFlow,
+        final CashFlow result = new CashFlow(symbol, id, key, subkey, updated, reportDate, fiscalDate, currency,
+                netIncome, depreciation, changesInReceivables, changesInInventories, cashChange, cashFlow,
                 capitalExpenditures, investments, investingActivityOther, totalInvestingCashFlows,
-                dividendsPaid, netBorrowings, otherFinancingCashFlows, cashFlowFinancing, exchangeRateEffect);
+                dividendsPaid, netBorrowings, otherFinancingCashFlows, cashFlowFinancing, exchangeRateEffect,
+                filingType, fiscalQuarter, fiscalYear);
 
         assertThat(result.getReportDate()).isEqualTo(reportDate);
         assertThat(result.getFiscalDate()).isEqualTo(fiscalDate);
