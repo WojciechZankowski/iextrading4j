@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.4.1] - 2021-01-08
+
+### Changed
+
+- Changes to Dividends model to synchronize with recent iCloud changes
+- Deprecated ```date``` in Dividends as the field doesn't come anymore
+
 ## [3.4.0] - 2021-01-08
 
 ### Added
