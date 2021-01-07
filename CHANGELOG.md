@@ -1,6 +1,18 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.4.0] - 2021-01-08
+
+### Added
+
+- Added `stable` endpoint [[#104](https://github.com/WojciechZankowski/iextrading4j/pull/104)] [@razine-bensari](https://github.com/razine-bensari)
+
+### Changed
+
+- Fixed date handling after iCloud update [[#106](https://github.com/WojciechZankowski/iextrading4j/pull/106)] [@JoseMariaBernad](https://github.com/JoseMariaBernad)
+- Multiple changes to Chart, TimeSeries, BalanceSheet, CashFlow, Financial, FundOwnership, IncomeStatement, InsiderTransaction, Ownership, ExchangeSymbol, SymbolDescription models to synchronize with recent iCloud changes
+- Deprecated ```tranCode``` in InsiderTransaction as the field was renamed to transactionCode
+
 ## [3.3.4] - 2020-08-27
 
 ### Added
