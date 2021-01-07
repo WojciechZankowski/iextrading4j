@@ -14,22 +14,27 @@ public class IncomeStatement extends Report {
 
     private final BigDecimal totalRevenue;
     private final BigDecimal costOfRevenue;
-    private final BigDecimal grossProfit;
-    private final BigDecimal researchAndDevelopment;
-    private final BigDecimal sellingGeneralAndAdmin;
-    private final BigDecimal operatingExpense;
-    private final BigDecimal operatingIncome;
-    private final BigDecimal otherIncomeExpenseNet;
     private final BigDecimal ebit;
-    private final BigDecimal interestIncome;
-    private final BigDecimal pretaxIncome;
+    private final BigDecimal grossProfit;
     private final BigDecimal incomeTax;
+    private final BigDecimal interestIncome;
     private final BigDecimal minorityInterest;
     private final BigDecimal netIncome;
     private final BigDecimal netIncomeBasic;
+    private final BigDecimal operatingExpense;
+    private final BigDecimal operatingIncome;
+    private final BigDecimal otherIncomeExpenseNet;
+    private final BigDecimal pretaxIncome;
+    private final BigDecimal researchAndDevelopment;
+    private final BigDecimal sellingGeneralAndAdmin;
 
     @JsonCreator
     public IncomeStatement(
+            @JsonProperty("symbol") final String symbol,
+            @JsonProperty("id") final String id,
+            @JsonProperty("key") final String key,
+            @JsonProperty("subkey") final String subkey,
+            @JsonProperty("updated") final Long updated,
             @JsonProperty("reportDate") final LocalDate reportDate,
             @JsonProperty("fiscalDate") final LocalDate fiscalDate,
             @JsonProperty("currency") final String currency,
@@ -47,8 +52,12 @@ public class IncomeStatement extends Report {
             @JsonProperty("incomeTax") final BigDecimal incomeTax,
             @JsonProperty("minorityInterest") final BigDecimal minorityInterest,
             @JsonProperty("netIncome") final BigDecimal netIncome,
-            @JsonProperty("netIncomeBasic") final BigDecimal netIncomeBasic) {
-        super(reportDate, fiscalDate, currency);
+            @JsonProperty("netIncomeBasic") final BigDecimal netIncomeBasic,
+            @JsonProperty("filingType") final String filingType,
+            @JsonProperty("fiscalQuarter") final BigDecimal fiscalQuarter,
+            @JsonProperty("fiscalYear") final BigDecimal fiscalYear) {
+        super(symbol, id, key, subkey, updated, reportDate, filingType, fiscalDate, fiscalQuarter, fiscalYear,
+                currency);
         this.totalRevenue = totalRevenue;
         this.costOfRevenue = costOfRevenue;
         this.grossProfit = grossProfit;

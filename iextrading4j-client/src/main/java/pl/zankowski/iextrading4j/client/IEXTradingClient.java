@@ -35,6 +35,8 @@ public class IEXTradingClient implements IEXApiClient, IEXCloudClient {
                     .put(IEXTradingApiVersion.IEX_CLOUD_BETA, PropertyType.API_REST_V2_BETA)
                     .put(IEXTradingApiVersion.IEX_CLOUD_BETA_SANDBOX, PropertyType.API_REST_V2_BETA_SANDBOX)
                     .put(IEXTradingApiVersion.IEX_CLOUD_V1, PropertyType.API_REST_V2)
+                    .put(IEXTradingApiVersion.IEX_CLOUD_STABLE, PropertyType.API_REST_STABLE)
+                    .put(IEXTradingApiVersion.IEX_CLOUD_STABLE_SANDBOX, PropertyType.API_REST_STABLE_SANDBOX)
                     .put(IEXTradingApiVersion.IEX_CLOUD_V1_SANDBOX, PropertyType.API_REST_V2_SANDBOX)
                     .build();
 

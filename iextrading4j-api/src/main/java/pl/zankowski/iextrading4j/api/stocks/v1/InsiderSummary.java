@@ -4,14 +4,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Objects;
+import java.util.StringJoiner;
 
-@JsonPropertyOrder({"fullName", "netTransacted", "reportedTitle",
-        "totalBought", "totalSold"})
-public class InsiderSummary implements Serializable {
+public class InsiderSummary extends BaseData {
 
     private static final long serialVersionUID = 8669068160445448149L;
 
@@ -23,11 +22,17 @@ public class InsiderSummary implements Serializable {
 
     @JsonCreator
     public InsiderSummary(
+            @JsonProperty("symbol") final String symbol,
+            @JsonProperty("id") final String id,
+            @JsonProperty("key") final String key,
+            @JsonProperty("subkey") final String subkey,
+            @JsonProperty("updated") final Long updated,
             @JsonProperty("fullName") final String fullName,
             @JsonProperty("netTransacted") final BigDecimal netTransacted,
             @JsonProperty("reportedTitle") final String reportedTitle,
             @JsonProperty("totalBought") final BigDecimal totalBought,
             @JsonProperty("totalSold") final BigDecimal totalSold) {
+        super(symbol, id, key, subkey, updated);
         this.fullName = fullName;
         this.netTransacted = netTransacted;
         this.reportedTitle = reportedTitle;
@@ -63,27 +68,26 @@ public class InsiderSummary implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
+        if (!super.equals(o)) {
+            return false;
+        }
         final InsiderSummary that = (InsiderSummary) o;
-        return Objects.equal(fullName, that.fullName) &&
-                Objects.equal(netTransacted, that.netTransacted) &&
-                Objects.equal(reportedTitle, that.reportedTitle) &&
-                Objects.equal(totalBought, that.totalBought) &&
-                Objects.equal(totalSold, that.totalSold);
+        return Objects.equals(fullName, that.fullName) && Objects.equals(netTransacted, that.netTransacted) && Objects.equals(reportedTitle, that.reportedTitle) && Objects.equals(totalBought, that.totalBought) && Objects.equals(totalSold, that.totalSold);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(fullName, netTransacted, reportedTitle, totalBought, totalSold);
+        return Objects.hash(super.hashCode(), fullName, netTransacted, reportedTitle, totalBought, totalSold);
     }
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("fullName", fullName)
-                .add("netTransacted", netTransacted)
-                .add("reportedTitle", reportedTitle)
-                .add("totalBought", totalBought)
-                .add("totalSold", totalSold)
+        return new StringJoiner(", ", InsiderSummary.class.getSimpleName() + "[", "]")
+                .add("fullName='" + fullName + "'")
+                .add("netTransacted=" + netTransacted)
+                .add("reportedTitle='" + reportedTitle + "'")
+                .add("totalBought=" + totalBought)
+                .add("totalSold=" + totalSold)
                 .toString();
     }
 }

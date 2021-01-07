@@ -7,6 +7,8 @@ public enum PropertyType {
     API_REST_V2_SANDBOX("https://sandbox.iexapis.com/v1"),
     API_REST_V2_BETA("https://cloud.iexapis.com/beta"),
     API_REST_V2_BETA_SANDBOX("https://sandbox.iexapis.com/beta"),
+    API_REST_STABLE("https://cloud.iexapis.com/stable"),
+    API_REST_STABLE_SANDBOX("https://sandbox.iexapis.com/stable"),
 
     API_SSE_V2("https://cloud-sse.iexapis.com/v1"),
     API_SSE_V2_SANDBOX("https://sandbox-sse.iexapis.com/v1"),

@@ -207,6 +207,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
+    @Ignore("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
     public void earningsTest() {
         final Earnings result = cloudClient.executeRequest(new EarningsRequestBuilder()
@@ -215,6 +216,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
+    @Ignore("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
     public void earningsWithLastTest() {
         final Earnings result = cloudClient.executeRequest(new EarningsRequestBuilder()
@@ -231,6 +233,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(todayEarnings).isNotNull();
     }
 
+    @Ignore("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
     public void estimatesTest() {
         final Estimates estimates = cloudClient.executeRequest(new EstimatesRequestBuilder()
@@ -239,6 +242,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(estimates).isNotNull();
     }
 
+    @Ignore("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
     public void estimatesWithLastAndPeriodTest() {
         final Estimates result = cloudClient.executeRequest(new EstimatesRequestBuilder()
@@ -543,6 +547,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
+    @Ignore("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
     public void batchFirstPartAcceptanceTest() {
         final BatchStocks result = cloudClient.executeRequest(new BatchStocksRequestBuilder()
@@ -561,6 +566,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
+    @Ignore("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
     public void batchSecondPartAcceptanceTest() {
         final BatchStocks result = cloudClient.executeRequest(new BatchStocksRequestBuilder()
@@ -579,6 +585,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
+    @Ignore("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
     public void batchThirdPartAcceptanceTest() {
         final BatchStocks result = cloudClient.executeRequest(new BatchStocksRequestBuilder()
@@ -597,6 +604,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
+    @Ignore("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
     public void batchFourthPartAcceptanceTest() {
         final BatchStocks result = cloudClient.executeRequest(new BatchStocksRequestBuilder()
@@ -616,6 +624,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
+    @Ignore("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
     public void marketBatchAcceptanceTest() {
         final Map<String, BatchStocks> result = cloudClient.executeRequest(new BatchMarketStocksRequestBuilder()
@@ -647,6 +656,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
+    @Ignore("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
     public void priceTargetTest() {
         final PriceTarget priceTarget = cloudClient.executeRequest(new PriceTargetRequestBuilder()

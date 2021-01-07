@@ -6,6 +6,7 @@ import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class FundOwnership extends Ownership {
 
@@ -15,13 +16,17 @@ public class FundOwnership extends Ownership {
 
     @JsonCreator
     public FundOwnership(
+            @JsonProperty("symbol") final String symbol,
+            @JsonProperty("id") final String id,
             @JsonProperty("adjHolding") final BigDecimal adjHolding,
             @JsonProperty("adjMv") final BigDecimal adjMv,
             @JsonProperty("entityProperName") final String entityProperName,
             @JsonProperty("report_date") final Long reportDate,
+            @JsonProperty("filingDate") final LocalDate filingDate,
             @JsonProperty("reportedHolding") final BigDecimal reportedHolding,
+            @JsonProperty("updated") final Long updated,
             @JsonProperty("reportedMv") final BigDecimal reportedMv) {
-        super(adjHolding, adjMv, entityProperName, reportDate, reportedHolding);
+        super(symbol, id, adjHolding, adjMv, entityProperName, reportDate, filingDate, reportedHolding, updated);
         this.reportedMv = reportedMv;
     }
 
