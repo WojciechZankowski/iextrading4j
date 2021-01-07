@@ -16,7 +16,12 @@ public class DividendsTest {
 
     @Test
     public void constructor() {
+        final Long refid = fixture.create(Long.class);
         final String symbol = fixture.create(String.class);
+        final String id = fixture.create(String.class);
+        final String key = fixture.create(String.class);
+        final String subkey = fixture.create(String.class);
+        final Long updated = fixture.create(Long.class);
         final LocalDate exDate = fixture.create(LocalDate.class);
         final LocalDate paymentDate = fixture.create(LocalDate.class);
         final LocalDate recordDate = fixture.create(LocalDate.class);
@@ -28,10 +33,15 @@ public class DividendsTest {
         final String frequency = fixture.create(String.class);
         final LocalDate date = fixture.create(LocalDate.class);
 
-        final Dividends dividends = new Dividends(symbol, exDate, paymentDate, recordDate, declaredDate, amount,
-                flag, currency, description, frequency, date);
+        final Dividends dividends = new Dividends(refid, symbol, id, key, subkey, updated, exDate, paymentDate,
+                recordDate, declaredDate, amount, flag, currency, description, frequency, date);
 
+        assertThat(dividends.getRefid()).isEqualTo(refid);
         assertThat(dividends.getSymbol()).isEqualTo(symbol);
+        assertThat(dividends.getId()).isEqualTo(id);
+        assertThat(dividends.getKey()).isEqualTo(key);
+        assertThat(dividends.getSubkey()).isEqualTo(subkey);
+        assertThat(dividends.getUpdated()).isEqualTo(updated);
         assertThat(dividends.getExDate()).isEqualTo(exDate);
         assertThat(dividends.getPaymentDate()).isEqualTo(paymentDate);
         assertThat(dividends.getRecordDate()).isEqualTo(recordDate);

@@ -10,8 +10,9 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - Fixed date handling after iCloud update [[#106](https://github.com/WojciechZankowski/iextrading4j/pull/106)] [@JoseMariaBernad](https://github.com/JoseMariaBernad)
-- Multiple changes to Chart, TimeSeries, BalanceSheet, CashFlow, Financial, FundOwnership, IncomeStatement, InsiderTransaction, Ownership, ExchangeSymbol, SymbolDescription models to synchronize with recent iCloud changes
+- Multiple changes to Chart, TimeSeries, BalanceSheet, CashFlow, Dividends, Financial, FundOwnership, IncomeStatement, InsiderTransaction, Ownership, ExchangeSymbol, SymbolDescription models to synchronize with recent iCloud changes
 - Deprecated ```tranCode``` in InsiderTransaction as the field was renamed to transactionCode
+- Deprecated ```date``` in Dividends as the field doesn't come anymore
 
 ## [3.3.4] - 2020-08-27
 
