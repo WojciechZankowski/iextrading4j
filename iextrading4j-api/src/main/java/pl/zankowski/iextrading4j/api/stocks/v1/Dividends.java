@@ -25,7 +25,7 @@ public class Dividends extends BaseData {
     private final String currency;
     private final String description;
     private final String frequency;
-    private final LocalDate date;
+    private final Long date;
 
     @JsonCreator
     public Dividends(
@@ -44,7 +44,7 @@ public class Dividends extends BaseData {
             @JsonProperty("currency") final String currency,
             @JsonProperty("description") final String description,
             @JsonProperty("frequency") final String frequency,
-            @JsonProperty("date") final LocalDate date) {
+            @JsonProperty("date") final Long date) {
         super(symbol, id, key, subkey, updated);
         this.refid = refid;
         this.exDate = exDate;
@@ -99,8 +99,7 @@ public class Dividends extends BaseData {
         return frequency;
     }
 
-    @Deprecated
-    public LocalDate getDate() {
+    public Long getDate() {
         return date;
     }
 

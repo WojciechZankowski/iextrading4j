@@ -31,7 +31,7 @@ public class DividendsTest {
         final String currency = fixture.create(String.class);
         final String description = fixture.create(String.class);
         final String frequency = fixture.create(String.class);
-        final LocalDate date = fixture.create(LocalDate.class);
+        final Long date = fixture.create(Long.class);
 
         final Dividends dividends = new Dividends(refid, symbol, id, key, subkey, updated, exDate, paymentDate,
                 recordDate, declaredDate, amount, flag, currency, description, frequency, date);
