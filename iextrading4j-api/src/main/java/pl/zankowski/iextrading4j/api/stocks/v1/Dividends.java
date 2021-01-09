@@ -11,13 +11,11 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.StringJoiner;
 
-@JsonPropertyOrder({"symbol", "exDate", "paymentDate", "recordDate", "declaredDate",
-        "amount", "flag", "currency", "description", "frequency", "date"})
-public class Dividends implements Serializable {
+public class Dividends extends BaseData {
 
     private static final long serialVersionUID = -8671643610377057386L;
 
-    private final String symbol;
+    private final Long refid;
     private final LocalDate exDate;
     private final LocalDate paymentDate;
     private final LocalDate recordDate;
@@ -27,11 +25,16 @@ public class Dividends implements Serializable {
     private final String currency;
     private final String description;
     private final String frequency;
-    private final LocalDate date;
+    private final Long date;
 
     @JsonCreator
     public Dividends(
+            @JsonProperty("refid") final Long refid,
             @JsonProperty("symbol") final String symbol,
+            @JsonProperty("id") final String id,
+            @JsonProperty("key") final String key,
+            @JsonProperty("subkey") final String subkey,
+            @JsonProperty("updated") final Long updated,
             @JsonProperty("exDate") final LocalDate exDate,
             @JsonProperty("paymentDate") final LocalDate paymentDate,
             @JsonProperty("recordDate") final LocalDate recordDate,
@@ -41,8 +44,9 @@ public class Dividends implements Serializable {
             @JsonProperty("currency") final String currency,
             @JsonProperty("description") final String description,
             @JsonProperty("frequency") final String frequency,
-            @JsonProperty("date") final LocalDate date) {
-        this.symbol = symbol;
+            @JsonProperty("date") final Long date) {
+        super(symbol, id, key, subkey, updated);
+        this.refid = refid;
         this.exDate = exDate;
         this.paymentDate = paymentDate;
         this.recordDate = recordDate;
@@ -55,8 +59,8 @@ public class Dividends implements Serializable {
         this.date = date;
     }
 
-    public String getSymbol() {
-        return symbol;
+    public Long getRefid() {
+        return refid;
     }
 
     public LocalDate getExDate() {
@@ -95,7 +99,7 @@ public class Dividends implements Serializable {
         return frequency;
     }
 
-    public LocalDate getDate() {
+    public Long getDate() {
         return date;
     }
 
@@ -107,8 +111,11 @@ public class Dividends implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
+        if (!super.equals(o)) {
+            return false;
+        }
         final Dividends dividends = (Dividends) o;
-        return Objects.equals(symbol, dividends.symbol) &&
+        return Objects.equals(refid, dividends.refid) &&
                 Objects.equals(exDate, dividends.exDate) &&
                 Objects.equals(paymentDate, dividends.paymentDate) &&
                 Objects.equals(recordDate, dividends.recordDate) &&
@@ -123,14 +130,14 @@ public class Dividends implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(symbol, exDate, paymentDate, recordDate, declaredDate,
+        return Objects.hash(super.hashCode(), refid, exDate, paymentDate, recordDate, declaredDate,
                 amount, flag, currency, description, frequency, date);
     }
 
     @Override
     public String toString() {
         return new StringJoiner(", ", Dividends.class.getSimpleName() + "[", "]")
-                .add("symbol='" + symbol + "'")
+                .add("refid=" + refid)
                 .add("exDate=" + exDate)
                 .add("paymentDate=" + paymentDate)
                 .add("recordDate=" + recordDate)

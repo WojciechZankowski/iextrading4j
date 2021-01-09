@@ -33,7 +33,7 @@ Maven:
 <dependency>
 	<groupId>pl.zankowski</groupId>
 	<artifactId>iextrading4j-all</artifactId>
-	<version>3.3.4</version>
+	<version>3.4.2</version>
 </dependency>
 ```
 
@@ -41,20 +41,20 @@ Gradle:
 
 ```
 dependencies {
-	compile 'pl.zankowski:iextrading4j-all:3.3.4'
+	compile 'pl.zankowski:iextrading4j-all:3.4.2'
 }
 ```
 
 Library is up to:
 
 * IEX Trading API version [1.24] - 09.11.2018
-* IEX Cloud API version [1.0] - 11.08.2020
+* IEX Cloud API version [1.0] - 08.01.2021
 
 Supported versions: Java SE 8, Java SE 9, Java SE 10, Java SE 11, Java SE 12
 
 ## Description
 
-IEXTrading4j library allows to receive all data available in API provided by IEXTrading company. They allow to use their market data completly for free, so go and try it out!
+IEXTrading4j library allows to receive all data available in API provided by IEXTrading company. They allow to use their market data completely for free, so go and try it out!
 
 IEX Cloud Data & API description: https://iexcloud.io
 

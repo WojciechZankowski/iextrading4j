@@ -207,6 +207,15 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
+    @Test
+    public void previousDividendsTest() {
+        final List<Dividends> result = cloudClient.executeRequest(new DividendsRequestBuilder()
+                .withSymbol("AAPL")
+                .withDividendRange(DividendRange.FIVE_YEARS)
+                .build());
+        assertThat(result).isNotNull();
+    }
+
     @Ignore("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
     public void earningsTest() {
