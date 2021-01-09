@@ -45,7 +45,7 @@ public class DividendsServiceTest extends BaseIEXCloudV1ServiceTest {
         assertThat(dividends.getCurrency()).isEqualTo("USD");
         assertThat(dividends.getDescription()).isEqualTo("Apple Hikes Quarterly Dividend 5.5%");
         assertThat(dividends.getFrequency()).isEqualTo("Quarterly");
-        assertThat(dividends.getDate()).isEqualTo(LocalDate.of(2019, 11, 19));
+        assertThat(dividends.getDate()).isEqualTo(1574121600000L);
     }
 
     @Test
