@@ -53,6 +53,7 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.PeersRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.PriceRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.QuoteRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.SectorPerformanceRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.TimeSeriesRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayEarningsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayIposRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.UpcomingIposRequestBuilder;
@@ -80,6 +81,7 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.SplitsRequestBuil
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.TechnicalIndicatorRequestBuilder;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -235,6 +237,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
+    @Ignore("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
     public void todayEarningsTest() {
         final TodayEarnings todayEarnings = cloudClient.executeRequest(new TodayEarningsRequestBuilder()
@@ -456,8 +459,8 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     @Test
     public void oneDayChartRequestAcceptanceTest() {
         final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
-                .withChartRange(ChartRange.ONE_DAY)
                 .withSymbol("AAPL")
+                .withDate(LocalDate.of(2020, 12, 29))
                 .build());
         assertThat(result).isNotNull();
     }

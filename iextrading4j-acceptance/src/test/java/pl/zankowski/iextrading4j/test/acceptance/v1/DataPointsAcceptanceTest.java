@@ -38,13 +38,14 @@ public class DataPointsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(response).isNotNull();
     }
 
-    @Ignore // Obfuscated datetime object in sandbox, not possible to map it
     @Test
     public void timeSeriesTest() {
-        final List<TimeSeriesMetadata> result = cloudClient.executeRequest(new TimeSeriesRequestBuilder()
+        final List<Map<String, String>> result = cloudClient.executeRequest(new TimeSeriesRequestBuilder()
+                .withId("advanced_splits")
+                .withKey("AAPL")
                 .build());
+        System.out.println(result);
 
-        assertThat(result).isNotNull();
     }
 
     @Test

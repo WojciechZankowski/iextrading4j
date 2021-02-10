@@ -19,6 +19,7 @@ public class SymbolDescription implements Serializable {
     private final String region;
     private final String exchange;
     private final String sector;
+    private final String currency;
 
     @JsonCreator
     public SymbolDescription(
@@ -28,7 +29,8 @@ public class SymbolDescription implements Serializable {
             @JsonProperty("securityType") final SymbolType securityType,
             @JsonProperty("region") final String region,
             @JsonProperty("exchange") final String exchange,
-            @JsonProperty("sector") final String sector) {
+            @JsonProperty("sector") final String sector,
+            @JsonProperty("currency") final String currency) {
         this.symbol = symbol;
         this.cik = cik;
         this.securityName = securityName;
@@ -36,6 +38,7 @@ public class SymbolDescription implements Serializable {
         this.region = region;
         this.exchange = exchange;
         this.sector = sector;
+        this.currency = currency;
     }
 
     public String getSymbol() {
@@ -66,6 +69,10 @@ public class SymbolDescription implements Serializable {
         return sector;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) {
@@ -81,12 +88,13 @@ public class SymbolDescription implements Serializable {
                 securityType == that.securityType &&
                 Objects.equal(region, that.region) &&
                 Objects.equal(sector, that.sector) &&
-                Objects.equal(exchange, that.exchange);
+                Objects.equal(exchange, that.exchange) &&
+                Objects.equal(currency, that.currency);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(symbol, cik, securityName, securityType, region, exchange, sector);
+        return Objects.hashCode(symbol, cik, securityName, securityType, region, exchange, sector, currency);
     }
 
     @Override
@@ -99,6 +107,7 @@ public class SymbolDescription implements Serializable {
                 .add("region", region)
                 .add("exchange", exchange)
                 .add("sector", sector)
+                .add("currency", currency)
                 .toString();
     }
 

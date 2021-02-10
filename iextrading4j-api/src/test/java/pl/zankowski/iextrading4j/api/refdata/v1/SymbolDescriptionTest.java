@@ -21,9 +21,10 @@ public class SymbolDescriptionTest {
         final String region = fixture.create(String.class);
         final String exchange = fixture.create(String.class);
         final String sector = fixture.create(String.class);
+        final String currency = fixture.create(String.class);
 
         final SymbolDescription symbolDescription = new SymbolDescription(symbol, cik, securityName,
-                securityType, region, exchange, sector);
+                securityType, region, exchange, sector, currency);
 
         assertThat(symbolDescription.getSymbol()).isEqualTo(symbol);
         assertThat(symbolDescription.getCik()).isEqualTo(cik);
@@ -32,6 +33,7 @@ public class SymbolDescriptionTest {
         assertThat(symbolDescription.getRegion()).isEqualTo(region);
         assertThat(symbolDescription.getExchange()).isEqualTo(exchange);
         assertThat(symbolDescription.getSector()).isEqualTo(sector);
+        assertThat(symbolDescription.getCurrency()).isEqualTo(currency);
     }
 
     @Test

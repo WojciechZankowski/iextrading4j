@@ -39,6 +39,8 @@ public class SearchSymbolServiceTest extends BaseIEXCloudV1ServiceTest {
         assertThat(appleSymbol.getSecurityType()).isEqualTo(SymbolType.COMMON_STOCK);
         assertThat(appleSymbol.getRegion()).isEqualTo("US");
         assertThat(appleSymbol.getExchange()).isEqualTo("NAS");
+        assertThat(appleSymbol.getSector()).isEqualTo("fitugMurnaacn");
+        assertThat(appleSymbol.getCurrency()).isEqualTo("USD");
 
         final SymbolDescription appleHospitalitySymbol = result.get(1);
         assertThat(appleHospitalitySymbol.getSymbol()).isEqualTo("APLE");
@@ -46,6 +48,9 @@ public class SearchSymbolServiceTest extends BaseIEXCloudV1ServiceTest {
         assertThat(appleHospitalitySymbol.getSecurityType()).isEqualTo(SymbolType.COMMON_STOCK);
         assertThat(appleHospitalitySymbol.getRegion()).isEqualTo("US");
         assertThat(appleHospitalitySymbol.getExchange()).isEqualTo("NYS");
+        assertThat(appleHospitalitySymbol.getSector()).isEqualTo("fitugMurnaacn");
+        assertThat(appleHospitalitySymbol.getCurrency()).isEqualTo("USD");
+
     }
 
 }
