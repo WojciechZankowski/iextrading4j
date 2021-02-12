@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
@@ -10,8 +9,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@JsonPropertyOrder({"exDate", "declaredDate", "recordDate", "paymentDate",
-        "ratio", "toFactor", "forFactor"})
 public class Split implements Serializable {
 
     private static final long serialVersionUID = 1723133824483798201L;

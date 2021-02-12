@@ -2,8 +2,6 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.google.common.base.MoreObjects;
 import pl.zankowski.iextrading4j.api.util.ListUtil;
 
 import java.math.BigDecimal;
@@ -11,10 +9,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.StringJoiner;
 
-@JsonPropertyOrder({"minute", "marketAverage", "marketNotional", "marketNumberOfTrades", "marketHigh",
-        "marketLow", "marketVolume", "marketChangeOverTime", "marketOpen", "marketClose", "average", "notional",
-        "numberOfTrades", "high", "low", "volume", "date", "open", "close", "unadjustedVolume",
-        "change", "changeInPercent", "vwap", "label", "changeOverTime", "simplifyFactor", "currency"})
 public class Chart extends TimeSeries {
 
     private static final long serialVersionUID = -9161802845718659470L;

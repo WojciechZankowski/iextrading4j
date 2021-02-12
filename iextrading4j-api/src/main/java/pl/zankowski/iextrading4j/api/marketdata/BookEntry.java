@@ -2,14 +2,12 @@ package pl.zankowski.iextrading4j.api.marketdata;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-@JsonPropertyOrder({"price", "size", "timestamp"})
 public class BookEntry implements Serializable {
 
     private static final long serialVersionUID = -448362072914893560L;

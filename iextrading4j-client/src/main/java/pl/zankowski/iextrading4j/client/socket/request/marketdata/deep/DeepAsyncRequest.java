@@ -2,14 +2,12 @@ package pl.zankowski.iextrading4j.client.socket.request.marketdata.deep;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.Objects;
 
 import java.util.Set;
 
 import static pl.zankowski.iextrading4j.api.util.SetUtil.immutableSet;
 
-@JsonPropertyOrder({"symbols", "channels"})
 public class DeepAsyncRequest {
 
     private final Set<String> symbols;

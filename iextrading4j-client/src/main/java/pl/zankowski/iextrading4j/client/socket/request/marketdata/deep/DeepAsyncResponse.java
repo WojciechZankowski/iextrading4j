@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.client.socket.request.marketdata.deep;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.google.common.base.Objects;
@@ -18,7 +17,6 @@ import pl.zankowski.iextrading4j.api.marketdata.TradingStatus;
 
 import java.io.Serializable;
 
-@JsonPropertyOrder({"symbol", "messageType", "data", "seq"})
 public class DeepAsyncResponse<T extends DeepResult> implements Serializable {
 
     private final String symbol;

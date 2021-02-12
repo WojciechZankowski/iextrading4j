@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
@@ -12,13 +11,6 @@ import java.util.List;
 
 import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 
-@JsonPropertyOrder({"symbol", "companyName", "expectedDate", "leadUnderwriters", "underwriters",
-        "companyCounsel", "underwriterCounsel", "auditor", "market", "cik", "address", "city",
-        "state", "zip", "phone", "ceo", "employees", "url", "status", "sharesOffered", "priceLow",
-        "priceHigh", "offerAmount", "totalExpenses", "sharesOverAlloted", "shareholderShares", "sharesOutstanding",
-        "lockupPeriodExpiration", "quietPeriodExpiration", "revenue", "netIncome", "totalAssets",
-        "totalLiabilities", "stockholderEquity", "companyDescription", "businessDescription",
-        "useOfProceeds", "competition", "amount", "percentOffered"})
 public class Ipo implements Serializable {
 
     private static final long serialVersionUID = 6433050561897952237L;

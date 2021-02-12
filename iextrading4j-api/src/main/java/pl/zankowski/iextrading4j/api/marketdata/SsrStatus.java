@@ -2,11 +2,9 @@ package pl.zankowski.iextrading4j.api.marketdata;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
-@JsonPropertyOrder({"isSSR", "detail", "timestamp"})
 public class SsrStatus extends DeepResult {
 
     private static final long serialVersionUID = 8461740692463131275L;

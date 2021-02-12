@@ -2,14 +2,12 @@ package pl.zankowski.iextrading4j.api.system;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.StringJoiner;
 
-@JsonPropertyOrder({"status", "version", "time", "currentMonthAPICalls"})
 public class SystemStatus implements Serializable {
 
     private static final long serialVersionUID = 3320852096256614294L;

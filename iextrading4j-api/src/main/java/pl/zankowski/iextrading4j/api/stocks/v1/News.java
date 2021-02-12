@@ -2,14 +2,11 @@ package pl.zankowski.iextrading4j.api.stocks.v1;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
 
-@JsonPropertyOrder({"datetime", "headline", "source", "url", "summary", "related",
-        "image", "lang", "hasPaywall", "symbol"})
 public class News implements Serializable {
 
     private static final long serialVersionUID = 7687129591411398178L;

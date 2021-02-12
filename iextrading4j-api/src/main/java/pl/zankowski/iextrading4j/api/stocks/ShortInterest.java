@@ -3,7 +3,6 @@ package pl.zankowski.iextrading4j.api.stocks;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import pl.zankowski.iextrading4j.api.refdata.Flag;
@@ -12,9 +11,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@JsonPropertyOrder({"SettlementDate", "SymbolinINETSymbology", "SymbolinCQSSymbology", "SymbolinCMSSymbology",
-        "CUSIP", "SecurityName", "CompanyName", "CurrentShortInterest", "PreviousShortInterest", "PercentChange",
-        "AverageDailyVolume", "DaystoCover", "StockAdjustmentFlag", "NewIssueFlag", "RevisionFlag"})
 public class ShortInterest implements Serializable {
 
     private static final long serialVersionUID = 3667871969291332272L;

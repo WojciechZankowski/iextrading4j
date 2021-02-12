@@ -2,13 +2,11 @@ package pl.zankowski.iextrading4j.api.stats;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
 
-@JsonPropertyOrder({"volume", "symbolsTraded", "routedVolume", "notional"})
 public class RecordsStats implements Serializable {
 
     private static final long serialVersionUID = 7285114378980868337L;

@@ -2,17 +2,12 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.google.common.base.MoreObjects;
 import pl.zankowski.iextrading4j.api.stocks.v1.BaseData;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.StringJoiner;
 
-@JsonPropertyOrder({"date", "open", "high", "low", "close", "volume", "uOpen", "uHigh", "uLow", "uClose", "uVolume",
-        "unadjustedVolume", "change", "changePercent", "vwap", "label", "changeOverTime"})
 public class TimeSeries extends BaseData {
 
     private static final long serialVersionUID = -5513479374604990501L;

@@ -2,14 +2,11 @@ package pl.zankowski.iextrading4j.api.marketdata;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.math.BigDecimal;
 
-@JsonPropertyOrder({"price", "size", "tradeId", "isISO", "isOddLot", "isOutsideRegularHours",
-        "isSinglePriceCross", "isTradeThroughExempt", "timestamp"})
 public class Trade extends DeepResult {
 
     private static final long serialVersionUID = -1447468079664257972L;

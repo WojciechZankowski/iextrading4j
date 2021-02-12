@@ -2,13 +2,11 @@ package pl.zankowski.iextrading4j.api.refdata;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@JsonPropertyOrder({"RecordId", "DailyListTimestamp"})
 public abstract class DailyList implements Serializable {
 
     private static final long serialVersionUID = -6263988959782032624L;

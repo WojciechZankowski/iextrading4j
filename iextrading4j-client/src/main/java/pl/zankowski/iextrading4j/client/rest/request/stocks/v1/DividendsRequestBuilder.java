@@ -10,6 +10,14 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.DividendRange;
 import javax.ws.rs.core.GenericType;
 import java.util.List;
 
+/**
+ * Dividends (Basic)
+ * <p>
+ * Provides basic dividend data for US equities, ETFs, and Mutual Funds for the last 5 years. For 13+ years of
+ * history, comprehensive data, and international dividends, use the Advanced Dividends endpoint.
+ * </p>
+ * @see https://iexcloud.io/docs/api/#dividends-basic
+ */
 public class DividendsRequestBuilder extends AbstractStocksRequestBuilder<List<Dividends>, DividendsRequestBuilder>
         implements IEXCloudV1RestRequest<List<Dividends>> {
 

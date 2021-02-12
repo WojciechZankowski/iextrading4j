@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.api.stocks.v1;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import pl.zankowski.iextrading4j.api.stocks.Book;
@@ -23,12 +22,6 @@ import java.util.List;
 
 import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 
-@JsonPropertyOrder({"advanced-stats", "balance-sheet", "book", "cash-flow", "chart", "company",
-        "delayed-quote", "dividends", "earnings", "today-earnings", "estimates",
-        "financials", "fund-ownership", "income", "insider-roster", "insider-summary",
-        "insider-transactions", "institutional-ownership", "intraday-prices", "stats",
-        "largest-trades", "logo", "news", "ohlc", "options", "peers", "previous", "price",
-        "price-target", "quote", "recommendation-trends", "splits", "volume-by-venue"})
 public class BatchStocks implements Serializable {
 
     private static final long serialVersionUID = -1000412562192933682L;

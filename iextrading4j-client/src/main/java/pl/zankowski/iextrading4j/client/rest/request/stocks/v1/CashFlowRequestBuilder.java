@@ -5,6 +5,14 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
+/**
+ * Cash Flow
+ * <p>
+ * Pulls cash flow data. Available quarterly or annually, with the default being the last available quarter.
+ * This data is currently only available for U.S. symbols.
+ * </p>
+ * @see https://iexcloud.io/docs/api/#cash-flow
+ */
 public class CashFlowRequestBuilder extends AbstractLastStocksRequestBuilder<CashFlows, CashFlowRequestBuilder>
         implements IEXCloudV1RestRequest<CashFlows> {
 

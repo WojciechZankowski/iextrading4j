@@ -3,7 +3,6 @@ package pl.zankowski.iextrading4j.api.datapoint;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
@@ -11,8 +10,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@JsonPropertyOrder({"id", "description", "schema", "weightKey",
-        "weight", "created", "lastUpdated"})
 public class TimeSeriesMetadata implements Serializable {
 
     private static final long serialVersionUID = -6089147392234388332L;

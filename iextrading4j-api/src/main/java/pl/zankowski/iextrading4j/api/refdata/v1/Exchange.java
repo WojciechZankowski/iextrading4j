@@ -2,13 +2,11 @@ package pl.zankowski.iextrading4j.api.refdata.v1;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
 
-@JsonPropertyOrder({"exchange", "region", "description", "mic", "exchangeSuffix"})
 public class Exchange implements Serializable {
 
     private static final long serialVersionUID = -7878559134922419823L;

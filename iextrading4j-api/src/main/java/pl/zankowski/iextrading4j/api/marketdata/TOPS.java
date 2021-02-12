@@ -2,16 +2,12 @@ package pl.zankowski.iextrading4j.api.marketdata;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-@JsonPropertyOrder({"symbol", "marketPercent", "bidSize", "bidPrice", "askSize", "askPrice",
-        "volume", "lastSalePrice", "lastSaleSize", "lastSaleTime", "lastUpdated", "sector",
-        "securityType"})
 public class TOPS implements Serializable {
 
     private static final long serialVersionUID = -4963060825242632556L;

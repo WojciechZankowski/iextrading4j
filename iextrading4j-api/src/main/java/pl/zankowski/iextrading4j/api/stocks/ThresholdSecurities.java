@@ -3,15 +3,12 @@ package pl.zankowski.iextrading4j.api.stocks;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-@JsonPropertyOrder({"TradeDate", "SymbolinINETSymbology", "SymbolinCQSSymbology", "SymbolinCMSSymbology",
-        "CUSIP", "SecurityName"})
 public class ThresholdSecurities implements Serializable {
 
     private static final long serialVersionUID = -1919263280882297974L;

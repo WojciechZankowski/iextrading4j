@@ -2,23 +2,12 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.StringJoiner;
 
-@JsonPropertyOrder({"symbol", "companyName", "primaryExchange", "sector", "calculationPrice",
-        "open", "openTime", "openSource", "close", "closeTime", "closeSource", "high", "highTime", "highSource",
-        "low", "lowTime", "lowSource", "latestPrice", "latestSource", "latestTime",
-        "latestUpdate", "latestVolume", "iexRealtimePrice", "iexRealtimeSize", "iexLastUpdated",
-        "delayedPrice", "delayedPriceTime", "extendedPrice", "extendedChange", "extendedChangePercent",
-        "extendedPriceTime", "previousClose", "change", "changePercent", "iexMarketPercent", "iexVolume",
-        "avgTotalVolume", "iexBidPrice", "iexBidSize", "iexAskPrice", "iexAskSize", "iexOpen", "iexOpenTime",
-        "iexClose", "iexCloseTime", "marketCap", "peRatio", "week52High", "week52Low", "ytdChange", "bidPrice",
-        "bidSize", "askPrice", "askSize", "lastTradeTime", "isUSMarketOpen", "oddLotDelayedPrice",
-        "oddLotDelayedPriceTime"})
 public class Quote implements Serializable {
 
     private static final long serialVersionUID = 6474500411156050266L;

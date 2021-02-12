@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import pl.zankowski.iextrading4j.api.marketdata.BookEntry;
@@ -14,7 +13,6 @@ import java.util.List;
 
 import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 
-@JsonPropertyOrder({"quote", "bids", "asks", "trades", "systemEvent"})
 public class Book implements Serializable {
 
     private static final long serialVersionUID = -251227870271833278L;

@@ -2,11 +2,9 @@ package pl.zankowski.iextrading4j.api.marketdata;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
-@JsonPropertyOrder({"isHalted", "timestamp"})
 public class OpHaltStatus extends DeepResult {
 
     private static final long serialVersionUID = -2147671898499081694L;
