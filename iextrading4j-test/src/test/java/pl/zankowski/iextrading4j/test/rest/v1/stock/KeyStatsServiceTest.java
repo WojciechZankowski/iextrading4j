@@ -35,6 +35,8 @@ public class KeyStatsServiceTest extends BaseIEXCloudV1ServiceTest {
         assertThat(keyStats.getMarketcap()).isEqualTo(BigDecimal.valueOf(760334287200L));
         assertThat(keyStats.getWeek52high()).isEqualTo(BigDecimal.valueOf(156.65));
         assertThat(keyStats.getWeek52low()).isEqualTo(BigDecimal.valueOf(93.63));
+        assertThat(keyStats.getWeek52highSplitAdjustOnly()).isEqualTo(BigDecimal.valueOf(69.96));
+        assertThat(keyStats.getWeek52lowSplitAdjustOnly()).isEqualTo(BigDecimal.valueOf(20));
         assertThat(keyStats.getWeek52change()).isEqualTo(BigDecimal.valueOf(58.801903));
         assertThat(keyStats.getSharesOutstanding()).isEqualTo(BigDecimal.valueOf(5213840000L));
         assertThat(keyStats.getFloat()).isEqualTo(BigDecimal.valueOf(5203997571L));
