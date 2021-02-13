@@ -39,12 +39,12 @@ public class AbstractTimeSeriesRequestBuilder<R, B extends IRestRequestBuilder<R
         this.responseType = responseType;
     }
 
-    protected B withFrom(final LocalDate from) {
+    public B withFrom(final LocalDate from) {
         queryParameters.put(FROM_PARAM_NAME, IEX_DATE_FORMATTER.format(from));
         return (B) this;
     }
 
-    protected B withTo(final LocalDate to) {
+    public B withTo(final LocalDate to) {
         queryParameters.put(TO_PARAM_NAME, IEX_DATE_FORMATTER.format(to));
         return (B) this;
     }
@@ -54,27 +54,27 @@ public class AbstractTimeSeriesRequestBuilder<R, B extends IRestRequestBuilder<R
         return (B) this;
     }
 
-    protected B withLast(final int last) {
+    public B withLast(final int last) {
         queryParameters.put(LAST_PARAM_NAME, String.valueOf(last));
         return (B) this;
     }
 
-    protected B withFirst(final int first) {
+    public B withFirst(final int first) {
         queryParameters.put(FIRST_PARAM_NAME, String.valueOf(first));
         return (B) this;
     }
 
-    protected B withRange(final TimeSeriesRange range) {
+    public B withRange(final TimeSeriesRange range) {
         queryParameters.put(RANGE_PARAM_NAME, range.getCode());
         return (B) this;
     }
 
-    protected B withRange(final int number, final TimeSeriesRangeUnit unit) {
+    public B withRange(final int number, final TimeSeriesRangeUnit unit) {
         queryParameters.put(RANGE_PARAM_NAME, number + unit.getCode());
         return (B) this;
     }
 
-    protected B withCalendar(final boolean state) {
+    public B withCalendar(final boolean state) {
         queryParameters.put(CALENDAR_PARAM_NAME, String.valueOf(state));
         return (B) this;
     }

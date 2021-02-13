@@ -1,6 +1,5 @@
 package pl.zankowski.iextrading4j.api.corporate;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;
@@ -8,18 +7,17 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.StringJoiner;
 
-public class AdvancedBonus extends CorporateData {
+public class AdvancedSplits extends CorporateData {
 
-    private static final long serialVersionUID = -6477438186877377186L;
+    private static final long serialVersionUID = -959636960052328692L;
 
     private final LocalDate recordDate;
     private final LocalDate paymentDate;
-    private final String resultSecurityType;
-    private final String currency;
-    private final BigDecimal lapsedPremium;
+    private final BigDecimal oldParValue;
+    private final String oldParValueCurrency;
+    private final String splitType;
 
-    @JsonCreator
-    public AdvancedBonus(
+    public AdvancedSplits(
             @JsonProperty("symbol") final String symbol,
             @JsonProperty("id") final String id,
             @JsonProperty("key") final String key,
@@ -35,25 +33,25 @@ public class AdvancedBonus extends CorporateData {
             @JsonProperty("parValue") final BigDecimal parValue,
             @JsonProperty("parValueCurrency") final String parValueCurrency,
             @JsonProperty("exDate") final LocalDate exDate,
-            @JsonProperty("recordDate") final LocalDate recordDate,
-            @JsonProperty("paymentDate") final LocalDate paymentDate,
             @JsonProperty("fromFactor") final BigDecimal fromFactor,
             @JsonProperty("toFactor") final BigDecimal toFactor,
             @JsonProperty("ratio") final BigDecimal ratio,
             @JsonProperty("description") final String description,
             @JsonProperty("flag") final String flag,
             @JsonProperty("securityType") final String securityType,
-            @JsonProperty("resultSecurityType") final String resultSecurityType,
-            @JsonProperty("currency") final String currency,
             @JsonProperty("countryCode") final String countryCode,
-            @JsonProperty("lapsedPremium") final BigDecimal lapsedPremium) {
+            @JsonProperty("recordDate") final LocalDate recordDate,
+            @JsonProperty("paymentDate") final LocalDate paymentDate,
+            @JsonProperty("oldParValue") final BigDecimal oldParValue,
+            @JsonProperty("oldParValueCurrency") final String oldParValueCurrency,
+            @JsonProperty("splitType") final String splitType) {
         super(symbol, id, key, subkey, updated, refid, source, date, created, lastUpdated, notes, figi, parValue,
                 parValueCurrency, description, flag, securityType, fromFactor, toFactor, ratio, exDate, countryCode);
         this.recordDate = recordDate;
         this.paymentDate = paymentDate;
-        this.resultSecurityType = resultSecurityType;
-        this.currency = currency;
-        this.lapsedPremium = lapsedPremium;
+        this.oldParValue = oldParValue;
+        this.oldParValueCurrency = oldParValueCurrency;
+        this.splitType = splitType;
     }
 
     public LocalDate getRecordDate() {
@@ -64,16 +62,16 @@ public class AdvancedBonus extends CorporateData {
         return paymentDate;
     }
 
-    public String getResultSecurityType() {
-        return resultSecurityType;
+    public BigDecimal getOldParValue() {
+        return oldParValue;
     }
 
-    public String getCurrency() {
-        return currency;
+    public String getOldParValueCurrency() {
+        return oldParValueCurrency;
     }
 
-    public BigDecimal getLapsedPremium() {
-        return lapsedPremium;
+    public String getSplitType() {
+        return splitType;
     }
 
     @Override
@@ -87,28 +85,27 @@ public class AdvancedBonus extends CorporateData {
         if (!super.equals(o)) {
             return false;
         }
-        final AdvancedBonus that = (AdvancedBonus) o;
+        final AdvancedSplits that = (AdvancedSplits) o;
         return Objects.equals(recordDate, that.recordDate) &&
                 Objects.equals(paymentDate, that.paymentDate) &&
-                Objects.equals(resultSecurityType, that.resultSecurityType) &&
-                Objects.equals(currency, that.currency) &&
-                Objects.equals(lapsedPremium, that.lapsedPremium);
+                Objects.equals(oldParValue, that.oldParValue) &&
+                Objects.equals(oldParValueCurrency, that.oldParValueCurrency) &&
+                Objects.equals(splitType, that.splitType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), recordDate, paymentDate, resultSecurityType, currency, lapsedPremium);
+        return Objects.hash(super.hashCode(), recordDate, paymentDate, oldParValue, oldParValueCurrency, splitType);
     }
 
     @Override
     public String toString() {
-        return new StringJoiner(", ", AdvancedBonus.class.getSimpleName() + "[", "]")
+        return new StringJoiner(", ", AdvancedSplits.class.getSimpleName() + "[", "]")
                 .add("recordDate=" + recordDate)
                 .add("paymentDate=" + paymentDate)
-                .add("resultSecurityType='" + resultSecurityType + "'")
-                .add("currency='" + currency + "'")
-                .add("countryCode='" + getCountryCode() + "'")
-                .add("lapsedPremium=" + lapsedPremium)
+                .add("oldParValue=" + oldParValue)
+                .add("oldParValueCurrency='" + oldParValueCurrency + "'")
+                .add("splitType='" + splitType + "'")
                 .add("refid='" + getRefid() + "'")
                 .add("source='" + getSource() + "'")
                 .add("date=" + getDate())
@@ -125,6 +122,7 @@ public class AdvancedBonus extends CorporateData {
                 .add("parValue=" + getParValue())
                 .add("parValueCurrency='" + getParValueCurrency() + "'")
                 .add("exDate=" + getExDate())
+                .add("countryCode='" + getCountryCode() + "'")
                 .add("symbol='" + getSymbol() + "'")
                 .add("id='" + getId() + "'")
                 .add("key='" + getKey() + "'")

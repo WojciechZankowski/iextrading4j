@@ -9,6 +9,8 @@ import java.util.StringJoiner;
 
 public abstract class CorporateData extends BaseData {
 
+    private static final long serialVersionUID = -1484007127414346002L;
+
     private final String refid;
     private final String source;
     private final Long date;
@@ -16,13 +18,39 @@ public abstract class CorporateData extends BaseData {
     private final LocalDate lastUpdated;
     private final String notes;
     private final String figi;
+    private final String description;
+    private final String flag;
+    private final String securityType;
+    private final BigDecimal fromFactor;
+    private final BigDecimal toFactor;
+    private final BigDecimal ratio;
     private final BigDecimal parValue;
     private final String parValueCurrency;
+    private final LocalDate exDate;
+    private final String countryCode;
 
-    public CorporateData(final String symbol, final String id, final String key, final String subkey,
-                         final Long updated, final String refid, final String source, final Long date,
-                         final LocalDate created, final LocalDate lastUpdated, final String notes, final String figi,
-                         final BigDecimal parValue, final String parValueCurrency) {
+    public CorporateData(final String symbol,
+                         final String id,
+                         final String key,
+                         final String subkey,
+                         final Long updated,
+                         final String refid,
+                         final String source,
+                         final Long date,
+                         final LocalDate created,
+                         final LocalDate lastUpdated,
+                         final String notes,
+                         final String figi,
+                         final BigDecimal parValue,
+                         final String parValueCurrency,
+                         final String description,
+                         final String flag,
+                         final String securityType,
+                         final BigDecimal fromFactor,
+                         final BigDecimal toFactor,
+                         final BigDecimal ratio,
+                         final LocalDate exDate,
+                         final String countryCode) {
         super(symbol, id, key, subkey, updated);
         this.refid = refid;
         this.source = source;
@@ -33,6 +61,14 @@ public abstract class CorporateData extends BaseData {
         this.figi = figi;
         this.parValue = parValue;
         this.parValueCurrency = parValueCurrency;
+        this.description = description;
+        this.flag = flag;
+        this.securityType = securityType;
+        this.fromFactor = fromFactor;
+        this.toFactor = toFactor;
+        this.ratio = ratio;
+        this.exDate = exDate;
+        this.countryCode = countryCode;
     }
 
     public String getRefid() {
@@ -63,12 +99,44 @@ public abstract class CorporateData extends BaseData {
         return figi;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public String getSecurityType() {
+        return securityType;
+    }
+
+    public BigDecimal getFromFactor() {
+        return fromFactor;
+    }
+
+    public BigDecimal getToFactor() {
+        return toFactor;
+    }
+
+    public BigDecimal getRatio() {
+        return ratio;
+    }
+
     public BigDecimal getParValue() {
         return parValue;
     }
 
     public String getParValueCurrency() {
         return parValueCurrency;
+    }
+
+    public LocalDate getExDate() {
+        return exDate;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
     }
 
     @Override
@@ -83,21 +151,22 @@ public abstract class CorporateData extends BaseData {
             return false;
         }
         final CorporateData that = (CorporateData) o;
-        return Objects.equals(refid, that.refid) &&
-                Objects.equals(source, that.source) &&
-                Objects.equals(date, that.date) &&
-                Objects.equals(created, that.created) &&
-                Objects.equals(lastUpdated, that.lastUpdated) &&
-                Objects.equals(notes, that.notes) &&
-                Objects.equals(figi, that.figi) &&
+        return Objects.equals(refid, that.refid) && Objects.equals(source, that.source) &&
+                Objects.equals(date, that.date) && Objects.equals(created, that.created) &&
+                Objects.equals(lastUpdated, that.lastUpdated) && Objects.equals(notes, that.notes) &&
+                Objects.equals(figi, that.figi) && Objects.equals(description, that.description) &&
+                Objects.equals(flag, that.flag) && Objects.equals(securityType, that.securityType) &&
+                Objects.equals(fromFactor, that.fromFactor) &&
+                Objects.equals(toFactor, that.toFactor) && Objects.equals(ratio, that.ratio) &&
                 Objects.equals(parValue, that.parValue) &&
-                Objects.equals(parValueCurrency, that.parValueCurrency);
+                Objects.equals(parValueCurrency, that.parValueCurrency) &&
+                Objects.equals(exDate, that.exDate) && Objects.equals(countryCode, that.countryCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), refid, source, date, created, lastUpdated, notes, figi,
-                parValue, parValueCurrency);
+        return Objects.hash(super.hashCode(), refid, source, date, created, lastUpdated, notes, figi, description, flag,
+                securityType, fromFactor, toFactor, ratio, parValue, parValueCurrency, exDate, countryCode);
     }
 
     @Override
@@ -110,8 +179,16 @@ public abstract class CorporateData extends BaseData {
                 .add("lastUpdated=" + lastUpdated)
                 .add("notes='" + notes + "'")
                 .add("figi='" + figi + "'")
+                .add("description='" + description + "'")
+                .add("flag='" + flag + "'")
+                .add("securityType='" + securityType + "'")
+                .add("fromFactor=" + fromFactor)
+                .add("toFactor=" + toFactor)
+                .add("ratio=" + ratio)
                 .add("parValue=" + parValue)
                 .add("parValueCurrency='" + parValueCurrency + "'")
+                .add("exDate=" + exDate)
+                .add("countryCode='" + countryCode + "'")
                 .add("symbol='" + getSymbol() + "'")
                 .add("id='" + getId() + "'")
                 .add("key='" + getKey() + "'")
