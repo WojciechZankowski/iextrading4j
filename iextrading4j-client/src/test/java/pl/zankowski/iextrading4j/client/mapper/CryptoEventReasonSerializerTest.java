@@ -9,7 +9,6 @@ import pl.zankowski.iextrading4j.api.alternative.CryptoEventReason;
 
 import java.io.IOException;
 
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -46,7 +45,7 @@ public class CryptoEventReasonSerializerTest {
 
         serializer.serialize(input, jsonGeneratorMock, serializerProviderMock);
 
-        verify(jsonGeneratorMock).writeString(eq("initial"));
+        verify(jsonGeneratorMock).writeString("initial");
     }
 
 }

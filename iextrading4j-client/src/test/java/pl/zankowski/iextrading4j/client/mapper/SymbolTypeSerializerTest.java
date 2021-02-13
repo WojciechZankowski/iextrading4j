@@ -9,7 +9,6 @@ import pl.zankowski.iextrading4j.api.refdata.SymbolType;
 
 import java.io.IOException;
 
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -57,7 +56,7 @@ public class SymbolTypeSerializerTest {
 
         serializer.serialize(input, jsonGeneratorMock, serializerProviderMock);
 
-        verify(jsonGeneratorMock).writeString(eq("N/A"));
+        verify(jsonGeneratorMock).writeString("N/A");
     }
 
     @Test
@@ -68,7 +67,7 @@ public class SymbolTypeSerializerTest {
 
         serializer.serialize(input, jsonGeneratorMock, serializerProviderMock);
 
-        verify(jsonGeneratorMock).writeString(eq("cs"));
+        verify(jsonGeneratorMock).writeString("cs");
     }
 
 }

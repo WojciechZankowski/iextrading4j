@@ -9,7 +9,6 @@ import pl.zankowski.iextrading4j.api.refdata.DividendTypeId;
 
 import java.io.IOException;
 
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -57,6 +56,6 @@ public class DividendTypeIdSerializerTest {
 
         serializer.serialize(input, jsonGeneratorMock, serializerProviderMock);
 
-        verify(jsonGeneratorMock).writeString(eq("XR"));
+        verify(jsonGeneratorMock).writeString("XR");
     }
 }

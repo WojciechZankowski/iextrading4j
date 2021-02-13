@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
-public class SsrStatus extends DeepResult {
+public class SsrStatus implements DeepResult {
 
     private static final long serialVersionUID = 8461740692463131275L;
 

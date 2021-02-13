@@ -7,7 +7,7 @@ import com.google.common.base.Objects;
 
 import java.math.BigDecimal;
 
-public class Trade extends DeepResult {
+public class Trade implements DeepResult {
 
     private static final long serialVersionUID = -1447468079664257972L;
 

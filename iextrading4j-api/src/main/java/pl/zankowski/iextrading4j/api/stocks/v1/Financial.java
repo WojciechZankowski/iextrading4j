@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.api.stocks.v1;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

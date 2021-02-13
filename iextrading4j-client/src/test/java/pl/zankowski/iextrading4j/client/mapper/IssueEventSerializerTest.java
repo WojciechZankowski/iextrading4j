@@ -9,7 +9,6 @@ import pl.zankowski.iextrading4j.api.refdata.IssueEvent;
 
 import java.io.IOException;
 
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -57,6 +56,6 @@ public class IssueEventSerializerTest {
 
         serializer.serialize(input, jsonGeneratorMock, serializerProviderMock);
 
-        verify(jsonGeneratorMock).writeString(eq("AA"));
+        verify(jsonGeneratorMock).writeString("AA");
     }
 }

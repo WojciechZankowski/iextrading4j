@@ -4,10 +4,8 @@ import pl.zankowski.iextrading4j.api.alternative.Sentiment;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.AbstractStocksRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
-import java.time.LocalDate;
 import java.util.List;
 
 import static pl.zankowski.iextrading4j.client.rest.request.util.RequestUtil.IEX_DATE_FORMATTER;

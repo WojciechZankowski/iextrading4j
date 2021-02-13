@@ -8,7 +8,7 @@ import com.google.common.base.Objects;
 import java.math.BigDecimal;
 import java.time.LocalTime;
 
-public class Auction extends DeepResult {
+public class Auction implements DeepResult {
 
     private static final long serialVersionUID = 5635671777545800835L;
 

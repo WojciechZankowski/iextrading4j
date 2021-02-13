@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
-public class SecurityEvent extends DeepResult {
+public class SecurityEvent implements DeepResult {
 
     private static final long serialVersionUID = -2467665799653457170L;
 

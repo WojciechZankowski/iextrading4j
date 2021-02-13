@@ -9,7 +9,7 @@ import java.util.List;
 
 import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 
-public class Book extends DeepResult {
+public class Book implements DeepResult {
 
     private static final long serialVersionUID = -5500382403416100795L;
 
