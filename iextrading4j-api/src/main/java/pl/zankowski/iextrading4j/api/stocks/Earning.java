@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
@@ -10,9 +9,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@JsonPropertyOrder({"actualEPS", "consensusEPS", "estimatedEPS", "announceTime",
-        "numberOfEstimates", "EPSSurpriseDollar", "EPSReportDate", "fiscalPeriod",
-        "fiscalEndDate", "yearAgo", "yearAgoChangePercent", "currency"})
 public class Earning implements Serializable {
 
     private static final long serialVersionUID = -3254561425537119565L;

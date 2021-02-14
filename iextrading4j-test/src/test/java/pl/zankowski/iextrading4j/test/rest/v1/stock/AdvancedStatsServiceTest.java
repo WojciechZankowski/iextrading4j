@@ -35,6 +35,10 @@ public class AdvancedStatsServiceTest extends BaseIEXCloudV1ServiceTest {
         assertThat(advancedStats.getMarketcap()).isEqualTo(BigDecimal.valueOf(760334287200L));
         assertThat(advancedStats.getWeek52high()).isEqualTo(BigDecimal.valueOf(156.65));
         assertThat(advancedStats.getWeek52low()).isEqualTo(BigDecimal.valueOf(93.63));
+        assertThat(advancedStats.getWeek52highSplitAdjustOnly()).isEqualTo(BigDecimal.valueOf(69.96));
+        assertThat(advancedStats.getWeek52highDateSplitAdjustOnly()).isEqualTo(LocalDate.of(2021, 2, 9));
+        assertThat(advancedStats.getWeek52lowSplitAdjustOnly()).isEqualTo(BigDecimal.valueOf(20));
+        assertThat(advancedStats.getWeek52lowDateSplitAdjustOnly()).isEqualTo(LocalDate.of(2020, 3, 8));
         assertThat(advancedStats.getWeek52change()).isEqualTo(BigDecimal.valueOf(58.801903));
         assertThat(advancedStats.getSharesOutstanding()).isEqualTo(BigDecimal.valueOf(5213840000L));
         assertThat(advancedStats.getFloat()).isEqualTo(BigDecimal.valueOf(5203997571L));

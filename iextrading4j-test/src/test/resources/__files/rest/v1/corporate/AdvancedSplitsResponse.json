@@ -1,0 +1,31 @@
+[
+  {
+    "symbol": "CRPYF",
+    "exDate": "2020-01-15",
+    "recordDate": "2020-01-14",
+    "paymentDate": "2020-01-15",
+    "fromFactor": 10,
+    "toFactor": 1,
+    "ratio": 10,
+    "description": "Ordinary Shares",
+    "splitType": "Reverse Split",
+    "flag": "Stock",
+    "securityType": "Equity Shares",
+    "notes": "(As on 07/11/2019) ZAJSE<BR>Share Consolidation<BR>It is intendVd tha:t following completion of the Proposed Transaction, the Company s issued share capital will be consolidated on the basis of 10 Ordinary Shares of 1 pence each for 1 new ordinary share of 10 pence (a  Consolidated Ordinary Share ), by reference to the Capital & Regional Shares in issue at 6.00 p.m. on 14 January 2020 on the UK Register",
+    "figi": "BBG000CQTXJ4",
+    "lastUpdated": "2019-11-08",
+    "countryCode": "US",
+    "parValue": 0.01,
+    "parValueCurrency": "GBP",
+    "oldParValue": 0.01,
+    "oldParValueCurrency": "GBP",
+    "refid": "6057319",
+    "created": "2019-11-07",
+    "id": "ADVANCED_SPLITS",
+    "source": "IEX Cloud",
+    "key": "CRPYF",
+    "subkey": "6057319",
+    "date": 1579046400000,
+    "updated": 1574689890000
+  }
+]

@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.api.stocks.v1;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -10,8 +9,6 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.StringJoiner;
 
-@JsonPropertyOrder({"symbol", "updatedDate", "priceTargetAverage", "priceTargetHigh",
-        "priceTargetLow", "numberOfAnalysis", "currency"})
 public class PriceTarget implements Serializable {
 
     private static final long serialVersionUID = 2641199116590474197L;

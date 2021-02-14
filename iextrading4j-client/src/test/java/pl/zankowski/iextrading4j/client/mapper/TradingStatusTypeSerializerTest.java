@@ -9,7 +9,6 @@ import pl.zankowski.iextrading4j.api.marketdata.TradingStatusType;
 
 import java.io.IOException;
 
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -57,7 +56,7 @@ public class TradingStatusTypeSerializerTest {
 
         tradingStatusTypeSerializer.serialize(input, jsonGeneratorMock, serializerProviderMock);
 
-        verify(jsonGeneratorMock).writeString(eq("T"));
+        verify(jsonGeneratorMock).writeString("T");
     }
 
 }

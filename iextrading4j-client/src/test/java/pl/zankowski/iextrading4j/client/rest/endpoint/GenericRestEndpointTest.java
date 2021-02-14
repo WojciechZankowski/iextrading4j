@@ -7,7 +7,6 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestResponse;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -31,7 +30,7 @@ public class GenericRestEndpointTest {
         when(response.getResponse()).thenReturn(testObject);
 
         final RestRequest<Object> restRequest = mock(RestRequest.class);
-        when(restManagerMock.executeRequest(eq(restRequest))).thenReturn(response);
+        when(restManagerMock.executeRequest(restRequest)).thenReturn(response);
 
         // Act
         final Object result = genericRestEndpoint.executeRequest(restRequest);

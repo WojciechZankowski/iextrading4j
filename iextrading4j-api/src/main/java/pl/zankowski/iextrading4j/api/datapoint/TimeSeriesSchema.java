@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.api.datapoint;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
@@ -13,7 +12,6 @@ import java.util.Map;
 import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 import static pl.zankowski.iextrading4j.api.util.MapUtil.immutableMap;
 
-@JsonPropertyOrder({"type", "properties", "required", "additionalProperties"})
 public class TimeSeriesSchema implements Serializable {
 
     private static final long serialVersionUID = 925614403539934677L;

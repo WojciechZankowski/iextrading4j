@@ -2,15 +2,12 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-@JsonPropertyOrder({"symbol", "delayedPrice", "high", "low", "delayedSize", "delayedPriceTime",
-        "totalVolume", "processedTime"})
 public class DelayedQuote implements Serializable {
 
     private static final long serialVersionUID = 7012279461409297611L;

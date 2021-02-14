@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.api.options;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
@@ -10,8 +9,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@JsonPropertyOrder({"symbol", "id", "expirationDate", "contractSize", "strikePrice", "closingPrice",
-        "side", "type", "volume", "openInterest", "bid", "ask", "lastUpdated"})
 public class Option implements Serializable {
 
     private static final long serialVersionUID = 2983757072405826797L;

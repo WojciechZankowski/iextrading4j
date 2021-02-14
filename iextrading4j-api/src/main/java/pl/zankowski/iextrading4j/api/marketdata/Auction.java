@@ -2,17 +2,13 @@ package pl.zankowski.iextrading4j.api.marketdata;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.math.BigDecimal;
 import java.time.LocalTime;
 
-@JsonPropertyOrder({"auctionType", "pairedShares", "imbalanceShares", "referencePrice",
-        "indicativePrice", "auctionBookPrice", "collarReferencePrice", "lowerCollarPrice",
-        "upperCollarPrice", "extensionNumber", "startTime", "lastUpdate"})
-public class Auction extends DeepResult {
+public class Auction implements DeepResult {
 
     private static final long serialVersionUID = 5635671777545800835L;
 

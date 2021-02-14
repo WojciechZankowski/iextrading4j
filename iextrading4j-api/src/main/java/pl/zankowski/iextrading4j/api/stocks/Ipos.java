@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
@@ -10,7 +9,6 @@ import java.util.List;
 
 import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 
-@JsonPropertyOrder({"rawData", "viewData"})
 public class Ipos implements Serializable {
 
     private static final long serialVersionUID = 7298805942010846052L;

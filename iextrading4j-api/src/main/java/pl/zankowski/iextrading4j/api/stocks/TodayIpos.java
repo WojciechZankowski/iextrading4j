@@ -2,13 +2,11 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.Objects;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@JsonPropertyOrder({"rawData", "viewData", "lastUpdate"})
 public class TodayIpos extends Ipos {
 
     private static final long serialVersionUID = 5867189719422943277L;

@@ -2,13 +2,11 @@ package pl.zankowski.iextrading4j.api.forex;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.math.BigDecimal;
 
-@JsonPropertyOrder({"symbol", "rate", "timestamp", "amount", "isDerived"})
 public class CurrencyConversion extends CurrencyRate {
 
     private static final long serialVersionUID = 7375544334448807375L;

@@ -2,14 +2,12 @@ package pl.zankowski.iextrading4j.api.stats;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-@JsonPropertyOrder({"value", "lastUpdated"})
 public class IntradayStat implements Serializable {
 
     private static final long serialVersionUID = 2592939764468529774L;

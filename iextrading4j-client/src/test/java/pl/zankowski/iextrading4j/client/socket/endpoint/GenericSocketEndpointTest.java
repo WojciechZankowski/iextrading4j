@@ -9,7 +9,6 @@ import pl.zankowski.iextrading4j.client.socket.request.marketdata.TopsAsyncReque
 
 import java.util.function.Consumer;
 
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -31,7 +30,7 @@ public class GenericSocketEndpointTest {
 
         genericSocketEndpoint.subscribe(request, topsConsumer);
 
-        verify(socketManagerMock).subscribe(eq(request), eq(topsConsumer));
+        verify(socketManagerMock).subscribe(request, topsConsumer);
     }
 
     @Test
@@ -40,6 +39,6 @@ public class GenericSocketEndpointTest {
 
         genericSocketEndpoint.unsubscribe(request);
 
-        verify(socketManagerMock).unsubscribe(eq(request));
+        verify(socketManagerMock).unsubscribe(request);
     }
 }

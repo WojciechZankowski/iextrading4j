@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.api.datapoint;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
@@ -10,7 +9,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
-@JsonPropertyOrder({"key", "weight", "description", "lastUpdated"})
 public class DataPoint implements Serializable {
 
     private static final long serialVersionUID = 1943500259622072479L;

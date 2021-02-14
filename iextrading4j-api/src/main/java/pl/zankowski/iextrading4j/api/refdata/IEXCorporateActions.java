@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.api.refdata;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
@@ -10,14 +9,6 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@JsonPropertyOrder({"RecordID", "DailyListTimestamp", "EffectiveDate", "IssueEvent",
-        "CurrentSymbolinINETSymbology", "CurrentSymbolinCQSSymbology", "CurrentSymbolinCMSSymbology",
-        "NewSymbolinINETSymbology", "NewSymbolinCQSSymbology", "NewSymbolinCMSSymbology",
-        "CurrentSecurityName", "NewSecurityName", "CurrentListingCenter", "NewListingCenter",
-        "DelistingReason", "CurrentRoundLotSize", "NewRoundLotSize", "CurrentLULDTierIndicator",
-        "NewLULDTierIndicator", "ExpirationDate", "SeparationDate", "SettlementDate", "MaturityDate",
-        "RedemptionDate", "CurrentFinancialStatus", "NewFinancialStatus", "WhenIssuedFlag", "WhenDistributedFlag",
-        "IPOFlag", "HistoryHold", "NotesforEachEntry", "RecordUpdateTime"})
 public class IEXCorporateActions extends DailyList {
 
     private static final long serialVersionUID = 2878470171998226594L;

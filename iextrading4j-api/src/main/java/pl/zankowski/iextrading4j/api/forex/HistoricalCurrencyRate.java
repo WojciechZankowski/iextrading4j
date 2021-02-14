@@ -2,14 +2,12 @@ package pl.zankowski.iextrading4j.api.forex;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@JsonPropertyOrder({"date", "symbol", "rate", "timestamp", "isDerived"})
 public class HistoricalCurrencyRate extends CurrencyRate {
 
     private static final long serialVersionUID = 6127152263842018048L;

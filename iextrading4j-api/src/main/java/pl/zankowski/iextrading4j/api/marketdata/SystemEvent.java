@@ -2,12 +2,10 @@ package pl.zankowski.iextrading4j.api.marketdata;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
-@JsonPropertyOrder({"systemEvent", "timestamp"})
-public class SystemEvent extends DeepResult {
+public class SystemEvent implements DeepResult {
 
     private static final long serialVersionUID = -726343172725796350L;
 

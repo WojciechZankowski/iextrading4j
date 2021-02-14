@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.api.alternative;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import pl.zankowski.iextrading4j.api.marketdata.BookEntry;
@@ -12,7 +11,6 @@ import java.util.List;
 
 import static pl.zankowski.iextrading4j.api.util.ListUtil.immutableList;
 
-@JsonPropertyOrder({"symbol", "ask", "bid"})
 public class CryptoBookEvent implements Serializable {
 
     private static final long serialVersionUID = -2249655496972607126L;

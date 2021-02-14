@@ -20,6 +20,8 @@ public class AdvancedStatsTest {
         final BigDecimal marketcap = fixture.create(BigDecimal.class);
         final BigDecimal week52high = fixture.create(BigDecimal.class);
         final BigDecimal week52low = fixture.create(BigDecimal.class);
+        final BigDecimal week52highSplitAdjustOnly = fixture.create(BigDecimal.class);
+        final BigDecimal week52lowSplitAdjustOnly = fixture.create(BigDecimal.class);
         final BigDecimal week52change = fixture.create(BigDecimal.class);
         final BigDecimal sharesOutstanding = fixture.create(BigDecimal.class);
         final BigDecimal Float = fixture.create(BigDecimal.class);
@@ -68,21 +70,28 @@ public class AdvancedStatsTest {
         final LocalDate week52highDate = fixture.create(LocalDate.class);
         final LocalDate week52lowDate = fixture.create(LocalDate.class);
         final BigDecimal putCallRatio = fixture.create(BigDecimal.class);
+        final LocalDate week52highDateSplitAdjustOnly = fixture.create(LocalDate.class);
+        final LocalDate week52lowDateSplitAdjustOnly = fixture.create(LocalDate.class);
 
         final AdvancedStats advancedStats = new AdvancedStats(companyName, marketcap, week52high, week52low,
-                week52change, sharesOutstanding, Float, symbol, avg10Volume, avg30Volume, day200MovingAvg,
-                day50MovingAvg, employees, ttmEPS, ttmDividendRate, dividendYield, nextDividendDate,
-                exDividendDate, nextEarningsDate, peRatio, maxChangePercent, year5ChangePercent, year2ChangePercent,
-                year1ChangePercent, ytdChangePercent, month6ChangePercent, month3ChangePercent, month1ChangePercent,
-                day5ChangePercent, day30ChangePercent, totalCash, currentDebt, revenue, grossProfit,
-                totalRevenue, ebitda, revenuePerShare, revenuePerEmployee, debtToEquity, profitMargin, enterpriseValue,
-                enterpriseValueToRevenue, priceToSales, priceToBook, forwardPERatio, pegRatio, beta, peHigh, peLow,
-                week52highDate, week52lowDate, putCallRatio);
+                week52highSplitAdjustOnly, week52highDateSplitAdjustOnly, week52lowSplitAdjustOnly,
+                week52lowDateSplitAdjustOnly, week52change, sharesOutstanding, Float, symbol,
+                avg10Volume, avg30Volume, day200MovingAvg, day50MovingAvg, employees, ttmEPS, ttmDividendRate,
+                dividendYield, nextDividendDate, exDividendDate, nextEarningsDate, peRatio, maxChangePercent,
+                year5ChangePercent, year2ChangePercent, year1ChangePercent, ytdChangePercent, month6ChangePercent,
+                month3ChangePercent, month1ChangePercent, day5ChangePercent, day30ChangePercent, totalCash,
+                currentDebt, revenue, grossProfit, totalRevenue, ebitda, revenuePerShare, revenuePerEmployee,
+                debtToEquity, profitMargin, enterpriseValue, enterpriseValueToRevenue, priceToSales, priceToBook,
+                forwardPERatio, pegRatio, beta, peHigh, peLow, week52highDate, week52lowDate, putCallRatio);
 
         assertThat(advancedStats.getCompanyName()).isEqualTo(companyName);
         assertThat(advancedStats.getMarketcap()).isEqualTo(marketcap);
         assertThat(advancedStats.getWeek52high()).isEqualTo(week52high);
         assertThat(advancedStats.getWeek52low()).isEqualTo(week52low);
+        assertThat(advancedStats.getWeek52highSplitAdjustOnly()).isEqualTo(week52highSplitAdjustOnly);
+        assertThat(advancedStats.getWeek52highDateSplitAdjustOnly()).isEqualTo(week52highDateSplitAdjustOnly);
+        assertThat(advancedStats.getWeek52lowSplitAdjustOnly()).isEqualTo(week52lowSplitAdjustOnly);
+        assertThat(advancedStats.getWeek52lowDateSplitAdjustOnly()).isEqualTo(week52lowDateSplitAdjustOnly);
         assertThat(advancedStats.getWeek52change()).isEqualTo(week52change);
         assertThat(advancedStats.getSharesOutstanding()).isEqualTo(sharesOutstanding);
         assertThat(advancedStats.getFloat()).isEqualTo(Float);

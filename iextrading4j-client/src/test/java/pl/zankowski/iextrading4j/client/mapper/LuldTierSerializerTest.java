@@ -9,7 +9,6 @@ import pl.zankowski.iextrading4j.api.refdata.LuldTier;
 
 import java.io.IOException;
 
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -57,7 +56,7 @@ public class LuldTierSerializerTest {
 
         serializer.serialize(input, jsonGeneratorMock, serializerProviderMock);
 
-        verify(jsonGeneratorMock).writeString(eq(""));
+        verify(jsonGeneratorMock).writeString("");
     }
 
     @Test
@@ -68,6 +67,6 @@ public class LuldTierSerializerTest {
 
         serializer.serialize(input, jsonGeneratorMock, serializerProviderMock);
 
-        verify(jsonGeneratorMock).writeString(eq("1"));
+        verify(jsonGeneratorMock).writeString("1");
     }
 }

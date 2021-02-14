@@ -20,6 +20,8 @@ public class KeyStatsTest {
         final BigDecimal marketcap = fixture.create(BigDecimal.class);
         final BigDecimal week52high = fixture.create(BigDecimal.class);
         final BigDecimal week52low = fixture.create(BigDecimal.class);
+        final BigDecimal week52highSplitAdjustOnly = fixture.create(BigDecimal.class);
+        final BigDecimal week52lowSplitAdjustOnly = fixture.create(BigDecimal.class);
         final BigDecimal week52change = fixture.create(BigDecimal.class);
         final BigDecimal sharesOutstanding = fixture.create(BigDecimal.class);
         final BigDecimal Float = fixture.create(BigDecimal.class);
@@ -49,16 +51,18 @@ public class KeyStatsTest {
         final BigDecimal beta = fixture.create(BigDecimal.class);
 
         final KeyStats keyStats = new KeyStats(companyName, marketcap, week52high, week52low,
-                week52change, sharesOutstanding, Float, symbol, avg10Volume, avg30Volume, day200MovingAvg,
-                day50MovingAvg, employees, ttmEPS, ttmDividendRate, dividendYield, nextDividendDate,
-                exDividendDate, nextEarningsDate, peRatio, maxChangePercent, year5ChangePercent, year2ChangePercent,
-                year1ChangePercent, ytdChangePercent, month6ChangePercent, month3ChangePercent, month1ChangePercent,
-                day5ChangePercent, day30ChangePercent, beta);
+                week52highSplitAdjustOnly, week52lowSplitAdjustOnly, week52change, sharesOutstanding, Float,
+                symbol, avg10Volume, avg30Volume, day200MovingAvg, day50MovingAvg, employees, ttmEPS, ttmDividendRate,
+                dividendYield, nextDividendDate, exDividendDate, nextEarningsDate, peRatio, maxChangePercent,
+                year5ChangePercent, year2ChangePercent, year1ChangePercent, ytdChangePercent, month6ChangePercent,
+                month3ChangePercent, month1ChangePercent, day5ChangePercent, day30ChangePercent, beta);
 
         assertThat(keyStats.getCompanyName()).isEqualTo(companyName);
         assertThat(keyStats.getMarketcap()).isEqualTo(marketcap);
         assertThat(keyStats.getWeek52high()).isEqualTo(week52high);
         assertThat(keyStats.getWeek52low()).isEqualTo(week52low);
+        assertThat(keyStats.getWeek52highSplitAdjustOnly()).isEqualTo(week52highSplitAdjustOnly);
+        assertThat(keyStats.getWeek52lowSplitAdjustOnly()).isEqualTo(week52lowSplitAdjustOnly);
         assertThat(keyStats.getWeek52change()).isEqualTo(week52change);
         assertThat(keyStats.getSharesOutstanding()).isEqualTo(sharesOutstanding);
         assertThat(keyStats.getFloat()).isEqualTo(Float);

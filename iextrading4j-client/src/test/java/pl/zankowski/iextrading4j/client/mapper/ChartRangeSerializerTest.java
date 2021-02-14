@@ -9,7 +9,6 @@ import pl.zankowski.iextrading4j.api.stocks.ChartRange;
 
 import java.io.IOException;
 
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -46,6 +45,6 @@ public class ChartRangeSerializerTest {
 
         serializer.serialize(input, jsonGeneratorMock, serializerProviderMock);
 
-        verify(jsonGeneratorMock).writeString(eq("5y"));
+        verify(jsonGeneratorMock).writeString("5y");
     }
 }

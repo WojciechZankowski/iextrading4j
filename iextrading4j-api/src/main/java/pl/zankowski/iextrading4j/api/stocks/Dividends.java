@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
@@ -10,8 +9,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@JsonPropertyOrder({"exDate", "paymentDate", "recordDate", "declaredDate",
-        "amount", "flag", "type", "qualified", "indicated"})
 public class Dividends implements Serializable {
 
     private static final long serialVersionUID = 9130059067908266890L;

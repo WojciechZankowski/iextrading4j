@@ -12,7 +12,6 @@ import javax.ws.rs.core.Response;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -71,7 +70,7 @@ public class RestManagerTest {
         assertThat(response.getMessage()).isEqualTo(reasonPhrase);
 
         verify(responseMock).close();
-        verify(clientMock).target(eq("http://localhost:8080/test/works?query=test"));
+        verify(clientMock).target("http://localhost:8080/test/works?query=test");
     }
 
     @Test(expected = IEXTradingException.class)

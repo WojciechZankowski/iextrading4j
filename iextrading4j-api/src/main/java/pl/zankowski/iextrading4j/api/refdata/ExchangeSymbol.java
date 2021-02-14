@@ -2,14 +2,12 @@ package pl.zankowski.iextrading4j.api.refdata;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-@JsonPropertyOrder({"symbol", "name", "date", "isEnabled", "type", "iexId"})
 public class ExchangeSymbol implements Serializable {
 
     private static final long serialVersionUID = -1841302226853517777L;

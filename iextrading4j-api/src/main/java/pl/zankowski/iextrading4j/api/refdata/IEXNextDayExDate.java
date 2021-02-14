@@ -2,7 +2,6 @@ package pl.zankowski.iextrading4j.api.refdata;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
@@ -10,12 +9,6 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@JsonPropertyOrder({"RecordID", "DailyListTimestamp", "ExDate", "SymbolinINETSymbology",
-        "SymbolinCQSSymbology", "SymbolinCMSSymbology", "SecurityName", "CompanyName",
-        "DividendTypeID", "AmountDescription", "PaymentFrequency", "StockAdjustmentFactor",
-        "StockAmount", "CashAmount", "PostSplitShares", "PreSplitShares", "QualifiedDividend",
-        "ExercisePriceAmount", "ElectionorExpirationDate", "GrossAmount", "NetAmount",
-        "BasisNotes", "NotesforEachEntry", "RecordUpdateTime"})
 public class IEXNextDayExDate extends DailyList {
 
     private static final long serialVersionUID = 4610872884982057597L;

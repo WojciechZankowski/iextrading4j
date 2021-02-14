@@ -9,7 +9,6 @@ import pl.zankowski.iextrading4j.api.marketdata.TradingStatusReasonType;
 
 import java.io.IOException;
 
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -57,7 +56,7 @@ public class TradingStatusReasonTypeSerializerTest {
 
         tradingStatusReasonTypeSerializer.serialize(input, jsonGeneratorMock, serializerProviderMock);
 
-        verify(jsonGeneratorMock).writeString(eq("T2"));
+        verify(jsonGeneratorMock).writeString("T2");
     }
 
 }
