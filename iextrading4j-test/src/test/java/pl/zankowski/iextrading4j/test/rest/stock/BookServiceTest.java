@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.rest.stock;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.marketdata.BookEntry;
 import pl.zankowski.iextrading4j.api.marketdata.SystemEvent;
 import pl.zankowski.iextrading4j.api.marketdata.SystemEventType;

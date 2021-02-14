@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.acceptance;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.exception.IEXTradingException;
 import pl.zankowski.iextrading4j.api.stats.HistoricalDailyStats;
 import pl.zankowski.iextrading4j.api.stats.HistoricalStats;

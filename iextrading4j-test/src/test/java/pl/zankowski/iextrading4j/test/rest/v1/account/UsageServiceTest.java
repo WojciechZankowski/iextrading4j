@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.rest.v1.account;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.account.Usage;
 import pl.zankowski.iextrading4j.client.rest.request.account.UsageRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.account.UsageType;

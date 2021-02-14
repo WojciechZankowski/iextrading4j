@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.rest.v1.stock;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.stocks.v1.Dividends;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.DividendRange;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.DividendsRequestBuilder;

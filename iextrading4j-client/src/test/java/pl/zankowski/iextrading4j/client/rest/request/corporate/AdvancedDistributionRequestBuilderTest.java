@@ -1,8 +1,7 @@
 package pl.zankowski.iextrading4j.client.rest.request.corporate;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.corporate.AdvancedDistribution;
-import pl.zankowski.iextrading4j.api.corporate.AdvancedSplits;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 

@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.rest.marketdata;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.marketdata.LastTrade;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.LastTradeRequestBuilder;
 import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;

@@ -1,17 +1,14 @@
 package pl.zankowski.iextrading4j.client.rest.request.stocks.v1;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.stocks.ChartRange;
-import pl.zankowski.iextrading4j.api.stocks.v1.Split;
 import pl.zankowski.iextrading4j.api.stocks.v1.TechnicalIndicator;
 import pl.zankowski.iextrading4j.api.stocks.v1.TechnicalIndicatorType;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.SplitsRange;
 
 import javax.ws.rs.core.GenericType;
 import java.math.BigDecimal;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.entry;

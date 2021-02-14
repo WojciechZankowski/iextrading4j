@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.acceptance.v1;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.corporate.AdvancedBonus;
 import pl.zankowski.iextrading4j.api.corporate.AdvancedDistribution;
 import pl.zankowski.iextrading4j.api.corporate.AdvancedSplits;

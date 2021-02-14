@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.client.sse.request.alternative;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.alternative.CryptoBookEvent;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 

@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.rest.stock;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.stocks.LargestTrade;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.LargestTradeRequestBuilder;
 import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;

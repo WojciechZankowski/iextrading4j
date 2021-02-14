@@ -1,7 +1,7 @@
 package pl.zankowski.iextrading4j.test.acceptance.v1;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.alternative.CeoCompensation;
 import pl.zankowski.iextrading4j.api.alternative.CryptoPrice;
 import pl.zankowski.iextrading4j.api.alternative.Sentiment;
@@ -54,7 +54,7 @@ public class AlternativeAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(book).isNotNull();
     }
 
-    @Ignore("Message received from IEX Trading: The requested data requires permission to access.")
+    @Disabled("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
     public void dailySentimentTest() {
         final Sentiment result = cloudClient.executeRequest(new DailySentimentRequestBuilder()
@@ -64,7 +64,7 @@ public class AlternativeAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
-    @Ignore("Message received from IEX Trading: The requested data requires permission to access.")
+    @Disabled("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
     public void manualDailySentimentTest() {
         final List<Sentiment> result = cloudClient.executeRequest(new SentimentRequestBuilder()
@@ -75,7 +75,7 @@ public class AlternativeAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
-    @Ignore("Message received from IEX Trading: The requested data requires permission to access.")
+    @Disabled("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
     public void minuteSentimentTest() {
         final List<Sentiment> result = cloudClient.executeRequest(new SentimentRequestBuilder()

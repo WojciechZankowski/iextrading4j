@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.rest.v1.stock;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.stocks.v1.Financial;
 import pl.zankowski.iextrading4j.api.stocks.v1.Financials;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.FinancialsRequestBuilder;
@@ -8,7 +8,6 @@ import pl.zankowski.iextrading4j.test.rest.v1.BaseIEXCloudV1ServiceTest;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;

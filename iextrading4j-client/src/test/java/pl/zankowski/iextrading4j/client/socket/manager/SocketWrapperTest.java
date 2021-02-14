@@ -2,9 +2,9 @@ package pl.zankowski.iextrading4j.client.socket.manager;
 
 import io.socket.client.IO;
 import io.socket.client.Socket;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
@@ -27,14 +27,14 @@ public class SocketWrapperTest {
     private SocketWrapper socketWrapper;
     private Socket socketMock;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         socketWrapper = new SocketWrapper();
         PowerMockito.mockStatic(IO.class);
         socketMock = mock(Socket.class);
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         socketMock = null;
         socketWrapper = null;

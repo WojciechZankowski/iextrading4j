@@ -2,10 +2,9 @@ package pl.zankowski.iextrading4j.client.mapper;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import pl.zankowski.iextrading4j.api.refdata.DelistingReason;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepChannel;
 
 import java.io.IOException;
@@ -18,12 +17,12 @@ public class DeepChannelDeserializerTest {
 
     private DeepChannelDeserializer deserializer;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         deserializer = new DeepChannelDeserializer();
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         deserializer = null;
     }

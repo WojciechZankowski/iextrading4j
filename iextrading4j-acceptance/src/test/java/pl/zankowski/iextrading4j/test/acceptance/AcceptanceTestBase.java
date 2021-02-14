@@ -1,7 +1,7 @@
 package pl.zankowski.iextrading4j.test.acceptance;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import pl.zankowski.iextrading4j.client.IEXApiClient;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 
@@ -13,12 +13,12 @@ public abstract class AcceptanceTestBase {
 
     protected static IEXApiClient iexTradingClient;
 
-    @BeforeClass
+    @BeforeAll
     public static void setUp() throws Exception {
         iexTradingClient = IEXTradingClient.create();
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         iexTradingClient = null;
     }

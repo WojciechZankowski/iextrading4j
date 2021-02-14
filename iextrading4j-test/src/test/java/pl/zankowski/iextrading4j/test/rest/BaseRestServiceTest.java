@@ -1,25 +1,26 @@
 package pl.zankowski.iextrading4j.test.rest;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.Rule;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import pl.zankowski.iextrading4j.client.IEXApiClient;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 
 public abstract class BaseRestServiceTest {
 
-    @Rule
-    public WireMockRule wireMockRule = new WireMockRule(8089);
+    @RegisterExtension
+    public WireMockExtension wireMockRule = new WireMockExtension(8089);
 
     protected IEXApiClient iexTradingClient;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         iexTradingClient = IEXTradingClient.create();
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         iexTradingClient = null;
     }

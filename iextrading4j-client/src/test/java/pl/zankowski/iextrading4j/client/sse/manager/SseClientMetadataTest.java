@@ -1,7 +1,7 @@
 package pl.zankowski.iextrading4j.client.sse.manager;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 import pl.zankowski.iextrading4j.client.IEXCloudToken;
 

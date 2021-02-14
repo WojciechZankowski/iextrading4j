@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.client.rest.request.forex;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.forex.HistoricalCurrencyRate;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;

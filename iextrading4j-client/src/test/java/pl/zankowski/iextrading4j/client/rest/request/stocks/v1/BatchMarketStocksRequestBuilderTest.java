@@ -1,7 +1,7 @@
 package pl.zankowski.iextrading4j.client.rest.request.stocks.v1;
 
 import com.google.common.collect.Lists;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.stocks.ChartRange;
 import pl.zankowski.iextrading4j.api.stocks.v1.BatchStocks;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;

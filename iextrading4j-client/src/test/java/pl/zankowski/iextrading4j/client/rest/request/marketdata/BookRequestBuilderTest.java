@@ -1,7 +1,6 @@
 package pl.zankowski.iextrading4j.client.rest.request.marketdata;
 
-import org.junit.Test;
-import pl.zankowski.iextrading4j.api.marketdata.Auction;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.marketdata.Book;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;

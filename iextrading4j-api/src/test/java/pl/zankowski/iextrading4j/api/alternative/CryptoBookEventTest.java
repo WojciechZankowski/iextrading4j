@@ -3,7 +3,7 @@ package pl.zankowski.iextrading4j.api.alternative;
 import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.assertj.core.util.Lists;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.marketdata.BookEntry;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 

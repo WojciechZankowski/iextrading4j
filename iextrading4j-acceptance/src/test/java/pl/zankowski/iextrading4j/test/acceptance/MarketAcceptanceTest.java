@@ -1,7 +1,6 @@
 package pl.zankowski.iextrading4j.test.acceptance;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.market.MarketVolume;
 import pl.zankowski.iextrading4j.client.rest.request.market.MarketRequestBuilder;
 

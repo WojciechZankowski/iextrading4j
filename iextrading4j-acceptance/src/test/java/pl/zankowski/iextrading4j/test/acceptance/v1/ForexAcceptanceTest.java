@@ -1,7 +1,7 @@
 package pl.zankowski.iextrading4j.test.acceptance.v1;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.forex.CurrencyConversion;
 import pl.zankowski.iextrading4j.api.forex.CurrencyRate;
 import pl.zankowski.iextrading4j.api.forex.ExchangeRate;
@@ -30,7 +30,7 @@ public class ForexAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     // Not working for some reason
-    @Ignore
+    @Disabled
     @Test
     public void currencyConversionTest() {
         final List<CurrencyConversion> result = cloudClient.executeRequest(new CurrencyConversionRequestBuilder()

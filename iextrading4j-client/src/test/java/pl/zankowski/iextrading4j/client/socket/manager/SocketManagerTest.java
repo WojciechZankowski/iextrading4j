@@ -3,8 +3,8 @@ package pl.zankowski.iextrading4j.client.socket.manager;
 import com.fasterxml.jackson.core.type.TypeReference;
 import io.socket.client.Socket;
 import io.socket.emitter.Emitter;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
 import java.net.URISyntaxException;
@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
@@ -25,7 +26,7 @@ public class SocketManagerTest {
     private SocketWrapper socketWrapper;
     private Socket socket;
 
-    @Before
+    @BeforeEach
     public void setUp() throws URISyntaxException {
         this.socket = mock(Socket.class);
 
@@ -100,7 +101,7 @@ public class SocketManagerTest {
         verify(socketWrapper).socket(eq("https://ws-api.iextrading.com/1.0/test"), eq(true));
     }
 
-    @Test(expected = IllegalStateException.class)
+    @Test
     public void shouldThrowIllegalStateExceptionIfFailsOnConnection() throws URISyntaxException {
         final SocketRequest<String> request = new SocketRequest<>(new TypeReference<String>() {}, "/test",
                 Arrays.asList("Test", "Test2"));
@@ -108,7 +109,7 @@ public class SocketManagerTest {
 
         when(socketWrapper.socket(any(), eq(true))).thenThrow(URISyntaxException.class);
 
-        socketManager.subscribe(request, consumer);
+        assertThrows(IllegalStateException.class, () -> socketManager.subscribe(request, consumer));
     }
 
     @Test

@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.acceptance;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.stocks.Book;
 import pl.zankowski.iextrading4j.api.stocks.EffectiveSpread;
 import pl.zankowski.iextrading4j.api.stocks.Ohlc;

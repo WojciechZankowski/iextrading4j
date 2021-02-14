@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.client.rest.request.stocks;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.stocks.Quote;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
@@ -10,21 +10,22 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.entry;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CollectionRequestBuilderTest {
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void shouldThrowExceptionWhenCollectionTypeIsNull() {
-        new CollectionRequestBuilder()
+        assertThrows(NullPointerException.class, () -> new CollectionRequestBuilder()
                 .withCollectionName("name")
-                .build();
+                .build());
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void shouldThrowExceptionWhenCollectionNameIsNull() {
-        new CollectionRequestBuilder()
+        assertThrows(NullPointerException.class, () -> new CollectionRequestBuilder()
                 .withCollectionType(CollectionType.SECTOR)
-                .build();
+                .build());
     }
 
     @Test

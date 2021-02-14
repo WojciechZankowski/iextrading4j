@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.api.exception;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static pl.zankowski.iextrading4j.api.exception.IEXTradingException.DEFAULT_PREFIX;

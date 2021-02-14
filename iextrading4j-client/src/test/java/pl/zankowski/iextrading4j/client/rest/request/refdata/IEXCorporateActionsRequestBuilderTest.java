@@ -1,8 +1,7 @@
 package pl.zankowski.iextrading4j.client.rest.request.refdata;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.refdata.IEXCorporateActions;
-import pl.zankowski.iextrading4j.api.refdata.IEXNextDayExDate;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 

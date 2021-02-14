@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.rest.v1.alternative;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.alternative.Sentiment;
 import pl.zankowski.iextrading4j.client.rest.request.alternative.SentimentRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.alternative.SentimentType;

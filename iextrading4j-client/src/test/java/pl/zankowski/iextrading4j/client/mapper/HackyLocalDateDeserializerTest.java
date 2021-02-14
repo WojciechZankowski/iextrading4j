@@ -3,9 +3,9 @@ package pl.zankowski.iextrading4j.client.mapper;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.DeserializationContext;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -18,12 +18,12 @@ public class HackyLocalDateDeserializerTest {
 
     private HackyLocalDateDeserializer deserializer;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         deserializer = new HackyLocalDateDeserializer();
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         deserializer = null;
     }

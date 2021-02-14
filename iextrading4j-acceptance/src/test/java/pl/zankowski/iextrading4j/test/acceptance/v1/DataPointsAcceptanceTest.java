@@ -1,9 +1,7 @@
 package pl.zankowski.iextrading4j.test.acceptance.v1;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.datapoint.DataPoint;
-import pl.zankowski.iextrading4j.api.datapoint.TimeSeriesMetadata;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.datapoint.DataPointsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.datapoint.TimeSeriesRequestBuilder;
