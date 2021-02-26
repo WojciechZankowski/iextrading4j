@@ -2,7 +2,7 @@ package pl.zankowski.iextrading4j.api.refdata;
 
 import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
 import java.time.LocalDate;

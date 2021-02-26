@@ -1,9 +1,8 @@
 package pl.zankowski.iextrading4j.test.rest.v1.refdata;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.refdata.SymbolType;
 import pl.zankowski.iextrading4j.api.refdata.v1.ExchangeSymbol;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.ExchangeSymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.RegionSymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.test.rest.v1.BaseIEXCloudV1ServiceTest;
 

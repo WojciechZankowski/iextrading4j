@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.client.socket.request.marketdata;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.marketdata.LastTrade;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketRequest;
 

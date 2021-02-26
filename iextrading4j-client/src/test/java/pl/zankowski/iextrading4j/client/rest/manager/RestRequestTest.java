@@ -2,7 +2,7 @@ package pl.zankowski.iextrading4j.client.rest.manager;
 
 import com.google.common.collect.ImmutableMap;
 import nl.jqno.equalsverifier.EqualsVerifier;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
 import javax.ws.rs.core.GenericType;

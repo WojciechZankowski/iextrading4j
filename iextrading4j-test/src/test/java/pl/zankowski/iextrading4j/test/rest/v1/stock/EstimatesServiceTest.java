@@ -1,11 +1,8 @@
 package pl.zankowski.iextrading4j.test.rest.v1.stock;
 
-import org.junit.Test;
-import pl.zankowski.iextrading4j.api.stocks.v1.CashFlow;
-import pl.zankowski.iextrading4j.api.stocks.v1.CashFlows;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.stocks.v1.Estimate;
 import pl.zankowski.iextrading4j.api.stocks.v1.Estimates;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.CashFlowRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.EstimatesRequestBuilder;
 import pl.zankowski.iextrading4j.test.rest.v1.BaseIEXCloudV1ServiceTest;
 

@@ -1,9 +1,7 @@
 package pl.zankowski.iextrading4j.test.rest.v1.stock;
 
-import org.junit.Test;
-import pl.zankowski.iextrading4j.api.stocks.v1.PriceTarget;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.stocks.v1.RecommendationTrends;
-import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.PriceTargetRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.v1.RecommendationTrendsRequestBuilder;
 import pl.zankowski.iextrading4j.test.rest.v1.BaseIEXCloudV1ServiceTest;
 

@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.rest.v1.refdata;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.refdata.v1.Currency;
 import pl.zankowski.iextrading4j.api.refdata.v1.FxSymbol;
 import pl.zankowski.iextrading4j.api.refdata.v1.Pair;

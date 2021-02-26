@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.rest.v1.account;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.client.rest.request.account.MessageCutoffRequestBuilder;
 import pl.zankowski.iextrading4j.test.rest.v1.BaseIEXCloudV1ServiceTest;
 

@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.client.sse.request.forex;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.forex.CurrencyRate;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 import pl.zankowski.iextrading4j.client.sse.request.stocks.QuoteInterval;

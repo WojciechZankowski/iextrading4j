@@ -1,7 +1,7 @@
 package pl.zankowski.iextrading4j.test.acceptance.v1;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.refdata.v1.Exchange;
 import pl.zankowski.iextrading4j.api.refdata.v1.ExchangeSymbol;
 import pl.zankowski.iextrading4j.api.refdata.v1.HolidayAndTradingDate;
@@ -97,7 +97,7 @@ public class RefDataAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
-    @Ignore("Message received from IEX Trading: This endpoint is unavailable at this time")
+    @Disabled("Message received from IEX Trading: This endpoint is unavailable at this time")
     @Test
     public void isinTest() {
         final List<List<SymbolMapping>> result = cloudClient.executeRequest(new IsinMapperRequestBuilder()

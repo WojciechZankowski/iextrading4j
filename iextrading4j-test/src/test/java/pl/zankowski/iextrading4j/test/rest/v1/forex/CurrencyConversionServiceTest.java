@@ -1,15 +1,11 @@
 package pl.zankowski.iextrading4j.test.rest.v1.forex;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.forex.CurrencyConversion;
-import pl.zankowski.iextrading4j.api.forex.ExchangeRate;
-import pl.zankowski.iextrading4j.api.refdata.v1.Pair;
 import pl.zankowski.iextrading4j.client.rest.request.forex.CurrencyConversionRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.forex.ExchangeRateRequestBuilder;
 import pl.zankowski.iextrading4j.test.rest.v1.BaseIEXCloudV1ServiceTest;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.List;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;

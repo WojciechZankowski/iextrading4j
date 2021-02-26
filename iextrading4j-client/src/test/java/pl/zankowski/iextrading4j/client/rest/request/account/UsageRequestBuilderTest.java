@@ -1,13 +1,9 @@
 package pl.zankowski.iextrading4j.client.rest.request.account;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.account.Usage;
-import pl.zankowski.iextrading4j.api.marketdata.Auction;
-import pl.zankowski.iextrading4j.api.marketdata.Book;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
-import pl.zankowski.iextrading4j.client.rest.request.marketdata.AuctionRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.marketdata.BookRequestBuilder;
 
 import javax.ws.rs.core.GenericType;
 import java.util.List;

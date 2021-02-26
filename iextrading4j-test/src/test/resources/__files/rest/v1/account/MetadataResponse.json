@@ -5,6 +5,8 @@
   "subscriptionTermType": "monthly",
   "tierName": "launch",
   "messageLimit": 1000000000,
+  "creditLimit": 540000,
   "messagesUsed": 215141655,
+  "creditsUsed": 1500,
   "circuitBreaker": 3000000000
 }

@@ -1,8 +1,8 @@
 package pl.zankowski.iextrading4j.client.socket.request.marketdata.deep;
 
 import com.flextrade.jfixture.JFixture;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.exception.IEXTradingException;
 import pl.zankowski.iextrading4j.api.marketdata.Auction;
 import pl.zankowski.iextrading4j.api.marketdata.Book;
@@ -13,6 +13,7 @@ import pl.zankowski.iextrading4j.api.marketdata.SystemEvent;
 import pl.zankowski.iextrading4j.api.marketdata.Trade;
 import pl.zankowski.iextrading4j.api.marketdata.TradingStatus;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
@@ -26,7 +27,7 @@ public class DeepConsumerAdapterTest {
 
     private DeepConsumerAdapter consumerAdapter;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         consumerAdapter = spy(new DeepConsumerAdapter());
     }
@@ -131,13 +132,13 @@ public class DeepConsumerAdapterTest {
         verify(consumerAdapter).acceptSystemEvent(any());
     }
 
-    @Test(expected = IEXTradingException.class)
+    @Test
     public void shouldThrowAnExceptionForUnknownMessageType() {
         final SystemEvent data = fixture.create(SystemEvent.class);
         final DeepAsyncResponse<SystemEvent> response = new DeepAsyncResponse<>(TEST_SYMBOL,
                 DeepMessageType.UNKNOWN.getName(), data, SEQ);
 
-        consumerAdapter.accept(response);
+        assertThrows(IEXTradingException.class, () -> consumerAdapter.accept(response));
     }
 
 }

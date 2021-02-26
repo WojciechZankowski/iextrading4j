@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.rest.stats;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.stats.IntradayStats;
 import pl.zankowski.iextrading4j.client.rest.request.stats.IntradayStatsRequestBuilder;
 import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;

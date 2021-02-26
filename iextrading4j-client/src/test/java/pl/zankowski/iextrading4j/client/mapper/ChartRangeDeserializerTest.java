@@ -2,9 +2,9 @@ package pl.zankowski.iextrading4j.client.mapper;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.stocks.ChartRange;
 
 import java.io.IOException;
@@ -17,12 +17,12 @@ public class ChartRangeDeserializerTest {
 
     private ChartRangeDeserializer deserializer;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         deserializer = new ChartRangeDeserializer();
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         deserializer = null;
     }

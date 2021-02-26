@@ -1,7 +1,6 @@
 package pl.zankowski.iextrading4j.client.rest.request.stocks;
 
-import org.junit.Test;
-import pl.zankowski.iextrading4j.api.stocks.Company;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.stocks.DelayedQuote;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;

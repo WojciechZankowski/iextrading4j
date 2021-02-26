@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.rest.v1.datapoint;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.datapoint.DataPoint;
 import pl.zankowski.iextrading4j.client.rest.request.datapoint.DataPointsRequestBuilder;
 import pl.zankowski.iextrading4j.test.rest.v1.BaseIEXCloudV1ServiceTest;

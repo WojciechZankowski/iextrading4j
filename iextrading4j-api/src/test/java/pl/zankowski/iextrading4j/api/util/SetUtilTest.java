@@ -1,7 +1,7 @@
 package pl.zankowski.iextrading4j.api.util;
 
 import com.google.common.collect.ImmutableSet;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
 import java.util.Set;

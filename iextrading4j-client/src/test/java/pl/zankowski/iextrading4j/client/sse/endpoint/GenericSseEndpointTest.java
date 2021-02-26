@@ -1,7 +1,7 @@
 package pl.zankowski.iextrading4j.client.sse.endpoint;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.marketdata.TOPS;
 import pl.zankowski.iextrading4j.client.sse.manager.SseManager;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
@@ -19,7 +19,7 @@ public class GenericSseEndpointTest {
     private GenericSseEndpoint genericSseEndpoint;
     private SseManager sseManagerMock;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         sseManagerMock = mock(SseManager.class);
         genericSseEndpoint = new GenericSseEndpoint(sseManagerMock);

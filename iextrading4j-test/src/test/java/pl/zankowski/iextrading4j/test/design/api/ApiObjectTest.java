@@ -1,9 +1,9 @@
 package pl.zankowski.iextrading4j.test.design.api;
 
 import com.google.common.collect.Lists;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.reflections.Reflections;
 import pl.zankowski.iextrading4j.test.design.AbstractViolationTests;
 import pl.zankowski.iextrading4j.test.design.IDesignRules;
@@ -17,7 +17,7 @@ public class ApiObjectTest extends AbstractViolationTests {
     private static List<Reflections> REFLECTIONS;
     private static IDesignRules DESIGN_RULES;
 
-    @BeforeClass
+    @BeforeAll
     public static void setUpAll() {
         DESIGN_RULES = new ApiDesignRules();
 
@@ -58,7 +58,7 @@ public class ApiObjectTest extends AbstractViolationTests {
         validate(RuleCode.API_SERIALIZATION_UID, REFLECTIONS, DESIGN_RULES);
     }
 
-    @Ignore
+    @Disabled
     @Test
     public void serializationRoundtripTest() {
         validate(RuleCode.API_SERIALIZATION_ROUNDTRIP, REFLECTIONS, DESIGN_RULES);

@@ -1,7 +1,7 @@
 package pl.zankowski.iextrading4j.client.socket.endpoint;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.marketdata.TOPS;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketManager;
 import pl.zankowski.iextrading4j.client.socket.manager.SocketRequest;
@@ -17,7 +17,7 @@ public class GenericSocketEndpointTest {
     private GenericSocketEndpoint genericSocketEndpoint;
     private SocketManager socketManagerMock;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         socketManagerMock = mock(SocketManager.class);
         genericSocketEndpoint = new GenericSocketEndpoint(socketManagerMock);

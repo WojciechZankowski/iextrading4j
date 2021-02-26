@@ -1,8 +1,8 @@
 package pl.zankowski.iextrading4j.client.rest.manager;
 
 import com.google.common.collect.ImmutableMap;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.exception.IEXTradingException;
 
 import javax.ws.rs.client.Client;
@@ -11,6 +11,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -21,7 +22,7 @@ public class RestManagerTest {
     private RestClient restClientMock;
     private RestManager restManager;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         restClientMock = mock(RestClient.class);
         restManager = new RestManager(restClientMock);
@@ -73,7 +74,7 @@ public class RestManagerTest {
         verify(clientMock).target("http://localhost:8080/test/works?query=test");
     }
 
-    @Test(expected = IEXTradingException.class)
+    @Test
     public void shouldThrowAnExceptionForNotSuccessfulResponse() {
         // Arrange
         final String reasonPhrase = "reason";
@@ -110,10 +111,10 @@ public class RestManagerTest {
         when(metadataMock.getUrl()).thenReturn("http://localhost:8080");
 
         // Act
-        restManager.executeRequest(restRequestMock);
+        assertThrows(IEXTradingException.class, () -> restManager.executeRequest(restRequestMock));
     }
 
-    @Test(expected = IllegalStateException.class)
+    @Test
     public void shouldThrowAnExceptionIfMethodTypeIsNotSupported() {
         final RestClientMetadata metadataMock = mock(RestClientMetadata.class);
         final RestRequest restRequestMock = mock(RestRequest.class);
@@ -130,6 +131,6 @@ public class RestManagerTest {
         when(restRequestMock.getPath()).thenReturn("/test");
         when(metadataMock.getUrl()).thenReturn("http://localhost:8080");
 
-        restManager.executeRequest(restRequestMock);
+        assertThrows(IllegalStateException.class, () -> restManager.executeRequest(restRequestMock));
     }
 }

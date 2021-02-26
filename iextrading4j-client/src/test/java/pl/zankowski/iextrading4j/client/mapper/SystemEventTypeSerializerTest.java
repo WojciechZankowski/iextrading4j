@@ -2,9 +2,9 @@ package pl.zankowski.iextrading4j.client.mapper;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.marketdata.SystemEventType;
 
 import java.io.IOException;
@@ -16,12 +16,12 @@ public class SystemEventTypeSerializerTest {
 
     private SystemEventTypeSerializer systemEventTypeSerializer;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         systemEventTypeSerializer = new SystemEventTypeSerializer();
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         systemEventTypeSerializer = null;
     }

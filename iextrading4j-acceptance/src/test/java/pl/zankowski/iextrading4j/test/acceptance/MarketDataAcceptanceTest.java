@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.acceptance;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.marketdata.Auction;
 import pl.zankowski.iextrading4j.api.marketdata.Book;
 import pl.zankowski.iextrading4j.api.marketdata.DEEP;

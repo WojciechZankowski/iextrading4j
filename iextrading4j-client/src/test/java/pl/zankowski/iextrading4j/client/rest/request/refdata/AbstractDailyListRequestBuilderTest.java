@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.client.rest.request.refdata;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 

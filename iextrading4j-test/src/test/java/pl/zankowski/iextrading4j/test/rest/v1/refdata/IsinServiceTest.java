@@ -1,7 +1,6 @@
 package pl.zankowski.iextrading4j.test.rest.v1.refdata;
 
-import com.github.tomakehurst.wiremock.matching.ContentPattern;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.refdata.v1.SymbolMapping;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.IsinMapperRequestBuilder;
 import pl.zankowski.iextrading4j.test.rest.v1.BaseIEXCloudV1ServiceTest;

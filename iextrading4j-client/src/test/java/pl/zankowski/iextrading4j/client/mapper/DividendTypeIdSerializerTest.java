@@ -2,9 +2,9 @@ package pl.zankowski.iextrading4j.client.mapper;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.refdata.DividendTypeId;
 
 import java.io.IOException;
@@ -16,12 +16,12 @@ public class DividendTypeIdSerializerTest {
 
     private DividendTypeIdSerializer serializer;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         serializer = new DividendTypeIdSerializer();
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         serializer = null;
     }

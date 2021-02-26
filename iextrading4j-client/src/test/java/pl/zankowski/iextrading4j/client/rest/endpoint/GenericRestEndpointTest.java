@@ -1,7 +1,7 @@
 package pl.zankowski.iextrading4j.client.rest.endpoint;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.client.rest.manager.RestManager;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestResponse;
@@ -15,7 +15,7 @@ public class GenericRestEndpointTest {
     private GenericRestEndpoint genericRestEndpoint;
     private RestManager restManagerMock;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         restManagerMock = mock(RestManager.class);
         genericRestEndpoint = new GenericRestEndpoint(restManagerMock);

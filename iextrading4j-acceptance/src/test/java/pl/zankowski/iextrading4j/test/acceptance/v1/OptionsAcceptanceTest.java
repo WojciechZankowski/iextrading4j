@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.acceptance.v1;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.options.Option;
 import pl.zankowski.iextrading4j.client.rest.request.options.OptionSide;
 import pl.zankowski.iextrading4j.client.rest.request.options.OptionsRequestBuilder;

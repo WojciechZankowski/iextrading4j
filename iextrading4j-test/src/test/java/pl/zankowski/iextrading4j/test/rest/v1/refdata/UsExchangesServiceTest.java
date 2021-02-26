@@ -1,9 +1,7 @@
 package pl.zankowski.iextrading4j.test.rest.v1.refdata;
 
-import org.junit.Test;
-import pl.zankowski.iextrading4j.api.refdata.v1.Exchange;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.refdata.v1.UsExchange;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.ExchangeRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.UsExchangeRequestBuilder;
 import pl.zankowski.iextrading4j.test.rest.v1.BaseIEXCloudV1ServiceTest;
 

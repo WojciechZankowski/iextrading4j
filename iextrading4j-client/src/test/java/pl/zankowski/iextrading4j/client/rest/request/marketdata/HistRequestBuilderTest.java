@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.client.rest.request.marketdata;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.marketdata.HIST;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
@@ -12,6 +12,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.entry;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class HistRequestBuilderTest {
 
@@ -31,13 +32,13 @@ public class HistRequestBuilderTest {
         assertThat(request.getQueryParams()).contains(entry("date", "20170505"));
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void shouldThrowNullPointerExceptionWhenDateIsNull() {
         final LocalDate date = null;
 
-        new HistRequestBuilder()
+        assertThrows(NullPointerException.class, () -> new HistRequestBuilder()
                 .withDate(date)
-                .build();
+                .build());
     }
 
     @Test

@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.rest.stock;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.stocks.TimeSeries;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.TimeSeriesRequestBuilder;
 import pl.zankowski.iextrading4j.test.rest.BaseRestServiceTest;

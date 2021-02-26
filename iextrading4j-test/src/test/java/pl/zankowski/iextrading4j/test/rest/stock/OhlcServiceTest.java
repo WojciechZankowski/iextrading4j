@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.rest.stock;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.stocks.Ohlc;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.OhlcMarketRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.OhlcRequestBuilder;

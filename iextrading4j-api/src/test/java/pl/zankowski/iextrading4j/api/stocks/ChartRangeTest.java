@@ -1,16 +1,17 @@
 package pl.zankowski.iextrading4j.api.stocks;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ChartRangeTest {
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void shouldThrowAnExceptionForUnknownCode() {
         final String code = "12m";
 
-        ChartRange.getValueFromCode(code);
+        assertThrows(IllegalArgumentException.class, () -> ChartRange.getValueFromCode(code));
     }
 
 

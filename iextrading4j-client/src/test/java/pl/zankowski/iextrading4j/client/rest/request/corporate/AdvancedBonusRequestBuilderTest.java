@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.client.rest.request.corporate;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.corporate.AdvancedBonus;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;

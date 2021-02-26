@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.test.rest.refdata;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.refdata.DividendTypeId;
 import pl.zankowski.iextrading4j.api.refdata.IEXNextDayExDate;
 import pl.zankowski.iextrading4j.api.refdata.PaymentFrequency;
