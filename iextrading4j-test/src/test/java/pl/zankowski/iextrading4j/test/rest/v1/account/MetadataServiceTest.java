@@ -33,7 +33,9 @@ public class MetadataServiceTest extends BaseIEXCloudV1ServiceTest {
         assertThat(metadata.getSubscriptionTermType()).isEqualTo("monthly");
         assertThat(metadata.getTierName()).isEqualTo("launch");
         assertThat(metadata.getMessageLimit()).isEqualTo(1000000000L);
+        assertThat(metadata.getCreditLimit()).isEqualTo(540000L);
         assertThat(metadata.getMessagesUsed()).isEqualTo(215141655L);
+        assertThat(metadata.getCreditsUsed()).isEqualTo(1500L);
         assertThat(metadata.getCircuitBreaker()).isEqualTo(3000000000L);
     }
 

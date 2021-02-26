@@ -2,10 +2,10 @@ package pl.zankowski.iextrading4j.api.account;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
 
 import java.io.Serializable;
+import java.util.Objects;
+import java.util.StringJoiner;
 
 public class Metadata implements Serializable {
 
@@ -17,7 +17,9 @@ public class Metadata implements Serializable {
     private final String subscriptionTermType;
     private final String tierName;
     private final Long messageLimit;
+    private final Long creditLimit;
     private final Long messagesUsed;
+    private final Long creditsUsed;
     private final Long circuitBreaker;
 
     @JsonCreator
@@ -28,7 +30,9 @@ public class Metadata implements Serializable {
             @JsonProperty("subscriptionTermType") final String subscriptionTermType,
             @JsonProperty("tierName") final String tierName,
             @JsonProperty("messageLimit") final Long messageLimit,
+            @JsonProperty("creditLimit") final Long creditLimit,
             @JsonProperty("messagesUsed") final Long messagesUsed,
+            @JsonProperty("creditsUsed") final Long creditsUsed,
             @JsonProperty("circuitBreaker") final Long circuitBreaker) {
         this.payAsYouGoEnabled = payAsYouGoEnabled;
         this.effectiveDate = effectiveDate;
@@ -36,7 +40,9 @@ public class Metadata implements Serializable {
         this.subscriptionTermType = subscriptionTermType;
         this.tierName = tierName;
         this.messageLimit = messageLimit;
+        this.creditLimit = creditLimit;
         this.messagesUsed = messagesUsed;
+        this.creditsUsed = creditsUsed;
         this.circuitBreaker = circuitBreaker;
     }
 
@@ -64,8 +70,16 @@ public class Metadata implements Serializable {
         return messageLimit;
     }
 
+    public Long getCreditLimit() {
+        return creditLimit;
+    }
+
     public Long getMessagesUsed() {
         return messagesUsed;
+    }
+
+    public Long getCreditsUsed() {
+        return creditsUsed;
     }
 
     public Long getCircuitBreaker() {
@@ -81,34 +95,37 @@ public class Metadata implements Serializable {
             return false;
         }
         final Metadata metadata = (Metadata) o;
-        return Objects.equal(payAsYouGoEnabled, metadata.payAsYouGoEnabled) &&
-                Objects.equal(effectiveDate, metadata.effectiveDate) &&
-                Objects.equal(endDateEffective, metadata.endDateEffective) &&
-                Objects.equal(subscriptionTermType, metadata.subscriptionTermType) &&
-                Objects.equal(tierName, metadata.tierName) &&
-                Objects.equal(messageLimit, metadata.messageLimit) &&
-                Objects.equal(messagesUsed, metadata.messagesUsed) &&
-                Objects.equal(circuitBreaker, metadata.circuitBreaker);
+        return Objects.equals(payAsYouGoEnabled, metadata.payAsYouGoEnabled) &&
+                Objects.equals(effectiveDate, metadata.effectiveDate) &&
+                Objects.equals(endDateEffective, metadata.endDateEffective) &&
+                Objects.equals(subscriptionTermType, metadata.subscriptionTermType) &&
+                Objects.equals(tierName, metadata.tierName) &&
+                Objects.equals(messageLimit, metadata.messageLimit) &&
+                Objects.equals(creditLimit, metadata.creditLimit) &&
+                Objects.equals(messagesUsed, metadata.messagesUsed) &&
+                Objects.equals(creditsUsed, metadata.creditsUsed) &&
+                Objects.equals(circuitBreaker, metadata.circuitBreaker);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(payAsYouGoEnabled, effectiveDate, endDateEffective,
-                subscriptionTermType, tierName, messageLimit, messagesUsed, circuitBreaker);
+        return Objects.hash(payAsYouGoEnabled, effectiveDate, endDateEffective, subscriptionTermType, tierName,
+                messageLimit, creditLimit, messagesUsed, creditsUsed, circuitBreaker);
     }
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("payAsYouGoEnabled", payAsYouGoEnabled)
-                .add("effectiveDate", effectiveDate)
-                .add("endDateEffective", endDateEffective)
-                .add("subscriptionTermType", subscriptionTermType)
-                .add("tierName", tierName)
-                .add("messageLimit", messageLimit)
-                .add("messagesUsed", messagesUsed)
-                .add("circuitBreaker", circuitBreaker)
+        return new StringJoiner(", ", Metadata.class.getSimpleName() + "[", "]")
+                .add("payAsYouGoEnabled=" + payAsYouGoEnabled)
+                .add("effectiveDate=" + effectiveDate)
+                .add("endDateEffective=" + endDateEffective)
+                .add("subscriptionTermType='" + subscriptionTermType + "'")
+                .add("tierName='" + tierName + "'")
+                .add("messageLimit=" + messageLimit)
+                .add("creditLimit=" + creditLimit)
+                .add("messagesUsed=" + messagesUsed)
+                .add("creditsUsed=" + creditsUsed)
+                .add("circuitBreaker=" + circuitBreaker)
                 .toString();
     }
-
 }
