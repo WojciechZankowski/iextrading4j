@@ -11,7 +11,7 @@ import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
  * Pulls balance sheet data. Available quarterly or annually with the default being the last available quarter.
  * This data is currently only available for U.S. symbols.
  * </p>
- * @see https://iexcloud.io/docs/api/#balance-sheet
+ * https://iexcloud.io/docs/api/#balance-sheet
  */
 public class BalanceSheetRequestBuilder extends AbstractLastStocksRequestBuilder<BalanceSheets, BalanceSheetRequestBuilder>
         implements IEXCloudV1RestRequest<BalanceSheets> {

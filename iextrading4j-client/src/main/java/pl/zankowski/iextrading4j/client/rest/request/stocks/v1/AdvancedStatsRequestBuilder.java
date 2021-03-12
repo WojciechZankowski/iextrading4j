@@ -11,7 +11,7 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.AbstractStocksReques
  * <p>
  * Returns everything in key stats plus additional advanced stats such as EBITDA, ratios, key financial data, and more
  * </p>
- * @see https://iexcloud.io/docs/api/#advanced-stats
+ * https://iexcloud.io/docs/api/#advanced-stats
  */
 public class AdvancedStatsRequestBuilder extends AbstractStocksRequestBuilder<AdvancedStats, AdvancedStatsRequestBuilder>
         implements IEXCloudV1RestRequest<AdvancedStats> {
