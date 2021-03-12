@@ -63,7 +63,7 @@
         <nexus.staging.maven.plugin>1.6.8</nexus.staging.maven.plugin>
         <maven.clean.plugin>3.0.0</maven.clean.plugin>
         <maven.surefire.plugin>2.22.2</maven.surefire.plugin>
-        <jacoco.maven.plugin>0.8.5</jacoco.maven.plugin>
+        <jacoco.maven.plugin>0.8.6</jacoco.maven.plugin>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -305,6 +305,12 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>${maven.clean.plugin}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven.surefire.plugin}</version>
                 </plugin>
 
                 <plugin>
