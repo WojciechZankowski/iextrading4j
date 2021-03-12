@@ -22,4 +22,6 @@ jobs:
       run: mvn package -DskipTests=true -P javadoc --file pom.xml
     - name: Mutation testing
       run: mvn install -DskipTests=true -P mutation --file pom.xml
+    - name: Deploy documentation
+      run: ./scripts/deploy.sh
 
