@@ -26,4 +26,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     - name: Code coverage
-      run: sudo curl -s https://codecov.io/bash
+      run: sudo bash <(curl -s https://codecov.io/bash)
