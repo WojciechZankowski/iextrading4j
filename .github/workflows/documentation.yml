@@ -23,7 +23,7 @@ jobs:
     - name: Mutation testing
       run: mvn install -DskipTests=true -P mutation --file pom.xml
     - name: Deploy documentation
-      run: ./scripts/deploy.sh
+      run: sudo ./scripts/deploy.sh
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
