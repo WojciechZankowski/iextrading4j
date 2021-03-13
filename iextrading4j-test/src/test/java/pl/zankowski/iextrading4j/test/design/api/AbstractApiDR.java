@@ -9,7 +9,7 @@ import java.lang.reflect.Modifier;
 public abstract class AbstractApiDR implements IDesignRule {
 
     protected boolean isConcreteClass(Class<?> clazz) {
-        return clazz != null && (!Modifier.isAbstract(clazz.getModifiers())
+        return clazz != null && !(Modifier.isAbstract(clazz.getModifiers())
                 || Modifier.isInterface(clazz.getModifiers()));
     }
 

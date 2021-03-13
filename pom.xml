@@ -51,9 +51,14 @@
         <jackson.version>2.9.9</jackson.version>
         <jersey.version>2.30</jersey.version>
         <jaxb.version>2.3.1</jaxb.version>
-        <powermock.version>2.0.5</powermock.version>
-        <bytebuddy.version>1.9.13</bytebuddy.version>
-        <junit.version>5.7.1</junit.version>
+        <guava.version>30.1-jre</guava.version>
+        <powermock.version>2.0.9</powermock.version>
+        <bytebuddy.version>1.10.22</bytebuddy.version>
+        <junit.version>5.8.0-M1</junit.version>
+        <assertj.version>3.19.0</assertj.version>
+        <wiremock.version>2.27.2</wiremock.version>
+        <reflections.version>0.9.11</reflections.version>
+        <equalsverifier.version>3.5.5</equalsverifier.version>
 
         <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
         <maven.gpg.plugin>1.6</maven.gpg.plugin>
@@ -63,7 +68,7 @@
         <nexus.staging.maven.plugin>1.6.8</nexus.staging.maven.plugin>
         <maven.clean.plugin>3.0.0</maven.clean.plugin>
         <maven.surefire.plugin>2.22.2</maven.surefire.plugin>
-        <jacoco.maven.plugin>0.8.5</jacoco.maven.plugin>
+        <jacoco.maven.plugin>0.8.6</jacoco.maven.plugin>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -152,7 +157,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>28.2-jre</version>
+                <version>${guava.version}</version>
             </dependency>
 
             <!-- Required by Java 9+ -->
@@ -193,7 +198,7 @@
             <dependency>
                 <groupId>org.reflections</groupId>
                 <artifactId>reflections</artifactId>
-                <version>0.9.11</version>
+                <version>${reflections.version}</version>
                 <scope>test</scope>
             </dependency>
 
@@ -227,7 +232,7 @@
             <dependency>
                 <groupId>com.github.tomakehurst</groupId>
                 <artifactId>wiremock-standalone</artifactId>
-                <version>2.26.0</version>
+                <version>${wiremock.version}</version>
                 <scope>test</scope>
             </dependency>
 
@@ -241,7 +246,7 @@
             <dependency>
                 <groupId>nl.jqno.equalsverifier</groupId>
                 <artifactId>equalsverifier</artifactId>
-                <version>3.1.12</version>
+                <version>${equalsverifier.version}</version>
                 <scope>test</scope>
             </dependency>
 
@@ -276,7 +281,7 @@
             <dependency>
                 <groupId>org.assertj</groupId>
                 <artifactId>assertj-core</artifactId>
-                <version>3.15.0</version>
+                <version>${assertj.version}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
@@ -305,6 +310,12 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>${maven.clean.plugin}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven.surefire.plugin}</version>
                 </plugin>
 
                 <plugin>
