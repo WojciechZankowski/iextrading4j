@@ -3,7 +3,8 @@
 name: Documentation workflow
 
 on:
-  push
+  push:
+    branches: [ master ]
 
 jobs:
   documentation:
@@ -23,8 +24,6 @@ jobs:
         run: mvn install -DskipTests=true -P mutation --file pom.xml
       - name: Prepare documentation
         run: |
-          ls
-          echo "Test"
           cp -R target/site build
           cp -R iextrading4j-mutation/target/pit-reports build/pit-reports
       - name: Deploy
