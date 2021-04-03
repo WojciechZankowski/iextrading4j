@@ -26,7 +26,7 @@ jobs:
           ls
           echo "Test"
           cp -R target/site build
-          cp -R iextrading4j-mutation/target/pit-reports $HOME/site/pit-reports
+          cp -R iextrading4j-mutation/target/pit-reports build/pit-reports
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
