@@ -15,7 +15,7 @@ public class DeepAsyncRequestTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final Set<String> symbols = Sets.newHashSet(fixture.collections().createCollection(String.class));
         final Set<DeepChannel> channels = Sets.newHashSet(fixture.collections().createCollection(DeepChannel.class));
 
@@ -26,14 +26,14 @@ public class DeepAsyncRequestTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(DeepAsyncRequest.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(DeepAsyncRequest.class))
                 .verify();
     }

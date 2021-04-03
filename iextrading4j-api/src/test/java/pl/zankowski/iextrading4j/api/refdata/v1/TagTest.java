@@ -12,7 +12,7 @@ public class TagTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String name = fixture.create(String.class);
 
         final Tag tag = new Tag(name);
@@ -21,14 +21,14 @@ public class TagTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Tag.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Tag.class))
                 .verify();
     }

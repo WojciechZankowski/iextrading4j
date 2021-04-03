@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class LatestCurrencyRatesServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void latestCurrencyRateServiceTest() {
+    void latestCurrencyRateServiceTest() {
         stubFor(get(urlEqualTo(extendedPath("/fx/latest?symbols=USDGBP")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

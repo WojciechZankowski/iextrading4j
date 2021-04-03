@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class DailySentimentRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateTypeRequest() {
+    void shouldSuccessfullyCreateTypeRequest() {
         final String symbol = "IBM";
 
         final RestRequest<Sentiment> request = new DailySentimentRequestBuilder()
@@ -29,7 +29,7 @@ public class DailySentimentRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateTypeAndDateRequest() {
+    void shouldSuccessfullyCreateTypeAndDateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<Sentiment> request = new DailySentimentRequestBuilder()

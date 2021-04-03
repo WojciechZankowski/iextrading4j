@@ -14,7 +14,7 @@ public class HISTTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String link = fixture.create(String.class);
         final LocalDate date = fixture.create(LocalDate.class);
         final String feed = fixture.create(String.class);
@@ -33,14 +33,14 @@ public class HISTTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(HIST.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(HIST.class))
                 .verify();
     }

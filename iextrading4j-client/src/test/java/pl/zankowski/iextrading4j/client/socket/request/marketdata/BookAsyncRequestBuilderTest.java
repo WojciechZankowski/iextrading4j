@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BookAsyncRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final SocketRequest<DeepAsyncResponse<Book>> request = new BookAsyncRequestBuilder()

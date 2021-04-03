@@ -14,7 +14,7 @@ public class CurrencyConversionTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String symbol = fixture.create(String.class);
         final BigDecimal rate = fixture.create(BigDecimal.class);
         final Long timestamp = fixture.create(Long.class);
@@ -32,14 +32,14 @@ public class CurrencyConversionTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(CurrencyConversion.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(CurrencyConversion.class))
                 .verify();
     }

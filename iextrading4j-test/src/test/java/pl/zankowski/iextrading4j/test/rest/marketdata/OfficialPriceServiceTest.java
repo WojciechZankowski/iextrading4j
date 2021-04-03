@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class OfficialPriceServiceTest  extends BaseRestServiceTest {
 
     @Test
-    public void officialPriceServiceTest() {
+    void officialPriceServiceTest() {
         stubFor(get(urlEqualTo("/deep/official-price?symbols=SNAP"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

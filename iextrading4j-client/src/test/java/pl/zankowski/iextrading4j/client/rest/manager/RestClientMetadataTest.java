@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RestClientMetadataTest {
 
     @Test
-    public void testUrl() {
+    void testUrl() {
         final String url = "https://api.iextrading.com/1.0";
         final RestClientMetadata restClientMetadata = new RestClientMetadata(url, new IEXCloudToken("token", "t"));
 
@@ -18,14 +18,14 @@ public class RestClientMetadataTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(RestClientMetadata.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(new RestClientMetadata("url", new IEXCloudToken("token", "T")))
                 .verify();
     }

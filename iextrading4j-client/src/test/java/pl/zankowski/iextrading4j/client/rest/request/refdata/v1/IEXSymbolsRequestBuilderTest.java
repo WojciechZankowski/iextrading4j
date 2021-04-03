@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class IEXSymbolsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateIEXSymbolsRequest() {
+    void shouldSuccessfullyCreateIEXSymbolsRequest() {
         final RestRequest<List<Symbol>> request = new IEXSymbolsRequestBuilder().build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);

@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CeoCompensationServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void ceoCompensationServiceTest() {
+    void ceoCompensationServiceTest() {
         stubFor(get(urlEqualTo(path("/stock/AAPL/ceo-compensation")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

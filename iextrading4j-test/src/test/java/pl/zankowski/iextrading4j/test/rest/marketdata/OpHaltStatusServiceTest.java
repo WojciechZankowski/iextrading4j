@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class OpHaltStatusServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void opHaltStatusServiceTest() {
+    void opHaltStatusServiceTest() {
         stubFor(get(urlEqualTo("/deep/op-halt-status?symbols=SNAP"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

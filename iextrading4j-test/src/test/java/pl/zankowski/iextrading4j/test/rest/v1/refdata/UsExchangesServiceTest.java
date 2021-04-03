@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class UsExchangesServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void usExchangesServiceTest() {
+    void usExchangesServiceTest() {
         stubFor(get(urlEqualTo(path("/ref-data/market/us/exchanges")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

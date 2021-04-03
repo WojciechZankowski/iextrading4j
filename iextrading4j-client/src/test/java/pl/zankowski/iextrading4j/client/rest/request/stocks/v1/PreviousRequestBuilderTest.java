@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class PreviousRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<BarData> request = new PreviousRequestBuilder()

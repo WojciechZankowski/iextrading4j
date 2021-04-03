@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TopsServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void topsServiceTest() {
+    void topsServiceTest() {
         stubFor(get(urlEqualTo("/tops?symbols=AAPL"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

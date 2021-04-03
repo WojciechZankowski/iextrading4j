@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class UsHolidayAndTradingDateServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void usHolidayAndTradingDateServiceTest() {
+    void usHolidayAndTradingDateServiceTest() {
         stubFor(get(urlEqualTo(path("/ref-data/us/dates/trade/next/2/20190530")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

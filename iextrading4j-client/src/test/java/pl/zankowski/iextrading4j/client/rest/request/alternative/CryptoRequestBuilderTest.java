@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class CryptoRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<Quote> request = new CryptoRequestBuilder()

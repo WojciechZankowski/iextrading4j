@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ExchangeRateServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void exchangeRateServiceTest() {
+    void exchangeRateServiceTest() {
         stubFor(get(urlEqualTo(path("/fx/rate/EUR/USD")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

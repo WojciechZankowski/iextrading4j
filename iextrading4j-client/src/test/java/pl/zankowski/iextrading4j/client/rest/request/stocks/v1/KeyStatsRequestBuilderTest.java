@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class KeyStatsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateKeyStatsRequest() {
+    void shouldSuccessfullyCreateKeyStatsRequest() {
         final String symbol = "AAPL";
 
         final RestRequest<KeyStats> request = new KeyStatsRequestBuilder()

@@ -16,7 +16,7 @@ import static pl.zankowski.iextrading4j.client.rest.request.marketdata.AbstractM
 public class TopsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<List<TOPS>> request = new TopsRequestBuilder()
@@ -31,7 +31,7 @@ public class TopsRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithMultipleSymbols() {
+    void shouldSuccessfullyCreateRequestWithMultipleSymbols() {
         final String firstSymbol = "IBM";
         final String secondSymbol = "MSFT";
 
@@ -50,7 +50,7 @@ public class TopsRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithAllSymbols() {
+    void shouldSuccessfullyCreateRequestWithAllSymbols() {
         final RestRequest<List<TOPS>> request = new TopsRequestBuilder()
                 .withAllSymbols()
                 .build();

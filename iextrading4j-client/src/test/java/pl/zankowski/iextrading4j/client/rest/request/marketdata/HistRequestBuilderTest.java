@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class HistRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateParameterizedRequest() {
+    void shouldSuccessfullyCreateParameterizedRequest() {
         final LocalDate date = LocalDate.of(2017, 5, 5);
 
         final RestRequest<List<HIST>> request = new HistRequestBuilder()
@@ -33,7 +33,7 @@ public class HistRequestBuilderTest {
     }
 
     @Test
-    public void shouldThrowNullPointerExceptionWhenDateIsNull() {
+    void shouldThrowNullPointerExceptionWhenDateIsNull() {
         final LocalDate date = null;
 
         assertThrows(NullPointerException.class, () -> new HistRequestBuilder()
@@ -42,7 +42,7 @@ public class HistRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final RestRequest<Map<String, List<HIST>>> request = new HistRequestBuilder()
                 .build();
 

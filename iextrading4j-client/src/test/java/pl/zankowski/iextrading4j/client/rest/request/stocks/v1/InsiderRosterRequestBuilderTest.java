@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class InsiderRosterRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateInsiderRosterRequest() {
+    void shouldSuccessfullyCreateInsiderRosterRequest() {
         final String symbol = "AAPL";
 
         final RestRequest<List<InsiderRoster>> request = new InsiderRosterRequestBuilder()

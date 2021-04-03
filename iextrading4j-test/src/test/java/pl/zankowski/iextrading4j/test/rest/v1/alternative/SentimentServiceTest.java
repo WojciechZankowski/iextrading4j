@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SentimentServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void sentimentServiceTest() {
+    void sentimentServiceTest() {
         stubFor(get(urlEqualTo(path("/stock/AAPL/sentiment")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -45,7 +45,7 @@ public class SentimentServiceTest extends BaseIEXCloudV1ServiceTest {
     }
 
     @Test
-    public void minuteSentimentServiceTest() {
+    void minuteSentimentServiceTest() {
         stubFor(get(urlEqualTo(path("/stock/AAPL/sentiment/minute")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -70,7 +70,7 @@ public class SentimentServiceTest extends BaseIEXCloudV1ServiceTest {
     }
 
     @Test
-    public void minuteAndDateSentimentServiceTest() {
+    void minuteAndDateSentimentServiceTest() {
         stubFor(get(urlEqualTo(path("/stock/AAPL/sentiment/minute/20190511")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

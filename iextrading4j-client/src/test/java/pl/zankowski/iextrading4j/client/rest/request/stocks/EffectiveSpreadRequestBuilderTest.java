@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class EffectiveSpreadRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<List<EffectiveSpread>> request = new EffectiveSpreadRequestBuilder()

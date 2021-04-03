@@ -25,7 +25,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class IEXSymbolDirectoryServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void symbolDirectoryServiceTest() {
+    void symbolDirectoryServiceTest() {
         stubFor(get(urlEqualTo("/ref-data/daily-list/symbol-directory/sample"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

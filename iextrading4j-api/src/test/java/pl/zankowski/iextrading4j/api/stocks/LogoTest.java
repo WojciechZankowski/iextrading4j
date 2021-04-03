@@ -12,7 +12,7 @@ public class LogoTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String url = fixture.create(String.class);
 
         final Logo logo = new Logo(url);
@@ -21,14 +21,14 @@ public class LogoTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Logo.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Logo.class))
                 .verify();
     }

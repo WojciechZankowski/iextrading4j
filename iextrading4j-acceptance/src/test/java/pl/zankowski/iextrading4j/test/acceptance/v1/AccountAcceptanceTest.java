@@ -36,14 +36,14 @@ public class AccountAcceptanceTest {
     }
 
     @Test
-    public void metadataTest() {
+    void metadataTest() {
         final Metadata metadata = cloudClient.executeRequest(new MetadataRequestBuilder()
                 .build());
         assertThat(metadata).isNotNull();
     }
 
     @Test
-    public void messageUsageTest() {
+    void messageUsageTest() {
         final List<Usage> usage = cloudClient.executeRequest(new UsageRequestBuilder()
                 .withUsageType(UsageType.MESSAGES)
                 .build());
@@ -52,7 +52,7 @@ public class AccountAcceptanceTest {
     }
 
     @Test
-    public void rulesUsageTest() {
+    void rulesUsageTest() {
         final List<Usage> usage = cloudClient.executeRequest(new UsageRequestBuilder()
                 .withUsageType(UsageType.RULES)
                 .build());
@@ -61,7 +61,7 @@ public class AccountAcceptanceTest {
     }
 
     @Test
-    public void usageTest() {
+    void usageTest() {
         final Map<String, List<Usage>> result = cloudClient.executeRequest(new UsageRequestBuilder().build());
         System.out.println(result);
         assertThat(result).isNotNull();

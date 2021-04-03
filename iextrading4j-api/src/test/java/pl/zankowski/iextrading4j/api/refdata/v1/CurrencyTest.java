@@ -12,7 +12,7 @@ public class CurrencyTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String code = fixture.create(String.class);
         final String name = fixture.create(String.class);
 
@@ -23,14 +23,14 @@ public class CurrencyTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Currency.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Currency.class))
                 .verify();
     }

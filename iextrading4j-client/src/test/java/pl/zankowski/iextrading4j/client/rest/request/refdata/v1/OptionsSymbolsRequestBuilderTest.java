@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class OptionsSymbolsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final RestRequest<Map<String, List<String>>> request = new OptionsSymbolsRequestBuilder().build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);

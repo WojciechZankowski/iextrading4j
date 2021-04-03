@@ -15,7 +15,7 @@ public class InsiderTransactionTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String symbol = fixture.create(String.class);
         final String id = fixture.create(String.class);
         final String key = fixture.create(String.class);
@@ -66,14 +66,14 @@ public class InsiderTransactionTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(InsiderTransaction.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(InsiderTransaction.class))
                 .verify();
     }

@@ -12,7 +12,7 @@ public class ExchangeTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String exchange = fixture.create(String.class);
         final String region = fixture.create(String.class);
         final String description = fixture.create(String.class);
@@ -29,14 +29,14 @@ public class ExchangeTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Exchange.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Exchange.class))
                 .verify();
     }

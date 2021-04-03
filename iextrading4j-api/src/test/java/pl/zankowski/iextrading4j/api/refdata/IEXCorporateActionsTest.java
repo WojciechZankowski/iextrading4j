@@ -16,7 +16,7 @@ public class IEXCorporateActionsTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String recordId = fixture.create(String.class);
         final LocalDateTime dailyListTimestamp = fixture.create(LocalDateTime.class);
         final LocalDate effectiveDate = fixture.create(LocalDate.class);
@@ -97,14 +97,14 @@ public class IEXCorporateActionsTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(IEXCorporateActions.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(IEXCorporateActions.class))
                 .verify();
     }

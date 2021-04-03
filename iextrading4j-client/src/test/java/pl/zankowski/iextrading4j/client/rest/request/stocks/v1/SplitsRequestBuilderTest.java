@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class SplitsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<List<Split>> request = new SplitsRequestBuilder()
@@ -33,7 +33,7 @@ public class SplitsRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithCustomRange() {
+    void shouldSuccessfullyCreateRequestWithCustomRange() {
         final String symbol = "IBM";
         final SplitsRange splitsRange = SplitsRange.ONE_YEAR;
 

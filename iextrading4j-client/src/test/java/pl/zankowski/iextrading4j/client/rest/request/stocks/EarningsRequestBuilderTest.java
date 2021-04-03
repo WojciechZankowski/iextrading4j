@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class EarningsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<Earnings> request = new EarningsRequestBuilder()
@@ -29,7 +29,7 @@ public class EarningsRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithLastAndPeriod() {
+    void shouldSuccessfullyCreateRequestWithLastAndPeriod() {
         final String symbol = "IBM";
         final Period period = Period.ANNUAL;
         final int last = 3;

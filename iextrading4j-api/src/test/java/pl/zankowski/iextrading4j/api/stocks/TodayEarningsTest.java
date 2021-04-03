@@ -15,7 +15,7 @@ public class TodayEarningsTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final List<TodayEarning> bto = Lists.newArrayList(fixture.collections().createCollection(TodayEarning.class));
         final List<TodayEarning> amc = Lists.newArrayList(fixture.collections().createCollection(TodayEarning.class));
         final List<TodayEarning> other = Lists.newArrayList(fixture.collections().createCollection(TodayEarning.class));
@@ -28,14 +28,14 @@ public class TodayEarningsTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(TodayEarnings.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(TodayEarnings.class))
                 .verify();
     }

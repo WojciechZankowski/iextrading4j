@@ -14,7 +14,7 @@ public class ThresholdSecuritiesTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final LocalDate tradeDate = fixture.create(LocalDate.class);
         final String symbolInINETSymbology = fixture.create(String.class);
         final String symbolInCQSSymbology = fixture.create(String.class);
@@ -34,14 +34,14 @@ public class ThresholdSecuritiesTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(ThresholdSecurities.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(ThresholdSecurities.class))
                 .verify();
     }

@@ -15,7 +15,7 @@ public class SentimentTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final BigDecimal sentiment = fixture.create(BigDecimal.class);
         final BigDecimal totalScores = fixture.create(BigDecimal.class);
         final BigDecimal positive = fixture.create(BigDecimal.class);
@@ -34,14 +34,14 @@ public class SentimentTest {
 
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Sentiment.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Sentiment.class))
                 .verify();
     }

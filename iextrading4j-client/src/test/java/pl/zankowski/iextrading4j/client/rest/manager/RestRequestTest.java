@@ -14,7 +14,7 @@ import static org.mockito.Mockito.mock;
 public class RestRequestTest {
 
     @Test
-    public void constructor() {
+    void constructor() {
         final GenericType<Object> responseTypeMock = mock(GenericType.class);
         final PostEntity postEntity = mock(PostEntity.class);
         final String path = "path";
@@ -38,14 +38,14 @@ public class RestRequestTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(RestRequest.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(new RestRequest<>(null, null, null, null,
                 null, null, null, null))
                 .verify();

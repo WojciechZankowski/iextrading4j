@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class ChartRangeTest {
 
     @Test
-    public void shouldThrowAnExceptionForUnknownCode() {
+    void shouldThrowAnExceptionForUnknownCode() {
         final String code = "12m";
 
         assertThrows(IllegalArgumentException.class, () -> ChartRange.getValueFromCode(code));
@@ -16,7 +16,7 @@ public class ChartRangeTest {
 
 
     @Test
-    public void shouldCreateEnumFromCode() {
+    void shouldCreateEnumFromCode() {
         final String code = "6m";
 
         final ChartRange chartRange = ChartRange.getValueFromCode(code);

@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class SystemEventRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<SystemEvent> request = new SystemEventRequestBuilder()

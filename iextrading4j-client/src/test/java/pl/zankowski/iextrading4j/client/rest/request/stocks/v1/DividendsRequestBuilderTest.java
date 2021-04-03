@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class DividendsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateDividendsRequest() {
+    void shouldSuccessfullyCreateDividendsRequest() {
         final String symbol = "AAPL";
         final DividendRange range = DividendRange.ONE_YEAR;
 

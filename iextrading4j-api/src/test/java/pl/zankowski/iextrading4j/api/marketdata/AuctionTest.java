@@ -15,7 +15,7 @@ public class AuctionTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final AuctionType auctionType = fixture.create(AuctionType.class);
         final BigDecimal pairedShares = fixture.create(BigDecimal.class);
         final BigDecimal imbalanceShares = fixture.create(BigDecimal.class);
@@ -48,14 +48,14 @@ public class AuctionTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Auction.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Auction.class))
                 .verify();
     }

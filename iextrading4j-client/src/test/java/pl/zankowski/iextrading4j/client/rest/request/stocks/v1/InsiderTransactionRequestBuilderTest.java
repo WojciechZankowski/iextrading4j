@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class InsiderTransactionRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateInsiderTransactionRequest() {
+    void shouldSuccessfullyCreateInsiderTransactionRequest() {
         final String symbol = "AAPL";
 
         final RestRequest<List<InsiderTransaction>> request = new InsiderTransactionRequestBuilder()

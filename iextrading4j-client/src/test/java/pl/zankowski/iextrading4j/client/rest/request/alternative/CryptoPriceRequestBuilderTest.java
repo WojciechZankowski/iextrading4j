@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class CryptoPriceRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "BTCUSD";
 
         final RestRequest<CryptoPrice> request = new CryptoPriceRequestBuilder()

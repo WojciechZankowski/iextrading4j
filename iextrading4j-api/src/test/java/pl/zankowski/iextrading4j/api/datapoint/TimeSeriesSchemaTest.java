@@ -16,7 +16,7 @@ public class TimeSeriesSchemaTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String type = fixture.create(String.class);
         final Map<String, FieldMetadata> properties = fixture.collections().createMap(String.class, FieldMetadata.class);
         final List<String> required = Lists.newArrayList(fixture.collections().createCollection(String.class));
@@ -32,14 +32,14 @@ public class TimeSeriesSchemaTest {
 
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(TimeSeriesSchema.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(TimeSeriesSchema.class))
                 .verify();
     }

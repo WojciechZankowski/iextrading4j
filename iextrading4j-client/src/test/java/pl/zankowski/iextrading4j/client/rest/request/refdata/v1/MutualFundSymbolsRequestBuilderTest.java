@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MutualFundSymbolsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateMutualFundsSymbolsRequest() {
+    void shouldSuccessfullyCreateMutualFundsSymbolsRequest() {
         final RestRequest<List<ExchangeSymbol>> request = new MutualFundSymbolsRequestBuilder().build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);

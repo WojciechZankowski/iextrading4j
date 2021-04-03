@@ -29,7 +29,7 @@ public abstract class CorporateData extends BaseData {
     private final LocalDate exDate;
     private final String countryCode;
 
-    public CorporateData(final String symbol,
+    protected CorporateData(final String symbol,
                          final String id,
                          final String key,
                          final String subkey,

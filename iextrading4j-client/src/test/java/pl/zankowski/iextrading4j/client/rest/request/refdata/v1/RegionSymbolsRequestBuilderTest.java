@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class RegionSymbolsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRegionSymbolsRequest() {
+    void shouldSuccessfullyCreateRegionSymbolsRequest() {
         final String region = "US";
 
         final RestRequest<List<ExchangeSymbol>> request = new RegionSymbolsRequestBuilder()

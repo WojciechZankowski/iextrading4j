@@ -15,7 +15,7 @@ public class VenueVolumeTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final BigDecimal volume = fixture.create(BigDecimal.class);
         final String venue = fixture.create(String.class);
         final String venueName = fixture.create(String.class);
@@ -35,14 +35,14 @@ public class VenueVolumeTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(VenueVolume.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(VenueVolume.class))
                 .verify();
     }

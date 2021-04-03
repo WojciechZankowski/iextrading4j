@@ -29,7 +29,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StocksAcceptanceTest extends AcceptanceTestBase {
 
     @Test
-    public void bookRequestAcceptanceTest() {
+    void bookRequestAcceptanceTest() {
         final Book book = iexTradingClient.executeRequest(new BookRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -37,7 +37,7 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void effectiveSpreadAcceptanceTest() {
+    void effectiveSpreadAcceptanceTest() {
         final List<EffectiveSpread> effectiveSpreads = iexTradingClient.executeRequest(new EffectiveSpreadRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -45,7 +45,7 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void venueVolumeAcceptanceTest() {
+    void venueVolumeAcceptanceTest() {
         final List<VenueVolume> venueVolumeList = iexTradingClient.executeRequest(new VenueVolumeRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -53,7 +53,7 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void ohlcAcceptanceTest() {
+    void ohlcAcceptanceTest() {
         final Ohlc ohlc = iexTradingClient.executeRequest(new OhlcRequestBuilder()
                 .withSymbol("aapl")
                 .build());
@@ -61,7 +61,7 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void shortInterestAcceptanceTest() {
+    void shortInterestAcceptanceTest() {
         final List<ShortInterest> shortInterestList = iexTradingClient.executeRequest(new ShortInterestRequestBuilder()
                 .withSample()
                 .withMarket()
@@ -70,7 +70,7 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void timeSeriesAcceptanceTest() {
+    void timeSeriesAcceptanceTest() {
         final List<TimeSeries> timeSeriesList = iexTradingClient.executeRequest(new TimeSeriesRequestBuilder()
                 .withSymbol("aapl")
                 .build());
@@ -78,7 +78,7 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void thresholdSecuritiesAcceptanceTest() {
+    void thresholdSecuritiesAcceptanceTest() {
         final List<ThresholdSecurities> thresholdSecuritiesList = iexTradingClient.executeRequest(new ThresholdSecuritiesRequestBuilder()
                 .withSample()
                 .withMarket()
@@ -87,7 +87,7 @@ public class StocksAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void ohlcMarketAcceptanceTest() {
+    void ohlcMarketAcceptanceTest() {
         final Map<String, Ohlc> ohlcMap = iexTradingClient.executeRequest(new OhlcMarketRequestBuilder()
                 .build());
         assertThat(ohlcMap).isNotNull();

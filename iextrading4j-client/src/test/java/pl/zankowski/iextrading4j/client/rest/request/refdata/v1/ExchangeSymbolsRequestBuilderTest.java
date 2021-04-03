@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class ExchangeSymbolsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateExchangeSymbolsRequest() {
+    void shouldSuccessfullyCreateExchangeSymbolsRequest() {
         final String exchange = "NYSE";
 
         final RestRequest<List<ExchangeSymbol>> request = new ExchangeSymbolsRequestBuilder()

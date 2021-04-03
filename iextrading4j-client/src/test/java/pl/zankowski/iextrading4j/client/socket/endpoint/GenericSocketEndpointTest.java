@@ -24,7 +24,7 @@ public class GenericSocketEndpointTest {
     }
 
     @Test
-    public void shouldSuccessfullySubscribe() {
+    void shouldSuccessfullySubscribe() {
         final SocketRequest<TOPS> request = new TopsAsyncRequestBuilder().build();
         final Consumer<TOPS> topsConsumer = mock(Consumer.class);
 
@@ -34,7 +34,7 @@ public class GenericSocketEndpointTest {
     }
 
     @Test
-    public void shouldSuccessfullyUnsubscribe() {
+    void shouldSuccessfullyUnsubscribe() {
         final SocketRequest<TOPS> request = new TopsAsyncRequestBuilder().build();
 
         genericSocketEndpoint.unsubscribe(request);

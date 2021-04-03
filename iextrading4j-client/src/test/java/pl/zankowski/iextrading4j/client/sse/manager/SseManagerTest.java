@@ -15,6 +15,4 @@ public class SseManagerTest {
         sseManager = new SseManager(sseClientMock);
     }
 
-
-
 }

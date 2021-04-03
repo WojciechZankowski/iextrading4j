@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class UsageRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateUsageRequest() {
+    void shouldSuccessfullyCreateUsageRequest() {
         final RestRequest<Map<String, List<Usage>>> request = new UsageRequestBuilder().build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);
@@ -26,7 +26,7 @@ public class UsageRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateSingleRequest() {
+    void shouldSuccessfullyCreateSingleRequest() {
         final UsageType usageType = UsageType.MESSAGES;
 
         final RestRequest<List<Usage>> request = new UsageRequestBuilder()

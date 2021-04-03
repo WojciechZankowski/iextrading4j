@@ -15,7 +15,7 @@ public class TimeSeriesMetadataTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String id = fixture.create(String.class);
         final String description = fixture.create(String.class);
         final TimeSeriesSchema schema = fixture.create(TimeSeriesSchema.class);
@@ -37,14 +37,14 @@ public class TimeSeriesMetadataTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(TimeSeriesMetadata.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(TimeSeriesMetadata.class))
                 .verify();
     }

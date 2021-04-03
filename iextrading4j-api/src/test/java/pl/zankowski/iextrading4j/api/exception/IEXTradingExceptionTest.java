@@ -8,7 +8,7 @@ import static pl.zankowski.iextrading4j.api.exception.IEXTradingException.DEFAUL
 public class IEXTradingExceptionTest {
 
     @Test
-    public void shouldSuccessfullyCreateExceptionWithStatus() {
+    void shouldSuccessfullyCreateExceptionWithStatus() {
         final String message = "test";
         final int statusCode = 500;
 
@@ -19,7 +19,7 @@ public class IEXTradingExceptionTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateException() {
+    void shouldSuccessfullyCreateException() {
         final String message = "test";
 
         final IEXTradingException exception = new IEXTradingException(message);

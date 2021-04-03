@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MetadataServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void metadataServiceTest() {
+    void metadataServiceTest() {
         stubFor(get(urlEqualTo(secretPath("/account/metadata")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

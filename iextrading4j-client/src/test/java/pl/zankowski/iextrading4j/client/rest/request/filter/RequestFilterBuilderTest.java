@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RequestFilterBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequestFilter() {
+    void shouldSuccessfullyCreateRequestFilter() {
         final RequestFilter requestFilter = new RequestFilterBuilder()
                 .withColumn("first")
                 .withColumn("second")

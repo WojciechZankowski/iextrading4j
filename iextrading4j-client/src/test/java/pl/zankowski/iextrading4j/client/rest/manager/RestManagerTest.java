@@ -29,7 +29,7 @@ public class RestManagerTest {
     }
 
     @Test
-    public void shouldSuccessfullyExecuteGetRequest() {
+    void shouldSuccessfullyExecuteGetRequest() {
         // Arrange
         final String reasonPhrase = "reason";
         final Response.StatusType statusTypeMock = mock(Response.StatusType.class);
@@ -75,7 +75,7 @@ public class RestManagerTest {
     }
 
     @Test
-    public void shouldThrowAnExceptionForNotSuccessfulResponse() {
+    void shouldThrowAnExceptionForNotSuccessfulResponse() {
         // Arrange
         final String reasonPhrase = "reason";
         final Response.StatusType statusTypeMock = mock(Response.StatusType.class);
@@ -115,7 +115,7 @@ public class RestManagerTest {
     }
 
     @Test
-    public void shouldThrowAnExceptionIfMethodTypeIsNotSupported() {
+    void shouldThrowAnExceptionIfMethodTypeIsNotSupported() {
         final RestClientMetadata metadataMock = mock(RestClientMetadata.class);
         final RestRequest restRequestMock = mock(RestRequest.class);
         final Client clientMock = mock(Client.class);

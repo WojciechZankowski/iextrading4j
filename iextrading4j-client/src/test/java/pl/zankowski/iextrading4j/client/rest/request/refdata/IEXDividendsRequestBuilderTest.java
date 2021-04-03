@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class IEXDividendsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final LocalDate date = LocalDate.of(2017, 5, 5);
 
         final RestRequest<List<IEXDividends>> request = new IEXDividendsRequestBuilder()

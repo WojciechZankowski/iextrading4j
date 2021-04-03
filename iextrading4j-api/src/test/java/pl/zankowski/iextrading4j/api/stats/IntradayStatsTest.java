@@ -12,7 +12,7 @@ public class IntradayStatsTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final IntradayStat volume = fixture.create(IntradayStat.class);
         final IntradayStat symbolsTraded = fixture.create(IntradayStat.class);
         final IntradayStat routedVolume = fixture.create(IntradayStat.class);
@@ -30,14 +30,14 @@ public class IntradayStatsTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(IntradayStats.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(IntradayStats.class))
                 .verify();
     }

@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ThresholdSecuritiesServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void thresholdSecuritiesServiceTest() {
+    void thresholdSecuritiesServiceTest() {
         stubFor(get(urlEqualTo("/stock/aapl/threshold-securities/"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

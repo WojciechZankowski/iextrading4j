@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class LogoRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<Logo> request = new LogoRequestBuilder()

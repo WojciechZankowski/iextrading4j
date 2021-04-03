@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class LargestTradeServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void largestTradeServiceTest() {
+    void largestTradeServiceTest() {
         stubFor(get(urlEqualTo("/stock/aapl/largest-trades"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

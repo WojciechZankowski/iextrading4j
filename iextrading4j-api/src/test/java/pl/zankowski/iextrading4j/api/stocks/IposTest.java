@@ -15,7 +15,7 @@ public class IposTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final List<Ipo> rawData = Lists.newArrayList(fixture.collections().createCollection(Ipo.class));
         final List<IpoSummary> viewData = Lists.newArrayList(fixture.collections().createCollection(IpoSummary.class));
 
@@ -26,14 +26,14 @@ public class IposTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Ipos.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Ipos.class))
                 .verify();
     }

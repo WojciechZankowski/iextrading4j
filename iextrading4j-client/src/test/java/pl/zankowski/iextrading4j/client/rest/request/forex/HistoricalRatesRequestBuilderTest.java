@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class HistoricalRatesRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final RestRequest<List<List<HistoricalCurrencyRate>>> request = new HistoricalRatesRequestBuilder()
                 .withSymbol("USDGPB")
                 .withFrom(LocalDate.of(2019, 10, 10))

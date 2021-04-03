@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PayAsYouGoServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void payAsYouGoServiceTest() {
+    void payAsYouGoServiceTest() {
         stubFor(post(urlEqualTo("/account/payasyougo"))
                 .withHeader("Accept", equalTo("application/json"))
                 .withRequestBody(bodyContent(CLOUD_TOKEN.getSecretToken(), "\"allow\": false"))

@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AbstractDailyListRequestBuilderTest {
 
     @Test
-    public void shouldReturnSample() {
+    void shouldReturnSample() {
         final IEXCorporateActionsRequestBuilder requestBuilder = new IEXCorporateActionsRequestBuilder().withSample();
 
         final String period = requestBuilder.getPeriod();
@@ -18,7 +18,7 @@ public class AbstractDailyListRequestBuilderTest {
     }
 
     @Test
-    public void shouldReturnEmptyString() {
+    void shouldReturnEmptyString() {
         final IEXCorporateActionsRequestBuilder requestBuilder = new IEXCorporateActionsRequestBuilder();
 
         final String period = requestBuilder.getPeriod();
@@ -27,7 +27,7 @@ public class AbstractDailyListRequestBuilderTest {
     }
 
     @Test
-    public void shouldReturnFormattedDate() {
+    void shouldReturnFormattedDate() {
         final IEXCorporateActionsRequestBuilder requestBuilder = new IEXCorporateActionsRequestBuilder()
                 .withDate(LocalDate.of(2017, 7, 7));
 

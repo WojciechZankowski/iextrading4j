@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AdvancedStatsServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void advancedStatsServiceTest() {
+    void advancedStatsServiceTest() {
         stubFor(get(urlEqualTo(path("/stock/AAPL/advanced-stats")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

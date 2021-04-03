@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class PreviousMarketRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final RestRequest<Map<String, BarData>> request = new PreviousMarketRequestBuilder()
                 .build();
 

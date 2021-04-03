@@ -14,7 +14,7 @@ public class QuoteTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String symbol = fixture.create(String.class);
         final String companyName = fixture.create(String.class);
         final String primaryExchange = fixture.create(String.class);
@@ -145,14 +145,14 @@ public class QuoteTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Quote.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Quote.class))
                 .verify();
     }

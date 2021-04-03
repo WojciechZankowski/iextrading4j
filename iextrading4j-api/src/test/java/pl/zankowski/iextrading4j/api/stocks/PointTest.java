@@ -14,7 +14,7 @@ public class PointTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final BigDecimal price = fixture.create(BigDecimal.class);
         final Long time = fixture.create(Long.class);
 
@@ -25,14 +25,14 @@ public class PointTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Point.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Point.class))
                 .verify();
     }

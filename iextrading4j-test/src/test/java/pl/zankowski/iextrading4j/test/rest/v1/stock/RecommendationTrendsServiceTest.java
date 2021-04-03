@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RecommendationTrendsServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void recommendationTrendsServiceTest() {
+    void recommendationTrendsServiceTest() {
         stubFor(get(urlEqualTo(path("/stock/AAPL/recommendation-trends")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

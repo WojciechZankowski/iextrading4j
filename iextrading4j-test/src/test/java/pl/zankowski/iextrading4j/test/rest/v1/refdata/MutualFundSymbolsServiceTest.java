@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MutualFundSymbolsServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void mutualFundsSymbolsServiceTest() {
+    void mutualFundsSymbolsServiceTest() {
         stubFor(get(urlEqualTo(path("/ref-data/mutual-funds/symbols")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class ThresholdSecuritiesRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final LocalDate date = LocalDate.of(2017, 5, 5);
 
         final RestRequest<List<ThresholdSecurities>> request = new ThresholdSecuritiesRequestBuilder()
@@ -31,7 +31,7 @@ public class ThresholdSecuritiesRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithMarket() {
+    void shouldSuccessfullyCreateRequestWithMarket() {
         final RestRequest<List<ThresholdSecurities>> request = new ThresholdSecuritiesRequestBuilder()
                 .withMarket()
                 .build();
@@ -44,7 +44,7 @@ public class ThresholdSecuritiesRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithSample() {
+    void shouldSuccessfullyCreateRequestWithSample() {
         final RestRequest<List<ThresholdSecurities>> request = new ThresholdSecuritiesRequestBuilder()
                 .withSample()
                 .withMarket()

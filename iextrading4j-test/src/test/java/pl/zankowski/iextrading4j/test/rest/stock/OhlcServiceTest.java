@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class OhlcServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void ohlcServiceTest() {
+    void ohlcServiceTest() {
         stubFor(get(urlEqualTo("/stock/aapl/ohlc"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -43,7 +43,7 @@ public class OhlcServiceTest extends BaseRestServiceTest {
     }
 
     @Test
-    public void ohlcMarketServiceTest() {
+    void ohlcMarketServiceTest() {
         stubFor(get(urlEqualTo("/stock/market/ohlc"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

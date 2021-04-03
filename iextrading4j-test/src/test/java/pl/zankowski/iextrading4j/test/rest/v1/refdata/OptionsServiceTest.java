@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class OptionsServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void optionsServiceTest() {
+    void optionsServiceTest() {
         stubFor(get(urlEqualTo(path("/ref-data/options/symbols")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

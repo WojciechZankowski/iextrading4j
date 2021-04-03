@@ -14,7 +14,7 @@ public class CryptoEventTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String symbol = fixture.create(String.class);
         final CryptoEventType eventType = fixture.create(CryptoEventType.class);
         final Long timestamp = fixture.create(Long.class);
@@ -37,14 +37,14 @@ public class CryptoEventTest {
 
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(CryptoEvent.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(CryptoEvent.class))
                 .verify();
     }

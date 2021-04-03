@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class LastAsyncRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateAsyncRequest() {
+    void shouldSuccessfullyCreateAsyncRequest() {
         final String symbol = "IBM";
 
         final SocketRequest<LastTrade> request = new LastAsyncRequestBuilder()

@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CollectionServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void sectorCollectionServiceTest() {
+    void sectorCollectionServiceTest() {
         stubFor(get(urlEqualTo("/stock/market/collection/sector?collectionName=Financials"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -39,7 +39,7 @@ public class CollectionServiceTest extends BaseRestServiceTest {
     }
 
     @Test
-    public void tagCollectionServiceTest() {
+    void tagCollectionServiceTest() {
         stubFor(get(urlEqualTo("/stock/market/collection/tag?collectionName=Technology"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -59,7 +59,7 @@ public class CollectionServiceTest extends BaseRestServiceTest {
     }
 
     @Test
-    public void listCollectionServiceTest() {
+    void listCollectionServiceTest() {
         stubFor(get(urlEqualTo("/stock/market/collection/list?collectionName=iexvolume"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

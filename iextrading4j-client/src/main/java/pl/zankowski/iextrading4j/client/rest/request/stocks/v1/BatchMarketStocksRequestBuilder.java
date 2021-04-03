@@ -17,6 +17,7 @@ public class BatchMarketStocksRequestBuilder extends AbstractBatchStocksRequestB
 
     private Set<String> symbols = Sets.newHashSet();
 
+    @Override
     public BatchMarketStocksRequestBuilder withSymbol(final String symbol) {
         this.symbols.add(symbol);
         return this;

@@ -37,7 +37,7 @@ public class SocketManagerTest {
     }
 
     @Test
-    public void shouldConnectAndSubscribeAndProcessResponse() {
+    void shouldConnectAndSubscribeAndProcessResponse() {
         final String path = "/test";
         final List<String> params = Arrays.asList("Test", "Test2");
         final SocketRequest<String> request = new SocketRequest<>(new TypeReference<String>() {}, path, params);
@@ -62,7 +62,7 @@ public class SocketManagerTest {
     }
 
     @Test
-    public void shouldNotOverwriteSubscription() {
+    void shouldNotOverwriteSubscription() {
         final String path = "/test";
         final List<String> params = Arrays.asList("Test", "Test2");
         final SocketRequest<String> request = new SocketRequest<>(new TypeReference<String>() {}, path, params);
@@ -87,7 +87,7 @@ public class SocketManagerTest {
     }
 
     @Test
-    public void verifyCreatedSocketPath() throws URISyntaxException {
+    void verifyCreatedSocketPath() throws URISyntaxException {
         final SocketRequest<String> request = new SocketRequest<>(new TypeReference<String>() {}, "/test",
                 Arrays.asList("Test", "Test2"));
         final Consumer<String> consumer = spy(Consumer.class);
@@ -102,7 +102,7 @@ public class SocketManagerTest {
     }
 
     @Test
-    public void shouldThrowIllegalStateExceptionIfFailsOnConnection() throws URISyntaxException {
+    void shouldThrowIllegalStateExceptionIfFailsOnConnection() throws URISyntaxException {
         final SocketRequest<String> request = new SocketRequest<>(new TypeReference<String>() {}, "/test",
                 Arrays.asList("Test", "Test2"));
         final Consumer<String> consumer = mock(Consumer.class);
@@ -113,7 +113,7 @@ public class SocketManagerTest {
     }
 
     @Test
-    public void shouldNotThrowExceptionWhenThereIsNoSubscription() {
+    void shouldNotThrowExceptionWhenThereIsNoSubscription() {
         final SocketRequest<String> request = new SocketRequest<>(new TypeReference<String>() {}, "/test",
                 Arrays.asList("Test", "Test2"));
 
@@ -121,7 +121,7 @@ public class SocketManagerTest {
     }
 
     @Test
-    public void shouldDisconnectFromSocketAfterUnsubscription() {
+    void shouldDisconnectFromSocketAfterUnsubscription() {
         final SocketRequest<String> request = new SocketRequest<>(new TypeReference<String>() {}, "/test",
                 Arrays.asList("Test", "Test2"));
         final Consumer<String> consumer = spy(Consumer.class);

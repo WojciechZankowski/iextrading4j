@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MessageCutoffRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final Long totalMessages = 10000L;
 
         final RestRequest<String> request = new MessageCutoffRequestBuilder()

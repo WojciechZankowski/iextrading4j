@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TodayEarningsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final RestRequest<TodayEarnings> request = new TodayEarningsRequestBuilder()
                 .build();
 

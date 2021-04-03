@@ -12,7 +12,7 @@ public class SecurityEventTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final SecurityEventType securityEventType = fixture.create(SecurityEventType.class);
         final Long timestamp = fixture.create(Long.class);
 
@@ -23,14 +23,14 @@ public class SecurityEventTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(SecurityEvent.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(SecurityEvent.class))
                 .verify();
     }

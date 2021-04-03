@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class OhlcMarketRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final RestRequest<Map<String, Ohlc>> request = new OhlcMarketRequestBuilder()
                 .build();
 

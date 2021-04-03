@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class InstitutionalOwnershipServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void institutionalOwnershipServiceTest() {
+    void institutionalOwnershipServiceTest() {
         stubFor(get(urlEqualTo(path("/stock/AAPL/institutional-ownership")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

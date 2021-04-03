@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MarketAcceptanceTest extends AcceptanceTestBase {
 
     @Test
-    public void marketVolumeAcceptanceTest() {
+    void marketVolumeAcceptanceTest() {
         final List<MarketVolume> marketVolumeList = iexTradingClient.executeRequest(new MarketRequestBuilder()
                 .build());
         assertThat(marketVolumeList).isNotNull();

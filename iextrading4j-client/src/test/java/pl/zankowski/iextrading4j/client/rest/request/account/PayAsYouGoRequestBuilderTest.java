@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PayAsYouGoRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
 
         final RestRequest<String> request = new PayAsYouGoRequestBuilder()
                 .withDisallowed()
@@ -29,7 +29,7 @@ public class PayAsYouGoRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithAllow() {
+    void shouldSuccessfullyCreateRequestWithAllow() {
 
         final RestRequest<String> request = new PayAsYouGoRequestBuilder()
                 .withAllowed()

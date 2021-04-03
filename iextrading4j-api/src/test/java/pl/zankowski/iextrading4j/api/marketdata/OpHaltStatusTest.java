@@ -12,7 +12,7 @@ public class OpHaltStatusTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final Boolean isHalted = fixture.create(Boolean.class);
         final Long timestamp = fixture.create(Long.class);
 
@@ -23,14 +23,14 @@ public class OpHaltStatusTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(OpHaltStatus.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(OpHaltStatus.class))
                 .verify();
     }

@@ -6,6 +6,9 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -28,12 +31,15 @@ public class HackyLocalDateDeserializerTest {
         deserializer = null;
     }
 
-    @Test
-    public void shouldReturnNullIfValueIsNA() throws IOException {
+
+    @ValueSource(strings = {"0", "0000-00-00"})
+    @NullSource
+    @ParameterizedTest
+    void shouldReturnNullForUnknownValues(final String value) throws IOException {
         final JsonParser parserMock = mock(JsonParser.class);
         final DeserializationContext contextMock = mock(DeserializationContext.class);
 
-        when(parserMock.getValueAsString()).thenReturn("0");
+        when(parserMock.getValueAsString()).thenReturn(value);
 
         final LocalDate result = deserializer.deserialize(parserMock, contextMock);
 
@@ -41,31 +47,7 @@ public class HackyLocalDateDeserializerTest {
     }
 
     @Test
-    public void shouldReturnNullIfValueIsFullOfZeroes() throws IOException {
-        final JsonParser parserMock = mock(JsonParser.class);
-        final DeserializationContext contextMock = mock(DeserializationContext.class);
-
-        when(parserMock.getValueAsString()).thenReturn("0000-00-00");
-
-        final LocalDate result = deserializer.deserialize(parserMock, contextMock);
-
-        assertThat(result).isNull();
-    }
-
-    @Test
-    public void shouldReturnNullIfValueIsNull() throws IOException {
-        final JsonParser parserMock = mock(JsonParser.class);
-        final DeserializationContext contextMock = mock(DeserializationContext.class);
-
-        when(parserMock.getValueAsString()).thenReturn(null);
-
-        final LocalDate result = deserializer.deserialize(parserMock, contextMock);
-
-        assertThat(result).isNull();
-    }
-
-    @Test
-    public void shouldCreateLocalDateBasedOnValue() throws IOException {
+    void shouldCreateLocalDateBasedOnValue() throws IOException {
         final JsonParser parserMock = mock(JsonParser.class);
         final DeserializationContext contextMock = mock(DeserializationContext.class);
         final String date = "2015-05-05";

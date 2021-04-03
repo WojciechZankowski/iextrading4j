@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class CryptoQuoteSseRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final SseRequest<List<Quote>> request = new CryptoQuoteSseRequestBuilder()

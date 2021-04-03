@@ -15,7 +15,7 @@ public class DividendsTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final Long refid = fixture.create(Long.class);
         final String symbol = fixture.create(String.class);
         final String id = fixture.create(String.class);
@@ -55,14 +55,14 @@ public class DividendsTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Dividends.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Dividends.class))
                 .verify();
     }

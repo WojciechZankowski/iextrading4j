@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class HistoricalServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void historicalServiceTest() {
+    void historicalServiceTest() {
         stubFor(get(urlEqualTo("/stats/historical?date=201605"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

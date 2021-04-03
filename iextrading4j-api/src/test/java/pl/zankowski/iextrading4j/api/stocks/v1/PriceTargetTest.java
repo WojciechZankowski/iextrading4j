@@ -15,7 +15,7 @@ public class PriceTargetTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String symbol = fixture.create(String.class);
         final LocalDate updatedDate = fixture.create(LocalDate.class);
         final BigDecimal priceTargetAverage = fixture.create(BigDecimal.class);
@@ -36,14 +36,14 @@ public class PriceTargetTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(PriceTarget.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(PriceTarget.class))
                 .verify();
     }

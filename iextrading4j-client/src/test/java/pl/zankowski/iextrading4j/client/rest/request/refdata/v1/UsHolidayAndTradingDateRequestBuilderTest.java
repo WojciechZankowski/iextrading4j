@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class UsHolidayAndTradingDateRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateUsHolidayAndTradingRequest() {
+    void shouldSuccessfullyCreateUsHolidayAndTradingRequest() {
         final DateType type = DateType.TRADE;
         final DateDirection direction = DateDirection.NEXT;
 
@@ -34,7 +34,7 @@ public class UsHolidayAndTradingDateRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateUsHolidayAndTradingWithLastRequest() {
+    void shouldSuccessfullyCreateUsHolidayAndTradingWithLastRequest() {
         final DateType type = DateType.TRADE;
         final DateDirection direction = DateDirection.NEXT;
         final Integer last = 10;
@@ -55,7 +55,7 @@ public class UsHolidayAndTradingDateRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateUsHolidayAndTradingWithLastAndStartDateRequest() {
+    void shouldSuccessfullyCreateUsHolidayAndTradingWithLastAndStartDateRequest() {
         final DateType type = DateType.TRADE;
         final DateDirection direction = DateDirection.NEXT;
         final Integer last = 10;

@@ -13,7 +13,7 @@ public class DeepAsyncResponseTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String symbol = fixture.create(String.class);
         final DeepMessageType messageType = fixture.create(DeepMessageType.class);
         final SsrStatus deepResult = fixture.create(SsrStatus.class);
@@ -29,14 +29,14 @@ public class DeepAsyncResponseTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(DeepAsyncResponse.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         final String symbol = fixture.create(String.class);
         final DeepMessageType messageType = fixture.create(DeepMessageType.class);
         final SsrStatus deepResult = fixture.create(SsrStatus.class);

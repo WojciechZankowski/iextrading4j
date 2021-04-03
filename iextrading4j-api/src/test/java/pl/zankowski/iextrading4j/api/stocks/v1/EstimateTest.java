@@ -15,7 +15,7 @@ public class EstimateTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final BigDecimal consensusEPS = fixture.create(BigDecimal.class);
         final String announceTime = fixture.create(String.class);
         final BigDecimal numberOfEstimates = fixture.create(BigDecimal.class);
@@ -37,14 +37,14 @@ public class EstimateTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Estimate.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Estimate.class))
                 .verify();
     }

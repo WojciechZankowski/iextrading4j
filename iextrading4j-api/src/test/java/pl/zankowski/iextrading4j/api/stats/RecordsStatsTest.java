@@ -12,7 +12,7 @@ public class RecordsStatsTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final Record volume = fixture.create(Record.class);
         final Record symbolsTraded = fixture.create(Record.class);
         final Record routedVolume = fixture.create(Record.class);
@@ -28,14 +28,14 @@ public class RecordsStatsTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(RecordsStats.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(RecordsStats.class))
                 .verify();
     }

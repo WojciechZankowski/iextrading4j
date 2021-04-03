@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class UsageServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void usageServiceTest() {
+    void usageServiceTest() {
         stubFor(get(urlEqualTo(secretPath("/account/usage")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -49,7 +49,7 @@ public class UsageServiceTest extends BaseIEXCloudV1ServiceTest {
     }
 
     @Test
-    public void messageUsageServiceTest() {
+    void messageUsageServiceTest() {
         stubFor(get(urlEqualTo(secretPath("/account/usage/messages")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

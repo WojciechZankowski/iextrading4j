@@ -15,7 +15,7 @@ public class TodayEarningTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final BigDecimal actualEPS = fixture.create(BigDecimal.class);
         final BigDecimal consensusEPS = fixture.create(BigDecimal.class);
         final BigDecimal estimatedEPS = fixture.create(BigDecimal.class);
@@ -56,14 +56,14 @@ public class TodayEarningTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(TodayEarning.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(TodayEarning.class))
                 .verify();
     }

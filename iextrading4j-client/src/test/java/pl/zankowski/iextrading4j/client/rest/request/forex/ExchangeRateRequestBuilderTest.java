@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class ExchangeRateRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateExchangeRateRequest() {
+    void shouldSuccessfullyCreateExchangeRateRequest() {
         final String from = "BTC";
         final String to = "USDT";
 

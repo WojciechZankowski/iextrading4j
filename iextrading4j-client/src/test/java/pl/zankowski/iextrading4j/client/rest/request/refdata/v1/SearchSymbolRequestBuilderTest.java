@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class SearchSymbolRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String fragment = "apple";
 
         final RestRequest<List<SymbolDescription>> request = new SearchSymbolRequestBuilder()

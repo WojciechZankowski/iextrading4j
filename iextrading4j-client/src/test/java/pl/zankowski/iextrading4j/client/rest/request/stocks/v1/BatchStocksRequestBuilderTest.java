@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class BatchStocksRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
         final BatchStocksType stocksType = BatchStocksType.NEWS;
 

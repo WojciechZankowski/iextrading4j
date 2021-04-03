@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class VolumeByVenueServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void volumeByVenueServiceTest() {
+    void volumeByVenueServiceTest() {
         stubFor(get(urlEqualTo("/stock/aapl/volume-by-venue"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

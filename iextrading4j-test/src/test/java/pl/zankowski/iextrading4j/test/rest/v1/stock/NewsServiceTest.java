@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class NewsServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void newsServiceTest() {
+    void newsServiceTest() {
         stubFor(get(urlEqualTo(path("/stock/AAPL/news/last/10")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

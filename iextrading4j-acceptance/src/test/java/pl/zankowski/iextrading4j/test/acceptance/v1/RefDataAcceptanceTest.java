@@ -34,21 +34,21 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RefDataAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Test
-    public void symbolsTest() {
+    void symbolsTest() {
         final List<ExchangeSymbol> symbols = cloudClient.executeRequest(new SymbolsRequestBuilder()
                 .build());
         assertThat(symbols).isNotNull();
     }
 
     @Test
-    public void iexSymbolsTest() {
+    void iexSymbolsTest() {
         final List<Symbol> symbols = cloudClient.executeRequest(new IEXSymbolsRequestBuilder()
                 .build());
         assertThat(symbols).isNotNull();
     }
 
     @Test
-    public void exchangeSymbolsTest() {
+    void exchangeSymbolsTest() {
         final List<ExchangeSymbol> result = cloudClient.executeRequest(new ExchangeSymbolsRequestBuilder()
                 .withExchange("LON")
                 .build());
@@ -56,7 +56,7 @@ public class RefDataAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void regionSymbolsTest() {
+    void regionSymbolsTest() {
         final List<ExchangeSymbol> result = cloudClient.executeRequest(new RegionSymbolsRequestBuilder()
                 .withRegion("GB")
                 .build());
@@ -64,20 +64,20 @@ public class RefDataAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void exchangesTest() {
+    void exchangesTest() {
         final List<Exchange> result = cloudClient.executeRequest(new ExchangeRequestBuilder().build());
         assertThat(result).isNotNull();
     }
 
     @Test
-    public void usExchangesTest() {
+    void usExchangesTest() {
         final List<UsExchange> result = cloudClient.executeRequest(new UsExchangeRequestBuilder()
                 .build());
         assertThat(result).isNotNull();
     }
 
     @Test
-    public void usHolidayAndTradingDateTest() {
+    void usHolidayAndTradingDateTest() {
         final List<HolidayAndTradingDate> result = cloudClient.executeRequest(new UsHolidayAndTradingDateRequestBuilder()
                 .withType(DateType.TRADE)
                 .withDirection(DateDirection.NEXT)
@@ -86,20 +86,20 @@ public class RefDataAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void sectorTest() {
+    void sectorTest() {
         final List<Sector> result = cloudClient.executeRequest(new SectorRequestBuilder().build());
         assertThat(result).isNotNull();
     }
 
     @Test
-    public void tagsTest() {
+    void tagsTest() {
         final List<Tag> result = cloudClient.executeRequest(new TagRequestBuilder().build());
         assertThat(result).isNotNull();
     }
 
     @Disabled("Message received from IEX Trading: This endpoint is unavailable at this time")
     @Test
-    public void isinTest() {
+    void isinTest() {
         final List<List<SymbolMapping>> result = cloudClient.executeRequest(new IsinMapperRequestBuilder()
                 .addIsin("US0378331005")
                 .build());
@@ -108,14 +108,14 @@ public class RefDataAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void optionsTest() {
+    void optionsTest() {
         final Map<String, List<String>> result = cloudClient.executeRequest(new OptionsSymbolsRequestBuilder()
                 .build());
         assertThat(result).isNotNull();
     }
 
     @Test
-    public void searchSymbolTest() {
+    void searchSymbolTest() {
         final List<SymbolDescription> result = cloudClient.executeRequest(new SearchSymbolRequestBuilder()
                 .withFragment("apple")
                 .build());

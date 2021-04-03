@@ -12,7 +12,7 @@ public class FieldMetadataTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String type = fixture.create(String.class);
 
         final FieldMetadata fieldMetadata = new FieldMetadata(type);
@@ -22,14 +22,14 @@ public class FieldMetadataTest {
 
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(FieldMetadata.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(FieldMetadata.class))
                 .verify();
     }

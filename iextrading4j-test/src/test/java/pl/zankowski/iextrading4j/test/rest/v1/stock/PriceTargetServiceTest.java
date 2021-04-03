@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PriceTargetServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void priceTargetServiceTest() {
+    void priceTargetServiceTest() {
         stubFor(get(urlEqualTo(path("/stock/AAPL/price-target")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class RecommendationTrendsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<List<RecommendationTrends>> request = new RecommendationTrendsRequestBuilder()

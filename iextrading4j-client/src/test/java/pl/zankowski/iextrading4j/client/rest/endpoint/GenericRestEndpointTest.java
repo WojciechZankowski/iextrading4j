@@ -22,7 +22,7 @@ public class GenericRestEndpointTest {
     }
 
     @Test
-    public void shouldSuccessfullyExecuteRequest() {
+    void shouldSuccessfullyExecuteRequest() {
         // Arrange
         final Object testObject = new Object();
 

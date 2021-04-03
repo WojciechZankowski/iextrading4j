@@ -27,7 +27,7 @@ public class TradingStatusReasonTypeSerializerTest {
     }
 
     @Test
-    public void shouldWriteNullIfValueIsNull() throws IOException {
+    void shouldWriteNullIfValueIsNull() throws IOException {
         final JsonGenerator jsonGeneratorMock = mock(JsonGenerator.class);
         final SerializerProvider serializerProviderMock = mock(SerializerProvider.class);
         final TradingStatusReasonType input = null;
@@ -38,7 +38,7 @@ public class TradingStatusReasonTypeSerializerTest {
     }
 
     @Test
-    public void shouldWriteNullIfValueIsUnknown() throws IOException {
+    void shouldWriteNullIfValueIsUnknown() throws IOException {
         final JsonGenerator jsonGeneratorMock = mock(JsonGenerator.class);
         final SerializerProvider serializerProviderMock = mock(SerializerProvider.class);
         final TradingStatusReasonType input = TradingStatusReasonType.UNKNOWN;
@@ -49,7 +49,7 @@ public class TradingStatusReasonTypeSerializerTest {
     }
 
     @Test
-    public void shouldWriteStringFromValue() throws IOException {
+    void shouldWriteStringFromValue() throws IOException {
         final JsonGenerator jsonGeneratorMock = mock(JsonGenerator.class);
         final SerializerProvider serializerProviderMock = mock(SerializerProvider.class);
         final TradingStatusReasonType input = TradingStatusReasonType.HALT_NEWS_DISSEMINATION;

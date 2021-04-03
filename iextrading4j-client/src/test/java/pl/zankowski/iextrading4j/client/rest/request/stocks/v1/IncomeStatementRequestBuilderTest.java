@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class IncomeStatementRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateIncomeStatementRequest() {
+    void shouldSuccessfullyCreateIncomeStatementRequest() {
         final String symbol = "AAPL";
 
         final RestRequest<IncomeStatements> request = new IncomeStatementRequestBuilder()
@@ -29,7 +29,7 @@ public class IncomeStatementRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateIncomeStatementWithPeriodRequest() {
+    void shouldSuccessfullyCreateIncomeStatementWithPeriodRequest() {
         final String symbol = "AAPL";
         final Period period = Period.ANNUAL;
 
@@ -47,7 +47,7 @@ public class IncomeStatementRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateIncomeStatementWithPeriodAndLastRequest() {
+    void shouldSuccessfullyCreateIncomeStatementWithPeriodAndLastRequest() {
         final String symbol = "AAPL";
         final Period period = Period.ANNUAL;
         final int last = 3;

@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PeersServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void peersServiceTest() {
+    void peersServiceTest() {
         stubFor(get(urlEqualTo("/stock/aapl/peers"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

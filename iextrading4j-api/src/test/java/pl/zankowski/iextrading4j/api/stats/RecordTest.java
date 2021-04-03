@@ -15,7 +15,7 @@ public class RecordTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final BigDecimal recordValue = fixture.create(BigDecimal.class);
         final LocalDate recordDate = fixture.create(LocalDate.class);
         final BigDecimal previousDayValue = fixture.create(BigDecimal.class);
@@ -31,14 +31,14 @@ public class RecordTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Record.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Record.class))
                 .verify();
     }

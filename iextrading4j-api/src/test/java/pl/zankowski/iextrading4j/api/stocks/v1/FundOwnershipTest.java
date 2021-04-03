@@ -15,7 +15,7 @@ public class FundOwnershipTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
 
         final BigDecimal reportedMv = fixture.create(BigDecimal.class);
         final String symbol = fixture.create(String.class);
@@ -44,14 +44,14 @@ public class FundOwnershipTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(FundOwnership.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(FundOwnership.class))
                 .verify();
     }

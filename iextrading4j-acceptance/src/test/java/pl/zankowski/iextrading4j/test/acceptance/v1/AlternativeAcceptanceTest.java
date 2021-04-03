@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AlternativeAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Test
-    public void ceoCompensationTest() {
+    void ceoCompensationTest() {
         final CeoCompensation result = cloudClient.executeRequest(new CeoCompensationRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -31,7 +31,7 @@ public class AlternativeAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void cryptoTest() {
+    void cryptoTest() {
         final Quote result = cloudClient.executeRequest(new CryptoRequestBuilder()
                 .withSymbol("BTCUSDT")
                 .build());
@@ -39,7 +39,7 @@ public class AlternativeAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void cryptoPriceTest() {
+    void cryptoPriceTest() {
         final CryptoPrice price = cloudClient.executeRequest(new CryptoPriceRequestBuilder()
                 .withSymbol("BTCUSD")
                 .build());
@@ -47,7 +47,7 @@ public class AlternativeAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void cryptoBookTest() {
+    void cryptoBookTest() {
         final Book book = cloudClient.executeRequest(new CryptoBookRequestBuilder()
                 .withSymbol("BTCUSD")
                 .build());
@@ -56,7 +56,7 @@ public class AlternativeAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Disabled("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
-    public void dailySentimentTest() {
+    void dailySentimentTest() {
         final Sentiment result = cloudClient.executeRequest(new DailySentimentRequestBuilder()
                 .withSymbol("AAPL")
                 .withDate(LocalDate.of(2019, 10, 12))
@@ -66,7 +66,7 @@ public class AlternativeAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Disabled("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
-    public void manualDailySentimentTest() {
+    void manualDailySentimentTest() {
         final List<Sentiment> result = cloudClient.executeRequest(new SentimentRequestBuilder()
                 .withSymbol("AAPL")
                 .withSentimentType(SentimentType.DAILY)
@@ -77,7 +77,7 @@ public class AlternativeAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Disabled("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
-    public void minuteSentimentTest() {
+    void minuteSentimentTest() {
         final List<Sentiment> result = cloudClient.executeRequest(new SentimentRequestBuilder()
                 .withSymbol("AAPL")
                 .withSentimentType(SentimentType.MINUTE)

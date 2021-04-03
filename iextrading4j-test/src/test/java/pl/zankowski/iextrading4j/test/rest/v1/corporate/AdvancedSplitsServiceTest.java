@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AdvancedSplitsServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void advancedSplitsServiceTest() {
+    void advancedSplitsServiceTest() {
         stubFor(get(urlEqualTo(path("/time-series/advanced_splits/CRPYF")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

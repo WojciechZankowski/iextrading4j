@@ -12,7 +12,7 @@ public abstract class BaseData implements Serializable {
     private final String subkey;
     private final Long updated;
 
-    public BaseData(final String symbol, final String id, final String key, final String subkey, final Long updated) {
+    protected BaseData(final String symbol, final String id, final String key, final String subkey, final Long updated) {
         this.symbol = symbol;
         this.id = id;
         this.key = key;

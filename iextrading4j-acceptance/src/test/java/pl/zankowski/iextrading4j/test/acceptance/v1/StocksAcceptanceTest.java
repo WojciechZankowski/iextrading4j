@@ -89,7 +89,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Test
-    public void advancedStatsTest() {
+    void advancedStatsTest() {
         final AdvancedStats result = cloudClient.executeRequest(new AdvancedStatsRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -97,7 +97,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void balanceSheetTest() {
+    void balanceSheetTest() {
         final BalanceSheets result = cloudClient.executeRequest(new BalanceSheetRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -105,7 +105,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void balanceSheetWithPeriodAndLastTest() {
+    void balanceSheetWithPeriodAndLastTest() {
         final BalanceSheets result = cloudClient.executeRequest(new BalanceSheetRequestBuilder().withSymbol("AAPL")
                 .withPeriod(Period.ANNUAL)
                 .withLast(2)
@@ -114,7 +114,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void bookTest() {
+    void bookTest() {
         final Book result = cloudClient.executeRequest(new BookRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -122,7 +122,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void cashFlowTest() {
+    void cashFlowTest() {
         final CashFlows result = cloudClient.executeRequest(new CashFlowRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -130,7 +130,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void cashFlowWithLastAndPeriodTest() {
+    void cashFlowWithLastAndPeriodTest() {
         final CashFlows result = cloudClient.executeRequest(new CashFlowRequestBuilder()
                 .withSymbol("AAPL")
                 .withLast(2)
@@ -140,7 +140,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void sectorCollectionTest() {
+    void sectorCollectionTest() {
         final List<Quote> result = cloudClient.executeRequest(new CollectionRequestBuilder()
                 .withCollectionType(CollectionType.SECTOR)
                 .withCollectionName("Financials")
@@ -149,7 +149,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void listCollectionTest() {
+    void listCollectionTest() {
         final List<Quote> result = cloudClient.executeRequest(new CollectionRequestBuilder()
                 .withCollectionType(CollectionType.LIST)
                 .withCollectionName("iexvolume")
@@ -158,7 +158,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void tagCollectionTest() {
+    void tagCollectionTest() {
         final List<Quote> result = cloudClient.executeRequest(new CollectionRequestBuilder()
                 .withCollectionType(CollectionType.TAG)
                 .withCollectionName("Technology")
@@ -167,7 +167,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void companyTest() {
+    void companyTest() {
         final Company result = cloudClient.executeRequest(new CompanyRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -175,7 +175,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void quoteTest() {
+    void quoteTest() {
         final Quote result = cloudClient.executeRequest(new QuoteRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -184,7 +184,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void delayedQuoteTest() {
+    void delayedQuoteTest() {
         final DelayedQuote result = cloudClient.executeRequest(new DelayedQuoteRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -192,7 +192,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void dividendsTest() {
+    void dividendsTest() {
         final List<Dividends> result = cloudClient.executeRequest(new DividendsRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -200,7 +200,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void nextDividendsTest() {
+    void nextDividendsTest() {
         final List<Dividends> result = cloudClient.executeRequest(new DividendsRequestBuilder()
                 .withSymbol("AAPL")
                 .withDividendRange(DividendRange.NEXT)
@@ -209,7 +209,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void previousDividendsTest() {
+    void previousDividendsTest() {
         final List<Dividends> result = cloudClient.executeRequest(new DividendsRequestBuilder()
                 .withSymbol("AAPL")
                 .withDividendRange(DividendRange.FIVE_YEARS)
@@ -219,7 +219,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Disabled("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
-    public void earningsTest() {
+    void earningsTest() {
         final Earnings result = cloudClient.executeRequest(new EarningsRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -228,7 +228,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Disabled("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
-    public void earningsWithLastTest() {
+    void earningsWithLastTest() {
         final Earnings result = cloudClient.executeRequest(new EarningsRequestBuilder()
                 .withSymbol("AAPL")
                 .withLast(2)
@@ -238,7 +238,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Disabled("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
-    public void todayEarningsTest() {
+    void todayEarningsTest() {
         final TodayEarnings todayEarnings = cloudClient.executeRequest(new TodayEarningsRequestBuilder()
                 .build());
         assertThat(todayEarnings).isNotNull();
@@ -246,7 +246,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Disabled("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
-    public void estimatesTest() {
+    void estimatesTest() {
         final Estimates estimates = cloudClient.executeRequest(new EstimatesRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -255,7 +255,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Disabled("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
-    public void estimatesWithLastAndPeriodTest() {
+    void estimatesWithLastAndPeriodTest() {
         final Estimates result = cloudClient.executeRequest(new EstimatesRequestBuilder()
                 .withSymbol("AAPL")
                 .withLast(2)
@@ -265,7 +265,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void financialsTest() {
+    void financialsTest() {
         final Financials result = cloudClient.executeRequest(new FinancialsRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -273,7 +273,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void financialsWithLastAndPeriodTest() {
+    void financialsWithLastAndPeriodTest() {
         final Financials result = cloudClient.executeRequest(new FinancialsRequestBuilder()
                 .withSymbol("AAPL")
                 .withLast(2)
@@ -283,7 +283,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void fundOwnershipTest() {
+    void fundOwnershipTest() {
         final List<FundOwnership> result = cloudClient.executeRequest(new FundOwnershipRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -291,7 +291,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void incomeStatementTest() {
+    void incomeStatementTest() {
         final IncomeStatements result = cloudClient.executeRequest(new IncomeStatementRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -300,7 +300,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void incomeStatementWithLastAndPeriodTest() {
+    void incomeStatementWithLastAndPeriodTest() {
         final IncomeStatements result = cloudClient.executeRequest(new IncomeStatementRequestBuilder()
                 .withSymbol("AAPL")
                 .withLast(2)
@@ -310,7 +310,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void insiderRosterTest() {
+    void insiderRosterTest() {
         final List<InsiderRoster> result = cloudClient.executeRequest(new InsiderRosterRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -318,7 +318,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void insiderSummaryTest() {
+    void insiderSummaryTest() {
         final List<InsiderSummary> result = cloudClient.executeRequest(new InsiderSummaryRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -326,7 +326,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void insiderTransactions() {
+    void insiderTransactions() {
         final List<InsiderTransaction> result = cloudClient.executeRequest(new InsiderTransactionRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -334,7 +334,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void institutionalOwnershipTest() {
+    void institutionalOwnershipTest() {
         final List<Ownership> result = cloudClient.executeRequest(new InstitutionalOwnershipRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -342,7 +342,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void intradayPricesTest() {
+    void intradayPricesTest() {
         final List<Intraday> result = cloudClient.executeRequest(new IntradayRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -350,7 +350,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void intradayPricesWithIexOnlyTest() {
+    void intradayPricesWithIexOnlyTest() {
         final List<Intraday> result = cloudClient.executeRequest(new IntradayRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -359,7 +359,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Disabled("This endpoint is temporarily unavailable while we identify a new source.")
     @Test
-    public void upcomingIposTest() {
+    void upcomingIposTest() {
         final Ipos result = cloudClient.executeRequest(new UpcomingIposRequestBuilder()
                 .build());
         assertThat(result).isNotNull();
@@ -367,14 +367,14 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Disabled("This endpoint is temporarily unavailable while we identify a new source.")
     @Test
-    public void todayIposTest() {
+    void todayIposTest() {
         final TodayIpos result = cloudClient.executeRequest(new TodayIposRequestBuilder()
                 .build());
         assertThat(result).isNotNull();
     }
 
     @Test
-    public void keyStatsTest() {
+    void keyStatsTest() {
         final KeyStats result = cloudClient.executeRequest(new KeyStatsRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -382,7 +382,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void largestTradesTest() {
+    void largestTradesTest() {
         final List<LargestTrade> result = cloudClient.executeRequest(new LargestTradeRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -390,7 +390,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void listTest() {
+    void listTest() {
         final List<Quote> result = cloudClient.executeRequest(new ListRequestBuilder()
                 .withListType(ListType.IEXVOLUME)
                 .build());
@@ -398,7 +398,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void logoTest() {
+    void logoTest() {
         final Logo result = cloudClient.executeRequest(new LogoRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -406,7 +406,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void newsTest() {
+    void newsTest() {
         final List<News> result = cloudClient.executeRequest(new NewsRequestBuilder()
                 .withSymbol("AAPL")
                 .withLast(10)
@@ -415,7 +415,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void peersTest() {
+    void peersTest() {
         final List<String> result = cloudClient.executeRequest(new PeersRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -423,7 +423,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void priceTest() {
+    void priceTest() {
         final BigDecimal result = cloudClient.executeRequest(new PriceRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -431,14 +431,14 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void sectorPerformanceTest() {
+    void sectorPerformanceTest() {
         final List<SectorPerformance> result = cloudClient.executeRequest(new SectorPerformanceRequestBuilder()
                 .build());
         assertThat(result).isNotNull();
     }
 
     @Test
-    public void maxChartRequestAcceptanceTest() {
+    void maxChartRequestAcceptanceTest() {
         final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.MAX)
                 .withSymbol("AAPL")
@@ -447,7 +447,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void todayChartRequestAcceptanceTest() {
+    void todayChartRequestAcceptanceTest() {
         final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.INTRADAY)
                 .withSymbol("AAPL")
@@ -456,7 +456,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void oneDayChartRequestAcceptanceTest() {
+    void oneDayChartRequestAcceptanceTest() {
         final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withSymbol("AAPL")
                 .withDate(LocalDate.of(2020, 12, 29))
@@ -465,7 +465,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void fiveDaysChartRequestAcceptanceTest() {
+    void fiveDaysChartRequestAcceptanceTest() {
         final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.FIVE_DAYS)
                 .withSymbol("AAPL")
@@ -474,7 +474,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void fiveDays10MinIntervalChartRequestAcceptanceTest() {
+    void fiveDays10MinIntervalChartRequestAcceptanceTest() {
         final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.FIVE_DAYS_10_MIN_INTERVAL)
                 .withSymbol("AAPL")
@@ -483,7 +483,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void oneMonthChartRequestAcceptanceTest() {
+    void oneMonthChartRequestAcceptanceTest() {
         final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
@@ -492,7 +492,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void oneMonth30MinIntervalAcceptanceTest() {
+    void oneMonth30MinIntervalAcceptanceTest() {
         final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH_30_MIN_INTERVAL)
                 .withSymbol("AAPL")
@@ -501,7 +501,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void chartWithResetAcceptanceTest() {
+    void chartWithResetAcceptanceTest() {
         final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
@@ -511,7 +511,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void chartWithSimplifyAcceptanceTest() {
+    void chartWithSimplifyAcceptanceTest() {
         final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
@@ -521,7 +521,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void chartWithIntervalAcceptanceTest() {
+    void chartWithIntervalAcceptanceTest() {
         final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
@@ -531,7 +531,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void chartWithChangeFromCloseAcceptanceTest() {
+    void chartWithChangeFromCloseAcceptanceTest() {
         final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
@@ -541,7 +541,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void chartWithLastAcceptanceTest() {
+    void chartWithLastAcceptanceTest() {
         final List<Chart> result = cloudClient.executeRequest(new ChartRequestBuilder()
                 .withChartRange(ChartRange.ONE_MONTH)
                 .withSymbol("AAPL")
@@ -551,7 +551,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void openCloseAcceptanceTest() {
+    void openCloseAcceptanceTest() {
         final Ohlc result = cloudClient.executeRequest(new OpenCloseRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -560,7 +560,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Disabled("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
-    public void batchFirstPartAcceptanceTest() {
+    void batchFirstPartAcceptanceTest() {
         final BatchStocks result = cloudClient.executeRequest(new BatchStocksRequestBuilder()
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.ADVANCED_STATS)
@@ -579,7 +579,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Disabled("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
-    public void batchSecondPartAcceptanceTest() {
+    void batchSecondPartAcceptanceTest() {
         final BatchStocks result = cloudClient.executeRequest(new BatchStocksRequestBuilder()
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.ESTIMATES)
@@ -598,7 +598,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Disabled("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
-    public void batchThirdPartAcceptanceTest() {
+    void batchThirdPartAcceptanceTest() {
         final BatchStocks result = cloudClient.executeRequest(new BatchStocksRequestBuilder()
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.LARGEST_TRADES)
@@ -617,7 +617,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Disabled("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
-    public void batchFourthPartAcceptanceTest() {
+    void batchFourthPartAcceptanceTest() {
         final BatchStocks result = cloudClient.executeRequest(new BatchStocksRequestBuilder()
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.RECOMMENDATION_TRENDS)
@@ -628,7 +628,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void splitsTest() {
+    void splitsTest() {
         final List<Split> result = cloudClient.executeRequest(new SplitsRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -637,7 +637,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Disabled("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
-    public void marketBatchAcceptanceTest() {
+    void marketBatchAcceptanceTest() {
         final Map<String, BatchStocks> result = cloudClient.executeRequest(new BatchMarketStocksRequestBuilder()
                 .withSymbol("AAPL")
                 .addType(BatchStocksType.LARGEST_TRADES)
@@ -658,7 +658,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void technicalIndicatorTest() {
+    void technicalIndicatorTest() {
         final TechnicalIndicator result = cloudClient.executeRequest(new TechnicalIndicatorRequestBuilder()
                 .withSymbol("TWTR")
                 .withTechnicalIndicatorType(TechnicalIndicatorType.BBANDS)
@@ -669,7 +669,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Disabled("Message received from IEX Trading: The requested data requires permission to access.")
     @Test
-    public void priceTargetTest() {
+    void priceTargetTest() {
         final PriceTarget priceTarget = cloudClient.executeRequest(new PriceTargetRequestBuilder()
                 .withSymbol("AAPL")
                 .build());

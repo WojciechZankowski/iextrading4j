@@ -14,7 +14,7 @@ public class BookEntryTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final BigDecimal price = fixture.create(BigDecimal.class);
         final BigDecimal size = fixture.create(BigDecimal.class);
         final Long timestamp = fixture.create(Long.class);
@@ -27,14 +27,14 @@ public class BookEntryTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(BookEntry.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(BookEntry.class))
                 .verify();
     }

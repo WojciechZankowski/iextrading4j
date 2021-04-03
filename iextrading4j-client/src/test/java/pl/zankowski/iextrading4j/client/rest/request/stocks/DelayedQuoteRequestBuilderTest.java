@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class DelayedQuoteRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<DelayedQuote> request = new DelayedQuoteRequestBuilder()

@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TopsAsyncRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateAsyncRequest() {
+    void shouldSuccessfullyCreateAsyncRequest() {
         final String symbol = "IBM";
 
         final SocketRequest<TOPS> request = new TopsAsyncRequestBuilder()

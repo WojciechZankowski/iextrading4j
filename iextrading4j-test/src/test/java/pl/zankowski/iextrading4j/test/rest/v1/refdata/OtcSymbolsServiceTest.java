@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class OtcSymbolsServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void otcSymbolsServiceTest() {
+    void otcSymbolsServiceTest() {
         stubFor(get(urlEqualTo(path("/ref-data/otc/symbols")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CashFlowServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void cashFlowServiceTest() {
+    void cashFlowServiceTest() {
         stubFor(get(urlEqualTo(path("/stock/AAPL/cash-flow")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

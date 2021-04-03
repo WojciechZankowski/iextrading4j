@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ListServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void mostActiveListServiceTest() {
+    void mostActiveListServiceTest() {
         stubFor(get(urlEqualTo("/stock/market/list/mostactive"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -37,7 +37,7 @@ public class ListServiceTest extends BaseRestServiceTest {
     }
 
     @Test
-    public void gainersListServiceTest() {
+    void gainersListServiceTest() {
         stubFor(get(urlEqualTo("/stock/market/list/gainers"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -55,7 +55,7 @@ public class ListServiceTest extends BaseRestServiceTest {
     }
 
     @Test
-    public void losersListServiceTest() {
+    void losersListServiceTest() {
         stubFor(get(urlEqualTo("/stock/market/list/losers"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -73,7 +73,7 @@ public class ListServiceTest extends BaseRestServiceTest {
     }
 
     @Test
-    public void iexVolumeListServiceTest() {
+    void iexVolumeListServiceTest() {
         stubFor(get(urlEqualTo("/stock/market/list/iexvolume"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -91,7 +91,7 @@ public class ListServiceTest extends BaseRestServiceTest {
     }
 
     @Test
-    public void iexPercentListServiceTest() {
+    void iexPercentListServiceTest() {
         stubFor(get(urlEqualTo("/stock/market/list/iexpercent"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

@@ -16,7 +16,7 @@ public class IEXSymbolDirectoryTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String recordId = fixture.create(String.class);
         final LocalDateTime dailyListTimestamp = fixture.create(LocalDateTime.class);
         final String symbolInINETSymbology = fixture.create(String.class);
@@ -82,14 +82,14 @@ public class IEXSymbolDirectoryTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(IEXSymbolDirectory.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(IEXSymbolDirectory.class))
                 .verify();
     }

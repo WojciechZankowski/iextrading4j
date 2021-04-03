@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DataPointsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Test
-    public void dataPointsTest() {
+    void dataPointsTest() {
         final RestRequest<List<DataPoint>> request = new DataPointsRequestBuilder()
                 .withSymbol("AAPL")
                 .build();
@@ -25,7 +25,7 @@ public class DataPointsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void keyDataPointTest() {
+    void keyDataPointTest() {
         final RestRequest<String> request = new DataPointsRequestBuilder()
                 .withSymbol("AAPL")
                 .withKey("ACCOUNTSPAYABLE")
@@ -37,17 +37,16 @@ public class DataPointsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void timeSeriesTest() {
+    void timeSeriesTest() {
         final List<Map<String, String>> result = cloudClient.executeRequest(new TimeSeriesRequestBuilder()
                 .withId("advanced_splits")
                 .withKey("AAPL")
                 .build());
-        System.out.println(result);
-
+        assertThat(result).isNotNull();
     }
 
     @Test
-    public void keyTimeSeriesTest() {
+    void keyTimeSeriesTest() {
         final List<Map<String, String>> result = cloudClient.executeRequest(new TimeSeriesRequestBuilder()
                 .withId("REPORTED_FINANCIALS")
                 .withKey("AAPL")

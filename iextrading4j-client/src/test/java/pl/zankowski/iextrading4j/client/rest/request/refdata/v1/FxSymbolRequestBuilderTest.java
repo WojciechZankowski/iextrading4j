@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FxSymbolRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateFxSymbolsRequest() {
+    void shouldSuccessfullyCreateFxSymbolsRequest() {
         final RestRequest<FxSymbol> request = new FxSymbolRequestBuilder().build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);

@@ -12,7 +12,7 @@ public class SsrStatusTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final Boolean isSSR = fixture.create(Boolean.class);
         final String detail = fixture.create(String.class);
         final Long timestamp = fixture.create(Long.class);
@@ -25,14 +25,14 @@ public class SsrStatusTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(SsrStatus.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(SsrStatus.class))
                 .verify();
     }

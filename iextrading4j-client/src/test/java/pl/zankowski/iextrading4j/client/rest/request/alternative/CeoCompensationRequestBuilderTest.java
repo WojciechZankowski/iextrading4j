@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class CeoCompensationRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<CeoCompensation> request = new CeoCompensationRequestBuilder()

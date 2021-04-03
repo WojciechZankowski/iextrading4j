@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BalanceSheetServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void balanceSheetServiceTest() {
+    void balanceSheetServiceTest() {
         stubFor(get(urlEqualTo(path("/stock/AAPL/balance-sheet")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

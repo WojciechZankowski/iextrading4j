@@ -42,7 +42,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MarketDataAcceptanceTest extends AcceptanceTestBase {
 
     @Test
-    public void bookAcceptanceTest() {
+    void bookAcceptanceTest() {
         final Map<String, Book> books = iexTradingClient.executeRequest(new BookRequestBuilder()
                 .withSymbol("AAPL")
                 .withSymbol("SNAP")
@@ -51,7 +51,7 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void deepAcceptanceTest() {
+    void deepAcceptanceTest() {
         final DEEP deep = iexTradingClient.executeRequest(new DeepRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -59,7 +59,7 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void histAcceptanceTest() {
+    void histAcceptanceTest() {
         final List<HIST> histList = iexTradingClient.executeRequest(new HistRequestBuilder()
                 .withDate(LocalDate.of(2017, 5, 15))
                 .build());
@@ -67,14 +67,14 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void histParameterizedAcceptanceTest() {
+    void histParameterizedAcceptanceTest() {
         final Map<String, List<HIST>> histMap = iexTradingClient.executeRequest(new HistRequestBuilder()
                 .build());
         assertThat(histMap).isNotNull();
     }
 
     @Test
-    public void lastTradeAcceptanceTest() {
+    void lastTradeAcceptanceTest() {
         final List<LastTrade> lastTradeList = iexTradingClient.executeRequest(new LastTradeRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -82,7 +82,7 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void opHaltStatusAcceptanceTest() {
+    void opHaltStatusAcceptanceTest() {
         final Map<String, OpHaltStatus> opHaltStatuses = iexTradingClient.executeRequest(new OpHaltStatusRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -90,7 +90,7 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void officialPriceAcceptanceTest() {
+    void officialPriceAcceptanceTest() {
         final Map<String, OfficialPrice> officialPriceMap = iexTradingClient.executeRequest(new OfficialPriceRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -98,7 +98,7 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void securityEventAcceptanceTest() {
+    void securityEventAcceptanceTest() {
         final Map<String, SecurityEvent> securityEvent = iexTradingClient.executeRequest(new SecurityEventRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -106,7 +106,7 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void ssrStatusAcceptanceTest() {
+    void ssrStatusAcceptanceTest() {
         final Map<String, SsrStatus> ssrStatus = iexTradingClient.executeRequest(new SsrStatusRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -114,7 +114,7 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void systemEventAcceptanceTest() {
+    void systemEventAcceptanceTest() {
         final SystemEvent systemEvent = iexTradingClient.executeRequest(new SystemEventRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -122,7 +122,7 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void topsAcceptanceTest() {
+    void topsAcceptanceTest() {
         final List<TOPS> tops = iexTradingClient.executeRequest(new TopsRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -130,7 +130,7 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void tradeBreakAcceptanceTest() {
+    void tradeBreakAcceptanceTest() {
         final Map<String, List<Trade>> tradeBreak = iexTradingClient.executeRequest(new TradeBreakRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -138,7 +138,7 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void tradeAcceptanceTest() {
+    void tradeAcceptanceTest() {
         final Map<String, List<Trade>> trade = iexTradingClient.executeRequest(new TradeRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -146,7 +146,7 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void tradingStatusAcceptanceTest() {
+    void tradingStatusAcceptanceTest() {
         final Map<String, TradingStatus> tradingStatus = iexTradingClient.executeRequest(new TradingStatusRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -154,7 +154,7 @@ public class MarketDataAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void auctionAcceptanceTest() {
+    void auctionAcceptanceTest() {
         final Map<String, Auction> auction = iexTradingClient.executeRequest(new AuctionRequestBuilder()
                 .withSymbol("AAPL")
                 .build());

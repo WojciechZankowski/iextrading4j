@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class CryptoBookRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "BTCUSD";
 
         final RestRequest<Book> request = new CryptoBookRequestBuilder()

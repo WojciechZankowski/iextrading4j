@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class DeepRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<DEEP> request = new DeepRequestBuilder()

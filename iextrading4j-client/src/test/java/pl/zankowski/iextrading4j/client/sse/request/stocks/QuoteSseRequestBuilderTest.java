@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class QuoteSseRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final SseRequest<List<Quote>> request = new QuoteSseRequestBuilder()
@@ -30,7 +30,7 @@ public class QuoteSseRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestNoUTP() {
+    void shouldSuccessfullyCreateRequestNoUTP() {
         final String symbol = "IBM";
 
         final SseRequest<List<Quote>> request = new QuoteSseRequestBuilder()

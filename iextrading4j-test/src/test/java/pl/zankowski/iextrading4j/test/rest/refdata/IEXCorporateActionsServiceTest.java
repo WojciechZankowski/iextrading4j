@@ -26,7 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class IEXCorporateActionsServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void corporateActionsServiceTest() {
+    void corporateActionsServiceTest() {
         stubFor(get(urlEqualTo("/ref-data/daily-list/corporate-actions/sample"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class LatestCurrencyRatesRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final RestRequest<List<CurrencyRate>> request = new LatestCurrencyRatesRequestBuilder()
                 .withSymbol("USDGPB")
                 .build();

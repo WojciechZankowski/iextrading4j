@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TagsServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void tagsServiceTest() {
+    void tagsServiceTest() {
         stubFor(get(urlEqualTo(path("/ref-data/tags")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

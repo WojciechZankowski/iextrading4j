@@ -12,7 +12,7 @@ public class NewsTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final Long datetime = fixture.create(Long.class);
         final String headline = fixture.create(String.class);
         final String source = fixture.create(String.class);
@@ -39,14 +39,14 @@ public class NewsTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(News.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(News.class))
                 .verify();
     }

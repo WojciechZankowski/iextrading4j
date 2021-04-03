@@ -14,7 +14,7 @@ public class SystemStatusTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String status = fixture.create(String.class);
         final String version = fixture.create(String.class);
         final Long time = fixture.create(Long.class);
@@ -29,14 +29,14 @@ public class SystemStatusTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(SystemStatus.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(SystemStatus.class))
                 .verify();
     }

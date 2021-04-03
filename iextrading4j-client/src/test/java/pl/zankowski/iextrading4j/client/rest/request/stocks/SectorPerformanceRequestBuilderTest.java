@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SectorPerformanceRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final RestRequest<List<SectorPerformance>> request = new SectorPerformanceRequestBuilder()
                 .build();
 

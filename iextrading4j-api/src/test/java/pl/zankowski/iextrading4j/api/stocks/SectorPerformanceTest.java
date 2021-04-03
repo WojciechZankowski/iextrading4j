@@ -14,7 +14,7 @@ public class SectorPerformanceTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String type = fixture.create(String.class);
         final String name = fixture.create(String.class);
         final BigDecimal performance = fixture.create(BigDecimal.class);
@@ -30,14 +30,14 @@ public class SectorPerformanceTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(SectorPerformance.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(SectorPerformance.class))
                 .verify();
     }

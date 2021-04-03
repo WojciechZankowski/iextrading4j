@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class BalanceSheetRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateBalanceSheetRequest() {
+    void shouldSuccessfullyCreateBalanceSheetRequest() {
         final String symbol = "AAPL";
 
         final RestRequest<BalanceSheets> request = new BalanceSheetRequestBuilder()
@@ -29,7 +29,7 @@ public class BalanceSheetRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateBalanceSheetWithPeriodRequest() {
+    void shouldSuccessfullyCreateBalanceSheetWithPeriodRequest() {
         final String symbol = "AAPL";
         final Period period = Period.ANNUAL;
 
@@ -47,7 +47,7 @@ public class BalanceSheetRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateBalanceSheetWithPeriodAndLastRequest() {
+    void shouldSuccessfullyCreateBalanceSheetWithPeriodAndLastRequest() {
         final String symbol = "AAPL";
         final Period period = Period.ANNUAL;
         final int last = 3;

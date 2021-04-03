@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SearchSymbolServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void searchSymbolsServiceTest() {
+    void searchSymbolsServiceTest() {
         stubFor(get(urlEqualTo(path("/search/apple")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

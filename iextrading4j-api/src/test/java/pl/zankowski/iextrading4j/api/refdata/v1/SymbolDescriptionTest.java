@@ -13,7 +13,7 @@ public class SymbolDescriptionTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String symbol = fixture.create(String.class);
         final String cik = fixture.create(String.class);
         final String securityName = fixture.create(String.class);
@@ -37,14 +37,14 @@ public class SymbolDescriptionTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(SymbolDescription.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(SymbolDescription.class))
                 .verify();
     }
