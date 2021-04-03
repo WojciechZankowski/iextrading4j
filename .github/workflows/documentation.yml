@@ -20,12 +20,11 @@ jobs:
       - name: Javadoc generation
         run: mvn package -DskipTests=true -P javadoc --file pom.xml
       - name: Deploy documentation
-        working-directory: scripts
         run: |
           ls
           echo "Test"
-          chmod +x deploy.sh
-          ./deploy.sh
+          chmod +x scripts/deploy.sh
+          ./scripts/deploy.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
