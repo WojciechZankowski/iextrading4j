@@ -17,12 +17,6 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java }}
-      - name: Deploy documentation
-        run: |
-          ls
-          echo "Test"
-          chmod +x scripts/deploy.sh
-          ./scripts/deploy.sh
       - name: Javadoc generation
         run: mvn package -DskipTests=true -P javadoc --file pom.xml
       - name: Mutation testing

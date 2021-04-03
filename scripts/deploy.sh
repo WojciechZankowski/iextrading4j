@@ -2,8 +2,6 @@
 
 set -e # exit with nonzero exit code if anything fails
 
-git clone --quiet --branch=gh-pages https://${GITHUB_TOKEN}@github.com/WojciechZankowski/iextrading4j.git gh-pages > /dev/null
-
 echo "Starting to update gh-pages\n"
 
 #copy data we're interested in to other place
