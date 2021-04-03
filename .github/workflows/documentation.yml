@@ -3,8 +3,7 @@
 name: Documentation workflow
 
 on:
-  push:
-    branches: [ master ]
+  push
 
 jobs:
   documentation:
