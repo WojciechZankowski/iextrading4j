@@ -1,5 +1,6 @@
 pl.zankowski.iextrading4j.api.account
 pl.zankowski.iextrading4j.api.alternative
+pl.zankowski.iextrading4j.api.corporate
 pl.zankowski.iextrading4j.api.datapoint
 pl.zankowski.iextrading4j.api.exception
 pl.zankowski.iextrading4j.api.forex
@@ -22,6 +23,7 @@ pl.zankowski.iextrading4j.client.rest.manager
 pl.zankowski.iextrading4j.client.rest.request
 pl.zankowski.iextrading4j.client.rest.request.account
 pl.zankowski.iextrading4j.client.rest.request.alternative
+pl.zankowski.iextrading4j.client.rest.request.corporate
 pl.zankowski.iextrading4j.client.rest.request.datapoint
 pl.zankowski.iextrading4j.client.rest.request.filter
 pl.zankowski.iextrading4j.client.rest.request.forex
