@@ -19,14 +19,19 @@ jobs:
           java-version: ${{ matrix.java }}
       - name: Javadoc generation
         run: mvn package -DskipTests=true -P javadoc --file pom.xml
-      - name: Mutation testing
-        run: mvn install -DskipTests=true -P mutation --file pom.xml
-      - name: Deploy documentation
+#      - name: Mutation testing
+#        run: mvn install -DskipTests=true -P mutation --file pom.xml
+      - name: Prepare documentation
         run: |
           ls
           echo "Test"
-          chmod +x scripts/deploy.sh
-          ./scripts/deploy.sh
+          cp -R target/site build
+#          cp -R iextrading4j-mutation/target/pit-reports $HOME/site/pit-reports
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages.
+          folder: build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
