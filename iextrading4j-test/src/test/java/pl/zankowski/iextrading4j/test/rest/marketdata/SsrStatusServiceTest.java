@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SsrStatusServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void ssrStatusServiceTest() {
+    void ssrStatusServiceTest() {
         stubFor(get(urlEqualTo("/deep/ssr-status?symbols=AAPL"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

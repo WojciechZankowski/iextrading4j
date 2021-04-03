@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class ChartRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<List<Chart>> request = new ChartRequestBuilder()
@@ -32,7 +32,7 @@ public class ChartRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithRange() {
+    void shouldSuccessfullyCreateRequestWithRange() {
         final String symbol = "IBM";
         final ChartRange chartRange = ChartRange.ONE_DAY;
 
@@ -52,7 +52,7 @@ public class ChartRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithDate() {
+    void shouldSuccessfullyCreateRequestWithDate() {
         final String symbol = "IBM";
 
         final RestRequest<List<Chart>> request = new ChartRequestBuilder()
@@ -71,7 +71,7 @@ public class ChartRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithChartReset() {
+    void shouldSuccessfullyCreateRequestWithChartReset() {
         final String symbol = "IBM";
 
         final RestRequest<List<Chart>> request = new ChartRequestBuilder()
@@ -88,7 +88,7 @@ public class ChartRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithChartSimplify() {
+    void shouldSuccessfullyCreateRequestWithChartSimplify() {
         final String symbol = "IBM";
 
         final RestRequest<List<Chart>> request = new ChartRequestBuilder()
@@ -105,7 +105,7 @@ public class ChartRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithChartInterval() {
+    void shouldSuccessfullyCreateRequestWithChartInterval() {
         final String symbol = "IBM";
         final Integer chartInterval = 5;
 
@@ -123,7 +123,7 @@ public class ChartRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithChangeFromClose() {
+    void shouldSuccessfullyCreateRequestWithChangeFromClose() {
         final String symbol = "IBM";
 
         final RestRequest<List<Chart>> request = new ChartRequestBuilder()
@@ -140,7 +140,7 @@ public class ChartRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithChartLast() {
+    void shouldSuccessfullyCreateRequestWithChartLast() {
         final String symbol = "IBM";
         final Integer chartLast = 5;
 

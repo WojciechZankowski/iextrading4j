@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class OtcSymbolsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateOtcSymbolsRequest() {
+    void shouldSuccessfullyCreateOtcSymbolsRequest() {
         final RestRequest<List<ExchangeSymbol>> request = new OtcSymbolsRequestBuilder().build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);

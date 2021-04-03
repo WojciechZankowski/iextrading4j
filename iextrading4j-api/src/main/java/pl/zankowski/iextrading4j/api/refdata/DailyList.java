@@ -15,7 +15,7 @@ public abstract class DailyList implements Serializable {
     private final LocalDateTime dailyListTimestamp;
 
     @JsonCreator
-    public DailyList(
+    protected DailyList(
             @JsonProperty("RecordID") final String recordId,
             @JsonProperty("DailyListTimestamp") final LocalDateTime dailyListTimestamp) {
         this.recordId = recordId;

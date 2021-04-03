@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class IntradayStatsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithYearMonthDate() {
+    void shouldSuccessfullyCreateRequestWithYearMonthDate() {
         final RestRequest<IntradayStats> request = new IntradayStatsRequestBuilder().build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);

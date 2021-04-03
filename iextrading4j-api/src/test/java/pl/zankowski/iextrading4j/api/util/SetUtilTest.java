@@ -11,14 +11,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SetUtilTest {
 
     @Test
-    public void shouldCreateEmptySetForNullInput() {
+    void shouldCreateEmptySetForNullInput() {
         final Set<String> result = SetUtil.immutableSet(null);
 
         assertThat(result).isEmpty();
     }
 
     @Test
-    public void shouldCreateImmutableSetFromSet() {
+    void shouldCreateImmutableSetFromSet() {
         final Set<String> mutableSet = new HashSet<>();
 
         final Set<String> immutableSet = SetUtil.immutableSet(mutableSet);

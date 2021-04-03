@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MessageCutoffServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void messageCutoffServiceTest() {
+    void messageCutoffServiceTest() {
         stubFor(post(urlEqualTo("/account/circuitbreaker"))
                 .withHeader("Accept", equalTo("application/json"))
                 .withRequestBody(bodyContent(CLOUD_TOKEN.getSecretToken(), "\"totalMessages\": 10000"))

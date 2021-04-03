@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class PriceTargetRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<PriceTarget> request = new PriceTargetRequestBuilder()

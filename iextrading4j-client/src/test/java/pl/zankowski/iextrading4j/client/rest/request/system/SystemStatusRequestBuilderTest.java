@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SystemStatusRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final RestRequest<SystemStatus> request = new SystemStatusRequestBuilder()
                 .build();
 

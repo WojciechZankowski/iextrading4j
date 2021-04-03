@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PriceServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void priceServiceTest() {
+    void priceServiceTest() {
         stubFor(get(urlEqualTo("/stock/aapl/price"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

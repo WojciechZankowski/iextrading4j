@@ -14,7 +14,7 @@ public class CryptoPriceTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final BigDecimal price = fixture.create(BigDecimal.class);
         final String symbol = fixture.create(String.class);
 
@@ -26,14 +26,14 @@ public class CryptoPriceTest {
 
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(CryptoPrice.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(CryptoPrice.class))
                 .verify();
     }

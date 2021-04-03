@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class SecurityEventSseRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final SseRequest<List<DeepAsyncResponse<SecurityEvent>>> request = new SecurityEventSseRequestBuilder()

@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class InstitutionalOwnershipRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateInstitutionalOwnershipRequest() {
+    void shouldSuccessfullyCreateInstitutionalOwnershipRequest() {
         final String symbol = "AAPL";
 
         final RestRequest<List<Ownership>> request = new InstitutionalOwnershipRequestBuilder()

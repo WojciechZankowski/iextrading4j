@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ChartServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void oneDayChartServiceTest() {
+    void oneDayChartServiceTest() {
         stubFor(get(urlEqualTo("/stock/aapl/chart/1d"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -56,7 +56,7 @@ public class ChartServiceTest extends BaseRestServiceTest {
     }
 
     @Test
-    public void oneMonthChartServiceTest() {
+    void oneMonthChartServiceTest() {
         stubFor(get(urlEqualTo("/stock/aapl/chart/1m"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -86,7 +86,7 @@ public class ChartServiceTest extends BaseRestServiceTest {
     }
 
     @Test
-    public void threeMonthChartServiceTest() {
+    void threeMonthChartServiceTest() {
         stubFor(get(urlEqualTo("/stock/aapl/chart/3m"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -116,7 +116,7 @@ public class ChartServiceTest extends BaseRestServiceTest {
     }
 
     @Test
-    public void sixMonthChartServiceTest() {
+    void sixMonthChartServiceTest() {
         stubFor(get(urlEqualTo("/stock/aapl/chart/6m"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -146,7 +146,7 @@ public class ChartServiceTest extends BaseRestServiceTest {
     }
 
     @Test
-    public void dateChartServiceTest() {
+    void dateChartServiceTest() {
         stubFor(get(urlEqualTo("/stock/aapl/chart/date/20180129"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

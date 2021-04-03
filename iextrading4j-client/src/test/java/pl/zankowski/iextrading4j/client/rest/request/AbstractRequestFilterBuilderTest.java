@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class AbstractRequestFilterBuilderTest {
 
     @Test
-    public void shouldSuccessfullyAddFilterToQueryParameters() {
+    void shouldSuccessfullyAddFilterToQueryParameters() {
         final String column = "symbol";
         final RequestFilter requestFilter = new RequestFilterBuilder()
                 .withColumn(column)
@@ -29,7 +29,7 @@ public class AbstractRequestFilterBuilderTest {
     }
 
     @Test
-    public void shouldNotAddFilterToQueryParameters() {
+    void shouldNotAddFilterToQueryParameters() {
         final RestRequest<Map<String, Auction>> request = new AuctionRequestBuilder()
                 .build();
 

@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class TimeSeriesRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final RestRequest<List<TimeSeries>> request = new TimeSeriesRequestBuilder()
                 .withSymbol("aapl")
                 .build();

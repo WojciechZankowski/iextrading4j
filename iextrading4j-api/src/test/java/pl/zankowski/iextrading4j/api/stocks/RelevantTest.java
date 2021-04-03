@@ -15,7 +15,7 @@ public class RelevantTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final Boolean peers = fixture.create(Boolean.class);
         final List<String> symbols = Lists.newArrayList(fixture.collections()
                 .createCollection(String.class));
@@ -27,14 +27,14 @@ public class RelevantTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Relevant.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Relevant.class))
                 .verify();
     }

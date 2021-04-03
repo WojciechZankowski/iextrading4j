@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MetadataRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final RestRequest<Metadata> request = new MetadataRequestBuilder().build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);

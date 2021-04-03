@@ -17,7 +17,7 @@ public class IpoTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String symbol = fixture.create(String.class);
         final String companyName = fixture.create(String.class);
         final LocalDate expectedDate = fixture.create(LocalDate.class);
@@ -109,14 +109,14 @@ public class IpoTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Ipo.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Ipo.class))
                 .verify();
     }

@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class QuoteRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<Quote> request = new QuoteRequestBuilder()
@@ -28,7 +28,7 @@ public class QuoteRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithDisplayPercent() {
+    void shouldSuccessfullyCreateRequestWithDisplayPercent() {
         final String symbol = "IBM";
 
         final RestRequest<Quote> request = new QuoteRequestBuilder()

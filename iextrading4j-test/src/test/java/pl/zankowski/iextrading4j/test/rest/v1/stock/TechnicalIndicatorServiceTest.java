@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TechnicalIndicatorServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void technicalIndicatorServiceTest() {
+    void technicalIndicatorServiceTest() {
         stubFor(get(urlEqualTo(extendedPath("/stock/AAPL/indicator/bbands?range=6m")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

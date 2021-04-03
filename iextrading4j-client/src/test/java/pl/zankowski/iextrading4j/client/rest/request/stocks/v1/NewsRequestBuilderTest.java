@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class NewsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithWorldNews() {
+    void shouldSuccessfullyCreateRequestWithWorldNews() {
         final RestRequest<List<News>> request = new NewsRequestBuilder()
                 .withWorldNews()
                 .build();
@@ -29,7 +29,7 @@ public class NewsRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithRange() {
+    void shouldSuccessfullyCreateRequestWithRange() {
         final String symbol = "IBM";
         final int range = 3;
 

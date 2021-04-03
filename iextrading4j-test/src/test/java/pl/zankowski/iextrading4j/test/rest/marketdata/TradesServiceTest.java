@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TradesServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void tradesServiceTest() {
+    void tradesServiceTest() {
         stubFor(get(urlEqualTo("/deep/trades?symbols=SNAP"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

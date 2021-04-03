@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class FundOwnershipRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateFundOwnershipRequest() {
+    void shouldSuccessfullyCreateFundOwnershipRequest() {
         final String symbol = "AAPL";
 
         final RestRequest<List<FundOwnership>> request = new FundOwnershipRequestBuilder()

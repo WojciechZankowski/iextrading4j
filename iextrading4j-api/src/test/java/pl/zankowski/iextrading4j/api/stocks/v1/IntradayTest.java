@@ -14,7 +14,7 @@ public class IntradayTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String date = fixture.create(String.class);
         final String minute = fixture.create(String.class);
         final String label = fixture.create(String.class);
@@ -66,14 +66,14 @@ public class IntradayTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Intraday.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Intraday.class))
                 .verify();
     }

@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class IntradayServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void intradayServiceTest() {
+    void intradayServiceTest() {
         stubFor(get(urlEqualTo("/stats/intraday"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

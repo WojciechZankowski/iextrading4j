@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class FinancialsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateFinancialsRequest() {
+    void shouldSuccessfullyCreateFinancialsRequest() {
         final String symbol = "AAPL";
 
         final RestRequest<Financials> request = new FinancialsRequestBuilder()
@@ -29,7 +29,7 @@ public class FinancialsRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateFinancialsWithPeriodRequest() {
+    void shouldSuccessfullyCreateFinancialsWithPeriodRequest() {
         final String symbol = "AAPL";
         final Period period = Period.ANNUAL;
 
@@ -47,7 +47,7 @@ public class FinancialsRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateFinancialsWithPeriodAndLastRequest() {
+    void shouldSuccessfullyCreateFinancialsWithPeriodAndLastRequest() {
         final String symbol = "AAPL";
         final Period period = Period.ANNUAL;
         final int last = 3;

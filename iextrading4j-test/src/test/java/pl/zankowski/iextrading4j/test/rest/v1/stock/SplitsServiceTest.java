@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SplitsServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void splitsServiceTest() {
+    void splitsServiceTest() {
         stubFor(get(urlEqualTo(path("/stock/AAPL/splits/5y")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

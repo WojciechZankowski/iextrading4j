@@ -26,7 +26,7 @@ public class GenericSseEndpointTest {
     }
 
     @Test
-    public void shouldSuccessfullySubscribe() {
+    void shouldSuccessfullySubscribe() {
         final SseRequest<List<TOPS>> request = new TopsSseRequestBuilder().build();
         final Consumer<List<TOPS>> topsConsumer = mock(Consumer.class);
 
@@ -36,7 +36,7 @@ public class GenericSseEndpointTest {
     }
 
     @Test
-    public void shouldSuccessfullyUnsubscribe() {
+    void shouldSuccessfullyUnsubscribe() {
         final SseRequest<List<TOPS>> request = new TopsSseRequestBuilder().build();
 
         genericSseEndpoint.unsubscribe(request);

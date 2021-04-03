@@ -14,7 +14,7 @@ public abstract class Report extends BaseData {
     private final BigDecimal fiscalYear;
     private final String currency;
 
-    public Report(final String symbol, final String id, final String key, final String subkey, final Long updated,
+    protected Report(final String symbol, final String id, final String key, final String subkey, final Long updated,
                   final LocalDate reportDate, final String filingType, final LocalDate fiscalDate,
                   final BigDecimal fiscalQuarter, final BigDecimal fiscalYear, final String currency) {
         super(symbol, id, key, subkey, updated);

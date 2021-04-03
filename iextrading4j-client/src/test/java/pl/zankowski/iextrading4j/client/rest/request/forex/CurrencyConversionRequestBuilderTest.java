@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class CurrencyConversionRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final RestRequest<List<CurrencyConversion>> request = new CurrencyConversionRequestBuilder()
                 .withSymbol("USDGPB")
                 .withAmount(BigDecimal.ONE)

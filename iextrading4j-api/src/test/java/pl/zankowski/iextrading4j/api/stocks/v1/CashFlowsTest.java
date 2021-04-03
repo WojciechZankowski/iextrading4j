@@ -15,7 +15,7 @@ public class CashFlowsTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final List<CashFlow> cashFlow = Lists.newArrayList(fixture.collections().createCollection(CashFlow.class));
         final String symbol = fixture.create(String.class);
 
@@ -26,14 +26,14 @@ public class CashFlowsTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(CashFlows.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(CashFlows.class))
                 .verify();
     }

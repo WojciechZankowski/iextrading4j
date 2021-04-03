@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class SentimentRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<List<Sentiment>> request = new SentimentRequestBuilder()
@@ -31,7 +31,7 @@ public class SentimentRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateTypeRequest() {
+    void shouldSuccessfullyCreateTypeRequest() {
         final String symbol = "IBM";
 
         final RestRequest<List<Sentiment>> request = new SentimentRequestBuilder()
@@ -47,7 +47,7 @@ public class SentimentRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateTypeAndDateRequest() {
+    void shouldSuccessfullyCreateTypeAndDateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<List<Sentiment>> request = new SentimentRequestBuilder()

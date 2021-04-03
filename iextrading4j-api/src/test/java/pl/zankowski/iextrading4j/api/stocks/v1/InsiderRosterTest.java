@@ -14,7 +14,7 @@ public class InsiderRosterTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String entityName = fixture.create(String.class);
         final BigDecimal position = fixture.create(BigDecimal.class);
         final Long reportDate = fixture.create(Long.class);
@@ -27,14 +27,14 @@ public class InsiderRosterTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(InsiderRoster.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(InsiderRoster.class))
                 .verify();
     }

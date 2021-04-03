@@ -14,7 +14,7 @@ public class TOPSTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String symbol = fixture.create(String.class);
         final BigDecimal marketPercent = fixture.create(BigDecimal.class);
         final BigDecimal bidSize = fixture.create(BigDecimal.class);
@@ -48,14 +48,14 @@ public class TOPSTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(TOPS.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(TOPS.class))
                 .verify();
     }

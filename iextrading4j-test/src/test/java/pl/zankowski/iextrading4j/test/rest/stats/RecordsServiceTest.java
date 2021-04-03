@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RecordsServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void recordsServiceTest() {
+    void recordsServiceTest() {
         stubFor(get(urlEqualTo("/stats/records"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

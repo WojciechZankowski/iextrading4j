@@ -31,7 +31,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DeepServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void deepServiceTest() {
+    void deepServiceTest() {
         stubFor(get(urlEqualTo("/deep?symbols=SNAP"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

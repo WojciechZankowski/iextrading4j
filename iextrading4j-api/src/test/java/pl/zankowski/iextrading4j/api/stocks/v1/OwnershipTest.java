@@ -15,7 +15,7 @@ public class OwnershipTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String symbol = fixture.create(String.class);
         final String id = fixture.create(String.class);
         final LocalDate filingDate = fixture.create(LocalDate.class);
@@ -41,14 +41,14 @@ public class OwnershipTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Ownership.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Ownership.class))
                 .verify();
     }

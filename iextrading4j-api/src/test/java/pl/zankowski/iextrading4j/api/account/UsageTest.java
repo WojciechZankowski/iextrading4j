@@ -14,7 +14,7 @@ public class UsageTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final Long monthlyUsage = fixture.create(Long.class);
         final Long monthlyPayAsYouGo = fixture.create(Long.class);
         final Map<String, Long> dailyUsage = fixture.collections().createMap(String.class, Long.class);
@@ -32,14 +32,14 @@ public class UsageTest {
 
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Usage.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Usage.class))
                 .verify();
     }

@@ -8,7 +8,7 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 import static org.junit.Assert.assertTrue;
 
-public class AbstractViolationTests {
+public abstract class AbstractViolationTests {
 
     protected void validate(RuleCode ruleCode, List<Reflections> reflectionsList, IDesignRules designRules) {
         final List<String> classNames = reflectionsList.stream()

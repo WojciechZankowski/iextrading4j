@@ -12,7 +12,7 @@ import static org.mockito.Mockito.mock;
 public class RestClientTest {
 
     @Test
-    public void testConstructor() {
+    void testConstructor() {
         final Client clientMock = mock(Client.class);
         final RestClientMetadata restClientMetadataMock = mock(RestClientMetadata.class);
 
@@ -23,14 +23,14 @@ public class RestClientTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(RestClient.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(new RestClient(null, null))
                 .verify();
     }

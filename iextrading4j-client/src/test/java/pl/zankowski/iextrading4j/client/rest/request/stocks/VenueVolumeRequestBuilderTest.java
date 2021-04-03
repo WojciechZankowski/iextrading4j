@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class VenueVolumeRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<List<VenueVolume>> request = new VenueVolumeRequestBuilder()

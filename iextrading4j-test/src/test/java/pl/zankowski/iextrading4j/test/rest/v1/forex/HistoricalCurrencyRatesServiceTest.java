@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class HistoricalCurrencyRatesServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void historicalCurrencyRateServiceTest() {
+    void historicalCurrencyRateServiceTest() {
         stubFor(get(urlEqualTo(extendedPath("/fx/historical?symbols=EURUSD&on=2019-10-06")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

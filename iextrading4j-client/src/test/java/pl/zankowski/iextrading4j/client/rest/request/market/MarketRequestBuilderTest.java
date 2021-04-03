@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MarketRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final RestRequest<List<MarketVolume>> request = new MarketRequestBuilder().build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);

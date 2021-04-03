@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TodayIposRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final RestRequest<TodayIpos> request = new TodayIposRequestBuilder()
                 .build();
 

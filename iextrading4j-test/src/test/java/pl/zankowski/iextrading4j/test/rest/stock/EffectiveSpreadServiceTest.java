@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class EffectiveSpreadServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void effectiveSpreadServiceTest() {
+    void effectiveSpreadServiceTest() {
         stubFor(get(urlEqualTo("/stock/aapl/effective-spread"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

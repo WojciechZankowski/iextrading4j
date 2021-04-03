@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class EstimatesRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateEstimatesRequest() {
+    void shouldSuccessfullyCreateEstimatesRequest() {
         final String symbol = "AAPL";
 
         final RestRequest<Estimates> request = new EstimatesRequestBuilder()
@@ -29,7 +29,7 @@ public class EstimatesRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateEstimatesWithPeriodRequest() {
+    void shouldSuccessfullyCreateEstimatesWithPeriodRequest() {
         final String symbol = "AAPL";
         final Period period = Period.ANNUAL;
 
@@ -47,7 +47,7 @@ public class EstimatesRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateEstimatesWithPeriodAndLastRequest() {
+    void shouldSuccessfullyCreateEstimatesWithPeriodAndLastRequest() {
         final String symbol = "AAPL";
         final Period period = Period.ANNUAL;
         final int last = 3;

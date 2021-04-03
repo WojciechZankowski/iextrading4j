@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class InsiderSummaryRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateInsiderSummaryRequest() {
+    void shouldSuccessfullyCreateInsiderSummaryRequest() {
         final String symbol = "AAPL";
 
         final RestRequest<List<InsiderSummary>> request = new InsiderSummaryRequestBuilder()

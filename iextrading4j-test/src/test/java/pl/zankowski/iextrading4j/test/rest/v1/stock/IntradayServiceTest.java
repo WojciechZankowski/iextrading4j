@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class IntradayServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void intradayServiceTest() {
+    void intradayServiceTest() {
         stubFor(get(urlEqualTo(path("/stock/AAPL/intraday-prices")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

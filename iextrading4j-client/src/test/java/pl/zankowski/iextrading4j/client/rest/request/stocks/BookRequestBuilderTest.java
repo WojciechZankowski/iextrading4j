@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class BookRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<Book> request = new BookRequestBuilder()

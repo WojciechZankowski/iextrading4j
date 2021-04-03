@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CurrencyConversionServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void currencyConversionServiceTest() {
+    void currencyConversionServiceTest() {
         stubFor(get(urlEqualTo(extendedPath("/fx/convert?symbols=USDGBP&amount=10")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

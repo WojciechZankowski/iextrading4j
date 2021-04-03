@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TimeSeriesServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void timeSeriesServiceTest() {
+    void timeSeriesServiceTest() {
         stubFor(get(urlEqualTo("/stock/aapl/time-series"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

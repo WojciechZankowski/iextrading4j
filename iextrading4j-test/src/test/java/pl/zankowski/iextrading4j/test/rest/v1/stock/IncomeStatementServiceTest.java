@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class IncomeStatementServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void incomeStatementServiceTest() {
+    void incomeStatementServiceTest() {
         stubFor(get(urlEqualTo(path("/stock/AAPL/income")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

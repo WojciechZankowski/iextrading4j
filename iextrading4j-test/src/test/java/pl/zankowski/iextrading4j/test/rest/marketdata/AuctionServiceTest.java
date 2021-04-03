@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AuctionServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void auctionServiceTest() {
+    void auctionServiceTest() {
         stubFor(get(urlEqualTo("/deep/auction?symbols=ZIEXT"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

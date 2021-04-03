@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ShortInterestServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void shortInterestServiceTest() {
+    void shortInterestServiceTest() {
         stubFor(get(urlEqualTo("/stock/aapl/short-interest/"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

@@ -12,7 +12,7 @@ public class UsExchangeTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String name = fixture.create(String.class);
         final String longName = fixture.create(String.class);
         final String mic = fixture.create(String.class);
@@ -33,14 +33,14 @@ public class UsExchangeTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(UsExchange.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(UsExchange.class))
                 .verify();
     }

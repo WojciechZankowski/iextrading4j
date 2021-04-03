@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DelayedQuoteServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void delayedQuoteServiceTest() {
+    void delayedQuoteServiceTest() {
         stubFor(get(urlEqualTo("/stock/aapl/delayed-quote"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

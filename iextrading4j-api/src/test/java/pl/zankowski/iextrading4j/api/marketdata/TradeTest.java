@@ -14,7 +14,7 @@ public class TradeTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final BigDecimal price = fixture.create(BigDecimal.class);
         final BigDecimal size = fixture.create(BigDecimal.class);
         final Long tradeId = fixture.create(Long.class);
@@ -40,14 +40,14 @@ public class TradeTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Trade.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Trade.class))
                 .verify();
     }

@@ -27,7 +27,7 @@ public class BatchStocksTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final AdvancedStats advancedStats = fixture.create(AdvancedStats.class);
         final BalanceSheets balanceSheets = fixture.create(BalanceSheets.class);
         final Book book = fixture.create(Book.class);
@@ -104,14 +104,14 @@ public class BatchStocksTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(BatchStocks.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(BatchStocks.class))
                 .verify();
     }

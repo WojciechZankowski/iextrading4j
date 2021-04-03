@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SystemStatusServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void systemStatusServiceTest() {
+    void systemStatusServiceTest() {
         stubFor(get(urlEqualTo(path("/status")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

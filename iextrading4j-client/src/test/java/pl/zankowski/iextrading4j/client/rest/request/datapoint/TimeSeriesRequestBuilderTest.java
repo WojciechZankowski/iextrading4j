@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class TimeSeriesRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final RestRequest<List<TimeSeriesMetadata>> request = new TimeSeriesRequestBuilder()
                 .build();
 
@@ -28,7 +28,7 @@ public class TimeSeriesRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithParameters() {
+    void shouldSuccessfullyCreateRequestWithParameters() {
         final RestRequest<List<Map<String, String>>> request = new TimeSeriesRequestBuilder()
                 .withId("REPORTED_FINANCIALS")
                 .withKey("AAPL")
@@ -56,7 +56,7 @@ public class TimeSeriesRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithSpecialRange() {
+    void shouldSuccessfullyCreateRequestWithSpecialRange() {
         final RestRequest<List<Map<String, String>>> request = new TimeSeriesRequestBuilder()
                 .withId("REPORTED_FINANCIALS")
                 .withKey("AAPL")
@@ -74,7 +74,7 @@ public class TimeSeriesRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithoutSubkey() {
+    void shouldSuccessfullyCreateRequestWithoutSubkey() {
         final RestRequest<List<Map<String, String>>> request = new TimeSeriesRequestBuilder()
                 .withId("REPORTED_FINANCIALS")
                 .withKey("AAPL")

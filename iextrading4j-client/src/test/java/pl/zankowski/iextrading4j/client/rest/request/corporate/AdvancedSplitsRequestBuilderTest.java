@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class AdvancedSplitsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<List<AdvancedSplits>> request = new AdvancedSplitsRequestBuilder()

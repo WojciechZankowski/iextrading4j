@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class CurrencyRatesSseRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "USDJPY";
 
         final SseRequest<List<CurrencyRate>> request = new CurrencyRatesSseRequestBuilder()
@@ -28,7 +28,7 @@ public class CurrencyRatesSseRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithInterval() {
+    void shouldSuccessfullyCreateRequestWithInterval() {
         final String symbol = "USDJPY";
         final QuoteInterval interval = QuoteInterval.FIVE_SECONDS;
 

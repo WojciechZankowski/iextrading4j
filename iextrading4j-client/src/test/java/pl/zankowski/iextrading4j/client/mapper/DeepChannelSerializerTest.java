@@ -27,7 +27,7 @@ public class DeepChannelSerializerTest {
     }
 
     @Test
-    public void shouldWriteNullIfValueIsNull() throws IOException {
+    void shouldWriteNullIfValueIsNull() throws IOException {
         final JsonGenerator jsonGeneratorMock = mock(JsonGenerator.class);
         final SerializerProvider serializerProviderMock = mock(SerializerProvider.class);
         final DeepChannel input = null;
@@ -38,7 +38,7 @@ public class DeepChannelSerializerTest {
     }
 
     @Test
-    public void shouldWriteNullIfValueIsUnknown() throws IOException {
+    void shouldWriteNullIfValueIsUnknown() throws IOException {
         final JsonGenerator jsonGeneratorMock = mock(JsonGenerator.class);
         final SerializerProvider serializerProviderMock = mock(SerializerProvider.class);
         final DeepChannel input = DeepChannel.UNKNOWN;
@@ -49,7 +49,7 @@ public class DeepChannelSerializerTest {
     }
 
     @Test
-    public void shouldWriteStringFromValue() throws IOException {
+    void shouldWriteStringFromValue() throws IOException {
         final JsonGenerator jsonGeneratorMock = mock(JsonGenerator.class);
         final SerializerProvider serializerProviderMock = mock(SerializerProvider.class);
         final DeepChannel input = DeepChannel.OP_HALT_STATUS;

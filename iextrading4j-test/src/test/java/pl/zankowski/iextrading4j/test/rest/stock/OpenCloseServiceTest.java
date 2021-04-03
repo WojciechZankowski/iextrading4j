@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class OpenCloseServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void openCloseServiceTest() {
+    void openCloseServiceTest() {
         stubFor(get(urlEqualTo("/stock/aapl/open-close"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

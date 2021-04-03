@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SectorRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateSectorRequest() {
+    void shouldSuccessfullyCreateSectorRequest() {
         final RestRequest<List<Sector>> request = new SectorRequestBuilder().build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);

@@ -27,7 +27,7 @@ public class IssueEventSerializerTest {
     }
 
     @Test
-    public void shouldWriteNullIfValueIsNull() throws IOException {
+    void shouldWriteNullIfValueIsNull() throws IOException {
         final JsonGenerator jsonGeneratorMock = mock(JsonGenerator.class);
         final SerializerProvider serializerProviderMock = mock(SerializerProvider.class);
         final IssueEvent input = null;
@@ -38,7 +38,7 @@ public class IssueEventSerializerTest {
     }
 
     @Test
-    public void shouldWriteNullIfValueIsUnknown() throws IOException {
+    void shouldWriteNullIfValueIsUnknown() throws IOException {
         final JsonGenerator jsonGeneratorMock = mock(JsonGenerator.class);
         final SerializerProvider serializerProviderMock = mock(SerializerProvider.class);
         final IssueEvent input = IssueEvent.UNKNOWN;
@@ -49,7 +49,7 @@ public class IssueEventSerializerTest {
     }
 
     @Test
-    public void shouldWriteStringFromValue() throws IOException {
+    void shouldWriteStringFromValue() throws IOException {
         final JsonGenerator jsonGeneratorMock = mock(JsonGenerator.class);
         final SerializerProvider serializerProviderMock = mock(SerializerProvider.class);
         final IssueEvent input = IssueEvent.ANTICIPATED_SECURITY_ADDITION;

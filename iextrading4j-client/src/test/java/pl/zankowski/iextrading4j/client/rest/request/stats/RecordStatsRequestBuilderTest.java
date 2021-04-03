@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RecordStatsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithYearMonthDate() {
+    void shouldSuccessfullyCreateRequestWithYearMonthDate() {
         final RestRequest<RecordsStats> request = new RecordStatsRequestBuilder().build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);

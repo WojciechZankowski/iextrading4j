@@ -27,7 +27,7 @@ public class LuldTierSerializerTest {
     }
 
     @Test
-    public void shouldWriteNullIfValueIsNull() throws IOException {
+    void shouldWriteNullIfValueIsNull() throws IOException {
         final JsonGenerator jsonGeneratorMock = mock(JsonGenerator.class);
         final SerializerProvider serializerProviderMock = mock(SerializerProvider.class);
         final LuldTier input = null;
@@ -38,7 +38,7 @@ public class LuldTierSerializerTest {
     }
 
     @Test
-    public void shouldWriteNullIfValueIsUnknown() throws IOException {
+    void shouldWriteNullIfValueIsUnknown() throws IOException {
         final JsonGenerator jsonGeneratorMock = mock(JsonGenerator.class);
         final SerializerProvider serializerProviderMock = mock(SerializerProvider.class);
         final LuldTier input = LuldTier.UNKNOWN;
@@ -49,7 +49,7 @@ public class LuldTierSerializerTest {
     }
 
     @Test
-    public void shouldWriteStringFromNotAvailable() throws IOException {
+    void shouldWriteStringFromNotAvailable() throws IOException {
         final JsonGenerator jsonGeneratorMock = mock(JsonGenerator.class);
         final SerializerProvider serializerProviderMock = mock(SerializerProvider.class);
         final LuldTier input = LuldTier.NOT_AVAILABLE;
@@ -60,7 +60,7 @@ public class LuldTierSerializerTest {
     }
 
     @Test
-    public void shouldWriteStringFromValue() throws IOException {
+    void shouldWriteStringFromValue() throws IOException {
         final JsonGenerator jsonGeneratorMock = mock(JsonGenerator.class);
         final SerializerProvider serializerProviderMock = mock(SerializerProvider.class);
         final LuldTier input = LuldTier.TIER_1_NMS_STOCKS;

@@ -15,7 +15,7 @@ public class DataPointTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String key = fixture.create(String.class);
         final BigDecimal weight = fixture.create(BigDecimal.class);
         final String description = fixture.create(String.class);
@@ -31,14 +31,14 @@ public class DataPointTest {
 
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(DataPoint.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(DataPoint.class))
                 .verify();
     }

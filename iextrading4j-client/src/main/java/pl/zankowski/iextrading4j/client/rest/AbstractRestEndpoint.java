@@ -7,7 +7,7 @@ public abstract class AbstractRestEndpoint implements IRestEndpoint {
 
     private final RestManager restManager;
 
-    public AbstractRestEndpoint(final RestManager restManager) {
+    protected AbstractRestEndpoint(final RestManager restManager) {
         this.restManager = restManager;
     }
 

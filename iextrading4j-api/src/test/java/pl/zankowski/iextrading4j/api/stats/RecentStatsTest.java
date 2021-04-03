@@ -15,7 +15,7 @@ public class RecentStatsTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final LocalDate date = fixture.create(LocalDate.class);
         final BigDecimal volume = fixture.create(BigDecimal.class);
         final BigDecimal routedVolume = fixture.create(BigDecimal.class);
@@ -35,14 +35,14 @@ public class RecentStatsTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(RecentStats.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(RecentStats.class))
                 .verify();
     }

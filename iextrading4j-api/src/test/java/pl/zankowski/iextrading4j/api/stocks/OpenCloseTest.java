@@ -12,7 +12,7 @@ public class OpenCloseTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final Point open = fixture.create(Point.class);
         final Point close = fixture.create(Point.class);
 
@@ -23,14 +23,14 @@ public class OpenCloseTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(OpenClose.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(OpenClose.class))
                 .verify();
     }

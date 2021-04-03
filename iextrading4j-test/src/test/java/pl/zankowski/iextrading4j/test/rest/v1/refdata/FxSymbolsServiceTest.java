@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FxSymbolsServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void fxSymbolsServiceTest() {
+    void fxSymbolsServiceTest() {
         stubFor(get(urlEqualTo(path("/ref-data/fx/symbols")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

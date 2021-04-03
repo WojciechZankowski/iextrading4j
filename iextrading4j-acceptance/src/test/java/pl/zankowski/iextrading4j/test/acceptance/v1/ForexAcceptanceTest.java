@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ForexAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Test
-    public void forexAcceptanceTest() {
+    void forexAcceptanceTest() {
         final ExchangeRate result = cloudClient.executeRequest(new ExchangeRateRequestBuilder()
                 .withPair(new Pair("EUR", "CHF"))
                 .build());
@@ -29,10 +29,8 @@ public class ForexAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
         assertThat(result).isNotNull();
     }
 
-    // Not working for some reason
-    @Disabled
     @Test
-    public void currencyConversionTest() {
+    void currencyConversionTest() {
         final List<CurrencyConversion> result = cloudClient.executeRequest(new CurrencyConversionRequestBuilder()
                 .withSymbol("USDGBP")
                 .withAmount(BigDecimal.TEN)
@@ -42,7 +40,7 @@ public class ForexAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void latestCurrencyRatesTest() {
+    void latestCurrencyRatesTest() {
         final List<CurrencyRate> result = cloudClient.executeRequest(new LatestCurrencyRatesRequestBuilder()
                 .withSymbol("USDGBP")
                 .build());
@@ -51,7 +49,7 @@ public class ForexAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void historicalCurrencyRatesTest() {
+    void historicalCurrencyRatesTest() {
         final List<List<HistoricalCurrencyRate>> result = cloudClient.executeRequest(new HistoricalRatesRequestBuilder()
                 .withSymbol("USDGBP")
                 .withFrom(LocalDate.of(2019, 6, 6))

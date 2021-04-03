@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TodayEarningsServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void todayEarningsServiceTest() {
+    void todayEarningsServiceTest() {
         stubFor(get(urlEqualTo("/stock/market/today-earnings"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

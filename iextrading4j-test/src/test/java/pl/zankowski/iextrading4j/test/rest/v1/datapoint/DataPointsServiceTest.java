@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DataPointsServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void dataPointsServiceTest() {
+    void dataPointsServiceTest() {
         stubFor(get(urlEqualTo(path("/data-points/AAPL")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -49,7 +49,7 @@ public class DataPointsServiceTest extends BaseIEXCloudV1ServiceTest {
     }
 
     @Test
-    public void keyDataPointServiceTest() {
+    void keyDataPointServiceTest() {
         stubFor(get(urlEqualTo(path("/data-points/AAPL/QUOTE-CLOSE")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

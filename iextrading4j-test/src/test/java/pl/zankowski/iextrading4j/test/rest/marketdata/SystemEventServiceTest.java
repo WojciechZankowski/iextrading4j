@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SystemEventServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void systemEventServiceTest() {
+    void systemEventServiceTest() {
         stubFor(get(urlEqualTo("/deep/system-event?symbols=SNAP"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

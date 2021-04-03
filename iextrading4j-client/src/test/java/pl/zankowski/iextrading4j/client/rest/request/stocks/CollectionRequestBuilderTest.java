@@ -15,21 +15,21 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class CollectionRequestBuilderTest {
 
     @Test
-    public void shouldThrowExceptionWhenCollectionTypeIsNull() {
+    void shouldThrowExceptionWhenCollectionTypeIsNull() {
         assertThrows(NullPointerException.class, () -> new CollectionRequestBuilder()
                 .withCollectionName("name")
                 .build());
     }
 
     @Test
-    public void shouldThrowExceptionWhenCollectionNameIsNull() {
+    void shouldThrowExceptionWhenCollectionNameIsNull() {
         assertThrows(NullPointerException.class, () -> new CollectionRequestBuilder()
                 .withCollectionType(CollectionType.SECTOR)
                 .build());
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final CollectionType collectionType = CollectionType.SECTOR;
         final String collectionName = "name";
 

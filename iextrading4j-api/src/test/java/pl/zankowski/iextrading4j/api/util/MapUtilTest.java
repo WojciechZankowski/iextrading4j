@@ -11,14 +11,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MapUtilTest {
 
     @Test
-    public void shouldCreateEmptyMapForNullInput() {
+    void shouldCreateEmptyMapForNullInput() {
         final Map<String, String> result = MapUtil.immutableMap(null);
 
         assertThat(result).isEmpty();
     }
 
     @Test
-    public void shouldCreateImmutableMapFromMap() {
+    void shouldCreateImmutableMapFromMap() {
         final Map<String, String> mutableMap = new HashMap<>();
 
         final Map<String, String> immutableMap = MapUtil.immutableMap(mutableMap);

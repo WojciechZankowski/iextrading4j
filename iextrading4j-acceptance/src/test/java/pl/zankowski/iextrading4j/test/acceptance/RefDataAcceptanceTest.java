@@ -23,14 +23,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class RefDataAcceptanceTest extends AcceptanceTestBase {
 
     @Test
-    public void symbolsAcceptanceTest() {
+    void symbolsAcceptanceTest() {
         final List<ExchangeSymbol> exchangeSymbolList = iexTradingClient.executeRequest(new SymbolsRequestBuilder()
                 .build());
         assertThat(exchangeSymbolList).isNotNull();
     }
 
     @Test
-    public void nextDayExDateAcceptanceTest() {
+    void nextDayExDateAcceptanceTest() {
         final List<IEXNextDayExDate> nextDayExDateList = iexTradingClient.executeRequest(new IEXNextDayExDateRequestBuilder()
                 .withSample()
                 .build());
@@ -38,7 +38,7 @@ public class RefDataAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void corporateActionsAcceptanceTest() {
+    void corporateActionsAcceptanceTest() {
         final List<IEXCorporateActions> corporateActions = iexTradingClient.executeRequest(new IEXCorporateActionsRequestBuilder()
                 .withSample()
                 .build());
@@ -46,7 +46,7 @@ public class RefDataAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void dividendsAcceptanceTest() {
+    void dividendsAcceptanceTest() {
         final List<IEXDividends> dividendsList = iexTradingClient.executeRequest(new IEXDividendsRequestBuilder()
                 .withSample()
                 .build());
@@ -54,7 +54,7 @@ public class RefDataAcceptanceTest extends AcceptanceTestBase {
     }
 
     @Test
-    public void symbolDirectoryAcceptanceTest() {
+    void symbolDirectoryAcceptanceTest() {
         final List<IEXSymbolDirectory> symbolDirectoryList = iexTradingClient.executeRequest(new IEXSymbolDirectoryRequestBuilder()
                 .withSample()
                 .build());

@@ -15,7 +15,7 @@ public class AdvancedStatsTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String companyName = fixture.create(String.class);
         final BigDecimal marketcap = fixture.create(BigDecimal.class);
         final BigDecimal week52high = fixture.create(BigDecimal.class);
@@ -143,14 +143,14 @@ public class AdvancedStatsTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(AdvancedStats.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(AdvancedStats.class))
                 .verify();
     }

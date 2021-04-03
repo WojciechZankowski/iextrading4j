@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BookServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void bookServiceTest() {
+    void bookServiceTest() {
         stubFor(get(urlEqualTo("/deep/book?symbols=YELP"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

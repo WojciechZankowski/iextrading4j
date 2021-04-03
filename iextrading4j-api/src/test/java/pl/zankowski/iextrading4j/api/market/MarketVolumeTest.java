@@ -14,7 +14,7 @@ public class MarketVolumeTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String mic = fixture.create(String.class);
         final String tapeId = fixture.create(String.class);
         final String venueName = fixture.create(String.class);
@@ -40,14 +40,14 @@ public class MarketVolumeTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(MarketVolume.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(MarketVolume.class))
                 .verify();
     }

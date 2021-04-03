@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class BookSseRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final SseRequest<List<DeepAsyncResponse<Book>>> request = new BookSseRequestBuilder()

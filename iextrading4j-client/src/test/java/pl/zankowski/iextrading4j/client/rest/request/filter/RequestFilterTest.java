@@ -12,7 +12,7 @@ public class RequestFilterTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String columnList = fixture.create(String.class);
 
         final RequestFilter requestFilter = new RequestFilter(columnList);
@@ -21,7 +21,7 @@ public class RequestFilterTest {
     }
 
     @Test
-    public void builder() {
+    void builder() {
         final String columnList = fixture.create(String.class);
 
         final RequestFilter requestFilter = RequestFilter.builder()
@@ -32,14 +32,14 @@ public class RequestFilterTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(RequestFilter.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(RequestFilter.class))
                 .verify();
     }

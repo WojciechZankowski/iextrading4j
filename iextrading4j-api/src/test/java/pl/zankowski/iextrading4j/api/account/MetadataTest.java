@@ -12,7 +12,7 @@ public class MetadataTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final Boolean overagesEnabled = fixture.create(Boolean.class);
         final Long effectiveDate = fixture.create(Long.class);
         final Long endDateEffective = fixture.create(Long.class);
@@ -41,14 +41,14 @@ public class MetadataTest {
 
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Metadata.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Metadata.class))
                 .verify();
     }

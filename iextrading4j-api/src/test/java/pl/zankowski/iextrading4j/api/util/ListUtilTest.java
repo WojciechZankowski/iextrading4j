@@ -11,14 +11,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ListUtilTest {
 
     @Test
-    public void shouldCreateEmptyListForNullInput() {
+    void shouldCreateEmptyListForNullInput() {
         final List<String> result = ListUtil.immutableList(null);
 
         assertThat(result).isEmpty();
     }
 
     @Test
-    public void shouldCreateImmutableListFromList() {
+    void shouldCreateImmutableListFromList() {
         final List<String> mutableList = new ArrayList<>();
 
         final List<String> immutableList = ListUtil.immutableList(mutableList);

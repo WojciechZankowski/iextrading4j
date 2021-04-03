@@ -12,7 +12,7 @@ public class RestResponseTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String message = fixture.create(String.class);
         final String responseObject = fixture.create(String.class);
 
@@ -23,14 +23,14 @@ public class RestResponseTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(RestResponse.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(new RestResponse<>(null, null))
                 .verify();
     }

@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class IsinMapperRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String isin = "DST232312312";
 
         final RestRequest<List<List<SymbolMapping>>> request = new IsinMapperRequestBuilder()

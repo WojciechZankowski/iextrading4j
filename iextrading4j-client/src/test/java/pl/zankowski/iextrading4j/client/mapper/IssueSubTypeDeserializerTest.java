@@ -28,7 +28,7 @@ public class IssueSubTypeDeserializerTest {
     }
 
     @Test
-    public void shouldReturnUnknownTypeIfValueIsNull() throws IOException {
+    void shouldReturnUnknownTypeIfValueIsNull() throws IOException {
         final JsonParser parserMock = mock(JsonParser.class);
         final DeserializationContext contextMock = mock(DeserializationContext.class);
 
@@ -40,7 +40,7 @@ public class IssueSubTypeDeserializerTest {
     }
 
     @Test
-    public void shouldCreateNotAvailableBasedOnValue() throws IOException {
+    void shouldCreateNotAvailableBasedOnValue() throws IOException {
         final JsonParser parserMock = mock(JsonParser.class);
         final DeserializationContext contextMock = mock(DeserializationContext.class);
 
@@ -52,7 +52,7 @@ public class IssueSubTypeDeserializerTest {
     }
 
     @Test
-    public void shouldCreateEnumBasedOnValue() throws IOException {
+    void shouldCreateEnumBasedOnValue() throws IOException {
         final JsonParser parserMock = mock(JsonParser.class);
         final DeserializationContext contextMock = mock(DeserializationContext.class);
 

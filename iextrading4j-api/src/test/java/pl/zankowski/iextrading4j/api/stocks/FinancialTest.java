@@ -15,7 +15,7 @@ public class FinancialTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final LocalDate reportDate = fixture.create(LocalDate.class);
         final BigDecimal grossProfit = fixture.create(BigDecimal.class);
         final BigDecimal costOfRevenue = fixture.create(BigDecimal.class);
@@ -65,14 +65,14 @@ public class FinancialTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Financial.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Financial.class))
                 .verify();
     }

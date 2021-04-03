@@ -15,7 +15,7 @@ public class BarDataTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final LocalDate date = fixture.create(LocalDate.class);
         final BigDecimal open = fixture.create(BigDecimal.class);
         final BigDecimal close = fixture.create(BigDecimal.class);
@@ -54,14 +54,14 @@ public class BarDataTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(BarData.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(BarData.class))
                 .verify();
     }

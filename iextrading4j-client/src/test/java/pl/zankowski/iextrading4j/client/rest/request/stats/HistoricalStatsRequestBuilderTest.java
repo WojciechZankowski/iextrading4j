@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class HistoricalStatsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithYearMonthDate() {
+    void shouldSuccessfullyCreateRequestWithYearMonthDate() {
         final YearMonth yearMonth = YearMonth.of(2017, 5);
 
         final RestRequest<List<HistoricalStats>> request = new HistoricalStatsRequestBuilder()

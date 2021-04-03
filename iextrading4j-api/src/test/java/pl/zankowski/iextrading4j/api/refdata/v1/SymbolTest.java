@@ -14,7 +14,7 @@ public class SymbolTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String symbol = fixture.create(String.class);
         final LocalDate date = fixture.create(LocalDate.class);
         final Boolean isEnabled = fixture.create(Boolean.class);
@@ -27,14 +27,14 @@ public class SymbolTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Symbol.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Symbol.class))
                 .verify();
     }

@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class BatchMarketStocksRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
         final BatchStocksType stocksType = BatchStocksType.BOOK;
 
@@ -34,7 +34,7 @@ public class BatchMarketStocksRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithChartRange() {
+    void shouldSuccessfullyCreateRequestWithChartRange() {
         final String symbol = "IBM";
         final ChartRange range = ChartRange.ONE_MONTH;
         final BatchStocksType stocksType = BatchStocksType.CHART;
@@ -55,7 +55,7 @@ public class BatchMarketStocksRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithMultipleSymbols() {
+    void shouldSuccessfullyCreateRequestWithMultipleSymbols() {
         final String firstSymbol = "IBM";
         final String secondSymbol = "MSFT";
         final BatchStocksType stocksType = BatchStocksType.BOOK;

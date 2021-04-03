@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class IntradayRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateIntradayRequest() {
+    void shouldSuccessfullyCreateIntradayRequest() {
         final String symbol = "AAPL";
 
         final RestRequest<List<Intraday>> request = new IntradayRequestBuilder()

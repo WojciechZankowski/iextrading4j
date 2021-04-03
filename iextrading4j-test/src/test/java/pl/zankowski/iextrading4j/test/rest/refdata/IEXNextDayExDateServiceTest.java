@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class IEXNextDayExDateServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void nextDayExDateServiceTest() {
+    void nextDayExDateServiceTest() {
         stubFor(get(urlEqualTo("/ref-data/daily-list/next-day-ex-date/sample"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

@@ -12,7 +12,7 @@ import static org.mockito.Mockito.mock;
 public class SseClientTest {
 
     @Test
-    public void testConstructor() {
+    void testConstructor() {
         final Client clientMock = mock(Client.class);
         final SseClientMetadata sseClientMetadata = mock(SseClientMetadata.class);
 
@@ -23,14 +23,14 @@ public class SseClientTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(SseClient.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(new SseClient(null, null))
                 .verify();
     }

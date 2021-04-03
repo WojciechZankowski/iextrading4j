@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AdvancedDistributionServiceTest  extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void advancedBonusServiceTest() {
+    void advancedBonusServiceTest() {
         stubFor(get(urlEqualTo(path("/time-series/advanced_distribution/KERRF")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

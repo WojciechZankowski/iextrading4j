@@ -5,6 +5,9 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -27,12 +30,14 @@ public class HackyBigDecimalDeserializerTest {
         hackyBigDecimalDeserializer = null;
     }
 
-    @Test
-    public void shouldReturnNullIfValueIsNA() throws IOException {
+    @ValueSource(strings = {"N/A", "NaN", ""})
+    @NullSource
+    @ParameterizedTest
+    void shouldReturnNullForUnknownValues(final String value) throws IOException {
         final JsonParser parserMock = mock(JsonParser.class);
         final DeserializationContext contextMock = mock(DeserializationContext.class);
 
-        when(parserMock.getValueAsString()).thenReturn("N/A");
+        when(parserMock.getValueAsString()).thenReturn(value);
 
         final BigDecimal result = hackyBigDecimalDeserializer.deserialize(parserMock, contextMock);
 
@@ -40,43 +45,7 @@ public class HackyBigDecimalDeserializerTest {
     }
 
     @Test
-    public void shouldReturnNullIfValueIsNaN() throws IOException {
-        final JsonParser parserMock = mock(JsonParser.class);
-        final DeserializationContext contextMock = mock(DeserializationContext.class);
-
-        when(parserMock.getValueAsString()).thenReturn("NaN");
-
-        final BigDecimal result = hackyBigDecimalDeserializer.deserialize(parserMock, contextMock);
-
-        assertThat(result).isNull();
-    }
-
-    @Test
-    public void shouldReturnNullIfValueIsNull() throws IOException {
-        final JsonParser parserMock = mock(JsonParser.class);
-        final DeserializationContext contextMock = mock(DeserializationContext.class);
-
-        when(parserMock.getValueAsString()).thenReturn(null);
-
-        final BigDecimal result = hackyBigDecimalDeserializer.deserialize(parserMock, contextMock);
-
-        assertThat(result).isNull();
-    }
-
-    @Test
-    public void shouldReturnNullIfValueIsEmpty() throws IOException {
-        final JsonParser parserMock = mock(JsonParser.class);
-        final DeserializationContext contextMock = mock(DeserializationContext.class);
-
-        when(parserMock.getValueAsString()).thenReturn("");
-
-        final BigDecimal result = hackyBigDecimalDeserializer.deserialize(parserMock, contextMock);
-
-        assertThat(result).isNull();
-    }
-
-    @Test
-    public void shouldCreateBigDecimalBasedOnValue() throws IOException {
+    void shouldCreateBigDecimalBasedOnValue() throws IOException {
         final JsonParser parserMock = mock(JsonParser.class);
         final DeserializationContext contextMock = mock(DeserializationContext.class);
         final BigDecimal value = BigDecimal.valueOf(3);

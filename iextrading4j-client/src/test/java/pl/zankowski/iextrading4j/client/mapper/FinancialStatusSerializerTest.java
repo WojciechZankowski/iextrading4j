@@ -27,7 +27,7 @@ public class FinancialStatusSerializerTest {
     }
 
     @Test
-    public void shouldWriteNullIfValueIsNull() throws IOException {
+    void shouldWriteNullIfValueIsNull() throws IOException {
         final JsonGenerator jsonGeneratorMock = mock(JsonGenerator.class);
         final SerializerProvider serializerProviderMock = mock(SerializerProvider.class);
         final FinancialStatus input = null;
@@ -38,7 +38,7 @@ public class FinancialStatusSerializerTest {
     }
 
     @Test
-    public void shouldWriteNullIfValueIsUnknown() throws IOException {
+    void shouldWriteNullIfValueIsUnknown() throws IOException {
         final JsonGenerator jsonGeneratorMock = mock(JsonGenerator.class);
         final SerializerProvider serializerProviderMock = mock(SerializerProvider.class);
         final FinancialStatus input = FinancialStatus.UNKNOWN;
@@ -49,7 +49,7 @@ public class FinancialStatusSerializerTest {
     }
 
     @Test
-    public void shouldWriteStringFromValue() throws IOException {
+    void shouldWriteStringFromValue() throws IOException {
         final JsonGenerator jsonGeneratorMock = mock(JsonGenerator.class);
         final SerializerProvider serializerProviderMock = mock(SerializerProvider.class);
         final FinancialStatus input = FinancialStatus.BELOW_CONTINUING_LISTING_STANDARDS_LATE_FILING;

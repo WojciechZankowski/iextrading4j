@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class TradeRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<Map<String, List<Trade>>> request = new TradeRequestBuilder()

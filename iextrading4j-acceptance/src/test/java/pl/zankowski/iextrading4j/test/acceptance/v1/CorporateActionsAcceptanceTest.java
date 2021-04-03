@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CorporateActionsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Test
-    public void advancedBonusAcceptanceTest() {
+    void advancedBonusAcceptanceTest() {
         final List<AdvancedBonus> advancedBonus = cloudClient.executeRequest(
                 new AdvancedBonusRequestBuilder()
                         .withSymbol("AAPL")
@@ -24,7 +24,7 @@ public class CorporateActionsAcceptanceTest extends IEXCloudV1AcceptanceTestBase
     }
 
     @Test
-    public void advancedDistributionAcceptanceTest() {
+    void advancedDistributionAcceptanceTest() {
         final List<AdvancedDistribution> advancedDistributions = cloudClient.executeRequest(
                 new AdvancedDistributionRequestBuilder()
                         .withSymbol("KERRF")
@@ -33,7 +33,7 @@ public class CorporateActionsAcceptanceTest extends IEXCloudV1AcceptanceTestBase
     }
 
     @Test
-    public void advancedSplitsAcceptanceTest() {
+    void advancedSplitsAcceptanceTest() {
         final List<AdvancedSplits> advancedSplits = cloudClient.executeRequest(
                 new AdvancedSplitsRequestBuilder()
                         .withSymbol("AAPL")

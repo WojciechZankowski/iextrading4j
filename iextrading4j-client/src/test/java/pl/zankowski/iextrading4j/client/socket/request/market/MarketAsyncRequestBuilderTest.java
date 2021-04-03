@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MarketAsyncRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateAsyncRequest() {
+    void shouldSuccessfullyCreateAsyncRequest() {
         final SocketRequest<List<MarketVolume>> request = new MarketAsyncRequestBuilder().build();
 
         assertThat(request.getPath()).isEqualTo("/market");

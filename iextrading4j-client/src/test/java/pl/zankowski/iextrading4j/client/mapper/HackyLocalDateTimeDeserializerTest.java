@@ -29,7 +29,7 @@ public class HackyLocalDateTimeDeserializerTest {
     }
 
     @Test
-    public void shouldReturnNullIfValueIsNA() throws IOException {
+    void shouldReturnNullIfValueIsNA() throws IOException {
         final JsonParser parserMock = mock(JsonParser.class);
         final DeserializationContext contextMock = mock(DeserializationContext.class);
 
@@ -41,7 +41,7 @@ public class HackyLocalDateTimeDeserializerTest {
     }
 
     @Test
-    public void shouldReturnNullIfValueIsNull() throws IOException {
+    void shouldReturnNullIfValueIsNull() throws IOException {
         final JsonParser parserMock = mock(JsonParser.class);
         final DeserializationContext contextMock = mock(DeserializationContext.class);
 
@@ -53,7 +53,7 @@ public class HackyLocalDateTimeDeserializerTest {
     }
 
     @Test
-    public void shouldCreateLocalDateTimeBasedOnValue() throws IOException {
+    void shouldCreateLocalDateTimeBasedOnValue() throws IOException {
         final JsonParser parserMock = mock(JsonParser.class);
         final DeserializationContext contextMock = mock(DeserializationContext.class);
         final String dateTime = "2015-05-05T19:19:19";

@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class InsiderSummaryServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void insiderSummaryServiceTest() {
+    void insiderSummaryServiceTest() {
         stubFor(get(urlEqualTo(path("/stock/AAPL/insider-summary")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

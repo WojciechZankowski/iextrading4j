@@ -18,7 +18,7 @@ public class TechnicalIndicatorTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final List<BigDecimal> indicator = Lists.newArrayList(fixture.collections().createCollection(BigDecimal.class));
         final List<List<BigDecimal>> indicators = ImmutableList.<List<BigDecimal>>builder()
                 .add(indicator)
@@ -32,14 +32,14 @@ public class TechnicalIndicatorTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(TechnicalIndicator.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(TechnicalIndicator.class))
                 .verify();
     }

@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class UsExchangeRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateUsExchangesRequest() {
+    void shouldSuccessfullyCreateUsExchangesRequest() {
         final RestRequest<List<UsExchange>> request = new UsExchangeRequestBuilder().build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);

@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class TimeSeriesServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void timeSeriesServiceTest() {
+    void timeSeriesServiceTest() {
         stubFor(get(urlEqualTo(path("/time-series")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -51,7 +51,7 @@ public class TimeSeriesServiceTest extends BaseIEXCloudV1ServiceTest {
     }
 
     @Test
-    public void keyTimeSeriesServiceTest() {
+    void keyTimeSeriesServiceTest() {
         stubFor(get(urlEqualTo(path("/time-series/REPORTED_FINANCIALS/AAPL/10-Q")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -71,9 +71,9 @@ public class TimeSeriesServiceTest extends BaseIEXCloudV1ServiceTest {
         final Map<String, String> values = result.get(0);
         assertThat(values).hasSize(3);
 
-        assertThat(values.get("AccountsPayableCurrent")).isEqualTo("31339898657");
-        assertThat(values.get("formFiscalYear")).isEqualTo("2090");
-        assertThat(values.get("version")).isEqualTo("ausa-gp");
+        assertThat(values).containsEntry("AccountsPayableCurrent", "31339898657");
+        assertThat(values).containsEntry("formFiscalYear", "2090");
+        assertThat(values).containsEntry("version", "ausa-gp");
     }
 
 }

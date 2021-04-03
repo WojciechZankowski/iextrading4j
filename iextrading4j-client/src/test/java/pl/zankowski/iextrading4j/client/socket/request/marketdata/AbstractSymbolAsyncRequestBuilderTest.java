@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AbstractSymbolAsyncRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateAsyncRequestWithMultipleSymbols() {
+    void shouldSuccessfullyCreateAsyncRequestWithMultipleSymbols() {
         final String ibmSymbol = "ibm";
         final String aaplSymbol = "aapl";
 

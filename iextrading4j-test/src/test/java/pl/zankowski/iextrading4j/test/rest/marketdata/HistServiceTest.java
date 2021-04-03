@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class HistServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void histParameterizedServiceTest() {
+    void histParameterizedServiceTest() {
         stubFor(get(urlEqualTo("/hist?date=20170515"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -50,7 +50,7 @@ public class HistServiceTest extends BaseRestServiceTest {
     }
 
     @Test
-    public void histServiceTest() {
+    void histServiceTest() {
         stubFor(get(urlEqualTo("/hist"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class OpHaltStatusSseRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final SseRequest<List<DeepAsyncResponse<OpHaltStatus>>> request = new OpHaltStatusSseRequestBuilder()

@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CompanyServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void companyServiceTest() {
+    void companyServiceTest() {
         stubFor(get(urlEqualTo("/stock/aapl/company"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

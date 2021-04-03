@@ -16,7 +16,7 @@ public class IEXDividendsTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String recordId = fixture.create(String.class);
         final LocalDateTime dailyListTimestamp = fixture.create(LocalDateTime.class);
         final EventType eventType = fixture.create(EventType.class);
@@ -84,14 +84,14 @@ public class IEXDividendsTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(IEXDividends.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(IEXDividends.class))
                 .verify();
     }

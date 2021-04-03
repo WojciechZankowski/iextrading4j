@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class AdvancedStatsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateAdvancedStatsRequest() {
+    void shouldSuccessfullyCreateAdvancedStatsRequest() {
         final String symbol = "AAPL";
 
         final RestRequest<AdvancedStats> request = new AdvancedStatsRequestBuilder()

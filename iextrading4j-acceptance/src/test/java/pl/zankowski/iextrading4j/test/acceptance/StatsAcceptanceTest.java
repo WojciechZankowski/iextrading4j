@@ -25,42 +25,45 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StatsAcceptanceTest extends AcceptanceTestBase {
 
     @Test
-    public void intradayAcceptanceTest() {
+    void intradayAcceptanceTest() {
         final IntradayStats intradayStats = iexTradingClient.executeRequest(new IntradayStatsRequestBuilder()
                 .build());
         assertThat(intradayStats).isNotNull();
     }
 
     @Test
-    public void recentAcceptanceTest() {
+    void recentAcceptanceTest() {
         try {
             final List<RecentStats> recentStats = iexTradingClient.executeRequest(new RecentStatsRequestBuilder()
                     .build());
+            assertThat(recentStats).isNotNull();
         } catch (final IEXTradingException e) {
             // Not reliable endpoint - IEX Trading issue
         }
     }
 
     @Test
-    public void recordsAcceptanceTest() {
+    void recordsAcceptanceTest() {
         final RecordsStats recordsStats = iexTradingClient.executeRequest(new RecordStatsRequestBuilder()
                 .build());
         assertThat(recordsStats).isNotNull();
     }
 
     @Test
-    public void historicalAcceptanceTest() {
-        final List<HistoricalStats> historicalStatsList = iexTradingClient.executeRequest(new HistoricalStatsRequestBuilder()
-                .withDate(YearMonth.of(2017, 5))
-                .build());
+    void historicalAcceptanceTest() {
+        final List<HistoricalStats> historicalStatsList = iexTradingClient.executeRequest(
+                new HistoricalStatsRequestBuilder()
+                        .withDate(YearMonth.of(2017, 5))
+                        .build());
         assertThat(historicalStatsList).isNotNull();
     }
 
     @Test
-    public void historicalDailyAcceptanceTest() {
-        final List<HistoricalDailyStats> historicalDailyStatsList = iexTradingClient.executeRequest(new HistoricalDailyStatsRequestBuilder()
-                .withLast(10)
-                .build());
+    void historicalDailyAcceptanceTest() {
+        final List<HistoricalDailyStats> historicalDailyStatsList = iexTradingClient.executeRequest(
+                new HistoricalDailyStatsRequestBuilder()
+                        .withLast(10)
+                        .build());
         assertThat(historicalDailyStatsList).isNotNull();
     }
 

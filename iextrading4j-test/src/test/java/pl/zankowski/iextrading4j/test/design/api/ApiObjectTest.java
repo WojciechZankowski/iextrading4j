@@ -34,33 +34,33 @@ public class ApiObjectTest extends AbstractViolationTests {
     }
 
     @Test
-    public void inheritanceTest() {
+    void inheritanceTest() {
         validate(RuleCode.API_SERIALIZABLE, REFLECTIONS, DESIGN_RULES);
     }
 
     @Test
-    public void annotationsTest() {
+    void annotationsTest() {
         validate(RuleCode.API_ANNOTATED, REFLECTIONS, DESIGN_RULES);
     }
 
     @Test
-    public void constructorsTest() {
+    void constructorsTest() {
         validate(RuleCode.API_ONE_CONSTRUCTOR, REFLECTIONS, DESIGN_RULES);
     }
 
     @Test
-    public void overriddenTest() {
+    void overriddenTest() {
         validate(RuleCode.API_OVERRIDDEN, REFLECTIONS, DESIGN_RULES);
     }
 
     @Test
-    public void serializationUidTest() {
+    void serializationUidTest() {
         validate(RuleCode.API_SERIALIZATION_UID, REFLECTIONS, DESIGN_RULES);
     }
 
-    @Disabled
+    @Disabled("For local testing")
     @Test
-    public void serializationRoundtripTest() {
+    void serializationRoundtripTest() {
         validate(RuleCode.API_SERIALIZATION_ROUNDTRIP, REFLECTIONS, DESIGN_RULES);
     }
 

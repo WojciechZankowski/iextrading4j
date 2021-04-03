@@ -16,7 +16,7 @@ public class SocketRequestTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final TypeReference<String> responseType = new TypeReference<String>() {
         };
         final String path = fixture.create(String.class);
@@ -30,14 +30,14 @@ public class SocketRequestTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(SocketRequest.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(new SocketRequest<>(null, null, null))
                 .verify();
     }

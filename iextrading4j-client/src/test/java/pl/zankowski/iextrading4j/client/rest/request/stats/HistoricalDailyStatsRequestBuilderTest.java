@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class HistoricalDailyStatsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithLast() {
+    void shouldSuccessfullyCreateRequestWithLast() {
         final int last = 5;
 
         final RestRequest<List<HistoricalDailyStats>> request = new HistoricalDailyStatsRequestBuilder()
@@ -31,7 +31,7 @@ public class HistoricalDailyStatsRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithYearMonthDate() {
+    void shouldSuccessfullyCreateRequestWithYearMonthDate() {
         final YearMonth yearMonth = YearMonth.of(2017, 5);
 
         final RestRequest<List<HistoricalDailyStats>> request = new HistoricalDailyStatsRequestBuilder()
@@ -46,7 +46,7 @@ public class HistoricalDailyStatsRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateRequestWithFullDate() {
+    void shouldSuccessfullyCreateRequestWithFullDate() {
         final LocalDate date = LocalDate.of(2017, 5, 5);
 
         final RestRequest<List<HistoricalDailyStats>> request = new HistoricalDailyStatsRequestBuilder()

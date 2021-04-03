@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SecurityEventServiceTest extends BaseRestServiceTest {
 
     @Test
-    public void securityEventServiceTest() {
+    void securityEventServiceTest() {
         stubFor(get(urlEqualTo("/deep/security-event?symbols=AAPL"))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

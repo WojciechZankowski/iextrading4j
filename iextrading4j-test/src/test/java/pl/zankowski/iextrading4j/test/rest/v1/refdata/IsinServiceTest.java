@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class IsinServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void isinServiceTest() {
+    void isinServiceTest() {
         stubFor(post(urlEqualTo("/ref-data/isin"))
                 .withHeader("Accept", equalTo("application/json"))
                 .withRequestBody(bodyContent(CLOUD_TOKEN.getPublishableToken(), "\"isin\": [\"US0378331005\"]"))

@@ -14,7 +14,7 @@ public class HistoricalStatsTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final BigDecimal averageDailyVolume = fixture.create(BigDecimal.class);
         final BigDecimal averageDailyRoutedVolume = fixture.create(BigDecimal.class);
         final BigDecimal averageMarketShare = fixture.create(BigDecimal.class);
@@ -132,14 +132,14 @@ public class HistoricalStatsTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(HistoricalStats.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(HistoricalStats.class))
                 .verify();
     }

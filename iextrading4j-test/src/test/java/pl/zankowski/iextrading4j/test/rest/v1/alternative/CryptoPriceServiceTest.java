@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CryptoPriceServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void cryptoServiceTest() {
+    void cryptoServiceTest() {
         stubFor(get(urlEqualTo(path("/crypto/BTCUSD/price")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

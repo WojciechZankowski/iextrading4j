@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class OptionsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateOptionsRequest() {
+    void shouldSuccessfullyCreateOptionsRequest() {
         final String symbol = "AAPL";
 
         final RestRequest<List<String>> request = new OptionsRequestBuilder()
@@ -30,7 +30,7 @@ public class OptionsRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateOptionsRequestWithExpirationDate() {
+    void shouldSuccessfullyCreateOptionsRequestWithExpirationDate() {
         final String symbol = "AAPL";
         final String expirationDate = "201907";
 
@@ -49,7 +49,7 @@ public class OptionsRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateOptionsRequestWithExpirationDateAndSide() {
+    void shouldSuccessfullyCreateOptionsRequestWithExpirationDateAndSide() {
         final String symbol = "AAPL";
         final String expirationDate = "201907";
         final OptionSide side = OptionSide.CALL;

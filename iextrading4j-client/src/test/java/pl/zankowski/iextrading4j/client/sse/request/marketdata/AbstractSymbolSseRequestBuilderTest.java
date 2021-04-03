@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class AbstractSymbolSseRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateSseRequestWithMultipleSymbols() {
+    void shouldSuccessfullyCreateSseRequestWithMultipleSymbols() {
         final String ibmSymbol = "ibm";
         final String aaplSymbol = "aapl";
 

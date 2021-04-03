@@ -14,7 +14,7 @@ public class RecommendationTrendsTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final Long consensusEndDate = fixture.create(Long.class);
         final Long consensusStartDate = fixture.create(Long.class);
         final Long corporateActionsAppliedDate = fixture.create(Long.class);
@@ -43,14 +43,14 @@ public class RecommendationTrendsTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(RecommendationTrends.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(RecommendationTrends.class))
                 .verify();
     }

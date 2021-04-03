@@ -14,7 +14,7 @@ public class IntradayStatTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final BigDecimal value = fixture.create(BigDecimal.class);
         final Long lastUpdated = fixture.create(Long.class);
 
@@ -25,14 +25,14 @@ public class IntradayStatTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(IntradayStat.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(IntradayStat.class))
                 .verify();
     }

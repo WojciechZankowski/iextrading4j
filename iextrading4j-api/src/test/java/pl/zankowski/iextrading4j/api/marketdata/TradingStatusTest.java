@@ -12,7 +12,7 @@ public class TradingStatusTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void construct() {
+    void construct() {
         final TradingStatusType tradingStatusType = fixture.create(TradingStatusType.class);
         final TradingStatusReasonType reasonType = fixture.create(TradingStatusReasonType.class);
         final Long timestamp = fixture.create(Long.class);
@@ -25,14 +25,14 @@ public class TradingStatusTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(TradingStatus.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(TradingStatus.class))
                 .verify();
     }

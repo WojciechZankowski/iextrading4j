@@ -16,7 +16,7 @@ public class DEEPTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String symbol = fixture.create(String.class);
         final BigDecimal marketPercent = fixture.create(BigDecimal.class);
         final BigDecimal volume = fixture.create(BigDecimal.class);
@@ -65,14 +65,14 @@ public class DEEPTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(DEEP.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(DEEP.class))
                 .verify();
     }

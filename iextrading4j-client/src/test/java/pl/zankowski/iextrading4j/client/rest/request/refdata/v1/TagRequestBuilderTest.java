@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TagRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final RestRequest<List<Tag>> request = new TagRequestBuilder().build();
 
         assertThat(request.getMethodType()).isEqualTo(MethodType.GET);

@@ -15,7 +15,7 @@ public class ExchangeRateTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final LocalDate date = fixture.create(LocalDate.class);
         final String fromCurrency = fixture.create(String.class);
         final String toCurrency = fixture.create(String.class);
@@ -31,14 +31,14 @@ public class ExchangeRateTest {
 
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(ExchangeRate.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(ExchangeRate.class))
                 .verify();
     }

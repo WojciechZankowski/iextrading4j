@@ -15,7 +15,7 @@ import static org.mockito.Mockito.mock;
 public class SseRequestTest {
 
     @Test
-    public void constructor() {
+    void constructor() {
         final GenericType<Serializable> responseTypeMock = mock(GenericType.class);
         final String path = "path";
         final Map<String, String> headerParams = ImmutableMap.of();
@@ -35,14 +35,14 @@ public class SseRequestTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(SseRequest.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(new SseRequest<>(null, null, null, null,
                 null, null))
                 .verify();

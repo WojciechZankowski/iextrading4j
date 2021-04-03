@@ -15,7 +15,7 @@ public class LargestTradeTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final BigDecimal price = fixture.create(BigDecimal.class);
         final BigDecimal size = fixture.create(BigDecimal.class);
         final Long time = fixture.create(Long.class);
@@ -34,14 +34,14 @@ public class LargestTradeTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(LargestTrade.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(LargestTrade.class))
                 .verify();
     }

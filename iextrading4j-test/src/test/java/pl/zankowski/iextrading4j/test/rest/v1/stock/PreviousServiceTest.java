@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PreviousServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void previousServiceTest() {
+    void previousServiceTest() {
         stubFor(get(urlEqualTo(path("/stock/AAPL/previous")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -50,7 +50,7 @@ public class PreviousServiceTest extends BaseIEXCloudV1ServiceTest {
     }
 
     @Test
-    public void previousMarketServiceTest() {
+    void previousMarketServiceTest() {
         stubFor(get(urlEqualTo(path("/stock/market/previous")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

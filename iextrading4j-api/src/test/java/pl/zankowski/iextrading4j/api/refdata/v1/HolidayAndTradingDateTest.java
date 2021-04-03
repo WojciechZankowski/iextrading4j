@@ -14,7 +14,7 @@ public class HolidayAndTradingDateTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final LocalDate date = fixture.create(LocalDate.class);
         final LocalDate settlementDate = fixture.create(LocalDate.class);
 
@@ -25,14 +25,14 @@ public class HolidayAndTradingDateTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(HolidayAndTradingDate.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(HolidayAndTradingDate.class))
                 .verify();
     }

@@ -16,7 +16,7 @@ public class CryptoBookEventTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final List<BookEntry> asks = Lists.newArrayList(fixture.collections()
                 .createCollection(BookEntry.class));
         final List<BookEntry> bids = Lists.newArrayList(fixture.collections()
@@ -32,14 +32,14 @@ public class CryptoBookEventTest {
 
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(CryptoBookEvent.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(CryptoBookEvent.class))
                 .verify();
     }

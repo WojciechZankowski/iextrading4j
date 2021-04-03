@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class SsrStatusRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<Map<String, SsrStatus>> request = new SsrStatusRequestBuilder()

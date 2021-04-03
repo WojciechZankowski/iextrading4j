@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SseClientMetadataTest {
 
     @Test
-    public void testUrl() {
+    void testUrl() {
         final String url = "https://api.iextrading.com/1.0";
         final SseClientMetadata sseClientMetadata = new SseClientMetadata(url, new IEXCloudToken("token", "t"));
 
@@ -18,14 +18,14 @@ public class SseClientMetadataTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(SseClientMetadata.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(new SseClientMetadata("url", new IEXCloudToken("token", "T")))
                 .verify();
     }

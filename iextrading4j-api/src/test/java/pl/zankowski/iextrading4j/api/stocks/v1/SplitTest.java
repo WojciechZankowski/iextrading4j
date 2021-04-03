@@ -15,7 +15,7 @@ public class SplitTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final LocalDate exDate = fixture.create(LocalDate.class);
         final LocalDate declaredDate = fixture.create(LocalDate.class);
         final BigDecimal ratio = fixture.create(BigDecimal.class);
@@ -36,14 +36,14 @@ public class SplitTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Split.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Split.class))
                 .verify();
     }

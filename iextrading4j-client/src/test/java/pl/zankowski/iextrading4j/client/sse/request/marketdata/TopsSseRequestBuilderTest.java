@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class TopsSseRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateSseRequest() {
+    void shouldSuccessfullyCreateSseRequest() {
         final String symbol = "IBM";
 
         final SseRequest<List<TOPS>> request = new TopsSseRequestBuilder()

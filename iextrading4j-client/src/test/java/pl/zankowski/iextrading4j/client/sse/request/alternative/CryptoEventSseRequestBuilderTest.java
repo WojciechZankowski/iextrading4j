@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class CryptoEventSseRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final SseRequest<List<CryptoEvent>> request = new CryptoEventSseRequestBuilder()

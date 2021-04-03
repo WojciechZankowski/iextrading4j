@@ -7,7 +7,7 @@
     <groupId>pl.zankowski</groupId>
     <artifactId>iextrading4j</artifactId>
     <packaging>pom</packaging>
-    <version>3.4.2</version>
+    <version>3.4.3</version>
 
     <name>IEXTrading4j</name>
     <description>Open source IEX Trading REST and WebSocket API library</description>
@@ -81,7 +81,7 @@
             <dependency>
                 <groupId>pl.zankowski</groupId>
                 <artifactId>iextrading4j-api</artifactId>
-                <version>3.4.2</version>
+                <version>3.4.3</version>
             </dependency>
 
             <dependency>
@@ -89,19 +89,19 @@
                 <artifactId>iextrading4j-api</artifactId>
                 <type>test-jar</type>
                 <scope>test</scope>
-                <version>3.4.2</version>
+                <version>3.4.3</version>
             </dependency>
 
             <dependency>
                 <groupId>pl.zankowski</groupId>
                 <artifactId>iextrading4j-client</artifactId>
-                <version>3.4.2</version>
+                <version>3.4.3</version>
             </dependency>
 
             <dependency>
                 <groupId>pl.zankowski</groupId>
                 <artifactId>iextrading4j-samples</artifactId>
-                <version>3.4.2</version>
+                <version>3.4.3</version>
             </dependency>
 
             <!-- Libraries -->
@@ -260,6 +260,13 @@
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-params</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>

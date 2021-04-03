@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class DataPointsRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateDataPointsRequest() {
+    void shouldSuccessfullyCreateDataPointsRequest() {
         final String symbol = "AAPL";
 
         final RestRequest<List<DataPoint>> request = new DataPointsRequestBuilder()
@@ -30,7 +30,7 @@ public class DataPointsRequestBuilderTest {
     }
 
     @Test
-    public void shouldSuccessfullyCreateKeyDataPointRequest() {
+    void shouldSuccessfullyCreateKeyDataPointRequest() {
         final String symbol = "AAPL";
         final String key = "PRICE-TARGET";
 

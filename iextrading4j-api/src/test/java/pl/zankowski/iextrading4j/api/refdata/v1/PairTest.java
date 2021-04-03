@@ -12,7 +12,7 @@ public class PairTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void constructor() {
+    void constructor() {
         final String from = fixture.create(String.class);
         final String to = fixture.create(String.class);
 
@@ -23,14 +23,14 @@ public class PairTest {
     }
 
     @Test
-    public void equalsContract() {
+    void equalsContract() {
         EqualsVerifier.forClass(Pair.class)
                 .usingGetClass()
                 .verify();
     }
 
     @Test
-    public void toStringVerification() {
+    void toStringVerification() {
         ToStringVerifier.forObject(fixture.create(Pair.class))
                 .verify();
     }

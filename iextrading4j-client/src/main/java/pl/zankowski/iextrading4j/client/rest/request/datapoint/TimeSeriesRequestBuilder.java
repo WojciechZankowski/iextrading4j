@@ -33,34 +33,42 @@ public class TimeSeriesRequestBuilder implements IEXCloudV1RestRequest<List<Time
             });
         }
 
+        @Override
         public KeyTimeSeriesRequestBuilder withOn(final LocalDate on) {
             return super.withOn(on);
         }
 
+        @Override
         public KeyTimeSeriesRequestBuilder withLimit(final int limit) {
             return super.withLimit(limit);
         }
 
+        @Override
         public KeyTimeSeriesRequestBuilder withUpdated(final boolean state) {
             return super.withUpdated(state);
         }
 
+        @Override
         public KeyTimeSeriesRequestBuilder withSubattribute(final String subattribute) {
             return super.withSubattribute(subattribute);
         }
 
+        @Override
         public KeyTimeSeriesRequestBuilder withSubattribute(final String keyName, final String value) {
             return super.withSubattribute(keyName, value);
         }
 
+        @Override
         public KeyTimeSeriesRequestBuilder withDateField(final String dateField) {
             return super.withDateField(dateField);
         }
 
+        @Override
         public KeyTimeSeriesRequestBuilder withKey(final String key) {
             return super.withKey(key);
         }
 
+        @Override
         public KeyTimeSeriesRequestBuilder withSubKey(final String subKey) {
             return super.withSubKey(subKey);
         }

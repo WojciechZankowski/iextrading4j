@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.entry;
 public class TechnicalIndicatorRequestBuilderTest {
 
     @Test
-    public void shouldSuccessfullyCreateRequest() {
+    void shouldSuccessfullyCreateRequest() {
         final String symbol = "IBM";
 
         final RestRequest<TechnicalIndicator> request = new TechnicalIndicatorRequestBuilder()

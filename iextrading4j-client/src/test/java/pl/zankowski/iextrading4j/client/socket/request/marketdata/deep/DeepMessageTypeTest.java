@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DeepMessageTypeTest {
 
     @Test
-    public void shouldReturnUnknownTypeForUnknownName() {
+    void shouldReturnUnknownTypeForUnknownName() {
         final String name = "test";
 
         final DeepMessageType messageType = DeepMessageType.getMessageType(name);
@@ -16,7 +16,7 @@ public class DeepMessageTypeTest {
     }
 
     @Test
-    public void shouldSuccessfullyConvertToType() {
+    void shouldSuccessfullyConvertToType() {
         final DeepMessageType bookType = DeepMessageType.BOOK;
 
         final DeepMessageType messageType = DeepMessageType.getMessageType(bookType.getName());

@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class DividendsServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void dividendsServiceTest() {
+    void dividendsServiceTest() {
         stubFor(get(urlEqualTo(path("/stock/AAPL/dividends/1m")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()
@@ -49,7 +49,7 @@ public class DividendsServiceTest extends BaseIEXCloudV1ServiceTest {
     }
 
     @Test
-    public void dividendsServiceWithErrorsTest() {
+    void dividendsServiceWithErrorsTest() {
         stubFor(get(urlEqualTo(path("/stock/AAPL/dividends/1m")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

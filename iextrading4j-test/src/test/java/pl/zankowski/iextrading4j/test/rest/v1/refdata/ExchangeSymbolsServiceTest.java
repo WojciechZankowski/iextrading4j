@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ExchangeSymbolsServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
-    public void exchangeSymbolsServiceTest() {
+    void exchangeSymbolsServiceTest() {
         stubFor(get(urlEqualTo(path("/ref-data/exchange/LON/symbols")))
                 .withHeader("Accept", equalTo("application/json"))
                 .willReturn(aResponse()

@@ -11,7 +11,7 @@ public class SocketRequestBuilderTest {
     private final JFixture fixture = new JFixture();
 
     @Test
-    public void shouldSuccessfullyCreateSocketRequest() {
+    void shouldSuccessfullyCreateSocketRequest() {
         final String path = fixture.create(String.class);
 
         final SocketRequest<String> request = SocketRequestBuilder.<String>builder()

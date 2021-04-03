@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class OptionsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Test
-    public void optionsTest() {
+    void optionsTest() {
         final List<String> result = cloudClient.executeRequest(new OptionsRequestBuilder()
                 .withSymbol("AAPL")
                 .build());
@@ -20,7 +20,7 @@ public class OptionsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void optionsWithExpirationDateTest() {
+    void optionsWithExpirationDateTest() {
         final List<Option> result = cloudClient.executeRequest(new OptionsRequestBuilder()
                 .withSymbol("AAPL")
                 .withExpirationDate("201906")
@@ -29,7 +29,7 @@ public class OptionsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     }
 
     @Test
-    public void optionsWithExpirationDateAndSideTest() {
+    void optionsWithExpirationDateAndSideTest() {
         final List<Option> result = cloudClient.executeRequest(new OptionsRequestBuilder()
                 .withSymbol("AAPL")
                 .withExpirationDate("201906")
