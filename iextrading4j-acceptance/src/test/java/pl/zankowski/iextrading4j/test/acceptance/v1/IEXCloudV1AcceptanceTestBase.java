@@ -12,10 +12,11 @@ public class IEXCloudV1AcceptanceTestBase {
     protected IEXCloudClient cloudClient;
 
     @BeforeEach
-    public void setUp() {
-        cloudClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_V1_SANDBOX, new IEXCloudTokenBuilder()
+    public void setUp() throws InterruptedException {
+        cloudClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_STABLE_SANDBOX, new IEXCloudTokenBuilder()
                 .withPublishableToken("Tpk_18dfe6cebb4f41ffb219b9680f9acaf2")
                 .build());
+        Thread.sleep(50);
     }
 
     @AfterEach
