@@ -7,7 +7,7 @@
     <groupId>pl.zankowski</groupId>
     <artifactId>iextrading4j</artifactId>
     <packaging>pom</packaging>
-    <version>3.4.3</version>
+    <version>3.4.4</version>
 
     <name>IEXTrading4j</name>
     <description>Open source IEX Trading REST and WebSocket API library</description>
@@ -51,14 +51,14 @@
         <jackson.version>2.9.9</jackson.version>
         <jersey.version>2.30</jersey.version>
         <jaxb.version>2.3.1</jaxb.version>
-        <guava.version>30.1-jre</guava.version>
+        <guava.version>30.1.1-jre</guava.version>
         <powermock.version>2.0.9</powermock.version>
-        <bytebuddy.version>1.10.22</bytebuddy.version>
+        <bytebuddy.version>1.11.0</bytebuddy.version>
         <junit.version>5.8.0-M1</junit.version>
         <assertj.version>3.19.0</assertj.version>
         <wiremock.version>2.27.2</wiremock.version>
         <reflections.version>0.9.11</reflections.version>
-        <equalsverifier.version>3.5.5</equalsverifier.version>
+        <equalsverifier.version>3.6</equalsverifier.version>
 
         <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
         <maven.gpg.plugin>1.6</maven.gpg.plugin>
@@ -81,7 +81,7 @@
             <dependency>
                 <groupId>pl.zankowski</groupId>
                 <artifactId>iextrading4j-api</artifactId>
-                <version>3.4.3</version>
+                <version>3.4.4</version>
             </dependency>
 
             <dependency>
@@ -89,19 +89,19 @@
                 <artifactId>iextrading4j-api</artifactId>
                 <type>test-jar</type>
                 <scope>test</scope>
-                <version>3.4.3</version>
+                <version>3.4.4</version>
             </dependency>
 
             <dependency>
                 <groupId>pl.zankowski</groupId>
                 <artifactId>iextrading4j-client</artifactId>
-                <version>3.4.3</version>
+                <version>3.4.4</version>
             </dependency>
 
             <dependency>
                 <groupId>pl.zankowski</groupId>
                 <artifactId>iextrading4j-samples</artifactId>
-                <version>3.4.3</version>
+                <version>3.4.4</version>
             </dependency>
 
             <!-- Libraries -->
@@ -396,7 +396,7 @@
                         <dependency>
                             <groupId>org.pitest</groupId>
                             <artifactId>pitest-junit5-plugin</artifactId>
-                            <version>0.12</version>
+                            <version>0.14</version>
                         </dependency>
                     </dependencies>
                 </plugin>
