@@ -16,6 +16,36 @@
             <groupId>pl.zankowski</groupId>
             <artifactId>iextrading4j-client</artifactId>
             <version>3.4.4</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.xml.bind</groupId>
+                    <artifactId>jaxb-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.ws.rs</groupId>
+                    <artifactId>javax.ws.rs-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.sun.xml.bind</groupId>
+                    <artifactId>jaxb-impl</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.activation</groupId>
+                    <artifactId>activation</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.glassfish.hk2.external</groupId>
+                    <artifactId>jakarta.inject</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId>txw2</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.sun.xml.fastinfoset</groupId>
+                    <artifactId>FastInfoset</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
