@@ -7,6 +7,8 @@ import java.util.StringJoiner;
 
 public abstract class Report extends BaseData {
 
+    private static final long serialVersionUID = -4821122017946968543L;
+
     private final LocalDate reportDate;
     private final String filingType;
     private final LocalDate fiscalDate;
@@ -15,9 +17,10 @@ public abstract class Report extends BaseData {
     private final String currency;
 
     protected Report(final String symbol, final String id, final String key, final String subkey, final Long updated,
-                  final LocalDate reportDate, final String filingType, final LocalDate fiscalDate,
-                  final BigDecimal fiscalQuarter, final BigDecimal fiscalYear, final String currency) {
-        super(symbol, id, key, subkey, updated);
+                     final LocalDate reportDate, final String filingType, final LocalDate fiscalDate,
+                     final BigDecimal fiscalQuarter, final BigDecimal fiscalYear, final String currency,
+                     final Long date) {
+        super(symbol, id, key, subkey, updated, date);
         this.reportDate = reportDate;
         this.filingType = filingType;
         this.fiscalDate = fiscalDate;
@@ -52,9 +55,15 @@ public abstract class Report extends BaseData {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
         Report report = (Report) o;
         return Objects.equals(reportDate, report.reportDate) &&
                 Objects.equals(filingType, report.filingType) &&

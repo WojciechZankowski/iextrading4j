@@ -25,8 +25,9 @@ public class FundOwnership extends Ownership {
             @JsonProperty("filingDate") final LocalDate filingDate,
             @JsonProperty("reportedHolding") final BigDecimal reportedHolding,
             @JsonProperty("updated") final Long updated,
+            @JsonProperty("date") final Long date,
             @JsonProperty("reportedMv") final BigDecimal reportedMv) {
-        super(symbol, id, adjHolding, adjMv, entityProperName, reportDate, filingDate, reportedHolding, updated);
+        super(symbol, id, adjHolding, adjMv, entityProperName, reportDate, filingDate, reportedHolding, updated, date);
         this.reportedMv = reportedMv;
     }
 

@@ -22,6 +22,7 @@ public class FundOwnershipTest {
         final String id = fixture.create(String.class);
         final LocalDate filingDate = fixture.create(LocalDate.class);
         final Long updated = fixture.create(Long.class);
+        final Long date = fixture.create(Long.class);
         final BigDecimal adjHolding = fixture.create(BigDecimal.class);
         final BigDecimal adjMv = fixture.create(BigDecimal.class);
         final String entityProperName = fixture.create(String.class);
@@ -29,7 +30,7 @@ public class FundOwnershipTest {
         final BigDecimal reportedHolding = fixture.create(BigDecimal.class);
 
         final FundOwnership fundOwnership = new FundOwnership(symbol, id, adjHolding, adjMv,
-                entityProperName, reportDate, filingDate, reportedHolding, updated, reportedMv);
+                entityProperName, reportDate, filingDate, reportedHolding, updated, date, reportedMv);
 
         assertThat(fundOwnership.getSymbol()).isEqualTo(symbol);
         assertThat(fundOwnership.getId()).isEqualTo(id);
@@ -40,6 +41,7 @@ public class FundOwnershipTest {
         assertThat(fundOwnership.getFilingDate()).isEqualTo(filingDate);
         assertThat(fundOwnership.getReportedHolding()).isEqualTo(reportedHolding);
         assertThat(fundOwnership.getUpdated()).isEqualTo(updated);
+        assertThat(fundOwnership.getDate()).isEqualTo(date);
         assertThat(fundOwnership.getReportedMv()).isEqualTo(reportedMv);
     }
 

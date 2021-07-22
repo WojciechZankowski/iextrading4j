@@ -36,6 +36,7 @@ public class InsiderTransaction extends BaseData {
             @JsonProperty("key") final String key,
             @JsonProperty("subkey") final String subkey,
             @JsonProperty("updated") final Long updated,
+            @JsonProperty("date") final Long date,
             @JsonProperty("conversionOrExercisePrice") final BigDecimal conversionOrExercisePrice,
             @JsonProperty("directIndirect") final DirectIndirect directIndirect,
             @JsonProperty("effectiveDate") final Long effectiveDate,
@@ -52,7 +53,7 @@ public class InsiderTransaction extends BaseData {
             @JsonProperty("tranPrice") final BigDecimal tranPrice,
             @JsonProperty("tranShares") final BigDecimal tranShares,
             @JsonProperty("tranValue") final BigDecimal tranValue) {
-        super(symbol, id, key, subkey, updated);
+        super(symbol, id, key, subkey, updated, date);
         this.conversionOrExercisePrice = conversionOrExercisePrice;
         this.directIndirect = directIndirect;
         this.effectiveDate = effectiveDate;

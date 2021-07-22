@@ -20,13 +20,14 @@ public class InsiderSummaryTest {
         final String key = fixture.create(String.class);
         final String subkey = fixture.create(String.class);
         final Long updated = fixture.create(Long.class);
+        final Long date = fixture.create(Long.class);
         final String fullName = fixture.create(String.class);
         final BigDecimal netTransacted = fixture.create(BigDecimal.class);
         final String reportedTitle = fixture.create(String.class);
         final BigDecimal totalBought = fixture.create(BigDecimal.class);
         final BigDecimal totalSold = fixture.create(BigDecimal.class);
 
-        final InsiderSummary insiderSummary = new InsiderSummary(symbol, id, key, subkey, updated, fullName,
+        final InsiderSummary insiderSummary = new InsiderSummary(symbol, id, key, subkey, updated, date, fullName,
                 netTransacted, reportedTitle, totalBought, totalSold);
 
         assertThat(insiderSummary.getSymbol()).isEqualTo(symbol);
@@ -34,6 +35,7 @@ public class InsiderSummaryTest {
         assertThat(insiderSummary.getKey()).isEqualTo(key);
         assertThat(insiderSummary.getSubkey()).isEqualTo(subkey);
         assertThat(insiderSummary.getUpdated()).isEqualTo(updated);
+        assertThat(insiderSummary.getDate()).isEqualTo(date);
         assertThat(insiderSummary.getFullName()).isEqualTo(fullName);
         assertThat(insiderSummary.getNetTransacted()).isEqualTo(netTransacted);
         assertThat(insiderSummary.getReportedTitle()).isEqualTo(reportedTitle);

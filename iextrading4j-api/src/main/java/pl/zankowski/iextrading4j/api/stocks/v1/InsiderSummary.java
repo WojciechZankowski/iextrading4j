@@ -24,12 +24,13 @@ public class InsiderSummary extends BaseData {
             @JsonProperty("key") final String key,
             @JsonProperty("subkey") final String subkey,
             @JsonProperty("updated") final Long updated,
+            @JsonProperty("date") final Long date,
             @JsonProperty("fullName") final String fullName,
             @JsonProperty("netTransacted") final BigDecimal netTransacted,
             @JsonProperty("reportedTitle") final String reportedTitle,
             @JsonProperty("totalBought") final BigDecimal totalBought,
             @JsonProperty("totalSold") final BigDecimal totalSold) {
-        super(symbol, id, key, subkey, updated);
+        super(symbol, id, key, subkey, updated, date);
         this.fullName = fullName;
         this.netTransacted = netTransacted;
         this.reportedTitle = reportedTitle;

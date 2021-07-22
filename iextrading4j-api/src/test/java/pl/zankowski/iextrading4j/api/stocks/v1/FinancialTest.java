@@ -21,6 +21,7 @@ public class FinancialTest {
         final String key = fixture.create(String.class);
         final String subkey = fixture.create(String.class);
         final Long updated = fixture.create(Long.class);
+        final Long date = fixture.create(Long.class);
         final LocalDate reportDate = fixture.create(LocalDate.class);
         final LocalDate fiscalDate = fixture.create(LocalDate.class);
         final String filingType = fixture.create(String.class);
@@ -86,7 +87,7 @@ public class FinancialTest {
         final BigDecimal totalRevenue = fixture.create(BigDecimal.class);
         final BigDecimal treasuryStock = fixture.create(BigDecimal.class);
 
-        final Financial financial = new Financial(symbol, id, key, subkey, updated, filingType, fiscalDate,
+        final Financial financial = new Financial(symbol, id, key, subkey, updated, date, filingType, fiscalDate,
                 fiscalQuarter, fiscalYear, reportDate, currency, EBITDA, accountsPayable, capitalSurplus, cashChange,
                 cashFlow, cashFlowFinancing, changesInInventories, changesInReceivables, commonStock, costOfRevenue,
                 currentAssets, currentCash, currentDebt, currentLongTermDebt, depreciation, dividendsPaid, ebit,
@@ -163,6 +164,7 @@ public class FinancialTest {
         assertThat(financial.getShortTermInvestments()).isEqualTo(shortTermInvestments);
         assertThat(financial.getTotalInvestingCashFlows()).isEqualTo(totalInvestingCashFlows);
         assertThat(financial.getTreasuryStock()).isEqualTo(treasuryStock);
+        assertThat(financial.getDate()).isEqualTo(date);
     }
 
     @Test

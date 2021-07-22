@@ -21,6 +21,7 @@ public class InsiderTransactionTest {
         final String key = fixture.create(String.class);
         final String subkey = fixture.create(String.class);
         final Long updated = fixture.create(Long.class);
+        final Long date = fixture.create(Long.class);
         final BigDecimal conversionOrExercisePrice = fixture.create(BigDecimal.class);
         final DirectIndirect directIndirect = fixture.create(DirectIndirect.class);
         final Long effectiveDate = fixture.create(Long.class);
@@ -38,7 +39,7 @@ public class InsiderTransactionTest {
         final BigDecimal tranShares = fixture.create(BigDecimal.class);
         final BigDecimal tranValue = fixture.create(BigDecimal.class);
 
-        final InsiderTransaction insiderTransaction = new InsiderTransaction(symbol, id, key, subkey, updated,
+        final InsiderTransaction insiderTransaction = new InsiderTransaction(symbol, id, key, subkey, updated, date,
                 conversionOrExercisePrice, directIndirect, effectiveDate, filingDate, fullName, is10b51, postShares,
                 reportedTitle, transactionCode, transactionDate, transactionPrice, transactionShares,
                 transactionValue, tranPrice, tranShares, tranValue);
@@ -48,6 +49,7 @@ public class InsiderTransactionTest {
         assertThat(insiderTransaction.getSubkey()).isEqualTo(subkey);
         assertThat(insiderTransaction.getId()).isEqualTo(id);
         assertThat(insiderTransaction.getUpdated()).isEqualTo(updated);
+        assertThat(insiderTransaction.getDate()).isEqualTo(date);
         assertThat(insiderTransaction.getEffectiveDate()).isEqualTo(effectiveDate);
         assertThat(insiderTransaction.getFullName()).isEqualTo(fullName);
         assertThat(insiderTransaction.getReportedTitle()).isEqualTo(reportedTitle);

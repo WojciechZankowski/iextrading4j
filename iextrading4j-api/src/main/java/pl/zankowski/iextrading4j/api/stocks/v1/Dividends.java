@@ -22,7 +22,6 @@ public class Dividends extends BaseData {
     private final String currency;
     private final String description;
     private final String frequency;
-    private final Long date;
 
     @JsonCreator
     public Dividends(
@@ -42,7 +41,7 @@ public class Dividends extends BaseData {
             @JsonProperty("description") final String description,
             @JsonProperty("frequency") final String frequency,
             @JsonProperty("date") final Long date) {
-        super(symbol, id, key, subkey, updated);
+        super(symbol, id, key, subkey, updated, date);
         this.refid = refid;
         this.exDate = exDate;
         this.paymentDate = paymentDate;
@@ -53,7 +52,6 @@ public class Dividends extends BaseData {
         this.currency = currency;
         this.description = description;
         this.frequency = frequency;
-        this.date = date;
     }
 
     public Long getRefid() {
@@ -96,10 +94,6 @@ public class Dividends extends BaseData {
         return frequency;
     }
 
-    public Long getDate() {
-        return date;
-    }
-
     @Override
     public boolean equals(final Object o) {
         if (this == o) {
@@ -121,14 +115,13 @@ public class Dividends extends BaseData {
                 Objects.equals(flag, dividends.flag) &&
                 Objects.equals(currency, dividends.currency) &&
                 Objects.equals(description, dividends.description) &&
-                Objects.equals(frequency, dividends.frequency) &&
-                Objects.equals(date, dividends.date);
+                Objects.equals(frequency, dividends.frequency);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), refid, exDate, paymentDate, recordDate, declaredDate,
-                amount, flag, currency, description, frequency, date);
+                amount, flag, currency, description, frequency);
     }
 
     @Override
@@ -144,7 +137,6 @@ public class Dividends extends BaseData {
                 .add("currency='" + currency + "'")
                 .add("description='" + description + "'")
                 .add("frequency='" + frequency + "'")
-                .add("date=" + date)
                 .toString();
     }
 }

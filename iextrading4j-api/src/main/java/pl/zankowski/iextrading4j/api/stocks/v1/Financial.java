@@ -78,6 +78,7 @@ public class Financial extends Report {
             @JsonProperty("key") final String key,
             @JsonProperty("subkey") final String subkey,
             @JsonProperty("updated") final Long updated,
+            @JsonProperty("date") final Long date,
             @JsonProperty("filingType") final String filingType,
             @JsonProperty("fiscalDate") final LocalDate fiscalDate,
             @JsonProperty("fiscalQuarter") final BigDecimal fiscalQuarter,
@@ -142,7 +143,8 @@ public class Financial extends Report {
             @JsonProperty("totalLiabilities") final BigDecimal totalLiabilities,
             @JsonProperty("totalRevenue") final BigDecimal totalRevenue,
             @JsonProperty("treasuryStock") final BigDecimal treasuryStock) {
-        super(symbol, id, key, subkey, updated, reportDate, filingType, fiscalDate, fiscalQuarter, fiscalYear, currency);
+        super(symbol, id, key, subkey, updated, reportDate, filingType, fiscalDate, fiscalQuarter, fiscalYear,
+                currency, date);
         this.EBITDA = EBITDA;
         this.accountsPayable = accountsPayable;
         this.capitalSurplus = capitalSurplus;

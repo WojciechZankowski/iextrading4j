@@ -13,7 +13,6 @@ public abstract class CorporateData extends BaseData {
 
     private final String refid;
     private final String source;
-    private final Long date;
     private final LocalDate created;
     private final LocalDate lastUpdated;
     private final String notes;
@@ -51,10 +50,9 @@ public abstract class CorporateData extends BaseData {
                          final BigDecimal ratio,
                          final LocalDate exDate,
                          final String countryCode) {
-        super(symbol, id, key, subkey, updated);
+        super(symbol, id, key, subkey, updated, date);
         this.refid = refid;
         this.source = source;
-        this.date = date;
         this.created = created;
         this.lastUpdated = lastUpdated;
         this.notes = notes;
@@ -77,10 +75,6 @@ public abstract class CorporateData extends BaseData {
 
     public String getSource() {
         return source;
-    }
-
-    public Long getDate() {
-        return date;
     }
 
     public LocalDate getCreated() {
@@ -152,7 +146,7 @@ public abstract class CorporateData extends BaseData {
         }
         final CorporateData that = (CorporateData) o;
         return Objects.equals(refid, that.refid) && Objects.equals(source, that.source) &&
-                Objects.equals(date, that.date) && Objects.equals(created, that.created) &&
+                Objects.equals(created, that.created) &&
                 Objects.equals(lastUpdated, that.lastUpdated) && Objects.equals(notes, that.notes) &&
                 Objects.equals(figi, that.figi) && Objects.equals(description, that.description) &&
                 Objects.equals(flag, that.flag) && Objects.equals(securityType, that.securityType) &&
@@ -165,7 +159,7 @@ public abstract class CorporateData extends BaseData {
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), refid, source, date, created, lastUpdated, notes, figi, description, flag,
+        return Objects.hash(super.hashCode(), refid, source, created, lastUpdated, notes, figi, description, flag,
                 securityType, fromFactor, toFactor, ratio, parValue, parValueCurrency, exDate, countryCode);
     }
 
@@ -174,7 +168,6 @@ public abstract class CorporateData extends BaseData {
         return new StringJoiner(", ", CorporateData.class.getSimpleName() + "[", "]")
                 .add("refid='" + refid + "'")
                 .add("source='" + source + "'")
-                .add("date=" + date)
                 .add("created=" + created)
                 .add("lastUpdated=" + lastUpdated)
                 .add("notes='" + notes + "'")

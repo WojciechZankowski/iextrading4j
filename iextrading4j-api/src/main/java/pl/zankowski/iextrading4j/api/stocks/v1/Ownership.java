@@ -22,6 +22,7 @@ public class Ownership implements Serializable {
     private final LocalDate filingDate;
     private final BigDecimal reportedHolding;
     private final Long updated;
+    private final Long date;
 
     @JsonCreator
     public Ownership(
@@ -33,7 +34,8 @@ public class Ownership implements Serializable {
             @JsonProperty("reportDate") final Long reportDate,
             @JsonProperty("filingDate") final LocalDate filingDate,
             @JsonProperty("reportedHolding") final BigDecimal reportedHolding,
-            @JsonProperty("updated") final Long updated) {
+            @JsonProperty("updated") final Long updated,
+            @JsonProperty("date") final Long date) {
         this.symbol = symbol;
         this.id = id;
         this.adjHolding = adjHolding;
@@ -43,6 +45,7 @@ public class Ownership implements Serializable {
         this.filingDate = filingDate;
         this.reportedHolding = reportedHolding;
         this.updated = updated;
+        this.date = date;
     }
 
     public String getSymbol() {
@@ -81,25 +84,33 @@ public class Ownership implements Serializable {
         return updated;
     }
 
+    public Long getDate() {
+        return date;
+    }
+
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ownership ownership = (Ownership) o;
-        return Objects.equals(symbol, ownership.symbol) &&
-                Objects.equals(id, ownership.id) &&
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        final Ownership ownership = (Ownership) o;
+        return Objects.equals(symbol, ownership.symbol) && Objects.equals(id, ownership.id) &&
                 Objects.equals(adjHolding, ownership.adjHolding) &&
                 Objects.equals(adjMv, ownership.adjMv) &&
                 Objects.equals(entityProperName, ownership.entityProperName) &&
                 Objects.equals(reportDate, ownership.reportDate) &&
                 Objects.equals(filingDate, ownership.filingDate) &&
                 Objects.equals(reportedHolding, ownership.reportedHolding) &&
-                Objects.equals(updated, ownership.updated);
+                Objects.equals(updated, ownership.updated) && Objects.equals(date, ownership.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(symbol, id, adjHolding, adjMv, entityProperName, reportDate, filingDate, reportedHolding, updated);
+        return Objects.hash(symbol, id, adjHolding, adjMv, entityProperName, reportDate, filingDate, reportedHolding,
+                updated, date);
     }
 
     @Override
@@ -114,6 +125,7 @@ public class Ownership implements Serializable {
                 .add("filingDate=" + filingDate)
                 .add("reportedHolding=" + reportedHolding)
                 .add("updated=" + updated)
+                .add("date=" + date)
                 .toString();
     }
 }

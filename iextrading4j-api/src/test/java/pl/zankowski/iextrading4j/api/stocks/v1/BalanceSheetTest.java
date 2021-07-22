@@ -21,6 +21,7 @@ public class BalanceSheetTest {
         final String key = fixture.create(String.class);
         final String subkey = fixture.create(String.class);
         final Long updated = fixture.create(Long.class);
+        final Long date = fixture.create(Long.class);
         final LocalDate reportDate = fixture.create(LocalDate.class);
         final LocalDate fiscalDate = fixture.create(LocalDate.class);
         final String currency = fixture.create(String.class);
@@ -54,12 +55,12 @@ public class BalanceSheetTest {
         final BigDecimal fiscalQuarter = fixture.create(BigDecimal.class);
         final BigDecimal fiscalYear = fixture.create(BigDecimal.class);
 
-        final BalanceSheet balanceSheet = new BalanceSheet(symbol, id, key, subkey, updated, reportDate, fiscalDate, currency, currentCash,
-                shortTermInvestments, receivables, inventory, otherCurrentAssets, currentAssets, longTermInvestments,
-                propertyPlantEquipment, goodwill, intangibleAssets, otherAssets, totalAssets,
-                accountsPayable, currentLongTermDebt, otherCurrentLiabilities, totalCurrentLiabilities,
-                longTermDebt, otherLiabilities, minorityInterest, totalLiabilities, commonStock,
-                retainedEarnings, treasuryStock, capitalSurplus, shareholderEquity, netTangibleAssets, filingType, fiscalQuarter,
+        final BalanceSheet balanceSheet = new BalanceSheet(symbol, id, key, subkey, updated, date, reportDate,
+                fiscalDate, currency, currentCash, shortTermInvestments, receivables, inventory, otherCurrentAssets,
+                currentAssets, longTermInvestments, propertyPlantEquipment, goodwill, intangibleAssets, otherAssets,
+                totalAssets, accountsPayable, currentLongTermDebt, otherCurrentLiabilities, totalCurrentLiabilities,
+                longTermDebt, otherLiabilities, minorityInterest, totalLiabilities, commonStock, retainedEarnings,
+                treasuryStock, capitalSurplus, shareholderEquity, netTangibleAssets, filingType, fiscalQuarter,
                 fiscalYear);
 
         assertThat(balanceSheet.getReportDate()).isEqualTo(reportDate);
@@ -91,6 +92,7 @@ public class BalanceSheetTest {
         assertThat(balanceSheet.getCapitalSurplus()).isEqualTo(capitalSurplus);
         assertThat(balanceSheet.getShareholderEquity()).isEqualTo(shareholderEquity);
         assertThat(balanceSheet.getNetTangibleAssets()).isEqualTo(netTangibleAssets);
+        assertThat(balanceSheet.getDate()).isEqualTo(date);
     }
 
     @Test

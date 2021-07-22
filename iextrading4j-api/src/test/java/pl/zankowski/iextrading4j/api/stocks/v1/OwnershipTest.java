@@ -20,6 +20,7 @@ public class OwnershipTest {
         final String id = fixture.create(String.class);
         final LocalDate filingDate = fixture.create(LocalDate.class);
         final Long updated = fixture.create(Long.class);
+        final Long date = fixture.create(Long.class);
         final BigDecimal adjHolding = fixture.create(BigDecimal.class);
         final BigDecimal adjMv = fixture.create(BigDecimal.class);
         final String entityProperName = fixture.create(String.class);
@@ -27,7 +28,7 @@ public class OwnershipTest {
         final BigDecimal reportedHolding = fixture.create(BigDecimal.class);
 
         final Ownership ownership = new Ownership(symbol, id, adjHolding, adjMv,
-                entityProperName, reportDate, filingDate, reportedHolding, updated);
+                entityProperName, reportDate, filingDate, reportedHolding, updated, date);
 
         assertThat(ownership.getSymbol()).isEqualTo(symbol);
         assertThat(ownership.getId()).isEqualTo(id);
@@ -38,6 +39,7 @@ public class OwnershipTest {
         assertThat(ownership.getFilingDate()).isEqualTo(filingDate);
         assertThat(ownership.getReportedHolding()).isEqualTo(reportedHolding);
         assertThat(ownership.getUpdated()).isEqualTo(updated);
+        assertThat(ownership.getDate()).isEqualTo(date);
     }
 
     @Test

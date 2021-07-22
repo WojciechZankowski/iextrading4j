@@ -35,6 +35,7 @@ public class IncomeStatement extends Report {
             @JsonProperty("key") final String key,
             @JsonProperty("subkey") final String subkey,
             @JsonProperty("updated") final Long updated,
+            @JsonProperty("date") final Long date,
             @JsonProperty("reportDate") final LocalDate reportDate,
             @JsonProperty("fiscalDate") final LocalDate fiscalDate,
             @JsonProperty("currency") final String currency,
@@ -57,7 +58,7 @@ public class IncomeStatement extends Report {
             @JsonProperty("fiscalQuarter") final BigDecimal fiscalQuarter,
             @JsonProperty("fiscalYear") final BigDecimal fiscalYear) {
         super(symbol, id, key, subkey, updated, reportDate, filingType, fiscalDate, fiscalQuarter, fiscalYear,
-                currency);
+                currency, date);
         this.totalRevenue = totalRevenue;
         this.costOfRevenue = costOfRevenue;
         this.grossProfit = grossProfit;

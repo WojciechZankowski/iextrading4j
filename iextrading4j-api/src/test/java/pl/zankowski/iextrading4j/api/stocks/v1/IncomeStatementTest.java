@@ -21,6 +21,7 @@ public class IncomeStatementTest {
         final String key = fixture.create(String.class);
         final String subkey = fixture.create(String.class);
         final Long updated = fixture.create(Long.class);
+        final Long date = fixture.create(Long.class);
         final LocalDate reportDate = fixture.create(LocalDate.class);
         final LocalDate fiscalDate = fixture.create(LocalDate.class);
         final String currency = fixture.create(String.class);
@@ -43,7 +44,7 @@ public class IncomeStatementTest {
         final BigDecimal fiscalQuarter = fixture.create(BigDecimal.class);
         final BigDecimal fiscalYear = fixture.create(BigDecimal.class);
 
-        final IncomeStatement incomeStatement = new IncomeStatement(symbol, id, key, subkey, updated, reportDate,
+        final IncomeStatement incomeStatement = new IncomeStatement(symbol, id, key, subkey, updated, date, reportDate,
                 fiscalDate, currency, totalRevenue, costOfRevenue, grossProfit, researchAndDevelopment,
                 sellingGeneralAndAdmin, operatingExpense, operatingIncome, otherIncomeExpenseNet, ebit, interestIncome,
                 pretaxIncome, incomeTax, minorityInterest, netIncome, netIncomeBasic, filingType, fiscalQuarter,
@@ -67,6 +68,7 @@ public class IncomeStatementTest {
         assertThat(incomeStatement.getMinorityInterest()).isEqualTo(minorityInterest);
         assertThat(incomeStatement.getNetIncome()).isEqualTo(netIncome);
         assertThat(incomeStatement.getNetIncomeBasic()).isEqualTo(netIncomeBasic);
+        assertThat(incomeStatement.getDate()).isEqualTo(date);
     }
 
     @Test
