@@ -194,7 +194,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     @Test
     void dividendsTest() {
         final List<Dividends> result = cloudClient.executeRequest(new DividendsRequestBuilder()
-                .withSymbol("AAPL")
+                .withSymbol("KO")
                 .build());
         assertThat(result).isNotNull();
     }
@@ -211,7 +211,7 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     @Test
     void previousDividendsTest() {
         final List<Dividends> result = cloudClient.executeRequest(new DividendsRequestBuilder()
-                .withSymbol("AAPL")
+                .withSymbol("KO")
                 .withDividendRange(DividendRange.FIVE_YEARS)
                 .build());
         assertThat(result).isNotNull();
