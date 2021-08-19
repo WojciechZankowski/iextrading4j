@@ -9,20 +9,22 @@ import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SectorPerformanceTest {
+class SectorPerformanceTest {
 
     private final JFixture fixture = new JFixture();
 
     @Test
     void constructor() {
+        final String symbol = fixture.create(String.class);
         final String type = fixture.create(String.class);
         final String name = fixture.create(String.class);
         final BigDecimal performance = fixture.create(BigDecimal.class);
         final Long lastUpdated = fixture.create(Long.class);
 
-        final SectorPerformance sectorPerformance = new SectorPerformance(type, name,
+        final SectorPerformance sectorPerformance = new SectorPerformance(symbol, type, name,
                 performance, lastUpdated);
 
+        assertThat(sectorPerformance.getSymbol()).isEqualTo(symbol);
         assertThat(sectorPerformance.getType()).isEqualTo(type);
         assertThat(sectorPerformance.getName()).isEqualTo(name);
         assertThat(sectorPerformance.getPerformance()).isEqualTo(performance);
