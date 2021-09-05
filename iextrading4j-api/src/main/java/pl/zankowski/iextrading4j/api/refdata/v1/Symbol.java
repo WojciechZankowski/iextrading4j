@@ -2,11 +2,11 @@ package pl.zankowski.iextrading4j.api.refdata.v1;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Objects;
+import java.util.StringJoiner;
 
 public class Symbol implements Serializable {
 
@@ -15,15 +15,18 @@ public class Symbol implements Serializable {
     private final String symbol;
     private final LocalDate date;
     private final Boolean isEnabled;
+    private final String name;
 
     @JsonCreator
     public Symbol(
             @JsonProperty("symbol") final String symbol,
             @JsonProperty("date") final LocalDate date,
-            @JsonProperty("isEnabled") final Boolean isEnabled) {
+            @JsonProperty("isEnabled") final Boolean isEnabled,
+            @JsonProperty("name") final String name) {
         this.symbol = symbol;
         this.date = date;
         this.isEnabled = isEnabled;
+        this.name = name;
     }
 
     public String getSymbol() {
@@ -39,28 +42,38 @@ public class Symbol implements Serializable {
         return isEnabled;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         final Symbol symbol1 = (Symbol) o;
-        return Objects.equal(symbol, symbol1.symbol) &&
-                Objects.equal(date, symbol1.date) &&
-                Objects.equal(isEnabled, symbol1.isEnabled);
+        return Objects.equals(symbol, symbol1.symbol) &&
+                Objects.equals(date, symbol1.date) &&
+                Objects.equals(isEnabled, symbol1.isEnabled) &&
+                Objects.equals(name, symbol1.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(symbol, date, isEnabled);
+        return Objects.hash(symbol, date, isEnabled, name);
     }
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("symbol", symbol)
-                .add("date", date)
-                .add("isEnabled", isEnabled)
+        return new StringJoiner(", ", Symbol.class.getSimpleName() + "[", "]")
+                .add("symbol='" + symbol + "'")
+                .add("date=" + date)
+                .add("isEnabled=" + isEnabled)
+                .add("name='" + name + "'")
+                .add("enabled=" + getEnabled())
                 .toString();
     }
-
 }

@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SymbolTest {
+class SymbolTest {
 
     private final JFixture fixture = new JFixture();
 
@@ -18,12 +18,14 @@ public class SymbolTest {
         final String symbol = fixture.create(String.class);
         final LocalDate date = fixture.create(LocalDate.class);
         final Boolean isEnabled = fixture.create(Boolean.class);
+        final String name = fixture.create(String.class);
 
-        final Symbol symbolObject = new Symbol(symbol, date, isEnabled);
+        final Symbol symbolObject = new Symbol(symbol, date, isEnabled, name);
 
         assertThat(symbolObject.getSymbol()).isEqualTo(symbol);
         assertThat(symbolObject.getDate()).isEqualTo(date);
         assertThat(symbolObject.getEnabled()).isEqualTo(isEnabled);
+        assertThat(symbolObject.getName()).isEqualTo(name);
     }
 
     @Test
