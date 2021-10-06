@@ -17,7 +17,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SplitsServiceTest extends BaseIEXCloudV1ServiceTest {
+class SplitsServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
     void splitsServiceTest() {
@@ -36,13 +36,14 @@ public class SplitsServiceTest extends BaseIEXCloudV1ServiceTest {
                 .build());
 
         final Split split = splitList.get(0);
-        assertThat(split.getExDate()).isEqualTo(LocalDate.of(2017, 8, 10));
+        assertThat(split.getExDate()).isEqualTo(LocalDate.of(2020, 8, 28));
         assertThat(split.getDeclaredDate()).isEqualTo(LocalDate.of(2017, 8, 1));
-        assertThat(split.getRatio()).isEqualTo(BigDecimal.valueOf(0.142857));
-        assertThat(split.getToFactor()).isEqualTo(BigDecimal.valueOf(7));
+        assertThat(split.getRatio()).isEqualTo(BigDecimal.valueOf(0.26));
+        assertThat(split.getToFactor()).isEqualTo(BigDecimal.valueOf(4));
         assertThat(split.getFromFactor()).isEqualTo(BigDecimal.valueOf(1));
-        assertThat(split.getDescription()).isEqualTo("7-for-1 split");
-        assertThat(split.getDate()).isEqualTo(LocalDate.of(2019, 8, 10));
+        assertThat(split.getDescription()).isEqualTo("4-for-1 split");
+        assertThat(split.getRefid()).isEqualTo("6928141");
+        assertThat(split.getSymbol()).isEqualTo("AAPL");
     }
 
 }

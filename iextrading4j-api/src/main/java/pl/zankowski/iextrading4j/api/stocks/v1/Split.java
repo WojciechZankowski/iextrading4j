@@ -3,13 +3,12 @@ package pl.zankowski.iextrading4j.api.stocks.v1;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.StringJoiner;
 
-public class Split implements Serializable {
+public class Split extends BaseData {
 
     private static final long serialVersionUID = -6189411289398426730L;
 
@@ -19,24 +18,31 @@ public class Split implements Serializable {
     private final BigDecimal toFactor;
     private final BigDecimal fromFactor;
     private final String description;
-    private final LocalDate date;
+    private final String refid;
 
     @JsonCreator
     public Split(
+            @JsonProperty("symbol") final String symbol,
+            @JsonProperty("id") final String id,
+            @JsonProperty("key") final String key,
+            @JsonProperty("subkey") final String subkey,
+            @JsonProperty("updated") final Long updated,
+            @JsonProperty("date") final Long date,
             @JsonProperty("exDate") final LocalDate exDate,
             @JsonProperty("declaredDate") final LocalDate declaredDate,
             @JsonProperty("ratio") final BigDecimal ratio,
             @JsonProperty("toFactor") final BigDecimal toFactor,
             @JsonProperty("fromFactor") final BigDecimal fromFactor,
             @JsonProperty("description") final String description,
-            @JsonProperty("date") final LocalDate date) {
+            @JsonProperty("refId") final String refId) {
+        super(symbol, id, key, subkey, updated, date);
         this.exDate = exDate;
         this.declaredDate = declaredDate;
         this.ratio = ratio;
         this.toFactor = toFactor;
         this.fromFactor = fromFactor;
         this.description = description;
-        this.date = date;
+        this.refid = refId;
     }
 
     public LocalDate getExDate() {
@@ -63,8 +69,8 @@ public class Split implements Serializable {
         return description;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public String getRefid() {
+        return refid;
     }
 
     @Override
@@ -75,20 +81,20 @@ public class Split implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
+        if (!super.equals(o)) {
+            return false;
+        }
         final Split split = (Split) o;
         return Objects.equals(exDate, split.exDate) &&
                 Objects.equals(declaredDate, split.declaredDate) &&
-                Objects.equals(ratio, split.ratio) &&
-                Objects.equals(toFactor, split.toFactor) &&
+                Objects.equals(ratio, split.ratio) && Objects.equals(toFactor, split.toFactor) &&
                 Objects.equals(fromFactor, split.fromFactor) &&
-                Objects.equals(description, split.description) &&
-                Objects.equals(date, split.date);
+                Objects.equals(description, split.description) && Objects.equals(refid, split.refid);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(exDate, declaredDate, ratio, toFactor, fromFactor,
-                description, date);
+        return Objects.hash(super.hashCode(), exDate, declaredDate, ratio, toFactor, fromFactor, description, refid);
     }
 
     @Override
@@ -100,7 +106,7 @@ public class Split implements Serializable {
                 .add("toFactor=" + toFactor)
                 .add("fromFactor=" + fromFactor)
                 .add("description='" + description + "'")
-                .add("date=" + date)
+                .add("refId='" + refid + "'")
                 .toString();
     }
 }
