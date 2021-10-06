@@ -53,6 +53,7 @@ import pl.zankowski.iextrading4j.client.rest.request.stocks.PeersRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.PriceRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.QuoteRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.SectorPerformanceRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.stocks.SplitsRange;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayEarningsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.TodayIposRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.UpcomingIposRequestBuilder;
@@ -630,7 +631,8 @@ public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     @Test
     void splitsTest() {
         final List<Split> result = cloudClient.executeRequest(new SplitsRequestBuilder()
-                .withSymbol("AAPL")
+                .withSymbol("IRCP")
+                .withSplitsRange(SplitsRange.TWO_YEARS)
                 .build());
         assertThat(result).isNotNull();
     }
