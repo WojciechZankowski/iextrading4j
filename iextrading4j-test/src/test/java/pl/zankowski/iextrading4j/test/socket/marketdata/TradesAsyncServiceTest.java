@@ -39,7 +39,7 @@ public class TradesAsyncServiceTest extends BaseSocketServiceTest {
         assertThat(response.getSeq()).isEqualTo(2964L);
 
         final Trade data = response.getData();
-        assertThat(data.getPrice()).isEqualTo(BigDecimal.valueOf(185.8100));
+        assertThat(data.getPrice()).usingComparator(BigDecimal::compareTo).isEqualTo(BigDecimal.valueOf(185.8100));
         assertThat(data.getSize()).isEqualTo(BigDecimal.valueOf(100));
         assertThat(data.getTradeId()).isEqualTo(517936386L);
         assertThat(data.isISO()).isTrue();

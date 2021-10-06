@@ -3,7 +3,7 @@ package pl.zankowski.iextrading4j.client.rest.request.corporate;
 import pl.zankowski.iextrading4j.api.corporate.AdvancedSplits;
 import pl.zankowski.iextrading4j.client.rest.request.datapoint.AbstractStockTimeSeriesRequestBuilder;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.List;
 
 public class AdvancedSplitsRequestBuilder extends AbstractStockTimeSeriesRequestBuilder<List<AdvancedSplits>,

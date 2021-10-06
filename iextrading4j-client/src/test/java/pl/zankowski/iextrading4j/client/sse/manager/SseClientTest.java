@@ -1,15 +1,14 @@
 package pl.zankowski.iextrading4j.client.sse.manager;
 
+import jakarta.ws.rs.client.Client;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
-import javax.ws.rs.client.Client;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
-public class SseClientTest {
+class SseClientTest {
 
     @Test
     void testConstructor() {

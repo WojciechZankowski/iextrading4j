@@ -1,12 +1,12 @@
 package pl.zankowski.iextrading4j.client.rest.request.marketdata;
 
+import jakarta.ws.rs.core.GenericType;
 import pl.zankowski.iextrading4j.api.marketdata.Trade;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
-import javax.ws.rs.core.GenericType;
 import java.util.List;
 import java.util.Map;
 

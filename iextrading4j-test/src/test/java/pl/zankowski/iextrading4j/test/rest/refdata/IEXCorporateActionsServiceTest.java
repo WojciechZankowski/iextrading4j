@@ -78,5 +78,4 @@ public class IEXCorporateActionsServiceTest extends BaseRestServiceTest {
         assertThat(corporateActions.getRecordUpdateTime()).isEqualTo(LocalDateTime.of(2017, 11, 8, 16, 34, 43));
     }
 
-
 }

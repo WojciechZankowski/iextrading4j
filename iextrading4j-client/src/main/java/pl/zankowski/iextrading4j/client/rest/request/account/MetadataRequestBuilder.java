@@ -6,7 +6,7 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.AbstractRequestFilterBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 
 public class MetadataRequestBuilder extends AbstractRequestFilterBuilder<Metadata, MetadataRequestBuilder>
         implements IEXCloudV1RestRequest<Metadata> {

@@ -4,7 +4,7 @@ import pl.zankowski.iextrading4j.api.alternative.SentimentEvent;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequestBuilder;
 import pl.zankowski.iextrading4j.client.sse.request.AbstractSymbolSseRequestBuilder;
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.List;
 
 public class SentimentSseRequestBuilder extends AbstractSymbolSseRequestBuilder<List<SentimentEvent>, SentimentSseRequestBuilder> {

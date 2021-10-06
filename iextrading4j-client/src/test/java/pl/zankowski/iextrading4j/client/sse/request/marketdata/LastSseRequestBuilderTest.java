@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.marketdata.LastTrade;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 
 import java.util.List;
 

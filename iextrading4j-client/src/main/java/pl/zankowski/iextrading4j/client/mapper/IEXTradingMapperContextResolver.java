@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import jakarta.ws.rs.ext.ContextResolver;
+import jakarta.ws.rs.ext.Provider;
 import pl.zankowski.iextrading4j.api.alternative.CryptoEventReason;
 import pl.zankowski.iextrading4j.api.alternative.CryptoEventType;
 import pl.zankowski.iextrading4j.api.alternative.CryptoSide;
@@ -32,8 +34,6 @@ import pl.zankowski.iextrading4j.client.properties.PropertiesReader;
 import pl.zankowski.iextrading4j.client.properties.PropertyType;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepChannel;
 
-import javax.ws.rs.ext.ContextResolver;
-import javax.ws.rs.ext.Provider;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
