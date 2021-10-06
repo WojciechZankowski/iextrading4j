@@ -81,20 +81,20 @@ public class Split extends BaseData {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
+        if (!super.equals(o)) {
+            return false;
+        }
         final Split split = (Split) o;
         return Objects.equals(exDate, split.exDate) &&
                 Objects.equals(declaredDate, split.declaredDate) &&
-                Objects.equals(ratio, split.ratio) &&
-                Objects.equals(toFactor, split.toFactor) &&
+                Objects.equals(ratio, split.ratio) && Objects.equals(toFactor, split.toFactor) &&
                 Objects.equals(fromFactor, split.fromFactor) &&
-                Objects.equals(description, split.description) &&
-                Objects.equals(refid, split.refid);
+                Objects.equals(description, split.description) && Objects.equals(refid, split.refid);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(exDate, declaredDate, ratio, toFactor, fromFactor,
-                description, refid);
+        return Objects.hash(super.hashCode(), exDate, declaredDate, ratio, toFactor, fromFactor, description, refid);
     }
 
     @Override
