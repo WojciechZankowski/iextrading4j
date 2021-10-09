@@ -10,6 +10,8 @@ import java.time.format.DateTimeFormatter;
 
 public class HackyLocalDateTimeDeserializer extends LocalDateTimeDeserializer {
 
+    private static final long serialVersionUID = 6548084168469622703L;
+
     private static final DateTimeFormatter DEFAULT_FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 
     HackyLocalDateTimeDeserializer() {
