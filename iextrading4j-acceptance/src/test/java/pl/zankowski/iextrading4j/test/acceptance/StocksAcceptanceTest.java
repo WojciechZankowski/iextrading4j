@@ -28,7 +28,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 @Deprecated
 @Disabled("403 Forbidden")
-public class StocksAcceptanceTest extends AcceptanceTestBase {
+class StocksAcceptanceTest extends AcceptanceTestBase {
 
     @Test
     void bookRequestAcceptanceTest() {

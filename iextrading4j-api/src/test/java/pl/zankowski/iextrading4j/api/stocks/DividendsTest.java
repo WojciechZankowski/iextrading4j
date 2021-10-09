@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DividendsTest {
+class DividendsTest {
 
     private final JFixture fixture = new JFixture();
 

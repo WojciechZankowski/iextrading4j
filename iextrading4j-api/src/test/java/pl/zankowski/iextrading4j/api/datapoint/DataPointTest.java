@@ -10,7 +10,7 @@ import java.time.OffsetDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DataPointTest {
+class DataPointTest {
 
     private final JFixture fixture = new JFixture();
 

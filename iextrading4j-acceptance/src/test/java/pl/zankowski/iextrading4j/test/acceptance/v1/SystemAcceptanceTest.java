@@ -6,7 +6,7 @@ import pl.zankowski.iextrading4j.client.rest.request.system.SystemStatusRequestB
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SystemAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
+class SystemAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Test
     void systemStatusTest() {

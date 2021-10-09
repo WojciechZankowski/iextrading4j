@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.entry;
 import static pl.zankowski.iextrading4j.client.rest.request.marketdata.AbstractMarketDataRequestBuilder.ALL_SYMBOLS;
 
-public class TopsRequestBuilderTest {
+class TopsRequestBuilderTest {
 
     @Test
     void shouldSuccessfullyCreateRequest() {

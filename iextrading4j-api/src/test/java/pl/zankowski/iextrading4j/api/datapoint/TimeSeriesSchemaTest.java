@@ -11,7 +11,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TimeSeriesSchemaTest {
+class TimeSeriesSchemaTest {
 
     private final JFixture fixture = new JFixture();
 

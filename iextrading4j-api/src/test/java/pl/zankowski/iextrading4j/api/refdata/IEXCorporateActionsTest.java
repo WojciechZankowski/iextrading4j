@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class IEXCorporateActionsTest {
+class IEXCorporateActionsTest {
 
     private final JFixture fixture = new JFixture();
 

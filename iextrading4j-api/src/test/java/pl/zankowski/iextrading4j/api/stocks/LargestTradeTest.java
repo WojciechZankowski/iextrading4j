@@ -10,7 +10,7 @@ import java.time.LocalTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class LargestTradeTest {
+class LargestTradeTest {
 
     private final JFixture fixture = new JFixture();
 

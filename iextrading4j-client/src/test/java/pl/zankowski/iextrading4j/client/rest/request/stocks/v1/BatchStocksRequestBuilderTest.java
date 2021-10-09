@@ -10,7 +10,7 @@ import jakarta.ws.rs.core.GenericType;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.entry;
 
-public class BatchStocksRequestBuilderTest {
+class BatchStocksRequestBuilderTest {
 
     @Test
     void shouldSuccessfullyCreateRequest() {

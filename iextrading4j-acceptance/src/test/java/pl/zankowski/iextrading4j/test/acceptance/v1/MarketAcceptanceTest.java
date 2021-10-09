@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MarketAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
+class MarketAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Test
     void marketVolumeAcceptanceTest() {

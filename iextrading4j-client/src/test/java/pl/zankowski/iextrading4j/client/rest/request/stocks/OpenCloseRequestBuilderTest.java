@@ -10,7 +10,7 @@ import jakarta.ws.rs.core.GenericType;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.entry;
 
-public class OpenCloseRequestBuilderTest {
+class OpenCloseRequestBuilderTest {
 
     @Test
     void shouldSuccessfullyCreateRequest() {

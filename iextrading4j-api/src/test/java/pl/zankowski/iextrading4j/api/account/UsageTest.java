@@ -9,7 +9,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class UsageTest {
+class UsageTest {
 
     private final JFixture fixture = new JFixture();
 

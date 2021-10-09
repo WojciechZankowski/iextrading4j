@@ -12,7 +12,7 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.entry;
 
-public class UsageRequestBuilderTest {
+class UsageRequestBuilderTest {
 
     @Test
     void shouldSuccessfullyCreateUsageRequest() {

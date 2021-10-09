@@ -20,7 +20,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class IEXNextDayExDateServiceTest extends BaseRestServiceTest {
+class IEXNextDayExDateServiceTest extends BaseRestServiceTest {
 
     @Test
     void nextDayExDateServiceTest() {

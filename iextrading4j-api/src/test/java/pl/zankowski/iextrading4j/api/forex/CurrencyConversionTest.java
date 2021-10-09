@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CurrencyConversionTest {
+class CurrencyConversionTest {
 
     private final JFixture fixture = new JFixture();
 

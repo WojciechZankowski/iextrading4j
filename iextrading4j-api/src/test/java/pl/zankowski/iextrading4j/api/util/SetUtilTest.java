@@ -8,7 +8,7 @@ import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SetUtilTest {
+class SetUtilTest {
 
     @Test
     void shouldCreateEmptySetForNullInput() {

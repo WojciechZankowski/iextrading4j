@@ -11,7 +11,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DataPointsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
+class DataPointsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Test
     void dataPointsTest() {

@@ -8,7 +8,7 @@ import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DeepAsyncResponseTest {
+class DeepAsyncResponseTest {
 
     private final JFixture fixture = new JFixture();
 

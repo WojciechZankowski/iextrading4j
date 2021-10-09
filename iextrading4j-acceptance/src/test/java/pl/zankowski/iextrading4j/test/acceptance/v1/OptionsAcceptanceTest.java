@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class OptionsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
+class OptionsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Test
     void optionsTest() {

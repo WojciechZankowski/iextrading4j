@@ -8,7 +8,7 @@ import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
-public class RestClientTest {
+class RestClientTest {
 
     @Test
     void testConstructor() {

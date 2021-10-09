@@ -11,7 +11,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.entry;
 
-public class LastTradeRequestBuilderTest {
+class LastTradeRequestBuilderTest {
 
     @Test
     void shouldSuccessfullyCreateRequest() {

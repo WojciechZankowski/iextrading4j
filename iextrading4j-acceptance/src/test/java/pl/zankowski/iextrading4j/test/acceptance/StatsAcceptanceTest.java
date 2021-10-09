@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @deprecated Old IEX API service https://iextrading.com/developer/
  */
 @Deprecated
-public class StatsAcceptanceTest extends AcceptanceTestBase {
+class StatsAcceptanceTest extends AcceptanceTestBase {
 
     @Test
     void intradayAcceptanceTest() {

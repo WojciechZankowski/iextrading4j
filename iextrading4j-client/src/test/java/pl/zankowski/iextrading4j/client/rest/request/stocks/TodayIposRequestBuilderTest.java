@@ -9,7 +9,7 @@ import jakarta.ws.rs.core.GenericType;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TodayIposRequestBuilderTest {
+class TodayIposRequestBuilderTest {
 
     @Test
     void shouldSuccessfullyCreateRequest() {

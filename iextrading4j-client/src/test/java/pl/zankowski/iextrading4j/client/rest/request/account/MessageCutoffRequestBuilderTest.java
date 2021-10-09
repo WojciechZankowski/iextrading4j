@@ -8,7 +8,7 @@ import jakarta.ws.rs.core.GenericType;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MessageCutoffRequestBuilderTest {
+class MessageCutoffRequestBuilderTest {
 
     @Test
     void shouldSuccessfullyCreateRequest() {

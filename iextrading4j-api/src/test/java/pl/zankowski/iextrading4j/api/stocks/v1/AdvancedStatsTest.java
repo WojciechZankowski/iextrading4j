@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AdvancedStatsTest {
+class AdvancedStatsTest {
 
     private final JFixture fixture = new JFixture();
 

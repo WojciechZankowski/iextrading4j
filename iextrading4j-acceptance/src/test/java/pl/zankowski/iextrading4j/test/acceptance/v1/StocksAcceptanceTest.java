@@ -86,7 +86,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
+class StocksAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Test
     void advancedStatsTest() {

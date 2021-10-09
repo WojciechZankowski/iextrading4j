@@ -9,7 +9,7 @@ import jakarta.ws.rs.core.GenericType;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MetadataRequestBuilderTest {
+class MetadataRequestBuilderTest {
 
     @Test
     void shouldSuccessfullyCreateRequest() {

@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.entry;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class CollectionRequestBuilderTest {
+class CollectionRequestBuilderTest {
 
     @Test
     void shouldThrowExceptionWhenCollectionTypeIsNull() {

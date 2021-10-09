@@ -6,7 +6,7 @@ import pl.zankowski.iextrading4j.client.socket.manager.SocketRequest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class LastAsyncRequestBuilderTest {
+class LastAsyncRequestBuilderTest {
 
     @Test
     void shouldSuccessfullyCreateAsyncRequest() {

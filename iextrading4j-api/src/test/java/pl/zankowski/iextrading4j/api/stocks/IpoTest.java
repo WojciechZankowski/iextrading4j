@@ -12,7 +12,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class IpoTest {
+class IpoTest {
 
     private final JFixture fixture = new JFixture();
 

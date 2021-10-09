@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FinancialsTest {
+class FinancialsTest {
 
     private final JFixture fixture = new JFixture();
 

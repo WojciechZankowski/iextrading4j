@@ -14,7 +14,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class GenericSseEndpointTest {
+class GenericSseEndpointTest {
 
     private GenericSseEndpoint genericSseEndpoint;
     private SseManager sseManagerMock;

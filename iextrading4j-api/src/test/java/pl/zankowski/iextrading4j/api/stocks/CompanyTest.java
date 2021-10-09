@@ -11,7 +11,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CompanyTest {
+class CompanyTest {
 
     private final JFixture fixture = new JFixture();
 

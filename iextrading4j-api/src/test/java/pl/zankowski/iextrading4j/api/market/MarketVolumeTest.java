@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MarketVolumeTest {
+class MarketVolumeTest {
 
     private final JFixture fixture = new JFixture();
 

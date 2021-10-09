@@ -6,7 +6,7 @@ import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
-public class WireMockExtension extends WireMockServer implements BeforeEachCallback, AfterEachCallback {
+class WireMockExtension extends WireMockServer implements BeforeEachCallback, AfterEachCallback {
 
     public WireMockExtension(final int port) {
         super(port);

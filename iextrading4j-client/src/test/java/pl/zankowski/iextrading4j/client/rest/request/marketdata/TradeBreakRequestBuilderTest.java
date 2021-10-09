@@ -12,7 +12,7 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.entry;
 
-public class TradeBreakRequestBuilderTest {
+class TradeBreakRequestBuilderTest {
 
     @Test
     void shouldSuccessfullyCreateRequest() {

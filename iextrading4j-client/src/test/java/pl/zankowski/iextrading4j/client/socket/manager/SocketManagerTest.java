@@ -20,7 +20,7 @@ import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-public class SocketManagerTest {
+class SocketManagerTest {
 
     private SocketManager socketManager;
     private SocketWrapper socketWrapper;
