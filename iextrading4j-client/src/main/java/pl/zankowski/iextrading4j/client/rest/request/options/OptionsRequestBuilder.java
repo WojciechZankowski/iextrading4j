@@ -1,16 +1,18 @@
 package pl.zankowski.iextrading4j.client.rest.request.options;
 
+import jakarta.ws.rs.core.GenericType;
 import pl.zankowski.iextrading4j.api.options.Option;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.AbstractStocksRequestBuilder;
 
-import jakarta.ws.rs.core.GenericType;
 import java.util.List;
 
 public class OptionsRequestBuilder extends AbstractStocksRequestBuilder<List<String>, OptionsRequestBuilder>
         implements IEXCloudV1RestRequest<List<String>> {
+
+    private static final String EXPIRATION_DATE_PARAM = "expirationDate";
 
     public SpecificOptionRequestBuilder withExpirationDate(final String expirationDate) {
         return new SpecificOptionRequestBuilder(expirationDate, getSymbol());
@@ -20,7 +22,7 @@ public class OptionsRequestBuilder extends AbstractStocksRequestBuilder<List<Str
     public RestRequest<List<String>> build() {
         return RestRequestBuilder.<List<String>>builder()
                 .withPath("/stock/{symbol}/options")
-                .addPathParam("symbol", getSymbol()).get()
+                .addPathParam(SYMBOL_PARAM_NAME, getSymbol()).get()
                 .withResponse(new GenericType<List<String>>() {
                 })
                 .build();
@@ -45,8 +47,8 @@ public class OptionsRequestBuilder extends AbstractStocksRequestBuilder<List<Str
         private RestRequest<List<Option>> request() {
             return RestRequestBuilder.<List<Option>>builder()
                     .withPath("/stock/{symbol}/options/{expirationDate}")
-                    .addPathParam("symbol", getSymbol())
-                    .addPathParam("expirationDate", expirationDate).get()
+                    .addPathParam(SYMBOL_PARAM_NAME, getSymbol())
+                    .addPathParam(EXPIRATION_DATE_PARAM, expirationDate).get()
                     .withResponse(new GenericType<List<Option>>() {
                     })
                     .build();
@@ -55,8 +57,8 @@ public class OptionsRequestBuilder extends AbstractStocksRequestBuilder<List<Str
         private RestRequest<List<Option>> requestWithSide() {
             return RestRequestBuilder.<List<Option>>builder()
                     .withPath("/stock/{symbol}/options/{expirationDate}/{side}")
-                    .addPathParam("symbol", getSymbol())
-                    .addPathParam("expirationDate", expirationDate)
+                    .addPathParam(SYMBOL_PARAM_NAME, getSymbol())
+                    .addPathParam(EXPIRATION_DATE_PARAM, expirationDate)
                     .addPathParam("side", side.getName()).get()
                     .withResponse(new GenericType<List<Option>>() {
                     })

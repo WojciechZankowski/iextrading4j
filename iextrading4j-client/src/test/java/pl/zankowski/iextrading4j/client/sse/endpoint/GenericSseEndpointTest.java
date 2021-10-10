@@ -32,7 +32,7 @@ class GenericSseEndpointTest {
 
         genericSseEndpoint.subscribe(request, topsConsumer);
 
-        verify(sseManagerMock).subscribe(eq(request), eq(topsConsumer));
+        verify(sseManagerMock).subscribe(request, topsConsumer);
     }
 
     @Test
@@ -41,7 +41,7 @@ class GenericSseEndpointTest {
 
         genericSseEndpoint.unsubscribe(request);
 
-        verify(sseManagerMock).unsubscribe(eq(request));
+        verify(sseManagerMock).unsubscribe(request);
     }
 
 }

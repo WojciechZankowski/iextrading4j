@@ -33,9 +33,8 @@ class OptionsServiceTest extends BaseIEXCloudV1ServiceTest {
                 .withSymbol("AAPL")
                 .build());
 
-        assertThat(result).hasSize(9);
-        assertThat(result).contains("206586", "205048", "202133", "206054", "206882", "207862", "206203",
-                "202857", "209239");
+        assertThat(result).containsExactlyInAnyOrder("206586", "205048", "202133", "206054", "206882", "207862",
+                "206203", "202857", "209239");
     }
 
     @Test

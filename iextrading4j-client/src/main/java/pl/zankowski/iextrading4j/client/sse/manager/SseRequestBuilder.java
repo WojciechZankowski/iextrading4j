@@ -75,7 +75,7 @@ public class SseRequestBuilder<R> implements ISseParamRequestBuilder<R>,
 
     @Override
     public SseRequest<R> build() {
-        return new SseRequest<R>(this.responseType, this.path, this.headerParams, this.pathParams, this.queryParams,
+        return new SseRequest<>(this.responseType, this.path, this.headerParams, this.pathParams, this.queryParams,
                 this.useSecretToken);
     }
 

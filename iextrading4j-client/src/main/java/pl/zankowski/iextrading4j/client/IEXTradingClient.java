@@ -1,7 +1,6 @@
 package pl.zankowski.iextrading4j.client;
 
 import com.google.common.collect.ImmutableMap;
-import jakarta.ws.rs.client.Client;
 import org.glassfish.jersey.client.JerseyClient;
 import org.glassfish.jersey.client.JerseyClientBuilder;
 import org.glassfish.jersey.jackson.JacksonFeature;
@@ -45,15 +44,6 @@ public class IEXTradingClient implements IEXApiClient, IEXCloudClient {
                     .put(IEXTradingApiVersion.IEX_CLOUD_BETA_SANDBOX, PropertyType.API_SSE_V2_SANDBOX)
                     .put(IEXTradingApiVersion.IEX_CLOUD_V1, PropertyType.API_SSE_V2)
                     .put(IEXTradingApiVersion.IEX_CLOUD_V1_SANDBOX, PropertyType.API_SSE_V2_SANDBOX)
-                    .build();
-
-    private static final Map<IEXTradingApiVersion, PropertyType> SOCKET_PATHS =
-            ImmutableMap.<IEXTradingApiVersion, PropertyType>builder()
-                    .put(IEXTradingApiVersion.IEX_API_V1, PropertyType.API_SOCKET_V1)
-                    .put(IEXTradingApiVersion.IEX_CLOUD_BETA, PropertyType.API_SOCKET_V2)
-                    .put(IEXTradingApiVersion.IEX_CLOUD_BETA_SANDBOX, PropertyType.API_SOCKET_V2_SANDBOX)
-                    .put(IEXTradingApiVersion.IEX_CLOUD_V1, PropertyType.API_SOCKET_V2)
-                    .put(IEXTradingApiVersion.IEX_CLOUD_V1_SANDBOX, PropertyType.API_SOCKET_V2_SANDBOX)
                     .build();
 
     private final GenericRestEndpoint genericRestEndpoint;

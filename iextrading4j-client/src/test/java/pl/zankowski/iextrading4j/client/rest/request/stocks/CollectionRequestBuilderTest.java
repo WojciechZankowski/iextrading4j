@@ -16,16 +16,16 @@ class CollectionRequestBuilderTest {
 
     @Test
     void shouldThrowExceptionWhenCollectionTypeIsNull() {
-        assertThrows(NullPointerException.class, () -> new CollectionRequestBuilder()
-                .withCollectionName("name")
-                .build());
+        final CollectionRequestBuilder collectionRequestBuilder = new CollectionRequestBuilder()
+                .withCollectionName("name");
+        assertThrows(NullPointerException.class, collectionRequestBuilder::build);
     }
 
     @Test
     void shouldThrowExceptionWhenCollectionNameIsNull() {
-        assertThrows(NullPointerException.class, () -> new CollectionRequestBuilder()
-                .withCollectionType(CollectionType.SECTOR)
-                .build());
+        final CollectionRequestBuilder collectionRequestBuilder = new CollectionRequestBuilder()
+                .withCollectionType(CollectionType.SECTOR);
+        assertThrows(NullPointerException.class, collectionRequestBuilder::build);
     }
 
     @Test

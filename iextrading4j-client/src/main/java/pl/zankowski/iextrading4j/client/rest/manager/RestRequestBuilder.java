@@ -99,7 +99,7 @@ public class RestRequestBuilder<R> implements IRestPathRequestBuilder<R>,
 
     @Override
     public RestRequest<R> build() {
-        return new RestRequest<R>(this.responseType, this.requestEntity, this.path, this.methodType, this.headerParams,
+        return new RestRequest<>(this.responseType, this.requestEntity, this.path, this.methodType, this.headerParams,
                 this.queryParams, this.pathParams, this.useSecretToken);
     }
 

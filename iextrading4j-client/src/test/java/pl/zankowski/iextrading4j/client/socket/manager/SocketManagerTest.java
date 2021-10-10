@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
@@ -58,7 +59,7 @@ class SocketManagerTest {
 
         listenerCaptor.getValue().call("\""+response+"\"");
 
-        verify(consumer).accept(eq(response));
+        verify(consumer).accept(response);
     }
 
     @Test
@@ -83,7 +84,7 @@ class SocketManagerTest {
 
         listenerCaptor.getValue().call("\""+response+"\"");
 
-        verify(consumer).accept(eq(response));
+        verify(consumer).accept(response);
     }
 
     @Test
@@ -98,7 +99,7 @@ class SocketManagerTest {
 
         socketManager.subscribe(request, consumer);
 
-        verify(socketWrapper).socket(eq("https://ws-api.iextrading.com/1.0/test"), eq(true));
+        verify(socketWrapper).socket("https://ws-api.iextrading.com/1.0/test", true);
     }
 
     @Test
@@ -114,10 +115,15 @@ class SocketManagerTest {
 
     @Test
     void shouldNotThrowExceptionWhenThereIsNoSubscription() {
-        final SocketRequest<String> request = new SocketRequest<>(new TypeReference<String>() {}, "/test",
-                Arrays.asList("Test", "Test2"));
+        try {
+            final SocketRequest<String> request = new SocketRequest<>(new TypeReference<String>() {
+            }, "/test",
+                    Arrays.asList("Test", "Test2"));
 
-        socketManager.unsubscribe(request);
+            socketManager.unsubscribe(request);
+        } catch (Exception e) {
+            fail();
+        }
     }
 
     @Test

@@ -6,13 +6,13 @@ public class IEXTradingException extends RuntimeException {
 
     private static final long serialVersionUID = -9007556226626660146L;
 
-    private int status;
+    private final Integer status;
 
     public IEXTradingException(final String message) {
-        super(DEFAULT_PREFIX + message);
+        this(DEFAULT_PREFIX + message, null);
     }
 
-    public IEXTradingException(final String message, final int status) {
+    public IEXTradingException(final String message, final Integer status) {
         super(DEFAULT_PREFIX + message);
         this.status = status;
     }

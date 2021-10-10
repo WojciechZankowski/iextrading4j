@@ -16,12 +16,12 @@ public class SocketManager {
     private final Map<SocketRequest, Socket> socketStore = Maps.newHashMap();
 
     private final SocketWrapper socketWrapper;
-    private final String url;
+    private final String baseUrl;
     private final ObjectMapper objectMapper;
 
-    public SocketManager(final SocketWrapper socketWrapper, final String url) {
+    public SocketManager(final SocketWrapper socketWrapper, final String baseUrl) {
         this.socketWrapper = socketWrapper;
-        this.url = url;
+        this.baseUrl = baseUrl;
         this.objectMapper = new IEXTradingMapperContextResolver().getContext(SocketManager.class);
     }
 
@@ -81,7 +81,7 @@ public class SocketManager {
     }
 
     private String getServicePath() {
-        return url;
+        return baseUrl;
     }
 
 }

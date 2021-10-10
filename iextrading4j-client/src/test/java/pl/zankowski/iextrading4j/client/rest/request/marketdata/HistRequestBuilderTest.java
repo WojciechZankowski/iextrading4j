@@ -35,10 +35,10 @@ class HistRequestBuilderTest {
     @Test
     void shouldThrowNullPointerExceptionWhenDateIsNull() {
         final LocalDate date = null;
+        final HistRequestBuilder histRequestBuilder = new HistRequestBuilder();
 
-        assertThrows(NullPointerException.class, () -> new HistRequestBuilder()
-                .withDate(date)
-                .build());
+        assertThrows(NullPointerException.class, () -> histRequestBuilder
+                .withDate(date));
     }
 
     @Test
