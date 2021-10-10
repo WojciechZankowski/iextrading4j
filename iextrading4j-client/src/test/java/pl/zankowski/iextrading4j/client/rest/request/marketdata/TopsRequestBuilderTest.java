@@ -5,7 +5,7 @@ import pl.zankowski.iextrading4j.api.marketdata.TOPS;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.entry;
 import static pl.zankowski.iextrading4j.client.rest.request.marketdata.AbstractMarketDataRequestBuilder.ALL_SYMBOLS;
 
-public class TopsRequestBuilderTest {
+class TopsRequestBuilderTest {
 
     @Test
     void shouldSuccessfullyCreateRequest() {

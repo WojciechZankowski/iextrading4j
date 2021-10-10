@@ -7,7 +7,7 @@ import pl.zankowski.iextrading4j.client.IEXCloudTokenBuilder;
 import pl.zankowski.iextrading4j.client.IEXTradingApiVersion;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
 
-public class IEXCloudV1AcceptanceTestBase {
+public abstract class IEXCloudV1AcceptanceTestBase {
 
     protected IEXCloudClient cloudClient;
 

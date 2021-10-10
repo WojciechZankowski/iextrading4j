@@ -31,7 +31,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RefDataAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
+class RefDataAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Test
     void symbolsTest() {

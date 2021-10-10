@@ -7,7 +7,7 @@ import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RecordsStatsTest {
+class RecordsStatsTest {
 
     private final JFixture fixture = new JFixture();
 

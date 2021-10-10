@@ -9,7 +9,7 @@ import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepChann
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TradeBreakAsyncRequestBuilderTest {
+class TradeBreakAsyncRequestBuilderTest {
 
     @Test
     void shouldSuccessfullyCreateRequest() {

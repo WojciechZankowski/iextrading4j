@@ -6,7 +6,7 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.AbstractStocksRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.SplitsRange;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.util.List;
 
 public class SplitsRequestBuilder extends AbstractStocksRequestBuilder<List<Split>, SplitsRequestBuilder> {

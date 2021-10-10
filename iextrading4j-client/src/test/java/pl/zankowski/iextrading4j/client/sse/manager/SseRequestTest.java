@@ -5,14 +5,14 @@ import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.io.Serializable;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
-public class SseRequestTest {
+class SseRequestTest {
 
     @Test
     void constructor() {

@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @deprecated Old IEX API service https://iextrading.com/developer/
  */
 @Deprecated
-public class MarketAcceptanceTest extends AcceptanceTestBase {
+class MarketAcceptanceTest extends AcceptanceTestBase {
 
     @Test
     void marketVolumeAcceptanceTest() {

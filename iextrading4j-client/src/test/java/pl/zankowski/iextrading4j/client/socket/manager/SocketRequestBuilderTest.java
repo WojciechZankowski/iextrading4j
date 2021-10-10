@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SocketRequestBuilderTest {
+class SocketRequestBuilderTest {
 
     private final JFixture fixture = new JFixture();
 

@@ -4,14 +4,14 @@ import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.alternative.SentimentEvent;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.entry;
 
-public class SentimentSseRequestBuilderTest {
+class SentimentSseRequestBuilderTest {
 
     @Test
     void shouldSuccessfullyCreateRequest() {

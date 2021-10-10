@@ -4,11 +4,11 @@ import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MessageCutoffRequestBuilderTest {
+class MessageCutoffRequestBuilderTest {
 
     @Test
     void shouldSuccessfullyCreateRequest() {

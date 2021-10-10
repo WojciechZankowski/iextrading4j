@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 import static org.mockito.Mockito.mock;
 
-public class SseManagerTest {
+class SseManagerTest {
 
     private SseClient sseClientMock;
     private SseManager sseManager;

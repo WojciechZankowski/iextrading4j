@@ -18,7 +18,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AccountAcceptanceTest {
+class AccountAcceptanceTest {
 
     protected IEXCloudClient cloudClient;
 

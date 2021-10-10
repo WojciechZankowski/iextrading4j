@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
-public class TopsAsyncServiceTest extends BaseSocketServiceTest {
+class TopsAsyncServiceTest extends BaseSocketServiceTest {
 
     private final ArgumentCaptor<TOPS> dataCaptor = ArgumentCaptor.forClass(TOPS.class);
 

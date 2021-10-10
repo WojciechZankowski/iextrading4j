@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static pl.zankowski.iextrading4j.api.exception.IEXTradingException.DEFAULT_PREFIX;
 
-public class IEXTradingExceptionTest {
+class IEXTradingExceptionTest {
 
     @Test
     void shouldSuccessfullyCreateExceptionWithStatus() {

@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class HISTTest {
+class HISTTest {
 
     private final JFixture fixture = new JFixture();
 

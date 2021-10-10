@@ -18,7 +18,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
-public class DeepConsumerAdapterTest {
+class DeepConsumerAdapterTest {
 
     private static final String TEST_SYMBOL = "IBM";
     private static final Long SEQ = 1L;

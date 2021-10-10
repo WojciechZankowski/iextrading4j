@@ -12,7 +12,7 @@ import java.io.IOException;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class DividendTypeSerializerTest {
+class DividendTypeSerializerTest {
 
     private DividendTypeSerializer dividendTypeSerializer;
 

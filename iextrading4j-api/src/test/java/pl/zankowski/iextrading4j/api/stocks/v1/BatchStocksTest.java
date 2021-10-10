@@ -22,7 +22,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BatchStocksTest {
+class BatchStocksTest {
 
     private final JFixture fixture = new JFixture();
 

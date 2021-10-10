@@ -12,7 +12,7 @@ import java.util.function.Consumer;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class GenericSocketEndpointTest {
+class GenericSocketEndpointTest {
 
     private GenericSocketEndpoint genericSocketEndpoint;
     private SocketManager socketManagerMock;

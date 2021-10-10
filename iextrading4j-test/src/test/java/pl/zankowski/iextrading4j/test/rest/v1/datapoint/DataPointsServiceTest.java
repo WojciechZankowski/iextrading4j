@@ -17,7 +17,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DataPointsServiceTest extends BaseIEXCloudV1ServiceTest {
+class DataPointsServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
     void dataPointsServiceTest() {

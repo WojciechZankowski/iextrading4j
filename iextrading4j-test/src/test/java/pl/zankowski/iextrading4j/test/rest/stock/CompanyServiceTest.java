@@ -12,7 +12,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CompanyServiceTest extends BaseRestServiceTest {
+class CompanyServiceTest extends BaseRestServiceTest {
 
     @Test
     void companyServiceTest() {

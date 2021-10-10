@@ -23,7 +23,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class IEXCorporateActionsServiceTest extends BaseRestServiceTest {
+class IEXCorporateActionsServiceTest extends BaseRestServiceTest {
 
     @Test
     void corporateActionsServiceTest() {
@@ -77,6 +77,5 @@ public class IEXCorporateActionsServiceTest extends BaseRestServiceTest {
         assertThat(corporateActions.getNotesForEachEntry()).isEqualTo("New preferred ZIEXT security");
         assertThat(corporateActions.getRecordUpdateTime()).isEqualTo(LocalDateTime.of(2017, 11, 8, 16, 34, 43));
     }
-
 
 }

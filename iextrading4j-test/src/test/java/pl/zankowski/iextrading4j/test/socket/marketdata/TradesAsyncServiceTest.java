@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
-public class TradesAsyncServiceTest extends BaseSocketServiceTest {
+class TradesAsyncServiceTest extends BaseSocketServiceTest {
 
     private final ArgumentCaptor<DeepAsyncResponse<Trade>> dataCaptor = ArgumentCaptor.forClass(DeepAsyncResponse.class);
 
@@ -39,7 +39,7 @@ public class TradesAsyncServiceTest extends BaseSocketServiceTest {
         assertThat(response.getSeq()).isEqualTo(2964L);
 
         final Trade data = response.getData();
-        assertThat(data.getPrice()).isEqualTo(BigDecimal.valueOf(185.8100));
+        assertThat(data.getPrice()).usingComparator(BigDecimal::compareTo).isEqualTo(BigDecimal.valueOf(185.8100));
         assertThat(data.getSize()).isEqualTo(BigDecimal.valueOf(100));
         assertThat(data.getTradeId()).isEqualTo(517936386L);
         assertThat(data.isISO()).isTrue();

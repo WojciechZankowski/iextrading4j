@@ -22,7 +22,7 @@ import static org.powermock.api.mockito.PowerMockito.when;
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({SocketWrapper.class, IO.class})
 @PowerMockIgnore({"javax.*.*", "com.sun.*", "org.xml.*"})
-public class SocketWrapperTest {
+class SocketWrapperTest {
 
     private SocketWrapper socketWrapper;
     private Socket socketMock;

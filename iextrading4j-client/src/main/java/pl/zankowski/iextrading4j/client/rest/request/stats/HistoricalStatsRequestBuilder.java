@@ -8,7 +8,7 @@ import pl.zankowski.iextrading4j.client.rest.request.AbstractRequestFilterBuilde
 import pl.zankowski.iextrading4j.client.rest.request.IEXApiRestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.time.YearMonth;
 import java.util.List;
 import java.util.Map;

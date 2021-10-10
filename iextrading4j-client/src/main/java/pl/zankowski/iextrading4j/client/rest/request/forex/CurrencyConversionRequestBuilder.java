@@ -6,7 +6,7 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.marketdata.AbstractMarketDataRequestBuilder;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;

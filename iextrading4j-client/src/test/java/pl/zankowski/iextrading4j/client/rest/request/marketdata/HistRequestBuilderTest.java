@@ -5,7 +5,7 @@ import pl.zankowski.iextrading4j.api.marketdata.HIST;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.entry;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class HistRequestBuilderTest {
+class HistRequestBuilderTest {
 
     @Test
     void shouldSuccessfullyCreateParameterizedRequest() {

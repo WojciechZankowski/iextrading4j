@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
-public class SecurityEventAsyncServiceTest extends BaseSocketServiceTest {
+class SecurityEventAsyncServiceTest extends BaseSocketServiceTest {
 
     private final ArgumentCaptor<DeepAsyncResponse<SecurityEvent>> dataCaptor = ArgumentCaptor.forClass(DeepAsyncResponse.class);
 

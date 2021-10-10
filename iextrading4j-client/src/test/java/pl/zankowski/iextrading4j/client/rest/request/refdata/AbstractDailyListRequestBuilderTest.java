@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AbstractDailyListRequestBuilderTest {
+class AbstractDailyListRequestBuilderTest {
 
     @Test
     void shouldReturnSample() {

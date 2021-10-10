@@ -7,7 +7,7 @@ import pl.zankowski.iextrading4j.client.IEXCloudToken;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class RestClientMetadataTest {
+class RestClientMetadataTest {
 
     @Test
     void testUrl() {

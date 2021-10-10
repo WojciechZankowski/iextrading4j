@@ -12,7 +12,7 @@ import pl.zankowski.iextrading4j.test.design.ViolationsScanner;
 
 import java.util.List;
 
-public class ApiObjectTest extends AbstractViolationTests {
+class ApiObjectTest extends AbstractViolationTests {
 
     private static List<Reflections> REFLECTIONS;
     private static IDesignRules DESIGN_RULES;

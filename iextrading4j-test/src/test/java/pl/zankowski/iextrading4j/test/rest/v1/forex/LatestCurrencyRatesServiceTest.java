@@ -15,7 +15,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class LatestCurrencyRatesServiceTest extends BaseIEXCloudV1ServiceTest {
+class LatestCurrencyRatesServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
     void latestCurrencyRateServiceTest() {

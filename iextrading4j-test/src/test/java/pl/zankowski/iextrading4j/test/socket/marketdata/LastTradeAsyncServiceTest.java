@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
-public class LastTradeAsyncServiceTest extends BaseSocketServiceTest {
+class LastTradeAsyncServiceTest extends BaseSocketServiceTest {
 
     private final ArgumentCaptor<LastTrade> dataCaptor = ArgumentCaptor.forClass(LastTrade.class);
 

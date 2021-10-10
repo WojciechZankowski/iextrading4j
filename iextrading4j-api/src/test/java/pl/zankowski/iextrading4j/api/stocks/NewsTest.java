@@ -9,7 +9,7 @@ import java.time.OffsetDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class NewsTest {
+class NewsTest {
 
     private final JFixture fixture = new JFixture();
 

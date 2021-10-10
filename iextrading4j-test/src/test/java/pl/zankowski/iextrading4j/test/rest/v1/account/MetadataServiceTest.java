@@ -12,7 +12,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MetadataServiceTest extends BaseIEXCloudV1ServiceTest {
+class MetadataServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
     void metadataServiceTest() {

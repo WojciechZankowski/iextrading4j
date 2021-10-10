@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class PriceTargetServiceTest extends BaseIEXCloudV1ServiceTest {
+class PriceTargetServiceTest extends BaseIEXCloudV1ServiceTest {
 
     @Test
     void priceTargetServiceTest() {
