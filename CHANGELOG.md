@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.4.5] - 2021-10-10
+
+### Changed
+
+- Added additional fields to basic Split response [[#122](https://github.com/WojciechZankowski/iextrading4j/issues/122)]
+
 ## [3.4.4] - 2021-05-15
 
 ### Changed
@@ -413,3 +419,4 @@ All notable changes to this project will be documented in this file.
 [3.4.2]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_4_0...IT4J_RELEASE_3_4_2
 [3.4.3]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_4_2...IT4J_RELEASE_3_4_3
 [3.4.4]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_4_3...IT4J_RELEASE_3_4_4
+[3.4.5]: https://github.com/WojciechZankowski/iextrading4j/compare/IT4J_RELEASE_3_4_4...IT4J_RELEASE_3_4_5

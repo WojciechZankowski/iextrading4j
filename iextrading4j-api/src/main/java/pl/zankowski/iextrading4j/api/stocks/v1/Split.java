@@ -100,6 +100,12 @@ public class Split extends BaseData {
     @Override
     public String toString() {
         return new StringJoiner(", ", Split.class.getSimpleName() + "[", "]")
+                .add("symbol='" + getSymbol() + "'")
+                .add("id='" + getId() + "'")
+                .add("key='" + getKey() + "'")
+                .add("subkey='" + getSubkey() + "'")
+                .add("updated=" + getUpdated())
+                .add("date=" + getDate())
                 .add("exDate=" + exDate)
                 .add("declaredDate=" + declaredDate)
                 .add("ratio=" + ratio)
