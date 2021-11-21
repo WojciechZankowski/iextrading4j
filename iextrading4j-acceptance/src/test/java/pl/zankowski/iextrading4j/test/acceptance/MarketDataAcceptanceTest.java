@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.test.acceptance;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.marketdata.Auction;
 import pl.zankowski.iextrading4j.api.marketdata.Book;
@@ -41,6 +42,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Deprecated
 class MarketDataAcceptanceTest extends AcceptanceTestBase {
 
+    @Disabled("403 Forbidden")
     @Test
     void bookAcceptanceTest() {
         final Map<String, Book> books = iexTradingClient.executeRequest(new BookRequestBuilder()
@@ -50,6 +52,7 @@ class MarketDataAcceptanceTest extends AcceptanceTestBase {
         assertThat(books).isNotNull();
     }
 
+    @Disabled("403 Forbidden")
     @Test
     void deepAcceptanceTest() {
         final DEEP deep = iexTradingClient.executeRequest(new DeepRequestBuilder()
@@ -73,6 +76,7 @@ class MarketDataAcceptanceTest extends AcceptanceTestBase {
         assertThat(histMap).isNotNull();
     }
 
+    @Disabled("403 Forbidden")
     @Test
     void lastTradeAcceptanceTest() {
         final List<LastTrade> lastTradeList = iexTradingClient.executeRequest(new LastTradeRequestBuilder()
@@ -81,6 +85,7 @@ class MarketDataAcceptanceTest extends AcceptanceTestBase {
         assertThat(lastTradeList).isNotNull();
     }
 
+    @Disabled("403 Forbidden")
     @Test
     void opHaltStatusAcceptanceTest() {
         final Map<String, OpHaltStatus> opHaltStatuses = iexTradingClient.executeRequest(new OpHaltStatusRequestBuilder()
@@ -89,6 +94,7 @@ class MarketDataAcceptanceTest extends AcceptanceTestBase {
         assertThat(opHaltStatuses).isNotNull();
     }
 
+    @Disabled("403 Forbidden")
     @Test
     void officialPriceAcceptanceTest() {
         final Map<String, OfficialPrice> officialPriceMap = iexTradingClient.executeRequest(new OfficialPriceRequestBuilder()
@@ -97,6 +103,7 @@ class MarketDataAcceptanceTest extends AcceptanceTestBase {
         assertThat(officialPriceMap).isNotNull();
     }
 
+    @Disabled("403 Forbidden")
     @Test
     void securityEventAcceptanceTest() {
         final Map<String, SecurityEvent> securityEvent = iexTradingClient.executeRequest(new SecurityEventRequestBuilder()
@@ -105,6 +112,7 @@ class MarketDataAcceptanceTest extends AcceptanceTestBase {
         assertThat(securityEvent).isNotNull();
     }
 
+    @Disabled("403 Forbidden")
     @Test
     void ssrStatusAcceptanceTest() {
         final Map<String, SsrStatus> ssrStatus = iexTradingClient.executeRequest(new SsrStatusRequestBuilder()
@@ -113,6 +121,7 @@ class MarketDataAcceptanceTest extends AcceptanceTestBase {
         assertThat(ssrStatus).isNotNull();
     }
 
+    @Disabled("403 Forbidden")
     @Test
     void systemEventAcceptanceTest() {
         final SystemEvent systemEvent = iexTradingClient.executeRequest(new SystemEventRequestBuilder()
@@ -121,6 +130,7 @@ class MarketDataAcceptanceTest extends AcceptanceTestBase {
         assertThat(systemEvent).isNotNull();
     }
 
+    @Disabled("403 Forbidden")
     @Test
     void topsAcceptanceTest() {
         final List<TOPS> tops = iexTradingClient.executeRequest(new TopsRequestBuilder()
@@ -129,6 +139,7 @@ class MarketDataAcceptanceTest extends AcceptanceTestBase {
         assertThat(tops).isNotNull();
     }
 
+    @Disabled("403 Forbidden")
     @Test
     void tradeBreakAcceptanceTest() {
         final Map<String, List<Trade>> tradeBreak = iexTradingClient.executeRequest(new TradeBreakRequestBuilder()
@@ -137,6 +148,7 @@ class MarketDataAcceptanceTest extends AcceptanceTestBase {
         assertThat(tradeBreak).isNotNull();
     }
 
+    @Disabled("403 Forbidden")
     @Test
     void tradeAcceptanceTest() {
         final Map<String, List<Trade>> trade = iexTradingClient.executeRequest(new TradeRequestBuilder()
@@ -145,6 +157,7 @@ class MarketDataAcceptanceTest extends AcceptanceTestBase {
         assertThat(trade).isNotNull();
     }
 
+    @Disabled("403 Forbidden")
     @Test
     void tradingStatusAcceptanceTest() {
         final Map<String, TradingStatus> tradingStatus = iexTradingClient.executeRequest(new TradingStatusRequestBuilder()
@@ -153,6 +166,7 @@ class MarketDataAcceptanceTest extends AcceptanceTestBase {
         assertThat(tradingStatus).isNotNull();
     }
 
+    @Disabled("403 Forbidden")
     @Test
     void auctionAcceptanceTest() {
         final Map<String, Auction> auction = iexTradingClient.executeRequest(new AuctionRequestBuilder()
