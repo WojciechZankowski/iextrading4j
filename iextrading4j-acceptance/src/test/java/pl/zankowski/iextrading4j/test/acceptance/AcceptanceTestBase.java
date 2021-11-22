@@ -21,7 +21,7 @@ public abstract class AcceptanceTestBase {
 
     @BeforeEach
     void beforeEach() throws InterruptedException {
-        Thread.sleep(75);
+        Thread.sleep(200);
     }
 
     @AfterAll
