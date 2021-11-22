@@ -16,7 +16,7 @@ public abstract class IEXCloudV1AcceptanceTestBase {
         cloudClient = IEXTradingClient.create(IEXTradingApiVersion.IEX_CLOUD_STABLE_SANDBOX, new IEXCloudTokenBuilder()
                 .withPublishableToken("Tpk_18dfe6cebb4f41ffb219b9680f9acaf2")
                 .build());
-        Thread.sleep(50);
+        Thread.sleep(100);
     }
 
     @AfterEach
