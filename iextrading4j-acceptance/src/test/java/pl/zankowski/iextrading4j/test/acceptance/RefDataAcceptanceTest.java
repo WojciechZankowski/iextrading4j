@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.test.acceptance;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.refdata.ExchangeSymbol;
 import pl.zankowski.iextrading4j.api.refdata.IEXCorporateActions;
@@ -20,6 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @deprecated Old IEX API service https://iextrading.com/developer/
  */
 @Deprecated
+@Disabled
 class RefDataAcceptanceTest extends AcceptanceTestBase {
 
     @Test

@@ -17,14 +17,21 @@ class ExchangeTest {
         final String region = fixture.create(String.class);
         final String description = fixture.create(String.class);
         final String mic = fixture.create(String.class);
+        final String segment = fixture.create(String.class);
+        final String segmentDescription = fixture.create(String.class);
+        final String suffix = fixture.create(String.class);
         final String exchangeSuffix = fixture.create(String.class);
 
-        final Exchange exchangeObject = new Exchange(exchange, region, description, mic, exchangeSuffix);
+        final Exchange exchangeObject = new Exchange(exchange, region, description, mic, segment, segmentDescription,
+                suffix, exchangeSuffix);
 
         assertThat(exchangeObject.getExchange()).isEqualTo(exchange);
         assertThat(exchangeObject.getRegion()).isEqualTo(region);
         assertThat(exchangeObject.getDescription()).isEqualTo(description);
         assertThat(exchangeObject.getMic()).isEqualTo(mic);
+        assertThat(exchangeObject.getSegment()).isEqualTo(segment);
+        assertThat(exchangeObject.getSegmentDescription()).isEqualTo(segmentDescription);
+        assertThat(exchangeObject.getSuffix()).isEqualTo(suffix);
         assertThat(exchangeObject.getExchangeSuffix()).isEqualTo(exchangeSuffix);
     }
 

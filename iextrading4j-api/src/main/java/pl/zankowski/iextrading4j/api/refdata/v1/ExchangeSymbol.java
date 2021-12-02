@@ -17,6 +17,8 @@ public class ExchangeSymbol implements Serializable {
     private final String exchange;
     private final String exchangeSuffix;
     private final String exchangeName;
+    private final String exchangeSegment;
+    private final String exchangeSegmentName;
     private final String name;
     private final LocalDate date;
     private final SymbolType type;
@@ -34,6 +36,8 @@ public class ExchangeSymbol implements Serializable {
             @JsonProperty("exchange") final String exchange,
             @JsonProperty("exchangeSuffix") final String exchangeSuffix,
             @JsonProperty("exchangeName") final String exchangeName,
+            @JsonProperty("exchangeSegment") final String exchangeSegment,
+            @JsonProperty("exchangeSegmentName") final String exchangeSegmentName,
             @JsonProperty("name") final String name,
             @JsonProperty("date") final LocalDate date,
             @JsonProperty("type") final SymbolType type,
@@ -48,6 +52,8 @@ public class ExchangeSymbol implements Serializable {
         this.exchange = exchange;
         this.exchangeSuffix = exchangeSuffix;
         this.exchangeName = exchangeName;
+        this.exchangeSegment = exchangeSegment;
+        this.exchangeSegmentName = exchangeSegmentName;
         this.name = name;
         this.date = date;
         this.type = type;
@@ -74,6 +80,14 @@ public class ExchangeSymbol implements Serializable {
 
     public String getExchangeName() {
         return exchangeName;
+    }
+
+    public String getExchangeSegment() {
+        return exchangeSegment;
+    }
+
+    public String getExchangeSegmentName() {
+        return exchangeSegmentName;
     }
 
     public String getName() {
@@ -126,26 +140,22 @@ public class ExchangeSymbol implements Serializable {
             return false;
         }
         final ExchangeSymbol that = (ExchangeSymbol) o;
-        return Objects.equals(symbol, that.symbol) &&
-                Objects.equals(exchange, that.exchange) &&
+        return Objects.equals(symbol, that.symbol) && Objects.equals(exchange, that.exchange) &&
                 Objects.equals(exchangeSuffix, that.exchangeSuffix) &&
                 Objects.equals(exchangeName, that.exchangeName) &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(date, that.date) &&
-                type == that.type &&
-                Objects.equals(iexId, that.iexId) &&
-                Objects.equals(region, that.region) &&
-                Objects.equals(currency, that.currency) &&
-                Objects.equals(isEnabled, that.isEnabled) &&
-                Objects.equals(figi, that.figi) &&
-                Objects.equals(cik, that.cik) &&
-                Objects.equals(lei, that.lei);
+                Objects.equals(exchangeSegment, that.exchangeSegment) &&
+                Objects.equals(exchangeSegmentName, that.exchangeSegmentName) &&
+                Objects.equals(name, that.name) && Objects.equals(date, that.date) &&
+                type == that.type && Objects.equals(iexId, that.iexId) &&
+                Objects.equals(region, that.region) && Objects.equals(currency, that.currency) &&
+                Objects.equals(isEnabled, that.isEnabled) && Objects.equals(figi, that.figi) &&
+                Objects.equals(cik, that.cik) && Objects.equals(lei, that.lei);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(symbol, exchange, exchangeSuffix, exchangeName, name, date, type, iexId, region, currency,
-                isEnabled, figi, cik, lei);
+        return Objects.hash(symbol, exchange, exchangeSuffix, exchangeName, exchangeSegment, exchangeSegmentName, name,
+                date, type, iexId, region, currency, isEnabled, figi, cik, lei);
     }
 
     @Override
@@ -155,6 +165,8 @@ public class ExchangeSymbol implements Serializable {
                 .add("exchange='" + exchange + "'")
                 .add("exchangeSuffix='" + exchangeSuffix + "'")
                 .add("exchangeName='" + exchangeName + "'")
+                .add("exchangeSegment='" + exchangeSegment + "'")
+                .add("exchangeSegmentName='" + exchangeSegmentName + "'")
                 .add("name='" + name + "'")
                 .add("date=" + date)
                 .add("type=" + type)
@@ -165,6 +177,7 @@ public class ExchangeSymbol implements Serializable {
                 .add("figi='" + figi + "'")
                 .add("cik='" + cik + "'")
                 .add("lei='" + lei + "'")
+                .add("enabled=" + getEnabled())
                 .toString();
     }
 }

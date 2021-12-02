@@ -40,6 +40,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @deprecated Old IEX API service https://iextrading.com/developer/
  */
 @Deprecated
+@Disabled
 class MarketDataAcceptanceTest extends AcceptanceTestBase {
 
     @Disabled("403 Forbidden")

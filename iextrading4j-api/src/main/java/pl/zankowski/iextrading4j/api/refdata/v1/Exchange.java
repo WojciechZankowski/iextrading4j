@@ -3,9 +3,10 @@ package pl.zankowski.iextrading4j.api.refdata.v1;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
 
 import java.io.Serializable;
+import java.util.Objects;
+import java.util.StringJoiner;
 
 public class Exchange implements Serializable {
 
@@ -15,6 +16,9 @@ public class Exchange implements Serializable {
     private final String region;
     private final String description;
     private final String mic;
+    private final String segment;
+    private final String segmentDescription;
+    private final String suffix;
     private final String exchangeSuffix;
 
     @JsonCreator
@@ -23,11 +27,17 @@ public class Exchange implements Serializable {
             @JsonProperty("region") final String region,
             @JsonProperty("description") final String description,
             @JsonProperty("mic") final String mic,
+            @JsonProperty("segment") final String segment,
+            @JsonProperty("segmentDescription") final String segmentDescription,
+            @JsonProperty("suffix") final String suffix,
             @JsonProperty("exchangeSuffix") final String exchangeSuffix) {
         this.exchange = exchange;
         this.region = region;
         this.description = description;
         this.mic = mic;
+        this.segment = segment;
+        this.segmentDescription = segmentDescription;
+        this.suffix = suffix;
         this.exchangeSuffix = exchangeSuffix;
     }
 
@@ -47,6 +57,18 @@ public class Exchange implements Serializable {
         return mic;
     }
 
+    public String getSegment() {
+        return segment;
+    }
+
+    public String getSegmentDescription() {
+        return segmentDescription;
+    }
+
+    public String getSuffix() {
+        return suffix;
+    }
+
     public String getExchangeSuffix() {
         return exchangeSuffix;
     }
@@ -60,27 +82,31 @@ public class Exchange implements Serializable {
             return false;
         }
         final Exchange exchange1 = (Exchange) o;
-        return Objects.equal(exchange, exchange1.exchange) &&
-                Objects.equal(region, exchange1.region) &&
-                Objects.equal(description, exchange1.description) &&
-                Objects.equal(mic, exchange1.mic) &&
-                Objects.equal(exchangeSuffix, exchange1.exchangeSuffix);
+        return Objects.equals(exchange, exchange1.exchange) &&
+                Objects.equals(region, exchange1.region) &&
+                Objects.equals(description, exchange1.description) &&
+                Objects.equals(mic, exchange1.mic) && Objects.equals(segment, exchange1.segment) &&
+                Objects.equals(segmentDescription, exchange1.segmentDescription) &&
+                Objects.equals(suffix, exchange1.suffix) &&
+                Objects.equals(exchangeSuffix, exchange1.exchangeSuffix);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(exchange, region, description, mic, exchangeSuffix);
+        return Objects.hash(exchange, region, description, mic, segment, segmentDescription, suffix, exchangeSuffix);
     }
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("exchange", exchange)
-                .add("region", region)
-                .add("description", description)
-                .add("mic", mic)
-                .add("exchangeSuffix", exchangeSuffix)
+        return new StringJoiner(", ", Exchange.class.getSimpleName() + "[", "]")
+                .add("exchange='" + exchange + "'")
+                .add("region='" + region + "'")
+                .add("description='" + description + "'")
+                .add("mic='" + mic + "'")
+                .add("segment='" + segment + "'")
+                .add("segmentDescription='" + segmentDescription + "'")
+                .add("suffix='" + suffix + "'")
+                .add("exchangeSuffix='" + exchangeSuffix + "'")
                 .toString();
     }
-
 }

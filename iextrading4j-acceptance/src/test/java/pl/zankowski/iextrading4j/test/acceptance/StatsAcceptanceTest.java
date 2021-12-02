@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.test.acceptance;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.exception.IEXTradingException;
 import pl.zankowski.iextrading4j.api.stats.HistoricalDailyStats;
@@ -22,6 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @deprecated Old IEX API service https://iextrading.com/developer/
  */
 @Deprecated
+@Disabled
 class StatsAcceptanceTest extends AcceptanceTestBase {
 
     @Test

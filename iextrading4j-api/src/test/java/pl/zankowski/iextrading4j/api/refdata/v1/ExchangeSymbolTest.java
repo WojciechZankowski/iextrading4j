@@ -20,6 +20,8 @@ class ExchangeSymbolTest {
         final String exchange = fixture.create(String.class);
         final String exchangeSuffix = fixture.create(String.class);
         final String exchangeName = fixture.create(String.class);
+        final String exchangeSegment = fixture.create(String.class);
+        final String exchangeSegmentName = fixture.create(String.class);
         final String name = fixture.create(String.class);
         final LocalDate date = fixture.create(LocalDate.class);
         final SymbolType type = fixture.create(SymbolType.class);
@@ -31,13 +33,16 @@ class ExchangeSymbolTest {
         final String cik = fixture.create(String.class);
         final String lei = fixture.create(String.class);
 
-        final ExchangeSymbol exchangeSymbol = new ExchangeSymbol(symbol, exchange, exchangeSuffix, exchangeName, name,
+        final ExchangeSymbol exchangeSymbol = new ExchangeSymbol(symbol, exchange, exchangeSuffix, exchangeName,
+                exchangeSegment, exchangeSegmentName, name,
                 date, type, iexId, region, currency, isEnabled, figi, cik, lei);
 
         assertThat(exchangeSymbol.getSymbol()).isEqualTo(symbol);
         assertThat(exchangeSymbol.getExchange()).isEqualTo(exchange);
         assertThat(exchangeSymbol.getExchangeSuffix()).isEqualTo(exchangeSuffix);
         assertThat(exchangeSymbol.getExchangeName()).isEqualTo(exchangeName);
+        assertThat(exchangeSymbol.getExchangeSegment()).isEqualTo(exchangeSegment);
+        assertThat(exchangeSymbol.getExchangeSegmentName()).isEqualTo(exchangeSegmentName);
         assertThat(exchangeSymbol.getName()).isEqualTo(name);
         assertThat(exchangeSymbol.getDate()).isEqualTo(date);
         assertThat(exchangeSymbol.getType()).isEqualTo(type);
