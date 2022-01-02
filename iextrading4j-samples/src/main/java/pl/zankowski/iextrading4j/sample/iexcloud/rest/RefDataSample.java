@@ -1,36 +1,11 @@
 package pl.zankowski.iextrading4j.sample.iexcloud.rest;
 
-import pl.zankowski.iextrading4j.api.refdata.v1.Exchange;
-import pl.zankowski.iextrading4j.api.refdata.v1.ExchangeSymbol;
-import pl.zankowski.iextrading4j.api.refdata.v1.FxSymbol;
-import pl.zankowski.iextrading4j.api.refdata.v1.HolidayAndTradingDate;
-import pl.zankowski.iextrading4j.api.refdata.v1.Sector;
-import pl.zankowski.iextrading4j.api.refdata.v1.Symbol;
-import pl.zankowski.iextrading4j.api.refdata.v1.SymbolDescription;
-import pl.zankowski.iextrading4j.api.refdata.v1.SymbolMapping;
-import pl.zankowski.iextrading4j.api.refdata.v1.Tag;
-import pl.zankowski.iextrading4j.api.refdata.v1.UsExchange;
+import pl.zankowski.iextrading4j.api.refdata.v1.*;
 import pl.zankowski.iextrading4j.client.IEXCloudClient;
 import pl.zankowski.iextrading4j.client.IEXCloudTokenBuilder;
 import pl.zankowski.iextrading4j.client.IEXTradingApiVersion;
 import pl.zankowski.iextrading4j.client.IEXTradingClient;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.DateDirection;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.DateType;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.ExchangeRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.ExchangeSymbolsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.FxSymbolRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.IEXSymbolsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.IsinMapperRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.MutualFundSymbolsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.OptionsSymbolsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.OtcSymbolsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.RegionSymbolsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.SearchSymbolRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.SectorRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.SymbolsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.TagRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.UsExchangeRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.UsHolidayAndTradingDateRequestBuilder;
+import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.*;
 
 import java.util.List;
 import java.util.Map;
@@ -63,6 +38,7 @@ public class RefDataSample {
         refDataSample.tagsSample();
         refDataSample.isinSample();
         refDataSample.searchSymbolSample();
+        refDataSample.cryptoSymbolsRequestSample();
     }
 
     private void symbolsRequestSample() {
@@ -147,6 +123,12 @@ public class RefDataSample {
     private void searchSymbolSample() {
         final List<SymbolDescription> result = cloudClient.executeRequest(new SearchSymbolRequestBuilder()
                 .withFragment("apple")
+                .build());
+        System.out.println(result);
+    }
+
+    private void cryptoSymbolsRequestSample() {
+        final List<CryptoSymbols> result = cloudClient.executeRequest(new CryptoSymbolsRequestBuilder()
                 .build());
         System.out.println(result);
     }

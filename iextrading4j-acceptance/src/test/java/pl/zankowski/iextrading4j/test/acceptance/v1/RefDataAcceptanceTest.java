@@ -2,29 +2,8 @@ package pl.zankowski.iextrading4j.test.acceptance.v1;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import pl.zankowski.iextrading4j.api.refdata.v1.Exchange;
-import pl.zankowski.iextrading4j.api.refdata.v1.ExchangeSymbol;
-import pl.zankowski.iextrading4j.api.refdata.v1.HolidayAndTradingDate;
-import pl.zankowski.iextrading4j.api.refdata.v1.Sector;
-import pl.zankowski.iextrading4j.api.refdata.v1.Symbol;
-import pl.zankowski.iextrading4j.api.refdata.v1.SymbolDescription;
-import pl.zankowski.iextrading4j.api.refdata.v1.SymbolMapping;
-import pl.zankowski.iextrading4j.api.refdata.v1.Tag;
-import pl.zankowski.iextrading4j.api.refdata.v1.UsExchange;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.DateDirection;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.DateType;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.ExchangeRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.ExchangeSymbolsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.IEXSymbolsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.IsinMapperRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.OptionsSymbolsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.RegionSymbolsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.SearchSymbolRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.SectorRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.SymbolsRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.TagRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.UsExchangeRequestBuilder;
-import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.UsHolidayAndTradingDateRequestBuilder;
+import pl.zankowski.iextrading4j.api.refdata.v1.*;
+import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.*;
 
 import java.util.List;
 import java.util.Map;
@@ -118,6 +97,13 @@ class RefDataAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     void searchSymbolTest() {
         final List<SymbolDescription> result = cloudClient.executeRequest(new SearchSymbolRequestBuilder()
                 .withFragment("apple")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    void cryptoSymbolsTest() {
+        final List<CryptoSymbols> result = cloudClient.executeRequest(new CryptoSymbolsRequestBuilder()
                 .build());
         assertThat(result).isNotNull();
     }

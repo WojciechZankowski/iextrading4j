@@ -1,0 +1,12 @@
+[
+  {
+    "symbol": "BTCUSD",
+    "name": "Bitcoin to USD",
+    "exchange": null,
+    "date": "2021-12-28",
+    "type": "crypto",
+    "region": "US",
+    "currency": "USD",
+    "isEnabled": true
+  }
+]
