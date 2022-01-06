@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.test.acceptance.v1;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import pl.zankowski.iextrading4j.api.refdata.v1.CryptoSymbols;
 import pl.zankowski.iextrading4j.api.refdata.v1.Exchange;
 import pl.zankowski.iextrading4j.api.refdata.v1.ExchangeSymbol;
 import pl.zankowski.iextrading4j.api.refdata.v1.HolidayAndTradingDate;
@@ -11,6 +12,7 @@ import pl.zankowski.iextrading4j.api.refdata.v1.SymbolDescription;
 import pl.zankowski.iextrading4j.api.refdata.v1.SymbolMapping;
 import pl.zankowski.iextrading4j.api.refdata.v1.Tag;
 import pl.zankowski.iextrading4j.api.refdata.v1.UsExchange;
+import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.CryptoSymbolsRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.DateDirection;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.DateType;
 import pl.zankowski.iextrading4j.client.rest.request.refdata.v1.ExchangeRequestBuilder;
@@ -118,6 +120,13 @@ class RefDataAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
     void searchSymbolTest() {
         final List<SymbolDescription> result = cloudClient.executeRequest(new SearchSymbolRequestBuilder()
                 .withFragment("apple")
+                .build());
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    void cryptoSymbolsTest() {
+        final List<CryptoSymbols> result = cloudClient.executeRequest(new CryptoSymbolsRequestBuilder()
                 .build());
         assertThat(result).isNotNull();
     }
