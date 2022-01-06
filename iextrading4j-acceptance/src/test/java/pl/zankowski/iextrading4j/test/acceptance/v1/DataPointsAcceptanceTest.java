@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.test.acceptance.v1;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.datapoint.DataPoint;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
@@ -13,6 +14,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class DataPointsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
+    @BeforeEach
+    @Override
+    public void setUp() throws InterruptedException {
+        super.setUp();
+        // Additional delay, otherwise requests are failing with 429 Too Many Requests.
+        Thread.sleep(550);
+    }
+
     @Test
     void dataPointsTest() {
         final RestRequest<List<DataPoint>> request = new DataPointsRequestBuilder()
@@ -20,7 +29,7 @@ class DataPointsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
                 .build();
 
         final List<DataPoint> dataPoints = cloudClient.executeRequest(request);
-        System.out.println(dataPoints);
+
         assertThat(dataPoints).isNotNull();
     }
 
