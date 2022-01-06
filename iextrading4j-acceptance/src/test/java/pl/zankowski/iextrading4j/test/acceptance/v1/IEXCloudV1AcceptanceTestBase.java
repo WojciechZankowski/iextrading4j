@@ -17,7 +17,7 @@ public abstract class IEXCloudV1AcceptanceTestBase {
                 .withPublishableToken("Tpk_18dfe6cebb4f41ffb219b9680f9acaf2")
                 .build());
         // Sandbox Testing has a request limit of 10 requests per second measured in milliseconds.
-        Thread.sleep(150);
+        Thread.sleep(200);
     }
 
     @AfterEach
