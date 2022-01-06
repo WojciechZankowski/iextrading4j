@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.test.acceptance.v1;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.corporate.AdvancedBonus;
 import pl.zankowski.iextrading4j.api.corporate.AdvancedDistribution;
@@ -13,6 +14,14 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CorporateActionsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
+
+    @BeforeEach
+    @Override
+    public void setUp() throws InterruptedException {
+        super.setUp();
+        // Additional delay, otherwise requests are failing with 429 Too Many Requests.
+        Thread.sleep(550);
+    }
 
     @Test
     void advancedBonusAcceptanceTest() {
