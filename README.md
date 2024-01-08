@@ -7,7 +7,7 @@
 [![Javadoc](https://img.shields.io/badge/Javadoc-OK-success.svg)](https://wojciechzankowski.github.io/iextrading4j/apidocs/)
 [![Pitest](https://img.shields.io/badge/Pitest-OK-success.svg)](https://wojciechzankowski.github.io/iextrading4j/pit-reports/)
 
-**Open IEX Cloud account using referral link: [IEX Cloud](https://iexcloud.io/s/632c5323)** 
+**Open IEX Cloud: [IEX Cloud](https://iexcloud.io/)** 
 
 **IEX Cloud (iexcloud.io) support has been added to the library. All stuff related to old IEX Api has been marked as Deprecated. Some of old IEX Api will be still supported. For full support please move to the IEX Cloud API (iexcloud.io).**
 
