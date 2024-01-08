@@ -1,5 +1,6 @@
 package pl.zankowski.iextrading4j.test.acceptance.v1;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.market.MarketVolume;
 import pl.zankowski.iextrading4j.client.rest.request.market.MarketRequestBuilder;
@@ -8,6 +9,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Disabled("Sandbox environment is disabled for this subscription tier.")
 class MarketAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Test

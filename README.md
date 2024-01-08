@@ -8,7 +8,7 @@
 [![Javadoc](https://img.shields.io/badge/Javadoc-OK-success.svg)](https://wojciechzankowski.github.io/iextrading4j/apidocs/)
 [![Pitest](https://img.shields.io/badge/Pitest-OK-success.svg)](https://wojciechzankowski.github.io/iextrading4j/pit-reports/)
 
-**Open IEX Cloud account using referal link: [IEX Cloud](https://iexcloud.io/s/632c5323)** 
+**Open IEX Cloud account using referral link: [IEX Cloud](https://iexcloud.io/s/632c5323)** 
 
 **IEX Cloud (iexcloud.io) support has been added to the library. All stuff related to old IEX Api has been marked as Deprecated. Some of old IEX Api will be still supported. For full support please move to the IEX Cloud API (iexcloud.io).**
 
@@ -74,7 +74,7 @@ IEX was created in response to questionable trading practices that had become wi
 * Offering a limited number of simple and familiar order types.
 * Charging fixed fees on most orders (or a flat percentage rate on small orders).
 * Ensuring market pricing data arrives at external points of presence simultaneously.
-* Slightly delaying market pricing data to all customers (no colocation).
+* Slightly delaying market pricing data to all customers (no collocation).
 * Refusing to pay for order flow.
 
 Check out their beautiful site: [IEX Trading](https://iextrading.com/)
@@ -169,7 +169,7 @@ IEX Trading API Exhibit A: [Exhibit A](https://iextrading.com/api-exhibit-a)
 
 # [IEXTrading4j HIST](https://github.com/WojciechZankowski/iextrading4j-hist)
 
-IEX Trading allows users to receive their market data completly for free. Their data can be accessed in real-time during market session or can be downloaded as recorded sessions in PCAP data format. Market Data is transported in binary format and can be read according to specification shared on their site. 
+IEX Trading allows users to receive their market data completely for free. Their data can be accessed in real-time during market session or can be downloaded as recorded sessions in PCAP data format. Market Data is transported in binary format and can be read according to specification shared on their site. 
 
 This library allows you to transform binary packets into human readable Market Data events in Java.
 

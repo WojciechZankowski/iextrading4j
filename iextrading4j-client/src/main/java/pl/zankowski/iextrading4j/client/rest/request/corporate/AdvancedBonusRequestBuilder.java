@@ -3,7 +3,7 @@ package pl.zankowski.iextrading4j.client.rest.request.corporate;
 import pl.zankowski.iextrading4j.api.corporate.AdvancedBonus;
 import pl.zankowski.iextrading4j.client.rest.request.datapoint.AbstractStockTimeSeriesRequestBuilder;
 
-import jakarta.ws.rs.core.GenericType;
+import javax.ws.rs.core.GenericType;
 import java.util.List;
 
 public class AdvancedBonusRequestBuilder extends AbstractStockTimeSeriesRequestBuilder<List<AdvancedBonus>,

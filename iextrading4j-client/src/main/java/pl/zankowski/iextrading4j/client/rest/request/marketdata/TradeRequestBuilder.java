@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.client.rest.request.marketdata;
 
-import jakarta.ws.rs.core.GenericType;
+import javax.ws.rs.core.GenericType;
 import pl.zankowski.iextrading4j.api.marketdata.Trade;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;

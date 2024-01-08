@@ -33,6 +33,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Disabled("Sandbox environment is disabled for this subscription tier.")
 class RefDataAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @Test

@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.api.account;
 
 import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
@@ -43,6 +44,7 @@ class MetadataTest {
     @Test
     void equalsContract() {
         EqualsVerifier.forClass(Metadata.class)
+                .suppress(Warning.BIGDECIMAL_EQUALITY)
                 .usingGetClass()
                 .verify();
     }

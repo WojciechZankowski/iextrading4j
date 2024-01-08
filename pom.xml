@@ -48,29 +48,29 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
-        <jackson.version>2.13.0</jackson.version>
-        <jersey.version>3.0.3</jersey.version>
-        <jaxb.version>3.0.1</jaxb.version>
-        <guava.version>31.0.1-jre</guava.version>
+        <jackson.version>2.15.2</jackson.version>
+        <jersey.version>2.41</jersey.version>
+        <jaxb.version>2.3.1</jaxb.version>
+        <guava.version>33.0.0-jre</guava.version>
         <powermock.version>2.0.9</powermock.version>
-        <bytebuddy.version>1.11.19</bytebuddy.version>
-        <junit.version>5.8.1</junit.version>
-        <assertj.version>3.21.0</assertj.version>
+        <bytebuddy.version>1.14.11</bytebuddy.version>
+        <junit.version>5.10.1</junit.version>
+        <assertj.version>3.25.1</assertj.version>
         <wiremock.version>2.27.2</wiremock.version>
         <reflections.version>0.9.11</reflections.version>
-        <equalsverifier.version>3.7.1</equalsverifier.version>
-        <slf4j.version>2.0.0-alpha5</slf4j.version>
-        <mockito.version>3.12.4</mockito.version>
+        <equalsverifier.version>3.15.5</equalsverifier.version>
+        <slf4j.version>2.1.0-alpha1</slf4j.version>
+        <mockito.version>5.8.0</mockito.version>
 
-        <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
+        <maven.compiler.plugin>3.12.1</maven.compiler.plugin>
         <maven.gpg.plugin>1.6</maven.gpg.plugin>
         <maven.source.plugin>3.2.1</maven.source.plugin>
-        <maven.jar.plugin>3.2.0</maven.jar.plugin>
+        <maven.jar.plugin>3.3.0</maven.jar.plugin>
         <maven.javadoc.plugin>3.1.1</maven.javadoc.plugin>
-        <nexus.staging.maven.plugin>1.6.8</nexus.staging.maven.plugin>
-        <maven.clean.plugin>3.0.0</maven.clean.plugin>
+        <nexus.staging.maven.plugin>1.6.13</nexus.staging.maven.plugin>
+        <maven.clean.plugin>3.3.2</maven.clean.plugin>
         <maven.surefire.plugin>2.22.2</maven.surefire.plugin>
-        <jacoco.maven.plugin>0.8.6</jacoco.maven.plugin>
+        <jacoco.maven.plugin>0.8.11</jacoco.maven.plugin>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -109,9 +109,9 @@
             <!-- Libraries -->
 
             <dependency>
-                <groupId>jakarta.ws.rs</groupId>
-                <artifactId>jakarta.ws.rs-api</artifactId>
-                <version>3.0.0</version>
+                <groupId>javax.ws.rs</groupId>
+                <artifactId>javax.ws.rs-api</artifactId>
+                <version>2.1.1</version>
             </dependency>
 
             <dependency>
@@ -165,15 +165,21 @@
             <!-- Required by Java 9+ -->
 
             <dependency>
-                <groupId>jakarta.xml.bind</groupId>
-                <artifactId>jakarta.xml.bind-api</artifactId>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>${jaxb.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.sun.xml.bind</groupId>
+                <artifactId>jaxb-impl</artifactId>
                 <version>${jaxb.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.glassfish.jaxb</groupId>
                 <artifactId>jaxb-runtime</artifactId>
-                <version>3.0.2</version>
+                <version>2.3.1</version>
                 <scope>runtime</scope>
             </dependency>
 
@@ -388,12 +394,12 @@
                 <plugin>
                     <groupId>org.pitest</groupId>
                     <artifactId>pitest-maven</artifactId>
-                    <version>1.7.1</version>
+                    <version>1.15.3</version>
                     <dependencies>
                         <dependency>
                             <groupId>org.pitest</groupId>
                             <artifactId>pitest-junit5-plugin</artifactId>
-                            <version>0.15</version>
+                            <version>1.2.1</version>
                         </dependency>
                     </dependencies>
                 </plugin>

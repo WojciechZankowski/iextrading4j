@@ -2,7 +2,7 @@ package pl.zankowski.iextrading4j.client.rest.request.datapoint;
 
 import pl.zankowski.iextrading4j.client.rest.request.IRestRequestBuilder;
 
-import jakarta.ws.rs.core.GenericType;
+import javax.ws.rs.core.GenericType;
 
 public class AbstractStockTimeSeriesRequestBuilder<R, B extends IRestRequestBuilder<R>>
         extends AbstractTimeSeriesRequestBuilder<R, B> {

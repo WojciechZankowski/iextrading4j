@@ -2,7 +2,7 @@ package pl.zankowski.iextrading4j.client.sse.manager;
 
 import com.google.common.collect.Maps;
 
-import jakarta.ws.rs.core.GenericType;
+import javax.ws.rs.core.GenericType;
 import java.util.Map;
 
 public class SseRequestBuilder<R> implements ISseParamRequestBuilder<R>,

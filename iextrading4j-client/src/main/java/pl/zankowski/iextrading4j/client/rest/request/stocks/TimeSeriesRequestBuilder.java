@@ -4,7 +4,7 @@ import pl.zankowski.iextrading4j.api.stocks.TimeSeries;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 
-import jakarta.ws.rs.core.GenericType;
+import javax.ws.rs.core.GenericType;
 import java.util.List;
 
 public class TimeSeriesRequestBuilder extends AbstractStocksRequestBuilder<List<TimeSeries>, TimeSeriesRequestBuilder> {

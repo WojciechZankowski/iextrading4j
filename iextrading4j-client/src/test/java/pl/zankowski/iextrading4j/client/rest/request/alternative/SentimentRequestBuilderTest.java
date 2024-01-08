@@ -5,7 +5,7 @@ import pl.zankowski.iextrading4j.api.alternative.Sentiment;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 
-import jakarta.ws.rs.core.GenericType;
+import javax.ws.rs.core.GenericType;
 
 import java.time.LocalDate;
 import java.util.List;

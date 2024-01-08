@@ -7,7 +7,7 @@ import pl.zankowski.iextrading4j.api.stocks.v1.TechnicalIndicatorType;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 
-import jakarta.ws.rs.core.GenericType;
+import javax.ws.rs.core.GenericType;
 import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;

@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.client.rest.request.refdata.v1;
 
-import jakarta.ws.rs.core.GenericType;
+import javax.ws.rs.core.GenericType;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.refdata.v1.CryptoSymbols;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;

@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.api.marketdata;
 
 import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
@@ -25,6 +26,7 @@ class SecurityEventTest {
     @Test
     void equalsContract() {
         EqualsVerifier.forClass(SecurityEvent.class)
+                .suppress(Warning.BIGDECIMAL_EQUALITY)
                 .usingGetClass()
                 .verify();
     }

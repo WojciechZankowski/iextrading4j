@@ -1,8 +1,8 @@
 package pl.zankowski.iextrading4j.client.sse.manager;
 
 import com.google.common.collect.Maps;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.sse.SseEventSource;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.sse.SseEventSource;
 import pl.zankowski.iextrading4j.client.IEXCloudToken;
 
 import java.util.Map;

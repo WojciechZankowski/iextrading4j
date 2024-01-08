@@ -6,7 +6,7 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.AbstractStocksRequestBuilder;
 
-import jakarta.ws.rs.core.GenericType;
+import javax.ws.rs.core.GenericType;
 
 public class CryptoPriceRequestBuilder extends AbstractStocksRequestBuilder<CryptoPrice, CryptoPriceRequestBuilder>
         implements IEXCloudV1RestRequest<CryptoPrice> {

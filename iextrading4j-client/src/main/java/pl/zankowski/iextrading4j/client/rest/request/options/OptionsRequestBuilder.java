@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.client.rest.request.options;
 
-import jakarta.ws.rs.core.GenericType;
+import javax.ws.rs.core.GenericType;
 import pl.zankowski.iextrading4j.api.options.Option;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;

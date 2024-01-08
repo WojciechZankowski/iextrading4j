@@ -1,6 +1,6 @@
 package pl.zankowski.iextrading4j.client.sse.manager;
 
-import jakarta.ws.rs.core.GenericType;
+import javax.ws.rs.core.GenericType;
 
 public interface ISseResponseTypeRequestBuilder<R> {
 

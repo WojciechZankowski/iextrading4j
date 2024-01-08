@@ -2,10 +2,11 @@ package pl.zankowski.iextrading4j.client.rest.manager;
 
 import com.google.common.collect.ImmutableMap;
 import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
-import jakarta.ws.rs.core.GenericType;
+import javax.ws.rs.core.GenericType;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -40,6 +41,7 @@ class RestRequestTest {
     @Test
     void equalsContract() {
         EqualsVerifier.forClass(RestRequest.class)
+                .suppress(Warning.BIGDECIMAL_EQUALITY)
                 .usingGetClass()
                 .verify();
     }
