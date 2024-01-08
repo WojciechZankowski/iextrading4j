@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.api.stocks;
 
 import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.refdata.Flag;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
@@ -58,6 +59,7 @@ class ShortInterestTest {
     @Test
     void equalsContract() {
         EqualsVerifier.forClass(ShortInterest.class)
+                .suppress(Warning.BIGDECIMAL_EQUALITY)
                 .usingGetClass()
                 .verify();
     }

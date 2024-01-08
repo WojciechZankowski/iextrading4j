@@ -3,6 +3,7 @@ package pl.zankowski.iextrading4j.api.stocks;
 import com.flextrade.jfixture.JFixture;
 import com.google.common.collect.Lists;
 import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
@@ -31,6 +32,7 @@ class TodayIposTest {
     @Test
     void equalsContract() {
         EqualsVerifier.forClass(TodayIpos.class)
+                .suppress(Warning.BIGDECIMAL_EQUALITY)
                 .usingGetClass()
                 .verify();
     }

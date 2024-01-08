@@ -1,6 +1,7 @@
 package pl.zankowski.iextrading4j.test.acceptance.v1;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.corporate.AdvancedBonus;
 import pl.zankowski.iextrading4j.api.corporate.AdvancedDistribution;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Disabled("Sandbox environment is disabled for this subscription tier.")
 class CorporateActionsAcceptanceTest extends IEXCloudV1AcceptanceTestBase {
 
     @BeforeEach

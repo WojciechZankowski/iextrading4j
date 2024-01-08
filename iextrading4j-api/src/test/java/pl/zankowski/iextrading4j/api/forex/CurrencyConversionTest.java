@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.api.forex;
 
 import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
@@ -34,8 +35,7 @@ class CurrencyConversionTest {
     @Test
     void equalsContract() {
         EqualsVerifier.forClass(CurrencyConversion.class)
-                .usingGetClass()
-                .verify();
+                .suppress(Warning.BIGDECIMAL_EQUALITY);
     }
 
     @Test

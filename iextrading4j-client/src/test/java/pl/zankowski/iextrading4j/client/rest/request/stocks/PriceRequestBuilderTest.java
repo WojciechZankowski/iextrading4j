@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.client.rest.manager.MethodType;
 import pl.zankowski.iextrading4j.client.rest.manager.RestRequest;
 
-import jakarta.ws.rs.core.GenericType;
+import javax.ws.rs.core.GenericType;
 import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;

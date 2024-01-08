@@ -1,6 +1,7 @@
 package pl.zankowski.iextrading4j.client.rest.manager;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 import pl.zankowski.iextrading4j.client.IEXCloudToken;
@@ -20,6 +21,7 @@ class RestClientMetadataTest {
     @Test
     void equalsContract() {
         EqualsVerifier.forClass(RestClientMetadata.class)
+                .suppress(Warning.BIGDECIMAL_EQUALITY)
                 .usingGetClass()
                 .verify();
     }

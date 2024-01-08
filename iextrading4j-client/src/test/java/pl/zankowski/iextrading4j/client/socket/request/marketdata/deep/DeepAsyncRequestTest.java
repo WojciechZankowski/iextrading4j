@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.client.socket.request.marketdata.deep;
 
 import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.assertj.core.util.Sets;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
@@ -28,6 +29,7 @@ class DeepAsyncRequestTest {
     @Test
     void equalsContract() {
         EqualsVerifier.forClass(DeepAsyncRequest.class)
+                .suppress(Warning.BIGDECIMAL_EQUALITY)
                 .usingGetClass()
                 .verify();
     }

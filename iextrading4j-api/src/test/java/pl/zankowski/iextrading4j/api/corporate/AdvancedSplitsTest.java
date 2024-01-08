@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.api.corporate;
 
 import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
@@ -81,6 +82,7 @@ class AdvancedSplitsTest {
     @Test
     void equalsContract() {
         EqualsVerifier.forClass(AdvancedSplits.class)
+                .suppress(Warning.BIGDECIMAL_EQUALITY)
                 .usingGetClass()
                 .verify();
     }

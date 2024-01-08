@@ -5,7 +5,7 @@ import pl.zankowski.iextrading4j.api.marketdata.DeepResult;
 import pl.zankowski.iextrading4j.client.socket.request.marketdata.deep.DeepAsyncResponse;
 import pl.zankowski.iextrading4j.client.sse.manager.SseRequest;
 
-import jakarta.ws.rs.core.GenericType;
+import javax.ws.rs.core.GenericType;
 
 import java.util.List;
 

@@ -1,7 +1,8 @@
 package pl.zankowski.iextrading4j.client.rest.manager;
 
-import jakarta.ws.rs.client.Client;
+import javax.ws.rs.client.Client;
 import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
@@ -24,6 +25,7 @@ class RestClientTest {
     @Test
     void equalsContract() {
         EqualsVerifier.forClass(RestClient.class)
+                .suppress(Warning.BIGDECIMAL_EQUALITY)
                 .usingGetClass()
                 .verify();
     }

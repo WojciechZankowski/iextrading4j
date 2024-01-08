@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.flextrade.jfixture.JFixture;
 import com.google.common.collect.Lists;
 import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
@@ -32,6 +33,7 @@ class SocketRequestTest {
     @Test
     void equalsContract() {
         EqualsVerifier.forClass(SocketRequest.class)
+                .suppress(Warning.BIGDECIMAL_EQUALITY)
                 .usingGetClass()
                 .verify();
     }

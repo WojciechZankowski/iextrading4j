@@ -6,7 +6,7 @@ import pl.zankowski.iextrading4j.client.rest.manager.RestRequestBuilder;
 import pl.zankowski.iextrading4j.client.rest.request.IEXCloudV1RestRequest;
 import pl.zankowski.iextrading4j.client.rest.request.stocks.AbstractStocksRequestBuilder;
 
-import jakarta.ws.rs.core.GenericType;
+import javax.ws.rs.core.GenericType;
 import java.util.List;
 
 public class InsiderSummaryRequestBuilder extends AbstractStocksRequestBuilder<List<InsiderSummary>,

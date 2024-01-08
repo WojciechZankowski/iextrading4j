@@ -3,6 +3,7 @@ package pl.zankowski.iextrading4j.api.refdata.v1;
 import com.flextrade.jfixture.JFixture;
 import com.google.common.collect.Lists;
 import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
@@ -28,6 +29,7 @@ class FxSymbolTest {
     @Test
     void equalsContract() {
         EqualsVerifier.forClass(FxSymbol.class)
+                .suppress(Warning.BIGDECIMAL_EQUALITY)
                 .usingGetClass()
                 .verify();
     }

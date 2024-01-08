@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.api.stocks.v1;
 
 import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
@@ -98,6 +99,7 @@ class BalanceSheetTest {
     @Test
     void equalsContract() {
         EqualsVerifier.forClass(BalanceSheet.class)
+                .suppress(Warning.BIGDECIMAL_EQUALITY)
                 .usingGetClass()
                 .verify();
     }

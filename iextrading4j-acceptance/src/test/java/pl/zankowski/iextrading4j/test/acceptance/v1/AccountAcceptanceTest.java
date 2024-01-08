@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.test.acceptance.v1;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.account.Metadata;
 import pl.zankowski.iextrading4j.api.account.Usage;
@@ -18,6 +19,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Disabled("Sandbox environment is disabled for this subscription tier.")
 class AccountAcceptanceTest {
 
     protected IEXCloudClient cloudClient;

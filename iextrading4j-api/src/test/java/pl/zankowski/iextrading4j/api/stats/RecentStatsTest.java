@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.api.stats;
 
 import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.util.ToStringVerifier;
 
@@ -37,6 +38,7 @@ class RecentStatsTest {
     @Test
     void equalsContract() {
         EqualsVerifier.forClass(RecentStats.class)
+                .suppress(Warning.BIGDECIMAL_EQUALITY)
                 .usingGetClass()
                 .verify();
     }

@@ -2,7 +2,7 @@ package pl.zankowski.iextrading4j.client.rest.manager;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
-import jakarta.ws.rs.core.GenericType;
+import javax.ws.rs.core.GenericType;
 
 import java.util.Map;
 

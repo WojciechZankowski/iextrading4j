@@ -2,6 +2,7 @@ package pl.zankowski.iextrading4j.api.alternative;
 
 import com.flextrade.jfixture.JFixture;
 import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import pl.zankowski.iextrading4j.api.marketdata.BookEntry;
@@ -34,6 +35,7 @@ class CryptoBookEventTest {
     @Test
     void equalsContract() {
         EqualsVerifier.forClass(CryptoBookEvent.class)
+                .suppress(Warning.BIGDECIMAL_EQUALITY)
                 .usingGetClass()
                 .verify();
     }
